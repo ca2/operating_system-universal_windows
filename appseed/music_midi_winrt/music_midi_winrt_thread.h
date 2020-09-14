@@ -31,7 +31,7 @@ namespace music
             uint64_t                m_uiOffset;
 
 
-            thread(::object * pobject);
+            thread(::layered * pobjectContext);
             virtual ~thread();
 
 

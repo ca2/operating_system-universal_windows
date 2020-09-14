@@ -19,12 +19,12 @@ namespace music
          public:
 
 
-            //::aura::library                 m_library;
+            //::apex::library                 m_library;
             //midi_listener_set             m_listenerptra;
             //uint32_t                      m_uiMidiOutDevice;
 
 
-            midi(::object * pobject);
+            midi(::layered * pobjectContext);
             virtual ~midi();
 
 

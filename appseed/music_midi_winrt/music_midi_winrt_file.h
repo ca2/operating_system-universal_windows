@@ -23,7 +23,7 @@ namespace music
 
 
 
-            buffer(::object * pobject);
+            buffer(::layered * pobjectContext);
             virtual ~buffer();
 
 

@@ -36,7 +36,7 @@ namespace music
       {
 
 
-         thread::thread(::object * pobject) :
+         thread::thread(::layered * pobjectContext) :
             ::object(pobject),
             ::thread(pobject),
             m_evRun(pobject)
