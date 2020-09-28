@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_app", "..\..\app\app\u_
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_app", "..\..\app\app\winmetro_app_app.vcxproj", "{697CF756-F62A-4590-BB69-1EF456DCB81B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\app\aqua\aqua.vcxproj", "{D6FC3DC0-A19A-4F63-A3F1-3426FE53920B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\app\aqua\w_aqua.vcxproj", "{D6FC3DC0-A19A-4F63-A3F1-3426FE53920B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
