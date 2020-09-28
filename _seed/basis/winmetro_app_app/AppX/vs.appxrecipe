@@ -1,0 +1,208 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Machine>EDDIE</Machine>
+    <WindowsUser>camilo</WindowsUser>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetOsVersion>10.0</TargetOsVersion>
+    <TargetOsDescription>Windows 10.0</TargetOsDescription>
+    <SolutionConfiguration>basis|Win32</SolutionConfiguration>
+    <PackageArchitecture>x86</PackageArchitecture>
+    <PackageIdentityName>1e4c7cd3-fcc2-44e7-9e13-eb7aacb60680</PackageIdentityName>
+    <PackageIdentityPublisher>CN=camilo</PackageIdentityPublisher>
+    <IntermediateOutputPath>C:\basis\app\app\basis\</IntermediateOutputPath>
+    <RemoteDeploymentType>CopyToDevice</RemoteDeploymentType>
+    <PackageRegistrationPath>
+    </PackageRegistrationPath>
+    <RemoveNonLayoutFiles>false</RemoveNonLayoutFiles>
+    <DeployOptionalPackages>false</DeployOptionalPackages>
+    <WindowsSdkPath>C:\Program Files %28x86%29\Windows Kits\10\</WindowsSdkPath>
+    <LayoutDir>C:\basis\platform-uwp\_seed\basis\winmetro_app_app\AppX</LayoutDir>
+    <RegisteredManifestChecksum>B5E1D7C879927C10DE2D3A75F76FB5F51321B0230700B6123200DD31DFD3547A</RegisteredManifestChecksum>
+    <RegisteredPackageMoniker>app.app_1.1.20.0_x86__0hdqes5fy5212</RegisteredPackageMoniker>
+    <RegisteredUserModeAppID>app.app_0hdqes5fy5212!App</RegisteredUserModeAppID>
+    <RegisteredPackageID>app.app</RegisteredPackageID>
+    <RegisteredPackagePublisher>CN=camilo</RegisteredPackagePublisher>
+    <RegisteredVersion>1.1.20.0</RegisteredVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <AppXManifest Include="C:\basis\platform-uwp\_seed\basis\winmetro_app_app\AppxManifest.xml">
+      <PackagePath>AppxManifest.xml</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2020-09-27T14:17:40.680</Modified>
+    </AppXManifest>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxPackagedFile Include="C:\basis\platform-uwp\_seed\basis\winmetro_app_app\winmetro_app_app.exe">
+      <PackagePath>winmetro_app_app.exe</PackagePath>
+      <Modified>2020-09-27T11:19:53.381</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\platform-uwp\_seed\basis\winmetro_app_app\app.winmd">
+      <PackagePath>app.winmd</PackagePath>
+      <Modified>2020-09-27T08:52:19.157</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\BadgeLogo.scale-100.png">
+      <PackagePath>assets\BadgeLogo.scale-100.png</PackagePath>
+      <Modified>2020-08-14T17:29:45.483</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\SplashScreen.scale-100.png">
+      <PackagePath>assets\SplashScreen.scale-100.png</PackagePath>
+      <Modified>2020-08-14T17:29:45.495</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\Assets\Square150.scale-100.png">
+      <PackagePath>Assets\Square150.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2020-08-14T17:29:45.481</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\Square150x150Logo.scale-100.png">
+      <PackagePath>assets\Square150x150Logo.scale-100.png</PackagePath>
+      <Modified>2020-08-14T17:29:45.481</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\Square24.scale-100.png">
+      <PackagePath>assets\Square24.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2020-08-14T17:29:45.483</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\Square310.scale-100.png">
+      <PackagePath>assets\Square310.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2020-08-14T17:29:45.484</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\Square310x310Logo.scale-100.png">
+      <PackagePath>assets\Square310x310Logo.scale-100.png</PackagePath>
+      <Modified>2020-08-14T17:29:45.484</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\Assets\Square44.scale-100.png">
+      <PackagePath>Assets\Square44.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2020-08-14T17:29:45.486</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\Square44x44Logo.scale-100.png">
+      <PackagePath>assets\Square44x44Logo.scale-100.png</PackagePath>
+      <Modified>2020-08-14T17:29:45.486</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\Square50.scale-100.png">
+      <PackagePath>assets\Square50.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2020-08-14T17:29:45.488</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\Assets\Square71.scale-100.png">
+      <PackagePath>Assets\Square71.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2020-08-14T17:29:45.489</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\Square71x71Logo.scale-100.png">
+      <PackagePath>assets\Square71x71Logo.scale-100.png</PackagePath>
+      <Modified>2020-08-14T17:29:45.489</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\StoreLogo.scale-100.png">
+      <PackagePath>assets\StoreLogo.scale-100.png</PackagePath>
+      <Modified>2020-08-14T17:29:45.488</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\Assets\Wide310x150.scale-100.png">
+      <PackagePath>Assets\Wide310x150.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2020-08-14T17:29:45.492</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\assets\Wide310x150Logo.scale-100.png">
+      <PackagePath>assets\Wide310x150Logo.scale-100.png</PackagePath>
+      <Modified>2020-08-14T17:29:45.492</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\app\app\Assets\Wide620x300.scale-100.png">
+      <PackagePath>Assets\Wide620x300.scale-100.png</PackagePath>
+      <ReRegisterAppIfChanged>true</ReRegisterAppIfChanged>
+      <Modified>2020-08-14T17:29:45.495</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\__archive\storage-uwp\binary\Win32\basis\libeay32.dll">
+      <PackagePath>libeay32.dll</PackagePath>
+      <Modified>2020-09-26T18:54:37.469</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\__archive\storage-uwp\binary\Win32\basis\ssleay32.dll">
+      <PackagePath>ssleay32.dll</PackagePath>
+      <Modified>2020-09-26T18:54:38.353</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\__archive\storage-uwp\third\binary\Win32\basis\pcre.dll">
+      <PackagePath>pcre.dll</PackagePath>
+      <Modified>2020-09-26T18:54:38.655</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\__archive\storage-uwp\third\binary\Win32\basis\zlib.dll">
+      <PackagePath>zlib.dll</PackagePath>
+      <Modified>2020-09-26T18:54:39.700</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\platform-uwp\_seed\basis\w_acme\acme.dll">
+      <PackagePath>acme.dll</PackagePath>
+      <Modified>2020-09-27T11:11:12.077</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\platform-uwp\_seed\basis\w_apex\apex.dll">
+      <PackagePath>apex.dll</PackagePath>
+      <Modified>2020-09-27T14:00:13.274</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\platform-uwp\_seed\..\..\..\time-uwp\Win32\basis\aura.dll">
+      <PackagePath>aura.dll</PackagePath>
+      <Modified>2020-09-27T12:33:32.029</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\platform-uwp\_seed\..\..\..\time-uwp\Win32\basis\draw2d_direct2d.dll">
+      <PackagePath>draw2d_direct2d.dll</PackagePath>
+      <Modified>2020-09-27T11:19:47.911</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\platform-uwp\_seed\..\..\..\time-uwp\Win32\basis\app_app\app_app.dll">
+      <PackagePath>app_app.dll</PackagePath>
+      <Modified>2020-09-27T14:44:36.693</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.UniversalCRT.Debug\10.0.18362.0\\redist\Debug\x86\ucrtbased.dll">
+      <PackagePath>ucrtbased.dll</PackagePath>
+      <Modified>2019-03-18T21:43:58.000</Modified>
+    </AppxPackagedFile>
+    <AppxPackagedFile Include="C:\basis\platform-uwp\_seed\basis\winmetro_app_app\resources.pri">
+      <PackagePath>resources.pri</PackagePath>
+      <Modified>2020-09-27T14:17:40.580</Modified>
+    </AppxPackagedFile>
+  </ItemGroup>
+  <ItemGroup>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.27810.0</Version>
+      <Architecture>ARM</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27810.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM\Microsoft.VCLibs.ARM.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.27810.0</Version>
+      <Architecture>ARM64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27810.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\ARM64\Microsoft.VCLibs.ARM64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.27810.0</Version>
+      <Architecture>x64</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27810.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x64\Microsoft.VCLibs.x64.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\">
+      <Name>Microsoft.VCLibs.140.00.Debug</Name>
+      <Version>14.0.27810.0</Version>
+      <Architecture>x86</Architecture>
+      <FrameworkIdentity>Name = Microsoft.VCLibs.140.00.Debug, MinVersion = 14.0.27810.0, Publisher = %27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.VCLibs\14.0\.\AppX\Debug\x86\Microsoft.VCLibs.x86.Debug.14.00.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+    <ResolvedSDKReference Include="C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.Midi.GmDls\10.0.18362.0\">
+      <Name>Microsoft.Midi.GmDls</Name>
+      <Version>1.0.0.0</Version>
+      <Architecture>Neutral</Architecture>
+      <FrameworkIdentity>Name=Microsoft.Midi.GmDls, MinVersion=1.0.0.0, Publisher=%27CN=Microsoft Corporation, O=Microsoft Corporation, L=Redmond, S=Washington, C=US%27</FrameworkIdentity>
+      <AppxLocation>C:\Program Files %28x86%29\Microsoft SDKs\Windows Kits\10\ExtensionSDKs\Microsoft.Midi.GmDls\10.0.18362.0\.\Appx\Neutral\MidiVoices.appx</AppxLocation>
+      <MoreInfo>
+      </MoreInfo>
+    </ResolvedSDKReference>
+  </ItemGroup>
+</Project>
