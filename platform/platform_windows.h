@@ -113,8 +113,7 @@ using namespace Windows::Storage;
 //#define MAX_DWORD_PTR ((dword_ptr)(-1))
 
 
-#define BSD_STYLE_SOCKETS
-#define HAVE_OPENSSL
+#define WINRT_SOCKETS
 #define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 

@@ -35,8 +35,8 @@
 #define VARIADIC_TEMPLATE_FORMAT2
 
 
-#define BSD_STYLE_SOCKETS
-#define HAVE_OPENSSL
+#define WINRT_SOCKETS
+//#define BSD_STYLE_SOCKETS
 
 
 #define NOMINMAX
