@@ -561,7 +561,7 @@ return op;
 typedef wchar_t unichar;
 typedef unsigned int unichar32;
 
-#define WINBOOL BOOL
+#define int_bool BOOL
 #define WINUCHAR UCHAR
 #define WINULONG ULONG
 #define PWINUCHAR PUCHAR

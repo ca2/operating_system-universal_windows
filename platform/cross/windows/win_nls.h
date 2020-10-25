@@ -949,28 +949,28 @@ typedef DWORD CALID;
 
 #ifdef STRICT
 
-typedef WINBOOL (CALLBACK* LANGUAGEGROUP_ENUMPROCA)(LGRPID, LPSTR, LPSTR, DWORD, long_ptr);
-//xxx linux typedef WINBOOL (CALLBACK* LANGGROUPLOCALE_ENUMPROCA)(LGRPID, LCID, LPSTR, long_ptr);
-typedef WINBOOL (CALLBACK* UILANGUAGE_ENUMPROCA)(LPSTR, long_ptr);
-typedef WINBOOL (CALLBACK* LOCALE_ENUMPROCA)(LPSTR);
-typedef WINBOOL (CALLBACK* CODEPAGE_ENUMPROCA)(LPSTR);
-typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCA)(LPSTR);
-typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCEXA)(LPSTR, CALID);
-typedef WINBOOL (CALLBACK* TIMEFMT_ENUMPROCA)(LPSTR);
-typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCA)(LPSTR);
-typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCEXA)(LPSTR, CALID);
+typedef int_bool (CALLBACK* LANGUAGEGROUP_ENUMPROCA)(LGRPID, LPSTR, LPSTR, DWORD, long_ptr);
+//xxx linux typedef int_bool (CALLBACK* LANGGROUPLOCALE_ENUMPROCA)(LGRPID, LCID, LPSTR, long_ptr);
+typedef int_bool (CALLBACK* UILANGUAGE_ENUMPROCA)(LPSTR, long_ptr);
+typedef int_bool (CALLBACK* LOCALE_ENUMPROCA)(LPSTR);
+typedef int_bool (CALLBACK* CODEPAGE_ENUMPROCA)(LPSTR);
+typedef int_bool (CALLBACK* DATEFMT_ENUMPROCA)(LPSTR);
+typedef int_bool (CALLBACK* DATEFMT_ENUMPROCEXA)(LPSTR, CALID);
+typedef int_bool (CALLBACK* TIMEFMT_ENUMPROCA)(LPSTR);
+typedef int_bool (CALLBACK* CALINFO_ENUMPROCA)(LPSTR);
+typedef int_bool (CALLBACK* CALINFO_ENUMPROCEXA)(LPSTR, CALID);
 
-typedef WINBOOL (CALLBACK* LANGUAGEGROUP_ENUMPROCW)(LGRPID, LPWSTR, LPWSTR, DWORD, long_ptr);
-//xxx linux typedef WINBOOL (CALLBACK* LANGGROUPLOCALE_ENUMPROCW)(LGRPID, LCID, LPWSTR, long_ptr);
-typedef WINBOOL (CALLBACK* UILANGUAGE_ENUMPROCW)(LPWSTR, long_ptr);
-typedef WINBOOL (CALLBACK* LOCALE_ENUMPROCW)(LPWSTR);
-typedef WINBOOL (CALLBACK* CODEPAGE_ENUMPROCW)(LPWSTR);
-typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCW)(LPWSTR);
-typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCEXW)(LPWSTR, CALID);
-typedef WINBOOL (CALLBACK* TIMEFMT_ENUMPROCW)(LPWSTR);
-typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCW)(LPWSTR);
-typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCEXW)(LPWSTR, CALID);
-typedef WINBOOL (CALLBACK* GEO_ENUMPROC)(GEOID);
+typedef int_bool (CALLBACK* LANGUAGEGROUP_ENUMPROCW)(LGRPID, LPWSTR, LPWSTR, DWORD, long_ptr);
+//xxx linux typedef int_bool (CALLBACK* LANGGROUPLOCALE_ENUMPROCW)(LGRPID, LCID, LPWSTR, long_ptr);
+typedef int_bool (CALLBACK* UILANGUAGE_ENUMPROCW)(LPWSTR, long_ptr);
+typedef int_bool (CALLBACK* LOCALE_ENUMPROCW)(LPWSTR);
+typedef int_bool (CALLBACK* CODEPAGE_ENUMPROCW)(LPWSTR);
+typedef int_bool (CALLBACK* DATEFMT_ENUMPROCW)(LPWSTR);
+typedef int_bool (CALLBACK* DATEFMT_ENUMPROCEXW)(LPWSTR, CALID);
+typedef int_bool (CALLBACK* TIMEFMT_ENUMPROCW)(LPWSTR);
+typedef int_bool (CALLBACK* CALINFO_ENUMPROCW)(LPWSTR);
+typedef int_bool (CALLBACK* CALINFO_ENUMPROCEXW)(LPWSTR, CALID);
+typedef int_bool (CALLBACK* GEO_ENUMPROC)(GEOID);
 
 #else // !STRICT
 
@@ -1061,7 +1061,7 @@ typedef FARPROC CALINFO_ENUMPROCEXW;
 //
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 IsValidCodePage(
     UINT  CodePage);
@@ -1077,21 +1077,21 @@ WINAPI
 GetOEMCP(void);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetCPInfo(
     UINT       CodePage,
     LPCPINFO  lpCPInfo);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetCPInfoExA(
     UINT          CodePage,
     DWORD         dwFlags,
     LPCPINFOEXA  lpCPInfoEx);
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetCPInfoExW(
     UINT          CodePage,
@@ -1104,13 +1104,13 @@ GetCPInfoExW(
 #endif // !UNICODE
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 IsDBCSLeadByte(
     BYTE  TestChar);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 IsDBCSLeadByteEx(
     UINT  CodePage,
@@ -1230,7 +1230,7 @@ FindStringOrdinal(
                        int32_t cchSource,
     LPCWSTR lpStringValue,
                        int32_t cchValue,
-                       WINBOOL bIgnoreCase);
+                       int_bool bIgnoreCase);
 
 #endif //(WINVER >= _WIN32_WINNT_WIN7)
 
@@ -1287,14 +1287,14 @@ GetLocaleInfoW(
 #endif // !UNICODE
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 SetLocaleInfoA(
     LCID     Locale,
     LCTYPE   LCType,
     LPCSTR  lpLCData);
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 SetLocaleInfoW(
     LCID     Locale,
@@ -1336,7 +1336,7 @@ GetCalendarInfoW(
 #endif // !UNICODE
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 SetCalendarInfoA(
     LCID     Locale,
@@ -1344,7 +1344,7 @@ SetCalendarInfoA(
     CALTYPE  CalType,
     LPCSTR  lpCalData);
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 SetCalendarInfoW(
     LCID     Locale,
@@ -1507,7 +1507,7 @@ GetCurrencyFormatW(
 
 // For Windows Vista and above EnumCalendarInfoExEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumCalendarInfoA(
     CALINFO_ENUMPROCA lpCalInfoEnumProc,
@@ -1516,7 +1516,7 @@ EnumCalendarInfoA(
     CALTYPE           CalType);
 // For Windows Vista and above EnumCalendarInfoExEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumCalendarInfoW(
     CALINFO_ENUMPROCW lpCalInfoEnumProc,
@@ -1532,7 +1532,7 @@ EnumCalendarInfoW(
 #if(WINVER >= 0x0500)
 // For Windows Vista and above EnumCalendarInfoExEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumCalendarInfoExA(
     CALINFO_ENUMPROCEXA lpCalInfoEnumProcEx,
@@ -1541,7 +1541,7 @@ EnumCalendarInfoExA(
     CALTYPE             CalType);
 // For Windows Vista and above EnumCalendarInfoExEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumCalendarInfoExW(
     CALINFO_ENUMPROCEXW lpCalInfoEnumProcEx,
@@ -1557,7 +1557,7 @@ EnumCalendarInfoExW(
 
 // For Windows Vista and above EnumTimeFormatsEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumTimeFormatsA(
     TIMEFMT_ENUMPROCA lpTimeFmtEnumProc,
@@ -1565,7 +1565,7 @@ EnumTimeFormatsA(
     DWORD             dwFlags);
 // For Windows Vista and above EnumTimeFormatsEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumTimeFormatsW(
     TIMEFMT_ENUMPROCW lpTimeFmtEnumProc,
@@ -1579,7 +1579,7 @@ EnumTimeFormatsW(
 
 // For Windows Vista and above EnumDateFormatsExEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumDateFormatsA(
     DATEFMT_ENUMPROCA lpDateFmtEnumProc,
@@ -1587,7 +1587,7 @@ EnumDateFormatsA(
     DWORD             dwFlags);
 // For Windows Vista and above EnumDateFormatsExEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumDateFormatsW(
     DATEFMT_ENUMPROCW lpDateFmtEnumProc,
@@ -1602,7 +1602,7 @@ EnumDateFormatsW(
 #if(WINVER >= 0x0500)
 // For Windows Vista and above EnumDateFormatsExEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumDateFormatsExA(
     DATEFMT_ENUMPROCEXA lpDateFmtEnumProcEx,
@@ -1610,7 +1610,7 @@ EnumDateFormatsExA(
     DWORD               dwFlags);
 // For Windows Vista and above EnumDateFormatsExEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumDateFormatsExW(
     DATEFMT_ENUMPROCEXW lpDateFmtEnumProcEx,
@@ -1625,7 +1625,7 @@ EnumDateFormatsExW(
 
 #if(WINVER >= 0x0500)
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 IsValidLanguageGroup(
     LGRPID  LanguageGroup,
@@ -1634,7 +1634,7 @@ IsValidLanguageGroup(
 
 // For Windows Vista and above GetNLSVersionEx is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetNLSVersion(
        NLS_FUNCTION     Function,
@@ -1642,7 +1642,7 @@ GetNLSVersion(
     LPNLSVERSIONINFO lpVersionInformation);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 IsNLSDefinedString(
     NLS_FUNCTION     Function,
@@ -1653,7 +1653,7 @@ IsNLSDefinedString(
 
 // For Windows Vista and above IsValidLocaleName is preferred
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 IsValidLocale(
     LCID   Locale,
@@ -1684,7 +1684,7 @@ GetGeoInfoW(
 #endif // !UNICODE
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumSystemGeoID(
     GEOCLASS        GeoClass,
@@ -1698,7 +1698,7 @@ GetUserGeoID(
     GEOCLASS    GeoClass);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 SetUserGeoID(
     GEOID       GeoId);
@@ -1715,7 +1715,7 @@ WINAPI
 GetThreadLocale(void);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 SetThreadLocale(
     LCID  Locale
@@ -1769,7 +1769,7 @@ WINAPI
 GetThreadUILanguage(void);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetProcessPreferredUILanguages(
     DWORD dwFlags,
@@ -1780,7 +1780,7 @@ GetProcessPreferredUILanguages(
 
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 SetProcessPreferredUILanguages(
            DWORD dwFlags,
@@ -1790,7 +1790,7 @@ SetProcessPreferredUILanguages(
 
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetUserPreferredUILanguages (
     DWORD dwFlags,
@@ -1801,7 +1801,7 @@ GetUserPreferredUILanguages (
 
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetSystemPreferredUILanguages (
     DWORD dwFlags,
@@ -1812,7 +1812,7 @@ GetSystemPreferredUILanguages (
 
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetThreadPreferredUILanguages(
     DWORD dwFlags,
@@ -1823,7 +1823,7 @@ GetThreadPreferredUILanguages(
 
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 SetThreadPreferredUILanguages(
            DWORD dwFlags,
@@ -1833,7 +1833,7 @@ SetThreadPreferredUILanguages(
 
 WINBASEAPI
 __success(return==1)
-WINBOOL
+int_bool
 WINAPI
 GetFileMUIInfo(
                         DWORD           dwFlags,
@@ -1842,7 +1842,7 @@ GetFileMUIInfo(
                 DWORD*          pcbFileMUIInfo);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetFileMUIPath(
     DWORD      dwFlags,
@@ -1856,7 +1856,7 @@ GetFileMUIPath(
 
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetUILanguageInfo(
     DWORD dwFlags,
@@ -1868,7 +1868,7 @@ GetUILanguageInfo(
 
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 NotifyUILanguageChange(
            DWORD dwFlags,
@@ -1885,7 +1885,7 @@ NotifyUILanguageChange(
 //
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetStringTypeExA(
                     LCID       Locale,
@@ -1894,7 +1894,7 @@ GetStringTypeExA(
                     int32_t        cchSrc,
     LPWORD     lpCharType);
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetStringTypeExW(
                     LCID       Locale,
@@ -1920,7 +1920,7 @@ GetStringTypeExW(
 //        GetStringTypeEx (above) should be used instead.
 //
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetStringTypeA(
     LCID     Locale,
@@ -1930,7 +1930,7 @@ GetStringTypeA(
     LPWORD  lpCharType);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetStringTypeW(
     DWORD    dwInfoType,
@@ -1965,14 +1965,14 @@ FoldStringW(
 
 #if(WINVER >= 0x0500)
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumSystemLanguageGroupsA(
     LANGUAGEGROUP_ENUMPROCA lpLanguageGroupEnumProc,
     DWORD                   dwFlags,
     long_ptr                lParam);
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumSystemLanguageGroupsW(
     LANGUAGEGROUP_ENUMPROCW lpLanguageGroupEnumProc,
@@ -1985,7 +1985,7 @@ EnumSystemLanguageGroupsW(
 #endif // !UNICODE
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumLanguageGroupLocalesA(
     LANGGROUPLOCALE_ENUMPROCA lpLangGroupLocaleEnumProc,
@@ -1993,7 +1993,7 @@ EnumLanguageGroupLocalesA(
     DWORD                     dwFlags,
     long_ptr                  lParam);
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumLanguageGroupLocalesW(
     LANGGROUPLOCALE_ENUMPROCW lpLangGroupLocaleEnumProc,
@@ -2007,14 +2007,14 @@ EnumLanguageGroupLocalesW(
 #endif // !UNICODE
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumUILanguagesA(
     UILANGUAGE_ENUMPROCA lpUILanguageEnumProc,
     DWORD                dwFlags,
     long_ptr             lParam);
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumUILanguagesW(
     UILANGUAGE_ENUMPROCW lpUILanguageEnumProc,
@@ -2028,13 +2028,13 @@ EnumUILanguagesW(
 #endif /* WINVER >= 0x0500 */
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumSystemLocalesA(
     LOCALE_ENUMPROCA lpLocaleEnumProc,
     DWORD            dwFlags);
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumSystemLocalesW(
     LOCALE_ENUMPROCW lpLocaleEnumProc,
@@ -2046,13 +2046,13 @@ EnumSystemLocalesW(
 #endif // !UNICODE
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumSystemCodePagesA(
     CODEPAGE_ENUMPROCA lpCodePageEnumProc,
     DWORD              dwFlags);
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumSystemCodePagesW(
     CODEPAGE_ENUMPROCW lpCodePageEnumProc,
@@ -2078,7 +2078,7 @@ WINAPI NormalizeString(                          NORM_FORM NormForm,
                                                  int32_t       cwDstLength );
 
 WINNORMALIZEAPI
-WINBOOL
+int_bool
 WINAPI IsNormalizedString(                   NORM_FORM NormForm,
                            __in_ecount(cwLength)  LPCWSTR   lpString,
                                              int32_t       cwLength );
@@ -2111,7 +2111,7 @@ WINAPI IdnToUnicode(                        	 DWORD   dwFlags,
                                             	 int32_t     cchUnicodeChar);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI VerifyScripts(
        DWORD   dwFlags,            // optional behavior flags
        LPCWSTR lpLocaleScripts,    // Locale list of scripts string
@@ -2242,7 +2242,7 @@ GetSystemDefaultLocaleName(
 );
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 GetNLSVersionEx(
        NLS_FUNCTION function,
@@ -2305,20 +2305,20 @@ CompareStringOrdinal(
     int32_t     cchCount1,
     LPCWSTR lpString2,
     int32_t     cchCount2,
-    WINBOOL    bIgnoreCase
+    int_bool    bIgnoreCase
 );
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 IsValidLocaleName(
     LPCWSTR lpLocaleName
 );
 
-typedef WINBOOL (CALLBACK* CALINFO_ENUMPROCEXEX)(LPWSTR, CALID, LPWSTR, LPARAM);
+typedef int_bool (CALLBACK* CALINFO_ENUMPROCEXEX)(LPWSTR, CALID, LPWSTR, LPARAM);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumCalendarInfoExEx(
     CALINFO_ENUMPROCEXEX pCalInfoEnumProcExEx,
@@ -2329,10 +2329,10 @@ EnumCalendarInfoExEx(
     LPARAM lParam
 );
 
-typedef WINBOOL (CALLBACK* DATEFMT_ENUMPROCEXEX)(LPWSTR, CALID, LPARAM);
+typedef int_bool (CALLBACK* DATEFMT_ENUMPROCEXEX)(LPWSTR, CALID, LPARAM);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumDateFormatsExEx(
     DATEFMT_ENUMPROCEXEX lpDateFmtEnumProcExEx,
@@ -2341,10 +2341,10 @@ EnumDateFormatsExEx(
     LPARAM lParam
 );
 
-typedef WINBOOL (CALLBACK* TIMEFMT_ENUMPROCEX)(LPWSTR, LPARAM);
+typedef int_bool (CALLBACK* TIMEFMT_ENUMPROCEX)(LPWSTR, LPARAM);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumTimeFormatsEx(
     TIMEFMT_ENUMPROCEX lpTimeFmtEnumProcEx,
@@ -2353,10 +2353,10 @@ EnumTimeFormatsEx(
     LPARAM lParam
 );
 
-typedef WINBOOL (CALLBACK* LOCALE_ENUMPROCEX)(LPWSTR, DWORD, LPARAM);
+typedef int_bool (CALLBACK* LOCALE_ENUMPROCEX)(LPWSTR, DWORD, LPARAM);
 
 WINBASEAPI
-WINBOOL
+int_bool
 WINAPI
 EnumSystemLocalesEx(
     LOCALE_ENUMPROCEX lpLocaleEnumProcEx,
