@@ -3,49 +3,49 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29215.179
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_cidadedecuritiba_alphaclock", "..\..\app-cidadedecuritiba\alphaclock\u_alphaclock.vcxproj", "{B95D79F5-DEF9-4250-B4A2-6AE610921998}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_cidadedecuritiba_alphaclock", "..\..\..\source\$1.vcxproj", "{B95D79F5-DEF9-4250-B4A2-6AE610921998}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_cidadedecuritiba_alphaclock", "..\..\app-cidadedecuritiba\alphaclock\uwp_alphaclock.vcxproj", "{DCBBA884-E5A3-462C-A4C8-9B6FC96A4863}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_cidadedecuritiba_alphaclock", "..\..\..\source\$1.vcxproj", "{DCBBA884-E5A3-462C-A4C8-9B6FC96A4863}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_clockverse", "..\..\app-core\clockverse\uwp_app_core_clockverse.vcxproj", "{4C0E9B58-3CB6-4CF4-974D-0642F7171AC4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_clockverse", "..\..\..\source\$1.vcxproj", "{4C0E9B58-3CB6-4CF4-974D-0642F7171AC4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_clockverse", "..\..\app-core\clockverse\u_clockverse.vcxproj", "{34A0F689-0750-42FE-9D01-919C7E2A6591}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_clockverse", "..\..\..\source\$1.vcxproj", "{34A0F689-0750-42FE-9D01-919C7E2A6591}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_flag", "..\..\app-core\flag\u_flag.vcxproj", "{B467CF99-AD0F-403B-8E30-3CBA23756713}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_flag", "..\..\..\source\$1.vcxproj", "{B467CF99-AD0F-403B-8E30-3CBA23756713}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_flag", "..\..\app-core\flag\uwp_flag.vcxproj", "{777CE92D-E0D6-4E51-88FC-CDE519A0CAF6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_flag", "..\..\..\source\$1.vcxproj", "{777CE92D-E0D6-4E51-88FC-CDE519A0CAF6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_hellomultiverse", "..\..\app-core\hellomultiverse\uwp_app_core_hellomultiverse.vcxproj", "{4F014FB0-074E-4E70-964B-3439F852FA85}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_hellomultiverse", "..\..\..\source\$1.vcxproj", "{4F014FB0-074E-4E70-964B-3439F852FA85}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_hellomultiverse", "..\..\app-core\hellomultiverse\u_hellomultiverse.vcxproj", "{B7AFCEFA-3079-4B23-8F97-4543BB980265}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_hellomultiverse", "..\..\..\source\$1.vcxproj", "{B7AFCEFA-3079-4B23-8F97-4543BB980265}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_projection", "..\..\app-core\projection\u_projection.vcxproj", "{74158384-2A95-4068-88F1-C9128259AE4A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_projection", "..\..\..\source\$1.vcxproj", "{74158384-2A95-4068-88F1-C9128259AE4A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_projection", "..\..\app-core\projection\uwp_projection.vcxproj", "{5FE41D8B-A8D2-4CF3-9FB3-CBF207089177}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_projection", "..\..\..\source\$1.vcxproj", "{5FE41D8B-A8D2-4CF3-9FB3-CBF207089177}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imaging_wic", "..\..\app\imaging_wic\u_imaging_wic.vcxproj", "{B3A245F9-C92F-4487-AEF7-CB0531F665BD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imaging_wic", "..\..\..\source\$1.vcxproj", "{B3A245F9-C92F-4487-AEF7-CB0531F665BD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme", "..\..\app\acme\u_acme.vcxproj", "{74A3EA71-9358-4441-A0CC-D5771DF8DFBD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme", "..\..\..\source\$1.vcxproj", "{74A3EA71-9358-4441-A0CC-D5771DF8DFBD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex", "..\..\app\apex\u_apex.vcxproj", "{B86508DE-6E32-42AC-B45C-08BF0932DCF8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex", "..\..\..\source\$1.vcxproj", "{B86508DE-6E32-42AC-B45C-08BF0932DCF8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\app\aqua\u_aqua.vcxproj", "{D6FC3DC0-A19A-4F63-A3F1-3426FE53920B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\..\source\$1.vcxproj", "{D6FC3DC0-A19A-4F63-A3F1-3426FE53920B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura", "..\..\app\aura\u_aura.vcxproj", "{B3E5B8E7-9E3B-44DD-9EDE-E0A74D52C1C5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura", "..\..\..\source\$1.vcxproj", "{B3E5B8E7-9E3B-44DD-9EDE-E0A74D52C1C5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axis", "..\..\app\axis\u_axis.vcxproj", "{0412EA6F-50D0-4BAA-99E3-AC14FC63A879}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axis", "..\..\..\source\$1.vcxproj", "{0412EA6F-50D0-4BAA-99E3-AC14FC63A879}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "base", "..\..\app\base\u_base.vcxproj", "{0680A465-39A7-4E1B-8DC1-0607A3243EA2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "base", "..\..\..\source\$1.vcxproj", "{0680A465-39A7-4E1B-8DC1-0607A3243EA2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bred", "..\..\app\bred\u_bred.vcxproj", "{08C317FC-6EE8-4371-84CB-18150E439021}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "bred", "..\..\..\source\$1.vcxproj", "{08C317FC-6EE8-4371-84CB-18150E439021}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "..\..\app\core\u_core.vcxproj", "{65070F1F-14DB-474E-96DE-CB920740DCC4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "..\..\..\source\$1.vcxproj", "{65070F1F-14DB-474E-96DE-CB920740DCC4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\app\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\..\source\$1.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_core", "..\..\app\experience_core\u_experience_core.vcxproj", "{B2D7833B-9B59-4826-BBDF-C270A2115E86}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_core", "..\..\..\source\$1.vcxproj", "{B2D7833B-9B59-4826-BBDF-C270A2115E86}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gcom", "..\..\app-core\gcom\u_gcom.vcxproj", "{B7AFCEFA-8451-7723-8F97-4543BB980265}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gcom", "..\..\..\source\$1.vcxproj", "{B7AFCEFA-8451-7723-8F97-4543BB980265}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

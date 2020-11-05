@@ -3,47 +3,47 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.23107.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\..\app\appseed\draw2d_direct2d\m_draw2d_direct2d.vcxproj", "{0EEC2ECE-CAAF-446A-B805-7E538FF11996}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\..\source\$1.vcxproj", "{0EEC2ECE-CAAF-446A-B805-7E538FF11996}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sphere", "..\..\..\app\appseed\sphere\m_sphere.vcxproj", "{2108FBEB-0E13-431A-AF45-E48A61B51997}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sphere", "..\..\..\source\$1.vcxproj", "{2108FBEB-0E13-431A-AF45-E48A61B51997}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "base", "..\..\..\app\appseed\base\m_base.vcxproj", "{5487686F-8A2F-401A-A38E-FDA8900E1984}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "base", "..\..\..\source\$1.vcxproj", "{5487686F-8A2F-401A-A38E-FDA8900E1984}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "..\..\..\app\appseed\core\m_core.vcxproj", "{420D7AEB-CFCA-45DE-BB6E-95055DF21987}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "..\..\..\source\$1.vcxproj", "{420D7AEB-CFCA-45DE-BB6E-95055DF21987}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura", "..\..\..\app\appseed\aura\m_aura.vcxproj", "{55F3F6B8-8BAF-4F22-9E77-BCF9D5A23960}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura", "..\..\..\source\$1.vcxproj", "{55F3F6B8-8BAF-4F22-9E77-BCF9D5A23960}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "auracharguess", "..\..\..\app\aura\charguess\m_auracharguess.vcxproj", "{67C95418-596B-4860-AFAE-B53262AE5E43}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "auracharguess", "..\..\..\source\$1.vcxproj", "{67C95418-596B-4860-AFAE-B53262AE5E43}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aurasqlite", "..\..\..\app\aura\sqlite\m_aurasqlite.vcxproj", "{5DA9963D-5824-48A8-B869-BA93618DA5F4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aurasqlite", "..\..\..\source\$1.vcxproj", "{5DA9963D-5824-48A8-B869-BA93618DA5F4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisbzip2", "..\..\..\app\axis\bzip2\m_axisbzip2.vcxproj", "{802C98ED-0844-4BE7-AE30-F417A92207BD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisbzip2", "..\..\..\source\$1.vcxproj", "{802C98ED-0844-4BE7-AE30-F417A92207BD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisidn", "..\..\..\app\axis\idn\m_axisidn.vcxproj", "{F9917855-9C31-41A0-85B1-8BA8DFD6E3B6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisidn", "..\..\..\source\$1.vcxproj", "{F9917855-9C31-41A0-85B1-8BA8DFD6E3B6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axiszlib", "..\..\..\app\axis\zlib\m_axiszlib.vcxproj", "{7EBFD809-20D7-4744-81C0-9F3FF41A070F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axiszlib", "..\..\..\source\$1.vcxproj", "{7EBFD809-20D7-4744-81C0-9F3FF41A070F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axis", "..\..\..\app\appseed\axis\m_axis.vcxproj", "{3BAE8362-F135-4513-9163-58532BABA44A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axis", "..\..\..\source\$1.vcxproj", "{3BAE8362-F135-4513-9163-58532BABA44A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wndfrm_core", "..\..\..\app-core\appseed\wndfrm_core\m_wndfrm.vcxproj", "{7A455B6F-E8D8-4ACF-BC1A-EE58C5D81992}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wndfrm_core", "..\..\..\source\$1.vcxproj", "{7A455B6F-E8D8-4ACF-BC1A-EE58C5D81992}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\..\app\appseed\aqua\m_aqua.vcxproj", "{19518477-75C4-4DF7-ACC2-325FA81A640C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\..\source\$1.vcxproj", "{19518477-75C4-4DF7-ACC2-325FA81A640C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "html", "..\..\..\app\appseed\html\m_html.vcxproj", "{106E3938-FA19-4D4D-83D5-A36692C93E86}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "html", "..\..\..\source\$1.vcxproj", "{106E3938-FA19-4D4D-83D5-A36692C93E86}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "math", "..\..\..\app\appseed\math\m_math.vcxproj", "{B53F381B-5724-412B-99A6-5C301430B0B5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "math", "..\..\..\source\$1.vcxproj", "{B53F381B-5724-412B-99A6-5C301430B0B5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axiscrypto", "..\..\..\app\axis\crypto\m_axiscrypto.vcxproj", "{19518477-2015-1976-99A6-5C301430B0B5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axiscrypto", "..\..\..\source\$1.vcxproj", "{19518477-2015-1976-99A6-5C301430B0B5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "html_lite", "..\..\..\app\axis\html_lite\m_html_lite.vcxproj", "{3B814DAF-FD98-487D-917E-9D708BE3BC61}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "html_lite", "..\..\..\source\$1.vcxproj", "{3B814DAF-FD98-487D-917E-9D708BE3BC61}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisfreeimage", "..\..\..\app\axis\freeimage\m_axisfreeimage.vcxproj", "{4578272A-F76E-48D5-AC7D-5856F150CD7F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisfreeimage", "..\..\..\source\$1.vcxproj", "{4578272A-F76E-48D5-AC7D-5856F150CD7F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisjpeg", "..\..\..\app\axis\jpeg\m_axisjpeg.vcxproj", "{C99B1E59-5356-4164-996A-90BBE3967A01}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisjpeg", "..\..\..\source\$1.vcxproj", "{C99B1E59-5356-4164-996A-90BBE3967A01}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_hellomultiverse", "..\..\..\game\appseed\tetris\winmetro_tetris.vcxproj", "{BE11EBA6-C53A-4370-8F72-C6407FD72002}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_hellomultiverse", "..\..\..\source\$1.vcxproj", "{BE11EBA6-C53A-4370-8F72-C6407FD72002}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_tetris", "..\..\..\game\appseed\tetris\m_tetris.vcxproj", "{AA5C6E24-9DF1-4EC1-A907-E298FEAE1990}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_tetris", "..\..\..\source\$1.vcxproj", "{AA5C6E24-9DF1-4EC1-A907-E298FEAE1990}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

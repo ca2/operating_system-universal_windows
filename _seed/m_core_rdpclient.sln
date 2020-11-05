@@ -3,59 +3,59 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\..\app\appseed\aqua\w_aqua.vcxproj", "{F20DCBAE-5E9B-4A38-A236-B7FBCFE0FA86}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\..\source\$1.vcxproj", "{F20DCBAE-5E9B-4A38-A236-B7FBCFE0FA86}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura", "..\..\..\app\appseed\aura\w_aura.vcxproj", "{B3E5B8E7-9E3B-44DD-9EDE-E0A74D52C1C5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura", "..\..\..\source\$1.vcxproj", "{B3E5B8E7-9E3B-44DD-9EDE-E0A74D52C1C5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axis", "..\..\..\app\appseed\axis\w_axis.vcxproj", "{B3A245F9-C92F-4487-AEF7-CB0531F665BD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axis", "..\..\..\source\$1.vcxproj", "{B3A245F9-C92F-4487-AEF7-CB0531F665BD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "base", "..\..\..\app\appseed\base\w_base.vcxproj", "{BD7D3626-ADA6-4CA2-9566-ED7B131E3D51}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "base", "..\..\..\source\$1.vcxproj", "{BD7D3626-ADA6-4CA2-9566-ED7B131E3D51}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "..\..\..\app\appseed\core\w_core.vcxproj", "{B000FFAF-392F-4E32-BF51-FD7ED638991F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "..\..\..\source\$1.vcxproj", "{B000FFAF-392F-4E32-BF51-FD7ED638991F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\..\app\appseed\draw2d_direct2d\w_draw2d_direct2d.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\..\source\$1.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wndfrm_core", "..\..\..\app-core\appseed\wndfrm_core\w_wndfrm_core.vcxproj", "{B2D7833B-9B59-4826-BBDF-C270A2115E86}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wndfrm_core", "..\..\..\source\$1.vcxproj", "{B2D7833B-9B59-4826-BBDF-C270A2115E86}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "auracharguess", "..\..\..\app\aura\charguess\w_auracharguess.vcxproj", "{BC6A52B4-C049-439C-88FF-5A262D968C8F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "auracharguess", "..\..\..\source\$1.vcxproj", "{BC6A52B4-C049-439C-88FF-5A262D968C8F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aurasqlite", "..\..\..\app\aura\sqlite\w_aurasqlite.vcxproj", "{B24F72D6-053A-41C5-BE03-3B0BD535F1EB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aurasqlite", "..\..\..\source\$1.vcxproj", "{B24F72D6-053A-41C5-BE03-3B0BD535F1EB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisbzip2", "..\..\..\app\axis\bzip2\w_axisbzip2.vcxproj", "{B5A649E1-D516-4F29-A627-DA6884DD421C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisbzip2", "..\..\..\source\$1.vcxproj", "{B5A649E1-D516-4F29-A627-DA6884DD421C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axiscrypto", "..\..\..\app\axis\crypto\w_axiscrypto.vcxproj", "{39807406-816F-4C0D-A632-4BB8AB13887B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axiscrypto", "..\..\..\source\$1.vcxproj", "{39807406-816F-4C0D-A632-4BB8AB13887B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisidn", "..\..\..\app\axis\idn\w_axisidn.vcxproj", "{B8AC3EF0-11C5-4E12-A944-5F7EFED6E0C4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisidn", "..\..\..\source\$1.vcxproj", "{B8AC3EF0-11C5-4E12-A944-5F7EFED6E0C4}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axiszlib", "..\..\..\app\axis\zlib\w_axiszlib.vcxproj", "{B4FCFBF1-E922-4FDC-BC83-B3C04623E8C2}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axiszlib", "..\..\..\source\$1.vcxproj", "{B4FCFBF1-E922-4FDC-BC83-B3C04623E8C2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisfreerdp", "..\..\..\app\axis\freerdp\w_axisfreerdp.vcxproj", "{79F645CF-2646-4B5C-9C3A-E300C6E84964}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisfreerdp", "..\..\..\source\$1.vcxproj", "{79F645CF-2646-4B5C-9C3A-E300C6E84964}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisclientchannels", "..\..\..\app\axis\clientchannels\w_axisclientchannels.vcxproj", "{37D476E8-0A92-4A1A-8F94-E060CB3A7103}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisclientchannels", "..\..\..\source\$1.vcxproj", "{37D476E8-0A92-4A1A-8F94-E060CB3A7103}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisrdpclient", "..\..\..\app\axis\rdpclient\w_axisrdpclient.vcxproj", "{86FB1DC1-EC84-4F59-8888-DC14CBB85935}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisrdpclient", "..\..\..\source\$1.vcxproj", "{86FB1DC1-EC84-4F59-8888-DC14CBB85935}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_rdpclient", "..\..\..\app-core\appseed\rdpclient\w_core_rdpclient.vcxproj", "{85497D32-1330-48BE-9E15-8213564B6DC7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_rdpclient", "..\..\..\source\$1.vcxproj", "{85497D32-1330-48BE-9E15-8213564B6DC7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_rdpclient", "..\..\..\app-core\appseed\rdpclient\w_winmetro_rdpclient.vcxproj", "{EAEC3220-27D5-4E20-8CC5-B41BFD92A303}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_rdpclient", "..\..\..\source\$1.vcxproj", "{EAEC3220-27D5-4E20-8CC5-B41BFD92A303}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisxwinpr", "..\..\..\app\axis\xwinpr\w_axisxwinpr.vcxproj", "{EA139AE5-0994-40AD-AF90-E3595A1033C3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisxwinpr", "..\..\..\source\$1.vcxproj", "{EA139AE5-0994-40AD-AF90-E3595A1033C3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisopenssl", "..\..\..\app\axis\openssl\w_axisopenssl.vcxproj", "{0EDD2695-2BC3-43F5-9910-8F93AEF84CD1}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "axisopenssl", "..\..\..\source\$1.vcxproj", "{0EDD2695-2BC3-43F5-9910-8F93AEF84CD1}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WelsVP", "..\..\..\app\axis\openh264\codec\processing\build\win32\w_WelsVP.vcxproj", "{1C8A1EF6-49B6-43C7-A9DA-BCC62F86B544}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WelsVP", "..\..\..\source\$1.vcxproj", "{1C8A1EF6-49B6-43C7-A9DA-BCC62F86B544}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WelsEncPlus", "..\..\..\app\axis\openh264\codec\build\win32\enc\w_WelsEncPlus.vcxproj", "{2C965192-CE12-4D3C-AB4C-F227051B6052}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WelsEncPlus", "..\..\..\source\$1.vcxproj", "{2C965192-CE12-4D3C-AB4C-F227051B6052}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WelsDecPlus", "..\..\..\app\axis\openh264\codec\build\win32\dec\w_WelsDecPlus.vcxproj", "{2A55E4C5-1D77-45EA-A2AF-4DE9A692F6C6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WelsDecPlus", "..\..\..\source\$1.vcxproj", "{2A55E4C5-1D77-45EA-A2AF-4DE9A692F6C6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wndfrm_rootkiller", "..\..\..\app-core\appseed\wndfrm_rootkiller\w_wndfrm_rootkiller.vcxproj", "{9B132A32-0C6E-4FD1-A580-E7D115794894}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "wndfrm_rootkiller", "..\..\..\source\$1.vcxproj", "{9B132A32-0C6E-4FD1-A580-E7D115794894}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aurapcre", "..\..\..\app\aura\pcre\w_aurapcre.vcxproj", "{B9AA8BB5-51FA-46E7-B346-2A89828F3000}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aurapcre", "..\..\..\source\$1.vcxproj", "{B9AA8BB5-51FA-46E7-B346-2A89828F3000}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pcre", "..\..\..\app\appseed\pcre\w_pcre.vcxproj", "{0A43902C-E3C1-4383-B902-FB9D29296571}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "pcre", "..\..\..\source\$1.vcxproj", "{0A43902C-E3C1-4383-B902-FB9D29296571}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ace", "..\..\..\app\appseed\ace\w_ace.vcxproj", "{14871C98-8ADA-467E-8D93-D2E340D21626}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ace", "..\..\..\source\$1.vcxproj", "{14871C98-8ADA-467E-8D93-D2E340D21626}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

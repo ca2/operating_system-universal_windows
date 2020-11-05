@@ -3,43 +3,43 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{425C510B-8C9C-4260-AAF9-FB1F6DB15C4D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_c", "..\..\..\app\appseed\c\m_c.vcxproj", "{5487686F-8A2F-401A-A38E-FDA8900E1984}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_c", "..\..\..\source\$1.vcxproj", "{5487686F-8A2F-401A-A38E-FDA8900E1984}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ca", "..\..\..\app\appseed\ca\m_ca.vcxproj", "{5FD926E7-E8B9-4451-BAAC-81EFA94D1985}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ca", "..\..\..\source\$1.vcxproj", "{5FD926E7-E8B9-4451-BAAC-81EFA94D1985}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "os", "..\..\os\m_os.vcxproj", "{FCCDD981-5C10-4487-BECF-EB3A7D4A1986}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "os", "..\..\..\source\$1.vcxproj", "{FCCDD981-5C10-4487-BECF-EB3A7D4A1986}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ca2", "..\..\..\app\appseed\ca2\m_ca2.vcxproj", "{420D7AEB-CFCA-45DE-BB6E-95055DF21987}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ca2", "..\..\..\source\$1.vcxproj", "{420D7AEB-CFCA-45DE-BB6E-95055DF21987}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_flag", "..\..\..\app-core\appseed\flag\m_flag.vcxproj", "{A3FCC800-DCDF-4EC9-899B-E674B35E1989}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_flag", "..\..\..\source\$1.vcxproj", "{A3FCC800-DCDF-4EC9-899B-E674B35E1989}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_hellomultiverse", "..\..\..\app-core\appseed\hellomultiverse\m_hellomultiverse.vcxproj", "{AA5C6E24-9DF1-4EC1-A907-E298FEAE1990}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_hellomultiverse", "..\..\..\source\$1.vcxproj", "{AA5C6E24-9DF1-4EC1-A907-E298FEAE1990}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_projection", "..\..\..\app-core\appseed\projection\m_projection.vcxproj", "{90C05B74-4381-438B-B4DF-D3CAF4349D8B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_projection", "..\..\..\source\$1.vcxproj", "{90C05B74-4381-438B-B4DF-D3CAF4349D8B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_uinteraction", "..\..\..\app-core\appseed\uinteraction\m_uinteraction.vcxproj", "{7A455B6F-E8D8-4ACF-BC1A-EE58C5D81992}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_uinteraction", "..\..\..\source\$1.vcxproj", "{7A455B6F-E8D8-4ACF-BC1A-EE58C5D81992}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_ca2freeimage", "..\..\..\app\thirdparty\appseed\FreeImage\m_FreeImage.vcxproj", "{FCED5042-9A2D-4E71-8022-129E8E5D1993}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_ca2freeimage", "..\..\..\source\$1.vcxproj", "{FCED5042-9A2D-4E71-8022-129E8E5D1993}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_ca2freetype", "..\..\..\app\thirdparty\appseed\freetype\_m_ca2freetype.vcxproj", "{AF9DFA62-6F0E-47B8-A55B-5AD825571F4F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_ca2freetype", "..\..\..\source\$1.vcxproj", "{AF9DFA62-6F0E-47B8-A55B-5AD825571F4F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_ca2zlib", "..\..\..\app\thirdparty\appseed\zlib\_m_ca2zlib.vcxproj", "{84FBAD70-591C-44FA-93C4-EE232B3A1995}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "_ca2zlib", "..\..\..\source\$1.vcxproj", "{84FBAD70-591C-44FA-93C4-EE232B3A1995}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\..\app\appseed\draw2d_direct2d\m_draw2d_direct2d.vcxproj", "{0EEC2ECE-CAAF-446A-B805-7E538FF11996}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\..\source\$1.vcxproj", "{0EEC2ECE-CAAF-446A-B805-7E538FF11996}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sphere", "..\..\..\app\appseed\sphere\m_sphere.vcxproj", "{2108FBEB-0E13-431A-AF45-E48A61B51997}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "sphere", "..\..\..\source\$1.vcxproj", "{2108FBEB-0E13-431A-AF45-E48A61B51997}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_cidadedecuritiba_alphaclock", "..\..\..\app-cidadedecuritiba\appseed\alphaclock\m_alphaclock.vcxproj", "{F95D79F5-DEF9-4250-B4A2-6AE610921998}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_cidadedecuritiba_alphaclock", "..\..\..\source\$1.vcxproj", "{F95D79F5-DEF9-4250-B4A2-6AE610921998}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_cidadedecuritiba_alphaclock", "..\..\..\app-cidadedecuritiba\appseed\alphaclock\winmetro_alphaclock.vcxproj", "{FF3F2FBF-CBBE-4CDF-AE27-D74E64FC1999}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_cidadedecuritiba_alphaclock", "..\..\..\source\$1.vcxproj", "{FF3F2FBF-CBBE-4CDF-AE27-D74E64FC1999}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_flag", "..\..\..\app-core\appseed\flag\winmetro_flag.vcxproj", "{35F34DBA-26BA-4A9D-ABAA-83936D842000}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_flag", "..\..\..\source\$1.vcxproj", "{35F34DBA-26BA-4A9D-ABAA-83936D842000}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_projection", "..\..\..\app-core\appseed\projection\winmetro_projection.vcxproj", "{D0E89D69-C4A0-4E1E-804E-868FD0142001}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_projection", "..\..\..\source\$1.vcxproj", "{D0E89D69-C4A0-4E1E-804E-868FD0142001}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_hellomultiverse", "..\..\..\app-core\appseed\hellomultiverse\winmetro_hellomultiverse.vcxproj", "{BE11EBA6-C53A-4370-8F72-C6407FD72002}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app_core_hellomultiverse", "..\..\..\source\$1.vcxproj", "{BE11EBA6-C53A-4370-8F72-C6407FD72002}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app", "..\..\appseed\appm\winmetro_app.vcxproj", "{1DC17004-A99D-40CA-80F4-537FFED11988}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "winmetro_app", "..\..\..\source\$1.vcxproj", "{1DC17004-A99D-40CA-80F4-537FFED11988}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
