@@ -3,23 +3,23 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30517.126
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme", "..\..\app\acme\u_acme.vcxproj", "{74A3EA71-9358-4441-A0CC-D5771DF8DFBD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme", "..\..\..\source\app\acme\u_acme.vcxproj", "{74A3EA71-9358-4441-A0CC-D5771DF8DFBD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex", "..\..\app\apex\u_apex.vcxproj", "{B86508DE-6E32-42AC-B45C-08BF0932DCF8}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex", "..\..\..\source\app\apex\u_apex.vcxproj", "{B86508DE-6E32-42AC-B45C-08BF0932DCF8}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_app", "..\..\app\app\u_app_app.vcxproj", "{365C15BF-3B96-4615-AA45-E6EA7E82405D}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_app", "..\..\..\source\app\app\u_app_app.vcxproj", "{365C15BF-3B96-4615-AA45-E6EA7E82405D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\app\aqua\u_aqua.vcxproj", "{D6FC3DC0-A19A-4F63-A3F1-3426FE53920B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\..\source\app\aqua\u_aqua.vcxproj", "{D6FC3DC0-A19A-4F63-A3F1-3426FE53920B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura", "..\..\app\aura\u_aura.vcxproj", "{B3E5B8E7-9E3B-44DD-9EDE-E0A74D52C1C5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura", "..\..\..\source\app\aura\u_aura.vcxproj", "{B3E5B8E7-9E3B-44DD-9EDE-E0A74D52C1C5}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\app\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\..\source\app\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_app", "..\..\app\app\uwp_app_app.vcxproj", "{697CF756-F62A-4590-BB69-1EF456DCB81B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_app", "..\..\..\source\app\app\uwp_app_app.vcxproj", "{697CF756-F62A-4590-BB69-1EF456DCB81B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_net", "..\..\app\net\u_app_net.vcxproj", "{3C40C5D6-4AA7-4E7D-8F7A-A9D61BF70929}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_net", "..\..\..\source\app\net\u_app_net.vcxproj", "{3C40C5D6-4AA7-4E7D-8F7A-A9D61BF70929}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_net", "..\..\app\net\uwp_app_net.vcxproj", "{B05C0680-E49E-4F84-9DE8-93E3E42174E6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_net", "..\..\..\source\app\net\uwp_app_net.vcxproj", "{B05C0680-E49E-4F84-9DE8-93E3E42174E6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
