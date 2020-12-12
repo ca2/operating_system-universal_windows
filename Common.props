@@ -2,8 +2,9 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
-    <BaseDir>$(SolutionDir)..\..\</BaseDir>
+    <BaseDir>$(SolutionDir)..\..\..\</BaseDir>
     <TimeDir>$(BaseDir)time-uwp\</TimeDir>
+    <__archive>$(BaseDir)archive\</__archive>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -13,6 +14,9 @@
     </BuildMacro>
     <BuildMacro Include="TimeDir">
       <Value>$(TimeDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="__archive">
+      <Value>$(__archive)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
