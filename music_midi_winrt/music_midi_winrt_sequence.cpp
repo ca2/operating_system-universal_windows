@@ -226,7 +226,7 @@ Seq_Open_File_Cleanup:
             try
             {
 
-               file = Application.file().get_file(lpFileName, ::file::mode_read | ::file::share_deny_write | ::file::type_binary);
+               file = Application.file().get_file(lpFileName, ::file::e_open_read | ::file::e_open_share_deny_write | ::file::e_open_binary);
 
             }
             catch(...)
