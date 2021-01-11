@@ -226,14 +226,14 @@ install:
       }*/
 
 
-   //   pplugin->m_pframe = dynamic_cast < bergedge::frame * > (pplugin->m_papp->get_edge(0, true)->get_bergedge_view()->GetParentFrame());
+   //   pplugin->m_pframe = dynamic_cast < bergedge::frame * > (pplugin->m_papp->get_edge(0, true)->get_bergedge_view()->get_parent_frame());
 
 
    /*   papp->m_puiInitialPlaceHolderContainer = pplugin->m_pframe;
 
       App(pplugin->m_papp).GetThread()->SetMainWnd(pplugin->m_pframe);
       pplugin->m_pframe->m_bCustomFrame = false;
-      pplugin->m_pframe->GetParent()->layout();*/
+      pplugin->m_pframe->get_parent()->layout();*/
 
 
 

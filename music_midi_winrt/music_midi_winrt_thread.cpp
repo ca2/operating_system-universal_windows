@@ -331,7 +331,7 @@ namespace music
                }
             }
 
-            pthread->PostMidiSequenceEvent(m_pseq, ::music::midi::sequence::EventMidiPlaybackEnd, NULL);
+            pthread->PostMidiSequenceEvent(m_pseq, ::music::midi::sequence::e_event_midi_playback_end, NULL);
 
             if (m_pseq->m_pthreadPlay == this)
             {

@@ -83,7 +83,7 @@ namespace music
          void sequence_thread::OnMidiSequenceEvent(::message::message * pobj)
          {
 
-            SCAST_PTR(::message::base, pbase, pobj);
+            __pointer(::message::base) pbase(pobj);
 
             sp(::music::midi::sequence::event) pevent(pbase->m_lparam);
 
@@ -93,7 +93,7 @@ namespace music
 
             switch(pevent->m_eevent)
             {
-            case ::music::midi::sequence::EventMidiPlaybackEnd:
+            case ::music::midi::sequence::e_event_midi_playback_end:
             {
 
                ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
@@ -108,7 +108,7 @@ namespace music
                   PostNotifyEvent(::music::midi::player::notify_event_playback_end);
 
                }
-               else if(link() & ::music::midi::sequence::FlagTempoChange)
+               else if(link() & ::music::midi::sequence::e_flag_tempo_change)
                {
 
                   PrerollAndWait(link.m_tkRestart);
@@ -117,13 +117,13 @@ namespace music
 
                   get_sequence()->Start();
 
-                  link() -= ::music::midi::sequence::FlagTempoChange;
+                  link() -= ::music::midi::sequence::e_flag_tempo_change;
 
                }
-               else if(link() & ::music::midi::sequence::FlagSettingPos)
+               else if(link() & ::music::midi::sequence::e_flag_setting_position)
                {
 
-                  link() -= ::music::midi::sequence::FlagSettingPos;
+                  link() -= ::music::midi::sequence::e_flag_setting_position;
 
                   try
                   {
@@ -214,12 +214,12 @@ namespace music
 
             }
             break;
-            case ::music::midi::sequence::EventMidiStreamOut:
+            case ::music::midi::sequence::e_event_midi_stream_out:
             {
                PostNotifyEvent(::music::midi::player::notify_event_midi_stream_out);
             }
             break;
-               //case ::music::midi::sequence::EventMidiPlaybackEnd:
+               //case ::music::midi::sequence::e_event_midi_playback_end:
                //{
                //   PostNotifyEvent(::music::midi::player::notify_event_playback_end);
                //}

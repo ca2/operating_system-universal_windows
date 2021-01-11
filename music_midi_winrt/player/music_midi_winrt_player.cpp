@@ -193,7 +193,7 @@ namespace music
 
                   ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
 
-                  link() |= ::music::midi::sequence::FlagSettingPos;
+                  link() |= ::music::midi::sequence::e_flag_setting_position;
 
                   link.m_tkRestart = RateToTicks(dRate);
 
@@ -237,7 +237,7 @@ namespace music
             void player::pre_translate_message(::message::message * pmessage)
             {
 
-               SCAST_PTR(::message::base, pbase, pmessage);
+               __pointer(::message::base) pbase(pmessage);
 
                //ASSERT(GetMainWnd() == NULL);
                //   if(pMsg->message == MM_MOM_DONE ||
@@ -295,7 +295,7 @@ namespace music
             void player::OnUserMessage(::message::message * pmessage)
             {
 
-               SCAST_PTR(::message::base, pbase, pmessage);
+               __pointer(::message::base) pbase(pmessage);
 
                if(pbase->m_wparam == 3377)
                {
@@ -362,7 +362,7 @@ namespace music
                   get_sequence()->SetTempoChangeFlag();
                   ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
                   link.ModifyFlag(
-                  ::music::midi::sequence::FlagTempoChange,
+                  ::music::midi::sequence::e_flag_tempo_change,
                   ::music::midi::sequence::FlagNull);
                   imedia_position tk = get_sequence()->GetPositionTicks();
                   get_sequence()->m_evMmsgDone.ResetEvent();
@@ -434,7 +434,7 @@ namespace music
             void player::on_attribute_change(::message::message * pmessage)
             {
 
-               SCAST_PTR(::music::midi::attribute_message, pchange, pmessage);
+               __pointer(::music::midi::attribute_message) pchange(pmessage);
 
                switch(pchange->m_eattribute)
                {
@@ -459,7 +459,7 @@ namespace music
 
                   ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
 
-                  link() |= ::music::midi::sequence::FlagTempoChange;
+                  link() |= ::music::midi::sequence::e_flag_tempo_change;
 
                   link.m_tkRestart = tkPosition;
 
@@ -473,7 +473,7 @@ namespace music
             void player::OnMultimediaMidiOutputMessageDone(::message::message * pmessage)
             {
 
-               SCAST_PTR(::message::base, pbase, pmessage);
+               __pointer(::message::base) pbase(pmessage);
 
                //HMIDISTRM hmidistream = (HMIDISTRM) pbase->m_wparam;
 
@@ -489,7 +489,7 @@ namespace music
 
             void player::OnMultimediaMidiOutputMessagePositionCB(::message::message * pmessage)
             {
-               SCAST_PTR(::message::base, pbase, pmessage);
+               __pointer(::message::base) pbase(pmessage);
                //LPMIDIHDR lpmidihdr = (LPMIDIHDR) pbase->m_wparam;
                ////          get_sequence()->OnPositionCB(lpmidihdr);
 
@@ -506,7 +506,7 @@ namespace music
             void player::OnNotifyEvent(::message::message * pmessage)
             {
 
-               SCAST_PTR(::message::base, pbase, pmessage);
+               __pointer(::message::base) pbase(pmessage);
 
                sp(::music::midi::player::notify_event) pdata(pbase->m_lparam);
 

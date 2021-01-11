@@ -463,7 +463,7 @@ Seq_Open_File_Cleanup:
 
             ASSERT(m_iOpenMode == file::OpenForPlaying || IsInSpecialModeV001());
 
-            m_flags.unsignalize(FlagEOF);
+            m_flags.unsignalize(e_flag_end_of_file);
 
             m_mmrcLastErr = ::multimedia::result_success;
 
@@ -477,7 +477,7 @@ Seq_Open_File_Cleanup:
 
             set_status(::music::midi::sequence::status_pre_rolling);
 
-            m_flags.unsignalize(FlagEOF);
+            m_flags.unsignalize(e_flag_end_of_file);
 
             file()->m_flags &= ~file::EndOfFile;
 
@@ -663,13 +663,13 @@ Seq_Open_File_Cleanup:
             if (get_status() != status_playing
                   && get_status() != status_paused)
             {
-               m_flags.unsignalize(::music::midi::sequence::FlagWaiting);
+               m_flags.unsignalize(::music::midi::sequence::e_flag_waiting);
                GetPlayerLink().OnFinishCommand(::music::midi::player::command_stop);
                return ::multimedia::result_success;
             }
 
             set_status(status_stopping);
-            m_flags.signalize(::music::midi::sequence::FlagWaiting);
+            m_flags.signalize(::music::midi::sequence::e_flag_waiting);
 
             m_eventMidiPlaybackEnd.ResetEvent();
 
@@ -683,7 +683,7 @@ Seq_Open_File_Cleanup:
 
             //      TRACE( "::music::midi::sequence::Stop() -> midiOutStop() returned %lu in seqStop()!\n", (uint32_t)m_mmrcLastErr);
 
-            //      m_flags.unsignalize(FlagWaiting);
+            //      m_flags.unsignalize(e_flag_waiting);
 
             //      return ::multimedia::result_not_ready;
 
@@ -892,15 +892,15 @@ Seq_Open_File_Cleanup:
          //      }
          //      else
          //      {
-         //         if(m_flags.is_signalized(FlagEOF))
+         //         if(m_flags.is_signalized(e_flag_end_of_file))
          //         {
-         //            TRACE("void CALLBACK ::music::midi::sequence::MidiOutProc m_flags.is_signalized(FlagEOF\n");
+         //            TRACE("void CALLBACK ::music::midi::sequence::MidiOutProc m_flags.is_signalized(e_flag_end_of_file\n");
          //         }
          //         if(m_uBuffersInMMSYSTEM <= 0)
          //         {
          //            pthread->PostMidiSequenceEvent(
          //               this,
-         //               ::music::midi::sequence::EventMidiPlaybackEnd,
+         //               ::music::midi::sequence::e_event_midi_playback_end,
          //               lpmidihdr);
          //         }
          //      }
@@ -938,7 +938,7 @@ Seq_Open_File_Cleanup:
          //         //post_thread_message(lpData->dwThreadID, MIDIPLAYERMESSAGE_STREAMOUT, (WPARAM) pSeq, (LPARAM) lpmidihdr);
          //         pthread->PostMidiSequenceEvent(
          //            this,
-         //            EventMidiStreamOut,
+         //            e_event_midi_stream_out,
          //            lpmidihdr);
          //         m_flags.signalize(FlagSpecialModeV001End);
          //         smfrc = ::music::success;
@@ -949,7 +949,7 @@ Seq_Open_File_Cleanup:
          //      //
          //      pthread->PostMidiSequenceEvent(
          //         this,
-         //         EventMidiStreamOut,
+         //         e_event_midi_stream_out,
          //         lpmidihdr);
          //   }
 
@@ -1231,7 +1231,7 @@ Seq_Open_File_Cleanup:
 
             m_mmrcLastErr = ::multimedia::result_success;
 
-            m_flags.unsignalize(FlagWaiting);
+            m_flags.unsignalize(e_flag_waiting);
 
             m_evMmsgDone.SetEvent();
 
@@ -1248,13 +1248,13 @@ Seq_Open_File_Cleanup:
                set_status(m_estatusPreSpecialModeV001);
             }
             break;
-            case EventMidiPlaybackEnd:
+            case e_event_midi_playback_end:
             {
                OnMidiPlaybackEnd(pevent);
                set_status(status_opened);
             }
             break;
-            case EventMidiStreamOut:
+            case e_event_midi_stream_out:
             {
 
 
@@ -1263,7 +1263,7 @@ Seq_Open_File_Cleanup:
 
                ::music::midi::winrt::sequence::event * pev = (::music::midi::winrt::sequence::event *) pevent;
 
-               if(m_flags.is_signalized(FlagEOF))
+               if(m_flags.is_signalized(e_flag_end_of_file))
                {
 
                   return;
@@ -1276,7 +1276,7 @@ Seq_Open_File_Cleanup:
 
                //if(IsInSpecialModeV001())
                //{
-               //   TRACE("::music::midi::sequence::OnEvent EventMidiStreamOut IsInSpecialModeV001");
+               //   TRACE("::music::midi::sequence::OnEvent e_event_midi_stream_out IsInSpecialModeV001");
                //}
                //else
                //{
@@ -1291,7 +1291,7 @@ Seq_Open_File_Cleanup:
 
                //case SEndOfFile:
 
-               //   m_flags.signalize(FlagEOF);
+               //   m_flags.signalize(e_flag_end_of_file);
 
                //   smfrc = ::music::success;
 
@@ -1311,7 +1311,7 @@ Seq_Open_File_Cleanup:
                //if(::music::midi::sequence::status_stopping == get_status())
                //{
 
-               //   thread()->PostMidiSequenceEvent(this, EventMidiPlaybackEnd, lpmh);
+               //   thread()->PostMidiSequenceEvent(this, e_event_midi_playback_end, lpmh);
 
                //   return;
 
@@ -1366,14 +1366,14 @@ Seq_Open_File_Cleanup:
 
          bool sequence::IsChangingTempo()
          {
-            return m_flags.is_signalized(::music::midi::sequence::FlagTempoChange);
+            return m_flags.is_signalized(::music::midi::sequence::e_flag_tempo_change);
          }
          void sequence::SetTempoChangeFlag(bool bSet)
          {
             if(bSet)
-               m_flags.signalize(::music::midi::sequence::FlagTempoChange);
+               m_flags.signalize(::music::midi::sequence::e_flag_tempo_change);
             else
-               m_flags.unsignalize(::music::midi::sequence::FlagTempoChange);
+               m_flags.unsignalize(::music::midi::sequence::e_flag_tempo_change);
          }
 
 
@@ -2187,16 +2187,16 @@ Seq_Open_File_Cleanup:
 
          bool sequence::IsSettingPosition()
          {
-            return m_flags.is_signalized(::music::midi::sequence::FlagSettingPos);
+            return m_flags.is_signalized(::music::midi::sequence::e_flag_setting_position);
          }
 
 
          void sequence::SetSettingPositionFlag(bool bSet)
          {
             if(bSet)
-               m_flags.signalize(::music::midi::sequence::FlagSettingPos);
+               m_flags.signalize(::music::midi::sequence::e_flag_setting_position);
             else
-               m_flags.unsignalize(::music::midi::sequence::FlagSettingPos);
+               m_flags.unsignalize(::music::midi::sequence::e_flag_setting_position);
          }
 
 

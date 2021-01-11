@@ -7,8 +7,11 @@ class _UWP_todo { public: _UWP_todo() {}  ~_UWP_todo() {} };
 
 #endif
 
-#pragma once
-
+//#undef new
+#include <winrt/Windows.Foundation.h>
+#include <winrt/Windows.Foundation.Collections.h>
+using namespace winrt;
+//#define new ACME_NEW
 
 
 #ifdef __cplusplus

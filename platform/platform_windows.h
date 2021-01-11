@@ -80,10 +80,10 @@
 //#undef std
 #endif
 #if defined(__cplusplus_winrt)
-using namespace Platform;
-using namespace Windows::System;
-using namespace Windows::System::Threading;
-using namespace Windows::Storage;
+using namespace ::Platform;
+using namespace ::Windows::System;
+using namespace ::Windows::System::Threading;
+using namespace ::Windows::Storage;
 #endif
 
 
