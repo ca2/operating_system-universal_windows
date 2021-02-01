@@ -53,7 +53,7 @@ namespace music
          *   ::multimedia::result_success If the operation was successful.
          *
          *   MCIERR_OUT_OF_MEMORY  If there is insufficient memory for
-         *     the requested number and size of buffers.
+         *     the requested number and size_i32 of buffers.
          *
          * seqAllocBuffers allocates playback buffers based on the
          * cbBuffer and cBuffer fields of pSeq. cbBuffer specifies the
@@ -371,7 +371,7 @@ Seq_Open_File_Cleanup:
          e_result sequence::CloseFile()
          {
 
-            single_lock sl(m_pmutex, true);
+            single_lock sl(m_mutex, true);
 
             //if (status_no_file == get_status())
             //   return ::multimedia::result_unsupported_function;
@@ -451,7 +451,7 @@ Seq_Open_File_Cleanup:
 
             UNREFERENCED_PARAMETER(pthread);
 
-            single_lock sl(m_pmutex, TRUE);
+            single_lock sl(m_mutex, TRUE);
 
             int32_t                 i;
             e_result                smfrc;
@@ -519,7 +519,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::Start()
          {
 
-            single_lock sl(m_pmutex, TRUE);
+            single_lock sl(m_mutex, TRUE);
 
             if (::music::midi::sequence::status_pre_rolled != get_status())
             {
@@ -571,7 +571,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::Pause()
 
          {
-            single_lock sl(m_pmutex, TRUE);
+            single_lock sl(m_mutex, TRUE);
 
             //    assert(NULL != pSeq);
 
@@ -615,7 +615,7 @@ Seq_Open_File_Cleanup:
          {
             //    assert(NULL != pSeq);
 
-            single_lock sl(m_pmutex, TRUE);
+            single_lock sl(m_mutex, TRUE);
 
             if (status_paused != get_status())
                return ::multimedia::result_unsupported_function;
@@ -654,7 +654,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::Stop()
          {
 
-            single_lock sl(m_pmutex, TRUE);
+            single_lock sl(m_mutex, TRUE);
 
             if(get_status() == status_stopping)
                return ::multimedia::result_success;
@@ -726,7 +726,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::get_ticks(imedia_position &  ticks)
          {
 
-            synch_lock sl(m_pmutex);
+            synch_lock sl(m_mutex);
 
             try
             {
@@ -764,7 +764,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::get_millis(imedia_time & time)
          {
 
-            synch_lock sl(m_pmutex);
+            synch_lock sl(m_mutex);
 
             if (m_pthreadPlay == NULL)
             {
@@ -1190,7 +1190,7 @@ Seq_Open_File_Cleanup:
 
          ::multimedia::e_result sequence::CloseStream()
          {
-            single_lock sl(m_pmutex, TRUE);
+            single_lock sl(m_mutex, TRUE);
             if(IsPlaying())
             {
                Stop();
@@ -1227,7 +1227,7 @@ Seq_Open_File_Cleanup:
 
             UNREFERENCED_PARAMETER(pevent);
 
-            single_lock sl(m_pmutex, TRUE);
+            single_lock sl(m_mutex, TRUE);
 
             m_mmrcLastErr = ::multimedia::result_success;
 
@@ -1259,7 +1259,7 @@ Seq_Open_File_Cleanup:
 
 
 
-               single_lock sl(m_pmutex, TRUE);
+               single_lock sl(m_mutex, TRUE);
 
                ::music::midi::winrt::sequence::event * pev = (::music::midi::winrt::sequence::event *) pevent;
 
