@@ -106,7 +106,7 @@ namespace music
          //void midi::mmsystem_GetMidiInDeviceInterface(UINT_PTR i)
          //{
 
-         //   // query the size of the device interface string
+         //   // query the size_i32 of the device interface string
          //   HMIDIIN h = reinterpret_cast<HMIDIIN>(i);
          //   ULONG size = 0;
          //   MMRESULT mmr = midiInMessage(
@@ -120,12 +120,12 @@ namespace music
          //      return;
          //   }
 
-         //   if (0 == size) {
+         //   if (0 == size_i32) {
          //      LOG("No device interface");
          //      return;
          //   }
          //   if (size % sizeof(WCHAR)) {
-         //      LOG("Device interface length in bytes (%u) should be a multiple of the size of a WCHAR!", size);
+         //      LOG("Device interface length in bytes (%u) should be a multiple of the size_i32 of a WCHAR!", size);
          //      return;
          //   }
 
@@ -139,7 +139,7 @@ namespace music
          //      h,
          //      DRV_QUERYDEVICEINTERFACE,
          //      reinterpret_cast<DWORD_PTR>((wchar_t *)wstr),
-         //      size
+         //      size_i32
          //   );
          //   if (MMSYSERR_NOERROR != mmr) {
          //      LOG("midiInMessage(DRV_QUERYDEVICEINTERFACE) failed: mmr = 0x%08x", mmr);
@@ -154,7 +154,7 @@ namespace music
          //void midi::mmsystem_GetMidiOutDeviceInterface(UINT_PTR i)
          //{
 
-         //   // query the size of the device interface string
+         //   // query the size_i32 of the device interface string
          //   HMIDIOUT h = reinterpret_cast<HMIDIOUT>(i);
          //   ULONG size = 0;
          //   MMRESULT mmr = midiOutMessage(
@@ -168,12 +168,12 @@ namespace music
          //      return;
          //   }
 
-         //   if (0 == size) {
+         //   if (0 == size_i32) {
          //      LOG("No device interface");
          //      return;
          //   }
          //   if (size % sizeof(WCHAR)) {
-         //      LOG("Device interface length in bytes (%u) should be a multiple of the size of a WCHAR!", size);
+         //      LOG("Device interface length in bytes (%u) should be a multiple of the size_i32 of a WCHAR!", size);
          //      return;
          //   }
 
@@ -184,7 +184,7 @@ namespace music
          //      h,
          //      DRV_QUERYDEVICEINTERFACE,
          //      reinterpret_cast<DWORD_PTR>((wchar_t *)wstr),
-         //      size
+         //      size_i32
          //   );
          //   if (MMSYSERR_NOERROR != mmr) {
          //      LOG("midiOutMessage(DRV_QUERYDEVICEINTERFACE) failed: mmr = 0x%08x", mmr);
@@ -292,14 +292,14 @@ namespace music
 
          //}
 
-         //static mutex * s_pmutex = NULL;
+         //static ::mutex * s_pmutex = NULL;
 
-         //mutex & get_midi_mutex()
+         //::mutex & get_midi_mutex()
          //{
 
          //   if (s_pmutex == NULL)
          //   {
-         //      s_pmutex = new mutex(::get_thread_app());
+         //      s_pmutex = new ::mutex(::get_thread_app());
 
          //      // TODO :
          //      // register s_pmutex in Sys(::get_thread_app()).register_static_system_object

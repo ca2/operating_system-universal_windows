@@ -23,10 +23,10 @@ namespace ca2plugin_container
       m_phost           = NULL;
       m_bInitialized    = false;
       m_bOk             = false;
-      m_rect.left       = 0;
-      m_rect.top        = 0;
-      m_rect.bottom     = 0;
-      m_rect.right      = 0;
+      m_rectangle.left       = 0;
+      m_rectangle.top        = 0;
+      m_rectangle.bottom     = 0;
+      m_rectangle.right      = 0;
 
       m_bRunningSpaAdmin = false;
 
@@ -67,10 +67,10 @@ namespace ca2plugin_container
       if(aWindow == NULL)
          return FALSE;
 
-      m_rect.left = aWindow->x;
-      m_rect.top = aWindow->y;
-      m_rect.right = m_rect.left + aWindow->width;
-      m_rect.bottom = m_rect.top + aWindow->height;
+      m_rectangle.left = aWindow->x;
+      m_rectangle.top = aWindow->y;
+      m_rectangle.right = m_rectangle.left + aWindow->width;
+      m_rectangle.bottom = m_rectangle.top + aWindow->height;
 
       m_hwnd = (HWND)aWindow->window;
 
@@ -109,7 +109,7 @@ namespace ca2plugin_container
    }
    
 
-   void host::post_message(UINT uiMessage, WPARAM wparam, LPARAM lparam)
+   void host::post_message(UINT uiMessage, wparam wparam, lparam lparam)
    {
       
       ::PostMessage(m_hwnd, uiMessage, wparam, lparam);
@@ -179,7 +179,7 @@ namespace ca2plugin_container
       return m_hwnd;
    }
 
-   uint_ptr host::message_handler(uint_ptr uiMessage, WPARAM wparam, LPARAM lparam)
+   uint_ptr host::message_handler(uint_ptr uiMessage, wparam wparam, lparam lparam)
    {
       switch(uiMessage)
       {
@@ -209,10 +209,10 @@ namespace ca2plugin_container
             case 19841977:
                {
                   NPRect invalidRect;
-                  invalidRect.left     = (uint16_t) m_rect.left;
-                  invalidRect.top      = (uint16_t) m_rect.top;
-                  invalidRect.right    = (uint16_t) m_rect.right;
-                  invalidRect.bottom   = (uint16_t) m_rect.bottom;
+                  invalidRect.left     = (uint16_t) m_rectangle.left;
+                  invalidRect.top      = (uint16_t) m_rectangle.top;
+                  invalidRect.right    = (uint16_t) m_rectangle.right;
+                  invalidRect.bottom   = (uint16_t) m_rectangle.bottom;
 //                  NPN_InvalidateRect(m_instance, &invalidRect);
                   NPN_ForceRedraw(m_instance);
                }
@@ -443,7 +443,7 @@ namespace ca2plugin_container
             struct paint
             {
                HDC      m_hdc;
-               RECT     m_rect;
+               RECT     m_rectangle;
             } * ppaint;
          
             ppaint = (struct paint *) pdata;
@@ -451,7 +451,7 @@ namespace ca2plugin_container
             try
             {
 
-               on_paint(ppaint->m_hdc, &ppaint->m_rect);
+               on_paint(ppaint->m_hdc, &ppaint->m_rectangle);
 
             }
             catch(...)

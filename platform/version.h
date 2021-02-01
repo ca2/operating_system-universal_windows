@@ -238,7 +238,7 @@
 	#define __API_IMPORT __declspec(dllimport)
 #endif
 
-// This macro is used to reduce size requirements of some classes
+// This macro is used to reduce size_i32 requirements of some classes
 #ifndef __ALWAYS_VTABLE
 #ifndef __NOVTABLE
 #if _MSC_VER >= 1100 && !defined(DEBUG)
