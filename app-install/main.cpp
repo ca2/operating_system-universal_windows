@@ -100,7 +100,7 @@ installer::~installer()
 bool installer::initialize()
 {
 
-   m_hmutexSpabootInstall = ::CreateMutex(NULL, FALSE, "Global\\ca2::fontopus::ccvotagus_ca2_spaboot_install::7807e510-5579-11dd-ae16-0800200c7784");
+   m_hmutexSpabootInstall = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ccvotagus_ca2_spaboot_install::7807e510-5579-11dd-ae16-0800200c7784");
    if(::GetLastError() == ERROR_ALREADY_EXISTS)
    {
       m_iError = -202;

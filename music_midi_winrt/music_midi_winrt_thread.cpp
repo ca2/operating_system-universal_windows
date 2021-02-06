@@ -13,7 +13,7 @@
 //
 //   ev.wait();
 //
-//   return TRUE;
+//   return true;
 //
 //}
 
@@ -154,7 +154,7 @@ namespace music
                if (!bGotEvent)
                {
 
-                  smfrc = m_pseq->file()->WorkGetNextEvent(pevent, tkMax, TRUE);
+                  smfrc = m_pseq->file()->WorkGetNextEvent(pevent, tkMax, true);
 
                   if (::music::success != smfrc)
                   {

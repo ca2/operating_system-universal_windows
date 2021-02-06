@@ -36,7 +36,7 @@ int __win_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, i
    vsstring strChannel = get_command_line_param(::GetCommandLine(), "channel");
 
 
-   g_hmutex = ::CreateMutex(NULL, FALSE, "Global\\ca2::fontopus::ca2plugin-container::" + strChannel);
+   g_hmutex = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ca2plugin-container::" + strChannel);
    if(::GetLastError() == ERROR_ALREADY_EXISTS)
    {
       return -1;

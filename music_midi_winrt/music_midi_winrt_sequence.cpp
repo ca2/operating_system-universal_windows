@@ -68,7 +68,7 @@ namespace music
          ***************************************************************************/
          ::multimedia::e_result sequence::AllocBuffers()
          {
-            ASSERT(FALSE);
+            ASSERT(false);
             /*
             uint32_t                   dwEachBufferSize;
             uint32_t                   dwAlloc;
@@ -133,7 +133,7 @@ namespace music
          ****************************************************************************/
          VOID sequence::FreeBuffers()
          {
-            ASSERT(FALSE);
+            ASSERT(false);
          }
 
          /***************************************************************************
@@ -451,7 +451,7 @@ Seq_Open_File_Cleanup:
 
             UNREFERENCED_PARAMETER(pthread);
 
-            single_lock sl(m_mutex, TRUE);
+            single_lock sl(m_mutex, true);
 
             int32_t                 i;
             e_result                smfrc;
@@ -519,7 +519,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::Start()
          {
 
-            single_lock sl(m_mutex, TRUE);
+            single_lock sl(m_mutex, true);
 
             if (::music::midi::sequence::status_pre_rolled != get_status())
             {
@@ -571,7 +571,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::Pause()
 
          {
-            single_lock sl(m_mutex, TRUE);
+            single_lock sl(m_mutex, true);
 
             //    assert(NULL != pSeq);
 
@@ -615,7 +615,7 @@ Seq_Open_File_Cleanup:
          {
             //    assert(NULL != pSeq);
 
-            single_lock sl(m_mutex, TRUE);
+            single_lock sl(m_mutex, true);
 
             if (status_paused != get_status())
                return ::multimedia::result_unsupported_function;
@@ -654,7 +654,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::Stop()
          {
 
-            single_lock sl(m_mutex, TRUE);
+            single_lock sl(m_mutex, true);
 
             if(get_status() == status_stopping)
                return ::multimedia::result_success;
@@ -933,7 +933,7 @@ Seq_Open_File_Cleanup:
          //         }
          //         else
          //         {
-         //            ASSERT(FALSE);
+         //            ASSERT(false);
          //         }
          //         //post_thread_message(lpData->dwThreadID, MIDIPLAYERMESSAGE_STREAMOUT, (WPARAM) pSeq, (LPARAM) lpmidihdr);
          //         pthread->PostMidiSequenceEvent(
@@ -1017,7 +1017,7 @@ Seq_Open_File_Cleanup:
          //   case EVENT_ID_PAD:
          //      break;
          //   default:
-         //      ASSERT(FALSE);
+         //      ASSERT(false);
          //      break;
          //   }
 
@@ -1190,7 +1190,7 @@ Seq_Open_File_Cleanup:
 
          ::multimedia::e_result sequence::CloseStream()
          {
-            single_lock sl(m_mutex, TRUE);
+            single_lock sl(m_mutex, true);
             if(IsPlaying())
             {
                Stop();
@@ -1227,7 +1227,7 @@ Seq_Open_File_Cleanup:
 
             UNREFERENCED_PARAMETER(pevent);
 
-            single_lock sl(m_mutex, TRUE);
+            single_lock sl(m_mutex, true);
 
             m_mmrcLastErr = ::multimedia::result_success;
 
@@ -1259,7 +1259,7 @@ Seq_Open_File_Cleanup:
 
 
 
-               single_lock sl(m_mutex, TRUE);
+               single_lock sl(m_mutex, true);
 
                ::music::midi::winrt::sequence::event * pev = (::music::midi::winrt::sequence::event *) pevent;
 

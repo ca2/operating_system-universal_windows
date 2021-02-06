@@ -266,7 +266,7 @@ namespace music
 //         *****************************************************************************/
 //         e_result buffer::CloseFile()
 //         {
-//            single_lock(m_mutex, TRUE);
+//            single_lock(m_mutex, true);
 //            SetOpened(false);
 //            delete_contents();
 //            return ::music::success;
@@ -275,7 +275,7 @@ namespace music
 //
 //         void buffer::delete_contents()
 //         {
-//            single_lock(m_mutex, TRUE);
+//            single_lock(m_mutex, true);
 //            SetOpened(false);
 //
 //
@@ -787,7 +787,7 @@ namespace music
 //            ASSERT(!(pEvent->GetFlags() & 1));
 //            if(pEvent->GetFlags() & 1)
 //            {
-//               ASSERT(FALSE);
+//               ASSERT(false);
 //            }
 //            else if (pEvent->GetFullType() < ::music::midi::SysEx)
 //            {
@@ -1066,7 +1066,7 @@ namespace music
 //            tkNextLyricEvent = pDoc->m_TokensTicks[pDoc->m_iBufferingTokenIndex ];
 //            }*/
 //            //   ::ikaraoke::lyric_events_v1 *pEventsV1;
-//            while(TRUE)
+//            while(true)
 //            {
 //               ASSERT(lpmh->dwBytesRecorded <= lpmh->dwBufferLength);
 //               if(lpmh->dwBytesRecorded > cbPrerollNominalMax)
@@ -1097,7 +1097,7 @@ namespace music
 //
 //               /*        if (::music::success != smfrc)
 //               {
-//               smfrc = GetNextEvent((event *)&event, tkMax, TRUE);
+//               smfrc = GetNextEvent((event *)&event, tkMax, true);
 //               ASSERT(::music::success != smfrc); */
 //
 //               /* smfGetNextEvent doesn't set this because smfSeek uses it
@@ -1118,7 +1118,7 @@ namespace music
 //               }*/
 //               iTrackFound = -1;
 //               tkLastDelta = 0;
-//               /*      while(TRUE)
+//               /*      while(true)
 //               {
 //               for(i = 0; i < m_eventsTracksForPositionCB.get_size(); i++)
 //               {
@@ -1234,7 +1234,7 @@ namespace music
 //                  break;
 //               }
 //
-//               smfrc = GetNextEvent(pevent, tkMax, TRUE);
+//               smfrc = GetNextEvent(pevent, tkMax, true);
 //               if (::music::success != smfrc)
 //               {
 //                  /* smfGetNextEvent doesn't set this because smfSeek uses it
@@ -1660,7 +1660,7 @@ namespace music
 //            m_ptracks->seek_begin();
 //            //for (ptrk = m_rTracks, idxTrack = m_dwTracks; idxTrack--; ptrk++)
 //
-//            while (::music::success == (smfrc = GetNextEvent(pevent, tkPosition, FALSE)))
+//            while (::music::success == (smfrc = GetNextEvent(pevent, tkPosition, false)))
 //            {
 //
 //               if (::music::midi::Meta == (bEvent = pevent->GetFullType()))
@@ -1820,7 +1820,7 @@ namespace music
 //
 //            m_ptracks->seek_begin();
 //
-//            while(::music::success == (smfrc = GetNextEvent(pevent, tkPosition, FALSE)));
+//            while(::music::success == (smfrc = GetNextEvent(pevent, tkPosition, false)));
 //
 //            if (SReachedTkMax != smfrc)
 //            {
@@ -2160,7 +2160,7 @@ namespace music
 //            m_ptracks->seek_begin();
 //            //for (ptrk = m_rTracks, idxTrack = m_dwTracks; idxTrack--; ptrk++)
 //
-//            //while(::music::success == (smfrc = GetNextEvent(pevent, pEvent->GetPosition(), TRUE)))
+//            //while(::music::success == (smfrc = GetNextEvent(pevent, pEvent->GetPosition(), true)))
 //            //{
 //            //   if(pevent->GetData() == pEvent->GetData())
 //            //   {
@@ -2551,7 +2551,7 @@ namespace music
 //         //         break;
 //         //      }
 //
-//         //      smfrc = WorkGetNextEvent(pevent, tkMax, TRUE);
+//         //      smfrc = WorkGetNextEvent(pevent, tkMax, true);
 //         //      if (::music::success != smfrc)
 //         //      {
 //         //         // smfGetNextEvent doesn't set this because smfSeek uses it
@@ -2775,7 +2775,7 @@ namespace music
 //                     && pevent->GetNoteVelocity() > 0
 //                     && m_iaMuteTrack.contains(pevent->GetTrack()))
 //                  {
-//                     ASSERT(TRUE);
+//                     ASSERT(true);
 //                  }
 //                  else
 //                  {
@@ -2844,7 +2844,7 @@ namespace music
 //
 //            m_ptracks->WorkSeekBegin();
 //
-//            while (::music::success == (smfrc = WorkGetNextEvent(pevent, tkPosition, FALSE)))
+//            while (::music::success == (smfrc = WorkGetNextEvent(pevent, tkPosition, false)))
 //            {
 //               if (::music::midi::Meta == (bEvent = pevent->GetFullType()))
 //               {
@@ -2975,7 +2975,7 @@ namespace music
 //            ::music::midi::event * pevent;
 //            m_ptracks->WorkSeekBegin();
 //            while (::music::success
-//               == (smfrc = WorkGetNextRawMidiEvent(pevent, MAX_TICKS, TRUE)))
+//               == (smfrc = WorkGetNextRawMidiEvent(pevent, MAX_TICKS, true)))
 //            {
 //               if (::music::midi::Meta == pevent->GetFullType() &&
 //                  ::music::midi::MetaTempo == pevent->GetMetaType() &&

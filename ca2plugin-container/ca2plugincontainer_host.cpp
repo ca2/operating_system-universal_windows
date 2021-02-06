@@ -65,7 +65,7 @@ namespace ca2plugin_container
    {
 
       if(aWindow == NULL)
-         return FALSE;
+         return false;
 
       m_rectangle.left = aWindow->x;
       m_rectangle.top = aWindow->y;
@@ -75,7 +75,7 @@ namespace ca2plugin_container
       m_hwnd = (HWND)aWindow->window;
 
       if(m_hwnd == NULL)
-         return FALSE;
+         return false;
 
 
       m_bInitialized    = true;
@@ -90,10 +90,10 @@ namespace ca2plugin_container
 
 
       if(!initialize())
-         return FALSE;
+         return false;
 
 
-      return TRUE;
+      return true;
 
 
    }

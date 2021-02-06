@@ -16,5 +16,5 @@
 #endif
 
 
-#undef __min
-#undef __max
+#undef minimum
+#undef maximum

@@ -151,14 +151,14 @@ HANDLE g_hmutexBoot;
 int APIENTRY ca2_cube_install(const char * pszId)
 {
 
-   g_hmutexBoot = ::CreateMutex(NULL, FALSE, "Global\\ca2::fontopus::ccvotagus_ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");
+   g_hmutexBoot = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ccvotagus_ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");
    if(::GetLastError() == ERROR_ALREADY_EXISTS)
    {
       while(::GetLastError() == ERROR_ALREADY_EXISTS)
       {
          ::CloseHandle(g_hmutexBoot);
          Sleep(5000);
-         g_hmutexBoot = ::CreateMutex(NULL, FALSE, "Global\\ca2::fontopus::ccvotagus_ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");
+         g_hmutexBoot = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ccvotagus_ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");
       }
    }
    ::CloseHandle(g_hmutexBoot);
