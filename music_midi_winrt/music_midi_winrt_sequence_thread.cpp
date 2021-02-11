@@ -83,9 +83,9 @@ namespace music
          void sequence_thread::OnMidiSequenceEvent(::message::message * pobj)
          {
 
-            __pointer(::message::base) pbase(pobj);
+            __pointer(::user::message) pusermessage(pobj);
 
-            sp(::music::midi::sequence::event) pevent(pbase->m_lparam);
+            sp(::music::midi::sequence::event) pevent(pusermessage->m_lparam);
 
             ::music::midi::winrt::sequence * pseq = dynamic_cast < ::music::midi::winrt::sequence * > (pevent->m_psequence);
 
