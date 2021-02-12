@@ -7,7 +7,7 @@
 //   manual_reset_event ev(::get_thread_app());
 //
 //   TimeSpan delay;
-//   delay.Duration = max((ns / 100), 1) - 1;
+//   delay.Duration = maximum((ns / 100), 1) - 1;
 //   ThreadPoolTimer ^ PeriodicTimer =
 //      ThreadPoolTimer::CreateTimer(ref new TimerElapsedHandler([&](ThreadPoolTimer ^) {ev.SetEvent(); }), delay);
 //
@@ -188,7 +188,7 @@ namespace music
 
                         clip(0, 127, m_pseq->m_iaRefVolume[iTrack]);
 
-                        byte bVolume = (byte)(m_pseq->m_iaRefVolume[iTrack] * max(0.0, min(1.0, dVolume)));
+                        byte bVolume = (byte)(m_pseq->m_iaRefVolume[iTrack] * maximum(0.0, minimum(1.0, dVolume)));
 
                         m_pseq->m_io->control_change(pevent->GetTrack(), 7, bVolume);
                      }
@@ -303,7 +303,7 @@ namespace music
 
                      tkLastBend = tkPosition;
 
-                     m_pseq->m_io->pitch_bend(iChannel, min(16383, uiBend));
+                     m_pseq->m_io->pitch_bend(iChannel, minimum(16383, uiBend));
 
                   }
 

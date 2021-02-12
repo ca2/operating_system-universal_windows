@@ -39,19 +39,12 @@
 //#define BSD_STYLE_SOCKETS
 
 
-#define NOMINMAX
-
-
-
-
 #define __PLATFORM   "uwp"
 
 #ifdef _DEBUG
 #define DEBUG
 #endif
 
-
-#define NOMINMAX
 
 #define DECL_C __cdecl
 

@@ -42,7 +42,7 @@ namespace music
             //bool IsXFFile(const char * lpcszPathName);
 
 
-            //virtual bool veriwell_multimedia_music_midi_factory_exchange();
+            //virtual bool veriwell_multimedia_music_midi_factory_exchange(::factory_map * pfactorymap);
 
 
             //void mmsystem_LogMidiInCaps(UINT_PTR i, MIDIINCAPSW caps);
