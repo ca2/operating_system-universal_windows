@@ -371,7 +371,7 @@ Seq_Open_File_Cleanup:
          e_result sequence::CloseFile()
          {
 
-            single_lock sl(m_mutex, true);
+            single_lock synchronizationlock(m_mutex, true);
 
             //if (status_no_file == get_status())
             //   return ::multimedia::result_unsupported_function;
@@ -451,7 +451,7 @@ Seq_Open_File_Cleanup:
 
             UNREFERENCED_PARAMETER(pthread);
 
-            single_lock sl(m_mutex, true);
+            single_lock synchronizationlock(m_mutex, true);
 
             int32_t                 i;
             e_result                smfrc;
@@ -519,7 +519,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::Start()
          {
 
-            single_lock sl(m_mutex, true);
+            single_lock synchronizationlock(m_mutex, true);
 
             if (::music::midi::sequence::status_pre_rolled != get_status())
             {
@@ -536,7 +536,7 @@ Seq_Open_File_Cleanup:
 
             ::multimedia::e_result mmrc = ::multimedia::result_success;
 
-            sl.unlock();
+            synchronizationlock.unlock();
 
             if(mmrc == ::multimedia::result_success)
             {
@@ -571,7 +571,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::Pause()
 
          {
-            single_lock sl(m_mutex, true);
+            single_lock synchronizationlock(m_mutex, true);
 
             //    assert(NULL != pSeq);
 
@@ -615,7 +615,7 @@ Seq_Open_File_Cleanup:
          {
             //    assert(NULL != pSeq);
 
-            single_lock sl(m_mutex, true);
+            single_lock synchronizationlock(m_mutex, true);
 
             if (status_paused != get_status())
                return ::multimedia::result_unsupported_function;
@@ -654,7 +654,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::Stop()
          {
 
-            single_lock sl(m_mutex, true);
+            single_lock synchronizationlock(m_mutex, true);
 
             if(get_status() == status_stopping)
                return ::multimedia::result_success;
@@ -726,7 +726,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::get_ticks(imedia_position &  ticks)
          {
 
-            synch_lock sl(m_mutex);
+            synch_lock synchronizationlock(m_mutex);
 
             try
             {
@@ -764,7 +764,7 @@ Seq_Open_File_Cleanup:
          ::multimedia::e_result sequence::get_millis(imedia_time & time)
          {
 
-            synch_lock sl(m_mutex);
+            synch_lock synchronizationlock(m_mutex);
 
             if (m_pthreadPlay == NULL)
             {
@@ -1190,7 +1190,7 @@ Seq_Open_File_Cleanup:
 
          ::multimedia::e_result sequence::CloseStream()
          {
-            single_lock sl(m_mutex, true);
+            single_lock synchronizationlock(m_mutex, true);
             if(IsPlaying())
             {
                Stop();
@@ -1227,7 +1227,7 @@ Seq_Open_File_Cleanup:
 
             UNREFERENCED_PARAMETER(pevent);
 
-            single_lock sl(m_mutex, true);
+            single_lock synchronizationlock(m_mutex, true);
 
             m_mmrcLastErr = ::multimedia::result_success;
 
@@ -1259,7 +1259,7 @@ Seq_Open_File_Cleanup:
 
 
 
-               single_lock sl(m_mutex, true);
+               single_lock synchronizationlock(m_mutex, true);
 
                ::music::midi::winrt::sequence::event * pev = (::music::midi::winrt::sequence::event *) pevent;
 
