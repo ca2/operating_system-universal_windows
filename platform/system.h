@@ -248,17 +248,6 @@ __INLINE HWND GetNextWindow(HWND hWnd,UINT nDirection)
 #define VK_KANA             0x15
 #endif
 
-/////////////////////////////////////////////////////////////////////////////
-// Special __debug_break: used to break into debugger at critical times
-
-#define debug_break() __debugbreak()
-
-/*#ifndef DEBUG
-#ifdef __debug_break
-#undef __debug_break
-#endif
-#define __debug_break()
-#endif  // DEBUG*/
 
 /////////////////////////////////////////////////////////////////////////////
 // Standard preprocessor symbols if not already defined
