@@ -1006,7 +1006,7 @@ namespace music
 //            imedia_position               tkLastDelta = 0 ;
 //            imedia_position                   tkOnQuarterNoteDelta = 0;
 //            //   imedia_position               tkLastPositionCB = 0x7fffffff;
-//            //CXfplayerApp *pApp = (CXfplayerApp *) &System;
+//            //CXfplayerApp *pApp = (CXfplayerApp *) System;
 //            //ASSERT(pApp != NULL);
 //            //CXfplayerDoc *pDoc = (CXfplayerDoc *) pApp->GetPlayingDocument();
 //            //ASSERT(pDoc != NULL);
