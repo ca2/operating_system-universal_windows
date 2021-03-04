@@ -18,12 +18,12 @@ namespace music
             //::multimedia::winrt::factory_exchange(pobject)
          {
 
-            create_factory < sequence                    >  (System.type_info < ::music::midi::sequence                  > ());
-            create_factory < buffer                      >  (System.type_info < ::music::midi::file::buffer                 > ());
-            create_factory < sequence_thread             >  (System.type_info < ::music::midi::sequence_thread                 > ());
-            create_factory < player::player              >  (System.type_info < ::music::midi::player::player                 > ());
-            create_factory < midi              >(System.type_info < ::music::midi::midi>());
-            //create_factory < player:: player_interface   >  (System.type_info < ::music::midi::player::player_interface                 > ());
+            create_factory < sequence                    >  (System->type_info < ::music::midi::sequence                  > ());
+            create_factory < buffer                      >  (System->type_info < ::music::midi::file::buffer                 > ());
+            create_factory < sequence_thread             >  (System->type_info < ::music::midi::sequence_thread                 > ());
+            create_factory < player::player              >  (System->type_info < ::music::midi::player::player                 > ());
+            create_factory < midi              >(System->type_info < ::music::midi::midi>());
+            //create_factory < player:: player_interface   >  (System->type_info < ::music::midi::player::player_interface                 > ());
 
          }
 
