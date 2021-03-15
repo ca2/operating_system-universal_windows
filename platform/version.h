@@ -3,7 +3,7 @@
 /////////////////////////////////////////////////////////////////////////////
 // Master version numbers
 
-#define _AFX     1      // Microsoft Application Framework Classes
+#define _AFX     1      // Microsoft papplication Framework Classes
 #ifndef _MFC_VER
 #define _MFC_VER 0x0800 // Microsoft Foundation Classes version 8.00
 #endif

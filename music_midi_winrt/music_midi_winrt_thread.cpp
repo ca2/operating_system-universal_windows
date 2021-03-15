@@ -36,7 +36,7 @@ namespace music
       {
 
 
-         thread::thread(::layered * pobjectContext) :
+         thread::thread(::context_object * pcontextobject) :
             ::object(pobject),
             ::thread(pobject),
             m_evRun(pobject)
@@ -116,7 +116,7 @@ namespace music
 
             m_evRun.wait();
 
-            if (!thread_get_run())
+            if (!task_get_run())
             {
 
                goto end_playback;
@@ -124,7 +124,7 @@ namespace music
             }
             uint64_t dwLastEffect = 0;
 
-            while (thread_get_run())
+            while (task_get_run())
             {
 
                if (m_pseq == NULL || m_pseq->file() == NULL)

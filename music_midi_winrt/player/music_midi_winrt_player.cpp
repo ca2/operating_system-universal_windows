@@ -17,7 +17,7 @@ namespace music
          {
 
 
-            player::player(::layered * pobjectContext) :
+            player::player(::context_object * pcontextobject) :
                ::object(pobject),
                thread(pobject),
                ::music::midi::player::player(pobject)
@@ -248,7 +248,7 @@ namespace music
                //      OnMidiOutMessage(pMsg->message, pMsg->wParam, pMsg->lParam);
                //      return true;
                //   }
-               if(pusermessage->m_pwnd == NULL)
+               if(pusermessage->m_puserinteraction == NULL)
                {
                   switch(pusermessage->m_id.i64())
                   {
@@ -422,7 +422,7 @@ namespace music
             uint32_t player::GetMidiOutDevice()
             {
 
-               return Application.midi()->GetMidiOutDevice();
+               return papplication->midi()->GetMidiOutDevice();
             }
 
             void player::SetCallbackWindow(sp(::user::interaction) puie)

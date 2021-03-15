@@ -25,7 +25,7 @@ namespace music
       {
 
 
-         midi::midi(::layered * pobjectContext) :
+         midi::midi(::context_object * pcontextobject) :
             ::object(pobject),
             ::apex::department(pobject),
             ::music::midi::object(pobject),

@@ -16,7 +16,7 @@ namespace music
       {
 
 
-         sequence::sequence(::layered * pobjectContext) :
+         sequence::sequence(::context_object * pcontextobject) :
             ::object(pobject),
             ::music::midi::object(pobject),
             ::ikaraoke::karaoke(pobject),
@@ -226,7 +226,7 @@ Seq_Open_File_Cleanup:
             try
             {
 
-               file = Application.file().get_file(lpFileName, ::file::e_open_read | ::file::e_open_share_deny_write | ::file::e_open_binary);
+               file = papplication->file().get_file(lpFileName, ::file::e_open_read | ::file::e_open_share_deny_write | ::file::e_open_binary);
 
             }
             catch(...)

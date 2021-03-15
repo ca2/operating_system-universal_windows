@@ -19,7 +19,7 @@ namespace music
          public:
 
 
-            factory_exchange(::layered * pobjectContext);
+            factory_exchange(::context_object * pcontextobject);
             virtual ~factory_exchange();
 
          };

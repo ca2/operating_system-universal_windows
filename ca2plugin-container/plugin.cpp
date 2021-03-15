@@ -212,16 +212,16 @@ install:
       /*if(papp->does_launch_window_on_startup())
       {
          int iRetry = 100;
-         while(papp->m_pwndMain == NULL && (iRetry > 0))
+         while(papp->m_puserinteractionMain == NULL && (iRetry > 0))
          {
             Sleep(100);
             iRetry--;
          }
-         if(papp->m_pwndMain != NULL)
+         if(papp->m_puserinteractionMain != NULL)
          {
-   //            papp->m_pwndMain->SetParent(pview);
-            papp->m_pwndMain->ModifyStyle(0, WS_CHILD);
-            papp->m_pwndMain->SetWindowPos(NULL, 0, 0, 400, 400, SWP_SHOWWINDOW);
+   //            papp->m_puserinteractionMain->SetParent(pview);
+            papp->m_puserinteractionMain->ModifyStyle(0, WS_CHILD);
+            papp->m_puserinteractionMain->SetWindowPos(NULL, 0, 0, 400, 400, SWP_SHOWWINDOW);
          }
       }*/
 
