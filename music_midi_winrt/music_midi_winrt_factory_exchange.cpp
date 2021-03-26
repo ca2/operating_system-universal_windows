@@ -13,7 +13,7 @@ namespace music
       {
 
 
-         factory_exchange::factory_exchange(::context_object * pcontextobject) :
+         factory_exchange::factory_exchange(::object * pobject) :
             ::object(pobject) //,
             //::multimedia::winrt::factory_exchange(pobject)
          {
@@ -43,7 +43,7 @@ namespace music
 } // namespace music
 
 
-void ca2_factory_exchange(::context_object * pcontextobject)
+void ca2_factory_exchange(::object * pobject)
 {
 
    ::music::midi::winrt::factory_exchange factoryexchange(pobject);

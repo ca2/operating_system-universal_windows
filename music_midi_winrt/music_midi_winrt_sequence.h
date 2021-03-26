@@ -98,7 +98,7 @@ namespace music
             thread      *     m_pthreadPlay;
 
 
-            sequence(::context_object * pcontextobject);
+            sequence(::object * pobject);
             virtual ~sequence();
 
 

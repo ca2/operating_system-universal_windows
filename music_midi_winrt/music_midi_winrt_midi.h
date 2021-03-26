@@ -24,7 +24,7 @@ namespace music
             //uint32_t                      m_uiMidiOutDevice;
 
 
-            midi(::context_object * pcontextobject);
+            midi(::object * pobject);
             virtual ~midi();
 
 
