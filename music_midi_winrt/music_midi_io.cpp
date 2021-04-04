@@ -317,7 +317,7 @@ namespace music
             {
                if (0 == String::CompareOrdinal(_midiInPortArray[index]->DeviceId, portId))
                {
-                  _midiInPortArray.remove_at(index);
+                  _midiInPortArray.erase_at(index);
 
                   return;
                }
@@ -330,7 +330,7 @@ namespace music
             {
                if (0 == String::CompareOrdinal(_midiOutPortArray[index]->DeviceId, portId))
                {
-                  _midiOutPortArray.remove_at(index);
+                  _midiOutPortArray.erase_at(index);
 
                   return;
                }
@@ -470,7 +470,7 @@ namespace music
 
          void message_io::select_out_port(String ^ str)
          {
-            _midiOutPortArray.remove_all();
+            _midiOutPortArray.erase_all();
 
             DeviceInformation^ portToOpen = GetDeviceInformationForOutPort(str);
 
@@ -500,7 +500,7 @@ namespace music
          void message_io::clear_out_ports()
          {
 
-            m_straOut.remove_all();
+            m_straOut.erase_all();
 
          }
 

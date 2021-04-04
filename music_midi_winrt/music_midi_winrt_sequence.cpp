@@ -1608,12 +1608,12 @@ Seq_Open_File_Cleanup:
          //      pLyricEventsV2B->m_dwaNotesData.copy(eventsLevel2Beg.m_dwaEventsData);
          //      pLyricEventsV2C->m_dwaNotesData.copy(eventsLevel2Beg.m_dwaEventsData);
          //      pLyricEventsV2_->m_dwaNotesData.copy(eventsLevel2Beg.m_dwaEventsData);
-         //      midiEvents.remove_all();
-         //      noteOnEvents.remove_all();
-         //      noteOffEvents.remove_all();
-         //      midiEventsLevel2.remove_all();
-         //      eventsLevel2Beg.remove_all();
-         //      eventsLevel2End.remove_all();
+         //      midiEvents.erase_all();
+         //      noteOnEvents.erase_all();
+         //      noteOffEvents.erase_all();
+         //      midiEventsLevel2.erase_all();
+         //      eventsLevel2Beg.erase_all();
+         //      eventsLevel2End.erase_all();
          //      delete pMidiEventsV1;
          //   }
 

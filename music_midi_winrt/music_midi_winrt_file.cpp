@@ -282,7 +282,7 @@ namespace music
 //            m_ptracks->clear();
 //
 //
-//            m_tempomap.remove_all();
+//            m_tempomap.erase_all();
 //
 //
 //            m_bPendingLyric = false;
@@ -292,14 +292,14 @@ namespace music
 //            {
 //               delete m_mepaOnQuarterNote.element_at(i);
 //            }
-//            m_mepaOnQuarterNote.remove_all();
+//            m_mepaOnQuarterNote.erase_all();
 //
 //
 //            for(int32_t i = 0; i < m_mepaImmediate.get_size(); i++)
 //            {
 //               delete m_mepaImmediate.element_at(i);
 //            }
-//            m_mepaImmediate.remove_all();
+//            m_mepaImmediate.erase_all();
 //
 //
 //            m_tkLength              = 0;
@@ -1399,7 +1399,7 @@ namespace music
 //            memFile.read(lpdw, dwLength);
 //            while(0 < m_pendingLyricEventArray.get_size())
 //            {
-//            m_pendingLyricEventArray.remove_at(
+//            m_pendingLyricEventArray.erase_at(
 //            m_pendingLyricEventArray.get_size() - 1);
 //            }
 //            lpmh->dwBytesRecorded += 3*sizeof(uint32_t) + dwRounded;
@@ -1848,7 +1848,7 @@ namespace music
 //                  ::music::midi::event * peventImmediate = m_mepaImmediate.element_at(0);
 //                  *pevent = *peventImmediate;
 //                  delete peventImmediate;
-//                  m_mepaImmediate.remove_at(0);
+//                  m_mepaImmediate.erase_at(0);
 //                  return success;
 //               }
 //               if(m_mepaOnQuarterNote.get_size() > 0)
@@ -1872,7 +1872,7 @@ namespace music
 //                     m_ptracks->m_tkPosition  = tkQuarterNote;
 //                     *pevent = *m_mepaOnQuarterNote.element_at(0);
 //                     delete m_mepaOnQuarterNote.element_at(0);
-//                     m_mepaOnQuarterNote.remove_at(0);
+//                     m_mepaOnQuarterNote.erase_at(0);
 //                     return ::music::success;
 //                  }
 //               }
@@ -2013,7 +2013,7 @@ namespace music
 //            //lpch->dwLength = DWORDSWAP(this->get_size());
 //            lpch->dwLength = DWORDSWAP(sizeof(MIDIFILEHDR));
 //
-//            //   m_ptracks->remove_all();
+//            //   m_ptracks->erase_all();
 //            SetOpened();
 //            return ::music::success;
 //
@@ -2608,7 +2608,7 @@ namespace music
 //         //            tkDelta = tkPositionF1 - tkLastPosition;
 //         //            StreamEventF1(tkDelta, eventptraPositionCB, lpmh, tkMax, cbPrerollNominalMax);
 //         //            tkLastPosition = tkPositionF1;
-//         //            eventptraPositionCB.remove_all();
+//         //            eventptraPositionCB.erase_all();
 //
 //         //            eventptraPositionCB.add(pevent);
 //         //            tkPositionF1   = tkPosition;
@@ -2625,7 +2625,7 @@ namespace music
 //         //               tkDelta = tkPositionF1 - tkLastPosition;
 //         //               StreamEventF1(tkDelta, eventptraPositionCB, lpmh, tkMax, cbPrerollNominalMax);
 //         //               tkDelta = tkPosition - tkPositionF1;
-//         //               eventptraPositionCB.remove_all();
+//         //               eventptraPositionCB.erase_all();
 //         //            }
 //         //            else
 //         //            {
@@ -2719,7 +2719,7 @@ namespace music
 //            event * peventImmediate = m_mepaImmediate.element_at(0);
 //            pevent = peventImmediate;
 //            delete peventImmediate;
-//            m_mepaImmediate.remove_at(0);
+//            m_mepaImmediate.erase_at(0);
 //            return ::music::success;
 //            }
 //            if(m_mepaOnQuarterNote.get_size() > 0)
@@ -2743,7 +2743,7 @@ namespace music
 //            m_ptracks->m_tkPosition  = tkQuarterNote;
 //            pevent = m_mepaOnQuarterNote.element_at(0);
 //            delete m_mepaOnQuarterNote.element_at(0);
-//            m_mepaOnQuarterNote.remove_at(0);
+//            m_mepaOnQuarterNote.erase_at(0);
 //            return ::music::success;
 //            }
 //            }
@@ -3066,7 +3066,7 @@ namespace music
 //            }
 //            else
 //            {
-//               m_iaMuteTrack.remove(iIndex);
+//               m_iaMuteTrack.erase(iIndex);
 //            }
 //         }
 //
@@ -3196,7 +3196,7 @@ namespace music
 //
 //            while(tracka.GetTrackCount() > 1)
 //            {
-//               tracka.remove_at(1);
+//               tracka.erase_at(1);
 //            }
 //
 //
