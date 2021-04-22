@@ -26,7 +26,7 @@ public:
 
 
    e_message                  m_emessage;
-   HANDLE                     m_hmutexSpabootInstall;
+   HANDLE                     m_hmutexInstallerInstall;
    small_ipc_rx_channel       m_rxchannel;
    
    char *                     m_modpath;
@@ -44,13 +44,13 @@ public:
 
    bool is_user_using(const char * pszDll);
 
-   ATOM spaboot_message_register_class(HINSTANCE hInstance);
+   ATOM installer_message_register_class(HINSTANCE hInstance);
 
    int cube_run(const char * id);
 
    void call_self_privileged_sync(const char * param);
 
-   int spaboot_registry_register(const char * lpszFile);
+   int installer_registry_register(const char * lpszFile);
 
    void call_sync(const char * path, const char * param);
 
@@ -82,7 +82,7 @@ installer::installer()
 {
 
    m_hinstance             = ::GetModuleHandleA(NULL);
-   m_hmutexSpabootInstall  = NULL;
+   m_hmutexInstallerInstall  = NULL;
    e_message m_emessage    = message_none;
    m_modpath               = NULL;
    m_pszDllEnds            = NULL;
@@ -100,7 +100,7 @@ installer::~installer()
 bool installer::initialize()
 {
 
-   m_hmutexSpabootInstall = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ccvotagus_ca2_spaboot_install::7807e510-5579-11dd-ae16-0800200c7784");
+   m_hmutexInstallerInstall = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ca2_installer_install::7807e510-5579-11dd-ae16-0800200c7784");
    if(::GetLastError() == ERROR_ALREADY_EXISTS)
    {
       m_iError = -202;
@@ -122,7 +122,7 @@ bool installer::initialize()
 
    prepare_small_bell();
 
-   if(!m_rxchannel.create("ca2/fontopus/ccvotagus/spaboot_install", "app-install.exe"))
+   if(!m_rxchannel.create("ca2/fontopus/installer_install", "app-install.exe"))
    {
       m_iError = -1;
       return false;

@@ -1,4 +1,4 @@
-#include "spaboot_install.h"
+#include "installer_install.h"
 
 HWND g_hwndMessage = NULL;
 MSG g_msg;
@@ -14,10 +14,10 @@ extern "C" int WinMainCRTStartup()
 
    int iRet = 0;
 
-   if(!spaboot_install_register_window_class(::GetModuleHandle(NULL)))
+   if(!installer_install_register_window_class(::GetModuleHandle(NULL)))
       return -1;
 
-   g_hwndMessage = ::CreateWindowExA(0, "TeDigoSó", "ca2::fontopus::ccvotagus::spaboot_install:callback_window", 0, 0, 0, 0, 0, HWND_MESSAGE, NULL, NULL, NULL);
+   g_hwndMessage = ::CreateWindowExA(0, "TeDigoSï¿½", "ca2::fontopus::installer_install:callback_window", 0, 0, 0, 0, 0, HWND_MESSAGE, NULL, NULL, NULL);
 
    DWORD dw = GetLastError();
    if(g_hwndMessage == NULL)
@@ -38,11 +38,11 @@ extern "C" int WinMainCRTStartup()
 
 
 
-void spaboot_install_command(HWND hwnd, const char * psz)
+void installer_install_command(HWND hwnd, const char * psz)
 {
-   if(stricmp_dup(psz, "install_spaboot") == 0)
+   if(stricmp_dup(psz, "install_installer") == 0)
    {
-      install_spaboot();
+      install_installer();
    }
    else if(stricmp_dup(psz, "install_npca2plugin") == 0)
    {

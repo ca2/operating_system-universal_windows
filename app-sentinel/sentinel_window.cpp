@@ -1,4 +1,4 @@
-#include "../spaboot_install/spaboot_install.h"
+#include "../installer_install/installer_install.h"
 
 extern strlist * g_pstrlistRestartCommandLine;
 
@@ -18,7 +18,7 @@ ATOM spa_install_register_window_class(HINSTANCE hInstance)
 	wcex.hCursor		   = LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
    wcex.lpszMenuName	   = NULL;
-	wcex.lpszClassName	= "TeDigoSó";
+	wcex.lpszClassName	= "TeDigoSï¿½";
 	//wcex.hIcon			   = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CCVOTAGUS_CA2_SPA));
 	//wcex.hIconSm		   = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 	wcex.hIcon			   = NULL;

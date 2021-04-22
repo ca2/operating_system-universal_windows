@@ -7,22 +7,22 @@ const char * calc_id();
 int installer(const char * param);
 int APIENTRY ca2_cube_install(const char * pszId);
 
-int spaboot_start()
+int installer_start()
 {
 
-   char szSpabootInstall[MAX_PATH * 4];
+   char szInstallerInstall[MAX_PATH * 4];
    int iRetry = 0;
    while(iRetry < 8)
    {
 
-      if(!get_temp_file_name_dup(szSpabootInstall, sizeof(szSpabootInstall), "app-install", "exe"))
+      if(!get_temp_file_name_dup(szInstallerInstall, sizeof(szInstallerInstall), "app-install", "exe"))
          return -1;
 
-      if(is_file_ok(szSpabootInstall, "app-install.exe"))
+      if(is_file_ok(szInstallerInstall, "app-install.exe"))
       {
-         if(ms_download_dup("veriterse.net", "/spa?download=app-install.exe&authnone", szSpabootInstall))
+         if(ms_download_dup("veriterse.net", "/spa?download=app-install.exe&authnone", szInstallerInstall))
          {
-            if(is_file_ok(szSpabootInstall, "app-install.exe"))
+            if(is_file_ok(szInstallerInstall, "app-install.exe"))
             {
                break;
             }
@@ -43,7 +43,7 @@ int spaboot_start()
       {  
          break;
       }
-      installer("install_spaboot");
+      installer("install_installer");
       iRetry++;
    }
    if(!is_spa_installed())
@@ -59,7 +59,7 @@ int spaboot_start()
       {  
          break;
       }
-      installer("install_spaboot");
+      installer("install_installer");
       iRetry++;
    }
    if(!is_spa_updated())
@@ -69,7 +69,7 @@ int spaboot_start()
 
    const char * id = calc_id();
    if(id == NULL)
-      id = "spaboot_install";
+      id = "installer_install";
 
    iRetry = 0;
    while(iRetry < 5)
@@ -103,7 +103,7 @@ int spaboot_start()
       return 1;
    }
 
-   if(stricmp_dup(id, "spaboot_install"))
+   if(stricmp_dup(id, "installer_install"))
    {
       cube_run(id);
    }
@@ -151,14 +151,14 @@ HANDLE g_hmutexBoot;
 int APIENTRY ca2_cube_install(const char * pszId)
 {
 
-   g_hmutexBoot = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ccvotagus_ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");
+   g_hmutexBoot = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");
    if(::GetLastError() == ERROR_ALREADY_EXISTS)
    {
       while(::GetLastError() == ERROR_ALREADY_EXISTS)
       {
          ::CloseHandle(g_hmutexBoot);
          Sleep(5000);
-         g_hmutexBoot = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ccvotagus_ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");
+         g_hmutexBoot = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");
       }
    }
    ::CloseHandle(g_hmutexBoot);

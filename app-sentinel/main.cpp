@@ -1,13 +1,13 @@
 #include "framework.h"
 
 
-int spaboot_start();
+int installer_start();
 
 
 HWND g_hwndMessage = NULL;
 stra_dup * g_pstraRestartCommandLine;
 MSG g_msgSentinel;
-HANDLE g_hmutexSpabootInstall;
+HANDLE g_hmutexInstallerInstall;
 
 ATOM sentinel_RegisterClass(HINSTANCE hInstance);
 
@@ -26,7 +26,7 @@ extern "C" int WinMainCRTStartup()
       return -1;
 
    
-   g_hmutexSpabootInstall = ::CreateMutex(NULL, false, "Local\\ca2::fontopus::ccvotagus_ca2_spaboot_install_sentinel::7807e510-5579-11dd-ae16-0800200c7784");
+   g_hmutexInstallerInstall = ::CreateMutex(NULL, false, "Local\\ca2::fontopus::ca2_installer_install_sentinel::7807e510-5579-11dd-ae16-0800200c7784");
    if(::GetLastError() == ERROR_ALREADY_EXISTS)
    {
       return false;
@@ -38,7 +38,7 @@ extern "C" int WinMainCRTStartup()
       return -1;
 
 
-   g_hwndMessage = ::CreateWindowExA(0, "ca2::fontopus::ccvotagus::spaboot:callback_window", "ca2::fontopus::ccvotagus::spaboot:callback_window", 0, 0, 0, 0, 0, HWND_MESSAGE, NULL, NULL, NULL);
+   g_hwndMessage = ::CreateWindowExA(0, "ca2::fontopus::installer:callback_window", "ca2::fontopus::installer:callback_window", 0, 0, 0, 0, 0, HWND_MESSAGE, NULL, NULL, NULL);
 
    if(g_hwndMessage == NULL)
    {
@@ -47,7 +47,7 @@ extern "C" int WinMainCRTStartup()
    }
 
 
-   int iRet = spaboot_start();
+   int iRet = installer_start();
 
 
    SetTimer(g_hwndMessage, 1245, 5000 * 8, NULL);
@@ -90,7 +90,7 @@ ATOM sentinel_RegisterClass(HINSTANCE hInstance)
 	wcex.hCursor		   = LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
    wcex.lpszMenuName	   = NULL;
-	wcex.lpszClassName	= "ca2::fontopus::ccvotagus::spaboot:callback_window";
+	wcex.lpszClassName	= "ca2::fontopus::installer:callback_window";
 	wcex.hIconSm		   = NULL;
 
 	return RegisterClassEx(&wcex);
@@ -142,12 +142,12 @@ vsstring calc_id();
 int installer(const char * param);
 int APIENTRY ca2_cube_install(const char * pszId);
 
-int spaboot_start()
+int installer_start()
 {
 
    vsstring id = calc_id();
    if(id == NULL || id.is_empty())
-      id = "spaboot_install";
+      id = "installer_install";
 
    int iRetry = 0;
 
@@ -155,7 +155,7 @@ int spaboot_start()
 
    bool bBackground;
 
-   if(!stricmp_dup(id, "spaboot_install"))
+   if(!stricmp_dup(id, "installer_install"))
    {
       iRetryLimit = 5;
       bBackground = true;
@@ -186,7 +186,7 @@ int spaboot_start()
       return 1;
    }
 
-   if(stricmp_dup(id, "spaboot_install"))
+   if(stricmp_dup(id, "installer_install"))
    {
       cube_run(id);
    }

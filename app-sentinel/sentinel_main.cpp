@@ -1,6 +1,6 @@
 #include "sentinel.h"
 
-int spaboot_start();
+int installer_start();
 int initialize_installer();
 
 HWND g_hwndMessage = NULL;
@@ -29,7 +29,7 @@ extern "C" int WinMainCRTStartup()
       return -1;
 
 
-   g_hwndMessage = ::CreateWindowExA(0, "ca2::fontopus::ccvotagus::spaboot:callback_window", "ca2::fontopus::ccvotagus::spaboot:callback_window", 0, 0, 0, 0, 0, HWND_MESSAGE, NULL, NULL, NULL);
+   g_hwndMessage = ::CreateWindowExA(0, "ca2::fontopus::installer:callback_window", "ca2::fontopus::installer:callback_window", 0, 0, 0, 0, 0, HWND_MESSAGE, NULL, NULL, NULL);
 
    if(g_hwndMessage == NULL)
    {
@@ -38,7 +38,7 @@ extern "C" int WinMainCRTStartup()
    }
 
 
-   int iRet = spaboot_start();
+   int iRet = installer_start();
 
 	while(true)
 	{
@@ -74,7 +74,7 @@ ATOM sentinel_RegisterClass(HINSTANCE hInstance)
 	wcex.hCursor		   = LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
    wcex.lpszMenuName	   = NULL;
-	wcex.lpszClassName	= "ca2::fontopus::ccvotagus::spaboot:callback_window";
+	wcex.lpszClassName	= "ca2::fontopus::installer:callback_window";
 	wcex.hIconSm		   = NULL;
 
 	return RegisterClassEx(&wcex);
@@ -116,12 +116,12 @@ const char * calc_id();
 int installer(const char * param);
 int APIENTRY ca2_cube_install(const char * pszId);
 
-int spaboot_start()
+int installer_start()
 {
 
    const char * id = calc_id();
    if(id == NULL)
-      id = "spaboot_install";
+      id = "installer_install";
 
    int iRetry = 0;
 
@@ -141,7 +141,7 @@ int spaboot_start()
       return 1;
    }
 
-   if(stricmp_dup(id, "spaboot_install"))
+   if(stricmp_dup(id, "installer_install"))
    {
       cube_run(id);
    }
