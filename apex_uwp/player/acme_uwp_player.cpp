@@ -24,7 +24,7 @@ namespace music
             {
 
 
-               m_puie               = NULL;
+               m_puserinteraction               = NULL;
 
             }
 
@@ -300,7 +300,7 @@ namespace music
                if(pusermessage->m_wparam == 3377)
                {
 
-                  m_puie->send_message(WM_USER, pusermessage->m_wparam, pusermessage->m_lparam);
+                  m_puserinteraction->send_message(WM_USER, pusermessage->m_wparam, pusermessage->m_lparam);
 
                }
 
@@ -394,7 +394,7 @@ namespace music
             void player::PostNotifyEvent(::music::midi::player::e_notify_event eevent)
             {
 
-               if(m_puie != NULL)
+               if(m_puserinteraction != NULL)
                {
 
                   sp(::music::midi::player::notify_event) pdata(canew(::music::midi::player::notify_event));
@@ -403,7 +403,7 @@ namespace music
 
                   pdata->m_enotifyevent = eevent;
 
-                  m_puie->post_object(::music::midi::player::message_notify_event, 0, pdata);
+                  m_puserinteraction->post_object(::music::midi::player::message_notify_event, 0, pdata);
 
                }
 
@@ -412,9 +412,9 @@ namespace music
 
             //void player::SendMmsgDone(::music::midi::sequence *pSeq, ::music::midi::LPMIDIDONEDATA lpmdd)
             //{
-            //   if(m_puie != NULL)
+            //   if(m_puserinteraction != NULL)
             //   {
-            //      m_puie->post_message(MMSG_DONE, (WPARAM) pSeq, (LPARAM) lpmdd);
+            //      m_puserinteraction->post_message(MMSG_DONE, (WPARAM) pSeq, (LPARAM) lpmdd);
             //   }
 
             //}
@@ -427,7 +427,7 @@ namespace music
 
             void player::SetCallbackWindow(sp(::user::interaction) puie)
             {
-               m_puie = puie;
+               m_puserinteraction = puie;
             }
 
 
@@ -512,10 +512,10 @@ namespace music
 
                pdata->m_pplayer = this;
 
-               if(m_puie != NULL)
+               if(m_puserinteraction != NULL)
                {
 
-                  m_puie->post_object(::music::midi::player::message_notify_event, 0, pdata);
+                  m_puserinteraction->post_object(::music::midi::player::message_notify_event, 0, pdata);
 
                }
 
