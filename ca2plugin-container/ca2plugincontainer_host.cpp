@@ -124,7 +124,7 @@ namespace ca2plugin_container
       
       ::KillTimer(m_hwndMessage, (uint_ptr) this);
 
-      finalize();
+      destroy();
 
       m_hwnd = NULL;
 
@@ -259,12 +259,12 @@ namespace ca2plugin_container
 
    }
 
-   bool host::finalize()
+   bool host::destroy()
    {
       
       ::KillTimer(m_hwndMessage, (uint_ptr) this);
 
-      return ::hotplugin::host::finalize();
+      return ::hotplugin::host::destroy();
 
    }
 

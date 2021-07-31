@@ -24,7 +24,7 @@ namespace ca2plugin_container
 
       virtual bool initialize(const char * pszChannel);
 
-      virtual bool finalize();
+      virtual bool destroy();
 
 
       virtual int run();

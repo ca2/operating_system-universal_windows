@@ -45,7 +45,7 @@ namespace ca2plugin_container
 
       void on_paint(HDC hdcWindow, LPCRECT lprect);
 
-      bool finalize();
+      bool destroy();
 
 
 

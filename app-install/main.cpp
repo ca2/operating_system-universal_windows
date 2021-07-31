@@ -64,7 +64,7 @@ public:
 
    virtual bool initialize();
 
-   virtual bool finalize();
+   virtual bool destroy();
 
 };
 
@@ -315,10 +315,10 @@ bool installer::are_there_user_files_in_use()
 }
 
 
-bool installer::finalize()
+bool installer::destroy()
 {
 
-   simple_app::finalize();
+   simple_app::destroy();
 
    ca2_free(m_hmodulea);
    ca2_free(m_dwaProcess);
