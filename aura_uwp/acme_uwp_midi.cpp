@@ -280,7 +280,7 @@ namespace music
          //}
 
 
-         //::multimedia::e_result midi::translate_os_result(string & strMessage, string & strOsMessage, ::music::midi::object * pobject, int64_t iOsResult, const string & strContext, const string & strText)
+         //::multimedia::e_result midi::translate_os_result(string & strMessage, string & strOsMessage, ::music::midi::object * pobject, int64_t iOsResult, const ::string & strContext, const ::string & strText)
          //{
 
          //   ::multimedia::e_result mmrc = translate_mmr((MMRESULT)iOsResult, strMessage, strOsMessage);

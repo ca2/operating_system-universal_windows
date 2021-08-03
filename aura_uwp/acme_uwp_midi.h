@@ -51,7 +51,7 @@ namespace music
             //void mmsystem_GetMidiOutDeviceInterface(UINT_PTR i);
 
             //using ::music::midi::midi::translate_os_result;
-            //virtual ::multimedia::e_result translate_os_result(string & strMessage, string & strOsMessage, ::music::midi::object * pobject, int64_t iOsResult, const string & strContext, const string & strText);
+            //virtual ::multimedia::e_result translate_os_result(string & strMessage, string & strOsMessage, ::music::midi::object * pobject, int64_t iOsResult, const ::string & strContext, const ::string & strText);
 
 
          };
