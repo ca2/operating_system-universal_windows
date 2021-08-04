@@ -131,7 +131,7 @@ namespace ca2plugin_container
    }
 
 
-   bool host::open_url(const char * pszUrl)
+   bool host::open_url(const ::string & pszUrl)
    {
 
       ensure_tx(::hotplugin::message_open_url, (void *) pszUrl, strlen(pszUrl));
@@ -275,10 +275,10 @@ namespace ca2plugin_container
       switch (variable)
       {
       case NPPVpluginNameString:
-         *((const char **)value) = m_vssPluginName;
+         *((const ::string &*)value) = m_vssPluginName;
          break;
       case NPPVpluginDescriptionString:
-         *((const char **)value) = m_vssPluginDescription;
+         *((const ::string &*)value) = m_vssPluginDescription;
          break;
       case NPPVpluginScriptableNPObject:
          *(NPObject **)value = getScriptableObject();
@@ -486,7 +486,7 @@ namespace ca2plugin_container
                   m_bStream = true;
 
 
-               vsstring str((const char *) m_puchMemory, len);
+               vsstring str((const ::string &) m_puchMemory, len);
 
                // debug_box(str, "ca2plugincontainer::host::on_receive", 0);
 

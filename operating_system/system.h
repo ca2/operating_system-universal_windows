@@ -482,9 +482,9 @@ __INLINE HWND GetNextWindow(HWND hWnd,UINT nDirection)
 
 
 
-//CLASS_DECL_AURA Platform::String ^ rtstr(const char * psz);
+//CLASS_DECL_AURA Platform::String ^ rtstr(const ::string & psz);
 //CLASS_DECL_AURA Platform::String ^ itoa_dup(int i);
-//CLASS_DECL_AURA int MessageBox(oswindow window,const char * pszMessage,const char * pszTitle,int iFlags);
+//CLASS_DECL_AURA int MessageBox(oswindow window, const ::string & pszMessage, const ::string & pszTitle,int iFlags);
 
 
 

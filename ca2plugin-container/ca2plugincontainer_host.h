@@ -36,7 +36,7 @@ namespace ca2plugin_container
       void shut();
 
       // host
-      virtual bool      open_url(const char * pszUrl);
+      virtual bool      open_url(const ::string & pszUrl);
       virtual bool      reload_plugin();
 
 

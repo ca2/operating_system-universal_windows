@@ -42,25 +42,25 @@ public:
    
    void install_defer_file_transfer();
 
-   bool is_user_using(const char * pszDll);
+   bool is_user_using(const ::string & pszDll);
 
    ATOM installer_message_register_class(HINSTANCE hInstance);
 
-   int cube_run(const char * id);
+   int cube_run(const ::string & id);
 
-   void call_self_privileged_sync(const char * param);
+   void call_self_privileged_sync(const ::string & param);
 
-   int installer_registry_register(const char * lpszFile);
+   int installer_registry_register(const ::string & lpszFile);
 
-   void call_sync(const char * path, const char * param);
+   void call_sync(const ::string & path, const ::string & param);
 
-   void installer_call_sync(const char * path, const char * param);
+   void installer_call_sync(const ::string & path, const ::string & param);
 
    bool are_there_user_files_in_use();
 
-   bool is_user_using(DWORD processid, const char * pszDll);
+   bool is_user_using(DWORD processid, const ::string & pszDll);
 
-   virtual void on_receive(small_ipc_rx_channel * prxchannel, const char * pszMessage);
+   virtual void on_receive(small_ipc_rx_channel * prxchannel, const ::string & pszMessage);
 
    virtual bool initialize();
 
@@ -145,11 +145,11 @@ void installer::install_defer_file_transfer()
 }
 
 
-typedef int (__cdecl * PFN_SPAADMIN_MAIN)(const char * pszCommandLine);
+typedef int (__cdecl * PFN_SPAADMIN_MAIN)(const ::string & pszCommandLine);
 
 
 // non-thread safe
-bool installer::is_user_using(DWORD processid, const char * pszDll)
+bool installer::is_user_using(DWORD processid, const ::string & pszDll)
 {
 
    HANDLE hModuleSnap = INVALID_HANDLE_VALUE;
@@ -190,7 +190,7 @@ bool installer::is_user_using(DWORD processid, const char * pszDll)
 }
 
 // non-thread safe
-bool installer::is_user_using(const char * pszDll)
+bool installer::is_user_using(const ::string & pszDll)
 {
    HANDLE hProcessSnap;
    PROCESSENTRY32 pe32;
@@ -226,7 +226,7 @@ bool installer::is_user_using(const char * pszDll)
 
 }
 
-void installer::on_receive(small_ipc_rx_channel * prxchannel, const char * pszMessage)
+void installer::on_receive(small_ipc_rx_channel * prxchannel, const ::string & pszMessage)
 {
    vsstring strMessage(pszMessage);
    int iRet = 0;

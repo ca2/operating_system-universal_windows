@@ -38,8 +38,8 @@ namespace music
             //bool Initialize();
 
 
-            //bool IsSoftKaraokeFile(const char * lpszPathName);
-            //bool IsXFFile(const char * lpcszPathName);
+            //bool IsSoftKaraokeFile(const ::string & lpszPathName);
+            //bool IsXFFile(const ::string & lpcszPathName);
 
 
             //virtual bool veriwell_multimedia_music_midi_factory_exchange(::factory_map * pfactorymap);

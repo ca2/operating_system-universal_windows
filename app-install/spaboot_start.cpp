@@ -4,8 +4,8 @@
 const char * calc_id();
 
 
-int installer(const char * param);
-int APIENTRY ca2_cube_install(const char * pszId);
+int installer(const ::string & param);
+int APIENTRY ca2_cube_install(const ::string & pszId);
 
 int installer_start()
 {
@@ -128,7 +128,7 @@ const char * calc_id()
 
 
 
-int installer(const char * param)
+int installer(const ::string & param)
 {
    char szModulePath[MAX_PATH * 3];
    ::GetModuleFileNameA((HINSTANCE) ::GetModuleHandleA("npca2.dll"), szModulePath, sizeof(szModulePath));
@@ -148,7 +148,7 @@ int installer(const char * param)
 HANDLE g_hmutexBoot;
 
 
-int APIENTRY ca2_cube_install(const char * pszId)
+int APIENTRY ca2_cube_install(const ::string & pszId)
 {
 
    g_hmutexBoot = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");

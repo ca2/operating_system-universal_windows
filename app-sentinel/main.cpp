@@ -108,7 +108,7 @@ LRESULT CALLBACK sentinel_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
          {
             g_pstraRestartCommandLine = new stra_dup;
             char * str = (char *) ca2_alloc(pcds->cbData + 1);
-            strncpy_dup(str, (const char *) pcds->lpData, pcds->cbData);
+            strncpy_dup(str, (const ::string &) pcds->lpData, pcds->cbData);
             str[pcds->cbData] = '\0';
             g_pstraRestartCommandLine->decode_v16(str);
             ca2_free(str);
@@ -139,8 +139,8 @@ LRESULT CALLBACK sentinel_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 vsstring calc_id();
 
 
-int installer(const char * param);
-int APIENTRY ca2_cube_install(const char * pszId);
+int installer(const ::string & param);
+int APIENTRY ca2_cube_install(const ::string & pszId);
 
 int installer_start()
 {

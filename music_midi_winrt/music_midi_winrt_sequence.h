@@ -154,14 +154,14 @@ namespace music
 
             VOID FreeBuffers();
 
-            //::multimedia::e_result OpenFile(const char * lpFileName, int32_t openMode);
+            //::multimedia::e_result OpenFile(const ::string & lpFileName, int32_t openMode);
             e_result OpenFile(::music::midi::sequence & sequence, int32_t iOpenMode);
             e_result OpenFile(::file::file & ar, int32_t openMode);
-            e_result OpenFile(const char * lpFileName, int32_t openMode);
+            e_result OpenFile(const ::string & lpFileName, int32_t openMode);
             e_result OpenFile(memory * pmemorystorage, int32_t openMode, ::music::e_storage estorage);
 
             e_result CloseFile();
-            e_result SaveFile(const char * lpFileName);
+            e_result SaveFile(const ::string & lpFileName);
             e_result SaveFile();
             e_result SaveFile(::file::file_sp &ar);
 

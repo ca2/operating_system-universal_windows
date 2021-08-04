@@ -218,7 +218,7 @@ Seq_Open_File_Cleanup:
          }
 
 
-         e_result sequence::OpenFile(const char * lpFileName, int32_t openMode)
+         e_result sequence::OpenFile(const ::string & lpFileName, int32_t openMode)
          {
 
             ::file::file_sp file;
@@ -1062,7 +1062,7 @@ Seq_Open_File_Cleanup:
          }
 
 
-         e_result sequence::SaveFile(const char * lpFileName)
+         e_result sequence::SaveFile(const ::string & lpFileName)
          {
 
             return file()->SaveFile(lpFileName);

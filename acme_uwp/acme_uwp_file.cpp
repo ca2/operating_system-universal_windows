@@ -881,7 +881,7 @@ namespace music
 //            lpmh->dwBytesRecorded += 3*sizeof(uint32_t);*/
 //            //m_cbPendingUserEvent = ((uint32_t)MEVT_SHORTMSG )<<24;
 //            //         str = (char *) malloc(pEvent->cbParm + 1);
-//            //         strncpy(str, (const char *) pEvent->hpbParm,  pEvent->cbParm);
+//            //         strncpy(str, (const ::string &) pEvent->hpbParm,  pEvent->cbParm);
 //            //         str[pEvent->cbParm] = 0;
 //            //         printf("%s", str);
 //
@@ -2050,7 +2050,7 @@ namespace music
 //               m_pFileHeader->wFormat);
 //         }*/
 //
-//         e_result buffer::SaveFile(const char * lpcFilePath)
+//         e_result buffer::SaveFile(const ::string & lpcFilePath)
 //         {
 //            //HMMIO                   hmmio = (HMMIO)NULL;
 //            ////    e_result               smfrc = ::music::success;

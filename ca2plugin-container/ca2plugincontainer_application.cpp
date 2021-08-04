@@ -14,7 +14,7 @@ namespace ca2plugin_container
    {
    }
 
-   bool application::initialize(const char * pszChannel)
+   bool application::initialize(const ::string & pszChannel)
    {
 
       //Sleep(15 * 1000);
@@ -46,7 +46,7 @@ namespace ca2plugin_container
 
 
 
-   void application::on_receive(small_ipc_rx_channel * prxchannel, const char * pszMessage)
+   void application::on_receive(small_ipc_rx_channel * prxchannel, const ::string & pszMessage)
    {
 
       UNREFERENCED_PARAMETER(pszMessage);
