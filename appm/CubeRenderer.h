@@ -9,7 +9,7 @@
 struct ModelViewProjectionConstantBuffer
 {
     DirectX::XMMATRIX model;
-    DirectX::XMMATRIX view;
+    DirectX::XMMATRIX impact;
     DirectX::XMMATRIX projection;
 };
 

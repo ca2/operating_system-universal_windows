@@ -154,7 +154,7 @@ void CubeRenderer::Update(float timeTotal, float timeDelta)
     XMVECTOR at = XMVectorSet(0.0f, -0.1f, 0.0f, 0.0f);
     XMVECTOR up = XMVectorSet(0.0f, 1.0f, 0.0f, 0.0f);
 
-    m_constantBufferData.view = XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up));
+    m_constantBufferData.impact = XMMatrixTranspose(XMMatrixLookAtRH(eye, at, up));
     m_constantBufferData.model = XMMatrixTranspose(XMMatrixRotationY(timeTotal * XM_PIDIV4));
 }
 
