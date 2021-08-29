@@ -90,12 +90,15 @@
 
 
 
+
+
 #ifdef __cplusplus
 
 #define LOG_THIS_TAG (typeid(*this).name())
 #define LOG_MEMBER_PREFIX __FUNCTION__
 
 #define ALOG_FUNCTION __FUNCTION__
+#define ALOG_FILE __FILE__
 #define ALOG_LINE __LINE__
 
 #endif

@@ -12,4 +12,4 @@
 #define ZORDER_NOTOPMOST (-2)
 
 
-typedef BOOL int_bool;
+//typedef BOOL int_bool;

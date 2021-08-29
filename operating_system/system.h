@@ -1,22 +1,22 @@
 ﻿#pragma once
 
 
-#ifdef __cplusplus
-
-class _UWP_todo { public: _UWP_todo() {}  ~_UWP_todo() {} };
-
-#endif
+//#ifdef __cplusplus
+//
+//class _UWP_todo { public: _UWP_todo() {}  ~_UWP_todo() {} };
+//
+//#endif
 
 //#undef new
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.Foundation.Collections.h>
-using namespace winrt;
+//#include <winrt/Windows.Foundation.h>
+//#include <winrt/Windows.Foundation.Collections.h>
+//using namespace winrt;
 //#define new ACME_NEW
 
 
-#ifdef __cplusplus
-#pragma pointers_to_members( full_generality, virtual_inheritance )
-#endif
+//#ifdef __cplusplus
+//#pragma pointers_to_members( full_generality, virtual_inheritance )
+//#endif
 
 
 
@@ -75,10 +75,12 @@ using namespace winrt;
 #error WINDOWS.H already included.  MFC apps must not #include <windows.h>
 #endif
 
-#include "platform_windows.h"
+//#include "platform_windows.h"
 
-#include "oswindow.h"
+//#include "oswindow.h"
 
+
+#define DEBUG_BREAK __debugbreak()
 
 
 #if defined(__cplusplus_winrt)
@@ -126,22 +128,20 @@ namespace dx
 #endif // #if defined(__cplusplus_winrt)
 
 
-#pragma warning(pop)
+//#pragma warning(pop)
 
 // Mouse message MFC is interested in
 #ifndef __WM_MOUSELAST
 #define __WM_MOUSELAST 0x0209
 #endif
 
-//#include <zmouse.h>
-
-#include <Combaseapi.h>
+//#include <Combaseapi.h>
 
 struct HKEY__;
 typedef struct HKEY__ *HKEY;
 
 #ifndef _INC_COMMCTRL
-#include <commctrl.h>
+//#include <commctrl.h>
 
 // Note: We must avoid using TB_ADDBUTTONW and TB_INSERTBUTTONW
 //       in the Unicode build or else MFC80U.DLL will not be
@@ -161,6 +161,15 @@ typedef struct HKEY__ *HKEY;
 #define EXPORT
 #endif
 
+
+
+#include <stdio.h>
+#include <memory.h>
+#include <string.h>
+#include <wchar.h>
+#include <ctype.h>
+#include <stdarg.h>
+
 #ifndef _INC_TCHAR
 #include <tchar.h>      // used for ANSI v.s. UNICODE abstraction
 #endif
@@ -171,6 +180,16 @@ typedef struct HKEY__ *HKEY;
 #ifndef _INC_MBSTRING
 #include <mbstring.h>
 #endif
+#endif
+
+
+
+#ifdef __cplusplus
+
+#include <typeinfo>
+
+typedef std::type_info std_type_info;
+
 #endif
 
 #ifdef _WIN64
@@ -205,7 +224,7 @@ __INLINE HWND GetNextWindow(HWND hWnd,UINT nDirection)
 #endif
 #endif
 
-#include <ws2tcpip.h>
+//#include <ws2tcpip.h>
 //#include <tpipv6.h>  // For IPv6 Tech Preview.
 
 
@@ -222,10 +241,10 @@ __INLINE HWND GetNextWindow(HWND hWnd,UINT nDirection)
 
 
 
-// Include any non-Intel platform specific items
-#ifndef X86
-#include "version_cpu.h"
-#endif
+//// Include any non-Intel platform specific items
+//#ifndef X86
+//#include "version_cpu.h"
+//#endif
 
 #ifdef X86
 #define ___MINREBUILD
@@ -235,6 +254,8 @@ __INLINE HWND GetNextWindow(HWND hWnd,UINT nDirection)
 // Put any custom configuration items in afxv_cfg.h
 #include <afxv_cfg.h>
 #endif
+
+#include "platform_cpu.h"
 
 // setup default packing value
 #ifndef ___PACKING
@@ -425,7 +446,7 @@ __INLINE HWND GetNextWindow(HWND hWnd,UINT nDirection)
 
 
 
-#include "version_cpu.h"
+//#include "version_cpu.h"
 
 
 
