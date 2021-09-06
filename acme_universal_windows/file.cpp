@@ -585,115 +585,17 @@ pacmedir->create(lpszFileName.folder());
 
    void file::dump(dump_context & dumpcontext) const
    {
+
       ::file::file::dump(dumpcontext);
 
-      dumpcontext << "with handle " << (::u32)m_hfile;
+      dumpcontext << "with handle " << (::uptr) m_hfile;
       dumpcontext << " and name \"" << m_path << "\"";
       dumpcontext << "\n";
+
    }
 
 
-
-   // IMPLEMENT_DYNAMIC(file, ::matter)
-
-//   /////////////////////////////////////////////////////////////////////////////
-//
-//#define _wcsdec(_cpc1, _cpc2) ((_cpc1)>=(_cpc2) ? nullptr : (_cpc2)-1)
-//
-//#define _wcsinc(_pc)    ((_pc)+1)
-//
-//   void CLASS_DECL_ACME vfxGetRoot(wstring & wstrRoot, const wstring & wstrPath)
-//   {
-//      //   ASSERT(lpszPath != nullptr);
-//      // determine the root name of the volume
-//      wstrRoot = wstrPath;
-//      unichar * lpszRoot = wstrRoot;
-//      unichar * lpsz;
-//      for (lpsz = lpszRoot; *lpsz != L'\0'; lpsz = _wcsinc(lpsz))
-//      {
-//         // find first double slash and stop
-//         if (IsDirSep(lpsz[0]) && IsDirSep(lpsz[1]))
-//            break;
-//      }
-//      if (*lpsz != '\0')
-//      {
-//         // it is a UNC name, find second slash past '\\'
-//         ASSERT(IsDirSep(lpsz[0]));
-//         ASSERT(IsDirSep(lpsz[1]));
-//         lpsz += 2;
-//         while (*lpsz != '\0' && (!IsDirSep(*lpsz)))
-//            lpsz = _wcsinc(lpsz);
-//         if (*lpsz != '\0')
-//            lpsz = _wcsinc(lpsz);
-//         while (*lpsz != '\0' && (!IsDirSep(*lpsz)))
-//            lpsz = _wcsinc(lpsz);
-//         // terminate it just after the UNC root (ie. '\\server\share\')
-//         if (*lpsz != '\0')
-//            lpsz[1] = '\0';
-//      }
-//      else
-//      {
-//         // not a UNC, look for just the first slash
-//         lpsz = lpszRoot;
-//         while (*lpsz != '\0' && (!IsDirSep(*lpsz)))
-//            lpsz = _wcsinc(lpsz);
-//         // terminate it just after root (ie. 'x:\')
-//         if (*lpsz != '\0')
-//            lpsz[1] = '\0';
-//      }
-//      wstrRoot.release_string_buffer();
-//   }
-//
-
-   //void CLASS_DECL_ACME vfxGetRoot(const unichar * lpszPath, string& strRoot)
-   //{
-   //   ASSERT(lpszPath != nullptr);
-   //   wstring wstrRoot;
-   //   // determine the root name of the volume
-   //   unichar * lpszRoot = wstrRoot.get_string_buffer(_MAX_PATH * 4);
-   //   __memset(lpszRoot, 0, _MAX_PATH * 4);
-   //   wcsncpy(lpszRoot, lpszPath, _MAX_PATH * 4);
-   //   unichar * lpsz;
-   //   for (lpsz = lpszRoot; *lpsz != '\0'; lpsz = _wcsinc(lpsz))
-   //   {
-   //      // find first double slash and stop
-   //      if (IsDirSep(lpsz[0]) && IsDirSep(lpsz[1]))
-   //         break;
-   //   }
-   //   if (*lpsz != '\0')
-   //   {
-   //      // it is a UNC name, find second slash past '\\'
-   //      ASSERT(IsDirSep(lpsz[0]));
-   //      ASSERT(IsDirSep(lpsz[1]));
-   //      lpsz += 2;
-   //      while (*lpsz != '\0' && (!IsDirSep(*lpsz)))
-   //         lpsz = _wcsinc(lpsz);
-   //      if (*lpsz != '\0')
-   //         lpsz = _wcsinc(lpsz);
-   //      while (*lpsz != '\0' && (!IsDirSep(*lpsz)))
-   //         lpsz = _wcsinc(lpsz);
-   //      // terminate it just after the UNC root (ie. '\\server\share\')
-   //      if (*lpsz != '\0')
-   //         lpsz[1] = '\0';
-   //   }
-   //   else
-   //   {
-   //      // not a UNC, look for just the first slash
-   //      lpsz = lpszRoot;
-   //      while (*lpsz != '\0' && (!IsDirSep(*lpsz)))
-   //         lpsz = _wcsinc(lpsz);
-   //      // terminate it just after root (ie. 'x:\')
-   //      if (*lpsz != '\0')
-   //         lpsz[1] = '\0';
-   //   }
-   //   ::str::international::unicode_to_utf8(strRoot, wstrRoot);
-   //}
-
-
-
-
-
-   /* Error Codes */
+/* Error Codes */
 
 #define EPERM           1
 #define ENOENT          2
@@ -734,49 +636,10 @@ pacmedir->create(lpszFileName.folder());
 #define ENOTEMPTY       41
 #define EILSEQ          42
 
-   /*
-   * Support EDEADLOCK for compatibiity with older MS-C versions.
-   */
+/*
+* Support EDEADLOCK for compatibiity with older MS-C versions.
+*/
 #define EDEADLOCK       EDEADLK
-
-
-   /////////////////////////////////////////////////////////////////////////////
-   // file name handlers
-
-   //string file::GetFileName() const
-   //{
-
-   //   ASSERT_VALID(this);
-
-   //   ::file::file_status status;
-
-   //   GetStatus(status);
-
-   //   string wstrResult;
-
-   //   wstrResult = status.m_strFullName.name();
-
-   //   return wstrResult;
-
-   //}
-
-
-   //string file::GetFileTitle() const
-   //{
-
-   //   ASSERT_VALID(this);
-
-   //   ::file::file_status status;
-
-   //   GetStatus(status);
-
-   //   string wstrResult;
-
-   //   wstrResult = status.m_strFullName.title();
-
-   //   return wstrResult;
-
-   //}
 
 
    ::file::path file::get_file_path() const
