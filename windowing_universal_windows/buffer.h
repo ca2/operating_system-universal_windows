@@ -134,6 +134,9 @@ namespace windowing_universal_windows
       void destroy_os_buffer();
 
 
+      bool update_buffer(const ::size_i32 & size, int iStrideParam = -1) override;
+
+
       virtual bool buffer_lock_round_swap_key_buffers() override;
       //::aura::application * get_application() const
       //{

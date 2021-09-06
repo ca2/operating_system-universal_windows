@@ -706,6 +706,25 @@ namespace windowing_universal_windows
       //}
 
 
+      bool buffer::update_buffer(const ::size_i32 & size, int iStrideParam)
+      {
+
+         if (!::graphics::bitmap_source_buffer::update_buffer(size, iStrideParam))
+         {
+
+            return false;
+
+         }
+
+         m_size = size;
+
+         CreateWindowSizeDependentResources();
+
+         return true;
+
+      }
+
+
       // Allocate all memory resources that change on a window SizeChanged event.
       void buffer::CreateWindowSizeDependentResources()
       {
@@ -721,71 +740,80 @@ namespace windowing_universal_windows
 
          if (m_swapChain != nullptr)
          {
-            ID3D11RenderTargetView * nullViews[] = { nullptr };
-            directx::directx()->m_pd3devicecontext->OMSetRenderTargets(ARRAYSIZE(nullViews), nullViews, nullptr);
-            m_d3dRenderTargetView = nullptr;
-            m_pd2d1devicecontext->SetTarget(nullptr);
-            m_d2dTargetBitmap = nullptr;
-            m_d3dDepthStencilView = nullptr;
-            directx::directx()->m_pd3devicecontext->Flush();
-
-            m_pd2d1devicecontext = nullptr;
-            m_d2dTargetBitmap = nullptr;
-            m_d3dRenderTargetView = nullptr;
-            m_d3dDepthStencilView = nullptr;
-            m_bWindowSizeChangeInProgress = true;
-
-
-            directx::directx()->m_pd3devicecontext->Flush();
-            directx::directx()->m_pd3devicecontext->ClearState();
-            direct2d::direct2d()->m_pd2device->ClearResources();
-            {
-               Microsoft::WRL::ComPtr < ID3D11CommandList > pcommandlist;
-               hr = directx::directx()->m_pd3devicecontext->FinishCommandList(false, &pcommandlist);
-               if (SUCCEEDED(hr))
-               {
-               }
-            }
-
-            // If the __swap chain already exists, resize it.
-            hr = m_swapChain->ResizeBuffers(
-               0,
-               0, // If you specify zero, DXGI will use the width of the client area of the target window.
-               0, // If you specify zero, DXGI will use the height of the client area of the target window.
-               DXGI_FORMAT_UNKNOWN, // Set this value to DXGI_FORMAT_UNKNOWN to preserve the existing format of the back buffer.
-               0);
-
-            if (hr == DXGI_ERROR_DEVICE_REMOVED)
-            {
-               // If the device was erased for any reason, a new device and swapchain will need to be created.
-               HandleDeviceLost();
-
-               // Everything is set up now. Do not continue execution of this method.
-               return;
-            }
-            else if (hr == DXGI_ERROR_INVALID_CALL)
-            {
-               // i1;
-               //  return;
-               TRACE("buffer::CreateWindowSizeDependentResources(1) DXGI_ERROR_INVALID_CALL");
-            }
-            else
-            {
-               
-               if (FAILED(hr))
-               {
-                  
-                  throw_if_failed(hr);
-
-               }
-
-            }
+            return;
          }
+         //   ID3D11RenderTargetView * nullViews[] = { nullptr };
+         //   directx::directx()->m_pd3devicecontext->OMSetRenderTargets(ARRAYSIZE(nullViews), nullViews, nullptr);
+         //   
+         //   m_d3dRenderTargetView = nullptr;
+         //   m_pd2d1devicecontext->SetTarget(nullptr);
+         //   /*m_d2dTargetBitmap = nullptr;
+         //   m_d3dDepthStencilView = nullptr;
+         //   directx::directx()->m_pd3devicecontext->Flush();
+
+         //   m_pd2d1devicecontext = nullptr;
+         //   m_d2dTargetBitmap = nullptr;
+         //   m_d3dRenderTargetView = nullptr;
+         //   m_d3dDepthStencilView = nullptr;
+         //   m_bWindowSizeChangeInProgress = true;
+
+         //   */
+         //   directx::directx()->m_pd3devicecontext->Flush();
+         //   directx::directx()->m_pd3devicecontext->ClearState();
+         //   /*
+         //   direct2d::direct2d()->m_pd2device->ClearResources();*/
+         //   {
+         //      Microsoft::WRL::ComPtr < ID3D11CommandList > pcommandlist;
+         //      hr = directx::directx()->m_pd3devicecontext->FinishCommandList(false, &pcommandlist);
+         //      if (SUCCEEDED(hr))
+         //      {
+         //      }
+         //   }
+
+         //   // If the __swap chain already exists, resize it.
+         //   hr = m_swapChain->ResizeBuffers(
+         //      0,
+         //      0, // If you specify zero, DXGI will use the width of the client area of the target window.
+         //      0, // If you specify zero, DXGI will use the height of the client area of the target window.
+         //      DXGI_FORMAT_UNKNOWN, // Set this value to DXGI_FORMAT_UNKNOWN to preserve the existing format of the back buffer.
+         //      0);
+
+         //   if (hr == DXGI_ERROR_DEVICE_REMOVED)
+         //   {
+         //      // If the device was erased for any reason, a new device and swapchain will need to be created.
+         //      HandleDeviceLost();
+
+         //      // Everything is set up now. Do not continue execution of this method.
+         //      return;
+         //   }
+         //   else if (hr == DXGI_ERROR_INVALID_CALL)
+         //   {
+         //      // i1;
+         //      //  return;
+         //      TRACE("buffer::CreateWindowSizeDependentResources(1) DXGI_ERROR_INVALID_CALL");
+         //   }
+         //   else
+         //   {
+         //      
+         //      if (FAILED(hr))
+         //      {
+         //         
+         //         throw_if_failed(hr);
+
+         //      }
+
+         //   }
+         //}
 
          if (m_swapChain == nullptr)
          {
 
-            m_sizeBuffer = winrt_get_big_back_buffer_size();
+            auto displayInformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
+
+            m_sizeBuffer.cx = displayInformation.ScreenWidthInRawPixels();
+
+            m_sizeBuffer.cy = displayInformation.ScreenHeightInRawPixels();
+
 
             // Otherwise, create a new one using the same adapter as the existing Direct3D device.
             DXGI_SWAP_CHAIN_DESC1 swapChainDesc = { 0 };

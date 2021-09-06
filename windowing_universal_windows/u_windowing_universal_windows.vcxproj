@@ -54,10 +54,6 @@
     <ClInclude Include="buffer.h" />
     <ClInclude Include="copydesk.h" />
     <ClInclude Include="cursor.h" />
-    <ClInclude Include="aaa_framework_view_source.h" />
-    <ClInclude Include="aaa_direct2d_buffer.h" />
-    <ClInclude Include="aaa_directx_impact.h" />
-    <ClInclude Include="aaa_directx_interaction.h" />
     <ClInclude Include="display.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="icon.h" />
@@ -74,10 +70,6 @@
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="copydesk.cpp" />
     <ClCompile Include="cursor.cpp" />
-    <ClCompile Include="aaa_directx_application.cpp" />
-    <ClCompile Include="aaa_direct2d_buffer.cpp" />
-    <ClCompile Include="aaa_directx_impact.cpp" />
-    <ClCompile Include="aaa_directx_interaction.cpp" />
     <ClCompile Include="display.cpp" />
     <ClCompile Include="factory_exchange.cpp" />
     <ClCompile Include="framework.cpp">

@@ -7871,13 +7871,20 @@ namespace windowing_universal_windows
       void window::on_window_size_changed(::winrt::Windows::UI::Core::CoreWindow sender, const ::size_i32 & size)
       {
 
-         auto pbuffer = __buffer(m_pimpl->get_window_graphics());
+         auto pbuffer = m_pimpl->get_window_graphics();
 
-         pbuffer->CreateWindowSizeDependentResources();
+         pbuffer->update_buffer(size);
 
-         ::lparam lparam(size);
+         //::lparam lparam(size);
+//
+         //m_pimpl->m_puserinteraction->send_message(e_message_size, 0, lparam);
+         m_pimpl->m_puserinteraction->set_size(size);
 
-         m_pimpl->m_puserinteraction->post_message(e_message_size, 0, lparam);
+         m_pimpl->m_puserinteraction->set_need_layout();
+
+         m_pimpl->m_puserinteraction->set_need_redraw();
+
+         m_pimpl->m_puserinteraction->post_redraw();
 
       }
 
