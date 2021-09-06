@@ -4,7 +4,7 @@
 #define THIRD_PRIVATE_C_H
 
 
-#include "operating_system/_.h"
+#include "operating_system/config.h"
 
 
 #undef IN

@@ -1,0 +1,4 @@
+LIBRARY  "apex_universal_windows"
+
+EXPORTS
+apex_universal_windows_factory_exchange

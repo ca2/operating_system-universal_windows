@@ -29,7 +29,7 @@ namespace music
          bool sequence_thread::init_thread()
          {
 
-            set_thread_priority(::multithreading::priority_highest);
+            set_thread_priority(::multithreading::e_priority_highest);
 
             return true;
 

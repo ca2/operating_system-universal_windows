@@ -2,13 +2,13 @@
 #include "appm.h"
 #include "BasicTimer.h"
 
-using namespace Windows::ApplicationModel;
-using namespace Windows::ApplicationModel::Core;
-using namespace Windows::ApplicationModel::Activation;
-using namespace Windows::UI::Core;
-using namespace Windows::System;
-using namespace Windows::Foundation;
-using namespace Windows::Graphics::Display;
+using namespace ::winrt::Windows::ApplicationModel;
+using namespace ::winrt::Windows::ApplicationModel::Core;
+using namespace ::winrt::Windows::ApplicationModel::Activation;
+using namespace ::winrt::Windows::UI::Core;
+using namespace ::winrt::Windows::System;
+using namespace ::winrt::Windows::Foundation;
+using namespace ::winrt::Windows::Graphics::Display;
 
 appm::appm() :
     m_windowClosed(false)

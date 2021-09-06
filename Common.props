@@ -3,7 +3,7 @@
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
     <BaseDir>$(SolutionDir)..\..\..\</BaseDir>
-    <TimeDir>$(BaseDir)time-uwp\</TimeDir>
+    <TimeDir>$(BaseDir)time-universal_windows\</TimeDir>
     <__archive>$(BaseDir)archive\</__archive>
   </PropertyGroup>
   <PropertyGroup />

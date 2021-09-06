@@ -1,0 +1,5 @@
+LIBRARY  "aura_universal_windows"
+
+
+EXPORTS
+aura_universal_windows_factory_exchange

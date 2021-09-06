@@ -2,8 +2,8 @@
 
 
 using namespace Platform;
-using namespace Windows::Devices::Enumeration;
-using namespace Windows::Devices::Midi;
+using namespace ::winrt::Windows::Devices::Enumeration;
+using namespace ::winrt::Windows::Devices::Midi;
 
 namespace music
 {
@@ -83,10 +83,10 @@ namespace music
                void OnPortUpdated(DeviceWatcher^ deviceWatcher, DeviceInformationUpdate^ devInfoUpdate);
                void OnPortEnumCompleted(DeviceWatcher^ deviceWatcher, Object^ obj);
 
-               Windows::Foundation::EventRegistrationToken _portAddedToken;
-               Windows::Foundation::EventRegistrationToken _portRemovedToken;
-               Windows::Foundation::EventRegistrationToken _portUpdatedToken;
-               Windows::Foundation::EventRegistrationToken _portEnumCompleteToken;
+               ::winrt::Windows::Foundation::EventRegistrationToken _portAddedToken;
+               ::winrt::Windows::Foundation::EventRegistrationToken _portRemovedToken;
+               ::winrt::Windows::Foundation::EventRegistrationToken _portUpdatedToken;
+               ::winrt::Windows::Foundation::EventRegistrationToken _portEnumCompleteToken;
 
                message_io ^ m_io;
                String ^ _midiSelectorString;

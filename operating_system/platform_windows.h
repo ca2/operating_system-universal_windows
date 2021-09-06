@@ -81,9 +81,9 @@
 #endif
 #if defined(__cplusplus_winrt)
 using namespace ::Platform;
-using namespace ::Windows::System;
-using namespace ::Windows::System::Threading;
-using namespace ::Windows::Storage;
+using namespace ::winrt::Windows::System;
+using namespace ::winrt::Windows::System::Threading;
+using namespace ::winrt::Windows::Storage;
 #endif
 
 

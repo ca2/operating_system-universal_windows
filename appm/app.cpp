@@ -4,14 +4,14 @@
 #undef System
 
 using namespace Microsoft::WRL;
-using namespace Windows::Foundation;
-using namespace Windows::UI::Core;
+using namespace ::winrt::Windows::Foundation;
+using namespace ::winrt::Windows::UI::Core;
 using namespace DirectX;
-using namespace Windows::ApplicationModel;
-using namespace Windows::ApplicationModel::Core;
-using namespace Windows::ApplicationModel::Activation;
-using namespace Windows::System;
-using namespace Windows::Graphics::Display;
+using namespace ::winrt::Windows::ApplicationModel;
+using namespace ::winrt::Windows::ApplicationModel::Core;
+using namespace ::winrt::Windows::ApplicationModel::Activation;
+using namespace ::winrt::Windows::System;
+using namespace ::winrt::Windows::Graphics::Display;
 
 
 
@@ -23,7 +23,7 @@ int main(Platform::Array<Platform::String^>^)
    
    auto source = ::metrowin::new_directx_application_source("m_app.exe : app=bergedge");
 
-   ::Windows::ApplicationModel::Core::CoreApplication::Run(source);
+   ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(source);
    
    return 0;
 

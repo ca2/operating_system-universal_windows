@@ -5,7 +5,7 @@
 #define _WIN32_WINNT    0x0A00 // _WIN32_WINNT_WIN10
 #define WINVER          0x0A00 // _WIN32_WINNT_WIN10
 #define _WIN32_IE       0x0A00 // _WIN32_IE_IE110
-
+#define _WINSOCK_DEPRECATED_NO_WARNINGS
 
 #define WCHAR_T_SIZE 16
 
@@ -27,7 +27,7 @@
 #endif
 
 
-#define PLATFORM_NAMESPACE uwp
+#define PLATFORM_NAMESPACE universal_windows
 
 #define DEFAULT_DIR_SEPARATOR "\\"
 
@@ -35,11 +35,12 @@
 #define VARIADIC_TEMPLATE_FORMAT2
 
 
-#define WINRT_SOCKETS
-//#define BSD_STYLE_SOCKETS
+//#define WINRT_SOCKETS
+#define BSD_STYLE_SOCKETS
+#define HAVE_OPENSSL 1
 
 
-#define PLATFORM_NAME   "uwp"
+#define PLATFORM_NAME   "universal_windows"
 
 #ifdef _DEBUG
 #define DEBUG

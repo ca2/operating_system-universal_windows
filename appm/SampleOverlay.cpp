@@ -8,11 +8,11 @@
 #include "framework.h"
 
 
-using namespace Windows::UI::Core;
-using namespace Windows::Foundation;
+using namespace ::winrt::Windows::UI::Core;
+using namespace ::winrt::Windows::Foundation;
 using namespace Microsoft::WRL;
-using namespace Windows::UI::ViewManagement;
-using namespace Windows::Graphics::Display;
+using namespace ::winrt::Windows::UI::ViewManagement;
+using namespace ::winrt::Windows::Graphics::Display;
 using namespace D2D1;
 
 SampleOverlay::SampleOverlay() :

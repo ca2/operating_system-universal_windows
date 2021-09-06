@@ -1,0 +1,5 @@
+LIBRARY  "node_universal_windows"
+
+
+EXPORTS
+node_universal_windows_factory_exchange

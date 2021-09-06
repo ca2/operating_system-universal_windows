@@ -1,0 +1,5 @@
+LIBRARY  "windowing_universal_windows"
+
+
+EXPORTS
+windowing_universal_windows_factory_exchange
