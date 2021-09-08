@@ -40,8 +40,26 @@ namespace windowing_universal_windows
 {
 
 
+   window::framework_view_source::framework_view_source(window * pwindow) :
+      m_pwindow(pwindow)
+   {
+
+   }
+
+
+   ::winrt::Windows::ApplicationModel::Core::IFrameworkView window::framework_view_source::CreateView()
+   {
+
+      return m_pwindow->m_frameworkview;
+
+   }
+
+
+
+
    window::window() :
-      m_frameworkview(this)
+      m_frameworkview(this),
+      m_frameworkviewsource(this)
    {
 
       //m_bXXXFirst = true;
@@ -411,65 +429,63 @@ namespace windowing_universal_windows
                if (!m_window)
                {
 
+                  m_coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(m_frameworkviewsource);
 
-
-                  //::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
-                  //   ref new ::winrt::Windows::UI::Core::DispatchedHandler([this, pusersystem, &ev]()
-                  //      {
-
-                           //get_context_system()->m_paurasystem->m_applicationsource->m_pimplHook = this;
-
-                  m_coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView();
-
-
-                  if (rectWindow.Width > 0 && rectWindow.Height > 0)
+                  window_sync(15_s, __routine([this, &rectWindow]()
                   {
 
-                     m_applicationview.SetPreferredMinSize({ (float)rectWindow.Width, (float)rectWindow.Height });
+                     if (rectWindow.Width > 0 && rectWindow.Height > 0)
+                     {
 
-                  }
+                        m_applicationview.SetPreferredMinSize({ (float)rectWindow.Width, (float)rectWindow.Height });
 
-                  m_window.Activate();
+                     }
 
-                  //m_bPendingActivation = true;
+                        m_window = m_coreapplicationview.CoreWindow();
 
-                  auto applicationview1 = m_applicationview;
+                        m_window.Activate();
 
-                  //auto applicationview2 = ::aura::get_system()->m_pimplMain->m_applicationview;
+                        //m_bPendingActivation = true;
 
-                  auto Id1 = applicationview1.Id();
+                        auto applicationview1 = m_applicationview;
 
-                  //auto Id2 = applicationview2->Id;
+                        //auto applicationview2 = ::aura::get_system()->m_pimplMain->m_applicationview;
 
-                  ::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
-                     Id1,
-                     ::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
+                        auto Id1 = applicationview1.Id();
 
-                  rectWindow = m_window.Bounds();
-                  //y = (LONG)m_window.get().Bounds().Y;
-                  //cx = (LONG)m_window.get().Bounds().Width;
-                  //cy = (LONG)m_window.get().Bounds().Height;
+                        //auto Id2 = applicationview2->Id;
 
-                  //}
+                        ::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
+                           Id1,
+                           ::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
+
+                        rectWindow = m_window.Bounds();
+                        //y = (LONG)m_window.get().Bounds().Y;
+                        //cx = (LONG)m_window.get().Bounds().Width;
+                        //cy = (LONG)m_window.get().Bounds().Height;
+
+                        //}
 
 
 
-                  //::wait(::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
-                  //   Id1,
-                  //   ::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore,
-                  //   Id2,
-                  //   ::winrt::Windows::UI::ViewManagement::ViewSizePreference::Default));
+                        //::wait(::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
+                        //   Id1,
+                        //   ::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore,
+                        //   Id2,
+                        //   ::winrt::Windows::UI::ViewManagement::ViewSizePreference::Default));
 
-                  if (rectWindow.Width > 0 && rectWindow.Height > 0)
-                  {
+                        if (rectWindow.Width > 0 && rectWindow.Height > 0)
+                        {
 
-                     m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectWindow.Width,(float)rectWindow.Height }));
+                           m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectWindow.Width,(float)rectWindow.Height }));
 
-                  }
+                        }
 
-                  //ev.set_event();
+                     }));
 
-               }
+                        //ev.set_event();
+
+                     }
                else
                {
 
@@ -1740,6 +1756,19 @@ namespace windowing_universal_windows
             m_pimpl->m_puserinteractionFocus1 = m_pimpl->m_puserinteractionFocusRequest;
 
             m_pimpl->m_puserinteractionFocusRequest.release();
+
+            if (m_pimpl->m_puserinteractionFocus1)
+            {
+
+               if (m_pimpl->m_puserinteractionFocus1->keyboard_focus_is_focusable())
+               {
+
+
+                  SetInternalFocus();
+
+               }
+
+            }
 
          }
 
@@ -8507,6 +8536,69 @@ namespace windowing_universal_windows
       {
 
 
+
+      }
+
+
+      ::e_status window::window_branch(const ::routine & routine)
+      {
+
+         ::winrt::Windows::UI::Core::CoreDispatcher dispatcher(nullptr);
+
+         if (m_coreapplicationview)
+         {
+
+            dispatcher = m_coreapplicationview.Dispatcher();
+
+         }
+         else if (m_window)
+         {
+
+            dispatcher = m_window.Dispatcher();
+
+         }
+
+         if (dispatcher)
+         {
+
+            auto handler = ::winrt::Windows::UI::Core::DispatchedHandler([routine]()
+               {
+
+                  routine();
+
+               });
+
+            dispatcher.RunAsync(
+               ::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
+               handler);
+
+         }
+
+
+         return ::success;
+
+      }
+
+
+      bool window::is_branch_current() const
+      {
+
+         ::winrt::Windows::UI::Core::CoreDispatcher dispatcher(nullptr);
+
+         if (m_coreapplicationview)
+         {
+
+            dispatcher = m_coreapplicationview.Dispatcher();
+
+         }
+         else if (m_window)
+         {
+
+            dispatcher = m_window.Dispatcher();
+
+         }
+
+         return dispatcher.HasThreadAccess();
 
       }
 

@@ -6,10 +6,8 @@ namespace windowing_universal_windows
 {
 
 
-   
    class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS window :
       virtual public ::windowing::window
-      //, virtual public IDropTarget
    {
    public:
 
@@ -35,6 +33,25 @@ namespace windowing_universal_windows
 
 
       };
+
+      struct framework_view_source :
+         public winrt::implements < framework_view_source, ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource >
+      {
+
+
+         window * m_pwindow;
+
+         framework_view_source(window * pwindow);
+
+         ::winrt::Windows::ApplicationModel::Core::IFrameworkView CreateView();
+
+
+      };
+
+
+      //__pointer(window)             m_pwindowNode;
+      framework_view_source         m_frameworkviewsource;
+
 
       framework_view        m_frameworkview;
 
@@ -1196,6 +1213,11 @@ namespace windowing_universal_windows
 
       void graphics_lock() override;
       void graphics_unlock() override;
+
+      
+      ::e_status window_branch(const ::routine & routine) override;
+
+      bool is_branch_current() const override;
 
 
    };

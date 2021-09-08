@@ -988,7 +988,7 @@ uptr virtualkey_to_char(::winrt::Windows::System::VirtualKey e)
    default:
       {
          int iKey = (int)e;
-         ASSERT(FALSE);
+         //ASSERT(FALSE);
       }
    }
 

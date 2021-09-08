@@ -12,23 +12,6 @@ namespace windowing_universal_windows
    public:
 
 
-      struct framework_view_source :
-         public winrt::implements < framework_view_source, ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource >
-      {
-
-
-         node * m_pnode;
-
-         framework_view_source(node * node);
-
-         ::winrt::Windows::ApplicationModel::Core::IFrameworkView CreateView();
-         
-
-      };
-
-
-      __pointer(window)             m_pwindowNode;
-      framework_view_source         m_frameworkviewsource;
       bool                          m_bAppInit;
 
       //auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
@@ -61,7 +44,7 @@ namespace windowing_universal_windows
    };
 
 
-   inline window * __window(::acme::node * pnode) { return pnode->m_pWindowingUniversalWindowsNode->m_pwindowNode; }
+   //inline window * __window(::acme::node * pnode) { return pnode->m_pWindowingUniversalWindowsNode->m_pwindowNode; }
 
 
 } // namespace windowing_universal_windows

@@ -10,8 +10,7 @@ namespace windowing_universal_windows
 {
 
 
-   node::node() :
-      m_frameworkviewsource(this)
+   node::node()
    {
 
       m_bAppInit = false;
@@ -35,9 +34,9 @@ namespace windowing_universal_windows
 
       auto pwindow = new window;
 
-      m_pwindowNode = ::move_transfer(pwindow);
+      auto pwindowMain = ::move_transfer(pwindow);
 
-      pwindow->initialize(this);
+      pwindowMain->initialize(this);
 
       auto estatus = m_psystem->m_paurasystem->begin_synch();
 
@@ -48,14 +47,18 @@ namespace windowing_universal_windows
 
       }
 
-      estatus = call_member(SOUL_ID);
+      m_psystem->m_paurasession->m_puser->m_pwindowing->m_pwindowMain = pwindowMain;
 
-      if (!estatus)
-      {
+      ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(pwindowMain->m_frameworkviewsource);
 
-         return estatus;
+      //estatus = call_member(SOUL_ID);
 
-      }
+      //if (!estatus)
+      //{
+
+      //   return estatus;
+
+      //}
 
       return ::success;
 
@@ -65,14 +68,14 @@ namespace windowing_universal_windows
    ::e_status node::call_member(::i64 i)
    {
 
-      if (i == SOUL_ID)
-      {
+      //if (i == SOUL_ID)
+      //{
 
-         ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(m_frameworkviewsource);
+      //   ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(m_frameworkviewsource);
 
-         return ::success;
+      //   return ::success;
 
-      }
+      //}
 
       auto estatus = aura::universal_windows::node::call_member(i);
 
@@ -84,21 +87,6 @@ namespace windowing_universal_windows
       }
 
       return estatus;
-
-   }
-
-
-   node::framework_view_source::framework_view_source(node * pnode) :
-      m_pnode(pnode)
-   {
-
-   }
-
-
-   ::winrt::Windows::ApplicationModel::Core::IFrameworkView node::framework_view_source::CreateView()
-   {
-
-      return m_pnode->m_pwindowNode->m_frameworkview;
 
    }
 

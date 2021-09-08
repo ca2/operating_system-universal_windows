@@ -976,7 +976,7 @@ namespace windowing_universal_windows
       void buffer::DestroyWindowSizeDependentResources()
       {
 
-         HRESULT hr;
+         //HRESULT hr;
 
          ::windowing::graphics_lock devicelock(m_pwindow);
 

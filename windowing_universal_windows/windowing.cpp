@@ -37,8 +37,6 @@ namespace windowing_universal_windows
 
       }
 
-      m_pwindowSoul = __window(m_psystem->m_pnode);
-
       estatus = ::__construct(m_pdisplay);
 
       if (!estatus)
@@ -932,25 +930,16 @@ namespace windowing_universal_windows
    ::e_status windowing::windowing_branch(const ::routine & routine)
    {
 
-      auto pwindow = (class window *)m_pwindowSoul->m_pWindow;
+      auto estatus = m_pwindowMain->window_branch(routine);
 
-      auto & window = pwindow->m_window;
+      if (!estatus)
+      {
 
-      auto dispatcher = window.Dispatcher();
+         return estatus;
 
-      auto handler = ::winrt::Windows::UI::Core::DispatchedHandler([routine]()
-         {
+      }
 
-            routine();
-
-         });
-
-      dispatcher.RunAsync(
-            ::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, 
-            handler);
-
-
-      return ::success;
+      return estatus;
 
    }
 
