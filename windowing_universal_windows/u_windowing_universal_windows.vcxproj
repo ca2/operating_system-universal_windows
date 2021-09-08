@@ -95,6 +95,15 @@
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\..\platform-windows_common\apex_windows_common\u_apex_windows_common.vcxproj">
+      <Project>{9b59539c-abd7-4ff5-a64b-521813534736}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\platform-windows_common\aura_windows_common\u_aura_windows_common.vcxproj">
+      <Project>{e256890d-cf1e-420b-b1f9-8c88434ca1c1}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\platform-windows_common\directx\u_directx.vcxproj">
+      <Project>{134d39e3-ed4c-4b2f-bc9c-e56db236747d}</Project>
+    </ProjectReference>
     <ProjectReference Include="..\acme_universal_windows\u_acme_universal_windows.vcxproj">
       <Project>{7d2387eb-a3de-4ea5-b061-48a856dd7211}</Project>
     </ProjectReference>
@@ -104,20 +113,11 @@
     <ProjectReference Include="..\aura_universal_windows\u_aura_universal_windows.vcxproj">
       <Project>{05c4cf3f-fcb7-4017-a39b-1a03158ec0f3}</Project>
     </ProjectReference>
-    <ProjectReference Include="R:\basis\archive\platform-windows_common\acme_windows_common\w_acme_windows_common.vcxproj">
+    <ProjectReference Include="R:\basis\archive\platform-windows_common\acme_windows_common\u_acme_windows_common.vcxproj">
       <Project>{4a44d9ca-a46e-4bb3-8ad5-8bcace5228ce}</Project>
-    </ProjectReference>
-    <ProjectReference Include="R:\basis\archive\platform-windows_common\apex_windows_common\w_apex_windows_common.vcxproj">
-      <Project>{9b59539c-abd7-4ff5-a64b-521813534736}</Project>
-    </ProjectReference>
-    <ProjectReference Include="R:\basis\archive\platform-windows_common\aura_windows_common\w_aura_windows_common.vcxproj">
-      <Project>{e256890d-cf1e-420b-b1f9-8c88434ca1c1}</Project>
     </ProjectReference>
     <ProjectReference Include="R:\basis\archive\platform-windows_common\direct2d\u_direct2d.vcxproj">
       <Project>{91608259-0b1f-4deb-a867-873618075395}</Project>
-    </ProjectReference>
-    <ProjectReference Include="R:\basis\archive\platform-windows_common\directx\u_directx.vcxproj">
-      <Project>{134d39e3-ed4c-4b2f-bc9c-e56db236747d}</Project>
     </ProjectReference>
     <ProjectReference Include="R:\basis\source\app\acme\u_acme.vcxproj">
       <Project>{74a3ea71-9358-4441-a0cc-d5771df8dfbd}</Project>
@@ -130,6 +130,15 @@
     </ProjectReference>
     <ProjectReference Include="R:\basis\source\app\aura\u_aura.vcxproj">
       <Project>{b3b6a9d8-7776-434e-8e3b-d2696632df39}</Project>
+    </ProjectReference>
+    <ProjectReference Include="R:\basis\source\app\axis\u_axis.vcxproj">
+      <Project>{0412ea6f-50d0-4baa-99e3-ac14fc63a879}</Project>
+    </ProjectReference>
+    <ProjectReference Include="R:\basis\source\app\base\u_base.vcxproj">
+      <Project>{0680a465-39a7-4e1b-8dc1-0607a3243ea2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="R:\basis\source\app\bred\u_bred.vcxproj">
+      <Project>{08c317fc-6ee8-4371-84cb-18150e439021}</Project>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

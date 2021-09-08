@@ -105,8 +105,6 @@ namespace windowing_universal_windows
 
       //millis                                                   m_millisLastMouseMove;
 
-      ::winrt::Windows::UI::ViewManagement::UISettings         m_puisettings = nullptr;
-
       string                                                   m_strId;
 
       //impact *                                               m_pimpact;
@@ -278,7 +276,6 @@ namespace windowing_universal_windows
       //~application() override;
 
 
-      void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);
 
 
       // Event Handlers

@@ -315,70 +315,12 @@ namespace universal_windows
    ::extended::status file_context::del(const ::file::path & psz)
    {
 
-
-#ifdef WINDOWS_DESKTOP
-
-      HANDLE h = ::CreateFileW(::str::international::utf8_to_unicode(string("\\\\?\\") + psz),
-         GENERIC_READ | GENERIC_WRITE, 0, nullptr, OPEN_EXISTING,
-         FILE_FLAG_OPEN_REPARSE_POINT | FILE_FLAG_DELETE_ON_CLOSE, nullptr);
-
-      if (h == INVALID_HANDLE_VALUE)
+      if(!m_psystem->m_pacmefile->delete_file(psz))
       {
-
-         DWORD dwError = ::GetLastError();
-
-         if (dwError == 2) // the file does not exist, so delete "failed"
-         {
-
-            return ::success;
-
-         }
-
-         string strError;
-
-         strError.Format("Failed to delete file \"%s\" error=%d", psz, dwError);
-
-         return ::error_failed;
+      
+         return error_failed;
 
       }
-      else
-      {
-         ::FlushFileBuffers(h);
-         ::CloseHandle(h);
-      }
-
-      /*      if(!::DeleteFileW(::str::international::utf8_to_unicode(string("\\\\?\\") + psz)))
-      {
-      u32 dwError = ::get_last_error();
-      if(dwError == 2) // the file does not exist, so delete "failed"
-      return;
-      string strError;
-      strError.Format("Failed to delete file \"%s\" error=%d", psz, dwError);
-      __throw(io_exception(strError));
-      }*/
-
-
-#else
-
-      if (unlink(psz) != 0)
-      {
-         
-         i32 err = errno;
-         
-         if (err != ENOENT) // already does not exist - consider removal successful - does not issue an exception
-         {
-            
-            string strError;
-            
-            strError.Format("Failed to delete file error=%d", err);
-            
-            throw ::exception::exception(error_io, strError);
-
-         }
-
-      }
-
-#endif
 
       return ::success;
 

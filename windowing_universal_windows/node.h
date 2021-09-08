@@ -29,6 +29,12 @@ namespace windowing_universal_windows
 
       __pointer(window)             m_pwindowNode;
       framework_view_source         m_frameworkviewsource;
+      bool                          m_bAppInit;
+
+      //auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
+
+      ::winrt::Windows::UI::ViewManagement::UISettings m_uisettings;
+
 
 
       node();
@@ -40,6 +46,17 @@ namespace windowing_universal_windows
 
       ::e_status call_member(::i64 i) override;
       
+
+      bool _os_calc_app_dark_mode() override;
+
+      bool _os_calc_system_dark_mode() override;
+
+      void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);
+
+      void app_init();
+
+
+
 
    };
 

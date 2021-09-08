@@ -86,15 +86,6 @@
     <ProjectReference Include="..\windowing_universal_windows\u_windowing_universal_windows.vcxproj">
       <Project>{14fd1464-37de-419c-9584-b35afd6ba322}</Project>
     </ProjectReference>
-    <ProjectReference Include="R:\basis\archive\platform-windows_common\acme_windows_common\w_acme_windows_common.vcxproj">
-      <Project>{4a44d9ca-a46e-4bb3-8ad5-8bcace5228ce}</Project>
-    </ProjectReference>
-    <ProjectReference Include="R:\basis\archive\platform-windows_common\apex_windows_common\w_apex_windows_common.vcxproj">
-      <Project>{9b59539c-abd7-4ff5-a64b-521813534736}</Project>
-    </ProjectReference>
-    <ProjectReference Include="R:\basis\archive\platform-windows_common\aura_windows_common\w_aura_windows_common.vcxproj">
-      <Project>{e256890d-cf1e-420b-b1f9-8c88434ca1c1}</Project>
-    </ProjectReference>
     <ProjectReference Include="R:\basis\source\app\acme\u_acme.vcxproj">
       <Project>{74a3ea71-9358-4441-a0cc-d5771df8dfbd}</Project>
     </ProjectReference>

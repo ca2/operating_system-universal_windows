@@ -569,7 +569,7 @@ namespace windowing_universal_windows
 
       puserinteraction->m_ewindowflag |= ::e_window_flag_window_created;
 
-      puserinteraction->m_bTaskStarted = true;
+      puserinteraction->set(e_matter_task_started);
 
       //m_puserinteraction->m_layout.sketch().set_modified();
 
@@ -6462,12 +6462,6 @@ namespace windowing_universal_windows
          {
 
 
-            m_puisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
-
-
-
-            m_puisettings.ColorValuesChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::ViewManagement::UISettings, winrt::Windows::Foundation::IInspectable>(this, &window::OnUISettingsColorValuesChange));
-
             auto window = m_window;
 
             window.VisibilityChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs>(this, &window::OnWindowVisibilityChanged));
@@ -6962,10 +6956,19 @@ namespace windowing_universal_windows
 
       //m_psystem->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
 
-      if (!m_pwindow->m_psystem->m_pnode->m_bHasNodePostedSystemInitialRequest)
+      auto pnode = m_pwindow->m_psystem->m_pnode->m_pWindowingUniversalWindowsNode;
+
+      if (!pnode->m_bAppInit)
       {
 
-         m_pwindow->m_psystem->m_pnode->m_bHasNodePostedSystemInitialRequest = true;
+         pnode->app_init();
+
+      }
+
+      if (!pnode->m_bHasNodePostedSystemInitialRequest)
+      {
+
+         pnode->m_bHasNodePostedSystemInitialRequest = true;
 
          m_pwindow->m_psystem->post_initial_request();
 
@@ -7850,14 +7853,6 @@ namespace windowing_universal_windows
       }
 
 
-      void window::OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings uisettings, ::winrt::Windows::Foundation::IInspectable inpectable)
-      {
-
-         ///::user::os_calc_dark_mode();
-
-      }
-
-
       void window::OnWindowSizeChanged(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs args)
       {
 
@@ -7878,7 +7873,10 @@ namespace windowing_universal_windows
          //::lparam lparam(size);
 //
          //m_pimpl->m_puserinteraction->send_message(e_message_size, 0, lparam);
-         m_pimpl->m_puserinteraction->set_size(size);
+
+         m_pimpl->m_puserinteraction->place({ point_i32(), size });
+
+         //m_pimpl->m_puserinteraction->set_size(size);
 
          m_pimpl->m_puserinteraction->set_need_layout();
 
@@ -8529,6 +8527,7 @@ namespace windowing_universal_windows
          return rectangle;
 
       }
+
 
       ::winrt::Windows::Foundation::Point window::get_cursor_position()
       {

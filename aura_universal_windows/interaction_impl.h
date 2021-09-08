@@ -591,7 +591,7 @@ namespace universal_windows
 
 
       // for processing Windows messages
-      virtual void message_handler(::user::message * pusermessage);
+      virtual void message_handler(::message::message * pmessage);
       //virtual bool OnWndMsg(const ::id & id, WPARAM wParam, LPARAM lParam, LRESULT* pResult);
 
       // for handling default processing
@@ -680,7 +680,7 @@ namespace universal_windows
 
       void offset_view_port_org(RECTANGLE_I32 * lprectScreen);
 
-      virtual void queue_message_handler(::user::message * pusermessage) ;
+      void queue_message_handler(::message::message * pusermessage) override;
 
       virtual bool _is_window() const ;
 

@@ -10,6 +10,7 @@ namespace universal_windows
    native_buffer::native_buffer()
    {
 
+      m_iPutCharacterBack = -1;
       m_bCloseOnDelete = true;
 
    }
@@ -17,6 +18,8 @@ namespace universal_windows
 
    native_buffer::native_buffer(::winrt::Windows::Storage::StorageFile file)
    {
+
+      m_iPutCharacterBack = -1;
 
       m_file = file;
 
@@ -66,6 +69,16 @@ namespace universal_windows
       return open(folder, strPath, eopen);
 
    }
+   
+   
+   int native_buffer::put_character_back(int iCharacter)
+   {
+
+      m_iPutCharacterBack = iCharacter;
+
+      return m_iPutCharacterBack;
+
+   }
 
 
    ::extended::status native_buffer::open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, const ::file::e_open & efileopenParam)
@@ -102,6 +115,10 @@ namespace universal_windows
 
       ::str::begins_eat_ci(strRelative, strPrefix);
 
+      strRelative.trim("\\/");
+
+
+
       if (strRelative.is_empty())
       {
 
@@ -111,11 +128,9 @@ namespace universal_windows
       else
       {
 
-         strRelative.trim("\\/");
-
          wstring wstrRelative(strRelative);
 
-         winrt::param::hstring hstrRelative(wstrRelative);
+         winrt::hstring hstrRelative(wstrRelative);
 
          m_folder = folder.GetFolderAsync(hstrRelative).get();
 
@@ -274,6 +289,40 @@ namespace universal_windows
    memsize native_buffer::read(void * pdata, memsize nCount)
    {
 
+      if (nCount <= 0)
+      {
+
+         return 0;
+
+      }
+
+      int iAddUp = 0;
+
+      if (m_iPutCharacterBack >= 0)
+      {
+
+         byte * p = (byte *)pdata;
+
+         *p = m_iPutCharacterBack;
+
+         m_iPutCharacterBack = -1;
+
+         p++;
+
+         nCount--;
+
+         pdata = pdata;
+
+         if (nCount <= 0)
+         {
+
+            return 1;
+
+         }
+         iAddUp = 1;
+
+      }
+
       ::winrt::Windows::Storage::Streams::Buffer buffer((::u32)  nCount);
 
       auto buffer2 = m_stream.ReadAsync(buffer, (::u32) nCount, ::winrt::Windows::Storage::Streams::InputStreamOptions::None).get();
@@ -282,7 +331,7 @@ namespace universal_windows
 
       auto totalRead = windows_runtime_read_buffer(pdata, nCount, buffer);
 
-      return totalRead;
+      return totalRead + iAddUp;
 
    }
 

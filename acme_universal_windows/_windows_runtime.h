@@ -20,7 +20,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::user::enum_key virtualkey_to_userkey(::winrt
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS uptr virtualkey_to_code(::winrt::Windows::System::VirtualKey e);
 
 
-inline winrt::param::hstring __hstring(const char * psz)
+inline winrt::hstring __hstring(const char * psz)
 {
 
    wstring wstr(psz);
@@ -93,7 +93,7 @@ template < typename PREDICATE >
 
          synchronous_lock synchronouslock(pmutex);
 
-         if (!pevent->m_bExited)
+         if (!pevent->is(e_matter_exited))
          {
 
             pevent->m_estatus = estatus;
@@ -108,7 +108,7 @@ template < typename PREDICATE >
 
    synchronous_lock synchronouslock(pmutex);
 
-   pevent->m_bExited = true;
+   pevent->set(e_matter_exited);
 
    return pevent->m_estatus;
 

@@ -91,7 +91,7 @@
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="R:\basis\archive\platform-windows_common\acme_windows_common\w_acme_windows_common.vcxproj">
+    <ProjectReference Include="..\..\platform-windows_common\acme_windows_common\u_acme_windows_common.vcxproj">
       <Project>{4a44d9ca-a46e-4bb3-8ad5-8bcace5228ce}</Project>
     </ProjectReference>
     <ProjectReference Include="R:\basis\source\app\acme\u_acme.vcxproj">
@@ -327,8 +327,6 @@
       <ControlFlowGuard>false</ControlFlowGuard>
       <FunctionLevelLinking>false</FunctionLevelLinking>
       <EnableParallelCodeGeneration>false</EnableParallelCodeGeneration>
-      <RuntimeTypeInfo>true</RuntimeTypeInfo>
-      <OpenMPSupport>false</OpenMPSupport>
       <LanguageStandard>stdcpp20</LanguageStandard>
       <ExceptionHandling>Async</ExceptionHandling>
       <CompileAsWinRT>false</CompileAsWinRT>

@@ -45,7 +45,7 @@ namespace universal_windows
       ::winrt::Windows::Storage::Streams::IRandomAccessStream              m_stream = nullptr;
       ::file::e_open                                                       m_eopen;
 
-
+      int m_iPutCharacterBack;
 
       native_buffer();
       native_buffer(::winrt::Windows::Storage::StorageFile file);
@@ -69,6 +69,8 @@ namespace universal_windows
       //void WriteHuge(const void * lpBuffer,u64 dwCount);
 
       //virtual __pointer(::file::file) Duplicate() const;
+
+      int put_character_back(int iCharacter) override;
 
       filesize translate(filesize lOff, ::enum_seek eseek) override;
       void set_size(filesize dwNewLen) override;

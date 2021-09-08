@@ -153,16 +153,16 @@ namespace windowing_universal_windows
 
       //auto pwindow = (::windowing_universal_windows::window *)m_pwindow->m_pWindow;
 
-      auto colorBackground = pwindow->m_puisettings.GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
+      //auto colorBackground = uisettings.GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
 
-      D2D1_COLOR_F color32 = {};
+      //D2D1_COLOR_F color32 = {};
 
-      color32.a = 1.0f;
-      color32.r = colorBackground.R / 255.f;
-      color32.g = colorBackground.G / 255.f;
-      color32.b = colorBackground.B / 255.f;
+      //color32.a = 1.0f;
+      //color32.r = colorBackground.R / 255.f;
+      //color32.g = colorBackground.G / 255.f;
+      //color32.b = colorBackground.B / 255.f;
 
-      m_pd2d1devicecontext->Clear(color32);
+      //m_pd2d1devicecontext->Clear(color32);
 
       m_pd2d1devicecontext->SetTransform(D2D1::Matrix3x2F::Identity());
 
