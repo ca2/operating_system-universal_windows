@@ -132,7 +132,14 @@ namespace universal_windows
 
          winrt::hstring hstrRelative(wstrRelative);
 
-         m_folder = folder.GetFolderAsync(hstrRelative).get();
+         auto item = folder.TryGetItemAsync(hstrRelative).get();
+
+         if (item && item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder))
+         {
+
+            m_folder = item.as <::winrt::Windows::Storage::StorageFolder>();
+
+         }
 
       }
 
@@ -227,7 +234,14 @@ namespace universal_windows
          try
          {
 
-            m_file = folder.GetFileAsync(__hstring(strName)).get();
+            auto item = folder.TryGetItemAsync(__hstring(strName)).get();
+
+            if(item && item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
+            {
+
+               m_file = item.as<::winrt::Windows::Storage::StorageFile>();
+
+            }
 
          }
          catch (...)
