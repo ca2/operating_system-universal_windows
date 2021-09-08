@@ -21,6 +21,7 @@ namespace windowing_universal_windows
       //window_map                       m_windowmap;
       __pointer(class display)         m_pdisplay;
       __pointer(class window)          m_pwindowCapture;
+      __pointer(class window)          m_pwindowFocus;
 
 //#ifdef WINDOWS_DESKTOP
 

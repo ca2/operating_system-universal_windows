@@ -468,46 +468,7 @@ namespace windowing_universal_windows
    ::windowing::window * windowing::get_keyboard_focus(::thread * pthread)
    {
 
-      itask_t itask = 0;
-
-      if (pthread)
-      {
-
-         itask = pthread->get_ithread();
-
-      }
-
-      //GUITHREADINFO info = {};
-
-      //info.cbSize = sizeof(GUITHREADINFO);
-
-      //HWND hwndFocus;
-
-      //if (GetGUIThreadInfo((DWORD)itask, &info))
-      //{
-
-      //   hwndFocus = info.hwndFocus;
-
-      //}
-      //else
-      //{
-
-      //   hwndFocus = ::GetFocus();
-
-      //}
-
-      //if (::is_null(hwndFocus))
-      //{
-
-      //   return nullptr;
-
-      //}
-
-      //auto pwindow = _window(hwndFocus);
-
-      //return pwindow;
-
-      return nullptr;
+      return m_pwindowFocus;
 
    }
 

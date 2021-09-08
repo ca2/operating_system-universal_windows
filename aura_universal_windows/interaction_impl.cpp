@@ -1166,7 +1166,8 @@ return true;
 
          auto psession = get_session();
 
-         ::user::interaction * puiFocus = m_puserinteraction->get_keyboard_focus()->m_puiThis;
+         ::user::interaction * puiFocus = m_puserinteraction->get_keyboard_focus()
+            ? m_puserinteraction->get_keyboard_focus()->m_puiThis : nullptr;
 
          if(puiFocus != nullptr
                && puiFocus->is_window()

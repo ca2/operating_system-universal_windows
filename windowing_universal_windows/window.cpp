@@ -1729,14 +1729,22 @@ namespace windowing_universal_windows
    ::e_status window::set_keyboard_focus()
    {
 
-      //HWND hwnd = get_hwnd();
+      windowing()->m_pwindowFocus = this;
 
-      //if (!::SetFocus(hwnd))
-      //{
+      if (m_pimpl)
+      {
 
-      //   return ::error_failed;
+         if (m_pimpl->m_puserinteractionFocusRequest)
+         {
 
-      //}
+            m_pimpl->m_puserinteractionFocus1 = m_pimpl->m_puserinteractionFocusRequest;
+
+            m_pimpl->m_puserinteractionFocusRequest.release();
+
+         }
+
+      }
+
 
       return ::success;
 
@@ -1808,44 +1816,7 @@ namespace windowing_universal_windows
    bool window::has_keyboard_focus() const
    {
 
-      //itask_t itask = 0;
-
-      //auto puserinteraction = m_pimpl->m_puserinteraction;
-
-      //if (puserinteraction && puserinteraction->m_pthreadUserInteraction)
-      //{
-
-      //   itask = puserinteraction->m_pthreadUserInteraction->get_ithread();
-
-      //}
-
-      //GUITHREADINFO info = {};
-
-      //info.cbSize = sizeof(GUITHREADINFO);
-
-      //HWND hwndFocus;
-
-      //if (GetGUIThreadInfo((DWORD)itask, &info))
-      //{
-
-      //   hwndFocus = info.hwndFocus;
-
-      //}
-      //else
-      //{
-
-      //   hwndFocus = ::GetFocus();
-
-      //}
-
-      //if (hwndFocus == get_hwnd())
-      //{
-
-      //   return true;
-
-      //}
-
-      return false;
+      return windowing()->m_pwindowFocus == this;
 
    }
 
