@@ -667,13 +667,6 @@ namespace windowing_universal_windows
 
       auto hwndCapture = _get_mouse_capture(itask);
 
-      //if(!hwndCapture)
-      //{
-
-      //   hwndCapture = ::GetCapture();
-
-      //}
-
       if (::is_null(hwndCapture))
       {
 
@@ -681,34 +674,17 @@ namespace windowing_universal_windows
 
       }
 
-      //auto pwindow = _window(hwndCapture);
+      auto pwindow = hwndCapture;
 
-      //return pwindow;
-
-      return nullptr;
+      return pwindow;
 
    }
 
 
-   HWND windowing::_get_mouse_capture(itask_t itask)
+   oswindow windowing::_get_mouse_capture(itask_t itask)
    {
 
-      //GUITHREADINFO info = {};
-
-      //info.cbSize = sizeof(GUITHREADINFO);
-
-      //HWND hwndCapture = nullptr;
-
-      //if (GetGUIThreadInfo((DWORD)itask, &info))
-      //{
-
-      //   hwndCapture = info.hwndCapture;
-
-      //}
-
-      //return hwndCapture;
-
-      return nullptr;
+      return m_pwindowCapture;
 
    }
 
@@ -716,12 +692,25 @@ namespace windowing_universal_windows
    ::e_status windowing::release_mouse_capture()
    {
 
-      //if (!::ReleaseCapture())
-      //{
+      if (m_pwindowCapture)
+      {
 
-      //   return error_failed;
+         try
+         {
 
-      //}
+            m_pwindowCapture->m_pimpl->m_puserinteractionCapture.release();
+
+         }
+         catch (...)
+         {
+
+
+         }
+
+
+      }
+
+      m_pwindowCapture.release();
 
       return success;
 

@@ -20,6 +20,7 @@ namespace windowing_universal_windows
       critical_section                 m_criticalsection;
       //window_map                       m_windowmap;
       __pointer(class display)         m_pdisplay;
+      __pointer(class window)          m_pwindowCapture;
 
 //#ifdef WINDOWS_DESKTOP
 
@@ -30,7 +31,7 @@ namespace windowing_universal_windows
 
 
       windowing();
-      virtual ~windowing();
+      ~windowing() override;
 
 
       virtual ::e_status initialize_windowing(::user::user * puser) override;
@@ -93,7 +94,7 @@ namespace windowing_universal_windows
       virtual ::windowing::window * get_mouse_capture(::thread * pthread) override;
 
       
-      static HWND _get_mouse_capture(itask_t itask);
+      oswindow _get_mouse_capture(itask_t itask);
 
 
       virtual ::e_status release_mouse_capture() override;

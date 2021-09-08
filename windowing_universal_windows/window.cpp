@@ -1790,18 +1790,7 @@ namespace windowing_universal_windows
    ::e_status window::set_mouse_capture()
    {
 
-      //HWND hwnd = get_hwnd();
-
-      //HWND hwndPreviouslyCapturedIfAny = ::SetCapture(hwnd);
-
-      //HWND hwndGet = ::GetCapture();
-
-      //if (hwndGet != hwnd)
-      //{
-
-      //   return ::error_failed;
-
-      //}
+      windowing()->m_pwindowCapture = this;
 
       return ::success;
 
@@ -1811,44 +1800,7 @@ namespace windowing_universal_windows
    bool window::has_mouse_capture() const
    {
 
-      //itask_t itask = 0;
-
-      //auto puserinteraction = m_pimpl->m_puserinteraction;
-
-      //if (puserinteraction && puserinteraction->m_pthreadUserInteraction)
-      //{
-
-      //   itask = puserinteraction->m_pthreadUserInteraction->get_ithread();
-
-      //}
-
-      //GUITHREADINFO info = {};
-
-      //info.cbSize = sizeof(GUITHREADINFO);
-
-      //HWND hwndCapture;
-
-      //if (GetGUIThreadInfo((DWORD)itask, &info))
-      //{
-
-      //   hwndCapture = info.hwndCapture;
-
-      //}
-      //else
-      //{
-
-      //   hwndCapture = ::GetCapture();
-
-      //}
-
-      //if (hwndCapture == get_hwnd())
-      //{
-
-      //   return true;
-
-      //}
-
-      return false;
+      return windowing()->m_pwindowCapture == this;
 
    }
 
