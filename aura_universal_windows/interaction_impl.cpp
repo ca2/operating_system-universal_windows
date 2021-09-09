@@ -34,7 +34,7 @@ namespace universal_windows
       //m_plistener                            = nullptr;
       m_nModalResult                         = 0;
       //m_pfont                                = nullptr;
-      m_pguieCapture                         = nullptr;
+      //m_pguieCapture                         = nullptr;
 
    }
 
@@ -46,7 +46,7 @@ namespace universal_windows
       //m_plistener = nullptr;
       m_nModalResult = 0;
       //m_pfont = nullptr;
-      m_pguieCapture = nullptr;
+      //m_pguieCapture = nullptr;
 
    }
 

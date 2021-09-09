@@ -17,18 +17,18 @@ namespace universal_windows
    public:
 
 
-      //::user::message_queue_listener *                                  m_plistener;
+      //::user::message_queue_listener *                                m_plistener;
       bool                                                              m_bNotifyLayoutCompletedPending;
       string                                                            m_strWindowText;
-      point_f64                                                            m_pointLastMouseMove;
-      //point_f64                                                            m_pointCursor;
+      point_f64                                                         m_pointLastMouseMove;
+      //point_f64                                                       m_pointCursor;
       double                                                            m_dAccumulatedMouseMoveDistance;
-      millis                                                              m_millisLastMouseMove;
-      ::thread *                                                        m_pthreadDraw;
-      ::user::primitive *                                               m_pbasewnd;
-      ::user::interaction *                                             m_pguieCapture;
+      millis                                                            m_millisLastMouseMove;
+      //::thread *                                                      m_pthreadDraw;
+      //::user::primitive *                                             m_pbasewnd;
+      //::user::interaction *                                           m_pguieCapture;
 
-      iptr_to_iptr                                                m_mapLong;
+      iptr_to_iptr                                                      m_mapLong;
       ::mutex                                                           m_mutexQueue;
       manual_reset_event                                                m_evQueue;
       __pointer_array(::user::message)                                  m_messageaQueue;

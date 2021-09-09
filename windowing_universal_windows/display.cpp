@@ -103,7 +103,7 @@ namespace windowing_universal_windows
 
 //      return iMainMonitor;
 
-      return 0;
+      return -1;
 
    }
 

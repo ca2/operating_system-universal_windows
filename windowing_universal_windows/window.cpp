@@ -8181,15 +8181,11 @@ namespace windowing_universal_windows
 
          }
 
-         __pointer(::user::message) pusermessage;
-
          ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
 
          m_iMouse = pointerPoint.PointerId();
 
-         ::message::mouse * pmouse = new  ::message::mouse;
-
-         pusermessage = pmouse;
+         auto pmouse = __new(::message::mouse);
 
          pmouse->m_point.x = (::i32)pointerPoint.RawPosition().X;
 
@@ -8226,11 +8222,9 @@ namespace windowing_universal_windows
 
          }
 
-         //pmouse->m_playeredUserPrimitive = m_psystem->get_session()->m_puserinteractionHost;
-
          m_pointLastCursor = pointerPoint.RawPosition();
 
-         puserinteraction->m_pimpl->queue_message_handler(pusermessage);
+         puserinteraction->m_pimpl->queue_message_handler(pmouse);
 
       }
 
@@ -8252,16 +8246,20 @@ namespace windowing_universal_windows
          auto puserinteraction = m_pimpl->m_puserinteraction;
 
          if (puserinteraction == nullptr)
+         {
+
             return;
+
+         }
 
          if (puserinteraction->m_pimpl == nullptr)
+         {
+
             return;
 
-         __pointer(::user::message) pusermessage;
+         }
 
-         ::message::mouse * pmouse = new  ::message::mouse;
-
-         pusermessage = pmouse;
+         auto pmouse = __new(::message::mouse);
 
          pmouse->m_point.x = (::i32)pointerPoint.RawPosition().X;
 
@@ -8271,6 +8269,7 @@ namespace windowing_universal_windows
          {
 
             pmouse->m_id = e_message_left_button_up;
+
             m_bLeftButton = false;
 
          }
@@ -8278,6 +8277,7 @@ namespace windowing_universal_windows
          {
 
             pmouse->m_id = e_message_right_button_up;
+
             m_bRightButton = false;
 
          }
@@ -8285,44 +8285,16 @@ namespace windowing_universal_windows
          {
 
             pmouse->m_id = e_message_middle_button_up;
+
             m_bMiddleButton = false;
 
          }
 
-         //pmouse->m_playeredUserPrimitive = m_psystem->get_session()->m_puserinteractionHost;
-
          m_pointLastCursor = pointerPoint.RawPosition();
 
-         puserinteraction->m_pimpl->queue_message_handler(pusermessage);
+         puserinteraction->m_pimpl->queue_message_handler(pmouse);
 
       }
-
-
-      //directx_application_source::directx_application_source(::aura::system * paxissystem, const ::string & strId)
-      //{
-
-      //   m_psystem     = paxissystem;
-
-      //   m_strId           = strId;
-
-      //}
-
-
-
-
-
-      //directx_application_source new_directx_application_source(::aura::system * papexsystem, const ::string & strId)
-      //{
-
-      //   string str = strId;
-
-      //   //str += " client_only";
-
-      //   //str += " full_screen";
-
-      //   return ref new directx_application_source(papexsystem, str);
-
-      //}
 
 
       ::winrt::Windows::Foundation::Rect window::get_input_content_rect()
