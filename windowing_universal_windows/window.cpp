@@ -1,7 +1,6 @@
 // created by Camilo 2021-01-31 04:56 BRT <3CamiloSasukeThomasBorregaardSoerensen
 #include "framework.h"
 #include "acme/constant/timer.h"
-#include "window.h"
 #include "aura_universal_windows/interaction_impl.h"
 #include "aura/user/interaction_prodevian.h"
 #include "acme/constant/activate.h"
@@ -411,126 +410,96 @@ namespace windowing_universal_windows
 
       ::winrt::Windows::Foundation::Rect rectWindow;
 
-      rectWindow.X = puserinteraction->layout().design().m_point.x;
+      rectWindow.X = (float) puserinteraction->layout().design().m_point.x;
 
-      rectWindow.Y = puserinteraction->layout().design().m_point.y;
+      rectWindow.Y = (float)puserinteraction->layout().design().m_point.y;
 
-      rectWindow.Width = puserinteraction->layout().design().m_size.cx;
+      rectWindow.Width = (float)puserinteraction->layout().design().m_size.cx;
 
-      rectWindow.Height = puserinteraction->layout().design().m_size.cy;
+      rectWindow.Height = (float)puserinteraction->layout().design().m_size.cy;
 
-      //if (!m_window.get())
+      if (!m_window)
       {
 
-         m_pwindowing->windowing_sync(15_s, __routine([this, pusersystem, puserinteraction, &rectWindow]()
-         {
+         //manual_reset_event ev;
 
+         //fork([this, &ev]()
+           // {
+               auto coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(m_frameworkviewsource);
 
-               if (!m_window)
-               {
+           //    ev.set_event();
+             //  coreapplicationview.Dispatcher().ProcessEvents(
+               //   ::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
 
-                  m_coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(m_frameworkviewsource);
+            //});
 
-                  window_sync(15_s, __routine([this, &rectWindow]()
-                  {
+            //ev.wait();
+         window_sync(15_s, __routine([this, &rectWindow]()
+            {
 
-                     if (rectWindow.Width > 0 && rectWindow.Height > 0)
-                     {
+               //   m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
 
-                        m_applicationview.SetPreferredMinSize({ (float)rectWindow.Width, (float)rectWindow.Height });
+               //   if (rectWindow.Width > 0 && rectWindow.Height > 0)
+               //   {
 
-                     }
+               //      m_applicationview.SetPreferredMinSize({ (float)rectWindow.Width, (float)rectWindow.Height });
 
-                        m_window = m_coreapplicationview.CoreWindow();
+               //   }
 
-                        m_window.Activate();
-
-                        //m_bPendingActivation = true;
-
-                        auto applicationview1 = m_applicationview;
-
-                        //auto applicationview2 = ::aura::get_system()->m_pimplMain->m_applicationview;
-
-                        auto Id1 = applicationview1.Id();
-
-                        //auto Id2 = applicationview2->Id;
-
-                        ::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
-                           Id1,
-                           ::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
-
-                        rectWindow = m_window.Bounds();
-                        //y = (LONG)m_window.get().Bounds().Y;
-                        //cx = (LONG)m_window.get().Bounds().Width;
-                        //cy = (LONG)m_window.get().Bounds().Height;
-
-                        //}
+               m_window.Activate();
 
 
 
-                        //::wait(::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
-                        //   Id1,
-                        //   ::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore,
-                        //   Id2,
-                        //   ::winrt::Windows::UI::ViewManagement::ViewSizePreference::Default));
+               //   //auto applicationview1 = m_applicationview;
 
-                        if (rectWindow.Width > 0 && rectWindow.Height > 0)
-                        {
+               //   //auto Id1 = applicationview1.Id();
 
-                           m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectWindow.Width,(float)rectWindow.Height }));
+               //   //::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
+               //   //Id1,
+               //   //::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
 
-                        }
+               //   //rectWindow = m_window.Bounds();
+               //
+               //   if (rectWindow.Width > 0 && rectWindow.Height > 0)
+               //   {
 
-                     }));
+               //      m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectWindow.Width,(float)rectWindow.Height }));
 
-                        //ev.set_event();
-
-                     }
-               else
-               {
-
-                  ::rectangle_i32 rectangle;
-
-                  get_rect_normal(rectangle);
-
-                  auto puserinteraction = m_pimpl->m_puserinteraction;
-
-                  auto & sketch = puserinteraction->layout().sketch();
-
-                  puserinteraction->place(rectangle);
-
-                  auto & design = puserinteraction->layout().design();
-
-                  design.m_point = rectangle.top_left();
-
-                  design.m_size = rectangle.size();
+               //   }
 
 
-               }
+
 
             }));
 
-         //::wait(m_view.get().Dispatcher->RunAsync(
-         //   ::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
-         //   ref new ::winrt::Windows::UI::Core::DispatchedHandler([this, cs]()
-         //      {
-
-         //      })));
-         //ev.wait(15_s);
 
       }
       //else
       //{
 
-      //   if (cx > 0 && cy > 0 && m_rectangle.is_empty())
-      //   {
+         window_sync(15_s, __routine([this, pusersystem, puserinteraction, &rectWindow]()
+         {
 
-      //      m_rectangle.left = x;
-      //      m_rectangle.top = y;
-      //      m_rectangle.right = cx;
-      //      m_rectangle.bottom = cy;
+            m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
 
-      //   }
+            ::rectangle_i32 rectangle;
+
+            get_rect_normal(rectangle);
+
+            auto puserinteraction = m_pimpl->m_puserinteraction;
+
+            auto & sketch = puserinteraction->layout().sketch();
+
+            puserinteraction->place(rectangle);
+
+            auto & design = puserinteraction->layout().design();
+
+            design.m_point = rectangle.top_left();
+
+            design.m_size = rectangle.size();
+
+
+         }));
 
       //}
 
@@ -790,10 +759,10 @@ namespace windowing_universal_windows
 
       auto bounds = m_window.Bounds();
 
-      prectangle->left = bounds.X;
-      prectangle->top = bounds.Y;
-      prectangle->right = prectangle->left+ bounds.Width;
-      prectangle->bottom = prectangle->top + bounds.Height;
+      prectangle->left = (::i32) bounds.X;
+      prectangle->top = (::i32)bounds.Y;
+      prectangle->right = (::i32)(prectangle->left+ bounds.Width);
+      prectangle->bottom = (::i32) (prectangle->top + bounds.Height);
 
       return true;
 
@@ -6376,7 +6345,7 @@ namespace windowing_universal_windows
       auto routine = [this]()
       {
 
-         m_psystem->m_paurasystem->get_session()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
+         window_sync(15_s, __routine([this]()
             {
 
                //pbuffer->m_windowBounds = m_window->Bounds;
@@ -6410,7 +6379,7 @@ namespace windowing_universal_windows
 
       //m_pimpl = __create < ::user::interaction_impl >();
 
-      m_pwindowing->windowing_sync(15_s, __routine([this]()
+      window_sync(15_s, __routine([this]()
          {
 
 
@@ -6793,10 +6762,12 @@ namespace windowing_universal_windows
    }
 
 
-   void window::framework_view::Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & applicationView)
+   void window::framework_view::Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & coreapplicationview)
    {
 
-      applicationView.Activated(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::ApplicationModel::Core::CoreApplicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs>(m_pwindow, &window::OnActivated));
+      m_pwindow->m_coreapplicationview = coreapplicationview;
+
+      m_pwindow->m_coreapplicationview.Activated(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::ApplicationModel::Core::CoreApplicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs>(m_pwindow, &window::OnActivated));
 
       ::winrt::Windows::ApplicationModel::Core::CoreApplication::Suspending(::winrt::Windows::Foundation::EventHandler<::winrt::Windows::ApplicationModel::SuspendingEventArgs>(m_pwindow, &window::OnSuspending));
 
@@ -7050,9 +7021,9 @@ namespace windowing_universal_windows
 
             sel.StartCaretPosition = iBeg;
 
-            sel.EndCaretPosition = iEnd < 0 ? wstrText.get_length() + iEnd + 1 : iEnd;
+            sel.EndCaretPosition = iEnd < 0 ? (::i32) (wstrText.get_length() + iEnd + 1) : iEnd;
 
-            m_editcontext.NotifyTextChanged(m_selection, wstrText.get_length(), sel);
+            m_editcontext.NotifyTextChanged(m_selection, (::i32) wstrText.get_length(),  sel);
 
          }));
 
@@ -7071,7 +7042,7 @@ namespace windowing_universal_windows
          wstrText.Mid(modifiedRange.EndCaretPosition);
 
       // Move the caret to the end of the replacement text.
-      m_selection.StartCaretPosition = modifiedRange.StartCaretPosition + wstrText.length();
+      m_selection.StartCaretPosition = (::i32) (modifiedRange.StartCaretPosition + wstrText.length());
       m_selection.EndCaretPosition = m_selection.StartCaretPosition;
 
       // Update the selection of the edit context.  There is no need to notify the system
@@ -7079,7 +7050,7 @@ namespace windowing_universal_windows
       SetSelection(m_selection);
 
       // Let the CoreTextEditContext know what changed.
-      m_editcontext.NotifyTextChanged(modifiedRange, wstrText.length(), m_selection);
+      m_editcontext.NotifyTextChanged(modifiedRange, (::i32) wstrText.length(), m_selection);
 
    }
 
@@ -7533,7 +7504,7 @@ namespace windowing_universal_windows
 
          widestring wstrText = get_input_text();
 
-         range.EndCaretPosition = minimum(wstrText.length(), range.EndCaretPosition + direction);
+         range.EndCaretPosition = minimum((::i32) wstrText.length(), (range.EndCaretPosition + direction));
 
       }
 
@@ -7794,6 +7765,8 @@ namespace windowing_universal_windows
       void window::framework_view::Run()
       {
 
+         m_pwindow->m_window.Activate();
+
          m_pwindow->m_window.Dispatcher().ProcessEvents(::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
 
       }
@@ -7992,7 +7965,7 @@ namespace windowing_universal_windows
             pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
             pkey->m_ekey = ekey;
             pkey->m_wparam = pkey->m_nChar;
-            pkey->m_nFlags = virtualkey_to_code(args.VirtualKey());
+            pkey->m_nFlags =(::u32) virtualkey_to_code(args.VirtualKey());
             pkey->m_lparam = pkey->m_nFlags << 16;
             //pkey->m_strText            = m_strNewText;
             //if (pkey->m_strText.has_char())
@@ -8543,20 +8516,7 @@ namespace windowing_universal_windows
       ::e_status window::window_branch(const ::routine & routine)
       {
 
-         ::winrt::Windows::UI::Core::CoreDispatcher dispatcher(nullptr);
-
-         if (m_coreapplicationview)
-         {
-
-            dispatcher = m_coreapplicationview.Dispatcher();
-
-         }
-         else if (m_window)
-         {
-
-            dispatcher = m_window.Dispatcher();
-
-         }
+         auto dispatcher = m_window.Dispatcher();
 
          if (dispatcher)
          {
@@ -8583,20 +8543,7 @@ namespace windowing_universal_windows
       bool window::is_branch_current() const
       {
 
-         ::winrt::Windows::UI::Core::CoreDispatcher dispatcher(nullptr);
-
-         if (m_coreapplicationview)
-         {
-
-            dispatcher = m_coreapplicationview.Dispatcher();
-
-         }
-         else if (m_window)
-         {
-
-            dispatcher = m_window.Dispatcher();
-
-         }
+         auto dispatcher = m_window.Dispatcher();
 
          return dispatcher.HasThreadAccess();
 

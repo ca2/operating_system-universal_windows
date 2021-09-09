@@ -24,6 +24,9 @@ namespace windowing_universal_windows
       ~node() override;
 
 
+      void message_box_factory() override;
+
+
       ::e_status implement() override;
 
 
@@ -38,7 +41,7 @@ namespace windowing_universal_windows
 
       void app_init();
 
-
+      //__pointer(::extended::future < ::conversation >) _message_box(::object * pobject, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
 
 
    };

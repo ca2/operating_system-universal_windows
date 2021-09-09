@@ -52,6 +52,9 @@ namespace universal_windows
 #include "keyboard.h"
 
 
+#include "message_box.h"
+
+
 //#include "notification_area.h"
 //#include "notify_icon.h"
 

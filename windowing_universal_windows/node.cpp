@@ -26,7 +26,12 @@ namespace windowing_universal_windows
    }
 
 
+   void node::message_box_factory()
+   {
 
+      create_factory < ::windowing_universal_windows::message_box, ::user::message_box >();
+
+   }
 
 
    ::e_status node::implement()
@@ -135,7 +140,13 @@ namespace windowing_universal_windows
 
    }
 
-
+   //void node::CommandInvokedHandler(::winrt::Windows::UI::Popups::IUICommand const & command)
+   //{
+   //   // Display message.
+   //   std::wstringstream stringstream;
+   //   stringstream << L"The '" << command.Label().c_str() << L"' command has been selected.";
+   //   rootPage.NotifyUser(stringstream.str().c_str(), NotifyType::StatusMessage);
+   //}
 
 } // namespace windowing_universal_windows
 

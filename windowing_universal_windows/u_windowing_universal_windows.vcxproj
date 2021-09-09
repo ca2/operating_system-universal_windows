@@ -58,6 +58,7 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="icon.h" />
     <ClInclude Include="keyboard.h" />
+    <ClInclude Include="message_box.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="shell.h" />
     <ClInclude Include="window.h" />
@@ -88,6 +89,7 @@
     </ClCompile>
     <ClCompile Include="icon.cpp" />
     <ClCompile Include="keyboard.cpp" />
+    <ClCompile Include="message_box.cpp" />
     <ClCompile Include="node.cpp" />
     <ClCompile Include="shell.cpp" />
     <ClCompile Include="window.cpp" />
