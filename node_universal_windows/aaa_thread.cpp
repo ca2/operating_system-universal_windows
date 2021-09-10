@@ -48,7 +48,7 @@
 //}
 
 
-__STATIC bool CLASS_DECL_AURA IsHelpKey(LPMSG pMsg)
+bool CLASS_DECL_AURA IsHelpKey(LPMSG pMsg)
 
 // return true only for non-repeat F1 keydowns.
 {
