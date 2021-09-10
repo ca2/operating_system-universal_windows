@@ -82,8 +82,7 @@ namespace universal_windows
 
       bool resolve_lnk_link(::file::path & path, const ::string & strSource, string * pstrDirectory = nullptr, string * pstrParams = nullptr);
 
-
-      DECLSPEC_NO_RETURN void raise_exception(u32 dwExceptionCode, u32 dwExceptionFlags);
+      void raise_exception(u32 dwExceptionCode, u32 dwExceptionFlags);
 
       bool is_remote_session() override;
 

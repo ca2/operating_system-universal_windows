@@ -7,9 +7,6 @@
 #include "acme/_start.h"
 
 
-#define _UNIVERSAL_WINDOWS // vccorlib (Windows Runtime) is compiled and linked
-
-
 #include "_.h"
 
 

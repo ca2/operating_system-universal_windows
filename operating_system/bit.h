@@ -18,7 +18,7 @@
 #elif defined(_M_IX86)
 
 
-#define X86
+#define _X86_
 #define OS32BIT
 #define OSBIT 32
 

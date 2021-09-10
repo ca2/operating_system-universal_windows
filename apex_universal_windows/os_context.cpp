@@ -214,7 +214,7 @@ namespace universal_windows
    {
 
       //return (int) ::get_current_process_id();
-      throw exception::exception(error_not_supported);
+      //throw exception::exception(error_not_supported);
 
       return -1;
 
@@ -1597,10 +1597,13 @@ return false;
    }
 
 
-   DECLSPEC_NO_RETURN void os_context::raise_exception( u32 dwExceptionCode, u32 dwExceptionFlags)
+   void os_context::raise_exception( u32 dwExceptionCode, u32 dwExceptionFlags)
    {
-      RaiseException( dwExceptionCode, dwExceptionFlags, 0, nullptr );
+
+      RaiseException(dwExceptionCode, dwExceptionFlags, 0, nullptr);
+
    }
+
 
    bool os_context::is_remote_session()
    {
@@ -2065,7 +2068,7 @@ return false;
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      //throw exception::exception(error_not_supported);
 
       return false;
 

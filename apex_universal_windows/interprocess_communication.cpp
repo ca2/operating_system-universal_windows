@@ -41,7 +41,7 @@ namespace universal_windows
       //bool tx::open(const char * pszChannel, launcher * plauncher)
       //{
 
-      //   UNREFERENCED_PARAMETER(plauncher);
+      //   __UNREFERENCED_PARAMETER(plauncher);
 
       //   if (m_strBaseChannel.has_char())
       //      close();

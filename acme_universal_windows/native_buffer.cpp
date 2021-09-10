@@ -367,25 +367,25 @@ namespace universal_windows
    }
 
 
-   filesize native_buffer::translate(::count c, ::enum_seek eseek)
+   filesize native_buffer::translate(filesize offset, ::enum_seek eseek)
    {
 
       if (eseek == ::e_seek_set)
       {
 
-         m_stream.Seek(c);
+         m_stream.Seek(offset);
 
       }
       else if (eseek == ::e_seek_current)
       {
 
-         m_stream.Seek(m_stream.Position() + c);
+         m_stream.Seek(m_stream.Position() + offset);
 
       }
       else
       {
 
-         m_stream.Seek(m_stream.Size() + c);
+         m_stream.Seek(m_stream.Size() + offset);
 
       }
 

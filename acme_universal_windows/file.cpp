@@ -25,10 +25,12 @@ namespace universal_windows
 {
 
 
-   __STATIC inline bool IsDirSep(WCHAR ch)
-   {
-      return (ch == '\\' || ch == '/');
-   }
+   //inline bool is_directory_separator(WCHAR ch)
+   //{
+   //   
+   //   return (ch == '\\' || ch == '/');
+
+   //}
 
 
    file::file()
@@ -326,7 +328,7 @@ pacmedir->create(lpszFileName.folder());
    }
 
    
-   filesize file::translate(::count c, ::enum_seek eseek)
+   filesize file::translate(filesize offset, ::enum_seek eseek)
    {
 
       if (m_hfile == NULL_HFILE)
@@ -341,8 +343,8 @@ pacmedir->create(lpszFileName.folder());
       ASSERT(eseek == ::e_seek_set || eseek == ::e_seek_from_end || eseek == ::e_seek_current);
       ASSERT(::e_seek_set == FILE_BEGIN && ::e_seek_from_end == FILE_END && ::e_seek_current == FILE_CURRENT);
 
-      LONG lLoOffset = c & 0xffffffff;
-      LONG lHiOffset = (c >> 32) & 0xffffffff;
+      LONG lLoOffset = offset & 0xffffffff;
+      LONG lHiOffset = (offset >> 32) & 0xffffffff;
 
       filesize posNew = ::SetFilePointer((HANDLE)m_hfile, lLoOffset, &lHiOffset, (::u32)eseek);
 
@@ -1045,7 +1047,7 @@ pacmedir->create(lpszFileName.folder());
 //
 //   // get the Windows version.
 //
-//   ::u32 dwWindowsMajorVersion =  (::u32)(LOBYTE(LOWORD(dwVersion)));
+//   ::u32 dwWindowsMajorVersion =  (::u32)(__LOBYTE(LOWORD(dwVersion)));
 //   ::u32 dwWindowsMinorVersion =  (::u32)(HIBYTE(LOWORD(dwVersion)));
 //
 //   // get the build number.
