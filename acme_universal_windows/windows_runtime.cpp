@@ -134,7 +134,15 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
    else
    {
 
-      auto hstrRelative = __hstring(strRelative);
+      strPrefix = file_path_folder(strRelative);
+
+      strRelative.begins_eat_ci(strPrefix);
+
+      strRelative.trim_left("\\/");
+
+      strPrefix.trim_right("\\/");
+
+      auto hstrRelative = __hstring(strPrefix);
 
       try
       {
