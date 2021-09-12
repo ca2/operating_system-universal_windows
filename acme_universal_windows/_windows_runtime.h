@@ -13,6 +13,12 @@
 #define new ACME_NEW
 
 
+struct __declspec(uuid("5b0d3235-4dba-4d44-865e-8f1d0e4fd04d")) __declspec(novtable) IMemoryBufferByteAccess : ::IUnknown
+{
+   virtual HRESULT __stdcall GetBuffer(uint8_t ** value, uint32_t * capacity) = 0;
+};
+
+
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS uptr virtualkey_to_char(::winrt::Windows::System::VirtualKey e);
 
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::user::enum_key virtualkey_to_userkey(::winrt::Windows::System::VirtualKey e, bool & bSpecialKey);
@@ -55,10 +61,10 @@ void windows_runtime_async(PREDICATE predicate, enum_priority epriority = e_prio
 }
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(string & strRelative, string & strPrefix);
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix);
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(const ::file::path & path);
 
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, const ::file::path & path);
 
 
 template < typename PREDICATE >

@@ -248,7 +248,7 @@ namespace universal_windows
 
 #elif defined(_UWP)
 
-      auto file = windows_runtime_file(psz, 0, 0, OPEN_EXISTING, 0);
+      auto file = windows_runtime_file(this, psz, 0, 0, OPEN_EXISTING, 0);
 
       if (file == nullptr)
       {
@@ -280,7 +280,7 @@ namespace universal_windows
       {
 
          string strPrefix;
-         ::winrt::Windows::Storage::StorageFolder folder = windows_runtime_folder(strDirNew, strPrefix);
+         ::winrt::Windows::Storage::StorageFolder folder = windows_runtime_folder(this, strDirNew, strPrefix);
          if (strNameOld == strNameNew)
          {
             file.MoveAsync(folder).get();

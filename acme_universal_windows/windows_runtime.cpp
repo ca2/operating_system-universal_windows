@@ -80,7 +80,7 @@ CLASS_DECL_EXPORT void main_branch(::matter * pobjectTask, enum_priority epriori
 
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(string & strRelative, string & strPrefix)
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix)
 {
 
    if (str::begins_eat_ci(strRelative, "image://"))
@@ -134,15 +134,35 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
    else
    {
 
-      strPrefix = file_path_folder(strRelative);
+      auto path = pobject->m_pcontext->defer_process_path(strRelative);
 
-      strRelative.begins_eat_ci(strPrefix);
+      if (path.is_empty())
+      {
 
-      strRelative.trim_left("\\/");
+         return nullptr;
 
-      strPrefix.trim_right("\\/");
+      }
 
-      auto hstrRelative = __hstring(strPrefix);
+      ::file::path pathFolder;
+
+      string strName;
+
+      if (pobject->m_psystem->m_pacmedir->_is(path))
+      {
+
+         pathFolder = path;
+
+      }
+      else
+      {
+
+         pathFolder = path.folder();
+
+         strName = path.name();
+
+      }
+
+      auto hstrRelative = __hstring(pathFolder);
 
       try
       {
@@ -155,6 +175,10 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
             return nullptr;
 
          }
+
+         strPrefix = pathFolder;
+
+         strRelative = strName;
 
          return item;
 
@@ -173,53 +197,69 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 }
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(const ::file::path & path)
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, const ::file::path & path)
 {
 
-   string strRelative = path;
-
-   string strPrefix;
-
-   auto folder = windows_runtime_folder(strRelative, strPrefix);
-
-   if (folder == nullptr)
+   try
    {
 
-      return nullptr;
+      string strRelative = path;
+
+      string strPrefix;
+
+      auto folder = windows_runtime_folder(pobject, strRelative, strPrefix);
+
+      if (folder == nullptr)
+      {
+
+         return nullptr;
+
+      }
+
+      if (strRelative.is_empty())
+      {
+
+
+         return folder;
+
+      }
+
+      auto hstrRelative = __hstring(strRelative);
+
+      auto item = folder.TryGetItemAsync(hstrRelative).get();
+
+      if (!item)
+      {
+
+         return nullptr;
+
+      }
+
+      if (!item.IsOfType(winrt::Windows::Storage::StorageItemTypes::Folder))
+      {
+
+         return nullptr;
+
+      }
+
+      auto pfolder = item.as<::winrt::Windows::Storage::StorageFolder>();
+      
+      if (!pfolder)
+      {
+
+         return nullptr;
+
+      }
+
+      return pfolder;
+
+   }
+   catch (...)
+   {
 
    }
 
-   if (strRelative.is_empty())
-   {
-
-
-      return folder;
-
-   }
-
-   auto hstrRelative = __hstring(strRelative);
-
-   auto item = folder.TryGetItemAsync(hstrRelative).get();
-
-   if (!item)
-   {
-
-      return nullptr;
-
-   }
-
-   if (!item.IsOfType(winrt::Windows::Storage::StorageItemTypes::Folder))
-   {
-
-      return nullptr;
-
-   }
-
-   return item.as<::winrt::Windows::Storage::StorageFolder>();
-   //auto lambda = []() { alert_box(); };
-
-   //lambda();
-
+   return nullptr;
 
 }
 

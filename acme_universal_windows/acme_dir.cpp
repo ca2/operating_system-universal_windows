@@ -7,7 +7,7 @@
 namespace universal_windows
 {
 
-   
+
    acme_dir::acme_dir()
    {
 
@@ -44,7 +44,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::get_memory_map_base_folder_path() 
+   ::file::path acme_dir::get_memory_map_base_folder_path()
    {
 
       //to path = _get_known_folder(FOLDERID_RoamingAppData);
@@ -118,15 +118,15 @@ namespace universal_windows
    ::file::path acme_dir::sensitive()
    {
 
-   #ifdef WINDOWS
+#ifdef WINDOWS
 
       return "C:\\sensitive\\sensitive";
 
-   #else
+#else
 
       return "/sensitive/sensitive";
 
-   #endif
+#endif
 
    }
 
@@ -139,17 +139,17 @@ namespace universal_windows
    string acme_dir::system_short_name()
    {
 
-   #ifdef _UWP
+#ifdef _UWP
 
       return "metro";
 
-   #else
+#else
 
       ::file::path pathSystemShortName = localconfig() / "system_short_name.txt";
 
       return m_psystem->m_pacmefile->as_string(pathSystemShortName).trimmed();
 
-   #endif
+#endif
 
    }
 
@@ -165,7 +165,7 @@ namespace universal_windows
 
    }
 
-   #ifdef _UWP
+#ifdef _UWP
 
 
    ::file::path acme_dir::app_relative()
@@ -176,7 +176,7 @@ namespace universal_windows
    }
 
 
-   #else
+#else
 
 
    ::file::path acme_dir::app_relative()
@@ -191,14 +191,14 @@ namespace universal_windows
    }
 
 
-   #endif
+#endif
 
 
 
    ::file::path acme_dir::inplace_install(string strAppId, string strPlatform, string strConfiguration)
    {
 
-   #ifdef WINDOWS_DESKTOP
+#ifdef WINDOWS_DESKTOP
 
       ::file::path path;
 
@@ -238,24 +238,24 @@ namespace universal_windows
 
       return path;
 
-   #elif defined(ANDROID)
+#elif defined(ANDROID)
 
-         auto psystem = m_psystem;
+      auto psystem = m_psystem;
 
-         auto pacmedir = psystem->m_pacmedir;
+      auto pacmedir = psystem->m_pacmedir;
 
 
       return          auto psystem = m_psystem;
 
-         auto pacmedir = psystem->m_pacmedir;
+      auto pacmedir = psystem->m_pacmedir;
 
-pacmedir->roaming();
+      pacmedir->roaming();
 
-   #else
+#else
 
       return "";
 
-   #endif
+#endif
 
 
    }
@@ -264,7 +264,7 @@ pacmedir->roaming();
    ::file::path acme_dir::inplace_matter_install(string strAppId, string strPlatform, string strConfiguration)
    {
 
-   #ifdef WINDOWS_DESKTOP
+#ifdef WINDOWS_DESKTOP
 
       ::file::path path;
 
@@ -278,24 +278,24 @@ pacmedir->roaming();
 
       return path;
 
-   #elif defined(ANDROID)
+#elif defined(ANDROID)
 
-         auto psystem = m_psystem;
+      auto psystem = m_psystem;
 
-         auto pacmedir = psystem->m_pacmedir;
+      auto pacmedir = psystem->m_pacmedir;
 
 
       return          auto psystem = m_psystem;
 
-         auto pacmedir = psystem->m_pacmedir;
+      auto pacmedir = psystem->m_pacmedir;
 
-pacmedir->roaming();
+      pacmedir->roaming();
 
-   #else
+#else
 
       return "";
 
-   #endif
+#endif
 
 
    }
@@ -342,10 +342,10 @@ pacmedir->roaming();
 
 
 
-   #ifdef WINDOWS_DESKTOP
+#ifdef WINDOWS_DESKTOP
 
 
-   #include <Shlobj.h>
+#include <Shlobj.h>
 
 
    ::file::path acme_dir::program_files_x86()
@@ -400,7 +400,7 @@ pacmedir->roaming();
    }
 
 
-   #else
+#else
 
 
    ::file::path acme_dir::program_files_x86()
@@ -423,7 +423,7 @@ pacmedir->roaming();
    }
 
 
-   #endif
+#endif
 
 
    ::file::path acme_dir::stage(string strAppId, string strPlatform, string strConfiguration)
@@ -434,7 +434,7 @@ pacmedir->roaming();
    }
 
 
-   #ifdef LINUX
+#ifdef LINUX
 
 
    ::file::path acme_dir::home()
@@ -445,7 +445,7 @@ pacmedir->roaming();
    }
 
 
-   #endif
+#endif
 
 
 #if defined(_UWP) || defined(__APPLE__) || defined(LINUX) || defined(ANDROID)
@@ -462,7 +462,7 @@ pacmedir->roaming();
    }
 
 
-   #endif
+#endif
 
 
    ::file::path acme_dir::home()
@@ -481,7 +481,7 @@ pacmedir->roaming();
    }
 
 
-   
+
 
    ::file::path acme_dir::sys_temp()
    {
@@ -571,122 +571,21 @@ pacmedir->roaming();
    }
 
 
-   //bool acme_dir::_shell_get_special_folder_path(HWND hwnd, ::file::path& str, i32 csidl, bool fCreate)
-   //{
-
-   //   return ::SHGetSpecialFolderPathW(hwnd, wtostring(str, MAX_PATH * 8), csidl, fCreate) != false;
-
-   //}
-
-
-   //::file::path acme_dir::_shell_get_special_folder_path(i32 csidl, bool fCreate, ::windowing::window* pwindow)
-   //{
-
-   //   ::file::path path;
-
-   //   if (!_shell_get_special_folder_path(nullptr, path, csidl, fCreate))
-   //   {
-
-   //      return "";
-
-   //   }
-
-   //   return path;
-
-   //}
-
-
-   //::file::path acme_dir::_get_known_folder(REFKNOWNFOLDERID kfid)
-   //{
-
-   //   ::file::path str;
-
-   //   ::cotaskptr < PWSTR > pwszPath;
-
-   //   HANDLE hToken = nullptr;
-
-   //   //::OpenProcessToken(::GetCurrentProcess(), TOKEN_QUERY | TOKEN_IMPERSONATE | TOKEN_DUPLICATE, &hToken);
-
-   //   HRESULT hr = SHGetKnownFolderPath(kfid, 0, hToken, &pwszPath);
-
-   //   return pwszPath;
-
-   //}
-
-   
-   bool acme_dir::_is(const char * path1)
+   bool acme_dir::is(const char * path1)
    {
 
-#ifdef _UWP
+      bool bDir = _is(path1);
 
-      //string str;
-
-      ////str = "\\\\?\\";
-      ////str += path1;
-
-      //str = path1;
-
-      //str.ends_eat_ci("\\");
-      //str.ends_eat_ci("/");
-      //str.ends_eat_ci("\\");
-      //str.ends_eat_ci("/");
-
-      u32 dwFileAttributes = ::windows_get_file_attributes(path1);
-
-      if (dwFileAttributes != INVALID_FILE_ATTRIBUTES)
+      if (bDir)
       {
-
-         return dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY;
-
-      }
-      else
-      {
-
-         auto folder = windows_runtime_folder(path1);
-
-         if (!folder)
-         {
-
-            return false;
-
-         }
-
-         return true;
-
-         //::winrt::param::hstring hstrPath(wstring(path1).c_str());
-
-         //try
-         //{
-
-         //   auto folder = ::winrt::Windows::Storage::StorageFolder::GetFolderFromPathAsync(hstrPath).get();
-
-         //   bool bOk = folder != nullptr;
-
-         //   if (!bOk)
-         //   {
-
-         //      return false;
-
-         //   }
-
-         //}
-         //catch (...)
-         //{
-
-         //   return false;
-
-         //}
 
          return true;
 
       }
 
+      auto folder = windows_runtime_folder(m_psystem, path1);
 
-#elif defined(WINDOWS_DESKTOP)
-
-      auto dwFileAttributes = ::windows_get_file_attributes(path1);
-
-      if (dwFileAttributes == INVALID_FILE_ATTRIBUTES || !(dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
+      if (!folder)
       {
 
          return false;
@@ -695,39 +594,31 @@ pacmedir->roaming();
 
       return true;
 
-#else
-
-      // dedicaverse stat -> Sir And Arthur - Cesar Serenato
-
-      return is_dir(path1);
-
-#endif
-
    }
 
-//#include "framework.h"
-//#include "acme/operating_system.h"
-//
-//
-//#if defined(WINDOWS_DESKTOP)
-//#include <Shlobj.h>
-//#include <shellapi.h>
-//#elif defined(__APPLE__)
-//#include <sys/stat.h>
-//#include <dirent.h>
-//#elif defined(LINUX)
-//#include <dlfcn.h>
-//#include <link.h>
-//#include <sys/stat.h>
-//#include <dirent.h>
-//#elif defined(ANDROID)
-//#include <sys/stat.h>
-//#include <dirent.h>
-//#elif defined(_UWP)
-////#include "acme/node/operating_system/universal_windows/file_winrt.h"
-//#endif
-//
 
+   bool acme_dir::_is(const char * path1)
+   {
+
+      u32 dwFileAttributes = ::windows_get_file_attributes(path1);
+
+      if (dwFileAttributes == INVALID_FILE_ATTRIBUTES)
+      {
+
+         return false;
+
+      }
+
+      if(!(dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
+      {
+
+         return false;
+
+      }
+
+      return false;
+
+   }
 
 
    void TranslateLastError()
@@ -1521,22 +1412,6 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      bool acme_dir::is(const char * path)
-      {
-
-         //if (::file::system_dir::g_pthis == nullptr)
-         //{
-
-         return _is(path);
-
-         //}
-
-         //return ::file::system_dir::g_pthis->is(path, ::get_context_system());
-
-      }
-
-
-
       void acme_dir::rls(::file::patha & stra, const char * psz)
       {
          ::count start = stra.get_count();
@@ -1610,7 +1485,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          string strPrefix;
 
-         auto folder = windows_runtime_folder(strRelative, strPrefix);
+         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
 
          auto items = folder.GetItemsAsync().get();
 
@@ -1706,7 +1581,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          string strPrefix;
 
-         auto folder = windows_runtime_folder(strRelative, strPrefix);
+         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
 
          auto folders = folder.GetFoldersAsync().get();
 
@@ -1793,7 +1668,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          string strPrefix;
 
-         auto folder = windows_runtime_folder(strRelative, strPrefix);
+         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
 
          auto files = folder.GetFilesAsync().get();
 

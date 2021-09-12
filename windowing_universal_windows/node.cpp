@@ -37,13 +37,7 @@ namespace windowing_universal_windows
    ::e_status node::implement()
    {
 
-      auto pwindow = new window;
-
-      auto pwindowMain = ::move_transfer(pwindow);
-
-      pwindowMain->initialize(this);
-
-      auto estatus = m_psystem->m_paurasystem->begin_synch();
+      auto estatus = m_psystem->m_paurasystem->branch();
 
       if (!estatus)
       {
@@ -52,7 +46,13 @@ namespace windowing_universal_windows
 
       }
 
-      m_psystem->m_paurasession->m_puser->m_pwindowing->m_pwindowMain = pwindowMain;
+      auto pwindow = new window;
+
+      auto pwindowMain = ::move_transfer(pwindow);
+
+      pwindowMain->initialize(this);
+
+      m_psystem->m_paurasystem->m_pwindowMain = pwindowMain;
 
       ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(pwindowMain->m_frameworkviewsource);
 

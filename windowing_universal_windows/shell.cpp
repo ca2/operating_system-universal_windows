@@ -1432,7 +1432,9 @@ namespace windowing_universal_windows
    ::e_status shell::run()
    {
 
-      defer_co_initialize_ex(false);
+
+
+      defer_co_initialize_ex(true);
 
 
 

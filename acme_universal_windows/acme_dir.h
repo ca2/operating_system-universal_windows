@@ -78,6 +78,7 @@ namespace universal_windows
 
       virtual ::file::path user_appdata_local() override;
 
+      bool is(const char * path1) override;
       bool _is(const char * path1) override;
 
 
@@ -113,8 +114,6 @@ namespace universal_windows
       //bool create_directory(const char * path) override;
 
       //::e_status _create_directory(const char * path) override;
-
-      bool is(const char * path) override;
 
       void rls(::file::patha & stra, const char * psz) override;
 

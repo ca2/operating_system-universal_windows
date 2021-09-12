@@ -56,7 +56,7 @@
 }
 
 
-::winrt::Windows::Storage::StorageFile windows_runtime_file(const char * lpcszFileName, ::u32 dwDesiredAcces, ::u32 dwShareMode, ::u32 dwCreationDisposition, ::u32 dwFlagsAndAttributes)
+::winrt::Windows::Storage::StorageFile windows_runtime_file(::object * pobject, const char * lpcszFileName, ::u32 dwDesiredAcces, ::u32 dwShareMode, ::u32 dwCreationDisposition, ::u32 dwFlagsAndAttributes)
 {
 
    /*
@@ -99,7 +99,7 @@
 
    string strPrefix;
 
-   ::winrt::Windows::Storage::StorageFolder folder = windows_runtime_folder(strRelative, strPrefix);
+   ::winrt::Windows::Storage::StorageFolder folder = windows_runtime_folder(pobject, strRelative, strPrefix);
 
    if (folder == nullptr)
    {

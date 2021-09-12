@@ -4,6 +4,7 @@
 
 #include "apex_windows_common/_apex_windows_common.h"
 #include "acme_universal_windows/_acme_universal_windows.h"
+#include "_windows_runtime.h"
 
 
 #include "interprocess_communication.h"
@@ -16,6 +17,9 @@
 
 
 #include "os_context.h"
+
+
+#include "file_os_watcher.h"
 
 
 #include "node.h"

@@ -6,12 +6,19 @@
 #include <stdio.h>
 
 
+#define DEBUG_POPULATING_APPLICATION_DATA
+
+
 namespace universal_windows
 {
 
 
    acme_file::acme_file()
    {
+
+      auto data = ::winrt::Windows::Storage::ApplicationData::Current();
+      
+      data.ClearAsync().get();
 
    }
 

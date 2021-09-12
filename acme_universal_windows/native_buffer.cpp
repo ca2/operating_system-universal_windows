@@ -52,12 +52,11 @@ namespace universal_windows
       // native_buffer objects are always binary and Createnative_buffer does not need flag
       eopen -= ::file::e_open_binary;
 
-
       string strPath = path;
 
       string strPrefix;
 
-      auto folder = windows_runtime_folder(strPath, strPrefix);
+      auto folder = windows_runtime_folder(this, strPath, strPrefix);
 
       if (folder == nullptr)
       {
@@ -131,6 +130,8 @@ namespace universal_windows
          wstring wstrRelative(strRelative);
 
          winrt::hstring hstrRelative(wstrRelative);
+
+         defer_co_initialize_ex(true);
 
          auto item = folder.TryGetItemAsync(hstrRelative).get();
 

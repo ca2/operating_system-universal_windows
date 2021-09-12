@@ -497,63 +497,62 @@ namespace universal_windows
 
          listing.m_statusresult.clear();
 
-         if (listing.m_pathFinal.is_empty())
+         //if (listing.m_pathFinal.is_empty())
+         //{
+
+         //   listing.m_pathFinal = m_pcontext->m_papexcontext->defer_process_path(listing.m_pathUser);
+
+         //}
+
+         auto folder = windows_runtime_folder(this, listing.m_pathUser);
+
+         if(folder)
          {
 
-            listing.m_pathFinal = m_pcontext->m_papexcontext->defer_process_path(listing.m_pathUser);
+            winrt::Windows::Storage::Search::QueryOptions options;
+
+            options.FolderDepth(::winrt::Windows::Storage::Search::FolderDepth::Shallow);
+
+            auto items = folder.CreateItemQueryWithOptions(options).GetItemsAsync().get();
+
+            for(auto item : items)
+            {
+
+               bool bFolder = item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder);
+
+               bool bFile = item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File);
+               
+               if ((listing.m_bDir && bFolder)|| (listing.m_bFile && bFile))
+               {
+
+                  string strName = item.Name().begin();
+
+                  if (strName.begins_ci("resident_"))
+                  {
+
+                     TRACE("resident_*");
+                  }
+
+                  if (matches_wildcard_criteria_ci(listing.m_straPattern, strName))
+                  {
+
+                     string strPath = item.Path().begin();
+
+                     listing.add(strPath);
+
+                     auto basic_properties = item.GetBasicPropertiesAsync().get();
+
+                     listing.last().m_iSize = basic_properties.Size();
+
+                     listing.last().m_iDir = bFolder ? 1 : 0;
+
+                  }
+
+               }
+
+            }
 
          }
-
-         //::file::path path = listing.m_pathFinal;
-
-         //file_find file_find;
-
-         //bool bWorking;
-
-         //bWorking = file_find.find_file(path / "*");
-
-         //if (!bWorking)
-         //{
-
-         //   return listing;
-
-         //}
-
-         //while (bWorking)
-         //{
-
-         //   bWorking = file_find.find_next_file();
-
-         //   if (!file_find.IsDots())
-         //   {
-
-         //      if ((listing.m_bDir && file_find.IsDirectory()) || (listing.m_bFile && !file_find.IsDirectory()))
-         //      {
-
-         //         string strFile = file_find.GetFileName();
-
-         //         if (strFile.begins_ci("resident_"))
-         //         {
-
-         //            TRACE("resident_*");
-         //         }
-
-         //         if (matches_wildcard_criteria_ci(listing.m_straPattern, strFile))
-         //         {
-
-         //            listing.add(file_find.GetFilePath());
-
-         //            listing.last().m_iSize = file_find.get_length();
-
-         //            listing.last().m_iDir = file_find.IsDirectory() ? 1 : 0;
-
-         //         }
-
-         //      }
-
-         //   }
-
-         //}
 
       }
 

@@ -32,6 +32,9 @@ void apex_universal_windows_factory_exchange(::factory_map * pfactorymap)
    pfactorymap->create_factory < ::universal_windows::interprocess_communication_rx, ::interprocess_communication::rx >();
    pfactorymap->create_factory < ::universal_windows::interprocess_communication_tx, ::interprocess_communication::tx >();
 
+   pfactorymap->create_factory < ::file::os_watcher, ::file::watcher >();
+   pfactorymap->create_factory < ::file::os_watch, ::file::watch >();
+
    pfactorymap->create_factory < ::apex::windows_common::node, ::acme::node >();
 
 

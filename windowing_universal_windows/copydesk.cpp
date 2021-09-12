@@ -2,16 +2,20 @@
 #include "apex/operating_system.h"
 #include "apex/platform/app_core.h"
 #include "copydesk.h"
-
-
+#include <winrt/Windows.ApplicationModel.DataTransfer.h>
+#include <winrt/Windows.Graphics.Imaging.h>
+#include <winrt/Windows.UI.Xaml.Media.Imaging.h>
+//
+//struct __declspec(uuid("5b0d3235-4dba-4d44-865e-8f1d0e4fd04d")) __declspec(novtable) IMemoryBufferByteAccess : ::IUnknown
+//{
+//   virtual HRESULT __stdcall GetBuffer(uint8_t ** value, uint32_t * capacity) = 0;
+//};
 namespace windowing_universal_windows
 {
 
 
    copydesk::copydesk()
    {
-
-      //m_hwnd = nullptr;
 
       defer_create_mutex();
 
@@ -21,9 +25,8 @@ namespace windowing_universal_windows
    copydesk::~copydesk()
    {
 
-      //::DestroyWindow(m_hwnd);
-
    }
+
 
    void copydesk::OnClipboardUpdate()
    {
@@ -179,7 +182,7 @@ namespace windowing_universal_windows
    bool copydesk::_has_filea()
    {
 
-      return _get_file_count();
+      return _get_file_count() >= 1;
 
    }
 
@@ -338,59 +341,79 @@ namespace windowing_universal_windows
    ::count copydesk::_get_file_count()
    {
 
-      //if(m_cFileCount < 0)
-      //{
 
-      //   if (!IsClipboardFormatAvailable(CF_HDROP))
-      //   {
+      if (!m_pwindow)
+      {
 
-      //      m_cFileCount = 0;
+         throw exception::exception(error_not_initialized);
 
-      //   }
-      //   else
-      //   {
+         return -1;
 
-      //      synchronous_lock synchronouslock(mutex());
+      }
 
-      //      if (!::OpenClipboard(__hwnd(get_oswindow())))
-      //      //if(!OpenClipboard())
-      //      {
+      ::count c = -1;
 
-      //         m_cFileCount =  0;
+      m_pwindow->window_branch(__routine([this]()
+         {
 
-      //      }
-      //      else
-      //      {
+            synchronous_lock synchronouslock(mutex());
 
-      //         HDROP hdrop = (HDROP) ::GetClipboardData(CF_HDROP);
 
-      //         ::count c = 0;
+            //if(m_cFileCount < 0)
+            //{
 
-      //         if (hdrop != nullptr)
-      //         {
+            //   if (!IsClipboardFormatAvailable(CF_HDROP))
+            //   {
 
-      //            c = ::DragQueryFile(hdrop, 0xFFFFFFFF, nullptr, 0);
+            //      m_cFileCount = 0;
 
-      //         }
+            //   }
+            //   else
+            //   {
 
-      //         ::CloseClipboard();
+            //      synchronous_lock synchronouslock(mutex());
 
-      //         m_cFileCount = c;
+            //      if (!::OpenClipboard(__hwnd(get_oswindow())))
+            //      //if(!OpenClipboard())
+            //      {
 
-      //      }
+            //         m_cFileCount =  0;
 
-      //   }
+            //      }
+            //      else
+            //      {
 
-      //}
+            //         HDROP hdrop = (HDROP) ::GetClipboardData(CF_HDROP);
 
-      //return m_cFileCount;
+            //         ::count c = 0;
 
-      return 0;
+            //         if (hdrop != nullptr)
+            //         {
+
+            //            c = ::DragQueryFile(hdrop, 0xFFFFFFFF, nullptr, 0);
+
+            //         }
+
+            //         ::CloseClipboard();
+
+            //         m_cFileCount = c;
+
+            //      }
+
+            //   }
+
+            //}
+
+            //return m_cFileCount;
+
+         }));
+
+      return c;
 
    }
 
 
-   bool copydesk::_get_filea(::file::patha & patha, e_op & eop)
+   ::e_status copydesk::_get_filea(::file::patha & patha, e_op & eop)
    {
 
       //::count c = _get_file_count();
@@ -439,7 +462,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool copydesk::_set_filea(const ::file::patha & patha, e_op eop)
+   ::e_status copydesk::_set_filea(const ::file::patha & patha, e_op eop)
    {
 
       //ASSERT(::IsWindow(m_hwnd));
@@ -473,131 +496,150 @@ namespace windowing_universal_windows
    bool copydesk::_has_plain_text()
    {
 
-      //if(m_iText < 0)
-      //{
+      if (!m_pwindow)
+      {
 
-      //   int iFormat = _get_priority_text_format();
+         throw ::exception::exception(error_not_initialized);
 
-      //   m_iText = iFormat != 0 && iFormat != -1 ? 1 : 0;
+         return false;
 
-      //}
+      }
 
-      //return m_iText != 0;
+      bool bHasText = false;
 
-      return 0;
+      m_pwindow->window_sync(15_s, __routine([this, &bHasText]()
+         {
 
-   }
+            synchronous_lock synchronouslock(mutex());
 
 
-   bool copydesk::_set_plain_text(const ::string & str)
-   {
+            auto datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
 
-      ////ASSERT(::IsWindow(m_hwnd));
+            bHasText = datapackageview.Contains(
+               ::winrt::Windows::ApplicationModel::DataTransfer::StandardDataFormats::Text());
 
-      //synchronous_lock synchronouslock(mutex());
+         }));
 
-      //if (!::OpenClipboard(__hwnd(get_oswindow())))
-      //{
-
-      //   return false;
-
-      //}
-
-      //EmptyClipboard();
-
-      //SetClipboardData(CF_UNICODETEXT, hglobal_get_wide_text(str));
-
-      //SetClipboardData(CF_TEXT, hglobal_get_utf8_text(str));
-
-      //::file::patha patha;
-
-      //if (string_to_filea(&patha, str))
-      //{
-
-      //   SetClipboardData(CF_TEXT, hglobal_get_filea(patha));
-
-      //}
-
-      //VERIFY(::CloseClipboard());
-
-      //return true;
-
-      return false;
+      return bHasText;
 
    }
 
 
-   bool copydesk::_get_plain_text(string & str)
+   ::e_status copydesk::_set_plain_text(const ::string & str)
    {
 
-      //int iFormat = _get_priority_text_format();
+      if (!m_pwindow)
+      {
 
-      //if (iFormat == 0 || iFormat == -1)
-      //{
+         return error_not_initialized;
 
-      //   return false;
+      }
 
-      //}
+      m_pwindow->window_branch(__routine([this, str]()
+         {
 
-      //synchronous_lock synchronouslock(mutex());
+            synchronous_lock synchronouslock(mutex());
 
-      //if (!::OpenClipboard(__hwnd(get_oswindow())))
-      //{
+            ::winrt::Windows::ApplicationModel::DataTransfer::DataPackage package;
 
-      //   return false;
+            auto hstr = __hstring(str);
 
-      //}
+            package.SetText(hstr);
 
-      //HGLOBAL hglb = GetClipboardData(iFormat);
+            ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::Clear();
 
-      //if (iFormat == CF_UNICODETEXT)
-      //{
+            ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::SetContent(package);
 
-      //   str = (const unichar *)GlobalLock(hglb);
+            ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::Flush();
 
-      //}
-      //else if (iFormat == CF_TEXT)
-      //{
+         }));
+      
+      return ::success;
 
-      //   str = (char *)GlobalLock(hglb);
+   }
 
-      //}
-      //else if (iFormat == ::RegisterClipboardFormat(CFSTR_INETURLW))
-      //{
 
-      //   str = (const unichar *)GlobalLock(hglb);
+   ::e_status copydesk::_get_plain_text(string & str)
+   {
 
-      //}
+      if (!_has_plain_text())
+      {
 
-      //GlobalUnlock(hglb);
+         return error_wrong_state;
 
-      //VERIFY(::CloseClipboard());
+      }
+
+      if (!m_pwindow)
+      {
+
+         return error_not_initialized;
+
+      }
+
+      synchronous_lock synchronouslock(mutex());
+
+
+      ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
+
+      m_pwindow->window_sync(15_s, __routine([&datapackageview]()
+         {
+
+            datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
+
+         }));
+
+            auto hstr = datapackageview.GetTextAsync().get();
+
+            //if (!ppropertyset->is_true("nok_to_set"))
+            //{
+
+               str = hstr.begin();
+
+         //   }
+
+         //}));
+
+//      ppropertyset->operator[]("nok_to_set") = true;
+
+  //    sleep(100_ms);
 
       return true;
 
    }
 
 
-#undef new
-
    bool copydesk::_has_image()
    {
 
-      //if(m_iDib < 0)
-      //{
+      if (!m_pwindow)
+      {
 
-      //   m_iDib = IsClipboardFormatAvailable(CF_BITMAP) ? 1 : 0;
+         return false;
 
-      //}
+      }
 
-      //return m_iDib != 0;
+      bool bHasImage = false;
 
-      return false;
+      m_pwindow->window_sync(15_s, __routine([this, &bHasImage]()
+         {
+
+            synchronous_lock synchronouslock(mutex());
+
+
+
+            auto datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
+
+            bHasImage = datapackageview.Contains(
+               ::winrt::Windows::ApplicationModel::DataTransfer::StandardDataFormats::Bitmap());
+
+         }));
+
+      return bHasImage;
 
    }
 
 
-   bool copydesk::_desk_to_image(::image * pimage)
+   ::e_status copydesk::_desk_to_image(::image * pimage)
    {
 
       if (!_has_image())
@@ -607,100 +649,130 @@ namespace windowing_universal_windows
 
       }
 
+      if (!m_pwindow)
+      {
+
+         return error_not_initialized;
+
+      }
+
       synchronous_lock synchronouslock(mutex());
 
-      //if (!::OpenClipboard(__hwnd(get_oswindow())))
-      //{
+      ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
 
-      //   DWORD dwLastError = ::GetLastError();
+      m_pwindow->window_sync(15_min, __routine([&datapackageview]()
+         {
 
-      //   TRACELASTERROR();
+            datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
 
-      //   return false;
+         }));
 
-      //}
+      defer_co_initialize_ex(true);
 
-      //bool bOk = false;
+      string str = ::winrt::Windows::ApplicationModel::DataTransfer::StandardDataFormats::Bitmap().begin();
 
-      //HBITMAP hbitmap = (HBITMAP) ::GetClipboardData(CF_BITMAP);
+            auto data = datapackageview.GetDataAsync(L"DeviceIndependentBitmap").get();
 
-      //if(hbitmap != nullptr)
-      //{
+            //auto bitmap = datapackageview.GetBitmapAsync().get();
+
+            auto stream = data.as <::winrt::Windows::Storage::Streams::IRandomAccessStream >();
+
+            memsize s = (memsize)stream.Size();
+
+            ::winrt::Windows::Storage::Streams::Buffer buffer((::u32) s);
+
+            if (buffer == nullptr)
+            {
+
+               return error_failed;
+
+            }
+
+            stream.ReadAsync(buffer, (::u32) s, ::winrt::Windows::Storage::Streams::InputStreamOptions::ReadAhead).get();
+
+            memory m;
+
+            m.set_size(s);
+
+            windows_runtime_read_buffer(m.get_data(), s, buffer);
 
 
-      //   HDC hdcMem = nullptr;
+            BITMAPINFO * _ = (BITMAPINFO *)m.get_data();
 
-      //   HGDIOBJ hbitmapOld = nullptr;
+            pimage->create({ _->bmiHeader.biWidth,  _->bmiHeader.biHeight });
 
-      //   try
-      //   {
+            pimage->map();
 
-      //      BITMAP bm;
+            vertical_swap_copy_colorref(
+               pimage->get_data(),
+               pimage->width(),
+               pimage->height(),
+               pimage->scan_size(),
+               (::color32_t *)&m.get_data()[_->bmiHeader.biSize],
+               _->bmiHeader.biSizeImage / _->bmiHeader.biHeight);
 
-      //      __zero(bm);
+            //auto decoder = ::winrt::Windows::Graphics::Imaging::BitmapDecoder::CreateAsync(stream2).get();
 
-      //      ::GetObject(hbitmap, sizeof(bm), &bm);
+            //int cy = decoder.PixelHeight();
+            //int cx = decoder.PixelWidth();
+            //auto provider = decoder.GetPixelDataAsync(
+            //   ::winrt::Windows::Graphics::Imaging::BitmapPixelFormat::Bgra8,
+            //   ::winrt::Windows::Graphics::Imaging::BitmapAlphaMode::Premultiplied,
+            //   ::winrt::Windows::Graphics::Imaging::BitmapTransform::BitmapTransform(),
+            //   ::winrt::Windows::Graphics::Imaging::ExifOrientationMode(),
+            //   ::winrt::Windows::Graphics::Imaging::ColorManagementMode()).get();
 
-      //      pimage->create(::size_i32(bm.bmWidth, bm.bmHeight), NOK_IMAGE_OBJECT);
+            //auto data = provider.DetachPixelData();
 
-      //      if (pimage->area() > 0)
-      //      {
 
-      //         pimage->fill(0);
+            ////if (bitmap.BitmapPixelFormat() != ::winrt::Windows::Graphics::Imaging::BitmapPixelFormat::Bgra8)
+            ////{
 
-      //         hdcMem = ::CreateCompatibleDC(nullptr);
+            ////   auto bitmap32 = ::winrt::Windows::Graphics::Imaging::SoftwareBitmap::Convert(
+            ////      bitmap,
+            ////      ::winrt::Windows::Graphics::Imaging::BitmapPixelFormat::Bgra8);
 
-      //         hbitmapOld = ::SelectObject(hdcMem, hbitmap);
+            ////   bitmap = bitmap32;
 
-      //         BITMAPINFO bi;
+            ////}
 
-      //         bi.bmiHeader.biSize = sizeof(BITMAPINFO);
-      //         bi.bmiHeader.biWidth = bm.bmWidth;
-      //         bi.bmiHeader.biHeight = -bm.bmHeight;
-      //         bi.bmiHeader.biPlanes = 1;
-      //         bi.bmiHeader.biBitCount = 32;
-      //         bi.bmiHeader.biCompression = BI_RGB;
-      //         bi.bmiHeader.biSizeImage = pimage->scan_size() * bm.bmHeight;
-      //         bi.bmiHeader.biXPelsPerMeter = 0;
-      //         bi.bmiHeader.biYPelsPerMeter = 0;
-      //         bi.bmiHeader.biClrUsed = 0;
-      //         bi.bmiHeader.biClrImportant = 0;
+            ////auto cx = bitmap.PixelWidth();
 
-      //         pimage->map();
+            ////auto cy = bitmap.PixelHeight();
 
-      //         bOk = GetDIBits(hdcMem, hbitmap, 0, bm.bmHeight, pimage->get_data(), &bi, DIB_RGB_COLORS) != false;
+            ////pimage->create({ cx, cy });
 
-      //      }
+            ////auto bitmapbuffer = bitmap.LockBuffer(::winrt::Windows::Graphics::Imaging::BitmapBufferAccessMode::Read);
 
-      //   }
-      //   catch (...)
-      //   {
+            ////auto bitmapbuffer_ref = bitmapbuffer.CreateReference();
 
-      //   }
+            ////auto byteaccess = bitmapbuffer_ref.as<IMemoryBufferByteAccess>();
 
-      //   if (hdcMem != nullptr)
-      //   {
+            //::byte * pdataSrc = data.data();
+            //
+            //::u32 sizeSrc = data.size();
 
-      //      ::SelectObject(hdcMem, hbitmapOld);
+            ////auto hresult = byteaccess->GetBuffer(&pdataSrc, &sizeSrc);
 
-      //      ::DeleteDC(hdcMem);
+            //int iSourceStride = sizeSrc / cy;
 
-      //   }
+            //pimage->map();
 
-      //   ::DeleteObject((HGDIOBJ)hbitmap);
+            //::color::color colorFirstPixel(((::color32_t *)pdataSrc)[0]);
 
-      //   ::CloseClipboard();
+            //copy_colorref(
+            //   pimage->get_data(), 
+            //   cx, cy, pimage->m_iScan, 
+            //   (::color32_t *) pdataSrc, iSourceStride);
 
-      //}
+         //}));
 
-      //return bOk;
-
-      return false;
+      return ::success;
 
    }
 
 
-   bool copydesk::_image_to_desk(const ::image * pimage)
+   ::e_status copydesk::_image_to_desk(const ::image * pimage)
    {
 
       //ASSERT(::IsWindow(m_hwnd));
@@ -725,9 +797,6 @@ namespace windowing_universal_windows
       return true;
 
    }
-
-
-#define new ACME_NEW
 
 
 } // namespace windowing_universal_windows
