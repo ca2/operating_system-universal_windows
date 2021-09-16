@@ -7997,7 +7997,7 @@ namespace windowing_universal_windows
 
          __pointer(::user::message) pusermessage;
 
-         ::message::key * pkey = new  ::message::key;
+         auto pkey = __new(::message::key);
 
          pusermessage = pkey;
 
@@ -8137,7 +8137,7 @@ namespace windowing_universal_windows
 
          m_iMouse = pointerPoint.PointerId();
 
-         ::message::mouse * pmouse = new ::message::mouse;
+         auto pmouse = __new(::message::mouse);
 
          pusermessage = pmouse;
 

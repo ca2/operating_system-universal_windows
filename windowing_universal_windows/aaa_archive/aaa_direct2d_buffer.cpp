@@ -495,7 +495,7 @@
 //         directx::directx()->m_pd3devicecontext->ClearState();
 //         direct2d::direct2d()->m_pd2device->ClearResources();
 //         {
-//            Microsoft::WRL::ComPtr < ID3D11CommandList > pcommandlist;
+//            comptr < ID3D11CommandList > pcommandlist;
 //            hr = directx::directx()->m_pd3devicecontext->FinishCommandList(false, &pcommandlist);
 //            if (SUCCEEDED(hr))
 //            {
@@ -554,19 +554,19 @@
 //         //swapChainDesc.AlphaMode = DXGI_ALPHA_MODE_PREMULTIPLIED;
 //         swapChainDesc.Flags = 0;
 //
-//         Microsoft::WRL::ComPtr<IDXGIDevice1> dxgiDevice;
+//         comptr<IDXGIDevice1> dxgiDevice;
 //         
 //         hr = directx::directx()->m_pd3device.As(&dxgiDevice);
 //
 //         ::universal_windows::throw_if_failed(hr);
 //
-//         Microsoft::WRL::ComPtr<IDXGIAdapter> dxgiAdapter;
+//         comptr<IDXGIAdapter> dxgiAdapter;
 //
 //         hr = dxgiDevice->GetAdapter(&dxgiAdapter);
 //            
 //         ::universal_windows::throw_if_failed(hr);
 //
-//         Microsoft::WRL::ComPtr<IDXGIFactory2> dxgiFactory;
+//         comptr<IDXGIFactory2> dxgiFactory;
 //
 //         hr = dxgiAdapter->GetParent(IID_PPV_ARGS(&dxgiFactory));
 //
@@ -596,7 +596,7 @@
 //      {
 //
 //         // Create a Direct3D render target impact of the __swap chain back buffer.
-//         Microsoft::WRL::ComPtr<ID3D11Texture2D> backBuffer;
+//         comptr<ID3D11Texture2D> backBuffer;
 //
 //         HRESULT hr = m_swapChain->GetBuffer(0, IID_PPV_ARGS(&backBuffer));
 //         
@@ -626,7 +626,7 @@
 //         D3D11_BIND_DEPTH_STENCIL
 //         );
 //
-//         Microsoft::WRL::ComPtr<ID3D11Texture2D> depthStencil;
+//         comptr<ID3D11Texture2D> depthStencil;
 //
 //         hr = directx::directx()->m_pd3device->CreateTexture2D(
 //            &depthStencilDesc,
@@ -677,7 +677,7 @@
 //
 //      ::throw_if_failed(hr);
 //
-//      Microsoft::WRL::ComPtr<IDXGISurface> dxgiBackBuffer;
+//      comptr<IDXGISurface> dxgiBackBuffer;
 //      
 //      hr = m_swapChain->GetBuffer(0, IID_PPV_ARGS(&dxgiBackBuffer));
 //
@@ -865,8 +865,8 @@
 //
 //      // First, get the information for the adapter related to the current device.
 //
-//      Microsoft::WRL::ComPtr<IDXGIDevice1> dxgiDevice;
-//      Microsoft::WRL::ComPtr<IDXGIAdapter> deviceAdapter;
+//      comptr<IDXGIDevice1> dxgiDevice;
+//      comptr<IDXGIAdapter> deviceAdapter;
 //      DXGI_ADAPTER_DESC deviceDesc;
 //      ::universal_windows::throw_if_failed(directx::directx()->m_pd3device.As(&dxgiDevice));
 //      ::universal_windows::throw_if_failed(dxgiDevice->GetAdapter(&deviceAdapter));
@@ -874,8 +874,8 @@
 //
 //      // Next, get the information for the default adapter.
 //
-//      Microsoft::WRL::ComPtr<IDXGIFactory2> dxgiFactory;
-//      Microsoft::WRL::ComPtr<IDXGIAdapter1> currentAdapter;
+//      comptr<IDXGIFactory2> dxgiFactory;
+//      comptr<IDXGIAdapter1> currentAdapter;
 //      DXGI_ADAPTER_DESC currentDesc;
 //      ::universal_windows::throw_if_failed(CreateDXGIFactory1(IID_PPV_ARGS(&dxgiFactory)));
 //      ::universal_windows::throw_if_failed(dxgiFactory->EnumAdapters1(0,&currentAdapter));

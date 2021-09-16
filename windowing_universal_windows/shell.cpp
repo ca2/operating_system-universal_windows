@@ -197,6 +197,9 @@ namespace windowing_universal_windows
    bool shell::_internal_get_file_image(_get_file_image_ & getfileimage)
    {
 
+
+      getfileimage.m_iImage = 0;
+
       //_get_file_image_data_ getfileimage;
 
       //getfileimage.m_itemidlist = getfileimage.m_itemidlistParam;

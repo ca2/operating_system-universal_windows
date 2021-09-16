@@ -39,6 +39,7 @@ namespace universal_windows
    ::extended::status native_buffer::open(const ::file::path & path, const ::file::e_open & eopenParam)
    {
 
+
       ::file::e_open eopen(eopenParam);
 
       m_eopen = eopen;

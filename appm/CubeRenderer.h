@@ -32,12 +32,12 @@ public:
 private:
 	bool m_loadingComplete;
 
-	Microsoft::WRL::ComPtr<ID3D11InputLayout> m_inputLayout;
-	Microsoft::WRL::ComPtr<ID3D11Buffer> m_vertexBuffer;
-	Microsoft::WRL::ComPtr<ID3D11Buffer> m_indexBuffer;
-	Microsoft::WRL::ComPtr<ID3D11VertexShader> m_vertexShader;
-	Microsoft::WRL::ComPtr<ID3D11PixelShader> m_pixelShader;
-	Microsoft::WRL::ComPtr<ID3D11Buffer> m_constantBuffer;
+	comptr<ID3D11InputLayout> m_inputLayout;
+	comptr<ID3D11Buffer> m_vertexBuffer;
+	comptr<ID3D11Buffer> m_indexBuffer;
+	comptr<ID3D11VertexShader> m_vertexShader;
+	comptr<ID3D11PixelShader> m_pixelShader;
+	comptr<ID3D11Buffer> m_constantBuffer;
 
 	uint32 m_indexCount;
 	ModelViewProjectionConstantBuffer m_constantBufferData;

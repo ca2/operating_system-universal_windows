@@ -33,16 +33,16 @@ internal:
 
 private:
 
-    Microsoft::WRL::ComPtr<ID2D1Factory1>           m_d2dFactory;
-    Microsoft::WRL::ComPtr<ID2D1Device>             m_d2dDevice;
-    Microsoft::WRL::ComPtr<ID2D1DeviceContext>      m_d2dContext;
-    Microsoft::WRL::ComPtr<IDWriteFactory>          m_dwriteFactory;
-    Microsoft::WRL::ComPtr<ID2D1SolidColorBrush>    m_whiteBrush;
-    Microsoft::WRL::ComPtr<ID2D1DrawingStateBlock>  m_stateBlock;
+    comptr<ID2D1Factory1>           m_d2dFactory;
+    comptr<ID2D1Device>             m_d2dDevice;
+    comptr<ID2D1DeviceContext>      m_d2dContext;
+    comptr<IDWriteFactory>          m_dwriteFactory;
+    comptr<ID2D1SolidColorBrush>    m_whiteBrush;
+    comptr<ID2D1DrawingStateBlock>  m_stateBlock;
 
-    Microsoft::WRL::ComPtr<IWICImagingFactory>      m_wicFactory;
-    Microsoft::WRL::ComPtr<ID2D1Bitmap>             m_logoBitmap;
-    Microsoft::WRL::ComPtr<IDWriteTextLayout>       m_textLayout;
+    comptr<IWICImagingFactory>      m_wicFactory;
+    comptr<ID2D1Bitmap>             m_logoBitmap;
+    comptr<IDWriteTextLayout>       m_textLayout;
 
     UINT                                            m_idIncrement;
     bool                                            m_drawOverlay;

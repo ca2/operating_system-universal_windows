@@ -175,7 +175,7 @@ namespace windowing_universal_windows
 
          m_edialogresult = edialogresult;
 
-         this->future()->set_status(::success);
+         this->sequence()->set_status(::success);
 
       };
 
@@ -188,14 +188,14 @@ namespace windowing_universal_windows
    }
 
 
-   __pointer(::extended::future < ::conversation >) message_box::show(oswindow oswindow, const ::string & strMessage, const ::string & strTitle, const ::e_message_box & emessagebox)
+   __pointer(::extended::sequence < ::conversation >) message_box::show(::user::interaction * puserinteraction, const ::string & strMessage, const ::string & strTitle, const ::e_message_box & emessagebox)
    {
 
-      auto pfuture = this->future();
+      auto pfuture = this->sequence();
 
       m_messagedialog = ::winrt::Windows::UI::Popups::MessageDialog(__hstring(strMessage), __hstring(strTitle));
 
-      ::user::message_box::show(oswindow, strMessage, strMessage, emessagebox);
+      ::user::message_box::show(puserinteraction, strMessage, strMessage, emessagebox);
 
       m_messagedialog.DefaultCommandIndex(0);
 

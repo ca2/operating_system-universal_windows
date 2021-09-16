@@ -328,14 +328,6 @@
 //
 //
 //
-////void output_debug_string(const char * psz)
-////{
-////
-////   ::output_debug_string(wstring(psz));
-////
-////}
-//
-//
 ////::u32 WINAPI WaitForSingleObject( _In_ HANDLE hHandle, _In_ ::u32 dwMilliseconds )
 ////{
 ////
@@ -475,7 +467,7 @@
 //         if(FAILED(hresult))
 //         {
 //
-//            os_output_message_box_error("Failed to ::CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED) at __node_pre_init","__node_pre_init failure",e_message_box_icon_exclamation);
+//            os_output_error_message("Failed to ::CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED) at __node_pre_init","__node_pre_init failure",e_message_box_icon_exclamation);
 //
 //            return false;
 //
@@ -485,7 +477,7 @@
 //      else
 //      {
 //
-//         os_output_message_box_error("Failed to ::CoInitializeEx(nullptr, COINIT_MULTITHREADED) at __node_pre_init","__node_pre_init failure",e_message_box_icon_exclamation);
+//         os_output_error_message("Failed to ::CoInitializeEx(nullptr, COINIT_MULTITHREADED) at __node_pre_init","__node_pre_init failure",e_message_box_icon_exclamation);
 //
 //         return false;
 //

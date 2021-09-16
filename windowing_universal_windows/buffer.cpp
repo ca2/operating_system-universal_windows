@@ -31,6 +31,8 @@ namespace windowing_universal_windows
       m_dpi(-1.0f)
    {
 
+      //m_bBeginDraw = false;
+
       m_pWindowingUniversalWindowsBuffer = this;
 
       m_bWindowSizeChangeInProgress = false;
@@ -84,8 +86,6 @@ namespace windowing_universal_windows
 
    bool buffer::create_os_buffer(const ::size_i32& size, int iStrideParam)
    {
-
-
 
 
       return true;
@@ -142,14 +142,22 @@ namespace windowing_universal_windows
 
       }
 
-      if (!m_pd2d1devicecontext.Get())
+      if (!m_pdevicecontext)
       {
 
          return nullptr;
 
       }
 
-      m_pd2d1devicecontext->BeginDraw();
+      if (!m_pdraw2dgraphics->m_bBeginDraw)
+      {
+
+         m_pdevicecontext->BeginDraw();
+
+         m_pdraw2dgraphics->m_bBeginDraw = true;
+
+      }
+
 
       //auto pwindow = (::windowing_universal_windows::window *)m_pwindow->m_pWindow;
 
@@ -162,9 +170,9 @@ namespace windowing_universal_windows
       //color32.g = colorBackground.G / 255.f;
       //color32.b = colorBackground.B / 255.f;
 
-      //m_pd2d1devicecontext->Clear(color32);
+      //m_pdevicecontext->Clear(color32);
 
-      m_pd2d1devicecontext->SetTransform(D2D1::Matrix3x2F::Identity());
+      m_pdevicecontext->SetTransform(D2D1::Matrix3x2F::Identity());
 
       return m_pdraw2dgraphics;
 
@@ -176,21 +184,29 @@ namespace windowing_universal_windows
 
       //auto pdevicecontext = (ID2D1DeviceContext*)m_pdraw2dgraphics->detach();
 
-      if (m_pd2d1devicecontext)
+      if (m_pdevicecontext)
       {
 
-         HRESULT hr = m_pd2d1devicecontext->EndDraw();
-
-         if (SUCCEEDED(hr))
-         {
-            
-            m_ephase = e_phase_present;
-
-         }
-         else
+         if (m_pdraw2dgraphics->m_bBeginDraw)
          {
 
-            output_debug_string("finished drawing with errors");
+            HRESULT hr = m_pdevicecontext->EndDraw();
+
+            m_pdraw2dgraphics->m_bBeginDraw = false;
+
+            if (SUCCEEDED(hr))
+            {
+
+               m_ephase = e_phase_present;
+
+            }
+            //else
+            if (FAILED(hr))
+            {
+
+               output_debug_string("finished drawing with errors");
+
+            }
 
          }
 
@@ -360,29 +376,29 @@ namespace windowing_universal_windows
          m_dpi = -1.0f;
          m_windowBounds.Width = 0;
          m_windowBounds.Height = 0;
-         m_swapChain = nullptr;
+         m_pswapchain = nullptr;
 
          {
 
             ID3D11RenderTargetView * nullViews[] = { nullptr };
-            if (directx::directx()->m_pd3devicecontext)
+            if (directx::directx()->m_pdevicecontext)
             {
-               directx::directx()->m_pd3devicecontext->OMSetRenderTargets(ARRAYSIZE(nullViews), nullViews, nullptr);
+               directx::directx()->m_pdevicecontext->OMSetRenderTargets(ARRAYSIZE(nullViews), nullViews, nullptr);
 
             }
-            m_d3dRenderTargetView = nullptr;
+            m_prendertargetview = nullptr;
             if (direct2d::direct2d()->m_pd2devicecontext)
             {
                direct2d::direct2d()->m_pd2devicecontext->SetTarget(nullptr);
             }
-            m_d2dTargetBitmap = nullptr;
-            m_d3dDepthStencilView = nullptr;
-            directx::directx()->m_pd3devicecontext->Flush();
+            m_pbitmap = nullptr;
+            m_pstencilview = nullptr;
+            directx::directx()->m_pdevicecontext->Flush();
 
-            m_pd2d1devicecontext = nullptr;
-            m_d2dTargetBitmap = nullptr;
-            m_d3dRenderTargetView = nullptr;
-            m_d3dDepthStencilView = nullptr;
+            m_pdevicecontext = nullptr;
+            m_pbitmap = nullptr;
+            m_prendertargetview = nullptr;
+            m_pstencilview = nullptr;
 
 
          }
@@ -414,8 +430,7 @@ namespace windowing_universal_windows
          throw_if_failed(
             DWriteCreateFactory(
                DWRITE_FACTORY_TYPE_SHARED,
-               __uuidof(IDWriteFactory),
-               &m_dwriteFactory
+               __unknown_of(m_pwritefactory)
             )
          );
 
@@ -424,7 +439,7 @@ namespace windowing_universal_windows
                CLSID_WICImagingFactory,
                nullptr,
                CLSCTX_INPROC_SERVER,
-               IID_PPV_ARGS(&m_wicFactory)
+               __interface_of(m_pimagingfactory)
             )
          );
 
@@ -483,7 +498,7 @@ namespace windowing_universal_windows
 
          //// Create a DirectWrite text format object.
          //::universal_windows::throw_if_failed(
-         //m_dwriteFactory->CreateTextFormat(
+         //m_pwritefactory->CreateTextFormat(
          //L"Gabriola",
          //nullptr,
          //DWRITE_FONT_WEIGHT_REGULAR,
@@ -523,7 +538,7 @@ namespace windowing_universal_windows
 
          // m_d3dDevice = global_draw_get_d3d11_device1();
 
-         //direct2d::direct2d()->m_pd3devicecontext = global_draw_get_d3d11_device_context1();
+         //direct2d::direct2d()->m_pdevicecontext = global_draw_get_d3d11_device_context1();
 
          //m_d2dDevice = global_draw_get_d2d1_device();
 
@@ -661,7 +676,7 @@ namespace windowing_universal_windows
       ID2D1DeviceContext * buffer::get_device_context()
       {
 
-         return m_pd2d1devicecontext.Get();
+         return m_pdevicecontext;
 
       }
 
@@ -729,6 +744,9 @@ namespace windowing_universal_windows
       void buffer::CreateWindowSizeDependentResources()
       {
 
+         m_bWindowSizeChangeInProgress = true;
+
+
          HRESULT hr;
 
          ::windowing::graphics_lock graphicslock(m_pwindow);
@@ -738,40 +756,40 @@ namespace windowing_universal_windows
          m_windowBounds.Width = (float)m_size.cx;
          m_windowBounds.Height = (float)m_size.cy;
 
-         if (m_swapChain != nullptr)
+         if (m_pswapchain != nullptr)
          {
             return;
          }
          //   ID3D11RenderTargetView * nullViews[] = { nullptr };
-         //   directx::directx()->m_pd3devicecontext->OMSetRenderTargets(ARRAYSIZE(nullViews), nullViews, nullptr);
+         //   directx::directx()->m_pdevicecontext->OMSetRenderTargets(ARRAYSIZE(nullViews), nullViews, nullptr);
          //   
-         //   m_d3dRenderTargetView = nullptr;
-         //   m_pd2d1devicecontext->SetTarget(nullptr);
-         //   /*m_d2dTargetBitmap = nullptr;
-         //   m_d3dDepthStencilView = nullptr;
-         //   directx::directx()->m_pd3devicecontext->Flush();
+         //   m_prendertargetview = nullptr;
+         //   m_pdevicecontext->SetTarget(nullptr);
+         //   /*m_pbitmap = nullptr;
+         //   m_pstencilview = nullptr;
+         //   directx::directx()->m_pdevicecontext->Flush();
 
-         //   m_pd2d1devicecontext = nullptr;
-         //   m_d2dTargetBitmap = nullptr;
-         //   m_d3dRenderTargetView = nullptr;
-         //   m_d3dDepthStencilView = nullptr;
+         //   m_pdevicecontext = nullptr;
+         //   m_pbitmap = nullptr;
+         //   m_prendertargetview = nullptr;
+         //   m_pstencilview = nullptr;
          //   m_bWindowSizeChangeInProgress = true;
 
          //   */
-         //   directx::directx()->m_pd3devicecontext->Flush();
-         //   directx::directx()->m_pd3devicecontext->ClearState();
+         //   directx::directx()->m_pdevicecontext->Flush();
+         //   directx::directx()->m_pdevicecontext->ClearState();
          //   /*
          //   direct2d::direct2d()->m_pd2device->ClearResources();*/
          //   {
-         //      Microsoft::WRL::ComPtr < ID3D11CommandList > pcommandlist;
-         //      hr = directx::directx()->m_pd3devicecontext->FinishCommandList(false, &pcommandlist);
+         //      comptr < ID3D11CommandList > pcommandlist;
+         //      hr = directx::directx()->m_pdevicecontext->FinishCommandList(false, &pcommandlist);
          //      if (SUCCEEDED(hr))
          //      {
          //      }
          //   }
 
          //   // If the __swap chain already exists, resize it.
-         //   hr = m_swapChain->ResizeBuffers(
+         //   hr = m_pswapchain->ResizeBuffers(
          //      0,
          //      0, // If you specify zero, DXGI will use the width of the client area of the target window.
          //      0, // If you specify zero, DXGI will use the height of the client area of the target window.
@@ -805,7 +823,7 @@ namespace windowing_universal_windows
          //   }
          //}
 
-         if (m_swapChain == nullptr)
+         if (m_pswapchain == nullptr)
          {
 
             auto displayInformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
@@ -829,21 +847,20 @@ namespace windowing_universal_windows
             swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL; // All Metro style apps must use this SwapEffect.
             //swapChainDesc.AlphaMode = DXGI_ALPHA_MODE_PREMULTIPLIED;
             swapChainDesc.Flags = 0;
-            m_bWindowSizeChangeInProgress = true;
 
-            Microsoft::WRL::ComPtr<IDXGIDevice1> dxgiDevice;
+            comptr<IDXGIDevice1> dxgiDevice;
 
-            hr = directx::directx()->m_pd3device.As(&dxgiDevice);
+            hr = directx::directx()->m_pdevice.as(dxgiDevice);
 
             ::throw_if_failed(hr);
 
-            Microsoft::WRL::ComPtr<IDXGIAdapter> dxgiAdapter;
+            comptr<IDXGIAdapter> dxgiAdapter;
 
             hr = dxgiDevice->GetAdapter(&dxgiAdapter);
 
             throw_if_failed(hr);
 
-            Microsoft::WRL::ComPtr<IDXGIFactory2> dxgiFactory;
+            comptr<IDXGIFactory2> dxgiFactory;
 
             hr = dxgiAdapter->GetParent(IID_PPV_ARGS(&dxgiFactory));
 
@@ -852,11 +869,11 @@ namespace windowing_universal_windows
             auto punknown = m_pwindow->m_window.as<IUnknown>();
 
             hr = dxgiFactory->CreateSwapChainForCoreWindow(
-               directx::directx()->m_pd3device.Get(),
+               directx::directx()->m_pdevice,
                punknown.get(),
                &swapChainDesc,
                nullptr,
-               &m_swapChain
+               &m_pswapchain
             );
 
             throw_if_failed(hr);
@@ -873,16 +890,16 @@ namespace windowing_universal_windows
          {
 
             // Create a Direct3D render target impact of the __swap chain back buffer.
-            Microsoft::WRL::ComPtr<ID3D11Texture2D> backBuffer;
+            comptr<ID3D11Texture2D> backBuffer;
 
-            HRESULT hr = m_swapChain->GetBuffer(0, IID_PPV_ARGS(&backBuffer));
+            HRESULT hr = m_pswapchain->GetBuffer(0, IID_PPV_ARGS(&backBuffer));
 
             throw_if_failed(hr);
 
-            hr = directx::directx()->m_pd3device->CreateRenderTargetView(
-               backBuffer.Get(),
+            hr = directx::directx()->m_pdevice->CreateRenderTargetView(
+               backBuffer,
                nullptr,
-               &m_d3dRenderTargetView
+               &m_prendertargetview
             );
 
             throw_if_failed(hr);
@@ -903,9 +920,9 @@ namespace windowing_universal_windows
                D3D11_BIND_DEPTH_STENCIL
             );
 
-            Microsoft::WRL::ComPtr<ID3D11Texture2D> depthStencil;
+            comptr<ID3D11Texture2D> depthStencil;
 
-            hr = directx::directx()->m_pd3device->CreateTexture2D(
+            hr = directx::directx()->m_pdevice->CreateTexture2D(
                &depthStencilDesc,
                nullptr,
                &depthStencil
@@ -915,10 +932,10 @@ namespace windowing_universal_windows
 
             auto viewDesc = CD3D11_DEPTH_STENCIL_VIEW_DESC(D3D11_DSV_DIMENSION_TEXTURE2D);
 
-            hr = directx::directx()->m_pd3device->CreateDepthStencilView(
-               depthStencil.Get(),
+            hr = directx::directx()->m_pdevice->CreateDepthStencilView(
+               depthStencil,
                &viewDesc,
-               &m_d3dDepthStencilView
+               &m_pstencilview
             );
 
             throw_if_failed(hr);
@@ -931,7 +948,7 @@ namespace windowing_universal_windows
                static_cast<float>(backBufferDesc.Height)
             );
 
-            directx::directx()->m_pd3devicecontext->RSSetViewports(1, &viewport);
+            directx::directx()->m_pdevicecontext->RSSetViewports(1, &viewport);
 
          }
 
@@ -949,26 +966,28 @@ namespace windowing_universal_windows
          hr = direct2d::direct2d()->m_pd2device->CreateDeviceContext(
             //D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
             D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS,
-            &m_pd2d1devicecontext
+            &m_pdevicecontext
          );
 
          ::throw_if_failed(hr);
 
-         Microsoft::WRL::ComPtr<IDXGISurface> dxgiBackBuffer;
+         comptr<IDXGISurface> dxgiBackBuffer;
 
-         hr = m_swapChain->GetBuffer(0, IID_PPV_ARGS(&dxgiBackBuffer));
+         hr = m_pswapchain->GetBuffer(0, IID_PPV_ARGS(&dxgiBackBuffer));
 
          ::throw_if_failed(hr);
 
 
-         hr = m_pd2d1devicecontext->CreateBitmapFromDxgiSurface(
-            dxgiBackBuffer.Get(),
+         hr = m_pdevicecontext->CreateBitmapFromDxgiSurface(
+            dxgiBackBuffer,
             &bitmapProperties,
-            &m_d2dTargetBitmap);
+            &m_pbitmap);
 
          ::throw_if_failed(hr);
 
-         m_pd2d1devicecontext->SetTarget(m_d2dTargetBitmap.Get());
+         m_pdevicecontext->SetTarget(m_pbitmap);
+
+         //m_bBeginDraw = false;
 
       }
 
@@ -988,17 +1007,17 @@ namespace windowing_universal_windows
          m_sizeBuffer = { 0,0 };
 
 
-         m_swapChain = nullptr;
+         m_pswapchain = nullptr;
 
-         m_d3dRenderTargetView = nullptr;
-         m_d3dDepthStencilView = nullptr;
-         if (m_pd2d1devicecontext)
+         m_prendertargetview = nullptr;
+         m_pstencilview = nullptr;
+         if (m_pdevicecontext)
          {
-            m_pd2d1devicecontext->SetTarget(nullptr);
+            m_pdevicecontext->SetTarget(nullptr);
 
          }
-         m_pd2d1devicecontext = nullptr;
-         m_d2dTargetBitmap = nullptr;
+         m_pdevicecontext = nullptr;
+         m_pbitmap = nullptr;
 
       }
 
@@ -1041,7 +1060,7 @@ namespace windowing_universal_windows
 
                parameters.pScrollOffset = nullptr;
 
-               if (m_swapChain == nullptr)
+               if (m_pswapchain == nullptr)
                {
 
                   return;
@@ -1054,26 +1073,26 @@ namespace windowing_universal_windows
                   // The first argument instructs DXGI to block until VSync, putting the application
                   // to sleep until the next VSync. This ensures we don't waste any cycles rendering
                   // frames that will never be displayed to the screen.
-                  hr = m_swapChain->Present1(1, 0, &parameters);
+                  hr = m_pswapchain->Present1(1, 0, &parameters);
 
-                  if (directx::directx()->m_pd3devicecontext.Get())
+                  if (directx::directx()->m_pdevicecontext)
                   {
 
-                     if (m_d3dRenderTargetView.Get())
+                     if (m_prendertargetview)
                      {
 
                         // Discard the contents of the render target.
                         // This is a valid operation only when the existing contents will be entirely
                         // overwritten. If dirty or scroll rects are used, this call should be erased.
-                        directx::directx()->m_pd3devicecontext1->DiscardView(m_d3dRenderTargetView.Get());
+                        directx::directx()->m_pdevicecontext1->DiscardView(m_prendertargetview);
 
                      }
 
-                     if (m_d3dDepthStencilView.Get())
+                     if (m_pstencilview)
                      {
 
                         // Discard the contents of the depth stencil.
-                        directx::directx()->m_pd3devicecontext1->DiscardView(m_d3dDepthStencilView.Get());
+                        directx::directx()->m_pdevicecontext1->DiscardView(m_pstencilview);
 
                      }
 
@@ -1142,17 +1161,17 @@ namespace windowing_universal_windows
 
          // First, get the information for the adapter related to the current device.
 
-         Microsoft::WRL::ComPtr<IDXGIDevice1> dxgiDevice;
-         Microsoft::WRL::ComPtr<IDXGIAdapter> deviceAdapter;
+         comptr<IDXGIDevice1> dxgiDevice;
+         comptr<IDXGIAdapter> deviceAdapter;
          DXGI_ADAPTER_DESC deviceDesc;
-         throw_if_failed(directx::directx()->m_pd3device.As(&dxgiDevice));
+         throw_if_failed(directx::directx()->m_pdevice.as(dxgiDevice));
          throw_if_failed(dxgiDevice->GetAdapter(&deviceAdapter));
          throw_if_failed(deviceAdapter->GetDesc(&deviceDesc));
 
          // Next, get the information for the default adapter.
 
-         Microsoft::WRL::ComPtr<IDXGIFactory2> dxgiFactory;
-         Microsoft::WRL::ComPtr<IDXGIAdapter1> currentAdapter;
+         comptr<IDXGIFactory2> dxgiFactory;
+         comptr<IDXGIAdapter1> currentAdapter;
          DXGI_ADAPTER_DESC currentDesc;
          throw_if_failed(CreateDXGIFactory1(IID_PPV_ARGS(&dxgiFactory)));
          throw_if_failed(dxgiFactory->EnumAdapters1(0, &currentAdapter));
@@ -1163,7 +1182,7 @@ namespace windowing_universal_windows
 
          if ((deviceDesc.AdapterLuid.LowPart != currentDesc.AdapterLuid.LowPart) ||
             (deviceDesc.AdapterLuid.HighPart != currentDesc.AdapterLuid.HighPart) ||
-            FAILED(directx::directx()->m_pd3device->GetDeviceRemovedReason()))
+            FAILED(directx::directx()->m_pdevice->GetDeviceRemovedReason()))
          {
             // Release references to resources related to the old device.
             dxgiDevice = nullptr;
@@ -1189,7 +1208,7 @@ namespace windowing_universal_windows
 
       //   }
 
-      //   m_pd2d1devicecontext->BeginDraw();
+      //   m_pdevicecontext->BeginDraw();
 
       //   auto colorBackground = ::winrt::Windows::UI::ViewManagement::UISettings().GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
 
@@ -1200,13 +1219,13 @@ namespace windowing_universal_windows
       //   color32.g = colorBackground.G / 255.f;
       //   color32.b = colorBackground.B / 255.f;
 
-      //   m_pd2d1devicecontext->Clear(color32);
+      //   m_pdevicecontext->Clear(color32);
 
-      //   m_pd2d1devicecontext->SetTransform(D2D1::Matrix3x2F::Identity());
+      //   m_pdevicecontext->SetTransform(D2D1::Matrix3x2F::Identity());
 
       //   ::draw2d::graphics_pointer dc(e_create_new, ::get_context_system());
 
-      //   dc->attach((ID2D1DeviceContext *) m_pd2d1devicecontext.Get());
+      //   dc->attach((ID2D1DeviceContext *) m_pdevicecontext);
 
       //   auto pimpl = m_psystem->get_session()->m_puserinteractionHost->m_pimpl;
 
@@ -1248,7 +1267,7 @@ namespace windowing_universal_windows
 
       //   //// We ignore D2DERR_RECREATE_TARGET here. This error indicates that the device
       //   //// is lost. It will be handled during the next call to Present.
-      //   //HRESULT hr = m_pd2d1devicecontext->EndDraw();
+      //   //HRESULT hr = m_pdevicecontext->EndDraw();
 
       //   //if(FAILED(hr))
       //   //{

@@ -89,7 +89,7 @@ namespace windowing_universal_windows
 
 
       // message_box_interface
-      __pointer(::extended::future < ::conversation >) show(oswindow oswindow, const string & strMessageParam, const string & strTitle, const ::e_message_box & emessagebox) override;
+      __pointer(::extended::sequence < ::conversation >) show(::user::interaction * puserinteraction, const string & strMessageParam, const string & strTitle, const ::e_message_box & emessagebox) override;
       ::e_status add_button(const ::string & strTitle, enum_dialog_result edialogresult) override;
 
 
