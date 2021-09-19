@@ -16,9 +16,9 @@ namespace universal_windows
    acme_file::acme_file()
    {
 
-      auto data = ::winrt::Windows::Storage::ApplicationData::Current();
+      //auto data = ::winrt::Windows::Storage::ApplicationData::Current();
       
-      data.ClearAsync().get();
+      //data.ClearAsync().get();
 
    }
 
@@ -53,6 +53,19 @@ namespace universal_windows
       return path;
 
    }
+
+
+   ::e_status acme_file::clear_application_data()
+   {
+
+      auto data = ::winrt::Windows::Storage::ApplicationData::Current();
+
+      data.ClearAsync();
+
+      return ::success;
+
+   }
+
 
    //string acme_file::extension_dup(const char * path)
    //{

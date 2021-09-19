@@ -345,7 +345,7 @@ namespace windowing_universal_windows
       if (!m_pwindow)
       {
 
-         throw exception::exception(error_not_initialized);
+         throw ::exception(error_not_initialized);
 
          return -1;
 
@@ -499,7 +499,7 @@ namespace windowing_universal_windows
       if (!m_pwindow)
       {
 
-         throw ::exception::exception(error_not_initialized);
+         throw ::exception(error_not_initialized);
 
          return false;
 

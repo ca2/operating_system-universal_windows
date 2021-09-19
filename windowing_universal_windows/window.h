@@ -164,6 +164,7 @@ namespace windowing_universal_windows
 
       virtual ::winrt::Windows::Foundation::Rect get_window_rect();
       virtual ::winrt::Windows::Foundation::Point get_cursor_position();
+      ::point_i32 get_mouse_cursor_position() override;
 
 
       virtual ::winrt::Windows::Foundation::Rect get_input_content_rect();
@@ -474,7 +475,7 @@ namespace windowing_universal_windows
       //virtual ::user::interaction * get_owner();
       //virtual void set_owner(::user::interaction * pOwnerWnd);
 
-      // virtual void route_command_message(::message::command * pcommand) override;
+      // void route_command(::message::command * pcommand, bool bRouteToKeyDescendant = false) override;
 
       //void _002OnDraw(::image * pimage);
 

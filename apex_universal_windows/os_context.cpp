@@ -77,7 +77,7 @@ namespace universal_windows
    {
 
 
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
       //bool retval = true;
@@ -157,7 +157,7 @@ namespace universal_windows
 ////      tkp.Privileges[0].Attributes = 0;
 // //     AdjustTokenPrivileges(hToken, false, &tkp, 0, (PTOKEN_PRIVILEGES) nullptr, 0);
 //      return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
    }
@@ -191,20 +191,20 @@ namespace universal_windows
       //   return bResult == true;*/
 
       //}
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
    }
 
    bool os_context::get_pid_by_path(const ::string & lpszName, u32 & dwPid)
    {
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
    }
 
    bool os_context::get_pid_by_title(const ::string & lpszName, u32 & dwPid)
    {
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
    }
@@ -214,7 +214,7 @@ namespace universal_windows
    {
 
       //return (int) ::get_current_process_id();
-      //throw exception::exception(error_not_supported);
+      //throw ::exception(error_not_supported);
 
       return -1;
 
@@ -226,7 +226,7 @@ namespace universal_windows
 
    ::file::path os_context::get_process_path(u32 dwPid)
    {
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return "";
 
@@ -257,7 +257,7 @@ namespace universal_windows
       //   ua.allocate(cbNeeded / sizeof(u32));
 
       //}
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       //return false;
 
@@ -319,7 +319,7 @@ namespace universal_windows
 
       //return ::success;
 
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -348,7 +348,7 @@ namespace universal_windows
 
       //return ::success;
 
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -387,7 +387,7 @@ namespace universal_windows
 
       //return true;
 
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -424,7 +424,7 @@ namespace universal_windows
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -463,7 +463,7 @@ namespace universal_windows
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -500,7 +500,7 @@ namespace universal_windows
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -538,7 +538,7 @@ namespace universal_windows
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -572,7 +572,7 @@ namespace universal_windows
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -593,7 +593,7 @@ namespace universal_windows
 
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -621,7 +621,7 @@ namespace universal_windows
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -711,7 +711,7 @@ namespace universal_windows
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -766,7 +766,7 @@ namespace universal_windows
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -831,7 +831,7 @@ namespace universal_windows
       //}
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -1230,7 +1230,7 @@ namespace universal_windows
 //      }
 //
 //      return bOk;
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -1254,7 +1254,7 @@ return false;
       //strServiceName.replace("\\","-");
 
       //return strServiceName;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return "";
 
@@ -1331,7 +1331,7 @@ return false;
       //}
 
       //return enable_service(strServiceName,strDisplayName,strCalling,pname,ppass);
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -1351,7 +1351,7 @@ return false;
       //}
 
       //return disable_service(strServiceName);
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -1371,7 +1371,7 @@ return false;
       //}
 
       //return start_service(strServiceName);
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -1440,7 +1440,7 @@ return false;
       //CloseServiceHandle(hdlSCM);
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -1492,7 +1492,7 @@ return false;
       //CloseServiceHandle(hdlSCM);
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -1507,7 +1507,7 @@ return false;
       //   return false;
 
       //return stop_service(strServiceName);
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return error_not_supported;
 
@@ -1547,7 +1547,7 @@ return false;
       //CloseServiceHandle(hdlSCM);
 
       //return bOk != false;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
    }
@@ -1591,7 +1591,7 @@ return false;
       //CloseServiceHandle(hdlSCM);
 
       //return bOk != false;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
    }
@@ -1609,7 +1609,7 @@ return false;
    {
 
       //return GetSystemMetrics(SM_REMOTESESSION) != false;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -1739,7 +1739,7 @@ return false;
       //   }
 
       //}
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 //return false;
 
@@ -1768,7 +1768,7 @@ throw exception::exception(error_not_supported);
 
       //}
 
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -1922,7 +1922,7 @@ throw exception::exception(error_not_supported);
       //}
 
       //return bOk;
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -2044,7 +2044,7 @@ return false;
       //   return false;
 
       //}
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -2068,7 +2068,7 @@ return false;
       //}
 
       //return true;
-      //throw exception::exception(error_not_supported);
+      //throw ::exception(error_not_supported);
 
       return false;
 
@@ -2216,7 +2216,7 @@ return false;
       //});
 
       //return true;
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -2229,7 +2229,7 @@ return false;
       //current_user_set_run(strId, strCommand, bRegister);
 
       //return true;
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -2262,7 +2262,7 @@ return false;
 
       //return false;
 
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
    }
@@ -2305,7 +2305,7 @@ return false;
 //      }
 //
 //      return ::os_context::get_app_path(str);
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       return false;
 
@@ -2573,7 +2573,7 @@ return false;
       //sleep(1_s);
 
       //return true;
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -3028,7 +3028,7 @@ return false;
       //}
 
       //return true;
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -3282,7 +3282,7 @@ return false;
       ////}
 
       //return bOk;
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -3457,7 +3457,7 @@ return false;
       ////}
 
       //return bOk;
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -3579,7 +3579,7 @@ return false;
       ////}
 
       //return bOk;
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -3699,7 +3699,7 @@ return false;
 
       //return bOk;
 
-throw exception::exception(error_not_supported);
+throw ::exception(error_not_supported);
 
 return false;
 
@@ -3721,7 +3721,7 @@ return false;
       //   patha[i] = get_process_path(uaPid[i]);
 
       //}
-      throw exception::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
       //return false;
 

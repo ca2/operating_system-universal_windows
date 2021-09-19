@@ -162,6 +162,13 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
       }
 
+      if (pathFolder.is_empty())
+      {
+
+         return nullptr;
+
+      }
+
       auto hstrRelative = __hstring(pathFolder);
 
       try

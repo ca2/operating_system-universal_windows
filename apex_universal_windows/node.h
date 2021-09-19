@@ -9,6 +9,7 @@ namespace apex
    namespace universal_windows
    {
 
+
       class CLASS_DECL_APEX_UNIVERSAL_WINDOWS node :
          virtual public ::acme::universal_windows::node,
          virtual public ::apex::windows_common::node
@@ -16,14 +17,17 @@ namespace apex
       public:
 
 
-//#ifdef _UWP
-//
-//         Agile < ::winrt::Windows::UI::Core::CoreWindow >      m_window;
-//
-//#endif
+         ::matter_pointer           m_pClearApplicationDataHandler;
+
 
          node();
          ~node() override;
+
+
+         string system_options_main_body() override;
+
+
+         //void handle(::subject * psubject, ::context * pcontext) override;
 
 
       };

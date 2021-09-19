@@ -119,7 +119,9 @@ namespace windowing_universal_windows
    ::e_status icon::load_file(const ::string & strPath)
    {
 
-      m_pathProcessed = m_pcontext->m_papexcontext->defer_process_matter_path(strPath);
+      //m_pathProcessed = m_pcontext->m_papexcontext->defer_process_matter_path(strPath);
+
+      m_path = strPath;
 
       //int_array ia;
 
@@ -143,7 +145,7 @@ namespace windowing_universal_windows
 
       //}
 
-      return m_pathProcessed.has_char();
+      return m_path.has_char();
 
 //      return !m_iconmap.is_empty();
 

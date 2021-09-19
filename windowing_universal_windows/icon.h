@@ -15,7 +15,7 @@ namespace windowing_universal_windows
 
       //map < ::size_i32, HICON >              m_iconmap;
 
-      ::file::path                           m_pathProcessed;
+      ::file::path                           m_path;
 
       map < ::size_i32, image_pointer >      m_imagemap;
 

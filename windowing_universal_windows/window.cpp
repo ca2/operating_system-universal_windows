@@ -312,7 +312,7 @@ namespace windowing_universal_windows
 
       //pimpl->install_message_routing(puserinteraction);
 
-      install_message_routing(puserinteraction);
+      //install_message_routing(puserinteraction);
 
       //if (!hook_window_create(this))
       //{
@@ -427,13 +427,13 @@ namespace windowing_universal_windows
            // {
                auto coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(m_frameworkviewsource);
 
-           //    ev.set_event();
+           //    subject.set_event();
              //  coreapplicationview.Dispatcher().ProcessEvents(
                //   ::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
 
             //});
 
-            //ev.wait();
+            //subject.wait();
          window_sync(15_s, __routine([this, &rectWindow]()
             {
 
@@ -812,9 +812,9 @@ namespace windowing_universal_windows
 
             auto psystem = m_psystem->m_paurasystem;
 
-            auto psubject = psystem->subject(id_os_font_change);
+            psystem->signal(id_os_font_change);
 
-            psystem->handle_subject(psubject);
+            //psystem->handle_subject(psubject);
 
             //fork([this]()
               // {
@@ -832,9 +832,9 @@ namespace windowing_universal_windows
 
             auto psystem = m_psystem->m_paurasystem;
 
-            auto psubject = psystem->subject(id_os_dark_mode);
+            psystem->signal(id_user_color);
 
-            psystem->handle_subject(psubject);
+            //psystem->handle_subject(psubject);
 
          }
          else if (pmessage->m_id == e_message_display_change ||
@@ -1752,7 +1752,7 @@ namespace windowing_universal_windows
    //__pointer(window) window::get_active_window()
    //{
 
-   //   __throw(error_interface_only);
+   //   throw ::interface_only_exception();
 
    //   return nullptr;
 
@@ -2045,7 +2045,7 @@ namespace windowing_universal_windows
 
       //auto puserinteraction = m_pimpl->m_puserinteraction;
 
-      //if (!puserinteraction->m_bUserPrimitiveOk)
+      //if (!puserinteraction->m_bUserElementOk)
       //{
 
       //   return true;
@@ -3519,7 +3519,7 @@ namespace windowing_universal_windows
 
       //ASSERT(::IsWindow(get_hwnd()));
 
-      ::exception::throw_not_implemented();
+      throw interface_only_exception();
       return false;
       //      return ::DrawCaption(get_hwnd(), (HDC)(dynamic_cast<::windows::graphics * >(pgraphics))->get_hwnd(), prc, uFlags) != false;
 
@@ -4047,7 +4047,7 @@ namespace windowing_universal_windows
 
    //   ASSERT(::IsWindow(((window *)this)->get_hwnd()));
 
-   //   ::exception::throw_not_implemented();
+   //   throw interface_only_exception();
    //   //      const_cast < ::windowing_universal_windows::window * > (this)->send_message(WM_PRINT, (wparam)(dynamic_cast<::windows::graphics * >(pgraphics))->get_hwnd(), (lparam) dwFlags);
 
    //}
@@ -4057,7 +4057,7 @@ namespace windowing_universal_windows
 
    //   ASSERT(::IsWindow(((window *)this)->get_hwnd()));
 
-   //   ::exception::throw_not_implemented();
+   //   throw interface_only_exception();
    //   //const_cast < ::windowing_universal_windows::window * > (this)->send_message(WM_PRINTCLIENT, (wparam)(dynamic_cast<::windows::graphics * >(pgraphics))->get_hwnd(), (lparam) dwFlags);
 
    //}
@@ -5010,14 +5010,14 @@ namespace windowing_universal_windows
 
    void window::on_set_parent(::user::interaction * puserinteraction) {
 
-      __throw(error_interface_only);
+      throw ::interface_only_exception();
    }
 
     //// virtual void register_drop_target();
     //void window::show_task(bool bShow)
     //{
 
-    //   __throw(error_interface_only);
+    //   throw ::interface_only_exception();
 
     //}
     //
@@ -5025,7 +5025,7 @@ namespace windowing_universal_windows
     void window::window_show_change_visibility(::e_display edisplay, ::e_activation eactivation)
     {
 
-       __throw(error_interface_only);
+       throw ::interface_only_exception();
 
     }
 
@@ -5534,7 +5534,7 @@ namespace windowing_universal_windows
 //
 //      }
 //
-//      bool bUserElementalOk = !m_bDestroyImplOnly && puserinteraction && puserinteraction->m_bUserPrimitiveOk;
+//      bool bUserElementalOk = !m_bDestroyImplOnly && puserinteraction && puserinteraction->m_bUserElementOk;
 //
 //      if (message == e_message_key_down ||
 //         message == e_message_key_up ||
@@ -6001,7 +6001,7 @@ namespace windowing_universal_windows
 //      if (message == e_message_event)
 //      {
 //
-//         puserinteraction->on_control_event(pmessage);
+//         puserinteraction->handle_event(pmessage);
 //
 //         return;
 //
@@ -6501,7 +6501,7 @@ namespace windowing_universal_windows
 
          //}
 
-         if (m_pimpl->m_puserinteraction->m_bUserPrimitiveOk)
+         if (m_pimpl->m_puserinteraction->m_bUserElementOk)
          {
 
             pcreate->m_lresult = 0;
@@ -6764,6 +6764,19 @@ namespace windowing_universal_windows
 
    void window::framework_view::Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & coreapplicationview)
    {
+
+      ::winrt::Windows::UI::ViewManagement::UISettings uisettings;
+
+      auto uicolorBackground = uisettings.GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
+
+      ::color::color colorBackground;
+
+      colorBackground.alpha   = 255;
+      colorBackground.red     = uicolorBackground.R;
+      colorBackground.green   = uicolorBackground.G;
+      colorBackground.blue    = uicolorBackground.B;
+
+      m_pwindow->m_psystem->m_pnode->background_color(colorBackground);
 
       m_pwindow->m_coreapplicationview = coreapplicationview;
 
@@ -8304,9 +8317,9 @@ namespace windowing_universal_windows
 
          auto puserinteraction = m_pimpl->m_puserinteraction;
 
-         auto pfocusui = puserinteraction->get_keyboard_focus();
+         auto puserprimitiveFocus = puserinteraction->get_keyboard_focus();
 
-         auto puserinteractionFocus = pfocusui->m_puiThis;
+         auto puserinteractionFocus = puserprimitiveFocus->m_puserinteraction;
 
          if (puserinteractionFocus)
          {
@@ -8473,6 +8486,17 @@ namespace windowing_universal_windows
                m_pointLastCursor = p;*/
 
          return p;
+
+      }
+
+
+      ::point_i32 window::get_mouse_cursor_position()
+      {
+
+         auto p = get_cursor_position();
+
+         return { (int) p.X, (int) p.Y };
+
 
       }
 

@@ -19,6 +19,9 @@ namespace universal_windows
 
       ::file::path executable() override;
 
+      
+      ::e_status clear_application_data() override;
+
 
    };
 

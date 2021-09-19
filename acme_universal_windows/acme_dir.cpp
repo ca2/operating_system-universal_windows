@@ -304,7 +304,7 @@ namespace universal_windows
    ::file::path acme_dir::install()
    {
 
-      if (m_pathInstallFolder == nullptr || m_pathInstallFolder.is_empty())
+      if (m_pathInstallFolder.is_empty())
       {
 
          return default_install();

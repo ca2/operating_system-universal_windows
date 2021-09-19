@@ -9,9 +9,9 @@
 //   TimeSpan delay;
 //   delay.Duration = maximum((ns / 100), 1) - 1;
 //   ThreadPoolTimer ^ PeriodicTimer =
-//      ThreadPoolTimer::CreateTimer(ref new TimerElapsedHandler([&](ThreadPoolTimer ^) {ev.SetEvent(); }), delay);
+//      ThreadPoolTimer::CreateTimer(ref new TimerElapsedHandler([&](ThreadPoolTimer ^) {subject.SetEvent(); }), delay);
 //
-//   ev.wait();
+//   subject.wait();
 //
 //   return true;
 //
@@ -190,7 +190,7 @@ namespace music
 
                         byte bVolume = (byte)(m_pseq->m_iaRefVolume[iTrack] * maximum(0.0, minimum(1.0, dVolume)));
 
-                        m_pseq->m_io->control_change(pevent->GetTrack(), 7, bVolume);
+                        m_pseq->m_io->control_change(psubject->GetTrack(), 7, bVolume);
                      }
 
                   }
@@ -238,56 +238,56 @@ namespace music
 
                   m_tkPosition = tkPosition;
 
-                  if (pevent->GetType() == ::music::midi::NoteOn)
+                  if (psubject->GetType() == ::music::midi::NoteOn)
                   {
 
                      if (uiNow - uiFile < 20 * 1000)
                      {
 
-                        m_pseq->m_io->note_on(pevent->GetTrack(), pevent->GetNotePitch(), pevent->GetNoteVelocity());
+                        m_pseq->m_io->note_on(psubject->GetTrack(), psubject->GetNotePitch(), psubject->GetNoteVelocity());
 
-                        map[pevent->GetTrack()][pevent->GetNotePitch()] = pevent->GetNoteVelocity();
+                        map[psubject->GetTrack()][psubject->GetNotePitch()] = psubject->GetNoteVelocity();
 
                      }
 
                   }
-                  else if (pevent->GetType() == ::music::midi::NoteOff)
+                  else if (psubject->GetType() == ::music::midi::NoteOff)
                   {
 
                      if (uiNow - uiFile < 20 * 1000)
                      {
 
-                        m_pseq->m_io->note_off(pevent->GetTrack(), pevent->GetNotePitch(), pevent->GetNoteVelocity());
+                        m_pseq->m_io->note_off(psubject->GetTrack(), psubject->GetNotePitch(), psubject->GetNoteVelocity());
 
-                        map[pevent->GetTrack()][pevent->GetNotePitch()] = -1;
+                        map[psubject->GetTrack()][psubject->GetNotePitch()] = -1;
 
                      }
 
                   }
-                  else if (pevent->GetType() == ::music::midi::ProgramChange)
+                  else if (psubject->GetType() == ::music::midi::ProgramChange)
                   {
 
-                     m_pseq->m_io->program_change(pevent->GetTrack(), pevent->GetProgram());
+                     m_pseq->m_io->program_change(psubject->GetTrack(), psubject->GetProgram());
 
                   }
-                  else if (pevent->GetType() == ::music::midi::ControlChange)
+                  else if (psubject->GetType() == ::music::midi::ControlChange)
                   {
 
-                     if (pevent->GetController() == 7)
+                     if (psubject->GetController() == 7)
                      {
 
-                        m_pseq->m_iaRefVolume[pevent->GetTrack()] = pevent->GetControllerValue();
+                        m_pseq->m_iaRefVolume[psubject->GetTrack()] = psubject->GetControllerValue();
                      }
 
-                     m_pseq->m_io->control_change(pevent->GetTrack(), pevent->GetController(), pevent->GetControllerValue());
+                     m_pseq->m_io->control_change(psubject->GetTrack(), psubject->GetController(), psubject->GetControllerValue());
 
                   }
-                  else if (pevent->GetType() == ::music::midi::PitchBend)
+                  else if (psubject->GetType() == ::music::midi::PitchBend)
                   {
 
-                     int iChannel = pevent->GetTrack();
+                     int iChannel = psubject->GetTrack();
 
-                     uint16_t uiBend = pevent->GetPitchBendLevel();
+                     uint16_t uiBend = psubject->GetPitchBendLevel();
 
                      uint16_t uiBend2;
 

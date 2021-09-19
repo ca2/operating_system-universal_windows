@@ -33,15 +33,19 @@ namespace windowing_universal_windows
       ::e_status call_member(::i64 i) override;
       
 
-      bool _os_calc_app_dark_mode() override;
+      //bool _os_calc_app_dark_mode() override;
 
-      bool _os_calc_system_dark_mode() override;
+      //bool _os_calc_system_dark_mode() override;
 
       void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);
+
+      virtual void fetch_user_color();
 
       void app_init();
 
       //__pointer(::extended::future < ::conversation >) _message_box(::object * pobject, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
+
+      ::e_status node_branch(const ::routine & routine) override;
 
 
    };

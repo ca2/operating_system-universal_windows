@@ -170,7 +170,7 @@ namespace universal_windows
 
       //            }
 
-      //            //ev.set_event();
+      //            //subject.set_event();
 
       //         }));
 
@@ -180,7 +180,7 @@ namespace universal_windows
       //   //      {
 
       //   //      })));
-      //   //ev.wait(15_s);
+      //   //subject.wait(15_s);
 
       //}
       //else
@@ -885,10 +885,10 @@ return true;
 
 #endif
 
-   void interaction_impl::route_command_message(::message::command * pcommand)
+   void interaction_impl::route_command(::message::command * pcommand, bool bRouteToKeyDescendant)
    {
 
-      channel::route_command_message(pcommand);
+      channel::route_command(pcommand, bRouteToKeyDescendant);
 
       if (pcommand->m_bRet)
       {
@@ -900,10 +900,12 @@ return true;
    }
 
 
-   void interaction_impl::on_control_event(::user::control_event * pevent)
+   void interaction_impl::handle(::subject * psubject, ::context * pcontext)
    {
 
-      __UNREFERENCED_PARAMETER(pevent);
+      __UNREFERENCED_PARAMETER(psubject);
+
+      __UNREFERENCED_PARAMETER(pcontext);
 
 //      return false;
 
@@ -1166,14 +1168,16 @@ return true;
 
          auto psession = get_session();
 
-         ::user::interaction * puiFocus = m_puserinteraction->get_keyboard_focus()
-            ? m_puserinteraction->get_keyboard_focus()->m_puiThis : nullptr;
+         auto puserprimitiveFocus = m_puserinteraction->get_keyboard_focus();
 
-         if(puiFocus != nullptr
-               && puiFocus->is_window()
-               && puiFocus->get_top_level() != nullptr)
+         ::user::interaction * puserinteractionFocus = puserprimitiveFocus
+            ? puserprimitiveFocus->m_puserinteraction : nullptr;
+
+         if(puserinteractionFocus != nullptr
+               && puserinteractionFocus->is_window()
+               && puserinteractionFocus->get_top_level() != nullptr)
          {
-            puiFocus->send(pkey);
+            puserinteractionFocus->send(pkey);
             if(pmessage->m_bRet)
                return;
          }
@@ -1189,18 +1193,18 @@ return true;
          pmessage->set_lresult(DefWindowProc((::u32)pmessage->m_id.i64(), pmessage->m_wparam, pmessage->m_lparam));
          return;
       }
-      if(pmessage->m_id == e_message_event)
-      {
-         if(m_puserinteraction != nullptr)
-         {
-            m_puserinteraction->on_control_event((::user::control_event *)pmessage->m_lparam.m_lparam);
-         }
-         else
-         {
-            on_control_event((::user::control_event *)pmessage->m_lparam.m_lparam);
-         }
-         return;
-      }
+      //if(pmessage->m_id == e_message_event)
+      //{
+      //   if(m_puserinteraction != nullptr)
+      //   {
+      //      m_puserinteraction->handle_event((::user::control_event *)pmessage->m_lparam.m_lparam);
+      //   }
+      //   else
+      //   {
+      //      handle_event((::user::control_event *)pmessage->m_lparam.m_lparam);
+      //   }
+      //   return;
+      //}
       //(this->*m_pfnDispatchWindowProc)(pmessage);
 
       m_puserinteraction->route_message(pmessage);
@@ -3351,7 +3355,7 @@ return true;
    //   lprect->bottom = (i64)(lprect->top + rectangle.Height);
 
    //   /*if(!::is_window(get_handle()))
-   //      __throw(::exception::exception("no more a window"));
+   //      __throw(::exception("no more a window"));
    //      // if it is temporary interaction_impl - probably not ca2 wrapped interaction_impl
    //      if(m_puserinteraction == nullptr || m_puserinteraction == this)
    //      {
@@ -3526,6 +3530,7 @@ return true;
       return get_window_long_ptr(GWL_STYLE);
 
    }
+
 
    u32 interaction_impl::GetExStyle() const
    {
@@ -5365,11 +5370,11 @@ return true;
          if (nMsg == WM_INITDIALOG)
             __post_init_dialog(pinteraction, rectOld, uStyle);
       }
-      catch(const const ::exception::exception & e)
+      catch(const const ::exception & e)
       {
          try
          {
-            if(App(pinteraction->get_application()).on_run_exception((::exception::exception &) e))
+            if(App(pinteraction->get_application()).on_run_exception((::exception &) e))
                goto run;
          }
          catch(...)

@@ -37,7 +37,7 @@ namespace windowing_universal_windows
    ::e_status node::implement()
    {
 
-      auto estatus = m_psystem->m_paurasystem->branch();
+      auto estatus = m_psystem->m_paurasystem->begin_synch();
 
       if (!estatus)
       {
@@ -96,15 +96,48 @@ namespace windowing_universal_windows
    }
 
 
-   bool node::_os_calc_app_dark_mode()
+   //bool node::_os_calc_app_dark_mode()
+   //{
+
+   //   return _os_calc_system_dark_mode();
+
+   //}
+
+
+   //bool node::_os_calc_system_dark_mode()
+   //{
+
+   //   auto colortypeBackground = ::winrt::Windows::UI::ViewManagement::UIColorType::Background;
+
+   //   auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
+
+   //   auto colorvalue = uisettings.GetColorValue(colortypeBackground);
+
+   //   auto color = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
+
+   //   auto luminance = color.get_luminance();
+
+   //   return luminance < 0.5;
+
+   //}
+
+
+   void node::OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings uisettings, ::winrt::Windows::Foundation::IInspectable inpectable)
    {
 
-      return _os_calc_system_dark_mode();
+      fetch_user_color();
+
+      //auto luminance = color.get_luminance();
+
+      //return luminance < 0.5;
+
+
+      //m_psystem->m_papexsystem->signal(id_user_color);
 
    }
 
 
-   bool node::_os_calc_system_dark_mode()
+   void node::fetch_user_color()
    {
 
       auto colortypeBackground = ::winrt::Windows::UI::ViewManagement::UIColorType::Background;
@@ -113,20 +146,9 @@ namespace windowing_universal_windows
 
       auto colorvalue = uisettings.GetColorValue(colortypeBackground);
 
-      auto color = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
+      auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
 
-      auto luminance = color.get_luminance();
-
-      return luminance < 0.5;
-
-   }
-
-   void node::OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings uisettings, ::winrt::Windows::Foundation::IInspectable inpectable)
-   {
-
-      auto psubject = m_psystem->m_papexsystem->subject(id_os_dark_mode);
-
-      m_psystem->m_papexsystem->handle_subject(psubject);
+      m_psystem->m_pnode->background_color(colorBackground);
 
    }
 
@@ -147,6 +169,27 @@ namespace windowing_universal_windows
    //   stringstream << L"The '" << command.Label().c_str() << L"' command has been selected.";
    //   rootPage.NotifyUser(stringstream.str().c_str(), NotifyType::StatusMessage);
    //}
+
+
+   ::e_status node::node_branch(const ::routine & routine)
+   {
+
+      auto window = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow();
+
+      auto dispatcher = window.Dispatcher();
+      
+      dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
+         [routine]()
+      {
+         
+         routine();
+
+      });
+
+      return ::success;
+
+   }
+
 
 } // namespace windowing_universal_windows
 

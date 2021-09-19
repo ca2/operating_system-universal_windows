@@ -23,7 +23,7 @@ namespace windowing_universal_windows
 
       enum_phase                                            m_ephase;
 
-      ::logic::bit                                          m_bCoreWindowVisible;
+      ::boolean                                          m_bCoreWindowVisible;
       bool                                                  m_bWindowSizeChangeInProgress;
       bool                                                  m_b3D;
       ::mutex                                               m_mutexDc;
