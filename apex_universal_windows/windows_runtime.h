@@ -2,7 +2,7 @@
 #pragma once
 
 
-::e_status windows_runtime_launch_uri_synchronously(const char * pszUri, const ::duration & duration);
+::e_status windows_runtime_launch_uri_async(const char * pszUri, const ::duration & duration);
 
 
 

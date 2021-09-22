@@ -98,9 +98,22 @@ namespace universal_windows
 
          }
 
-         string anotherappUri = m_strBaseChannel + ":///send?message=" + m_psystem->url()->url_encode(strMessage);
+         string anotherappUri = m_strBaseChannel + "://send?message=" + m_psystem->url()->url_encode(strMessage);
 
-         windows_runtime_launch_uri_synchronously(anotherappUri, durationTimeout);
+         //windows_runtime_launch_uri_synchronously(anotherappUri, durationTimeout);
+
+         auto pnode = m_psystem->node();
+
+         pnode->node_branch(__routine([anotherappUri]()
+            {
+
+               auto hstrUri = __hstring(anotherappUri);
+
+               ::winrt::Windows::Foundation::Uri uri(hstrUri);
+
+               ::winrt::Windows::System::Launcher::LaunchUriAsync(uri);
+
+            }));
 
          return true;
 
@@ -124,11 +137,23 @@ namespace universal_windows
          if (!is_tx_ok())
             return false;
 
-         memory m;
+         //memory m;
 
-         string anotherappURI = m_strBaseChannel + "://send?messagebin=" + __str(message) + "," + m_psystem->url()->url_encode(m_psystem->base64()->encode({ pdata, len }));
+         string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __str(message) + "," + m_psystem->url()->url_encode(m_psystem->base64()->encode({ pdata, len }));
+         
+         
+         auto pnode = m_psystem->node();
 
-         windows_runtime_launch_uri_synchronously(anotherappURI, durationTimeout);
+         pnode->node_branch(__routine([anotherappUri]()
+            {
+
+               auto hstrUri = __hstring(anotherappUri);
+
+               ::winrt::Windows::Foundation::Uri uri(hstrUri);
+
+               ::winrt::Windows::System::Launcher::LaunchUriAsync(uri).get();
+
+            }));
 
          //::winrt::Windows::Foundation::Uri ^uri = ref new ::winrt::Windows::Foundation::Uri(anotherappURI);
 

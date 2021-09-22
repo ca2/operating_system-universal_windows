@@ -39,7 +39,7 @@ namespace windowing_universal_windows
       HDC                           m_hdcScreen;
       bool                          m_bWindowDC;
       oswindow                      m_hwndIpc;
-      ::rectangle_i32               m_rectLast;
+      ::rectangle_i32               m_rectangleLast;
 
 
       buffer();

@@ -3728,6 +3728,29 @@ return false;
    }
 
 
+   ::e_status os_context::link_open(string strUrl)
+   {
+
+      auto pnode = m_psystem->node();
+
+      pnode->node_branch(__routine([strUrl]()
+         {
+
+            auto hstrUri = __hstring(strUrl);
+
+            ::winrt::Windows::Foundation::Uri uri(hstrUri);
+
+            ::winrt::Windows::System::Launcher::LaunchUriAsync(uri);
+
+         }));
+
+      return success;
+
+   }
+
+
+
+
 } // namespace universal_windows
 
 
@@ -3748,33 +3771,33 @@ return false;
 //                Shell link, stored in the Comment field of the link
 //                properties.
 
-
-
-namespace apex
-{
-
-
-   namespace windows
-   {
-
-
-      //::e_status node::shell_create_link(::file::path pathObj, ::file::path pathLnk, string strDesc, ::file::path pathIco, int iIcon)
-      //{
-
-      //   wstring wstrObj(pathObj);
-      //   wstring wstrLnk(pathLnk);
-      //   wstring wstrDsc(strDesc);
-      //   wstring wstrIco(pathIco);
-
-      //   return hresult_to_estatus(win_create_link(wstrObj, wstrLnk, wstrDsc, wstrIco, iIcon));
-
-      //}
-
-
-   } // namespace windows
-
-
-} // namespace apex
-
-
-
+//
+//
+//namespace apex
+//{
+//
+//
+//   namespace windows
+//   {
+//
+//
+//      //::e_status node::shell_create_link(::file::path pathObj, ::file::path pathLnk, string strDesc, ::file::path pathIco, int iIcon)
+//      //{
+//
+//      //   wstring wstrObj(pathObj);
+//      //   wstring wstrLnk(pathLnk);
+//      //   wstring wstrDsc(strDesc);
+//      //   wstring wstrIco(pathIco);
+//
+//      //   return hresult_to_estatus(win_create_link(wstrObj, wstrLnk, wstrDsc, wstrIco, iIcon));
+//
+//      //}
+//
+//
+//   } // namespace windows
+//
+//
+//} // namespace apex
+//
+//
+//

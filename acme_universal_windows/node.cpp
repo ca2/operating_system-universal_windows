@@ -23,7 +23,12 @@ namespace acme
       }
 
 
+      string node::audio_get_default_library_name()
+      {
 
+         return "audio_xaudio";
+
+      }
 
 
    } // namespace universal_windows

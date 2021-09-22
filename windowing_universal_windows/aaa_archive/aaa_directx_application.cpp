@@ -317,9 +317,9 @@
 //
 //      // m_pdirectxbase->set_size(size);
 //
-//      //m_rectLastWindowRect.Width = (float)m_pdirectxbase->width();
+//      //m_rectangleLastWindowRect.Width = (float)m_pdirectxbase->width();
 //
-//      //m_rectLastWindowRect.Height = (float)m_pdirectxbase->height();
+//      //m_rectangleLastWindowRect.Height = (float)m_pdirectxbase->height();
 //
 //      //m_pdirectxbase->OnWindowSizeChange();
 //
@@ -329,7 +329,7 @@
 //   void application::DpiChanged(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable)
 //   {
 //
-//      m_rectLastWindowRect = m_window.Bounds();
+//      m_rectangleLastWindowRect = m_window.Bounds();
 //
 //      m_pdirectxbase->OnChangeDpi(sender.LogicalDpi());
 //
@@ -870,14 +870,14 @@
 //
 //         ::rectangle_i32 r = puserinteraction->get_window_rect();
 //
-//         m_rectInputContentRect.X = (float) r.left;
-//         m_rectInputContentRect.Y = (float)r.top;
-//         m_rectInputContentRect.Width = (float)r.width();
-//         m_rectInputContentRect.Height = (float)r.height();
+//         m_rectangleInputContentRect.X = (float) r.left;
+//         m_rectangleInputContentRect.Y = (float)r.top;
+//         m_rectangleInputContentRect.Width = (float)r.width();
+//         m_rectangleInputContentRect.Height = (float)r.height();
 //
 //      }
 //
-//      rectangle = m_rectInputContentRect;
+//      rectangle = m_rectangleInputContentRect;
 //
 //      return rectangle;
 //
@@ -887,7 +887,7 @@
 //   ::winrt::Windows::Foundation::Rect application::get_input_selection_rect()
 //   {
 //
-//      ::winrt::Windows::Foundation::Rect rectangle = m_rectInputSelectionRect;
+//      ::winrt::Windows::Foundation::Rect rectangle = m_rectangleInputSelectionRect;
 //
 //      return rectangle;
 //
@@ -953,7 +953,7 @@
 //   ::winrt::Windows::Foundation::Rect application::get_window_rect()
 //   {
 //
-//      ::winrt::Windows::Foundation::Rect rectangle = m_rectLastWindowRect;
+//      ::winrt::Windows::Foundation::Rect rectangle = m_rectangleLastWindowRect;
 //
 //      /*      rectangle.X = 0;
 //            rectangle.Y = 0;

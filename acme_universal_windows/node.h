@@ -20,6 +20,9 @@ namespace acme
          ~node() override;
 
 
+         string audio_get_default_library_name() override;
+
+
       };
 
 

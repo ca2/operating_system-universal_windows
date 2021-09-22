@@ -38,22 +38,22 @@
 //}
 //
 
-
-::e_status windows_runtime_launch_uri_synchronously(const char * pszUri, const ::duration & duration)
-{
-
-   ::winrt::Windows::Foundation::Uri uri(__hstring(pszUri));
-
-   auto estatus = windows_runtime_synchronously(duration, [uri, duration]()
-   {
-
-      ::wait(::winrt::Windows::System::Launcher::LaunchUriAsync(uri), duration);
-
-   });
-
-   return estatus;
-
-}
+//
+//::e_status windows_runtime_launch_uri_synchronously(const char * pszUri, const ::duration & duration)
+//{
+//
+//   ::winrt::Windows::Foundation::Uri uri(__hstring(pszUri));
+//
+//   auto estatus = windows_runtime_synchronously(duration, [uri, duration]()
+//   {
+//
+//      ::wait(::winrt::Windows::System::Launcher::LaunchUriAsync(uri), duration);
+//
+//   });
+//
+//   return estatus;
+//
+//}
 
 
 ::winrt::Windows::Storage::StorageFile windows_runtime_file(::object * pobject, const char * lpcszFileName, ::u32 dwDesiredAcces, ::u32 dwShareMode, ::u32 dwCreationDisposition, ::u32 dwFlagsAndAttributes)

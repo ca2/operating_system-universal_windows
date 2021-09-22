@@ -108,6 +108,8 @@ namespace universal_windows
 
       //virtual icon_transport load_icon(const ::payload & varFile) override;
 
+      ::e_status link_open(string strUrl) override;
+
 
    };
 

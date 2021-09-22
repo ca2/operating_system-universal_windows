@@ -35,10 +35,10 @@ namespace windowing_universal_windows
    //   //if (!hicon)
    //   //{
 
-   //   //   if (m_pathProcessed.has_char())
+   //   //   if (m_ppathProcessed.has_char())
    //   //   {
 
-   //   //      //hicon = (HICON) ::LoadImageW(nullptr, wstring(m_pathProcessed), IMAGE_ICON, size.cx, size.cy, LR_LOADFROMFILE);
+   //   //      //hicon = (HICON) ::LoadImageW(nullptr, wstring(m_ppathProcessed), IMAGE_ICON, size.cx, size.cy, LR_LOADFROMFILE);
 
    //   //   }
 
@@ -119,7 +119,7 @@ namespace windowing_universal_windows
    ::e_status icon::load_file(const ::string & strPath)
    {
 
-      //m_pathProcessed = m_pcontext->m_papexcontext->defer_process_matter_path(strPath);
+      //m_ppathProcessed = m_pcontext->m_papexcontext->defer_process_matter_path(strPath);
 
       m_path = strPath;
 

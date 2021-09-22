@@ -40,9 +40,9 @@ namespace windowing_universal_windows
 
    //   bool                                                     m_bRightButton;
 
-   //   ::winrt::Windows::Foundation::Rect                       m_rectLastWindowRect;
-   //   ::winrt::Windows::Foundation::Rect                       m_rectInputContentRect;
-   //   ::winrt::Windows::Foundation::Rect                       m_rectInputSelectionRect;
+   //   ::winrt::Windows::Foundation::Rect                       m_rectangleLastWindowRect;
+   //   ::winrt::Windows::Foundation::Rect                       m_rectangleInputContentRect;
+   //   ::winrt::Windows::Foundation::Rect                       m_rectangleInputSelectionRect;
 
 
    //   application();

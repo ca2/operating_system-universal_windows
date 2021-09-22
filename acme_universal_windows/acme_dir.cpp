@@ -616,7 +616,7 @@ namespace universal_windows
 
       }
 
-      return false;
+      return true;
 
    }
 
@@ -921,95 +921,119 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //   }
 
 
-      ::file::path acme_dir::module_folder()
-      {
-
-#if defined(_UWP)
-
-         return "";
-
-#elif defined(WINDOWS)
-
-         wstring wstrModuleFolder(get_buffer, MAX_PATH * 8);
-
-         wstring wstrModuleFilePath(get_buffer, MAX_PATH * 8);
-
-         HMODULE hmodule = ::GetModuleHandleA("acme.dll");
-
-         if (hmodule == nullptr)
-         {
-
-            hmodule = ::GetModuleHandleA("spalib.dll");
-
-         }
-
-         if (hmodule == nullptr)
-         {
-
-            wcscpy(wstrModuleFilePath, _wgetenv(L"PROGRAMFILES(X86)"));
-
-
-            if (wstrModuleFilePath.empty())
-            {
-
-               SHGetSpecialFolderPathW(nullptr, wstrModuleFilePath, CSIDL_PROGRAM_FILES, false);
-
-            }
-
-            wstrModuleFilePath.trim_right(L"\\/");
-
-            wcscat(wstrModuleFilePath, L"\\ca2\\");
-
-#ifdef X86
-
-            wcscat(wstrModuleFilePath, L"stage\\x86\\");
-
-#else
-            wide_concatenate(wstrModuleFilePath, L"stage\\x64\\");
-
-#endif
-
-            wcscpy(wstrModuleFolder, wstrModuleFilePath);
-
-            return string(wstrModuleFolder);
-
-         }
-
-         if (!GetModuleFileNameW(hmodule, wstrModuleFilePath, (::u32)wstrModuleFilePath.length()))
-         {
-
-            return "";
-
-         }
-
-         LPWSTR pszModuleFileName;
-
-         if (!GetFullPathNameW(wstrModuleFilePath, (::u32)wstrModuleFilePath.length(), wstrModuleFolder, &pszModuleFileName))
-         {
-
-            return "";
-
-         }
-
-         wstrModuleFolder.release_string_buffer();
-
-         wstrModuleFolder.trim_right(L"\\/");
-
-         return wstrModuleFolder;
-
-#else
-
-         string strModuleFolder;
-
-         auto wstrModuleFolder = strModuleFolder.get_string_buffer(MAX_PATH * 8);
-
-         __throw(todo);
-
-         return wstrModuleFolder;
-
-#endif
-
-      }
+//      ::file::path acme_dir::module_folder()
+//      {
+//
+//#if defined(_UWP)
+//
+//         wstring wstrModuleFolder(get_buffer, MAX_PATH * 8);
+//
+//         wstring wstrModuleFilePath(get_buffer, MAX_PATH * 8);
+//
+//         if (!GetModuleFileNameW(nullptr, wstrModuleFilePath, (::u32)wstrModuleFilePath.length()))
+//         {
+//
+//            return "";
+//
+//         }
+//
+//         LPWSTR pszModuleFileName;
+//
+//         if (!GetFullPathNameW(wstrModuleFilePath, (::u32)wstrModuleFilePath.length(), wstrModuleFolder, &pszModuleFileName))
+//         {
+//
+//            return "";
+//
+//         }
+//
+//         wstrModuleFolder.release_string_buffer();
+//
+//         wstrModuleFolder.trim_right(L"\\/");
+//
+//         return wstrModuleFolder;
+//
+//#elif defined(WINDOWS)
+//
+//         wstring wstrModuleFolder(get_buffer, MAX_PATH * 8);
+//
+//         wstring wstrModuleFilePath(get_buffer, MAX_PATH * 8);
+//
+//         HMODULE hmodule = ::GetModuleHandleA("acme.dll");
+//
+//         if (hmodule == nullptr)
+//         {
+//
+//            hmodule = ::GetModuleHandleA("spalib.dll");
+//
+//         }
+//
+//         if (hmodule == nullptr)
+//         {
+//
+//            wcscpy(wstrModuleFilePath, _wgetenv(L"PROGRAMFILES(X86)"));
+//
+//
+//            if (wstrModuleFilePath.empty())
+//            {
+//
+//               SHGetSpecialFolderPathW(nullptr, wstrModuleFilePath, CSIDL_PROGRAM_FILES, false);
+//
+//            }
+//
+//            wstrModuleFilePath.trim_right(L"\\/");
+//
+//            wcscat(wstrModuleFilePath, L"\\ca2\\");
+//
+//#ifdef X86
+//
+//            wcscat(wstrModuleFilePath, L"stage\\x86\\");
+//
+//#else
+//            wide_concatenate(wstrModuleFilePath, L"stage\\x64\\");
+//
+//#endif
+//
+//            wcscpy(wstrModuleFolder, wstrModuleFilePath);
+//
+//            return string(wstrModuleFolder);
+//
+//         }
+//
+//         if (!GetModuleFileNameW(hmodule, wstrModuleFilePath, (::u32)wstrModuleFilePath.length()))
+//         {
+//
+//            return "";
+//
+//         }
+//
+//         LPWSTR pszModuleFileName;
+//
+//         if (!GetFullPathNameW(wstrModuleFilePath, (::u32)wstrModuleFilePath.length(), wstrModuleFolder, &pszModuleFileName))
+//         {
+//
+//            return "";
+//
+//         }
+//
+//         wstrModuleFolder.release_string_buffer();
+//
+//         wstrModuleFolder.trim_right(L"\\/");
+//
+//         return wstrModuleFolder;
+//
+//#else
+//
+//         string strModuleFolder;
+//
+//         auto wstrModuleFolder = strModuleFolder.get_string_buffer(MAX_PATH * 8);
+//
+//         __throw(todo);
+//
+//         return wstrModuleFolder;
+//
+//#endif
+//
+//      }
 
 
       // bool eat_end_level(string & str, i32 iLevelCount, const char * pSeparator)
@@ -1399,7 +1423,9 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
          else
          {
 
-            return file_path_name(string(path));
+            auto pathFolder = file_path_folder(string(path));
+
+            return pathFolder;
 
          }
 

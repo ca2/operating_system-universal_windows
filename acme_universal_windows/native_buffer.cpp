@@ -1,7 +1,19 @@
 // Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
 #include "framework.h"
 
+::e_status hresult_to_status(HRESULT hr)
+{
 
+   if (FAILED(hr))
+   {
+
+      return error_failed;
+
+   }
+
+   return ::success;
+
+}
 
 namespace universal_windows
 {
@@ -213,45 +225,58 @@ namespace universal_windows
 
       folder = m_folder;
 
-      if (eopen & ::file::e_open_create)
+      try
       {
 
-         if (eopen & ::file::e_open_no_truncate)
+         if (eopen & ::file::e_open_create)
          {
 
-            m_file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::OpenIfExists).get();
+            if (eopen & ::file::e_open_no_truncate)
+            {
+
+               m_file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::OpenIfExists).get();
+
+            }
+            else
+            {
+
+               m_file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::ReplaceExisting).get();
+
+            }
 
          }
          else
          {
 
-            m_file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::ReplaceExisting).get();
-
-         }
-
-      }
-      else
-      {
-
-         try
-         {
-
-            auto item = folder.TryGetItemAsync(__hstring(strName)).get();
-
-            if(item && item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
+            try
             {
 
-               m_file = item.as<::winrt::Windows::Storage::StorageFile>();
+               auto item = folder.TryGetItemAsync(__hstring(strName)).get();
+
+               if (item && item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
+               {
+
+                  m_file = item.as<::winrt::Windows::Storage::StorageFile>();
+
+               }
+
+            }
+            catch (...)
+            {
+
+               m_file = nullptr;
 
             }
 
          }
-         catch (...)
-         {
 
-            m_file = nullptr;
+      }
+      catch (const winrt::hresult_error & error)
+      {
 
-         }
+         auto estatus = hresult_to_status(error.code());
+
+         return estatus;
 
       }
 

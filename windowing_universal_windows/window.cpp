@@ -61,6 +61,7 @@ namespace windowing_universal_windows
       m_frameworkviewsource(this)
    {
 
+      //m_straActivationMessage.add("app-core-flag://send/?message=");
       //m_bXXXFirst = true;
       //
       m_bInternalFocus = false;
@@ -408,15 +409,15 @@ namespace windowing_universal_windows
 
       //}
 
-      ::winrt::Windows::Foundation::Rect rectWindow;
+      ::winrt::Windows::Foundation::Rect rectangleWindow;
 
-      rectWindow.X = (float) puserinteraction->layout().design().m_point.x;
+      rectangleWindow.X = (float) puserinteraction->layout().design().m_point.x;
 
-      rectWindow.Y = (float)puserinteraction->layout().design().m_point.y;
+      rectangleWindow.Y = (float)puserinteraction->layout().design().m_point.y;
 
-      rectWindow.Width = (float)puserinteraction->layout().design().m_size.cx;
+      rectangleWindow.Width = (float)puserinteraction->layout().design().m_size.cx;
 
-      rectWindow.Height = (float)puserinteraction->layout().design().m_size.cy;
+      rectangleWindow.Height = (float)puserinteraction->layout().design().m_size.cy;
 
       if (!m_window)
       {
@@ -434,15 +435,15 @@ namespace windowing_universal_windows
             //});
 
             //subject.wait();
-         window_sync(15_s, __routine([this, &rectWindow]()
+         window_sync(15_s, __routine([this, &rectangleWindow]()
             {
 
                //   m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
 
-               //   if (rectWindow.Width > 0 && rectWindow.Height > 0)
+               //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
                //   {
 
-               //      m_applicationview.SetPreferredMinSize({ (float)rectWindow.Width, (float)rectWindow.Height });
+               //      m_applicationview.SetPreferredMinSize({ (float)rectangleWindow.Width, (float)rectangleWindow.Height });
 
                //   }
 
@@ -458,12 +459,12 @@ namespace windowing_universal_windows
                //   //Id1,
                //   //::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
 
-               //   //rectWindow = m_window.Bounds();
+               //   //rectangleWindow = m_window.Bounds();
                //
-               //   if (rectWindow.Width > 0 && rectWindow.Height > 0)
+               //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
                //   {
 
-               //      m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectWindow.Width,(float)rectWindow.Height }));
+               //      m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectangleWindow.Width,(float)rectangleWindow.Height }));
 
                //   }
 
@@ -477,7 +478,7 @@ namespace windowing_universal_windows
       //else
       //{
 
-         window_sync(15_s, __routine([this, pusersystem, puserinteraction, &rectWindow]()
+         window_sync(15_s, __routine([this, pusersystem, puserinteraction, &rectangleWindow]()
          {
 
             m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
@@ -516,7 +517,7 @@ namespace windowing_universal_windows
 
       install_message_routing(puserinteraction);
 
-      //m_rectWindowScreen = m_rectangle;
+      //m_rectangleWindowScreen = m_rectangle;
 
       //send_message(e_message_create, 0, (LPARAM)&pusersystem->m_createstruct);
 
@@ -541,10 +542,10 @@ namespace windowing_universal_windows
 
       synchronous_lock synchronouslock(puserinteraction->mutex());
 
-      if (rectWindow.Width > 0 && rectWindow.Height > 0)
+      if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
       {
 
-         puserinteraction->place(rectangle_f64_dimension(rectWindow.X, rectWindow.Y, rectWindow.Width, rectWindow.Height));
+         puserinteraction->place(rectangle_f64_dimension(rectangleWindow.X, rectangleWindow.Y, rectangleWindow.Width, rectangleWindow.Height));
 
       }
 
@@ -2567,11 +2568,11 @@ namespace windowing_universal_windows
 
       //}
 
-      ::rectangle_i32 rectWindow;
+      ::rectangle_i32 rectangleWindow;
 
       auto puserinteraction = m_pimpl->m_puserinteraction;
 
-      rectWindow = puserinteraction->screen_rect();
+      rectangleWindow = puserinteraction->screen_rect();
 
       //PAINTSTRUCT paint;
 
@@ -2581,29 +2582,29 @@ namespace windowing_universal_windows
 
       //::SelectClipRgn(hdc, nullptr);
 
-      //::rectangle_i32 rectPaint;
+      //::rectangle_i32 rectanglePaint;
 
-      //::rectangle_i32 rectUpdate;
+      //::rectangle_i32 rectangleUpdate;
 
-      //rectPaint = paint.rcPaint;
+      //rectanglePaint = paint.rcPaint;
 
 
       __throw(todo);
 
-      //if (rectPaint.is_null() || (GetExStyle() & WS_EX_LAYERED))
+      //if (rectanglePaint.is_null() || (GetExStyle() & WS_EX_LAYERED))
       //{
 
-      //   rectUpdate = rectWindow;
+      //   rectangleUpdate = rectangleWindow;
 
-      //   rectPaint = rectWindow;
+      //   rectanglePaint = rectangleWindow;
 
-      //   puserinteraction->_001ScreenToClient(rectPaint, ::user::e_layout_design);
+      //   puserinteraction->_001ScreenToClient(rectanglePaint, ::user::e_layout_design);
 
       //}
       //else
       //{
 
-      //   rectUpdate = rectPaint;
+      //   rectangleUpdate = rectanglePaint;
 
       //}
 
@@ -2622,7 +2623,7 @@ namespace windowing_universal_windows
 
       //auto & buffer = pbuffer->m_osbuffera[!pbuffer->m_iCurrentBuffer];
 
-      //::BitBlt(hdc, rectUpdate.left, rectUpdate.top, rectUpdate.width(), rectUpdate.height(), buffer.m_hdc, 0, 0, SRCCOPY);
+      //::BitBlt(hdc, rectangleUpdate.left, rectangleUpdate.top, rectangleUpdate.width(), rectangleUpdate.height(), buffer.m_hdc, 0, 0, SRCCOPY);
 
 
 
@@ -2661,7 +2662,7 @@ namespace windowing_universal_windows
 
       //            pgraphics->SetViewportOrg(0, 0);
 
-      //            g->BitBlt(rectPaint.left, rectPaint.top, rectPaint.width(), rectPaint.height(), pgraphics, rectUpdate.left, rectUpdate.top);
+      //            g->BitBlt(rectanglePaint.left, rectanglePaint.top, rectanglePaint.width(), rectanglePaint.height(), pgraphics, rectangleUpdate.left, rectangleUpdate.top);
 
       //         }
 
@@ -3410,7 +3411,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool window::RedrawWindow(const ::rectangle_i32 & rectUpdate, ::draw2d::region * prgnUpdate, ::u32 flags)
+   bool window::RedrawWindow(const ::rectangle_i32 & rectangleUpdate, ::draw2d::region * prgnUpdate, ::u32 flags)
    {
 
       //if (m_bDestroyImplOnly)
@@ -5601,14 +5602,14 @@ namespace windowing_universal_windows
 //      {
 //         ::rectangle_i32 rectangleClient;
 //         ::GetClientRect(get_hwnd(), rectangleClient);
-//         ::rectangle_i32 rectWindow;
-//         ::GetWindowRect(get_hwnd(), rectWindow);
-//         ::rectangle_i32 rectRegion;
+//         ::rectangle_i32 rectangleWindow;
+//         ::GetWindowRect(get_hwnd(), rectangleWindow);
+//         ::rectangle_i32 rectangleRegion;
 //         HRGN hrgn = CreateRectRgn(0, 0, 0, 0);
 //         int regionType = ::GetWindowRgn(get_hwnd(), hrgn);
 //         if (regionType != ERROR)
 //         {
-//            ::GetRgnBox(hrgn, rectRegion);
+//            ::GetRgnBox(hrgn, rectangleRegion);
 //         }
 //         ::DeleteObject(hrgn); /* finished with region */
 //         WINDOWPLACEMENT wp;
@@ -6309,6 +6310,9 @@ namespace windowing_universal_windows
 
       int nReturnCode = 0;
 
+
+      
+
       //if (!m_psystem->m_htask)
       //{
 
@@ -6723,6 +6727,7 @@ namespace windowing_universal_windows
    }
 
 
+
    void window::main_branch(const ::routine & routine)
    {
 
@@ -6751,6 +6756,8 @@ namespace windowing_universal_windows
 
 
    }
+
+
 
    
    window::framework_view::framework_view(window * pwindow) :
@@ -7828,7 +7835,7 @@ namespace windowing_universal_windows
       void window::DpiChanged(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable)
       {
 
-         m_rectLastWindowRect = m_window.Bounds();
+         m_rectangleLastWindowRect = m_window.Bounds();
 
          auto pbuffer = __buffer(m_pimpl->get_window_graphics());
 
@@ -7860,15 +7867,25 @@ namespace windowing_universal_windows
             if (args.Kind() == ::winrt::Windows::ApplicationModel::Activation::ActivationKind::Protocol)
             {
 
-               ::winrt::Windows::ApplicationModel::Activation::ProtocolActivatedEventArgs const & eventArgs = (::winrt::Windows::ApplicationModel::Activation::ProtocolActivatedEventArgs const &)args;
+               auto protocolActivatedEventArgs =  args.as<::winrt:: Windows::ApplicationModel::Activation::ProtocolActivatedEventArgs>();
 
-               string str = eventArgs.Uri().AbsoluteUri().begin();
+               string str = protocolActivatedEventArgs.Uri().AbsoluteUri().begin();
 
-               auto pcreate = m_psystem->__create_new < ::create >();
+               string strServer = m_psystem->url()->get_server(str);
 
-               pcreate->m_ecommand = ::command_protocol;
+               if (strServer == "send")
+               {
 
-               pcreate->m_varFile = str;
+                  string strMessage = m_psystem->url()->get_param(str, "message");
+
+                  if (strMessage.has_char())
+                  {
+
+                     m_psystem->m_papplicationMain->add_activation_message(strMessage);
+
+                  }
+
+               }
 
                //m_psystem->add_create(pcreate);
 
@@ -7881,7 +7898,7 @@ namespace windowing_universal_windows
 
                //}
 
-               m_psystem->m_paurasystem->post_object(e_message_system, e_system_message_create, pcreate);
+               //m_psystem->m_paurasystem->post_object(e_message_system, e_system_message_create, pcreate);
 
             }
 
@@ -8110,7 +8127,8 @@ namespace windowing_universal_windows
                if (window)
                {
 
-                  pbuffer->HandleDeviceLost();
+                  //pbuffer->HandleDeviceLost();
+                  pbuffer->CreateWindowSizeDependentResources();
 
                }
 
@@ -8326,14 +8344,14 @@ namespace windowing_universal_windows
 
             ::rectangle_i32 r = puserinteractionFocus->get_window_rect();
 
-            m_rectInputContentRect.X = (float)r.left;
-            m_rectInputContentRect.Y = (float)r.top;
-            m_rectInputContentRect.Width = (float)r.width();
-            m_rectInputContentRect.Height = (float)r.height();
+            m_rectangleInputContentRect.X = (float)r.left;
+            m_rectangleInputContentRect.Y = (float)r.top;
+            m_rectangleInputContentRect.Width = (float)r.width();
+            m_rectangleInputContentRect.Height = (float)r.height();
 
          }
 
-         rectangle = m_rectInputContentRect;
+         rectangle = m_rectangleInputContentRect;
 
          return rectangle;
 
@@ -8343,7 +8361,7 @@ namespace windowing_universal_windows
       ::winrt::Windows::Foundation::Rect window::get_input_selection_rect()
       {
 
-         ::winrt::Windows::Foundation::Rect rectangle = m_rectInputSelectionRect;
+         ::winrt::Windows::Foundation::Rect rectangle = m_rectangleInputSelectionRect;
 
          return rectangle;
 
@@ -8413,7 +8431,7 @@ namespace windowing_universal_windows
       ::winrt::Windows::Foundation::Rect window::get_window_rect()
       {
 
-         ::winrt::Windows::Foundation::Rect rectangle = m_rectLastWindowRect;
+         ::winrt::Windows::Foundation::Rect rectangle = m_rectangleLastWindowRect;
 
          /*      rectangle.X = 0;
                rectangle.Y = 0;
