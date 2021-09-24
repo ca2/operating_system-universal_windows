@@ -401,7 +401,7 @@ namespace music
 
                m_eventStop.ResetEvent();
 
-               ::multimedia::e_result            mmrc;
+               ::e_status            mmrc;
 
                sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
 
@@ -409,7 +409,7 @@ namespace music
 
                link() |= sequence::FlagFadeOutAndStop;
 
-               if (::multimedia::result_success != (mmrc = get_sequence()->FadeOutAndStop()))
+               if (::success != (mmrc = get_sequence()->FadeOutAndStop()))
                {
 
                   _throw(exception(::music::EMidiPlayerStop, mmrc));
@@ -423,7 +423,7 @@ namespace music
 
                m_eventStop.ResetEvent();
 
-               ::multimedia::e_result            mmrc;
+               ::e_status            mmrc;
 
                ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
 
@@ -440,7 +440,7 @@ namespace music
             case ::music::midi::player::command_stop_and_restart:
             {
 
-               ::multimedia::e_result            mmrc;
+               ::e_status            mmrc;
 
                ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
 
@@ -450,7 +450,7 @@ namespace music
 
                link.m_tkRestart = get_sequence()->get_position_ticks();
 
-               if(::multimedia::result_success != (mmrc = get_sequence()->Stop()))
+               if(::success != (mmrc = get_sequence()->Stop()))
                {
 
                   throw new exception(EMidiPlayerStop);

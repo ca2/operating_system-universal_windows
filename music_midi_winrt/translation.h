@@ -16,7 +16,7 @@ namespace music
       {
 
 
-         CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_WINRT ::multimedia::e_result translate_hr(HRESULT hr);
+         CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_WINRT ::e_status translate_hr(HRESULT hr);
 
 
       } // namespace winrt

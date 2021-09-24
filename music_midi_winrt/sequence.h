@@ -60,9 +60,9 @@ namespace music
                void Reset();
                void Initialize(int32_t iSize, uint_ptr dwUser);
 
-               //::multimedia::e_result midiStreamOut(HMIDISTRM hmidiout);
-               //::multimedia::e_result midiOutPrepareHeader(HMIDIOUT hmidiout);
-               //::multimedia::e_result midiOutUnprepareHeader(HMIDIOUT hmidiout);
+               //::e_status midiStreamOut(HMIDISTRM hmidiout);
+               //::e_status midiOutPrepareHeader(HMIDIOUT hmidiout);
+               //::e_status midiOutUnprepareHeader(HMIDIOUT hmidiout);
 
 
                //inline LPMIDIHDR GetMidiHdr() { return &m_midihdr; }
@@ -72,7 +72,7 @@ namespace music
 
             };
 
-            ::multimedia::e_result SendGMReset();
+            ::e_status SendGMReset();
 
 
             class buffer_array :
@@ -85,9 +85,9 @@ namespace music
                void Initialize(int32_t iCount, int32_t iSize, uint_ptr dwUser);
 
 
-               //::multimedia::e_result midiStreamOut(HMIDISTRM hmidiout);
-               //::multimedia::e_result midiOutPrepareHeader(HMIDIOUT hmidiout);
-               //::multimedia::e_result midiOutUnprepareHeader(HMIDIOUT hmidiout);
+               //::e_status midiStreamOut(HMIDISTRM hmidiout);
+               //::e_status midiOutPrepareHeader(HMIDIOUT hmidiout);
+               //::e_status midiOutUnprepareHeader(HMIDIOUT hmidiout);
 
             };
 
@@ -120,7 +120,7 @@ namespace music
 
             imedia_position get_position_ticks() override;
             void SetLevelMeter(int32_t iLevel);
-            ::multimedia::e_result CloseStream();
+            ::e_status CloseStream();
             bool SetMidiOutDevice(uint32_t uiDevice);
             int32_t SetKeyShift(int32_t iKeyShift);
             int32_t GetKeyShift();
@@ -150,11 +150,11 @@ namespace music
             virtual void OnEvent(::music::midi::sequence::event * pevent);
 
 
-            ::multimedia::e_result AllocBuffers();
+            ::e_status AllocBuffers();
 
             VOID FreeBuffers();
 
-            //::multimedia::e_result OpenFile(const ::string & lpFileName, int32_t openMode);
+            //::e_status OpenFile(const ::string & lpFileName, int32_t openMode);
             e_result OpenFile(::music::midi::sequence & sequence, int32_t iOpenMode);
             e_result OpenFile(::file::file & ar, int32_t openMode);
             e_result OpenFile(const ::string & lpFileName, int32_t openMode);
@@ -165,23 +165,23 @@ namespace music
             e_result SaveFile();
             e_result SaveFile(::file::file_sp &ar);
 
-            ::multimedia::e_result Preroll(::thread * pthread, ::music::midi::LPPREROLL lpPreroll, bool bThrow);
-            ::multimedia::e_result Start();
+            ::e_status Preroll(::thread * pthread, ::music::midi::LPPREROLL lpPreroll, bool bThrow);
+            ::e_status Start();
 
-            ::multimedia::e_result Pause();
+            ::e_status Pause();
 
-            ::multimedia::e_result Restart();
+            ::e_status Restart();
 
             void seq_start();
 
-            //::multimedia::e_result Stop(uint32_t dwEllapse);
-            ::multimedia::e_result Stop();
+            //::e_status Stop(uint32_t dwEllapse);
+            ::e_status Stop();
 
             virtual void get_position(imedia_position  & time) override;
             //virtual void get_time(imedia_time  & time) override;
 
-            ::multimedia::e_result get_ticks(imedia_position & time);
-            ::multimedia::e_result get_millis(imedia_time & time);
+            ::e_status get_ticks(imedia_position & time);
+            ::e_status get_millis(imedia_time & time);
 
 
             imedia_position MillisecsToTicks(imedia_time msOffset);

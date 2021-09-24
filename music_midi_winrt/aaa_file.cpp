@@ -2458,7 +2458,7 @@ namespace music
 //         }
 //
 //
-//         ::multimedia::e_result buffer::ImmediatePutTempoChange()
+//         ::e_status buffer::ImmediatePutTempoChange()
 //         {
 //
 //            ::music::midi::event * pevent = new ::music::midi::event;
@@ -2467,7 +2467,7 @@ namespace music
 //
 //            m_mepaImmediate.add(pevent);
 //
-//            return ::multimedia::result_success;
+//            return ::success;
 //
 //         }
 //

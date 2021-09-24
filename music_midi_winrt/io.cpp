@@ -16,7 +16,6 @@
 #include "framework.h"
 
 using namespace ::winrt::Windows::Foundation;
-using namespace Platform;
 using namespace ::winrt::Windows::UI;
 using namespace ::winrt::Windows::UI::Core;
 using namespace ::winrt::Windows::Storage::Streams;
@@ -32,71 +31,63 @@ namespace music
       {
 
 
-         message_io::message_io()
-            :
-            _messageTypeMap(nullptr),
-            _messageType(MidiMessageType::None),
-            _midiInDeviceWatcher(nullptr),
-            _midiOutDeviceWatcher(nullptr)
+         message_io::message_io() //:
+            //_messageTypeMap(nullptr),
+            //_messageType(MidiMessageType::None) //,
+            //_midiInDeviceWatcher(nullptr),
+            //_midiOutDeviceWatcher(nullptr)
          {
-            _messageTypeMap.set_at(MidiMessageType::ActiveSensing, "Active Sensing");
-            _messageTypeMap.set_at(MidiMessageType::ChannelPressure, "Channel Pressure");
-            _messageTypeMap.set_at(MidiMessageType::Continue, "Continue");
-            _messageTypeMap.set_at(MidiMessageType::ControlChange, "Control Change");
-            _messageTypeMap.set_at(MidiMessageType::MidiTimeCode, "MIDI Time Code");
-            //_messageTypeMap.set_at(MidiMessageType::None, "None");
-            _messageTypeMap.set_at(MidiMessageType::NoteOff, "Note Off");
-            _messageTypeMap.set_at(MidiMessageType::NoteOn, "Note On");
-            _messageTypeMap.set_at(MidiMessageType::PitchBendChange, "Pitch Bend Change");
-            _messageTypeMap.set_at(MidiMessageType::PolyphonicKeyPressure, "Polyphonic Key Pressure");
-            _messageTypeMap.set_at(MidiMessageType::ProgramChange, "Program Change");
-            _messageTypeMap.set_at(MidiMessageType::SongPositionPointer, "Song Position Pointer");
-            _messageTypeMap.set_at(MidiMessageType::SongSelect, "Song Select");
-            _messageTypeMap.set_at(MidiMessageType::Start, "Start");
-            _messageTypeMap.set_at(MidiMessageType::Stop, "Stop");
-            _messageTypeMap.set_at(MidiMessageType::SystemExclusive, "System Exclusive");
-            _messageTypeMap.set_at(MidiMessageType::SystemReset, "System Reset");
-            _messageTypeMap.set_at(MidiMessageType::TimingClock, "Timing Clock");
-            _messageTypeMap.set_at(MidiMessageType::TuneRequest, "Tune Request");
+            //_messageTypeMap.set_at(MidiMessageType::ActiveSensing, "Active Sensing");
+            //_messageTypeMap.set_at(MidiMessageType::ChannelPressure, "Channel Pressure");
+            //_messageTypeMap.set_at(MidiMessageType::Continue, "Continue");
+            //_messageTypeMap.set_at(MidiMessageType::ControlChange, "Control Change");
+            //_messageTypeMap.set_at(MidiMessageType::MidiTimeCode, "MIDI Time Code");
+            ////_messageTypeMap.set_at(MidiMessageType::None, "None");
+            //_messageTypeMap.set_at(MidiMessageType::NoteOff, "Note Off");
+            //_messageTypeMap.set_at(MidiMessageType::NoteOn, "Note On");
+            //_messageTypeMap.set_at(MidiMessageType::PitchBendChange, "Pitch Bend Change");
+            //_messageTypeMap.set_at(MidiMessageType::PolyphonicKeyPressure, "Polyphonic Key Pressure");
+            //_messageTypeMap.set_at(MidiMessageType::ProgramChange, "Program Change");
+            //_messageTypeMap.set_at(MidiMessageType::SongPositionPointer, "Song Position Pointer");
+            //_messageTypeMap.set_at(MidiMessageType::SongSelect, "Song Select");
+            //_messageTypeMap.set_at(MidiMessageType::Start, "Start");
+            //_messageTypeMap.set_at(MidiMessageType::Stop, "Stop");
+            //_messageTypeMap.set_at(MidiMessageType::SystemExclusive, "System Exclusive");
+            //_messageTypeMap.set_at(MidiMessageType::SystemReset, "System Reset");
+            //_messageTypeMap.set_at(MidiMessageType::TimingClock, "Timing Clock");
+            //_messageTypeMap.set_at(MidiMessageType::TuneRequest, "Tune Request");
 
             ScenarioInit();
 
 
 
-            // start the MIDI In and Out device watcher
-            //_midiInDeviceWatcher = ref new MidiDeviceWatcher(this, MidiInPort::GetDeviceSelector());
-            _midiOutDeviceWatcher = ref new MidiDeviceWatcher(this, MidiOutPort::GetDeviceSelector());
-
-            //_midiInDeviceWatcher->Start();
-            _midiOutDeviceWatcher->Start();
 
          }
+
 
          message_io::~message_io()
          {
-            _midiInDeviceWatcher->Stop();
-            _midiOutDeviceWatcher->Stop();
+
+            
+
          }
 
-         void  message_io::ScenarioInit()
+
+         void message_io::ScenarioInit()
          {
 
 
          }
 
-         void  message_io::ScenarioClose()
+
+         void message_io::ScenarioClose()
          {
+
          }
 
-         //void message_io::ShowStatusMessage(String^ text)
-         //{
+       
 
-
-
-         //}
-
-
-         void message_io::OnMessageReceived(MidiInPort ^sender, MidiMessageReceivedEventArgs ^args)
+         void message_io::OnMessageReceived(MidiInPort const & sender, MidiMessageReceivedEventArgs const & args)
          {
             //IMidiMessage^ midiMessage = args->Message;
 
@@ -266,243 +257,247 @@ namespace music
             //})));
          }
 
-         DeviceInformation^ message_io::GetDeviceInformationForInPort(String^ friendlyName)
-         {
-            DeviceInformation^ retValue = nullptr;
-            DeviceInformationCollection^ inputCollection = _midiInDeviceWatcher->GetDeviceInformationCollection();
-
-            for (index i = 0; i < inputCollection->Size; i++)
-            {
-               
-               DeviceInformation^ devInfo = inputCollection->GetAt(i);
-
-               if (0 == String::CompareOrdinal(devInfo->Name, friendlyName))
-               {
-
-                  retValue = devInfo;
-
-               }
-
-            }
-
-            return retValue;
-         }
-
-         DeviceInformation^ message_io::GetDeviceInformationForOutPort(String^ friendlyName)
-         {
-            DeviceInformation^ retValue = nullptr;
-            DeviceInformationCollection^ inputCollection = _midiOutDeviceWatcher->GetDeviceInformationCollection();
+         //DeviceInformation message_io::GetDeviceInformationForInPort(::winrt::hstring friendlyName)
+         //{
+         //   DeviceInformation retValue = nullptr;
+         //   DeviceInformationCollection inputCollection = m_pmidiInDeviceWatcher->GetDeviceInformationCollection();
+
+         //   for (index i = 0; i < inputCollection.Size(); i++)
+         //   {
+         //      
+         //      DeviceInformation devInfo = inputCollection.GetAt(i);
+
+         //      if (0 == wcsicmp(devInfo.Name().begin(), friendlyName.begin()))
+         //      {
+
+         //         retValue = devInfo;
+
+         //      }
 
-            for (index i = 0; i < inputCollection->Size; i++)
-            {
+         //   }
 
-               DeviceInformation^ devInfo = inputCollection->GetAt(i);
+         //   return retValue;
 
-               if (0 == String::CompareOrdinal(devInfo->Name, friendlyName))
-               {
+         //}
 
-                  retValue = devInfo;
-                  break;
 
-               }
-            }
+         //DeviceInformation message_io::GetDeviceInformationForOutPort(::winrt::hstring friendlyName)
+         //{
+         //   DeviceInformation retValue = nullptr;
+         //   DeviceInformationCollection inputCollection = m_pmidiOutDeviceWatcher->GetDeviceInformationCollection();
 
-            return retValue;
+         //   for (index i = 0; i < inputCollection.Size(); i++)
+         //   {
 
-         }
+         //      DeviceInformation devInfo = inputCollection.GetAt(i);
 
-         void message_io::CloseInPort(String^ portId)
-         {
-            for (unsigned int index = 0; index < _midiInPortArray.get_size(); index++)
-            {
-               if (0 == String::CompareOrdinal(_midiInPortArray[index]->DeviceId, portId))
-               {
-                  _midiInPortArray.erase_at(index);
+         //      if (0 == wcscmp(devInfo.Name().begin(), friendlyName.begin()))
+         //      {
 
-                  return;
-               }
-            }
-         }
-
-         void message_io::CloseOutPort(String^ portId)
-         {
-            for (unsigned int index = 0; index < _midiOutPortArray.get_size(); index++)
-            {
-               if (0 == String::CompareOrdinal(_midiOutPortArray[index]->DeviceId, portId))
-               {
-                  _midiOutPortArray.erase_at(index);
-
-                  return;
-               }
-            }
-         }
-
-         message_io::MidiDeviceWatcher::MidiDeviceWatcher(message_io ^io, String ^ midiSelector)
-            : m_io(io),_midiSelectorString(midiSelector),
-            _deviceWatcher(nullptr),
-            _devInfoCollection(nullptr),
-            _enumCompleted(false)
-         {
-            _deviceWatcher = DeviceInformation::CreateWatcher(midiSelector);
-
-            _portAddedToken = _deviceWatcher->Added += ref new TypedEventHandler<DeviceWatcher ^, DeviceInformation ^>(this, &message_io::MidiDeviceWatcher::OnPortAdded);
-            _portRemovedToken = _deviceWatcher->Removed += ref new TypedEventHandler<DeviceWatcher ^, DeviceInformationUpdate ^>(this, &message_io::MidiDeviceWatcher::OnPortRemoved);
-            _portUpdatedToken = _deviceWatcher->Updated += ref new TypedEventHandler<DeviceWatcher ^, DeviceInformationUpdate ^>(this, &message_io::MidiDeviceWatcher::OnPortUpdated);
-            _portEnumCompleteToken = _deviceWatcher->EnumerationCompleted += ref new TypedEventHandler<DeviceWatcher ^, Object ^>(this, &message_io::MidiDeviceWatcher::OnPortEnumCompleted);
-         }
-
-         message_io::MidiDeviceWatcher::~MidiDeviceWatcher()
-         {
-            _deviceWatcher->Added -= _portAddedToken;
-            _deviceWatcher->Removed -= _portRemovedToken;
-            _deviceWatcher->Updated -= _portUpdatedToken;
-            _deviceWatcher->EnumerationCompleted -= _portEnumCompleteToken;
-         }
-
-         void message_io::MidiDeviceWatcher::Start()
-         {
-            _deviceWatcher->Start();
-         }
-
-         void message_io::MidiDeviceWatcher::Stop()
-         {
-            _deviceWatcher->Stop();
-         }
+         //         retValue = devInfo;
+         //         break;
 
-         DeviceInformationCollection^ message_io::MidiDeviceWatcher::GetDeviceInformationCollection()
-         {
-            return _devInfoCollection;
-         }
+         //      }
+         //   }
 
-         
-         void message_io::MidiDeviceWatcher::UpdatePorts()
-         {
+         //   return retValue;
 
-            DeviceInformationCollection^ deviceInfoCollection = ::wait(DeviceInformation::FindAllAsync(_midiSelectorString));
+         //}
 
-            m_io->clear_out_ports();
+         //void message_io::CloseInPort(::winrt::hstring portId)
+         //{
+         //   for (unsigned int index = 0; index < _midiInPortArray.get_size(); index++)
+         //   {
+         //      if (0 == wcscmp(_midiInPortArray[index].get().DeviceId().begin(), portId.begin()))
+         //      {
+         //         _midiInPortArray.erase_at(index);
 
-            if ((deviceInfoCollection == nullptr) || (deviceInfoCollection->Size == 0))
-            {
+         //         return;
+         //      }
+         //   }
+         //}
 
+         //void message_io::CloseOutPort(::winrt::hstring  portId)
+         //{
+         //   for (unsigned int index = 0; index < _midiOutPortArray.get_size(); index++)
+         //   {
+         //      if (0 == wcscmp(_midiOutPortArray[index].get().DeviceId().begin(), portId.begin()))
+         //      {
+         //         _midiOutPortArray.erase_at(index);
 
-            }
-            else
-            {
+         //         return;
+         //      }
+         //   }
+         //}
+
+         //message_io::MidiDeviceWatcher::MidiDeviceWatcher(message_io * pio, const ::string & strMidiSelector)
+         //   : m_pio(pio),m_strMidiSelector(strMidiSelector) // ,
+         //   _deviceWatcher(nullptr),
+         //   _devInfoCollection(nullptr),
+         //   _enumCompleted(false)
+         //{
+         //   _deviceWatcher = DeviceInformation::CreateWatcher(__hstring(strMidiSelector));
+
+         //   _portAddedToken = _deviceWatcher.Added({ this, &MidiDeviceWatcher::OnPortAdded });
+         //   _portRemovedToken = _deviceWatcher.Removed({ this, &MidiDeviceWatcher::OnPortRemoved });
+         //   _portUpdatedToken = _deviceWatcher.Updated({ this, &MidiDeviceWatcher::OnPortUpdated });
+         //   _portEnumCompleteToken = _deviceWatcher.EnumerationCompleted({ this, &MidiDeviceWatcher::OnPortEnumCompleted });
+         //}
+
+         //message_io::MidiDeviceWatcher::~MidiDeviceWatcher()
+         //{
+         //   _deviceWatcher.Added(_portAddedToken);
+         //   _deviceWatcher.Removed(_portRemovedToken);
+         //   _deviceWatcher.Updated(_portUpdatedToken);
+         //   _deviceWatcher.EnumerationCompleted(_portEnumCompleteToken);
+         //}
+
+         //void message_io::MidiDeviceWatcher::Start()
+         //{
+         //   _deviceWatcher.Start();
+         //}
 
-               _devInfoCollection = deviceInfoCollection;
+         //void message_io::MidiDeviceWatcher::Stop()
+         //{
+         //   _deviceWatcher.Stop();
+         //}
 
-               for (index i = 0; i < deviceInfoCollection->Size; i++)
-               {
+         //DeviceInformationCollection message_io::MidiDeviceWatcher::GetDeviceInformationCollection()
+         //{
+         //   return _devInfoCollection;
+         //}
 
-                  DeviceInformation ^ devInfo = deviceInfoCollection->GetAt(i);
+         //
+         //void message_io::MidiDeviceWatcher::UpdatePorts()
+         //{
 
-                  m_io->add_out_port(devInfo->Name);
+         //   DeviceInformationCollection deviceInfoCollection = DeviceInformation::FindAllAsync(__hstring(m_strMidiSelector)).get();
 
-               }
+         //   m_pio->clear_out_ports();
 
-            }
+         //   if ((deviceInfoCollection == nullptr) || (deviceInfoCollection.Size() == 0))
+         //   {
 
-         }
 
-         void message_io::MidiDeviceWatcher::OnPortAdded(DeviceWatcher^ deviceWatcher, DeviceInformation^ devInfo)
-         {
-            if (_enumCompleted)
-            {
-               //create_task(_coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
-               //   ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
-               //{
-                  UpdatePorts();
-//               })));
-            }
-         }
+         //   }
+         //   else
+         //   {
 
-         void message_io::MidiDeviceWatcher::OnPortRemoved(DeviceWatcher^ deviceWatcher, DeviceInformationUpdate^ devInfoUpdate)
-         {
-            if (_enumCompleted)
-            {
-               //_coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
-               //   ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
-               //{
-                  UpdatePorts();
-               //}));
-            }
-         }
+         //      _devInfoCollection = deviceInfoCollection;
 
-         void message_io::MidiDeviceWatcher::OnPortUpdated(DeviceWatcher^ deviceWatcher, DeviceInformationUpdate^ devInfoUpdate)
-         {
-            if (_enumCompleted)
-            {
-               //_coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
-               //   ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
-               //{
-                  UpdatePorts();
-               //}));
-            }
-         }
+         //      for (index i = 0; i < deviceInfoCollection.Size(); i++)
+         //      {
 
-         void message_io::MidiDeviceWatcher::OnPortEnumCompleted(DeviceWatcher^ deviceWatcher, Object^ obj)
-         {
-            _enumCompleted = true;
+         //         DeviceInformation devInfo = deviceInfoCollection.GetAt(i);
 
-            //_coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
-            //   ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
-            //{
-               UpdatePorts();
-            //}));
-         }
+         //         m_pio->add_out_port(devInfo.Name());
 
+         //      }
 
-         int message_io::get_out_port_count()
-         {
+         //   }
 
-            return m_straOut.get_size();
+         //}
 
-         }
+         //void message_io::MidiDeviceWatcher::OnPortAdded(DeviceWatcher const & deviceWatcher, DeviceInformation const & devInfo)
+         //{
+         //   if (_enumCompleted)
+         //   {
+         //      create_task(_coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
+         //         ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+         //      {
+         //         UpdatePorts();
+         //      })));
+         //   }
+         //}
 
+         //void message_io::MidiDeviceWatcher::OnPortRemoved(DeviceWatcher const & deviceWatcher, DeviceInformationUpdate const & devInfoUpdate)
+         //{
+         //   if (_enumCompleted)
+         //   {
+         //      _coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
+         //         ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+         //      {
+         //         UpdatePorts();
+         //      }));
+         //   }
+         //}
 
-         String^ message_io::get_out_port_name(int i)
-         {
+         //void message_io::MidiDeviceWatcher::OnPortUpdated(DeviceWatcher const & deviceWatcher, DeviceInformationUpdate const & devInfoUpdate)
+         //{
+         //   if (_enumCompleted)
+         //   {
+         //      _coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
+         //         ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+         //      {
+         //         UpdatePorts();
+         //      }));
+         //   }
+         //}
 
-            return m_straOut[i];
+         //void message_io::MidiDeviceWatcher::OnPortEnumCompleted(DeviceWatcher const & deviceWatcher, IInspectable  const & obj)
+         //{
+         //   _enumCompleted = true;
 
-         }
+         //   _coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
+         //      ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+         //   {
+         //      UpdatePorts();
+         //   }));
+         //}
 
-         void message_io::select_out_port(String ^ str)
-         {
-            _midiOutPortArray.erase_all();
 
-            DeviceInformation^ portToOpen = GetDeviceInformationForOutPort(str);
+         //int message_io::get_out_port_count()
+         //{
 
-            if (portToOpen != nullptr)
-            {
-               
-               IMidiOutPort^ outPort = ::wait(MidiOutPort::FromIdAsync(portToOpen->Id));
+         //   return m_straOut.get_size();
 
-               if (outPort != nullptr)
-               {
+         //}
 
-                  _midiOutPortArray.add(outPort);
 
-               }
+         //::winrt::hstring message_io::get_out_port_name(int i)
+         //{
 
-            }
+         //   return __hstring(m_straOut[i]);
 
-         }
+         //}
 
-         void message_io::add_out_port(String ^ portId)
-         {
 
-            m_straOut.add(portId);
+         //void message_io::select_out_port(::winrt::hstring str)
+         //{
 
-         }
+         //   _midiOutPortArray.erase_all();
 
-         void message_io::clear_out_ports()
-         {
+         //   DeviceInformation portToOpen = GetDeviceInformationForOutPort(str);
 
-            m_straOut.erase_all();
+         //   if (portToOpen != nullptr)
+         //   {
+         //      
+         //      auto outPort = MidiOutPort::FromIdAsync(portToOpen.Id()).get();
 
-         }
+         //      if (outPort != nullptr)
+         //      {
+
+         //         _midiOutPortArray.add(outPort);
+
+         //      }
+
+         //   }
+
+         //}
+
+         //void message_io::add_out_port(::winrt::hstring portId)
+         //{
+
+         //   m_straOut.add(portId.begin());
+
+         //}
+
+         //void message_io::clear_out_ports()
+         //{
+
+         //   m_straOut.erase_all();
+
+         //}
 
 
          //void message_io::send(MidiMessageType etype)
@@ -637,75 +632,6 @@ namespace music
          //   send(midiMessage);
 
          //}
-
-         void message_io::send(IMidiMessage ^ message)
-         {
-            for (auto out : _midiOutPortArray)
-            {
-               out->SendMessage(message);
-
-            }
-
-         }
-
-         void message_io::note_on(int iChannel, unsigned char uchNote, unsigned char uchVelocity)
-         {
-
-            iChannel = clip(0, 15, iChannel);
-
-            uchNote = clip(0, 127, uchNote);
-
-            uchVelocity = clip(0, 127, uchVelocity);
-
-            IMidiMessage ^ message = ref new MidiNoteOnMessage(iChannel, uchNote, uchVelocity);
-
-            send(message);
-
-         }
-
-         void message_io::note_off(int iChannel, unsigned char uchNote, unsigned char uchVelocity)
-         {
-
-            iChannel = clip(0, 15, iChannel);
-
-            uchNote = clip(0, 127, uchNote);
-
-            uchVelocity = clip(0, 127, uchVelocity);
-
-            IMidiMessage ^ message = ref new MidiNoteOffMessage(iChannel, uchNote, uchVelocity);
-
-            send(message);
-
-         }
-
-         void message_io::program_change(int iChannel, unsigned char uchProgram)
-         {
-
-            IMidiMessage ^ message = ref new MidiProgramChangeMessage(iChannel, uchProgram);
-
-            send(message);
-
-         }
-
-         void message_io::control_change(int iChannel, unsigned char uchController, unsigned char uchValue)
-         {
-
-            IMidiMessage ^ message = ref new MidiControlChangeMessage(iChannel, uchController, uchValue);
-
-            send(message);
-
-         }
-         
-         void message_io::pitch_bend(int iChannel, unsigned short ushBend)
-         {
-
-            
-            IMidiMessage ^ message = ref new MidiPitchBendChangeMessage(iChannel, ushBend);
-
-            send(message);
-
-         }
-
 
       } // namespace winrt
 

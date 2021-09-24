@@ -41,7 +41,7 @@ namespace music
 
             ////e_result CreateTempoMap();
 
-            //::multimedia::e_result ImmediatePutTempoChange();
+            //::e_status ImmediatePutTempoChange();
 
             //::music::e_result GetTempoEvent(::music::midi::event & event);
 

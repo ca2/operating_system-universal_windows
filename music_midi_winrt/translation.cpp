@@ -13,19 +13,19 @@ namespace music
       {
 
 
-         ::multimedia::e_result translate_hr(HRESULT hr)
+         ::e_status translate_hr(HRESULT hr)
          {
 
             if(SUCCEEDED(hr))
             {
 
-               return ::multimedia::result_success;
+               return ::success;
 
             }
             else
             {
 
-               return ::multimedia::result_error;
+               return ::error_failed;
 
             }
 

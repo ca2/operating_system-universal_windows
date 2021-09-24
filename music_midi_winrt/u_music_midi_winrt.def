@@ -1,0 +1,4 @@
+LIBRARY  "music_midi_winrt"
+
+EXPORTS
+music_midi_winrt_factory_exchange
