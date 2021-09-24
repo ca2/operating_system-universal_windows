@@ -1,7 +1,8 @@
 #pragma once
 
 
-#include "app-veriwell/appseed/multimedia/multimedia/multimedia.h"
+#include "app-veriwell/multimedia/multimedia/_multimedia.h"
+#include "acme_universal_windows/_windows_runtime.h"
 
 
 #if defined(_VERIWELL_MULTIMEDIA_MUSIC_MIDI_WINRT_LIBRARY)
@@ -11,6 +12,10 @@
 #endif
 
 //#include <collection.h>
+
+#include <winrt/Windows.Devices.h>
+#include <winrt/Windows.Devices.Enumeration.h>
+#include <winrt/Windows.Devices.Midi.h>
 
 /* MIDI data block header */
 typedef struct midihdr_tag {
@@ -40,7 +45,6 @@ typedef struct midievent_tag
 //using namespace Platform::Collections;
 using namespace ::winrt::Windows::Foundation;
 using namespace ::winrt::Windows::Foundation::Collections;
-using namespace Platform;
 //using namespace ::winrt::Windows::UI;
 //using namespace ::winrt::Windows::UI::Core;
 //using namespace ::winrt::Windows::UI::Xaml;
@@ -52,25 +56,26 @@ using namespace ::winrt::Windows::Devices::Midi;
 //using namespace SDKSample::MIDI;
 //using namespace concurrency;
 
-#include "music_midi_winrt_translation.h"
+#include "translation.h"
 
-#include "music_midi_winrt_sequence.h"
+//#include "sequence.h"
 
-#include "music_midi_io.h"
+#include "io.h"
 
-#include "player/music_midi_winrt_player.h"
+//#include "player/music_midi_winrt_player.h"
 
-#include "music_midi_winrt_out.h"
+#include "out.h"
 
-#include "music_midi_winrt_file.h"
+//#include "music_midi_winrt_file.h"
           
-#include "music_midi_winrt_sequence_thread.h"
+//#include "music_midi_winrt_sequence_thread.h"
 
-#include "music_midi_winrt_thread.h"
+//#include "music_midi_winrt_thread.h"
 
-#include "music_midi_winrt_factory_exchange.h"
+//#include "factory_exchange.h"
+
+#include "device_watcher.h"
 
 
-
-#include "music_midi_winrt_midi.h"
+#include "midi.h"
 
