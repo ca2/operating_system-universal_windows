@@ -65,6 +65,17 @@ namespace universal_windows
       // native_buffer objects are always binary and Createnative_buffer does not need flag
       eopen -= ::file::e_open_binary;
 
+      if ((eopen & ::file::e_open_defer_create_directory) && (eopen & ::file::e_open_write))
+      {
+
+         auto psystem = m_psystem;
+
+         auto pacmedir = psystem->m_pacmedir;
+
+         pacmedir->create(path.folder());
+
+      }
+
       string strPath = path;
 
       string strPrefix;
@@ -104,18 +115,18 @@ namespace universal_windows
 
       string strPrefix = folder.Path().begin();
 
-      ::file::path path(strPrefix);
+      ::file::path path;
 
-      path /= pathFile;
-
-      if ((eopen & ::file::e_open_defer_create_directory) && (eopen & ::file::e_open_write))
+      if (strPrefix.has_char())
       {
 
-         auto psystem = m_psystem;
+         path = strPrefix / pathFile;
 
-         auto pacmedir = psystem->m_pacmedir;
+      }
+      else
+      {
 
-         pacmedir->create(path.folder());
+         path = pathFile;
 
       }
 
@@ -140,20 +151,44 @@ namespace universal_windows
       else
       {
 
-         wstring wstrRelative(strRelative);
-
-         winrt::hstring hstrRelative(wstrRelative);
-
          defer_co_initialize_ex(true);
 
-         auto item = folder.TryGetItemAsync(hstrRelative).get();
+         string_array straItems;
 
-         if (item && item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder))
+         string_array straSeparator;
+
+         straSeparator.add("/");
+
+         straSeparator.add("\\");
+
+         straItems.add_smallest_tokens(strRelative, straSeparator, false);
+
+         for (auto & strItem : straItems)
          {
 
-            m_folder = item.as <::winrt::Windows::Storage::StorageFolder>();
+            auto hstrItem = __hstring(strItem);
+
+            auto item = folder.TryGetItemAsync(hstrItem).get();
+
+            if (!item)
+            {
+
+               return error_failed;
+
+            }
+
+            if (!item.IsOfType(winrt::Windows::Storage::StorageItemTypes::Folder))
+            {
+
+               return error_failed;
+
+            }
+
+            folder = item.as<::winrt::Windows::Storage::StorageFolder>();
 
          }
+
+         m_folder = folder;
 
       }
 

@@ -115,6 +115,16 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
       return ::winrt::Windows::Storage::KnownFolders::DocumentsLibrary();
 
    }
+   else if (str::begins_eat_ci(strRelative, "dropbox://"))
+   {
+
+      string strHome = getenv("USERPROFILE");
+
+      strPrefix = "document://";
+
+      return ::winrt::Windows::Storage::KnownFolders::DocumentsLibrary();
+
+   }
    //else if (str::begins_eat_ci(strRelative, ::dir::sys_temp()))
    //{
 
@@ -231,34 +241,49 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
       }
 
-      auto hstrRelative = __hstring(strRelative);
+      string_array straItems;
 
-      auto item = folder.TryGetItemAsync(hstrRelative).get();
+      string_array straSeparator;
 
-      if (!item)
+      straSeparator.add("/");
+
+      straSeparator.add("\\");
+
+      straItems.add_smallest_tokens(strRelative, straSeparator, false);
+
+      for (auto & strItem : straItems)
       {
 
-         return nullptr;
+         auto hstrItem = __hstring(strItem);
+
+         auto item = folder.TryGetItemAsync(hstrItem).get();
+
+         if (!item)
+         {
+
+            return nullptr;
+
+         }
+
+         if (!item.IsOfType(winrt::Windows::Storage::StorageItemTypes::Folder))
+         {
+
+            return nullptr;
+
+         }
+
+         folder = item.as<::winrt::Windows::Storage::StorageFolder>();
+
+         if (!folder)
+         {
+
+            return nullptr;
+
+         }
 
       }
 
-      if (!item.IsOfType(winrt::Windows::Storage::StorageItemTypes::Folder))
-      {
-
-         return nullptr;
-
-      }
-
-      auto pfolder = item.as<::winrt::Windows::Storage::StorageFolder>();
-      
-      if (!pfolder)
-      {
-
-         return nullptr;
-
-      }
-
-      return pfolder;
+      return folder;
 
    }
    catch (...)

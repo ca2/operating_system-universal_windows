@@ -31,6 +31,13 @@ namespace acme
       }
 
 
+      string node::veriwell_multimedia_music_midi_get_default_library_name()
+      {
+
+         return "music_midi_winrt";
+
+      }
+
    } // namespace universal_windows
 
 

@@ -22,6 +22,8 @@ namespace acme
 
          string audio_get_default_library_name() override;
 
+         string veriwell_multimedia_music_midi_get_default_library_name() override;
+
 
       };
 

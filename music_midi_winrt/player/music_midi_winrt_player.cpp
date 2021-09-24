@@ -17,10 +17,7 @@ namespace music
          {
 
 
-            player::player(::object * pobject) :
-               ::object(pobject),
-               thread(pobject),
-               ::music::midi::player::player(pobject)
+            player::player()
             {
 
 
@@ -323,10 +320,10 @@ namespace music
             }
 
 
-            ::multimedia::e_result player::Initialize(thread * pthread)
+            ::e_status player::Initialize(thread * pthread)
             {
                __UNREFERENCED_PARAMETER(pthread);
-               return ::multimedia::result_success;
+               return ::success;
             }
 
             //void player::SetView(CXfplayerView *pview)
@@ -527,7 +524,7 @@ namespace music
             void player::SendReset()
             {
 //               HMIDIOUT hmidiout = NULL;
-//               ::multimedia::e_result mmrc;
+//               ::e_status mmrc;
 //               uint32_t uDeviceID = 0;
 //               mmrc = translate_mmr(midiOutOpen(&hmidiout, uDeviceID,  0, 0, CALLBACK_NULL));
 //               if(mmrc != MMSYSERR_NOERROR)

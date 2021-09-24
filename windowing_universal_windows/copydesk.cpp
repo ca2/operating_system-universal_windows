@@ -620,12 +620,8 @@ namespace windowing_universal_windows
 
       bool bHasImage = false;
 
-      m_pwindow->window_sync(15_s, __routine([this, &bHasImage]()
+      m_pwindow->window_sync(15_s, __routine([&bHasImage]()
          {
-
-            synchronous_lock synchronouslock(mutex());
-
-
 
             auto datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
 
@@ -656,7 +652,7 @@ namespace windowing_universal_windows
 
       }
 
-      synchronous_lock synchronouslock(mutex());
+      //synchronous_lock synchronouslock(mutex());
 
       ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
 
@@ -671,101 +667,98 @@ namespace windowing_universal_windows
 
       string str = ::winrt::Windows::ApplicationModel::DataTransfer::StandardDataFormats::Bitmap().begin();
 
-            auto data = datapackageview.GetDataAsync(L"DeviceIndependentBitmap").get();
+      auto data = datapackageview.GetDataAsync(L"DeviceIndependentBitmap").get();
 
-            //auto bitmap = datapackageview.GetBitmapAsync().get();
+      auto stream = data.as <::winrt::Windows::Storage::Streams::IRandomAccessStream >();
 
-            auto stream = data.as <::winrt::Windows::Storage::Streams::IRandomAccessStream >();
+      memsize s = (memsize)stream.Size();
 
-            memsize s = (memsize)stream.Size();
+      ::winrt::Windows::Storage::Streams::Buffer buffer((::u32) s);
 
-            ::winrt::Windows::Storage::Streams::Buffer buffer((::u32) s);
+      if (buffer == nullptr)
+      {
 
-            if (buffer == nullptr)
-            {
+         return error_failed;
 
-               return error_failed;
+      }
 
-            }
+      stream.ReadAsync(buffer, (::u32) s, ::winrt::Windows::Storage::Streams::InputStreamOptions::ReadAhead).get();
 
-            stream.ReadAsync(buffer, (::u32) s, ::winrt::Windows::Storage::Streams::InputStreamOptions::ReadAhead).get();
+      memory m;
 
-            memory m;
+      m.set_size(s);
 
-            m.set_size(s);
+      windows_runtime_read_buffer(m.get_data(), s, buffer);
 
-            windows_runtime_read_buffer(m.get_data(), s, buffer);
+      BITMAPINFO * pbitmapinfo = (BITMAPINFO *)m.get_data();
 
+      pimage->create({ pbitmapinfo->bmiHeader.biWidth,  pbitmapinfo->bmiHeader.biHeight });
 
-            BITMAPINFO * _ = (BITMAPINFO *)m.get_data();
+      pimage->map();
 
-            pimage->create({ _->bmiHeader.biWidth,  _->bmiHeader.biHeight });
+      vertical_swap_copy_colorref(
+         pimage->get_data(),
+         pimage->width(),
+         pimage->height(),
+         pimage->scan_size(),
+         (::color32_t *)&m.get_data()[pbitmapinfo->bmiHeader.biSize],
+         pbitmapinfo->bmiHeader.biSizeImage / pbitmapinfo->bmiHeader.biHeight);
 
-            pimage->map();
+      //auto decoder = ::winrt::Windows::Graphics::Imaging::BitmapDecoder::CreateAsync(stream2).get();
 
-            vertical_swap_copy_colorref(
-               pimage->get_data(),
-               pimage->width(),
-               pimage->height(),
-               pimage->scan_size(),
-               (::color32_t *)&m.get_data()[_->bmiHeader.biSize],
-               _->bmiHeader.biSizeImage / _->bmiHeader.biHeight);
+      //int cy = decoder.PixelHeight();
+      //int cx = decoder.PixelWidth();
+      //auto provider = decoder.GetPixelDataAsync(
+      //   ::winrt::Windows::Graphics::Imaging::BitmapPixelFormat::Bgra8,
+      //   ::winrt::Windows::Graphics::Imaging::BitmapAlphaMode::Premultiplied,
+      //   ::winrt::Windows::Graphics::Imaging::BitmapTransform::BitmapTransform(),
+      //   ::winrt::Windows::Graphics::Imaging::ExifOrientationMode(),
+      //   ::winrt::Windows::Graphics::Imaging::ColorManagementMode()).get();
 
-            //auto decoder = ::winrt::Windows::Graphics::Imaging::BitmapDecoder::CreateAsync(stream2).get();
-
-            //int cy = decoder.PixelHeight();
-            //int cx = decoder.PixelWidth();
-            //auto provider = decoder.GetPixelDataAsync(
-            //   ::winrt::Windows::Graphics::Imaging::BitmapPixelFormat::Bgra8,
-            //   ::winrt::Windows::Graphics::Imaging::BitmapAlphaMode::Premultiplied,
-            //   ::winrt::Windows::Graphics::Imaging::BitmapTransform::BitmapTransform(),
-            //   ::winrt::Windows::Graphics::Imaging::ExifOrientationMode(),
-            //   ::winrt::Windows::Graphics::Imaging::ColorManagementMode()).get();
-
-            //auto data = provider.DetachPixelData();
+      //auto data = provider.DetachPixelData();
 
 
-            ////if (bitmap.BitmapPixelFormat() != ::winrt::Windows::Graphics::Imaging::BitmapPixelFormat::Bgra8)
-            ////{
+      ////if (bitmap.BitmapPixelFormat() != ::winrt::Windows::Graphics::Imaging::BitmapPixelFormat::Bgra8)
+      ////{
 
-            ////   auto bitmap32 = ::winrt::Windows::Graphics::Imaging::SoftwareBitmap::Convert(
-            ////      bitmap,
-            ////      ::winrt::Windows::Graphics::Imaging::BitmapPixelFormat::Bgra8);
+      ////   auto bitmap32 = ::winrt::Windows::Graphics::Imaging::SoftwareBitmap::Convert(
+      ////      bitmap,
+      ////      ::winrt::Windows::Graphics::Imaging::BitmapPixelFormat::Bgra8);
 
-            ////   bitmap = bitmap32;
+      ////   bitmap = bitmap32;
 
-            ////}
+      ////}
 
-            ////auto cx = bitmap.PixelWidth();
+      ////auto cx = bitmap.PixelWidth();
 
-            ////auto cy = bitmap.PixelHeight();
+      ////auto cy = bitmap.PixelHeight();
 
-            ////pimage->create({ cx, cy });
+      ////pimage->create({ cx, cy });
 
-            ////auto bitmapbuffer = bitmap.LockBuffer(::winrt::Windows::Graphics::Imaging::BitmapBufferAccessMode::Read);
+      ////auto bitmapbuffer = bitmap.LockBuffer(::winrt::Windows::Graphics::Imaging::BitmapBufferAccessMode::Read);
 
-            ////auto bitmapbuffer_ref = bitmapbuffer.CreateReference();
+      ////auto bitmapbuffer_ref = bitmapbuffer.CreateReference();
 
-            ////auto byteaccess = bitmapbuffer_ref.as<IMemoryBufferByteAccess>();
+      ////auto byteaccess = bitmapbuffer_ref.as<IMemoryBufferByteAccess>();
 
-            //::byte * pdataSrc = data.data();
-            //
-            //::u32 sizeSrc = data.size();
+      //::byte * pdataSrc = data.data();
+      //
+      //::u32 sizeSrc = data.size();
 
-            ////auto hresult = byteaccess->GetBuffer(&pdataSrc, &sizeSrc);
+      ////auto hresult = byteaccess->GetBuffer(&pdataSrc, &sizeSrc);
 
-            //int iSourceStride = sizeSrc / cy;
+      //int iSourceStride = sizeSrc / cy;
 
-            //pimage->map();
+      //pimage->map();
 
-            //::color::color colorFirstPixel(((::color32_t *)pdataSrc)[0]);
+      //::color::color colorFirstPixel(((::color32_t *)pdataSrc)[0]);
 
-            //copy_colorref(
-            //   pimage->get_data(), 
-            //   cx, cy, pimage->m_iScan, 
-            //   (::color32_t *) pdataSrc, iSourceStride);
+      //copy_colorref(
+      //   pimage->get_data(), 
+      //   cx, cy, pimage->m_iScan, 
+      //   (::color32_t *) pdataSrc, iSourceStride);
 
-         //}));
+      //}));
 
       return ::success;
 

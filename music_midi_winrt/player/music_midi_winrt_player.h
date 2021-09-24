@@ -70,7 +70,7 @@ namespace music
 
                //::music::e_result SetInterface(player_interface * pinterface);
 
-               ::multimedia::e_result Initialize(::thread * pthread);
+               ::e_status Initialize(::thread * pthread);
 
                bool IsPlaying();
 
