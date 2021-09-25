@@ -103,9 +103,9 @@ namespace windowing_win32
             strLparamString == "ImmersiveColorSet")
          {
 
-            auto psystem = m_psystem->m_paurasystem;
+            auto pnode = m_psystem->m_pnode;
 
-            psystem->signal(id_user_color);
+            pnode->fetch_user_color();
 
          }
          else if (pmessage->m_id == e_message_display_change ||

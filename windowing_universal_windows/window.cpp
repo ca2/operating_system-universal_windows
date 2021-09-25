@@ -825,18 +825,6 @@ namespace windowing_universal_windows
 
          //}
          }
-         else if (
-            pmessage->m_id == WM_SETTINGCHANGE &&
-            strLparamString == "ImmersiveColorSet")
-         {
-
-            auto psystem = m_psystem->m_paurasystem;
-
-            psystem->signal(id_user_color);
-
-            //psystem->handle_subject(psubject);
-
-         }
          else if (pmessage->m_id == e_message_display_change ||
             (pmessage->m_id == WM_SETTINGCHANGE &&
                (pmessage->m_wparam == SPI_SETWORKAREA)))
