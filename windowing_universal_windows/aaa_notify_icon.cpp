@@ -302,7 +302,7 @@ namespace windowing_win32
 
       psubject->m_puserelement->m_id = m_id;
 
-      psubject->m_puserinteraction = this;
+      psubject->user_interaction() = this;
 
       psubject->m_actioncontext.m_pmessage = pmessage;
 
