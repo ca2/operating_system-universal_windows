@@ -1802,7 +1802,7 @@ namespace windowing_universal_windows
    bool window::has_keyboard_focus() const
    {
 
-      return windowing()->m_pwindowFocus == this;
+      return windowing()->m_pwindowFocus == this && m_bInternalFocus;
 
    }
 
