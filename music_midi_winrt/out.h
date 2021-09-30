@@ -19,7 +19,7 @@ namespace music
 
 
 //            HMIDIOUT       m_hmidiout;
-
+            memory m_memoryBuffer;
             ::winrt::agile_ref < IMidiOutPort >    m_midiOutPort;
 
 
@@ -39,6 +39,8 @@ namespace music
 
 
             ::e_status send_short_message(::music::midi::e_message emessage, int iChannel, int iData1, int iData2);
+
+            ::e_status step() override;
 
          };
 

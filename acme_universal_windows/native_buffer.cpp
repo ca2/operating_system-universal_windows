@@ -526,8 +526,19 @@ namespace universal_windows
       ////   WinFileException::ThrowOsError(get_application(), (::i32)::get_last_error());
    }
 
+
    void native_buffer::set_size(filesize dwNewLen)
    {
+
+      m_stream.Size(dwNewLen);
+
+      if (m_stream.Position() > m_stream.Size())
+      {
+
+         m_stream.Seek(m_stream.Size());
+
+      }
+
       //ASSERT_VALID(this);
       //ASSERT(m_hnative_buffer != (::u32)hnative_bufferNull);
 

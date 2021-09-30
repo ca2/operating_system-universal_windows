@@ -90,6 +90,9 @@
     <ProjectReference Include="..\..\..\source\app\core\u_core.vcxproj">
       <Project>{65070f1f-14db-474e-96de-cb920740dcc4}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\acme_universal_windows\u_acme_universal_windows.vcxproj">
+      <Project>{e38ecf25-a157-4402-a803-f54759ff1c91}</Project>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="u_music_midi_winrt.def" />

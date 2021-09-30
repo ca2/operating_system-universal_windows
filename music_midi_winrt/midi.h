@@ -56,6 +56,8 @@ namespace music
 
             void enumerate_midi_out_devices() override;
 
+            __pointer(::music::midi::sequencer) create_midi_sequencer(sequence * psequence, const string & strDevice);
+
 
          };
 
