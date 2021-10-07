@@ -60,7 +60,7 @@ namespace windowing_universal_windows
       if (!bCreateSessionWindow)
       {
 
-         WARN("Could not create session window");
+         WARNING("Could not create session window");
 
       }
 

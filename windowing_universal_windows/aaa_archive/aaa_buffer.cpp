@@ -596,20 +596,20 @@ namespace windowing_universal_windows
 //            if (strType.contains_ci("font_format"))
 //            {
 //
-//               INFO("font_format going to UpdateLayeredWindow");
+//               INFORMATION("font_format going to UpdateLayeredWindow");
 //
 //               bool bVisible = IsWindowVisible(get_hwnd());
 //
 //               if (bVisible)
 //               {
 //
-//                  INFO("font_format is visible!!");
+//                  INFORMATION("font_format is visible!!");
 //
 //               }
 //               else
 //               {
 //
-//                  INFO("font_format ISN'T visible!!");
+//                  INFORMATION("font_format ISN'T visible!!");
 //
 //               }
 //
@@ -618,7 +618,7 @@ namespace windowing_universal_windows
 //               if (::GetWindowRect(get_hwnd(), &rectangleProbe))
 //               {
 //
-//                  INFO("GetWindowRect (%d, %d) - (%d, %d)", rectangleProbe.left, rectangleProbe.top, rectangleProbe.right, rectangleProbe.bottom);
+//                  INFORMATION("GetWindowRect (%d, %d) - (%d, %d)", rectangleProbe.left, rectangleProbe.top, rectangleProbe.right, rectangleProbe.bottom);
 //
 //               }
 //

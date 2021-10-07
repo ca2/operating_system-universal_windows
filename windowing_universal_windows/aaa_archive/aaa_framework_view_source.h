@@ -20,7 +20,7 @@ namespace windowing_universal_windows
 
    //   ::u32                                                    m_dwMouseMoveThrottle;
 
-   //   millis                                                   m_millisLastMouseMove;
+   //   ::duration                                                   m_durationLastMouseMove;
 
    //   ::winrt::Windows::UI::ViewManagement::UISettings         m_puisettings = nullptr;
 

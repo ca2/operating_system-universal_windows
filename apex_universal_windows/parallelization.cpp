@@ -125,15 +125,15 @@ void _on_apex_thread_detach()
 
 //#pragma warning (disable : 4273)
 //
-//CLASS_DECL_APEX DWORD WINAPI MsgWaitForMultipleObjects(DWORD nCount, const HANDLE* pHandles, BOOL fWaitAll, DWORD dwMilliseconds, DWORD dwWakeMask)
+//CLASS_DECL_APEX DWORD WINAPI MsgWaitForMultipleObjects(DWORD nCount, const HANDLE* pHandles, BOOL fWaitAll, DWORD dw::durations, DWORD dwWakeMask)
 //{
 //
-//   return MsgWaitForMultipleObjectsEx(nCount, pHandles, dwMilliseconds, dwWakeMask | (fWaitAll ? MWMO_WAITALL: 0), 0);
+//   return MsgWaitForMultipleObjectsEx(nCount, pHandles, dw::durations, dwWakeMask | (fWaitAll ? MWMO_WAITALL: 0), 0);
 //
 //}
 
 
-//CLASS_DECL_APEX ::u32 WINAPI MsgWaitForMultipleObjectsEx(::u32 nCount, const HANDLE* pHandles, ::u32 dwMilliseconds, ::u32 dwWakeMask, ::u32 dwFlags)
+//CLASS_DECL_APEX ::u32 WINAPI MsgWaitForMultipleObjectsEx(::u32 nCount, const HANDLE* pHandles, ::u32 dw::durations, ::u32 dwWakeMask, ::u32 dwFlags)
 //{
 //
 //   ::u32 dwResult = 0;
@@ -147,7 +147,7 @@ void _on_apex_thread_detach()
 //
 //      ph[nCount] = (HANDLE)::get_message_queue(get_current_ithread(), true)->m_eventNewMessage.hsync();
 //
-//      dwResult = ::WaitForMultipleObjectsEx(nCount + 1, ph, dwFlags & MWMO_WAITALL, dwMilliseconds, true);
+//      dwResult = ::WaitForMultipleObjectsEx(nCount + 1, ph, dwFlags & MWMO_WAITALL, dw::durations, true);
 //
 //      delete ph;
 //
@@ -155,7 +155,7 @@ void _on_apex_thread_detach()
 //   else
 //   {
 //
-//      dwResult = ::WaitForMultipleObjectsEx(nCount, pHandles, dwFlags, dwMilliseconds, false);
+//      dwResult = ::WaitForMultipleObjectsEx(nCount, pHandles, dwFlags, dw::durations, false);
 //
 //   }
 //

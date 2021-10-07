@@ -359,7 +359,7 @@ namespace music
 //         *
 //         * smfTicksToMillisecs
 //         *
-//         * This function returns the millisecond offset into the file given the
+//         * This function returns the ::duration offset into the file given the
 //         * tick offset.
 //         *
 //         * hSmf                      - Specifies the open MIDI file to perform
@@ -368,10 +368,10 @@ namespace music
 //         * tkOffset                  - Specifies the tick offset into the stream
 //         *                             to convert.
 //         *
-//         * Returns the number of milliseconds from the start of the stream.
+//         * Returns the number of ::durations from the start of the stream.
 //         *
 //         * The conversion is performed taking into ac::count the file's time division and
-//         * tempo map from the first track. Note that the same millisecond value
+//         * tempo map from the first track. Note that the same ::duration value
 //         * might not be valid at a later time if the tempo track is rewritten.
 //         *
 //         *****************************************************************************/
@@ -446,12 +446,12 @@ namespace music
 //         * smfMillisecsToTicks
 //         *
 //         * This function returns the nearest tick offset into the file given the
-//         * millisecond offset.
+//         * ::duration offset.
 //         *
 //         * hSmf                      - Specifies the open MIDI file to perform the
 //         *                             conversion on.
 //         *
-//         * msOffset                  - Specifies the millisecond offset into the stream
+//         * msOffset                  - Specifies the ::duration offset into the stream
 //         *                             to convert.
 //         *
 //         * Returns the number of ticks from the start of the stream.
@@ -459,7 +459,7 @@ namespace music
 //         * The conversion is performed taking into ac::count the file's time division and
 //         * tempo map from the first track. Note that the same tick value
 //         * might not be valid at a later time if the tempo track is rewritten.
-//         * If the millisecond value does not exactly map to a tick value, then
+//         * If the ::duration value does not exactly map to a tick value, then
 //         * the tick value will be rounded down.
 //         *
 //         *****************************************************************************/
@@ -496,7 +496,7 @@ namespace music
 //               return (int64_t) muldiv32((int32_t) msOffset, dwTicksPerSec, 1000L);
 //            }
 //
-//            /* Walk the tempo map and find the nearest millisecond position. Linearly
+//            /* Walk the tempo map and find the nearest ::duration position. Linearly
 //            ** calculate the rest (using MATH.ASM)
 //            */
 //            //ptempo = m_pTempoMap;

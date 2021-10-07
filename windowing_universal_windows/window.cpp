@@ -1353,7 +1353,7 @@ namespace windowing_universal_windows
 //      if (status != 0)
 //      {
 //
-//         //m_psystem->m_pacmefile->put_contents("/home/camilo/window.txt", __str((int)w->window()));
+//         //m_psystem->m_pacmefile->put_contents("/home/camilo/window.txt", __string((int)w->window()));
 //         return false;
 //
 //      }
@@ -2152,7 +2152,7 @@ namespace windowing_universal_windows
 //
 //#ifdef SET_WINDOW_POS_LOG
 //
-//            INFO("XMoveResizeWindow (%d, %d) - (%d, %d)", x, y, cx, cy);
+//            INFORMATION("XMoveResizeWindow (%d, %d) - (%d, %d)", x, y, cx, cy);
 //
 //#endif
 //
@@ -2165,7 +2165,7 @@ namespace windowing_universal_windows
 //
 //#ifdef SET_WINDOW_POS_LOG
 //
-//               INFO("Changing parameters... (%d, %d) - (%d, %d)", x, y, cx, cy);
+//               INFORMATION("Changing parameters... (%d, %d) - (%d, %d)", x, y, cx, cy);
 //
 //#endif
 //
@@ -2209,7 +2209,7 @@ namespace windowing_universal_windows
 //      //            if(!XChangeWindowAttributes(display(), window(), CWOverrideRedirect, &set))
 //      //            {
 //      //
-//      //               INFO("linux::window::_native_create_window_ex failed to clear override_redirect");
+//      //               INFORMATION("linux::window::_native_create_window_ex failed to clear override_redirect");
 //      //
 //      //            }
 //      //
@@ -4323,7 +4323,7 @@ namespace windowing_universal_windows
       //   if (puserinteraction->layout().is_moving())
       //   {
 
-      //      INFO("Window is Moving :: on_message_move");
+      //      INFORMATION("Window is Moving :: on_message_move");
 
       //   }
 
@@ -5819,7 +5819,7 @@ namespace windowing_universal_windows
 //            // handler has set it to another one.
 //            pmouse->m_ecursor = cursor_default;
 //
-//            //INFO("windows::e_message_mouse_move(%d,%d)", pmouse->m_point.x, pmouse->m_point.y);
+//            //INFORMATION("windows::e_message_mouse_move(%d,%d)", pmouse->m_point.x, pmouse->m_point.y);
 //
 //            string strType;
 //
@@ -6200,7 +6200,7 @@ namespace windowing_universal_windows
       //while (ptask->task_get_run())
       //{
 
-      //   if (m_millisLastMouseMove.elapsed() < 20_ms)
+      //   if (m_durationLastMouseMove.elapsed() < 20_ms)
       //   {
 
       //      ::preempt(30_ms);
@@ -6262,7 +6262,7 @@ namespace windowing_universal_windows
 
       //   lparam = MAKELPARAM(pointMouseMove.x, pointMouseMove.y);
 
-      //   m_millisLastMouseMove.Now();
+      //   m_durationLastMouseMove.Now();
 
       //   //pimpl->m_puserinteraction->post_message(e_message_mouse_move, 0, lparam);
       //   
@@ -7130,7 +7130,7 @@ namespace windowing_universal_windows
 
       auto range = args.Range();
 
-      ::output_debug_string("range" + __str(range.StartCaretPosition) + "," + __str(range.EndCaretPosition) + "\n");
+      ::output_debug_string("range" + __string(range.StartCaretPosition) + "," + __string(range.EndCaretPosition) + "\n");
 
       widestring newText = args.Text().begin();
 
@@ -8168,7 +8168,7 @@ namespace windowing_universal_windows
 
          puserinteraction->m_pimpl->queue_message_handler(pusermessage);
 
-         m_millisLastMouseMove = ::millis::now();
+         m_durationLastMouseMove = ::duration::now();
 
       }
 
@@ -8486,7 +8486,7 @@ namespace windowing_universal_windows
                   catch(...)
                   {
                   }
-               })), 5); // wait for up to 5 milliseconds
+               })), 5); // wait for up to 5 ::durations
 
                m_pointLastCursor = p;*/
 

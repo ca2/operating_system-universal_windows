@@ -139,7 +139,7 @@ namespace universal_windows
 
          //memory m;
 
-         string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __str(message) + "," + m_psystem->url()->url_encode(m_psystem->base64()->encode({ pdata, len }));
+         string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + m_psystem->url()->url_encode(m_psystem->base64()->encode({ pdata, len }));
          
          
          auto pnode = m_psystem->node();

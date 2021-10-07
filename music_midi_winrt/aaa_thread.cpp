@@ -20,7 +20,7 @@
 uint64_t get_micro()
 {
 
-   return nanos().m_i / 1000;
+   return nanosecond().m_i / 1000;
 
 }
 

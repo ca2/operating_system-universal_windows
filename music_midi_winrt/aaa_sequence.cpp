@@ -788,12 +788,12 @@ Seq_Open_File_Cleanup:
          *
          * seqMillisecsToTicks
          *
-         * Given a millisecond offset in the output stream, returns the associated
+         * Given a ::duration offset in the output stream, returns the associated
          * tick position.
          *
          * pSeq                      - The sequencer instance.
          *
-         * msOffset                  - The millisecond offset into the stream.
+         * msOffset                  - The ::duration offset into the stream.
          *
          * Returns the number of ticks into the stream.
          *
@@ -808,13 +808,13 @@ Seq_Open_File_Cleanup:
          * seqTicksToMillisecs
          *
          * Given a tick offset in the output stream, returns the associated
-         * millisecond position.
+         * ::duration position.
          *
          * pSeq                      - The sequencer instance.
          *
          * tkOffset                  - The tick offset into the stream.
          *
-         * Returns the number of milliseconds into the stream.
+         * Returns the number of ::durations into the stream.
          *
          ***************************************************************************/
          imedia_time sequence::TicksToMillisecs(imedia_position tkOffset)
@@ -1386,9 +1386,9 @@ Seq_Open_File_Cleanup:
             return false;
          }
 
-         imedia_position sequence::TimeToPosition(imedia_time millis)
+         imedia_position sequence::TimeToPosition(imedia_time ::duration)
          {
-            return imedia_position(MillisecsToTicks((int_ptr) millis));
+            return imedia_position(MillisecsToTicks((int_ptr) ::duration));
          }
 
          imedia_time sequence::PositionToTime(imedia_position tk)

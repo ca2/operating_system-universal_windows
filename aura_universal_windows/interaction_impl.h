@@ -23,7 +23,7 @@ namespace universal_windows
       point_f64                                                         m_pointLastMouseMove;
       //point_f64                                                       m_pointCursor;
       double                                                            m_dAccumulatedMouseMoveDistance;
-      millis                                                            m_millisLastMouseMove;
+      ::duration                                                            m_durationLastMouseMove;
       //::thread *                                                      m_pthreadDraw;
       //::user::primitive *                                             m_pbasewnd;
       //::user::interaction *                                           m_pguieCapture;
@@ -263,7 +263,7 @@ namespace universal_windows
 
 #if(WINVER >= 0x0500)
 
-      virtual bool AnimateWindow(millis millis, u32 dwFlags);
+      virtual bool AnimateWindow(::duration ::duration, u32 dwFlags);
 
 #endif   // WINVER >= 0x0500
 
@@ -385,7 +385,7 @@ namespace universal_windows
 
 //#if(WINVER >= 0x0500)
 //
-//      virtual bool FlashWindowEx(u32 dwFlags, ::u32  uCount, millis tickTimeout);
+//      virtual bool FlashWindowEx(u32 dwFlags, ::u32  uCount, ::duration tickTimeout);
 //
 //#endif   // WINVER >= 0x0500
 //
