@@ -1222,7 +1222,7 @@ Seq_Open_File_Cleanup:
          }
 
 
-         void sequence::OnMidiPlaybackEnd(::music::midi::sequence::event * pevent)
+         void sequence::on_midi_playback_end(::music::midi::sequence::event * pevent)
          {
 
             __UNREFERENCED_PARAMETER(pevent);
@@ -1244,13 +1244,13 @@ Seq_Open_File_Cleanup:
             case EventSpecialModeV001End:
             {
                SetSpecialModeV001Flag(false);
-               OnMidiPlaybackEnd(pevent);
+               on_midi_playback_end(pevent);
                set_status(m_estatusPreSpecialModeV001);
             }
             break;
             case e_event_midi_playback_end:
             {
-               OnMidiPlaybackEnd(pevent);
+               on_midi_playback_end(pevent);
                set_status(status_opened);
             }
             break;
