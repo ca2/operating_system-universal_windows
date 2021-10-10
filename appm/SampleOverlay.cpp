@@ -175,7 +175,7 @@ void SampleOverlay::Render()
         m_d2dContext->SetTransform(D2D1::Matrix3x2F::Identity());
         m_d2dContext->DrawBitmap(
             m_logoBitmap.Get(),
-            D2D1::RectF(m_padding, 0.0f, m_logoSize.width + m_padding, m_logoSize.height)
+            D2D1::rectF(m_padding, 0.0f, m_logoSize.width + m_padding, m_logoSize.height)
             );
 
         m_d2dContext->DrawTextLayout(

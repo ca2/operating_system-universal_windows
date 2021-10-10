@@ -799,7 +799,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //::RECT rectangleWindow;
+      //::rectangle_i32 rectangleWindow;
 
       //for (auto & hwnd : *phwnda)
       //{
@@ -1130,7 +1130,7 @@ namespace windowing_universal_windows
 //                  ZeroMemory(&cc, sizeof(cc));
 //                  cc.lStructSize = sizeof(CHOOSECOLOR);
 //                  cc.rgbResult = rgb(0, 0, 0);
-//                  cc.lpCustColors = (COLORREF *) crCustColors;
+//                  cc.lpCustColors = (::color::color *) crCustColors;
 //
 //                  cc.Flags = CC_RGBINIT | CC_FULLOPEN;
 //                  cc.hwndOwner = get_safe_handle() ; // this hangs parent, as well as me
@@ -1167,7 +1167,7 @@ namespace windowing_universal_windows
 //      ZeroMemory(&cc, sizeof(cc));
 //      cc.lStructSize = sizeof(CHOOSECOLOR);
 //      cc.rgbResult = c.get_rgb();
-//      cc.lpCustColors = (COLORREF *)crCustColors;
+//      cc.lpCustColors = (::color::color *)crCustColors;
 //
 //      cc.Flags = CC_RGBINIT | CC_FULLOPEN;
 //      cc.hwndOwner = puiOwner->get_safe_handle(); // this hangs parent, as well as me

@@ -2091,7 +2091,7 @@ namespace music
 //            return m_ptracks->IsTune1000File();
 //         }
 //
-//         bool buffer::IsSoftKaraokeFile(bool bWork, stringa * pstra)
+//         bool buffer::IsSoftKaraokeFile(bool bWork, string_array * pstra)
 //         {
 //            return m_ptracks->IsSoftKaraokeFile(bWork, pstra);
 //         }
@@ -3188,7 +3188,7 @@ namespace music
 //
 //
 //         e_result buffer::WorkWriteXFTracks(
-//            stringa &  tokena,
+//            string_array &  tokena,
 //            imedia::position_array & positiona,
 //            ::music::xf::info_header & xfinfoheader)
 //         {

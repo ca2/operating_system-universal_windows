@@ -726,7 +726,7 @@ Seq_Open_File_Cleanup:
          ::e_status sequence::get_ticks(imedia_position &  ticks)
          {
 
-            synch_lock synchronouslock(m_mutex);
+            synchronous_lock synchronouslock(m_mutex);
 
             try
             {
@@ -764,7 +764,7 @@ Seq_Open_File_Cleanup:
          ::e_status sequence::get_millis(imedia_time & time)
          {
 
-            synch_lock synchronouslock(m_mutex);
+            synchronous_lock synchronouslock(m_mutex);
 
             if (m_pthreadPlay == NULL)
             {

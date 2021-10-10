@@ -69,7 +69,7 @@ namespace music
 
             //int32_t SetKeyShift(int32_t iKeyShift);
 
-            //bool IsSoftKaraokeFile(bool bWork = false, stringa * pstra = NULL);
+            //bool IsSoftKaraokeFile(bool bWork = false, string_array * pstra = NULL);
 
             //bool IsXFFile();
 
@@ -89,7 +89,7 @@ namespace music
 
             //e_result SaveFile(const ::string & lpFilePath);
 
-            //e_result WorkWriteXFTracks(stringa & tokena, imedia::position_array & positiona, ::music::xf::info_header & xfinfoheader);
+            //e_result WorkWriteXFTracks(string_array & tokena, imedia::position_array & positiona, ::music::xf::info_header & xfinfoheader);
 
             ////int32_t CalcMelodyTrack(::music::midi::events ** ppEvents, imedia::position_array * pTicks);
 
