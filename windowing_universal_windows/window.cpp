@@ -554,7 +554,7 @@ namespace windowing_universal_windows
 
       puserinteraction->m_ewindowflag |= ::e_window_flag_window_created;
 
-      puserinteraction->set(e_matter_task_started);
+      puserinteraction->set(e_element_task_started);
 
       //m_puserinteraction->m_layout.sketch().set_modified();
 
