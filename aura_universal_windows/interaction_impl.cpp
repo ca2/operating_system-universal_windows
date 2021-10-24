@@ -782,16 +782,16 @@ return true;
    }
 #endif
 
-   bool interaction_impl::AnimateWindow(::duration ::duration,u32 dwFlags)
-   {
-#ifdef WINDOWS_DESKTOP
-      ASSERT(::is_window((oswindow)get_os_data()));
-      return ::AnimateWindow((oswindow)get_os_data(), ::duration, dwFlags) != false;
-#else
-      __throw(todo);
-#endif
-      return false;
-   }
+//   bool interaction_impl::AnimateWindow(::duration ::duration,u32 dwFlags)
+//   {
+//#ifdef WINDOWS_DESKTOP
+//      ASSERT(::is_window((oswindow)get_os_data()));
+//      return ::AnimateWindow((oswindow)get_os_data(), ::duration, dwFlags) != false;
+//#else
+//      __throw(todo);
+//#endif
+//      return false;
+//   }
 
    //bool interaction_impl::FlashWindowEx(u32 dwFlags,::u32  uCount,::duration tickTimeout)
    //{
@@ -997,7 +997,7 @@ return true;
          pmessage->m_id == e_message_sys_char)
       {
 
-         auto pkey = pmessage->m_pkey;
+         auto pkey = pmessage->m_union.m_pkey;
 
          //psession->keyboard().translate_os_key_message(pkey);
 
@@ -1061,7 +1061,7 @@ return true;
          pmessage->m_id == e_message_mouse_wheel)
       {
 
-         auto pmouse = pmessage->m_pmouse;
+         auto pmouse = pmessage->m_union.m_pmouse;
 
          //if (pmessage)
          //{
@@ -1164,7 +1164,7 @@ return true;
       pmessage->m_id == e_message_char)
       {
 
-         auto pkey = pmessage->m_pkey;
+         auto pkey = pmessage->m_union.m_pkey;
 
          auto psession = get_session();
 
@@ -4104,7 +4104,7 @@ return true;
    }
 
 
-   bool interaction_impl::SetTimer(uptr uEvent,::u32 nElapse,PFN_TIMER pfnTimer)
+   bool interaction_impl::SetTimer(uptr uEvent,::duration nElapse,PFN_TIMER pfnTimer)
    {
 
 

@@ -104,7 +104,7 @@ namespace universal_windows
 
          auto pnode = m_psystem->node();
 
-         pnode->node_branch(__routine([anotherappUri]()
+         pnode->node_post(__routine([anotherappUri]()
             {
 
                auto hstrUri = __hstring(anotherappUri);
@@ -144,7 +144,7 @@ namespace universal_windows
          
          auto pnode = m_psystem->node();
 
-         pnode->node_branch(__routine([anotherappUri]()
+         pnode->node_post(__routine([anotherappUri]()
             {
 
                auto hstrUri = __hstring(anotherappUri);

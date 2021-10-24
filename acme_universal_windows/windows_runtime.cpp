@@ -201,6 +201,12 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
 
       }
+      catch (const winrt::hresult_error & e)
+      {
+
+         output_debug_string("winrt::hresult_error = " + __string((i32)e.code())+"\n");
+
+      }
       catch (...)
       {
 

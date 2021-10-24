@@ -99,7 +99,7 @@ template < typename PREDICATE >
 
          synchronous_lock synchronouslock(pmutex);
 
-         if (!pevent->is(e_element_exited))
+         if (!pevent->has(e_flag_exited))
          {
 
             pevent->m_estatus = estatus;
@@ -114,7 +114,7 @@ template < typename PREDICATE >
 
    synchronous_lock synchronouslock(pmutex);
 
-   pevent->set(e_element_exited);
+   pevent->set(e_flag_exited);
 
    return pevent->m_estatus;
 

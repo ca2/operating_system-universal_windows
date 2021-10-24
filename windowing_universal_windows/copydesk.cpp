@@ -353,7 +353,7 @@ namespace windowing_universal_windows
 
       ::count c = -1;
 
-      m_pwindow->window_branch(__routine([this]()
+      m_pwindow->window_post(__routine([this]()
          {
 
             synchronous_lock synchronouslock(mutex());
@@ -507,7 +507,7 @@ namespace windowing_universal_windows
 
       bool bHasText = false;
 
-      m_pwindow->window_sync(15_s, __routine([this, &bHasText]()
+      m_pwindow->window_send(__routine(15_s, [this, &bHasText]()
          {
 
             synchronous_lock synchronouslock(mutex());
@@ -535,7 +535,7 @@ namespace windowing_universal_windows
 
       }
 
-      m_pwindow->window_branch(__routine([this, str]()
+      m_pwindow->window_post(__routine([this, str]()
          {
 
             synchronous_lock synchronouslock(mutex());
@@ -581,7 +581,7 @@ namespace windowing_universal_windows
 
       ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
 
-      m_pwindow->window_sync(15_s, __routine([&datapackageview]()
+      m_pwindow->window_send(__routine(15_s, [&datapackageview]()
          {
 
             datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
@@ -620,7 +620,7 @@ namespace windowing_universal_windows
 
       bool bHasImage = false;
 
-      m_pwindow->window_sync(15_s, __routine([&bHasImage]()
+      m_pwindow->window_send(__routine(15_s, [&bHasImage]()
          {
 
             auto datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
@@ -656,7 +656,7 @@ namespace windowing_universal_windows
 
       ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
 
-      m_pwindow->window_sync(15_min, __routine([&datapackageview]()
+      m_pwindow->window_send(__routine(15_min, [&datapackageview]()
          {
 
             datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();

@@ -50,10 +50,9 @@ namespace windowing_universal_windows
 
 
       //__pointer(window)             m_pwindowNode;
-      framework_view_source         m_frameworkviewsource;
+      ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource         m_frameworkviewsource;
 
-
-      framework_view        m_frameworkview;
+      ::winrt::Windows::ApplicationModel::Core::IFrameworkView               m_frameworkview;
 
 
       int   m_iMouse;
@@ -151,7 +150,7 @@ namespace windowing_universal_windows
       ::e_status on_initialize_object() override;
 
 
-      void main_branch(const ::routine & routine);
+      void main_post(const ::routine & routine);
 
       void defer_process_activation_message();
       // IFrameworkView Methods
@@ -1216,7 +1215,7 @@ namespace windowing_universal_windows
       void graphics_unlock() override;
 
       
-      ::e_status window_branch(const ::routine & routine) override;
+      ::e_status window_post(const ::routine & routine) override;
 
       bool is_branch_current() const override;
 

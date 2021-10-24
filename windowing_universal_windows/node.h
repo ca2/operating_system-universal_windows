@@ -45,7 +45,7 @@ namespace windowing_universal_windows
 
       //__pointer(::extended::future < ::conversation >) _message_box(::object * pobject, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
 
-      ::e_status node_branch(const ::routine & routine) override;
+      ::e_status node_post(const ::routine & routine) override;
 
 
    };

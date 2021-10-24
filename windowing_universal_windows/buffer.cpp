@@ -553,7 +553,7 @@ namespace windowing_universal_windows
 
          // Only handle window size_i32 changed if there is no pending DPI change.
 
-         m_psystem->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this, dpi]()
+         m_psystem->m_paurasession->m_puser->m_pwindowing->windowing_post(__routine([this, dpi]()
             {
 
                OnChangeDpi(dpi);
@@ -604,7 +604,7 @@ namespace windowing_universal_windows
       void buffer::UpdateForWindowSizeChange()
       {
 
-         m_psystem->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this]()
+         m_psystem->m_paurasession->m_puser->m_pwindowing->windowing_post(__routine([this]()
             {
                //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
                //{
@@ -1133,7 +1133,7 @@ namespace windowing_universal_windows
 
             m_bWindowSizeChangeInProgress = false;
 
-            m_pwindow->m_pwindowing->windowing_branch(__routine([this]()
+            m_pwindow->m_pwindowing->windowing_post(__routine([this]()
             {
 
           //A window size_i32 change has been initiated and the app has just completed presenting

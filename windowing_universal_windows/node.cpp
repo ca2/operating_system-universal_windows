@@ -171,7 +171,7 @@ namespace windowing_universal_windows
    //}
 
 
-   ::e_status node::node_branch(const ::routine & routine)
+   ::e_status node::node_post(const ::routine & routine)
    {
 
       auto window = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow();

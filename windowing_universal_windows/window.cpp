@@ -56,8 +56,8 @@ namespace windowing_universal_windows
 
 
    window::window() :
-      m_frameworkview(this),
-      m_frameworkviewsource(this)
+      m_frameworkviewsource{ {::winrt::make<framework_view_source >(this)} },
+      m_frameworkview{ {::winrt::make<framework_view >(this)} }
    {
 
       //m_straActivationMessage.add("app-core-flag://send/?message=");
@@ -434,7 +434,7 @@ namespace windowing_universal_windows
             //});
 
             //subject.wait();
-         window_sync(15_s, __routine([this, &rectangleWindow]()
+         window_send(__routine(15_s, [this, &rectangleWindow]()
             {
 
                //   m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
@@ -477,7 +477,7 @@ namespace windowing_universal_windows
       //else
       //{
 
-         window_sync(15_s, __routine([this, pusersystem, puserinteraction, &rectangleWindow]()
+         window_send(__routine(15_s, [this, pusersystem, puserinteraction, &rectangleWindow]()
          {
 
             m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
@@ -554,7 +554,7 @@ namespace windowing_universal_windows
 
       puserinteraction->m_ewindowflag |= ::e_window_flag_window_created;
 
-      puserinteraction->set(e_element_task_started);
+      puserinteraction->set(e_flag_task_started);
 
       //m_puserinteraction->m_layout.sketch().set_modified();
 
@@ -3078,7 +3078,7 @@ namespace windowing_universal_windows
       //   return;
 
       //str = wstr;
-      m_pwindowing->windowing_sync(15_s, __routine([&str]()
+      m_pwindowing->windowing_send(__routine(15_s, [&str]()
          {
 
             auto  applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
@@ -6336,7 +6336,7 @@ namespace windowing_universal_windows
       auto routine = [this]()
       {
 
-         window_sync(15_s, __routine([this]()
+         window_send(__routine(15_s, [this]()
             {
 
                //pbuffer->m_windowBounds = m_window->Bounds;
@@ -6370,9 +6370,8 @@ namespace windowing_universal_windows
 
       //m_pimpl = __create < ::user::interaction_impl >();
 
-      window_sync(15_s, __routine([this]()
+      window_send(__routine(15_s, [this]()
          {
-
 
             auto window = m_window;
 
@@ -6714,8 +6713,7 @@ namespace windowing_universal_windows
    }
 
 
-
-   void window::main_branch(const ::routine & routine)
+   void window::main_post(const ::routine & routine)
    {
 
       ::winrt::Windows::UI::Core::CoreDispatcher dispatcher = nullptr;
@@ -7019,7 +7017,7 @@ namespace windowing_universal_windows
 
       set_input_text(wstrText);
 
-      m_pwindowing->windowing_branch(__routine([this, iBeg, iEnd]()
+      m_pwindowing->windowing_post(__routine([this, iBeg, iEnd]()
          {
 
             widestring wstrText = get_input_text();
@@ -8509,12 +8507,10 @@ namespace windowing_universal_windows
       void window::on_message_size(::message::message * pmessage)
       {
 
-
-
       }
 
 
-      ::e_status window::window_branch(const ::routine & routine)
+      ::e_status window::window_post(const ::routine & routine)
       {
 
          auto dispatcher = m_window.Dispatcher();

@@ -261,11 +261,11 @@ namespace universal_windows
       virtual bool DrawAnimatedRects(int idAni, const RECTANGLE_I32 *lprcFrom, const RECTANGLE_I32 *lprcTo);
       virtual bool DrawCaption(::draw2d::graphics_pointer & pgraphics, const RECTANGLE_I32 * lprc, ::u32 uFlags);
 
-#if(WINVER >= 0x0500)
-
-      virtual bool AnimateWindow(const ::duration & duration, u32 dwFlags);
-
-#endif   // WINVER >= 0x0500
+//#if(WINVER >= 0x0500)
+//
+//      virtual bool AnimateWindow(const ::duration & duration, u32 dwFlags);
+//
+//#endif   // WINVER >= 0x0500
 
 #if(_WIN32_WINNT >= 0x0501)
 
@@ -278,7 +278,7 @@ namespace universal_windows
 
 
       // Timer Functions
-      virtual bool SetTimer(UINT_PTR uEvent, ::u32 nElapse, PFN_TIMER pfnTimer);
+      bool SetTimer(UINT_PTR uEvent, ::duration durationElapse, PFN_TIMER pfnTimer) override;
       virtual bool KillTimer(uptr uEvent);
 
       // Window State Functions

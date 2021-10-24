@@ -927,10 +927,10 @@ namespace windowing_universal_windows
    }*/
 
    
-   ::e_status windowing::windowing_branch(const ::routine & routine)
+   ::e_status windowing::windowing_post(const ::routine & routine)
    {
 
-      auto estatus = m_psystem->m_paurasystem->m_pwindowMain->window_branch(routine);
+      auto estatus = m_psystem->m_paurasystem->m_pwindowMain->window_post(routine);
 
       if (!estatus)
       {

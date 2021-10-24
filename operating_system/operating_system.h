@@ -1,6 +1,10 @@
 #pragma once
 
 
+#undef ERROR
+#define boolean windows_boolean
+
+
 #ifdef _WINDOWS_
 #error WINDOWS.H already included.  ca2 apps must not #include <windows.h>
 #endif
@@ -102,4 +106,7 @@ typedef struct HKEY__ *HKEY;
 #undef minimum
 #undef maximum
 
+#undef ERROR
+#define ERROR(...) TRACE_LOG_ERROR(__VA_ARGS__)
+#undef boolean
 
