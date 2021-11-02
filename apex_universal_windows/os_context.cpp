@@ -2165,7 +2165,7 @@ return false;
 
       //   //string str;
 
-      //   //str.Format("ShellExecuteExW %d GetLastError = %d", iResult, dwLastError);
+      //   //str.format("ShellExecuteExW %d GetLastError = %d", iResult, dwLastError);
 
       //   //output_debug_string(str);
 
