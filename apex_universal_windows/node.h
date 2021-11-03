@@ -24,6 +24,9 @@ namespace apex
          ~node() override;
 
 
+         ::e_status implement() override;
+
+
          string system_options_main_body() override;
 
 

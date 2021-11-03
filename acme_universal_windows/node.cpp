@@ -23,6 +23,25 @@ namespace acme
       }
 
 
+      ::e_status node::implement()
+      {
+
+         auto psystem = m_psystem;
+
+         auto estatus = psystem->main();
+
+         if (!estatus)
+         {
+
+            return estatus;
+
+         }
+
+         return estatus;
+
+      }
+
+
       string node::audio_get_default_library_name()
       {
 
@@ -37,6 +56,7 @@ namespace acme
          return "music_midi_winrt";
 
       }
+
 
    } // namespace universal_windows
 

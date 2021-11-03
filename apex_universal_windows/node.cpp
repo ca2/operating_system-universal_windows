@@ -24,6 +24,25 @@ namespace apex
       }
 
 
+      ::e_status node::implement()
+      {
+
+         auto psystem = m_psystem;
+
+         auto estatus = psystem->main();
+
+         if (!estatus)
+         {
+
+            return estatus;
+
+         }
+
+         return estatus;
+
+      }
+
+
       string node::system_options_main_body()
       {
 

@@ -773,7 +773,7 @@ namespace universal_windows
    }
 
 
-   ::file::path file_context::dropbox_info_json()
+   ::file::path file_context::dropbox_info_network_payload()
    {
 
       ::file::path pathJson;

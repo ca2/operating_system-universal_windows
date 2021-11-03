@@ -278,7 +278,7 @@ namespace universal_windows
 
 
       // Timer Functions
-      bool SetTimer(UINT_PTR uEvent, ::duration durationElapse, PFN_TIMER pfnTimer) override;
+      bool SetTimer(uptr uEvent, const ::duration& millisElapse, PFN_TIMER pfnTimer = nullptr, bool bPeriodic = true, void* pdata = nullptr) override;
       virtual bool KillTimer(uptr uEvent);
 
       // Window State Functions

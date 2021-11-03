@@ -4104,11 +4104,11 @@ return true;
    }
 
 
-   bool interaction_impl::SetTimer(uptr uEvent,::duration nElapse,PFN_TIMER pfnTimer)
+   bool interaction_impl::SetTimer(uptr uEvent, const ::duration& durationElapse, PFN_TIMER pfnTimer, bool bPeriodic, void* pdata)
    {
 
 
-      return ::user::interaction_impl::SetTimer(uEvent,nElapse,pfnTimer);
+      return ::user::interaction_impl::SetTimer(uEvent, durationElapse,pfnTimer, bPeriodic, pdata);
 
 
    }

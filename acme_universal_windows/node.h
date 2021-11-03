@@ -20,6 +20,9 @@ namespace acme
          ~node() override;
 
 
+         ::e_status implement() override;
+
+
          string audio_get_default_library_name() override;
 
          string veriwell_multimedia_music_midi_get_default_library_name() override;

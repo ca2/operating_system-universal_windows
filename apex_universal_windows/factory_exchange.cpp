@@ -35,7 +35,7 @@ void apex_universal_windows_factory_exchange(::factory_map * pfactorymap)
    pfactorymap->create_factory < ::file::os_watcher, ::file::watcher >();
    pfactorymap->create_factory < ::file::os_watch, ::file::watch >();
 
-   pfactorymap->create_factory < ::apex::windows_common::node, ::acme::node >();
+   pfactorymap->create_factory < ::apex::universal_windows::node, ::acme::node >();
 
 
 }
