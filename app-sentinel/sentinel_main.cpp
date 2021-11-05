@@ -1,4 +1,4 @@
-#include "sentinel.h"
+﻿#include "sentinel.h"
 
 int installer_start();
 int initialize_installer();

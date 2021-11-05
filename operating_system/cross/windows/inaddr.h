@@ -1,4 +1,4 @@
-//
+﻿//
 // IPv4 Internet address
 // This is an 'on-wire' format structure.
 //

@@ -1,4 +1,4 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "_windows_runtime.h"
 
 extern "C"

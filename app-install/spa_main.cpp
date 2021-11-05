@@ -1,4 +1,4 @@
-#include "installer_install.h"
+﻿#include "installer_install.h"
 
 HWND g_hwndMessage = NULL;
 MSG g_msg;

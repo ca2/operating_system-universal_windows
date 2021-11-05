@@ -1,4 +1,4 @@
-CubeRenderer::CubeRenderer() :
+﻿CubeRenderer::CubeRenderer() :
     m_loadingComplete(false),
     m_indexCount(0)
 {

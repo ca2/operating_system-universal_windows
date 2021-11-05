@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 #define CMB_MASKED              0x02

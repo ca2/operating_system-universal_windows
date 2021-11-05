@@ -1,4 +1,4 @@
-// From acme/filesystem/file/_.cpp by camilo on 2021-08-09 
+﻿// From acme/filesystem/file/_.cpp by camilo on 2021-08-09 
 // 03:09 BRT <3ThomasBorregaardS�rensen
 // Copied by camilo from platform-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #include "framework.h"
