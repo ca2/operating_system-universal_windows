@@ -1,4 +1,4 @@
-﻿
+
 #include <collection.h>
 #include <ppltasks.h>
 

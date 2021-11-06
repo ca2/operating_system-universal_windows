@@ -1,4 +1,4 @@
-﻿// Created by camilo on 2021-08-31 11:56 BRT <3ThomasBS__!!
+// Created by camilo on 2021-08-31 11:56 BRT <3ThomasBS__!!
 #include "framework.h"
 #include "_windows_runtime.h"
 

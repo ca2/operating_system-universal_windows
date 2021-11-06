@@ -1,4 +1,4 @@
-﻿#include "installer.h"
+#include "installer.h"
 
 
 const char * calc_id();

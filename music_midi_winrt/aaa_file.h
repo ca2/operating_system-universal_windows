@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 
 #define C_TEMPO_MAP_CHK     16

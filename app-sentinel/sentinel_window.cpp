@@ -1,4 +1,4 @@
-﻿#include "../installer_install/installer_install.h"
+#include "../installer_install/installer_install.h"
 
 extern strlist * g_pstrlistRestartCommandLine;
 

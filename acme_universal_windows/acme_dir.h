@@ -1,4 +1,4 @@
-﻿// Create on 2021-03-21 20:00 <3ThomasBS_
+// Create on 2021-03-21 20:00 <3ThomasBS_
 // Copied by camilo from platform-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #pragma once
 

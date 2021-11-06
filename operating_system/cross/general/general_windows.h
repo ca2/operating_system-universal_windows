@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 /*#define HWND_TOP        ((oswindow)0)
 #define HWND_BOTTOM     ((oswindow)1)

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 
 #include "apex_universal_windows/_windows_runtime.h"

@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 
 #include "aura_universal_windows/_.h"
