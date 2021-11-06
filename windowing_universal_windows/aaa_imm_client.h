@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 
 class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS imm_client :

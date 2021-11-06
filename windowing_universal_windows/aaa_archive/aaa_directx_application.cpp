@@ -1,4 +1,4 @@
-﻿#include "framework.h"
+#include "framework.h"
 #include "_windows_runtime.h"
 //#include "aura/node/operating_system/universal_windows/_.h"
 //#include "aura/node/universal_windows/_uwp.h"
