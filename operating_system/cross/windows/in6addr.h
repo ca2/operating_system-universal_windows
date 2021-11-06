@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 //
 // IPv6 Internet address (RFC 2553)

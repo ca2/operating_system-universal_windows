@@ -1,4 +1,4 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "_windows_runtime.h"
 //#include "direct2d/draw2d_direct2d_global.h"
 

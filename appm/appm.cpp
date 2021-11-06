@@ -1,4 +1,4 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "appm.h"
 #include "BasicTimer.h"
 

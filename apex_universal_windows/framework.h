@@ -1,4 +1,4 @@
-// Amended by camilo on 2021-08-29 19:06 BRT <3ThomasBS__!!
+﻿// Amended by camilo on 2021-08-29 19:06 BRT <3ThomasBS__!!
 #ifndef __GNUC__
 #pragma once
 #endif
