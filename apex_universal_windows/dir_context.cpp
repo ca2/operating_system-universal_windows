@@ -44,6 +44,10 @@ namespace universal_windows
 
       __refer(m_pdirsystem, psystem->m_pdirsystem);
 
+      string strPath = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
+
+      INFORMATION("ApplicationData::Current().LocalFolder()=" << strPath);
+
       return ::success;
 
 

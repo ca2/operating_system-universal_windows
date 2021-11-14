@@ -174,8 +174,10 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
       if (pathFolder.is_empty())
       {
+         
+         auto folder = ::winrt::Windows::ApplicationModel::Package::Current().InstalledLocation();
 
-         return nullptr;
+         return folder;
 
       }
 

@@ -4,7 +4,6 @@
 #undef User
 #undef Usr
 #include "shell.h"
-#include "apex/compress/zip/context.h"
 #include "acme/filesystem/filesystem/acme_dir.h"
 //#include "acme_windows/known_folder_struct.h"
 //#include <thumbcache.h>
@@ -1040,9 +1039,7 @@ namespace windowing_universal_windows
       else
       {
 
-         zip_context zipcontext(this);
-
-         if (zipcontext.is_unzippable(strPath))
+         if (m_psystem->fast_is_decompressable_folder(strPath))
          {
 
             return e_folder_zip;

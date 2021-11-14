@@ -34,6 +34,9 @@ namespace universal_windows
       virtual ::e_status init_system() override;
 
 
+      void calculate_main_resource_memory() override;
+
+
       virtual bool get_status(const ::file::path & path, ::file::file_status & status);
       virtual ::extended::status set_status(const ::file::path & path, const ::file::file_status & status);
 

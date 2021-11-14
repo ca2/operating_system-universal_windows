@@ -60,6 +60,14 @@ namespace universal_windows
    }
 
 
+   void file_context::calculate_main_resource_memory()
+   {
+
+      m_memoryMainResource = as_memory("_matter.zip");
+
+   }
+
+
    //bool file_context::FullPath(string & str, const ::string & pszFileIn)
 
    //{

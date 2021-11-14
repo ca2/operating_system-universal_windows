@@ -54,7 +54,22 @@ namespace universal_windows
 
       //m_pathHome = m_psystem->m_pacmedir->m_pplatformdir->_get_known_folder(FOLDERID_Profile);
 
-      m_pathHome = m_pathInstall / "home";
+      string strHome = getenv("USERPROFILE");
+
+      strHome.trim();
+
+      if (strHome.has_char())
+      {
+
+         m_pathHome = strHome;
+
+      }
+      else
+      {
+
+         m_pathHome = m_pathInstall / "home";
+
+      }
 
       //m_pathCa2Config = m_psystem->m_pacmedir->ca2roaming();
 

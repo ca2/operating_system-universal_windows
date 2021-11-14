@@ -680,7 +680,7 @@ namespace windowing_universal_windows
       //void buffer::defer_resize_top_level_windows()
       //{
 
-      //   if (m_psystem->has_property("client_only"))
+      //   if (m_psystem->m_bExperienceMainFrame)
       //   {
 
       //      auto puserinteractionpointeraChild = m_pwindow->m_puserinteraction->m_puserinteractionpointeraChild;
