@@ -67,9 +67,6 @@ namespace windowing_universal_windows
       //__pointer(::windowing::monitor) get_main_monitor();
 
 
-      ::extended::transport < ::windowing::icon > load_icon(const ::payload & payloadFile) override;
-
-
       virtual __pointer(::user::message) get_user_message(MESSAGE * pmsg);
 
 
