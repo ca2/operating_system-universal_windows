@@ -451,7 +451,7 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x86/$(Configuration)/$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
@@ -524,7 +524,7 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x86/$(Configuration)/$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
@@ -597,7 +597,7 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x86/$(Configuration)/$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
@@ -670,7 +670,7 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x86/$(Configuration)/$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
@@ -743,7 +743,7 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x86/$(Configuration)/$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
@@ -813,7 +813,7 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x86/$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
@@ -887,7 +887,7 @@
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x86/$(TargetName).lib</ImportLibrary>
       <TargetMachine>MachineX86</TargetMachine>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
       <Profile>true</Profile>
     </Link>
     <Manifest>
@@ -958,7 +958,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x64/$(Configuration)/$(TargetName).lib</ImportLibrary>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
       <FixedBaseAddress>false</FixedBaseAddress>
     </Link>
     <Manifest>
@@ -1029,7 +1029,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x64/$(Configuration)/$(TargetName).lib</ImportLibrary>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
       <FixedBaseAddress>false</FixedBaseAddress>
     </Link>
     <Manifest>
@@ -1100,7 +1100,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x64/$(Configuration)/$(TargetName).lib</ImportLibrary>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
       <FixedBaseAddress>false</FixedBaseAddress>
     </Link>
     <Manifest>
@@ -1171,7 +1171,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x64/$(Configuration)/$(TargetName).lib</ImportLibrary>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
       <FixedBaseAddress>false</FixedBaseAddress>
     </Link>
     <Manifest>
@@ -1242,7 +1242,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x64/$(Configuration)/$(TargetName).lib</ImportLibrary>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
       <FixedBaseAddress>false</FixedBaseAddress>
     </Link>
     <Manifest>
@@ -1312,7 +1312,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x64/$(TargetName).lib</ImportLibrary>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
     </Link>
     <Manifest>
       <AdditionalManifestFiles>
@@ -1382,7 +1382,7 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
       <ImportLibrary>$(SolutionDir)../../../time/library/x64/$(Configuration)/$(TargetName).lib</ImportLibrary>
-      <ModuleDefinitionFile>./$(ProjectName).def</ModuleDefinitionFile>
+      
       <Profile>true</Profile>
     </Link>
     <Manifest>
@@ -1443,9 +1443,7 @@
     <ClCompile Include="player\music_midi_mmsystem_player_window.cpp" />
     <ClCompile Include="player\music_midi_mmsystem_player_interface.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="music_midi_mmsystem.def" />
-  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="..\..\..\app-core\appseed\multimedia\multimedia.vcxproj">
       <Project>{20fd0446-aa14-4013-84e0-b5cb63fa354f}</Project>

@@ -68,7 +68,7 @@ using namespace ::winrt::Windows::Devices::Midi;
 
 #include "music_midi_winrt_thread.h"
 
-#include "music_midi_winrt_factory_exchange.h"
+#include "([a-z0-9_]+)_factory.h"
 
 
 

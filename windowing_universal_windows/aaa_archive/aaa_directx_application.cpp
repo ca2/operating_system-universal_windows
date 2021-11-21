@@ -45,7 +45,7 @@
 //
 //      m_puisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
 //
-//      create_factory < ::windowing_universal_windows::buffer, ::graphics::graphics >();
+//      add_factory_item < ::windowing_universal_windows::buffer, ::graphics::graphics >();
 //
 //      m_dwMouseMoveThrottle = 10;
 //

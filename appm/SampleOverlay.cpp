@@ -38,11 +38,11 @@ void SampleOverlay::Initialize(
     m_logoSize = D2D1::SizeF(0.0f, 0.0f);
     m_overlayWidth = 0.0f;
 
-    ComPtr<ID2D1Factory> factory;
-    d2dDevice->GetFactory(&factory);
+    ComPtr<ID2D1Factory> factory_item;
+    d2dDevice->GetFactory(&factory_item);
 
     ::win::throw_if_failed(
-        factory.As(&m_d2dFactory)
+        factory_item.As(&m_d2dFactory)
         );
 
     ResetDirectXResources();

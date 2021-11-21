@@ -6435,7 +6435,7 @@ namespace windowing_universal_windows
 
       //::direct2d::defer_direct2d_initialize();
 
-      //create_factory < ::windowing_universal_windows::buffer, ::graphics::graphics >();
+      //add_factory_item < ::windowing_universal_windows::buffer, ::graphics::graphics >();
 
       m_dwMouseMoveThrottle = 10;
 

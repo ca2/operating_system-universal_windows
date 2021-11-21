@@ -83,7 +83,7 @@
     </ClCompile>
     <ClCompile Include="io.cpp" />
     <ClCompile Include="music_midi_winrt.cpp" />
-    <ClCompile Include="factory_exchange.cpp" />
+    <ClCompile Include="_factory.cpp" />
     <ClCompile Include="midi.cpp" />
     <ClCompile Include="out.cpp" />
     <ClCompile Include="translation.cpp" />
@@ -124,9 +124,7 @@
       <Project>{e38ecf25-a157-4402-a803-f54759ff1c91}</Project>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="u_music_midi_winrt.def" />
-  </ItemGroup>
+  
   <ItemGroup>
     <SDKReference Include="Microsoft.Midi.GmDls, Version=10.0.18362.0" />
   </ItemGroup>

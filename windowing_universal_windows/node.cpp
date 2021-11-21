@@ -29,7 +29,7 @@ namespace windowing_universal_windows
    void node::message_box_factory()
    {
 
-      create_factory < ::windowing_universal_windows::message_box, ::user::message_box >();
+      add_factory_item < ::windowing_universal_windows::message_box, ::user::message_box >();
 
    }
 

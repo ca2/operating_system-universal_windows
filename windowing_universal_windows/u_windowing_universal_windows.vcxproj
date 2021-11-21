@@ -72,7 +72,7 @@
     <ClCompile Include="copydesk.cpp" />
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="display.cpp" />
-    <ClCompile Include="factory_exchange.cpp" />
+    <ClCompile Include="_factory.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='basis|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='cube_basis|Win32'">Create</PrecompiledHeader>
@@ -101,9 +101,7 @@
     <ClCompile Include="windowing.cpp" />
     <ClCompile Include="_.cpp" />
   </ItemGroup>
-  <ItemGroup>
-    <None Include="u_windowing_universal_windows.def" />
-  </ItemGroup>
+  
   <ItemGroup>
     <ClInclude Include="buffer.h" />
     <ClInclude Include="copydesk.h" />

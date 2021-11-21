@@ -96,9 +96,7 @@
       <LanguageStandard Condition="'$(Configuration)|$(Platform)'=='stage|x64'">stdcpp17</LanguageStandard>
     </ClCompile>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="u_app_net.def" />
-  </ItemGroup>
+  
   <ItemGroup>
     <ProjectReference Include="R:\basis\source\app\acme\u_acme.vcxproj">
       <Project>{74a3ea71-9358-4441-a0cc-d5771df8dfbd}</Project>

@@ -30,7 +30,7 @@
     <ClCompile Include="dummy_ipc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="factory_exchange.cpp">
+    <ClCompile Include="_factory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="file_context.cpp">
