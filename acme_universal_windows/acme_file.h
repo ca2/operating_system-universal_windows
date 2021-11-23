@@ -17,7 +17,7 @@ namespace universal_windows
       ~acme_file() override;
 
 
-      ::file::path executable() override;
+      ::file::path module() override;
 
       
       ::e_status clear_application_data() override;

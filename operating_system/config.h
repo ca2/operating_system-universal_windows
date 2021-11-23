@@ -53,6 +53,7 @@
 #define CLASS_DECL_EXPORT __declspec(dllexport)
 #define CLASS_DECL_IMPORT __declspec(dllimport)
 #define CLASS_DECL_THREAD __declspec(thread)
+#define __FACTORY_EXPORT extern "C" __declspec(dllexport)
 
 #ifndef _CRT_SECURE_NO_WARNINGS
 #define _CRT_SECURE_NO_WARNINGS

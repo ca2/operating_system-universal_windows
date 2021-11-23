@@ -30,7 +30,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_file::executable()
+   ::file::path acme_file::module()
    {
 
       ::file::path path;

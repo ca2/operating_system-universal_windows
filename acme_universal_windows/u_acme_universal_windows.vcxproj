@@ -362,7 +362,8 @@
     </ClCompile>
     <Link>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
-      <ModuleDefinitionFile>u_$(TargetName).def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\archive\storage-universal_windows\$(PlatformName)\$(Configuration)\third\library\;$(SolutionDir)..\..\..\..\archive\storage-universal_windows\$(PlatformName)\$(Configuration)\library\;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -407,7 +408,8 @@
     </ClCompile>
     <Link>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
-      <ModuleDefinitionFile>u_$(TargetName).def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\archive\storage-universal_windows\$(PlatformName)\$(Configuration)\third\library\;$(SolutionDir)..\..\..\..\archive\storage-universal_windows\$(PlatformName)\$(Configuration)\library\;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
@@ -756,7 +758,6 @@
     <ClInclude Include="_acme_universal_windows.h" />
     <ClInclude Include="_windows_runtime.h" />
   </ItemGroup>
-  
   <ItemGroup>
     <ProjectReference Include="..\..\..\source\app\acme\u_acme.vcxproj">
       <Project>{74a3ea71-9358-4441-a0cc-d5771df8dfbd}</Project>

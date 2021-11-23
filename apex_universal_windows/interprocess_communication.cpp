@@ -57,11 +57,16 @@ namespace universal_windows
 
       //}
 
-      bool interprocess_communication_tx::open(const ::string & strChannel, ::launcher * plauncher)
+      ::e_status interprocess_communication_tx::open(const ::string & strChannel, ::launcher * plauncher)
       {
 
          if (m_strBaseChannel.has_char())
+         {
+
             close();
+
+         }
+
 
          // LaunchUri protocol is m_strBaseChannel
 
@@ -75,11 +80,15 @@ namespace universal_windows
       }
 
 
-      bool interprocess_communication_tx::close()
+      ::e_status interprocess_communication_tx::close()
       {
 
          if (m_strBaseChannel.is_empty())
+         {
+
             return true;
+
+         }
 
          m_strBaseChannel.Empty();
 
@@ -88,7 +97,7 @@ namespace universal_windows
       }
 
 
-      bool interprocess_communication_tx::send(const ::string & strMessage, duration durationTimeout)
+      ::e_status interprocess_communication_tx::send(const ::string & strMessage, const duration & durationTimeout)
       {
 
          if (!is_tx_ok())
@@ -131,11 +140,15 @@ namespace universal_windows
       }
 
 
-      bool interprocess_communication_tx::send(int message, void * pdata, int len, ::duration durationTimeout)
+      ::e_status interprocess_communication_tx::send(int message, void * pdata, int len, const ::duration & durationTimeout)
       {
 
          if (!is_tx_ok())
+         {
+
             return false;
+
+         }
 
          //memory m;
 
@@ -178,17 +191,20 @@ namespace universal_windows
       }
 
 
-      bool interprocess_communication_rx::create(const ::string & strChannel)
+      ::e_status interprocess_communication_rx::create(const ::string & strChannel)
       {
 
          if (m_strBaseChannel.has_char())
+         {
+
             destroy();
+
+         }
 
          m_strBaseChannel = strChannel;
 
          m_strBaseChannel.replace("_", "-");
          m_strBaseChannel.replace("/", "-");
-
 
          return true;
 

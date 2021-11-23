@@ -41,13 +41,13 @@ namespace universal_windows
 //#if defined(_UWP)
 //      bool open(const ::string & pszChannel) override;
 //#else
-      bool open(const ::string & pszChannel, ::launcher * plauncher = nullptr) override;
+      ::e_status open(const ::string & strChannel, ::launcher * plauncher = nullptr) override;
 //#endif
-      bool close() override;
+      ::e_status close() override;
 
 
-      bool send(const ::string & pszMessage, duration durationTimeout) override;
-      bool send(int message, void * pdata, int len, duration durationTimeout) override;
+      ::e_status send(const ::string & pszMessage, const duration & durationTimeout) override;
+      ::e_status send(int message, void * pdata, int len, const duration & durationTimeout) override;
 
 
       bool is_tx_ok() override;
@@ -69,7 +69,7 @@ namespace universal_windows
       ~interprocess_communication_rx() override;
 
 
-      bool create(const ::string & pszChannel) override;
+      ::e_status create(const ::string & strChannel) override;
       ::e_status destroy() override;
 
 
@@ -81,7 +81,7 @@ namespace universal_windows
       virtual bool on_idle() override;
 
 
-      LRESULT message_queue_proc(UINT message, WPARAM wparam, LPARAM lparam);
+      //LRESULT message_queue_proc(UINT message, WPARAM wparam, LPARAM lparam);
 
 
       bool is_rx_ok();

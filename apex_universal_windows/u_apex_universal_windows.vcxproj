@@ -152,7 +152,6 @@
       <Project>{e38ecf25-a157-4402-a803-f54759ff1c91}</Project>
     </ProjectReference>
   </ItemGroup>
-  
   <PropertyGroup Label="Globals">
     <ProjectGuid>{310fec1b-4deb-40c9-8ed2-4d8fd9cf52d0}</ProjectGuid>
     <Keyword>DynamicLibrary</Keyword>
@@ -450,7 +449,8 @@
     <Link>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\archive\storage-universal_windows\$(PlatformName)\$(Configuration)\third\library\;$(SolutionDir)..\..\..\..\archive\storage-universal_windows\$(PlatformName)\$(Configuration)\library\;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>u_$(TargetName).def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
@@ -495,7 +495,8 @@
     <Link>
       <GenerateWindowsMetadata>false</GenerateWindowsMetadata>
       <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\archive\storage-universal_windows\$(PlatformName)\$(Configuration)\third\library\;$(SolutionDir)..\..\..\..\archive\storage-universal_windows\$(PlatformName)\$(Configuration)\library\;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <ModuleDefinitionFile>u_$(TargetName).def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>
+      </ModuleDefinitionFile>
       <ImportLibrary>$(OutDir)$(TargetName).lib</ImportLibrary>
       <IgnoreAllDefaultLibraries>false</IgnoreAllDefaultLibraries>
     </Link>
