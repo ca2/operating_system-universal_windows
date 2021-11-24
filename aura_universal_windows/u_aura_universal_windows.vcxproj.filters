@@ -45,9 +45,4 @@
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
-  <ItemGroup>
-    <None Include="u_aura_universal_windows.def">
-      <Filter>Source Files</Filter>
-    </None>
-  </ItemGroup>
 </Project>
