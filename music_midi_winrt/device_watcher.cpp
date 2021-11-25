@@ -1,4 +1,4 @@
-// Moved from io to midi to device_watcher by 2021-09-23 20:15 BRT <3ThomasBorregaardSørensen!!
+// Moved from io to midi to device_watcher by 2021-09-23 20:15 BRT <3ThomasBorregaardSï¿½rensen!!
 #include "framework.h"
 //#include <mmddk.h>
 
@@ -105,11 +105,11 @@ namespace music
 
                   DeviceInformation deviceinformation = deviceinformationcollection.GetAt(u);
 
-                  //string strId = "winrt:" + string(deviceinformation.Id().begin());
+                  string strId = "winrt:" + string(deviceinformation.Id().begin());
 
                   string strName = deviceinformation.Name().begin();
 
-                  m_pmidi->add_midi_out_device(strName, "winrt");
+                  m_pmidi->add_midi_out_device(strName, strId);
 
                }
 
