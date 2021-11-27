@@ -12,6 +12,9 @@ namespace windowing_universal_windows
    public:
 
 
+
+      __reference(::universal_windows::interaction_impl) m_pimplMain;
+
       bool                          m_bAppInit;
 
       //auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
