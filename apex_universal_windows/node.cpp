@@ -24,10 +24,10 @@ namespace apex
       }
 
 
-      ::e_status node::implement()
+      ::e_status node::implement(__transport(::acme::node)& pnode, __transport(class ::system)& psystem)
       {
 
-         auto psystem = m_psystem;
+         //auto psystem = m_psystem;
 
          auto estatus = psystem->main();
 

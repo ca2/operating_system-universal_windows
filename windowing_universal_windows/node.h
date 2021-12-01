@@ -30,7 +30,7 @@ namespace windowing_universal_windows
       void message_box_factory() override;
 
 
-      ::e_status implement() override;
+      ::e_status implement(__transport(::acme::node)& pnode, __transport(class ::system)& psystem) override;
 
 
       ::e_status call_member(::i64 i) override;

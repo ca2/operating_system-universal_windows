@@ -34,7 +34,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status node::implement()
+   ::e_status node::implement(__transport(::acme::node)& pnode, __transport(class ::system)& psystem)
    {
 
       auto estatus = m_psystem->m_paurasystem->begin_synch();

@@ -78,8 +78,8 @@ namespace universal_windows
 
       virtual ::file::path user_appdata_local() override;
 
-      bool is(const char * path1) override;
-      bool _is(const char * path1) override;
+      ::e_status is(const char * path1) override;
+      ::e_status _is(const char * path1) override;
 
 
 

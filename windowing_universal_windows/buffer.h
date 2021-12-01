@@ -66,8 +66,8 @@ namespace windowing_universal_windows
       // Cached renderer properties.
       D3D_FEATURE_LEVEL                               m_featureLevel;
       ::winrt::Windows::Foundation::Size                       m_renderTargetSize;
-      float                                           m_dpi;
-      float                                           m_dpiIni;
+      float                                           m_dDpi;
+      float                                           m_dDpiIni;
       //bool                                            m_windowSizeChangeInProgress;
 
 

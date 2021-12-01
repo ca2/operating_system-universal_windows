@@ -571,15 +571,15 @@ namespace universal_windows
    }
 
 
-   bool acme_dir::is(const char * path1)
+   ::e_status acme_dir::is(const char * path1)
    {
 
-      bool bDir = _is(path1);
+      ::e_status estatusDir = _is(path1);
 
-      if (bDir)
+      if (estatusDir)
       {
 
-         return true;
+         return estatusDir;
 
       }
 
@@ -588,16 +588,16 @@ namespace universal_windows
       if (!folder)
       {
 
-         return false;
+         return error_failed;
 
       }
 
-      return true;
+      return ::success;
 
    }
 
 
-   bool acme_dir::_is(const char * path1)
+   ::e_status acme_dir::_is(const char * path1)
    {
 
       u32 dwFileAttributes = ::windows_get_file_attributes(path1);

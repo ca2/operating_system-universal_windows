@@ -28,7 +28,7 @@ namespace windowing_universal_windows
 
 
    buffer::buffer() :
-      m_dpi(-1.0f)
+      m_dDpi(-1.0f)
    {
 
       //m_bBeginDraw = false;
@@ -43,8 +43,8 @@ namespace windowing_universal_windows
 
       m_b3D = false;
 
-      m_dpiIni = 1.0f;
-      m_dpi = -999.0f;
+      m_dDpiIni = 1.0f;
+      m_dDpi = -999.0f;
       m_bInitialized = false;
       m_bInit = false;
 
@@ -73,7 +73,7 @@ namespace windowing_universal_windows
 
       m_pwindow = (class window *) pimpl->m_pwindow->m_pWindow;
 
-      m_dpiIni = 96.0;
+      m_dDpiIni = 96.0;
 
       CreateDeviceIndependentResources();
 
@@ -288,7 +288,7 @@ namespace windowing_universal_windows
 
  
       //buffer::buffer() :
-      //   m_dpi(-1.0f)
+      //   m_dDpi(-1.0f)
       //{
 
       //   m_ephase = e_phase_draw;
@@ -297,8 +297,8 @@ namespace windowing_universal_windows
 
       //   m_b3D = false;
 
-      //   m_dpiIni = 1.0f;
-      //   m_dpi = -999.0f;
+      //   m_dDpiIni = 1.0f;
+      //   m_dDpi = -999.0f;
       //   m_bInitialized = false;
       //   m_bInit = false;
 
@@ -316,7 +316,7 @@ namespace windowing_universal_windows
       //void buffer::Initialize(::winrt::Windows::UI::Core::CoreWindow window, float dpi)
       //{
 
-      //   m_dpiIni = dpi;
+      //   m_dDpiIni = dpi;
 
       //   CreateDeviceIndependentResources();
 
@@ -346,11 +346,11 @@ namespace windowing_universal_windows
 
          CreateDeviceResources();
 
-         //SetDpi(m_dpiIni);
+         //SetDpi(m_dDpiIni);
 
-         m_dpi = m_dpiIni;
+         m_dDpi = m_dDpiIni;
 
-         m_psystem->m_paurasystem->m_dpi = m_dpiIni;
+         m_psystem->m_paurasystem->m_dDpi = m_dDpiIni;
 
          m_bInitialized = true;
 
@@ -372,8 +372,8 @@ namespace windowing_universal_windows
          ::draw2d::lock draw2dlock;
 
          //// Reset these member variables to ensure that SetDpi recreates all resources.
-         float dpi = m_dpi;
-         m_dpi = -1.0f;
+         float dpi = m_dDpi;
+         m_dDpi = -1.0f;
          m_windowBounds.Width = 0;
          m_windowBounds.Height = 0;
          m_pswapchain = nullptr;
@@ -576,12 +576,12 @@ namespace windowing_universal_windows
 
          ::draw2d::lock draw2dlock;
 
-         if (dpi != m_dpi)
+         if (dpi != m_dDpi)
          {
 
-            m_dpi = dpi;
+            m_dDpi = dpi;
 
-            m_psystem->m_paurasystem->m_dpi = dpi;
+            m_psystem->m_paurasystem->m_dDpi = dpi;
 
             if (m_bCreated)
             {
@@ -954,8 +954,8 @@ namespace windowing_universal_windows
             D2D1::BitmapProperties1(
                D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
                D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED),
-               m_dpi,
-               m_dpi
+               m_dDpi,
+               m_dDpi
             );
 
 
