@@ -1220,7 +1220,7 @@ namespace windowing_universal_windows
       bool is_branch_current() const override;
 
 
-      __transport(::windowing::icon) load_icon(const ::payload& payloadFile) override;
+      __pointer(::windowing::icon) load_icon(const ::payload& payloadFile) override;
 
 
 

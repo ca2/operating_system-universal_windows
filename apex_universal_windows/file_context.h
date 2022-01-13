@@ -64,7 +64,7 @@ namespace universal_windows
 
       ::e_status update_module_path() override;
 
-      file_transport get_file(const ::payload & payloadFile, const ::file::e_open & nOpenFlags) override;
+      file_pointer get_file(const ::payload & payloadFile, const ::file::e_open & nOpenFlags) override;
 
 
 

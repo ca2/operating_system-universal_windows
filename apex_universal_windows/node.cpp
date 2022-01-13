@@ -24,7 +24,7 @@ namespace apex
       }
 
 
-      ::e_status node::implement(__transport(::acme::node)& pnode, __transport(class ::system)& psystem)
+      ::e_status node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
       {
 
          //auto psystem = m_psystem;

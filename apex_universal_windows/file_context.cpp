@@ -773,7 +773,7 @@ namespace universal_windows
    }
 
 
-   file_transport file_context::get_file(const ::payload & payloadFile, const ::file::e_open & eopenFlags)
+   file_pointer file_context::get_file(const ::payload & payloadFile, const ::file::e_open & eopenFlags)
    {
 
       return ::file_context::get_file(payloadFile, eopenFlags);

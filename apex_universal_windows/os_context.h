@@ -106,7 +106,7 @@ namespace universal_windows
 
       void list_process(::file::patha & patha, u32_array & uaPid) override;
 
-      //virtual icon_transport load_icon(const ::payload & payloadFile) override;
+      //virtual icon_pointer load_icon(const ::payload & payloadFile) override;
 
       ::e_status link_open(const string & strUrl, const string & strProfile) override;
 

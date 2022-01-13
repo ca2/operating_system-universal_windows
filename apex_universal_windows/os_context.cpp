@@ -310,7 +310,7 @@ namespace universal_windows
       //   }
 
       //}
-      //catch (const ::e_status & estatus)
+      //catch (const ::e_status3 & estatus)
       //{
 
       //   return estatus;
@@ -339,7 +339,7 @@ namespace universal_windows
       //   key.get("AutoConfigURL", strUrl);
 
       //}
-      //catch (const ::e_status & estatus)
+      //catch (const ::e_status3 & estatus)
       //{
 
       //   return estatus;
