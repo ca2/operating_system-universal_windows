@@ -16,9 +16,9 @@ namespace app_net
 
 
       application();
-      virtual ~application();
+      ~application() override;
 
-      virtual ::e_status init_instance() override;
+      void init_instance() override;
       virtual void term_application() override;
 
       virtual void on_request(::create * pcreate) override;
