@@ -25,15 +25,15 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_anthill", "..\..
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_tranquillum", "..\..\..\source\app\experience_tranquillum\u_experience_tranquillum.vcxproj", "{671B8C46-4264-45E4-9AEF-7D6302160339}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\platform-windows_common\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\operating-system-windows_common\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imaging_wic", "..\..\platform-windows_common\imaging_wic\u_imaging_wic.vcxproj", "{B3A245F9-C92F-4487-AEF7-CB0531F665BD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imaging_wic", "..\..\operating-system-windows_common\imaging_wic\u_imaging_wic.vcxproj", "{B3A245F9-C92F-4487-AEF7-CB0531F665BD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_windows_common", "..\..\platform-windows_common\acme_windows_common\u_acme_windows_common.vcxproj", "{4A44D9CA-A46E-4BB3-8AD5-8BCACE5228CE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_windows_common", "..\..\operating-system-windows_common\acme_windows_common\u_acme_windows_common.vcxproj", "{4A44D9CA-A46E-4BB3-8AD5-8BCACE5228CE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_windows_common", "..\..\platform-windows_common\apex_windows_common\u_apex_windows_common.vcxproj", "{BC71DE03-0BCB-46ED-A9C5-D1DD8242C511}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_windows_common", "..\..\operating-system-windows_common\apex_windows_common\u_apex_windows_common.vcxproj", "{BC71DE03-0BCB-46ED-A9C5-D1DD8242C511}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_windows_common", "..\..\platform-windows_common\aura_windows_common\u_aura_windows_common.vcxproj", "{DA5570CD-D399-45CB-94E3-E81735D80F3A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_windows_common", "..\..\operating-system-windows_common\aura_windows_common\u_aura_windows_common.vcxproj", "{DA5570CD-D399-45CB-94E3-E81735D80F3A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_universal_windows", "..\acme_universal_windows\u_acme_universal_windows.vcxproj", "{E38ECF25-A157-4402-A803-F54759FF1C91}"
 EndProject
@@ -45,11 +45,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "node_universal_windows", ".
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windowing_universal_windows", "..\windowing_universal_windows\u_windowing_universal_windows.vcxproj", "{320713E0-CEA7-4EF5-A154-AB3A96D41A52}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "write_text_direct2d", "..\..\platform-windows_common\write_text_direct2d\u_write_text_direct2d.vcxproj", "{E90B52B8-AB16-4D55-87D6-CF2389746776}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "write_text_direct2d", "..\..\operating-system-windows_common\write_text_direct2d\u_write_text_direct2d.vcxproj", "{E90B52B8-AB16-4D55-87D6-CF2389746776}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "direct2d", "..\..\platform-windows_common\direct2d\u_direct2d.vcxproj", "{91608259-0B1F-4DEB-A867-873618075395}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "direct2d", "..\..\operating-system-windows_common\direct2d\u_direct2d.vcxproj", "{91608259-0B1F-4DEB-A867-873618075395}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "directx", "..\..\platform-windows_common\directx\u_directx.vcxproj", "{41F27C23-968D-49A8-B050-E1643437B612}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "directx", "..\..\operating-system-windows_common\directx\u_directx.vcxproj", "{41F27C23-968D-49A8-B050-E1643437B612}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "..\..\..\source\app\database_sqlite3\u_database_sqlite3.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
 EndProject

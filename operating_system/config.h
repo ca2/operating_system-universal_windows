@@ -40,7 +40,7 @@
 #define HAVE_OPENSSL 1
 
 
-#define PLATFORM_NAME   "universal_windows"
+#define OPERATING_SYSTEM_NAME   "universal_windows"
 
 #ifdef _DEBUG
 #define DEBUG

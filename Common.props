@@ -5,7 +5,7 @@
     <BaseDir>$(SolutionDir)..\..\..\</BaseDir>
     <TimeDir>$(BaseDir)time-universal_windows\</TimeDir>
     <__archive>$(BaseDir)archive\</__archive>
-    <__toolsbin>$(__archive)tool-windows\bin\</__toolsbin>
+    <__toolsbin>$(__operating_system)tool-windows\bin\</__toolsbin>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -17,7 +17,7 @@
       <Value>$(TimeDir)</Value>
     </BuildMacro>
     <BuildMacro Include="__archive">
-      <Value>$(__archive)</Value>
+      <Value>$(__operating_system)</Value>
     </BuildMacro>
     <BuildMacro Include="__toolsbin">
       <Value>$(__toolsbin)</Value>

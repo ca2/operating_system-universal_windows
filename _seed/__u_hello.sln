@@ -9,13 +9,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex", "..\..\..\source\app
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aqua", "..\..\..\source\app\aqua\u_aqua.vcxproj", "{D6FC3DC0-A19A-4F63-A3F1-3426FE53920B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_universal_windows", "C:\basis\archive\platform-universal_windows\acme_universal_windows\u_acme_universal_windows.vcxproj", "{E38ECF25-A157-4402-A803-F54759FF1C91}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_universal_windows", "C:\basis\operating-system\operating-system-universal_windows\acme_universal_windows\u_acme_universal_windows.vcxproj", "{E38ECF25-A157-4402-A803-F54759FF1C91}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_windows_common", "C:\basis\archive\platform-windows_common\apex_windows_common\u_apex_windows_common.vcxproj", "{BC71DE03-0BCB-46ED-A9C5-D1DD8242C511}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_windows_common", "C:\basis\operating-system\operating-system-windows_common\apex_windows_common\u_apex_windows_common.vcxproj", "{BC71DE03-0BCB-46ED-A9C5-D1DD8242C511}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_windows_common", "C:\basis\archive\platform-windows_common\acme_windows_common\u_acme_windows_common.vcxproj", "{4A44D9CA-A46E-4BB3-8AD5-8BCACE5228CE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_windows_common", "C:\basis\operating-system\operating-system-windows_common\acme_windows_common\u_acme_windows_common.vcxproj", "{4A44D9CA-A46E-4BB3-8AD5-8BCACE5228CE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_universal_windows", "C:\basis\archive\platform-universal_windows\apex_universal_windows\u_apex_universal_windows.vcxproj", "{310FEC1B-4DEB-40C9-8ED2-4D8FD9CF52D0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_universal_windows", "C:\basis\operating-system\operating-system-universal_windows\apex_universal_windows\u_apex_universal_windows.vcxproj", "{310FEC1B-4DEB-40C9-8ED2-4D8FD9CF52D0}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hello", "C:\basis\source\console\hello\uwp_console_hello.vcxproj", "{88B22BEF-1D9F-43CE-9EEA-E4013FA82251}"
 EndProject
