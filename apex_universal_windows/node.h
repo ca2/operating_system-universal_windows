@@ -30,7 +30,7 @@ namespace apex
          string system_options_main_body() override;
 
 
-         //void handle(::subject * psubject, ::context * pcontext) override;
+         //void handle(::topic * psubject, ::context * pcontext) override;
 
 
       };

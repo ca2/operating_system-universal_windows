@@ -300,32 +300,32 @@ namespace windowing_win32
 
       auto pevent = __create_new < ::user::control_event >();
 
-      psubject->m_puserelement->m_id = m_id;
+      ptopic->m_puserelement->m_id = m_id;
 
-      psubject->user_interaction() = this;
+      ptopic->user_interaction() = this;
 
-      psubject->m_actioncontext.m_pmessage = pmessage;
+      ptopic->m_actioncontext.m_pmessage = pmessage;
 
       if (uMessage == e_message_right_button_down)
       {
 
-         psubject->m_id = ::e_subject_context_menu;
+         ptopic->m_id = ::id_context_menu;
 
       }
       else if (uMessage == e_message_left_button_double_click)
       {
 
-         psubject->m_id = ::e_subject_left_button_double_click;
+         ptopic->m_id = ::id_left_button_double_click;
 
       }
       else if (uMessage == e_message_left_button_down)
       {
 
-         psubject->m_id = ::e_subject_left_button_down;
+         ptopic->m_id = ::id_left_button_down;
 
       }
 
-      m_puserinteractionNotify->handle(psubject, pcontext);
+      m_puserinteractionNotify->handle(ptopic, pcontext);
 
    }
 

@@ -87,11 +87,11 @@ namespace music
 
             sp(::music::midi::sequence::event) pevent(pusermessage->m_lparam);
 
-            ::music::midi::winrt::sequence * pseq = dynamic_cast < ::music::midi::winrt::sequence * > (psubject->m_psequence);
+            ::music::midi::winrt::sequence * pseq = dynamic_cast < ::music::midi::winrt::sequence * > (ptopic->m_psequence);
 
             pseq->OnEvent(pevent);
 
-            switch(psubject->m_id)
+            switch(ptopic->m_id)
             {
             case ::music::midi::sequence::e_event_midi_playback_end:
             {

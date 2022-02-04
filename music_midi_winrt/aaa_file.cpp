@@ -726,8 +726,8 @@ namespace music
 //            for(i = 0; i < eventptra.get_size(); i++)
 //            {
 //               pevent = eventptra[i];
-//               ASSERT(psubject->GetFlags() & 1);
-//               iSize += (int32_t) psubject->GetDataSize();
+//               ASSERT(ptopic->GetFlags() & 1);
+//               iSize += (int32_t) ptopic->GetDataSize();
 //               iSize += sizeof(midi_stream_event_header);
 //            }
 //
@@ -742,10 +742,10 @@ namespace music
 //            for(i = 0; i < eventptra.get_size(); i++)
 //            {
 //               pevent = eventptra[i];
-//               lpbParam = psubject->GetData();
+//               lpbParam = ptopic->GetData();
 //               lpdwType = (LPDWORD) lpbParam;
 //               pheader = (midi_stream_event_header *) &m_memstorageF1.get_data()[iSize];
-//               pheader->m_dwLength = (uint32_t) psubject->GetDataSize();
+//               pheader->m_dwLength = (uint32_t) ptopic->GetDataSize();
 //               pheader->m_dwType = *lpdwType;
 //               memcpy(
 //                  &m_memstorageF1.get_data()[iSize + sizeof(midi_stream_event_header)],
@@ -1663,24 +1663,24 @@ namespace music
 //            while (::music::success == (smfrc = GetNextEvent(pevent, tkPosition, false)))
 //            {
 //
-//               if (::music::midi::Meta == (bEvent = psubject->GetFullType()))
+//               if (::music::midi::Meta == (bEvent = ptopic->GetFullType()))
 //               {
-//                  if (psubject->GetMetaType() == ::music::midi::MetaTempo)
+//                  if (ptopic->GetMetaType() == ::music::midi::MetaTempo)
 //                  {
-//                     if (psubject->GetDataSize() != sizeof(m_keyframe.rbTempo))
+//                     if (ptopic->GetDataSize() != sizeof(m_keyframe.rbTempo))
 //                        return EInvalidFile;
 //
-//                     memcpy((byte *)m_keyframe.rbTempo, psubject->GetData(), psubject->GetDataSize());
+//                     memcpy((byte *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
 //                  }
 //               }
 //               if((bEvent & 0xF0) == ::music::midi::ProgramChange)
 //               {
-//                  m_keyframe.rbProgram[bEvent & 0x0F] = psubject->GetChB1();
+//                  m_keyframe.rbProgram[bEvent & 0x0F] = ptopic->GetChB1();
 //               }
 //               else if((bEvent & 0xF0) == ::music::midi::ControlChange)
 //               {
-//                  //m_keyframe.rbControl[(((WORD)bEvent & 0x0F)*120) + psubject->GetChB1()] =
-//                  //   psubject->GetChB2();
+//                  //m_keyframe.rbControl[(((WORD)bEvent & 0x0F)*120) + ptopic->GetChB1()] =
+//                  //   ptopic->GetChB2();
 //               }
 //            }
 //
@@ -1882,24 +1882,24 @@ namespace music
 //
 //            if(!GetFlags().is_signalized(file::DisablePlayLevel1Operations))
 //            {
-//               if(psubject->GetType() == ::music::midi::NoteOn &&
-//                  psubject->GetNoteVelocity() != 0)
+//               if(ptopic->GetType() == ::music::midi::NoteOn &&
+//                  ptopic->GetNoteVelocity() != 0)
 //               {
-//                  m_ptracks->m_iaNoteOn.element_at(psubject->GetTrack())++;
-//                  m_ptracks->m_iaLevel.element_at(psubject->GetTrack())
-//                     = psubject->GetNoteVelocity();
+//                  m_ptracks->m_iaNoteOn.element_at(ptopic->GetTrack())++;
+//                  m_ptracks->m_iaLevel.element_at(ptopic->GetTrack())
+//                     = ptopic->GetNoteVelocity();
 //               }
-//               else if((psubject->GetType() == ::music::midi::NoteOn &&
-//                  psubject->GetNoteVelocity() == 0) ||
-//                  psubject->GetType() == ::music::midi::NoteOff)
+//               else if((ptopic->GetType() == ::music::midi::NoteOn &&
+//                  ptopic->GetNoteVelocity() == 0) ||
+//                  ptopic->GetType() == ::music::midi::NoteOff)
 //               {
-//                  int32_t iCount = m_ptracks->m_iaNoteOn.element_at(psubject->GetTrack());
+//                  int32_t iCount = m_ptracks->m_iaNoteOn.element_at(ptopic->GetTrack());
 //                  if(iCount > 0)
 //                     iCount--;
-//                  m_ptracks->m_iaNoteOn.element_at(psubject->GetTrack()) =
+//                  m_ptracks->m_iaNoteOn.element_at(ptopic->GetTrack()) =
 //                     iCount;
 //                  if(iCount == 0)
-//                     m_ptracks->m_iaLevel.element_at(psubject->GetTrack())
+//                     m_ptracks->m_iaLevel.element_at(ptopic->GetTrack())
 //                     = 0;
 //               }
 //            }
@@ -2162,7 +2162,7 @@ namespace music
 //
 //            //while(::music::success == (smfrc = GetNextEvent(pevent, pEvent->GetPosition(), true)))
 //            //{
-//            //   if(psubject->GetData() == pEvent->GetData())
+//            //   if(ptopic->GetData() == pEvent->GetData())
 //            //   {
 //            //      pEvent->operator =(*peventPrevious);
 //            //      return ::music::success;
@@ -2576,14 +2576,14 @@ namespace music
 //         //      // The position CB events are grouped in a single position CB
 //         //      // event after other type of simultaneous events.
 //         //      // The {if block} change the order of simultaneous events.
-//         //      // position CB events ( psubject->GetFlags() & 1 )
+//         //      // position CB events ( ptopic->GetFlags() & 1 )
 //         //      // are streamed together in a single position CB event, through
 //         //      // StreamEventF1 member function.
 //         //      // These position CB events are put after any other kind of event
 //         //      // that have the same position.
 //         //      // The order of the non PositionCB events are not altered.
 //
-//         //      if(psubject->GetFlags() & 1)
+//         //      if(ptopic->GetFlags() & 1)
 //         //      {
 //         //         if(eventptraPositionCB.get_size() <= 0)
 //         //         {
@@ -2618,7 +2618,7 @@ namespace music
 //         //      {
 //         //         if(eventptraPositionCB.get_size() > 0)
 //         //         {
-//         //            if(psubject->GetPosition() != eventptraPositionCB[0]->GetPosition())
+//         //            if(ptopic->GetPosition() != eventptraPositionCB[0]->GetPosition())
 //         //            {
 //         //               ASSERT(tkPositionF1 >= tkLastPosition);
 //
@@ -2637,12 +2637,12 @@ namespace music
 //         //               tkPositionF1   = tkPosition;
 //         //            }
 //         //         }
-//         //         /*         if(psubject->GetType() == NoteOn)
+//         //         /*         if(ptopic->GetType() == NoteOn)
 //         //         {
 //         //         TRACE("WorkStreamRender: NoteOn     position %d Delta %d Track %d\n",
 //         //         m_ptracks->GetPosition(),
 //         //         tkDelta,
-//         //         psubject->GetTrack());
+//         //         ptopic->GetTrack());
 //         //         }
 //         //         else
 //         //         {
@@ -2771,9 +2771,9 @@ namespace music
 //               }
 //               else
 //               {
-//                  if(psubject->GetType() == ::music::midi::NoteOn
-//                     && psubject->GetNoteVelocity() > 0
-//                     && m_iaMuteTrack.contains(psubject->GetTrack()))
+//                  if(ptopic->GetType() == ::music::midi::NoteOn
+//                     && ptopic->GetNoteVelocity() > 0
+//                     && m_iaMuteTrack.contains(ptopic->GetTrack()))
 //                  {
 //                     ASSERT(true);
 //                  }
@@ -2786,24 +2786,24 @@ namespace music
 //
 //            if(!GetFlags().is_signalized(file::DisablePlayLevel1Operations))
 //            {
-//               if(psubject->GetType() == ::music::midi::NoteOn &&
-//                  psubject->GetNoteVelocity() != 0)
+//               if(ptopic->GetType() == ::music::midi::NoteOn &&
+//                  ptopic->GetNoteVelocity() != 0)
 //               {
-//                  m_ptracks->m_iaNoteOn.element_at(psubject->GetTrack())++;
-//                  m_ptracks->m_iaLevel.element_at(psubject->GetTrack())
-//                     = psubject->GetNoteVelocity();
+//                  m_ptracks->m_iaNoteOn.element_at(ptopic->GetTrack())++;
+//                  m_ptracks->m_iaLevel.element_at(ptopic->GetTrack())
+//                     = ptopic->GetNoteVelocity();
 //               }
-//               else if((psubject->GetType() == ::music::midi::NoteOn &&
-//                  psubject->GetNoteVelocity() == 0) ||
-//                  psubject->GetType() == ::music::midi::NoteOff)
+//               else if((ptopic->GetType() == ::music::midi::NoteOn &&
+//                  ptopic->GetNoteVelocity() == 0) ||
+//                  ptopic->GetType() == ::music::midi::NoteOff)
 //               {
-//                  int32_t iCount = m_ptracks->m_iaNoteOn.element_at(psubject->GetTrack());
+//                  int32_t iCount = m_ptracks->m_iaNoteOn.element_at(ptopic->GetTrack());
 //                  if(iCount > 0)
 //                     iCount--;
-//                  m_ptracks->m_iaNoteOn.element_at(psubject->GetTrack()) =
+//                  m_ptracks->m_iaNoteOn.element_at(ptopic->GetTrack()) =
 //                     iCount;
 //                  if(iCount == 0)
-//                     m_ptracks->m_iaLevel.element_at(psubject->GetTrack())
+//                     m_ptracks->m_iaLevel.element_at(ptopic->GetTrack())
 //                     = 0;
 //               }
 //            }
@@ -2846,24 +2846,24 @@ namespace music
 //
 //            while (::music::success == (smfrc = WorkGetNextEvent(pevent, tkPosition, false)))
 //            {
-//               if (::music::midi::Meta == (bEvent = psubject->GetFullType()))
+//               if (::music::midi::Meta == (bEvent = ptopic->GetFullType()))
 //               {
-//                  if (psubject->GetMetaType() == ::music::midi::MetaTempo)
+//                  if (ptopic->GetMetaType() == ::music::midi::MetaTempo)
 //                  {
-//                     if (psubject->GetDataSize() != sizeof(m_keyframe.rbTempo))
+//                     if (ptopic->GetDataSize() != sizeof(m_keyframe.rbTempo))
 //                        return EInvalidFile;
 //
-//                     memcpy((byte *)m_keyframe.rbTempo, psubject->GetData(), psubject->GetDataSize());
+//                     memcpy((byte *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
 //                  }
 //               }
 //               if((bEvent & 0xF0) == ::music::midi::ProgramChange)
 //               {
-//                  m_keyframe.rbProgram[bEvent & 0x0F] = psubject->GetChB1();
+//                  m_keyframe.rbProgram[bEvent & 0x0F] = ptopic->GetChB1();
 //               }
 //               else if((bEvent & 0xF0) == ::music::midi::ControlChange)
 //               {
-//                  //m_keyframe.rbControl[(((WORD)bEvent & 0x0F)*120) + psubject->GetChB1()] =
-//                  //   psubject->GetChB2();
+//                  //m_keyframe.rbControl[(((WORD)bEvent & 0x0F)*120) + ptopic->GetChB1()] =
+//                  //   ptopic->GetChB2();
 //               }
 //            }
 //
@@ -2977,11 +2977,11 @@ namespace music
 //            while (::music::success
 //               == (smfrc = WorkGetNextRawMidiEvent(pevent, MAX_TICKS, true)))
 //            {
-//               if (::music::midi::Meta == psubject->GetFullType() &&
-//                  ::music::midi::MetaTempo == psubject->GetMetaType() &&
-//                  (psubject->GetFlags() != 1))
+//               if (::music::midi::Meta == ptopic->GetFullType() &&
+//                  ::music::midi::MetaTempo == ptopic->GetMetaType() &&
+//                  (ptopic->GetFlags() != 1))
 //               {
-//                  if (3 != psubject->GetParamSize())
+//                  if (3 != ptopic->GetParamSize())
 //                  {
 //                     return EInvalidFile;
 //                  }
@@ -3020,9 +3020,9 @@ namespace music
 //                        1000L * m_dwTimeDivision);
 //                  }
 //
-//                  tempo.dwTempo = (((uint32_t)psubject->GetParam()[0])<<16) |
-//                     (((uint32_t)psubject->GetParam()[1])<<8) |
-//                     ((uint32_t)psubject->GetParam()[2]);
+//                  tempo.dwTempo = (((uint32_t)ptopic->GetParam()[0])<<16) |
+//                     (((uint32_t)ptopic->GetParam()[1])<<8) |
+//                     ((uint32_t)ptopic->GetParam()[2]);
 //
 //                  m_tempomap.add(tempo);
 //               }

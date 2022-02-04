@@ -73,7 +73,7 @@ namespace apex
       }
 
 
-      //void node::handle(::subject * psubject, ::context * pcontext)
+      //void node::handle(::topic * psubject, ::context * pcontext)
       //{
 
       //   if (psubject->m_puserelement->m_id == "clear_application_data")

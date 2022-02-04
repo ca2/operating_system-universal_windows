@@ -170,7 +170,7 @@ namespace universal_windows
 
       //            }
 
-      //            //subject.set_event();
+      //            //topic.set_event();
 
       //         }));
 
@@ -180,7 +180,7 @@ namespace universal_windows
       //   //      {
 
       //   //      })));
-      //   //subject.wait(15_s);
+      //   //topic.wait(15_s);
 
       //}
       //else
@@ -900,7 +900,7 @@ return true;
    }
 
 
-   void interaction_impl::handle(::subject * psubject, ::context * pcontext)
+   void interaction_impl::handle(::topic * psubject, ::context * pcontext)
    {
 
       __UNREFERENCED_PARAMETER(psubject);

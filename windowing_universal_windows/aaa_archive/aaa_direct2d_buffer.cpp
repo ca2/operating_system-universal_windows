@@ -366,7 +366,7 @@
 //
 //         ::draw2d::lock lock;
 //
-//         auto psubject = m_psystem->subject(id_os_dark_mode);
+//         auto psubject = m_psystem->topic(id_os_dark_mode);
 //
 //         m_psystem->handle_subject(psubject);
 //

@@ -427,13 +427,13 @@ namespace windowing_universal_windows
            // {
                auto coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(m_frameworkviewsource);
 
-           //    subject.set_event();
+           //    topic.set_event();
              //  coreapplicationview.Dispatcher().ProcessEvents(
                //   ::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
 
             //});
 
-            //subject.wait();
+            //topic.wait();
          window_send(__routine(15_s, [this, &rectangleWindow]()
             {
 
