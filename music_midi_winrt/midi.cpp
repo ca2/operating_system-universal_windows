@@ -69,7 +69,7 @@ namespace music
          }
 
 
-         DeviceInformation midi::GetDeviceInformationForOutPort(::winrt::hstring id)
+         DeviceInformation midi::GetDeviceInformationForOutPort(::winrt::hstring atom)
          {
 
             DeviceInformationCollection inputCollection = m_pmidiOutDeviceWatcher->GetDeviceInformationCollection();
@@ -79,7 +79,7 @@ namespace music
 
                DeviceInformation deviceinformation = inputCollection.GetAt(u);
 
-               if (0 == wcscmp(deviceinformation.Id().begin(), id.begin()))
+               if (0 == wcscmp(deviceinformation.Id().begin(), atom.begin()))
                {
 
                   return deviceinformation;

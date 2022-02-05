@@ -119,31 +119,31 @@ int APIENTRY ca2_cube_install(const ::string & pszId);
 int installer_start()
 {
 
-   const char * id = calc_id();
-   if(id == NULL)
-      id = "installer_install";
+   const char * atom = calc_id();
+   if(atom == NULL)
+      atom = "installer_install";
 
    int iRetry = 0;
 
    while(iRetry < 5)
    {
       update_ca2_installed();
-      if(is_ca2_installed() && is_installed(id))
+      if(is_ca2_installed() && is_installed(atom))
       {  
          break;
       }
-      ca2_cube_install(id);
+      ca2_cube_install(atom);
       iRetry++;
    }
 
-   if(!is_ca2_installed() || !is_installed(id))
+   if(!is_ca2_installed() || !is_installed(atom))
    {  
       return 1;
    }
 
-   if(stricmp_dup(id, "installer_install"))
+   if(stricmp_dup(atom, "installer_install"))
    {
-      cube_run(id);
+      cube_run(atom);
    }
 
    return 0;

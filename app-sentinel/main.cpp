@@ -145,9 +145,9 @@ int APIENTRY ca2_cube_install(const ::string & pszId);
 int installer_start()
 {
 
-   vsstring id = calc_id();
-   if(id == NULL || id.is_empty())
-      id = "installer_install";
+   vsstring atom = calc_id();
+   if(atom == NULL || atom.is_empty())
+      atom = "installer_install";
 
    int iRetry = 0;
 
@@ -155,7 +155,7 @@ int installer_start()
 
    bool bBackground;
 
-   if(!stricmp_dup(id, "installer_install"))
+   if(!stricmp_dup(atom, "installer_install"))
    {
       iRetryLimit = 5;
       bBackground = true;
@@ -169,26 +169,26 @@ int installer_start()
    while(iRetry < iRetryLimit || iRetryLimit < 0)
    {
       update_ca2_installed(true);
-      if(is_ca2_installed() && is_installed("application", id))
+      if(is_ca2_installed() && is_installed("application", atom))
       {  
          break;
       }
       vsstring strCommandLine;
 
-      strCommandLine = ": app=session session_start=" + id + " app_type=application install";
+      strCommandLine = ": app=session session_start=" + atom + " app_type=application install";
 
       ca2_cube_install(strCommandLine, bBackground);
       iRetry++;
    }
 
-   if(!is_ca2_installed() || !is_installed("application", id))
+   if(!is_ca2_installed() || !is_installed("application", atom))
    {  
       return 1;
    }
 
-   if(stricmp_dup(id, "installer_install"))
+   if(stricmp_dup(atom, "installer_install"))
    {
-      cube_run(id);
+      cube_run(atom);
    }
 
    return 0;

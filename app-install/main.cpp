@@ -46,7 +46,7 @@ public:
 
    ATOM installer_message_register_class(HINSTANCE hInstance);
 
-   int cube_run(const ::string & id);
+   int cube_run(const ::string & atom);
 
    void call_self_privileged_sync(const ::string & param);
 

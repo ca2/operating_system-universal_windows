@@ -119,10 +119,10 @@ namespace windowing_universal_windows
    }
 
 
-   void window::assert_valid() const
+   void window::assert_ok() const
    {
 
-      //::windowing_universal_windows::window::assert_valid();
+      //::windowing_universal_windows::window::assert_ok();
 
       //if (((::windowing_universal_windows::window *)this)->get_hwnd() == nullptr)
       //   return;     // null (unattached) windows are valid
@@ -2986,22 +2986,22 @@ namespace windowing_universal_windows
    //}
 
 
-   lresult window::send_message(const ::id & id, wparam wParam, lparam lParam)
+   lresult window::send_message(const ::atom & atom, wparam wParam, lparam lParam)
    {
 
-      ///return ::SendMessage(get_hwnd(), id.umessage(), wParam, lParam);
+      ///return ::SendMessage(get_hwnd(), atom.umessage(), wParam, lParam);
 
       return 0;
 
    }
 
 
-   bool window::post_message(const ::id & id, wparam wParam, lparam lParam)
+   bool window::post_message(const ::atom & atom, wparam wParam, lparam lParam)
    {
 
       //HWND hwnd = get_hwnd();
 
-      //::u32 message = id.umessage();
+      //::u32 message = atom.umessage();
 
       //wparam wparam = wParam;
 
@@ -3601,7 +3601,7 @@ namespace windowing_universal_windows
    //   for (i32 nID = nIDFirstButton; nID <= nIDLastButton; nID++)
    //   {
    //      if (IsDlgButtonChecked(nID))
-   //         return nID; // id that matched
+   //         return nID; // atom that matched
    //   }
    //   return 0; // invalid ID
    //}
@@ -3675,14 +3675,14 @@ namespace windowing_universal_windows
    //}
 
 
-   //void window::get_child_by_id(id id, hwnd * poswindow_) const
+   //void window::get_child_by_id(atom atom, hwnd * poswindow_) const
    //{
 
    //   ASSERT(::IsWindow(((window *)this)->get_hwnd()));
 
    //   ASSERT(poswindow_ != nullptr);
 
-   //   *poswindow_ = ::GetDlgItem(((window *)this)->get_hwnd(), (i32)id);
+   //   *poswindow_ = ::GetDlgItem(((window *)this)->get_hwnd(), (i32)atom);
 
    //}
 

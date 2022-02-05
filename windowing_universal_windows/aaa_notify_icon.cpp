@@ -62,7 +62,7 @@ namespace windowing_win32
    }
 
 
-   ::e_status notify_icon::create_notify_icon(const ::id & id, ::user::interaction * puserinteractionNotify, ::windowing::icon * picon)
+   ::e_status notify_icon::create_notify_icon(const ::atom & atom, ::user::interaction * puserinteractionNotify, ::windowing::icon * picon)
    {
 
       if (m_bCreated)
@@ -72,7 +72,7 @@ namespace windowing_win32
 
       }
 
-      string strId = "notify_icon_" + id.to_string();
+      string strId = "notify_icon_" + atom.to_string();
 
       m_strId = "ca2-" + picon->get_tray_icon_name() + "-" + strId;
 
@@ -83,10 +83,10 @@ namespace windowing_win32
 
       }
 
-      m_id = id;
+      m_id = atom;
 
       m_nid.hWnd = __hwnd(get_oswindow());
-      m_nid.uID = __u32_hash(id.to_string());
+      m_nid.uID = __u32_hash(atom.to_string());
       m_nid.hIcon = (HICON) picon->get_os_data(::size_i32(16, 16));
       m_nid.uFlags = NIF_ICON | NIF_MESSAGE;
       m_nid.uCallbackMessage = ::e_message_notify_icon;
@@ -300,11 +300,11 @@ namespace windowing_win32
 
       auto pevent = __create_new < ::user::control_event >();
 
-      ptopic->m_puserelement->m_id = m_id;
+      ptopic->m_pextendedtopic->m_puserelement->m_id = m_id;
 
-      ptopic->user_interaction() = this;
+      ptopic->m_pextendedtopic->user_interaction() = this;
 
-      ptopic->m_actioncontext.m_pmessage = pmessage;
+      ptopic->m_pextendedtopic->m_actioncontext.m_pmessage = pmessage;
 
       if (uMessage == e_message_right_button_down)
       {

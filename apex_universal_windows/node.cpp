@@ -50,7 +50,7 @@ namespace apex
 
          strOptions_ += "<br/>";
          strOptions_ += "<br/>";
-         strOptions_ += "<input type=\"button\" id=\"clear_application_data\" value=\"Clear Application Data\"/>";
+         strOptions_ += "<input type=\"button\" atom=\"clear_application_data\" value=\"Clear Application Data\"/>";
          strOptions_ += "<br/>";
          strOptions_ += "<br/>";
 
@@ -76,7 +76,7 @@ namespace apex
       //void node::handle(::topic * ptopic, ::context * pcontext)
       //{
 
-      //   if (ptopic->m_puserelement->m_id == "clear_application_data")
+      //   if (ptopic->m_pextendedtopic->m_puserelement->m_id == "clear_application_data")
       //   {
 
       //      m_psystem->m_pacmefile->clear_application_data();

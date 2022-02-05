@@ -1330,7 +1330,7 @@ namespace music
 //
 //            ASSERT(tkDelta >= 0);
 //
-//            /* Can't fit 4 uint32_t's? (tkDelta + stream-id + event + some data)
+//            /* Can't fit 4 uint32_t's? (tkDelta + stream-atom + event + some data)
 //            ** Can't do anything.
 //            */
 //            /*ASSERT(lpmh->dwBufferLength >= lpmh->dwBytesRecorded);
@@ -1421,7 +1421,7 @@ namespace music
 //            //    assert(pSmf != NULL);
 //            ASSERT(lpmh != NULL);
 //
-//            /* Can't fit 4 uint32_t's? (tkDelta + stream-id + event + some data)
+//            /* Can't fit 4 uint32_t's? (tkDelta + stream-atom + event + some data)
 //            ** Can't do anything.
 //            */
 //            ASSERT(lpmh->dwBufferLength >= lpmh->dwBytesRecorded);
@@ -1529,7 +1529,7 @@ namespace music
 //            //    assert(pSmf != NULL);
 //            ASSERT(lpmh != NULL);
 //
-//            /* Can't fit 4 uint32_t's? (tkDelta + stream-id + event + some data)
+//            /* Can't fit 4 uint32_t's? (tkDelta + stream-atom + event + some data)
 //            ** Can't do anything.
 //            */
 //            ASSERT(lpmh->dwBufferLength >= lpmh->dwBytesRecorded);

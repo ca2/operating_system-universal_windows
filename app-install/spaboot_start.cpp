@@ -67,9 +67,9 @@ int installer_start()
       return 1;
    }
 
-   const char * id = calc_id();
-   if(id == NULL)
-      id = "installer_install";
+   const char * atom = calc_id();
+   if(atom == NULL)
+      atom = "installer_install";
 
    iRetry = 0;
    while(iRetry < 5)
@@ -79,7 +79,7 @@ int installer_start()
       {  
          break;
       }
-      ca2_cube_install(id);
+      ca2_cube_install(atom);
       iRetry++;
    }
    if(!is_ca2_installed())
@@ -95,7 +95,7 @@ int installer_start()
       {  
          break;
       }
-      ca2_cube_install(id);
+      ca2_cube_install(atom);
       iRetry++;
    }
    if(!is_ca2_updated())
@@ -103,9 +103,9 @@ int installer_start()
       return 1;
    }
 
-   if(stricmp_dup(id, "installer_install"))
+   if(stricmp_dup(atom, "installer_install"))
    {
-      cube_run(id);
+      cube_run(atom);
    }
 
 

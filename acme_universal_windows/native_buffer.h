@@ -51,7 +51,7 @@ namespace universal_windows
       native_buffer(::winrt::Windows::Storage::StorageFile file);
       ~native_buffer() override;
 
-      void assert_valid() const override;
+      void assert_ok() const override;
       void dump(dump_context & dumpcontext) const override;
 
       filesize get_position() const override;

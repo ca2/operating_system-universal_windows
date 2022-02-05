@@ -522,7 +522,7 @@ namespace windowing_universal_windows
    }
 
 
-   void windowing::set(message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::id & id, wparam wparam, ::lparam lparam)
+   void windowing::set(message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
    {
 
       pkey->m_nChar = static_cast<::u32>(wparam);
@@ -537,12 +537,12 @@ namespace windowing_universal_windows
 
       //pkey->m_iVirtualKey = (int)MapLeftRightKeys(wparam, lparam);
 
-      ::windowing::windowing::set(pkey, oswindow, pwindow, id, wparam, lparam);
+      ::windowing::windowing::set(pkey, oswindow, pwindow, atom, wparam, lparam);
 
    }
 
 
-   void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::id & id, wparam wparam, ::lparam lparam)
+   void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
    {
 
       pmouse->m_nFlags = wparam;
@@ -964,14 +964,14 @@ namespace windowing_universal_windows
    //}
 
 
-   //void windowing::set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::id & id, wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
    //{
 
 
    //}
 
 
-   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::id & id, wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
    //{
 
 
