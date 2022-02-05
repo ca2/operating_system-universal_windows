@@ -366,9 +366,9 @@
 //
 //         ::draw2d::lock lock;
 //
-//         auto psubject = m_psystem->topic(id_os_dark_mode);
+//         auto ptopic = m_psystem->topic(id_os_dark_mode);
 //
-//         m_psystem->handle_subject(psubject);
+//         m_psystem->handle_subject(ptopic);
 //
 //         CreateWindowSizeDependentResources();
 //

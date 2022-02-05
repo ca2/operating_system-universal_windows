@@ -123,7 +123,7 @@ namespace windowing_universal_windows
 
       //void call_expose(Display * pdisplay);
 
-      //void handle(::topic * psubject, ::context * pcontext) override;
+      //void handle(::topic * ptopic, ::context * pcontext) override;
 
       //virtual void on_layout(::draw2d::graphics_pointer & pgraphics) override;
 
@@ -137,7 +137,7 @@ namespace windowing_universal_windows
 
       //virtual bool process_event(Display * pdisplay, XEvent & e, XGenericEventCookie * cookie) override;
 
-      //void handle(::topic * psubject, ::context * pcontext) override;
+      //void handle(::topic * ptopic, ::context * pcontext) override;
 
 
 

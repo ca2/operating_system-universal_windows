@@ -814,7 +814,7 @@ namespace windowing_universal_windows
 
             psystem->signal(id_os_font_change);
 
-            //psystem->handle_subject(psubject);
+            //psystem->handle_subject(ptopic);
 
             //fork([this]()
               // {
