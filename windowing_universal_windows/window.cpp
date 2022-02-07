@@ -800,14 +800,14 @@ namespace windowing_universal_windows
 
          string strLparamString;
 
-         if (pmessage->m_id == WM_SETTINGCHANGE && wparam == 0)
+         if (pmessage->m_atom == WM_SETTINGCHANGE && wparam == 0)
          {
 
             strLparamString = (const WCHAR *) (LPARAM(lparam));
 
          }
 
-         if (pmessage->m_id == WM_FONTCHANGE)
+         if (pmessage->m_atom == WM_FONTCHANGE)
          {
 
             auto psystem = m_psystem->m_paurasystem;
@@ -825,8 +825,8 @@ namespace windowing_universal_windows
 
          //}
          }
-         else if (pmessage->m_id == e_message_display_change ||
-            (pmessage->m_id == WM_SETTINGCHANGE &&
+         else if (pmessage->m_atom == e_message_display_change ||
+            (pmessage->m_atom == WM_SETTINGCHANGE &&
                (pmessage->m_wparam == SPI_SETWORKAREA)))
          {
 
@@ -1740,7 +1740,7 @@ namespace windowing_universal_windows
    //__pointer(window) window::get_active_window()
    //{
 
-   //   throw ::interface_only_exception();
+   //   throw ::interface_only();
 
    //   return nullptr;
 
@@ -2387,7 +2387,7 @@ namespace windowing_universal_windows
    //void window::message_handler(::message::message * pmessage)
    //{
    //   
-   //   if (pmessage->m_id == (enum_message)WM_SYSCOMMAND)
+   //   if (pmessage->m_atom == (enum_message)WM_SYSCOMMAND)
    //   {
 
    //      if (pmessage->m_wparam == SC_SCREENSAVE)
@@ -2576,7 +2576,7 @@ namespace windowing_universal_windows
       //rectanglePaint = paint.rcPaint;
 
 
-      __throw(todo);
+      throw ::exception(todo);
 
       //if (rectanglePaint.is_null() || (GetExStyle() & WS_EX_LAYERED))
       //{
@@ -2885,7 +2885,7 @@ namespace windowing_universal_windows
 
       //HWND hwnd = __hwnd(pmessage->m_oswindow);
 
-      //UINT message = pmessage->m_id.u32();
+      //UINT message = pmessage->m_atom.u32();
 
       //WPARAM wparam = pmessage->m_wparam;
 
@@ -3368,7 +3368,7 @@ namespace windowing_universal_windows
 
       auto pgraphics = __create < ::draw2d::graphics >();
 
-      __throw(todo);
+      throw ::exception(todo);
 
       //pgraphics->attach(::GetDCEx(get_hwnd(), (HRGN)prgnClip->get_os_data(), flags));
 
@@ -3507,7 +3507,7 @@ namespace windowing_universal_windows
 
       //ASSERT(::IsWindow(get_hwnd()));
 
-      throw interface_only_exception();
+      throw ::interface_only();
       return false;
       //      return ::DrawCaption(get_hwnd(), (HDC)(dynamic_cast<::windows::graphics * >(pgraphics))->get_hwnd(), prc, uFlags) != false;
 
@@ -4035,7 +4035,7 @@ namespace windowing_universal_windows
 
    //   ASSERT(::IsWindow(((window *)this)->get_hwnd()));
 
-   //   throw interface_only_exception();
+   //   throw ::interface_only();
    //   //      const_cast < ::windowing_universal_windows::window * > (this)->send_message(WM_PRINT, (wparam)(dynamic_cast<::windows::graphics * >(pgraphics))->get_hwnd(), (lparam) dwFlags);
 
    //}
@@ -4045,7 +4045,7 @@ namespace windowing_universal_windows
 
    //   ASSERT(::IsWindow(((window *)this)->get_hwnd()));
 
-   //   throw interface_only_exception();
+   //   throw ::interface_only();
    //   //const_cast < ::windowing_universal_windows::window * > (this)->send_message(WM_PRINTCLIENT, (wparam)(dynamic_cast<::windows::graphics * >(pgraphics))->get_hwnd(), (lparam) dwFlags);
 
    //}
@@ -4998,14 +4998,14 @@ namespace windowing_universal_windows
 
    void window::on_set_parent(::user::interaction * puserinteraction) {
 
-      throw ::interface_only_exception();
+      throw ::interface_only();
    }
 
     //// virtual void register_drop_target();
     //void window::show_task(bool bShow)
     //{
 
-    //   throw ::interface_only_exception();
+    //   throw ::interface_only();
 
     //}
     //
@@ -5013,7 +5013,7 @@ namespace windowing_universal_windows
     void window::window_show_change_visibility(::e_display edisplay, ::e_activation eactivation)
     {
 
-       throw ::interface_only_exception();
+       throw ::interface_only();
 
     }
 
@@ -5400,13 +5400,13 @@ namespace windowing_universal_windows
    //   if (pfnWndProc == nullptr)
    //   {
 
-   //      lresult = ::DefWindowProcW(m_oswindow, (::u32)pmessage->m_id.i64(), pmessage->m_wparam, pmessage->m_lparam);
+   //      lresult = ::DefWindowProcW(m_oswindow, (::u32)pmessage->m_atom.i64(), pmessage->m_wparam, pmessage->m_lparam);
 
    //   }
    //   else
    //   {
 
-   //      lresult = ::CallWindowProc(pfnWndProc, m_oswindow, (::u32)pmessage->m_id.i64(), pmessage->m_wparam, pmessage->m_lparam);
+   //      lresult = ::CallWindowProc(pfnWndProc, m_oswindow, (::u32)pmessage->m_atom.i64(), pmessage->m_wparam, pmessage->m_lparam);
 
    //   }
 
@@ -5496,7 +5496,7 @@ namespace windowing_universal_windows
 //
 //      ::u32 message;
 //
-//      message = pmessage->m_id.umessage();
+//      message = pmessage->m_atom.umessage();
 //
 //      m_uiMessage = message;
 //
@@ -6031,7 +6031,7 @@ namespace windowing_universal_windows
 //      //   else
 //      //   {
 //      //      
-//      //      pmessage->set_lresult(::DefWindowProcW(m_oswindow, pmessage->m_id, pmessage->m_wparam, pmessage->m_lparam));
+//      //      pmessage->set_lresult(::DefWindowProcW(m_oswindow, pmessage->m_atom, pmessage->m_wparam, pmessage->m_lparam));
 //
 //      //   }
 //
@@ -6306,7 +6306,7 @@ namespace windowing_universal_windows
       //   if (!m_psystem->m_paurasystem->begin_synch())
       //   {
 
-      //      __throw(error_failed, "failed to begin_synch the system");
+      //      throw ::exception(error_failed, "failed to begin_synch the system");
 
       //   }
 
@@ -6317,7 +6317,7 @@ namespace windowing_universal_windows
       //if (!estatus)
       //{
 
-      //   __throw(error_resource);
+      //   throw ::exception(error_resource);
 
       //}
 
@@ -6425,7 +6425,7 @@ namespace windowing_universal_windows
       //if (!puserinteraction->m_puiThis->create_window_ex(pcs))
       //{
 
-      //   __throw(resource_exception("Couldn't create Main Window"));
+      //   throw ::exception(resource_exception("Couldn't create Main Window"));
 
       //   return;
 
@@ -6453,7 +6453,7 @@ namespace windowing_universal_windows
       //if (!main_initialize())
       //{
 
-      //   __throw(error_failed, "Failed to run main_initialize at window constructor.");
+      //   throw ::exception(error_failed, "Failed to run main_initialize at window constructor.");
 
       //}
 
@@ -7183,7 +7183,7 @@ namespace windowing_universal_windows
 
             bool bSpecialKey = false;
 
-            pkey->m_id = e_message_key_down;
+            pkey->m_atom = e_message_key_down;
             //pkey->m_playeredUserPrimitive = psession->get_user_interaction_host();
             pkey->m_nChar = 0;
             pkey->m_ekey = ::user::e_key_refer_to_text_member;
@@ -7637,7 +7637,7 @@ namespace windowing_universal_windows
       //      if (!m_psystem->begin_synch())
       //      {
 
-      //         __throw(error_failed, "failed to begin_synch the system");
+      //         throw ::exception(error_failed, "failed to begin_synch the system");
 
       //      }
 
@@ -7648,7 +7648,7 @@ namespace windowing_universal_windows
       //   //if (!estatus)
       //   //{
 
-      //   //   __throw(error_resource);
+      //   //   throw ::exception(error_resource);
 
       //   //}
 
@@ -7731,7 +7731,7 @@ namespace windowing_universal_windows
       //   //if (!puserinteraction->m_puiThis->create_window_ex(pcs))
       //   //{
 
-      //   //   __throw(resource_exception("Couldn't create Main Window"));
+      //   //   throw ::exception(resource_exception("Couldn't create Main Window"));
 
       //   //   return;
 
@@ -7925,7 +7925,7 @@ namespace windowing_universal_windows
 
          pusermessage = pkey;
 
-         pkey->m_id = e_message_char;
+         pkey->m_atom = e_message_char;
          //pkey->m_playeredUserPrimitive = puserinteraction;
          pkey->m_nChar = keycode_to_char(args.KeyCode());
 
@@ -7975,7 +7975,7 @@ namespace windowing_universal_windows
             || m_psystem->get_session()->is_key_pressed(::user::e_key_alt))
          {
 
-            pkey->m_id = e_message_key_down;
+            pkey->m_atom = e_message_key_down;
             //pkey->m_playeredUserPrimitive       = m_psystem->get_session()->m_puserinteractionHost;
             pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
             pkey->m_ekey = ekey;
@@ -8033,7 +8033,7 @@ namespace windowing_universal_windows
          if (bSpecialKey || !bTextFocus)
          {
 
-            pkey->m_id = e_message_key_up;
+            pkey->m_atom = e_message_key_up;
             //pkey->m_playeredUserPrimitive = m_psystem->get_session()->m_puserinteractionHost;
             pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
             pkey->m_ekey = ekey;
@@ -8159,7 +8159,7 @@ namespace windowing_universal_windows
 
          pmouse->m_point.x = (::i32)pointerPoint.RawPosition().X;
          pmouse->m_point.y = (::i32)pointerPoint.RawPosition().Y;
-         pmouse->m_id = e_message_mouse_move;
+         pmouse->m_atom = e_message_mouse_move;
          //pmouse->m_playeredUserPrimitive  = m_psystem->get_session()->m_puserinteractionHost;
 
          m_pointLastCursor = pointerPoint.RawPosition();
@@ -8210,7 +8210,7 @@ namespace windowing_universal_windows
          if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
          {
 
-            pmouse->m_id = e_message_left_button_down;
+            pmouse->m_atom = e_message_left_button_down;
 
             m_bLeftButton = true;
             m_bMiddleButton = false;
@@ -8220,7 +8220,7 @@ namespace windowing_universal_windows
          else if (args.CurrentPoint().Properties().IsRightButtonPressed() && !m_bRightButton)
          {
 
-            pmouse->m_id = e_message_right_button_down;
+            pmouse->m_atom = e_message_right_button_down;
 
             m_bLeftButton = false;
             m_bMiddleButton = false;
@@ -8230,7 +8230,7 @@ namespace windowing_universal_windows
          else if (args.CurrentPoint().Properties().IsMiddleButtonPressed() && !m_bMiddleButton)
          {
 
-            pmouse->m_id = e_message_middle_button_down;
+            pmouse->m_atom = e_message_middle_button_down;
 
             m_bLeftButton = false;
             m_bMiddleButton = true;
@@ -8284,7 +8284,7 @@ namespace windowing_universal_windows
          if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
          {
 
-            pmouse->m_id = e_message_left_button_up;
+            pmouse->m_atom = e_message_left_button_up;
 
             m_bLeftButton = false;
 
@@ -8292,7 +8292,7 @@ namespace windowing_universal_windows
          else if (m_bRightButton && !args.CurrentPoint().Properties().IsRightButtonPressed())
          {
 
-            pmouse->m_id = e_message_right_button_up;
+            pmouse->m_atom = e_message_right_button_up;
 
             m_bRightButton = false;
 
@@ -8300,7 +8300,7 @@ namespace windowing_universal_windows
          else if (m_bMiddleButton && !args.CurrentPoint().Properties().IsMiddleButtonPressed())
          {
 
-            pmouse->m_id = e_message_middle_button_up;
+            pmouse->m_atom = e_message_middle_button_up;
 
             m_bMiddleButton = false;
 

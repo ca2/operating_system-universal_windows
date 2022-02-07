@@ -244,7 +244,7 @@ namespace file
 
       //ptopic->m_ulOsAction = -1;
 
-      //m_pwatch->handle_action(m_pwatch->m_id, m_pwatch->m_strFolder,
+      //m_pwatch->handle_action(m_pwatch->m_atom, m_pwatch->m_strFolder,
         //    "", (::file_watcher::e_action) -1);
 
       //}
@@ -263,7 +263,7 @@ namespace file
 
    //   synchronous_lock synchronouslock(mutex());
 
-   //   atom watchid = ++m_idLast;
+   //   atom watchid = ++m_atomLast;
 
    //   ::file::path pathFolder = get_context()->defer_process_path(pathFolderParam);
 
@@ -283,7 +283,7 @@ namespace file
 
    //   auto pwatch = __new(os_watch);
 
-   //   pwatch->m_id               = watchid;
+   //   pwatch->m_atom               = watchid;
 
    //   pwatch->m_listenera.add(plistenerParam);
 

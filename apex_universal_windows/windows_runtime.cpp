@@ -1,7 +1,7 @@
 // Created by camilo on 2021-08-30 16:53 BRT <3ThomasBS__!!
 #include "framework.h"
 #include "apex/_defer.h"
-#include "acme/node/operating_system/universal_windows/parallelization_winrt.h"
+#include "acme/operating_system/universal_windows/parallelization_winrt.h"
 #undef new
 //#include <collection.h>
 //#include <ppltasks.h>
@@ -16,11 +16,11 @@
 //#include "acme/primitive/mathematics/index.h"
 //#include "acme/parallelization/synchronization_result.h"
 //#include "windows_runtime.h"
-//#include "acme/node/operating_system/windows_common/arg_sec_attrs.h"
+//#include "acme/operating_system/windows_common/arg_sec_attrs.h"
 //#include "acme/parallelization/synchronization_object.h"
 //#include "acme/parallelization/event.h"
 //#include "acme/parallelization/manual_reset_event.h"
-//#include "acme/node/operating_system/universal_windows/multithreading_winrt.h"
+//#include "acme/operating_system/universal_windows/multithreading_winrt.h"
 ////#include <winrt/Windows.Foundation.Collections.h>
 
 

@@ -75,14 +75,14 @@ namespace windowing_win32
 
          string strLparamString;
 
-         if (pmessage->m_id == WM_SETTINGCHANGE && wparam == 0)
+         if (pmessage->m_atom == WM_SETTINGCHANGE && wparam == 0)
          {
 
             strLparamString = (const WCHAR *)(LPARAM(lparam));
 
          }
 
-         if (pmessage->m_id == WM_FONTCHANGE)
+         if (pmessage->m_atom == WM_FONTCHANGE)
          {
 
             auto psystem = m_psystem->m_paurasystem;
@@ -99,7 +99,7 @@ namespace windowing_win32
          //}
          }
          else if (
-            pmessage->m_id == WM_SETTINGCHANGE &&
+            pmessage->m_atom == WM_SETTINGCHANGE &&
             strLparamString == "ImmersiveColorSet")
          {
 
@@ -108,8 +108,8 @@ namespace windowing_win32
             pnode->fetch_user_color();
 
          }
-         else if (pmessage->m_id == e_message_display_change ||
-            (pmessage->m_id == WM_SETTINGCHANGE &&
+         else if (pmessage->m_atom == e_message_display_change ||
+            (pmessage->m_atom == WM_SETTINGCHANGE &&
                (pmessage->m_wparam == SPI_SETWORKAREA)))
          {
 

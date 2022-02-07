@@ -91,7 +91,7 @@ namespace music
 
             pseq->OnEvent(pevent);
 
-            switch(ptopic->m_id)
+            switch(ptopic->m_atom)
             {
             case ::music::midi::sequence::e_event_midi_playback_end:
             {
@@ -326,7 +326,7 @@ namespace music
             catch (exception * pme)
             {
 
-               throw not_implemented();
+               throw ::not_implemented();
                /*string str;
                str.load_string(IDS_PREROLLUSERERROR001);
                pme->SetUserText(str);*/

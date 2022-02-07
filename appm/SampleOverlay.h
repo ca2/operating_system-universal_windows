@@ -44,7 +44,7 @@ private:
     comptr<ID2D1Bitmap>             m_logoBitmap;
     comptr<IDWriteTextLayout>       m_textLayout;
 
-    UINT                                            m_idIncrement;
+    UINT                                            m_atomIncrement;
     bool                                            m_drawOverlay;
     Platform::String^                               m_sampleName;
     float                                           m_padding;

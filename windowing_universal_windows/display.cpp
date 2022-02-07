@@ -356,7 +356,7 @@ namespace windowing_universal_windows
 //
 //#else
 //
-//      //__throw(todo);
+//      //throw ::exception(todo);
 //
 //      //::get_window_rect(::get_desktop_window(),prectangle);
 //

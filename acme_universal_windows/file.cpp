@@ -1,5 +1,5 @@
 #include "framework.h"
-//#include "acme/node/operating_system/windows_common/file.h"
+//#include "acme/operating_system/windows_common/file.h"
 
 
 #define NULL_HFILE ((::hfile) (iptr) (-1))
@@ -68,7 +68,7 @@ namespace universal_windows
    //   {
    //      delete pFile;
    //      //xxx      Ex1::file::throw_os_error((::i32)::GetLastError(), m_path);
-   //      __throw(::exception("integer_exception 1"));
+   //      throw ::exception(::exception("integer_exception 1"));
    //   }
    //   pFile->m_hfile = (::u32)hFile;
    //   ASSERT(pFile->m_hfile != (::u32)NULL_HFILE);
@@ -571,7 +571,7 @@ pacmedir->create(lpszFileName.folder());
    //void CLASS_DECL_ACME vfxGetModuleShortFileName(HINSTANCE hInst, string& strShortName)
    //{
    //   
-   //   __throw(todo);
+   //   throw ::exception(todo);
 
    //}
 
@@ -707,7 +707,7 @@ pacmedir->create(lpszFileName.folder());
    //void CLASS_DECL_ACME throw_exception(__pointer(::acme::application) papp, int cause, ::i32 lOsError, const char * lpszFileName /* == nullptr */)
    //{
 
-   //   __throw(::file::exception(WinFileException::OsErrorToException(lOsError),lOsError,lpszFileName));
+   //   throw ::exception(::file::exception(WinFileException::OsErrorToException(lOsError),lOsError,lpszFileName));
 
    //}
 
@@ -1121,7 +1121,7 @@ pacmedir->create(lpszFileName.folder());
 //
 //#else
 //
-//   __throw(todo);
+//   throw ::exception(todo);
 //
 //
 //#endif

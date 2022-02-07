@@ -74,7 +74,7 @@
 //      return 0;
 //#else
 //
-//      __throw(todo);
+//      throw ::exception(todo);
 //
 //#endif
 //   }

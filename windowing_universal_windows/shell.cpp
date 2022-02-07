@@ -1151,7 +1151,7 @@ namespace windowing_universal_windows
 
       //      comptr < IKnownFolder > pknownfolder;
 
-      //      HRESULT hrGetFolder = getfileimage.m_knownfoldermanager->GetFolder(pknownfolderstruct->m_idKnownFolder, &pknownfolder);
+      //      HRESULT hrGetFolder = getfileimage.m_knownfoldermanager->GetFolder(pknownfolderstruct->m_atomKnownFolder, &pknownfolder);
 
       //      if (SUCCEEDED(hrGetFolder) && pknownfolder)
       //      {

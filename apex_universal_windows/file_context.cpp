@@ -250,7 +250,7 @@ namespace universal_windows
 
          strError.Format("Failed to move file \"%s\" to \"%s\" error=%d", psz, pszNew, dwError);
 
-         __throw(::error_io, strError);
+         throw ::exception(::error_io, strError);
 
       }
 
@@ -311,7 +311,7 @@ namespace universal_windows
          i32 err = errno;
          string strError;
          strError.Format("Failed to delete file error=%d", err);
-         __throw(::exception(strError));
+         throw ::exception(::exception(strError));
       }
 #endif
 
@@ -353,7 +353,7 @@ namespace universal_windows
 
 #elif defined(_UWP)
 
-      //__throw(todo);
+      //throw ::exception(todo);
 
 #else
 

@@ -456,8 +456,8 @@ namespace windowing_universal_windows
    __pointer(::user::message) windowing::get_user_message(MESSAGE * pmsg)
    {
 
-      //__throw(todo("message"));
-      //__throw(todo("interaction"));
+      //throw ::exception(todo("message"));
+      //throw ::exception(todo("interaction"));
       ::windowing::window * pwindow = nullptr;
 
       //if (pinteraction == nullptr && pmsg->hwnd != nullptr)
@@ -515,7 +515,7 @@ namespace windowing_universal_windows
 
       }
 
-      pusermessage->set(pmsg->oswindow, pwindow, pmsg->m_id, pmsg->wParam, pmsg->lParam);
+      pusermessage->set(pmsg->oswindow, pwindow, pmsg->m_atom, pmsg->wParam, pmsg->lParam);
 
       return pusermessage;
 

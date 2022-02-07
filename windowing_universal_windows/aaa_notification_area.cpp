@@ -32,7 +32,7 @@ namespace windowing_win32
       //::DeleteObject(m_hfontHidden);
       //::DeleteObject(m_hfontRegular);
 #else
-      //      __throw(todo);
+      //      throw ::exception(todo);
 #endif
    }
 
@@ -195,7 +195,7 @@ namespace windowing_win32
       //      LVIS_FOCUSED|LVIS_SELECTED,
       //      LVIS_FOCUSED|LVIS_SELECTED);
 #else
-      __throw(todo);
+      throw ::exception(todo);
 #endif
    }
 
@@ -251,7 +251,7 @@ namespace windowing_win32
          ListTrayIcons(iItem - 1);
       }
 #else
-      __throw(todo);
+      throw ::exception(todo);
 #endif
    }
 
@@ -264,7 +264,7 @@ namespace windowing_win32
          ListTrayIcons(iItem + 1);
       }
 #else
-      __throw(todo);
+      throw ::exception(todo);
 #endif
    }
 
