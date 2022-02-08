@@ -50,7 +50,7 @@ namespace apex
 
          strOptions_ += "<br/>";
          strOptions_ += "<br/>";
-         strOptions_ += "<input type=\"button\" atom=\"clear_application_data\" value=\"Clear Application Data\"/>";
+         strOptions_ += "<input type=\"button\" id=\"clear_application_data\" value=\"Clear Application Data\"/>";
          strOptions_ += "<br/>";
          strOptions_ += "<br/>";
 
