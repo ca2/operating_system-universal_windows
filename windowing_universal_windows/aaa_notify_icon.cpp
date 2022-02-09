@@ -300,11 +300,11 @@ namespace windowing_win32
 
       auto pevent = __create_new < ::user::control_event >();
 
-      ptopic->get_extended_topic()->m_puserelement->m_atom = m_atom;
+      ptopic->m_puserelement->m_atom = m_atom;
 
-      ptopic->get_extended_topic()->user_interaction() = this;
+      ptopic->user_interaction() = this;
 
-      ptopic->get_extended_topic()->m_actioncontext.m_pmessage = pmessage;
+      ptopic->m_actioncontext.m_pmessage = pmessage;
 
       if (uMessage == e_message_right_button_down)
       {

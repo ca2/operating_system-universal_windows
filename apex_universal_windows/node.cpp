@@ -76,7 +76,7 @@ namespace apex
       //void node::handle(::topic * ptopic, ::context * pcontext)
       //{
 
-      //   if (ptopic->get_extended_topic()->m_puserelement->m_atom == "clear_application_data")
+      //   if (ptopic->m_puserelement->m_atom == "clear_application_data")
       //   {
 
       //      m_psystem->m_pacmefile->clear_application_data();
