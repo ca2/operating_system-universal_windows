@@ -187,7 +187,7 @@ namespace windowing_universal_windows
    }
 
 
-   //HGLOBAL copydesk::hglobal_get_filea(const ::file::patha & patha)
+   //HGLOBAL copydesk::hglobal_get_filea(const ::file::path_array & patha)
    //{
 
    //   strsize iLen = 0;
@@ -413,7 +413,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status copydesk::_get_filea(::file::patha & patha, e_op & eop)
+   ::e_status copydesk::_get_filea(::file::path_array & patha, e_op & eop)
    {
 
       //::count c = _get_file_count();
@@ -462,7 +462,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status copydesk::_set_filea(const ::file::patha & patha, e_op eop)
+   ::e_status copydesk::_set_filea(const ::file::path_array & patha, e_op eop)
    {
 
       //ASSERT(::IsWindow(m_hwnd));

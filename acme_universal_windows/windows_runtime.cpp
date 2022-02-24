@@ -318,7 +318,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 //   }
 //
 //
-//   ::file::patha patha;
+//   ::file::path_array patha;
 //
 //   ::file::path path(strPath);
 //

@@ -527,7 +527,7 @@ namespace universal_windows
    //::file::path acme_dir::pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode)
    //{
 
-   //   ::file::patha stra;
+   //   ::file::path_array stra;
 
    //   stra.add_tokens(pszEnv, ":", false);
 
@@ -1240,7 +1240,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //#endif
 //
-//         ::file::patha stra;
+//         ::file::path_array stra;
 //
 //         path.ascendants_path(stra);
 //
@@ -1438,7 +1438,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::rls(::file::patha & stra, const char * psz)
+      void acme_dir::rls(::file::path_array & stra, const char * psz)
       {
          ::count start = stra.get_count();
          ls(stra, psz);
@@ -1454,7 +1454,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::rls_dir(::file::patha & stra, const char * psz)
+      void acme_dir::rls_dir(::file::path_array & stra, const char * psz)
       {
 
          ::count start = stra.get_count();
@@ -1475,7 +1475,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::ls(::file::patha & stra, const char * psz)
+      void acme_dir::ls(::file::path_array & stra, const char * psz)
       {
 
 #if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1567,7 +1567,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::ls_dir(::file::patha & stra, const char * psz)
+      void acme_dir::ls_dir(::file::path_array & stra, const char * psz)
       {
 
 #if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1654,7 +1654,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::ls_file(::file::patha & stra, const char * psz)
+      void acme_dir::ls_file(::file::path_array & stra, const char * psz)
       {
 
 #if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1825,7 +1825,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         strsize iLastPo = -1;
 //
-//         ::file::patha stra;
+//         ::file::path_array stra;
 //
 //
 //         path.ascendants_path(stra);

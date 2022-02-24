@@ -3706,7 +3706,7 @@ return false;
    }
 
 
-   void os_context::list_process(::file::patha & patha, u32_array & uaPid)
+   void os_context::list_process(::file::path_array & patha, u32_array & uaPid)
    {
 
       //ASSERT(sizeof(::u32) == sizeof(u32));
