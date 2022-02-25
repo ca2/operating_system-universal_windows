@@ -365,7 +365,7 @@
 //
 //            pcreate->m_ecommand = ::command_protocol;
 //
-//            pcreate->m_varFile = str;
+//            pcreate->m_payloadFile = str;
 //
 //            //m_psystem->add_create(pcreate);
 //
