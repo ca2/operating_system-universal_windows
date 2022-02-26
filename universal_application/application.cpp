@@ -10,9 +10,9 @@ namespace app_net
 
       m_strAppId = "app/app";
 
-      m_strAppName = "app/app";
-
       m_strBaseSupportId = "app_app";
+
+      m_strAppName = "app/app";
 
       m_bLicense = false;
 
