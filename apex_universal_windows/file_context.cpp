@@ -471,9 +471,9 @@ namespace universal_windows
       //auto pnode = psystem->node();
 
       // convert times as appropriate
-      file_time_to_time(&rStatus.m_ctime.m_i, (filetime_t *)&findFileData.ftCreationTime);
-      file_time_to_time(&rStatus.m_atime.m_i, (filetime_t *)&findFileData.ftLastAccessTime);
-      file_time_to_time(&rStatus.m_mtime.m_i, (filetime_t *)&findFileData.ftLastWriteTime);
+      file_time_to_time(&rStatus.m_ctime.m_i, (file_time_t *)&findFileData.ftCreationTime);
+      file_time_to_time(&rStatus.m_atime.m_i, (file_time_t *)&findFileData.ftLastAccessTime);
+      file_time_to_time(&rStatus.m_mtime.m_i, (file_time_t *)&findFileData.ftLastWriteTime);
 
       if (rStatus.m_ctime.get_time() == 0)
          rStatus.m_ctime = rStatus.m_mtime;
@@ -687,7 +687,7 @@ namespace universal_windows
       if (status.m_mtime.get_time() != 0)
       {
          
-         time_to_file_time((filetime_t *) &lastWriteTime, &status.m_mtime.m_i);
+         time_to_file_time((file_time_t *) &lastWriteTime, &status.m_mtime.m_i);
 
          pLastWriteTime = &lastWriteTime;
 
@@ -695,7 +695,7 @@ namespace universal_windows
          if (status.m_atime.get_time() != 0)
          {
 
-            time_to_file_time((filetime_t *)&lastAccessTime, &status.m_atime.m_i);
+            time_to_file_time((file_time_t *)&lastAccessTime, &status.m_atime.m_i);
 
             pLastAccessTime = &lastAccessTime;
 
@@ -705,7 +705,7 @@ namespace universal_windows
          if (status.m_ctime.get_time() != 0)
          {
 
-            time_to_file_time((filetime_t *)&creationTime, &status.m_ctime.m_i);
+            time_to_file_time((file_time_t *)&creationTime, &status.m_ctime.m_i);
 
             pCreationTime = &creationTime;
 
