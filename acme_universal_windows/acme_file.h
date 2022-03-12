@@ -20,7 +20,7 @@ namespace universal_windows
       ::file::path module() override;
 
       
-      ::e_status clear_application_data() override;
+      void clear_application_data() override;
 
 
    };

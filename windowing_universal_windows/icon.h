@@ -24,11 +24,9 @@ namespace windowing_universal_windows
       ~icon() override;
 
 
-      //virtual void * get_os_data(const ::size_i32 & size) const;
-      
-      ::e_status load_file(const ::string & strPath) override;
+      void load_file(const ::string & strPath) override;
 
-      ::e_status load_app_tray_icon(const string& strApp) override;
+      void load_app_tray_icon(const string& strApp) override;
 
       virtual bool add_icon(HICON hicon);
 

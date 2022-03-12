@@ -14,18 +14,18 @@ namespace windowing_universal_windows
 
 
       cursor(HCURSOR hcursor = nullptr);
-      virtual ~cursor();
+      ~cursor() override;
 
 
-      ::e_status _create_os_cursor() override;
+      void _create_os_cursor() override;
 
       inline HCURSOR get_hcursor() const { return (HCURSOR)get_os_data(); }
 
       inline void set_hcursor(HCURSOR hcursor) { set_os_data(hcursor); }
 
-      virtual ::e_status _load_default_cursor(enum_cursor ecursor);
+      void _load_default_cursor(enum_cursor ecursor);
 
-      virtual ::e_status _create_from_image(const ::image* pimage, ::i32 xHotspot, ::i32 yHotspot);
+      void _create_from_image(const ::image* pimage, ::i32 xHotspot, ::i32 yHotspot);
 
 
    };

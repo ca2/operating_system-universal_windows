@@ -55,7 +55,7 @@ namespace universal_windows
    }
 
 
-   ::e_status acme_file::clear_application_data()
+   void acme_file::clear_application_data()
    {
 
       m_psystem->m_pnode->node_post(__routine([]()
@@ -67,7 +67,7 @@ namespace universal_windows
 
          }));
 
-      return ::success;
+      //return ::success;
 
    }
 

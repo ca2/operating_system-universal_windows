@@ -157,7 +157,9 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
       string strName;
 
-      if (pobject->m_psystem->m_pacmedir->_is(path))
+      bool bDir = false;
+
+      if (pobject->m_psystem->m_pacmedir->_is(bDir, path) && bDir)
       {
 
          pathFolder = path;

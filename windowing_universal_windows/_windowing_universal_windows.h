@@ -8,6 +8,19 @@
 #include "_windows_runtime.h"
 
 
+
+
+namespace windowing_universal_windows
+{
+
+
+   inline buffer * __buffer(::graphics::graphics * pgraphics) { return pgraphics->m_pWindowingUniversalWindowsBuffer; }
+
+
+} // namespace windowing_universal_windows
+
+
+
 namespace universal_windows
 {
 
@@ -52,7 +65,7 @@ namespace universal_windows
 #include "keyboard.h"
 
 
-#include "message_box.h"
+//#include "message_box.h"
 
 
 //#include "notification_area.h"

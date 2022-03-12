@@ -20,17 +20,19 @@ namespace universal_windows
    }
 
 
-   ::e_status file_context::initialize(::object * pobject)
+   void file_context::initialize(::object * pobject)
    {
 
-      auto estatus = ::object::initialize(pobject);
+      //auto estatus = 
+      
+      ::object::initialize(pobject);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
       __pointer(::apex::system) psystem = get_system();
 
@@ -38,24 +40,26 @@ namespace universal_windows
 
       __refer(m_pdirsystem, psystem->m_pdirsystem);
 
-      return ::success;
+//      return ::success;
 
    }
 
 
-   ::e_status file_context::init_system()
+   void file_context::init_system()
    {
 
-      auto estatus = m_pfilesystem->update_module_path();
+      //auto estatus =
+      
+//      m_pfilesystem->update_module_path();
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
-      return ::success;
+      //return ::success;
 
    }
 
@@ -203,65 +207,13 @@ namespace universal_windows
    }
 
 
-   ::extended::status file_context::move(const ::file::path & pszNew, const ::file::path & psz)
+   void file_context::move(const ::file::path & pszNew, const ::file::path & psz)
    {
-
-
-#ifdef WINDOWS_DESKTOP
-
-      if (!::MoveFileW(
-         ::str::international::utf8_to_unicode(psz),
-         ::str::international::utf8_to_unicode(pszNew)))
-      {
-
-         DWORD dwError = ::GetLastError();
-
-         if (dwError == ERROR_ALREADY_EXISTS)
-         {
-
-            if (::CopyFileW(
-               ::str::international::utf8_to_unicode(psz),
-               ::str::international::utf8_to_unicode(pszNew),
-               false))
-            {
-
-               if (!::DeleteFileW(::str::international::utf8_to_unicode(psz)))
-               {
-
-                  dwError = ::GetLastError();
-
-                  string strError;
-
-                  strError.Format("Failed to delete the file to move \"%s\" error=%d", psz, dwError);
-
-                  TRACE("%s", strError);
-
-               }
-
-               return ::success;
-
-            }
-
-            dwError = ::GetLastError();
-
-         }
-
-         string strError;
-
-         strError.Format("Failed to move file \"%s\" to \"%s\" error=%d", psz, pszNew, dwError);
-
-         throw ::exception(::error_io, strError);
-
-      }
-
-#elif defined(_UWP)
 
       auto file = windows_runtime_file(this, psz, 0, 0, OPEN_EXISTING, 0);
 
       if (file == nullptr)
       {
-
-         //output_debug_string("test");
 
          throw ::exception(error_io, "file::file_context::move Could not move file, could not open source file");
 
@@ -274,24 +226,35 @@ namespace universal_windows
 
       if (strDirOld == strDirNew)
       {
+
          if (strNameOld == strNameNew)
          {
-            return ::success;
+
+            return;
+
          }
          else
          {
+
             auto hstrNameNew = __hstring(strNameNew);
+
             file.RenameAsync(hstrNameNew).get();
+
          }
+
       }
       else
       {
 
          string strPrefix;
+
          ::winrt::Windows::Storage::StorageFolder folder = windows_runtime_folder(this, strDirNew, strPrefix);
+
          if (strNameOld == strNameNew)
          {
+
             file.MoveAsync(folder).get();
+
          }
          else
          {
@@ -304,33 +267,20 @@ namespace universal_windows
 
       }
 
-
-#else
-      if (::rename(psz, pszNew) != 0)
-      {
-         i32 err = errno;
-         string strError;
-         strError.Format("Failed to delete file error=%d", err);
-         throw ::exception(::exception(strError));
-      }
-#endif
-
-      return ::success;
-
    }
 
 
-   ::extended::status file_context::del(const ::file::path & psz)
+   void file_context::erase(const ::file::path & psz)
    {
 
-      if(!m_psystem->m_pacmefile->delete_file(psz))
-      {
-      
-         return error_failed;
+      m_psystem->m_pacmefile->erase(psz);
+      //{
+      //
+      //   return error_failed;
 
-      }
+      //}
 
-      return ::success;
+      //return ::success;
 
    }
 
@@ -371,7 +321,7 @@ namespace universal_windows
    }
 
 
-   ::extended::transport < ::file::file > file_context::resource_get_file(const ::file::path & path)
+   file_pointer file_context::resource_get_file(const ::file::path & path)
    {
 
 #ifdef WINDOWS_DESKTOP
@@ -383,7 +333,9 @@ namespace universal_windows
       string strExtension = path.final_extension();
 
       strExtension.make_upper();
+
       const char * psz = strExtension;
+
       if (strExtension == "HTML")
       {
 
@@ -432,56 +384,51 @@ namespace universal_windows
    }
 
 
-
-
-   bool file_context::get_status(const ::file::path & path, ::file::file_status & rStatus)
+   void file_context::get_status(::file::file_status & rStatus, const ::file::path & path)
    {
 
-      // attempt to fully qualify path first
-
       auto pathFull = m_psystem->m_pacmepath->_final(path);
-
-      //wstring wstrFullName;
-      //wstring wstrFileName;
-      //wstrFileName = ::str::international::utf8_to_unicode(path);
-      //if (!vfxFullPath(wstrFullName, wstrFileName))
-      //{
-      //   rStatus.m_strFullName.Empty();
-      //   return false;
-      //}
-      //::str::international::unicode_to_utf8(rStatus.m_strFullName, wstrFullName);
 
       wstring wstrFullName(pathFull);
 
       WIN32_FIND_DATAW findFileData;
+      
       HANDLE hFind = FindFirstFileW((LPWSTR)(const widechar *)wstrFullName, &findFileData);
+      
       if (hFind == INVALID_HANDLE_VALUE)
-         return false;
+      {
+       
+         DWORD lastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(lastError);
+
+         throw ::exception(estatus);
+
+      }
+
       VERIFY(FindClose(hFind));
 
-      // strip attribute of NORMAL bit, our API doesn't have a "normal" bit.
       rStatus.m_attribute = (byte)(findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
 
-      // get just the low ::u32 of the file size_i32
-      ASSERT(findFileData.nFileSizeHigh == 0);
-      rStatus.m_size = (::i32)findFileData.nFileSizeLow;
+      rStatus.m_filesize = make64_from32(findFileData.nFileSizeLow, findFileData.nFileSizeHigh);
 
-
-
-      //auto pnode = psystem->node();
-
-      // convert times as appropriate
       file_time_to_time(&rStatus.m_ctime.m_i, (file_time_t *)&findFileData.ftCreationTime);
       file_time_to_time(&rStatus.m_atime.m_i, (file_time_t *)&findFileData.ftLastAccessTime);
       file_time_to_time(&rStatus.m_mtime.m_i, (file_time_t *)&findFileData.ftLastWriteTime);
 
       if (rStatus.m_ctime.get_time() == 0)
+      {
+
          rStatus.m_ctime = rStatus.m_mtime;
 
+      }
+
       if (rStatus.m_atime.get_time() == 0)
+      {
+
          rStatus.m_atime = rStatus.m_mtime;
 
-      return true;
+      }
 
    }
 
@@ -640,7 +587,8 @@ namespace universal_windows
    //   }
    //}
 
-   ::extended::status file_context::set_status(const ::file::path & path, const ::file::file_status & status)
+   
+   void file_context::set_status(const ::file::path & path, const ::file::file_status & status)
    {
 
       wstring pszFileName(path);
@@ -719,21 +667,33 @@ namespace universal_windows
          if (hFile == INVALID_HANDLE_VALUE)
          {
 
-            return ::last_error_to_status(::GetLastError());
+            auto lastError = ::GetLastError();
+
+            auto estatus = ::last_error_to_status(lastError);
+
+            throw ::file_open_exception(estatus, path);
 
          }
 
          if (!SetFileTime((HANDLE)hFile, pCreationTime, pLastAccessTime, pLastWriteTime))
          {
 
-            return ::last_error_to_status(::GetLastError());
+            auto lastError = ::GetLastError();
+
+            auto estatus = ::last_error_to_status(lastError);
+
+            throw ::file::exception(estatus, path);
 
          }
 
          if (!::CloseHandle(hFile))
          {
 
-            return ::last_error_to_status(::GetLastError());
+            auto lastError = ::GetLastError();
+
+            auto estatus = ::last_error_to_status(lastError);
+
+            throw ::file::exception(estatus, path);
 
          }
 
@@ -745,32 +705,36 @@ namespace universal_windows
          if (!SetFileAttributesW((LPWSTR)(const widechar *)pszFileName, (::u32)status.m_attribute))
          {
 
-            return ::last_error_to_status(::GetLastError());
+            auto lastError = ::GetLastError();
+
+            auto estatus = ::last_error_to_status(lastError);
+
+            throw ::file::exception(estatus, path);
 
          }
 
       }
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   ::e_status file_context::update_module_path()
-   {
+   //::e_status file_context::update_module_path()
+   //{
 
-      auto estatus = ::file_context::update_module_path();
+   //   auto estatus = ::file_context::update_module_path();
 
-      if(!estatus)
-   {
-      
-      return estatus;
-      
-   }
+   //   if(!estatus)
+   //{
+   //   
+   //   return estatus;
+   //   
+   //}
 
-      return estatus;
+   //   return estatus;
 
-   }
+   //}
 
 
    file_pointer file_context::get_file(const ::payload & payloadFile, const ::file::e_open & eopenFlags)

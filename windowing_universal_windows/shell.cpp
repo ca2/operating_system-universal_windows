@@ -5,8 +5,8 @@
 #undef Usr
 #include "shell.h"
 #include "acme/filesystem/filesystem/acme_dir.h"
-//#include "acme_windows/known_folder_struct.h"
-//#include <thumbcache.h>
+#include "aura/graphics/image/list.h"
+#include "aura/graphics/image/icon.h"
 
 
 namespace windowing_universal_windows
@@ -1393,24 +1393,28 @@ namespace windowing_universal_windows
    //}
 
 
-   ::e_status shell::initialize(::object * pobject)
+   void shell::initialize(::object * pobject)
    {
 
       if (m_bInitialized)
       {
 
-         return ::success;
+         //return ::success;
+
+         return;
 
       }
 
-      auto estatus = ::user::shell::initialize(pobject);
+      //auto estatus = 
+      
+      ::user::shell::initialize(pobject);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
       //estatus = __compose_new(m_pmessagequeue);
 
@@ -1424,33 +1428,32 @@ namespace windowing_universal_windows
 
       //m_pmessagequeue->create_message_queue("user::shell", this);
 
-      return estatus;
+      //return estatus;
 
    }
 
 
-   ::e_status shell::run()
+   //::e_status shell::run()
+   void shell::run()
    {
-
 
 
       defer_co_initialize_ex(true);
 
-
-
-
       //m_thumbnailhandlerfactory.CoCreateInstance(CLSID_ThumbnailHandlerFactory);
 
-      auto estatus = ::user::shell::run();
+      //auto estatus =
+      
+      ::user::shell::run();
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
-      return estatus;
+      //return estatus;
 
    }
 
@@ -1696,10 +1699,12 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status shell::destroy()
+   void shell::destroy()
    {
 
-      return ::user::shell::destroy();
+      //return 
+      
+      ::user::shell::destroy();
 
    }
 

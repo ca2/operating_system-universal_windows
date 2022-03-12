@@ -77,13 +77,17 @@ namespace universal_windows
    //}
 
 
-   ::extended::status file::open(const ::file::path & path, const ::file::e_open & efileopenParam)
+   void file::open(const ::file::path & path, const ::file::e_open & efileopenParam)
    {
 
       ::file::e_open eopen(efileopenParam);
 
       if (m_hfile != NULL_HFILE)
+      {
+       
          close();
+
+      }
 
       ASSERT_VALID(this);
       ASSERT(__is_valid_string(path));
@@ -198,6 +202,8 @@ pacmedir->create(lpszFileName.folder());
       {
          ::u32 dwLastError = ::GetLastError();
 
+         m_estatus = last_error_to_status(dwLastError);
+
          if(dwLastError != ERROR_FILE_NOT_FOUND && dwLastError != ERROR_PATH_NOT_FOUND)
          {
             /*         if (pException != nullptr)
@@ -215,21 +221,32 @@ pacmedir->create(lpszFileName.folder());
             else
             {*/
 
+            if (eopen & ::file::e_open_no_exception_on_open)
+            {
 
-            return ::last_error_to_status(dwLastError);
+
+               return;
+
+
+            }
+
+            throw ::file_open_exception(m_estatus, string_format("file: \"%s\"", m_path.c_str()));
+
+
+            //return ::last_error_to_status(dwLastError);
 
             //}
 
          }
 
-         try
-         {
-//            m_psystem->m_spfilesystem.m_p->FullPath(m_path, m_path);
-         }
-         catch(...)
-         {
-            return error_failed;
-         }
+//         try
+//         {
+////            m_psystem->m_spfilesystem.m_p->FullPath(m_path, m_path);
+//         }
+//         catch(...)
+//         {
+//            return error_failed;
+//         }
 
          //m_path = ::str::international::unicode_to_utf8(m_wstrFileName);
 
@@ -254,7 +271,19 @@ pacmedir->create(lpszFileName.folder());
 
 
             ::u32 dwLastError = ::GetLastError();
-            return ::last_error_to_status(dwLastError);
+            m_estatus = ::last_error_to_status(dwLastError);
+
+            if (eopen & ::file::e_open_no_exception_on_open)
+            {
+
+
+               return;
+
+
+            }
+
+            throw ::file_open_exception(m_estatus, string_format("file: \"%s\"", m_path.c_str()));
+
 
 
             //}
@@ -267,7 +296,7 @@ pacmedir->create(lpszFileName.folder());
 
       m_bCloseOnDelete = true;
 
-      return ::success;
+      //return ::success;
 
    }
 

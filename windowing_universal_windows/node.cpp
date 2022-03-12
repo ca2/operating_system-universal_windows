@@ -26,25 +26,27 @@ namespace windowing_universal_windows
    }
 
 
-   void node::message_box_factory()
+   //void node::message_box_factory()
+   //{
+
+   //   ::factory::add_factory_item < ::windowing_universal_windows::message_box, ::user::message_box >();
+
+   //}
+
+
+   void node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
    {
 
-      ::factory::add_factory_item < ::windowing_universal_windows::message_box, ::user::message_box >();
+      //auto estatus = 
+      
+      m_psystem->m_paurasystem->branch_synchronously();
 
-   }
+      //if (!estatus)
+      //{
 
+      //   return estatus;
 
-   ::e_status node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
-   {
-
-      auto estatus = m_psystem->m_paurasystem->begin_synch();
-
-      if (!estatus)
-      {
-
-         return estatus;
-
-      }
+      //}
 
       auto pwindow = new window;
 
@@ -65,12 +67,12 @@ namespace windowing_universal_windows
 
       //}
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   ::e_status node::call_member(::i64 i)
+   void node::call_member(::i64 i)
    {
 
       //if (i == SOUL_ID)
@@ -82,16 +84,18 @@ namespace windowing_universal_windows
 
       //}
 
-      auto estatus = aura::universal_windows::node::call_member(i);
+      //auto estatus = 
+      
+      aura::universal_windows::node::call_member(i);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
-      return estatus;
+      //return estatus;
 
    }
 
@@ -171,7 +175,7 @@ namespace windowing_universal_windows
    //}
 
 
-   ::e_status node::node_post(const ::routine & routine)
+   void node::node_post(const ::routine & routine)
    {
 
       auto window = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow();
@@ -186,7 +190,7 @@ namespace windowing_universal_windows
 
       });
 
-      return ::success;
+      //return ::success;
 
    }
 

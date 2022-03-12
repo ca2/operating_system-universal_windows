@@ -1,6 +1,7 @@
 // created by Camilo <3CamiloSasukeThomasBorregaardSoerensen  - Honoring Thomas Borregaard S�rensen MY ONLY LORD
 // recreated by Camilo 2021-02-02 02:43
 #include "framework.h"
+#include "aura/graphics/image/image.h"
 
 
 TCHAR * windows_get_system_cursor(enum_cursor ecursor);
@@ -28,45 +29,47 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status cursor::_create_os_cursor()
+   void cursor::_create_os_cursor()
    {
 
       if (get_hcursor())
       {
 
-         return success_none;
+         //return success_none;
+
+         return;
 
       }
 
       if (m_pimage)
       {
 
-         auto estatus = _create_from_image(m_pimage, m_szHotspotOffset.cx, m_szHotspotOffset.cy);
+         _create_from_image(m_pimage, m_szHotspotOffset.cx, m_szHotspotOffset.cy);
 
-         if(estatus.succeeded())
+         if(::is_ok(m_pimage))
          {
 
-            return estatus;
+            return;
 
          }
 
       }
 
-      auto estatus = _load_default_cursor(m_ecursor);
+      _load_default_cursor(m_ecursor);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   throw ::exception(estatus);
 
-      }
+      //}
 
-      return estatus;
+      //return estatus;
 
    }
 
 
-   ::e_status cursor::_create_from_image(const ::image * pimage, ::i32 xHotspot, ::i32 yHotspot)
+   void cursor::_create_from_image(const ::image * pimage, ::i32 xHotspot, ::i32 yHotspot)
    {
 
       //HCURSOR hcursor = (HCURSOR) create_alpha_cursor(pimage, xHotspot, yHotspot);
@@ -80,12 +83,12 @@ namespace windowing_universal_windows
 
       //set_hcursor(hcursor);
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   ::e_status cursor::_load_default_cursor(enum_cursor ecursor)
+   void cursor::_load_default_cursor(enum_cursor ecursor)
    {
 
       auto pcursor = windows_get_system_cursor(ecursor);
@@ -93,7 +96,7 @@ namespace windowing_universal_windows
       if (pcursor == nullptr)
       {
 
-         return ::error_not_found;
+         throw ::exception(::error_not_found);
 
       }
 
@@ -108,12 +111,12 @@ namespace windowing_universal_windows
 
       //set_hcursor(hcursor);
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   //::e_status cursor::initialize_system_default()
+   //void cursor::initialize_system_default()
    //{
 
    //   return load_default_cursor(m_ecursor);
@@ -122,9 +125,6 @@ namespace windowing_universal_windows
 
 
 } // namespace windowing_universal_windows
-
-
-
 
 
 TCHAR * windows_get_system_cursor(enum_cursor ecursor)

@@ -27,7 +27,7 @@ namespace aura
       }
 
 
-      ::e_status node::main()
+      void node::main()
       {
 
          //auto psystem = m_psystem;
@@ -43,7 +43,7 @@ namespace aura
 
          //return estatus;
 
-         return ::success;
+         //return ::success;
 
       }
 

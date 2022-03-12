@@ -4,8 +4,8 @@
   <PropertyGroup Label="UserMacros">
     <BaseDir>$(SolutionDir)..\..\..\</BaseDir>
     <TimeDir>$(BaseDir)time-universal_windows\</TimeDir>
-    <__archive>$(BaseDir)archive\</__archive>
     <__toolsbin>$(__operating_system)tool-windows\bin\</__toolsbin>
+    <__operating_system>$(BaseDir)operating-system\</__operating_system>
   </PropertyGroup>
   <PropertyGroup />
   <ItemDefinitionGroup />
@@ -16,11 +16,11 @@
     <BuildMacro Include="TimeDir">
       <Value>$(TimeDir)</Value>
     </BuildMacro>
-    <BuildMacro Include="__archive">
-      <Value>$(__operating_system)</Value>
-    </BuildMacro>
     <BuildMacro Include="__toolsbin">
       <Value>$(__toolsbin)</Value>
+    </BuildMacro>
+    <BuildMacro Include="__operating_system">
+      <Value>$(__operating_system)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>

@@ -27,13 +27,13 @@ namespace windowing_universal_windows
       ~node() override;
 
 
-      void message_box_factory() override;
+      //void message_box_factory() override;
 
 
-      ::e_status implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem) override;
+      void implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem) override;
 
 
-      ::e_status call_member(::i64 i) override;
+      void call_member(::i64 i) override;
       
 
       //bool _os_calc_app_dark_mode() override;
@@ -48,7 +48,7 @@ namespace windowing_universal_windows
 
       //__pointer(::extended::future < ::conversation >) _message_box(::object * pobject, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
 
-      ::e_status node_post(const ::routine & routine) override;
+      void node_post(const ::routine & routine) override;
 
 
    };

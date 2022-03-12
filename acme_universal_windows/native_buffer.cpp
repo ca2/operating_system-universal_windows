@@ -1,19 +1,19 @@
 // Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
 #include "framework.h"
 
-::e_status hresult_to_status(HRESULT hr)
-{
-
-   if (FAILED(hr))
-   {
-
-      return error_failed;
-
-   }
-
-   return ::success;
-
-}
+//::e_status hresult_to_status(HRESULT hr)
+//{
+//
+//   if (FAILED(hr))
+//   {
+//
+//      return error_failed;
+//
+//   }
+//
+//   return ::success;
+//
+//}
 
 namespace universal_windows
 {
@@ -48,7 +48,7 @@ namespace universal_windows
    }
 
 
-   ::extended::status native_buffer::open(const ::file::path & path, const ::file::e_open & eopenParam)
+   void native_buffer::open(const ::file::path & path, const ::file::e_open & eopenParam)
    {
 
 
@@ -85,7 +85,18 @@ namespace universal_windows
       if (folder == nullptr)
       {
 
-         return error_failed;
+         set_nok();
+
+         m_estatus = error_not_found;
+
+         if (eopen & ::file::e_open_no_exception_on_open)
+         {
+
+            return;
+
+         }
+
+         throw ::file_open_exception(m_estatus);
 
       }
 
@@ -104,8 +115,12 @@ namespace universal_windows
    }
 
 
-   ::extended::status native_buffer::open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, const ::file::e_open & efileopenParam)
+   void native_buffer::open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, const ::file::e_open & efileopenParam)
    {
+
+      set_nok();
+
+      m_estatus = error_failed;
 
       ::file::e_open eopen(efileopenParam);
 
@@ -140,8 +155,6 @@ namespace universal_windows
 
       strRelative.trim("\\/");
 
-
-
       if (strRelative.is_empty())
       {
 
@@ -173,14 +186,14 @@ namespace universal_windows
             if (!item)
             {
 
-               return error_failed;
+               throw ::exception(error_failed);
 
             }
 
             if (!item.IsOfType(winrt::Windows::Storage::StorageItemTypes::Folder))
             {
 
-               return error_failed;
+               throw ::exception(error_failed);
 
             }
 
@@ -195,7 +208,7 @@ namespace universal_windows
       if (m_folder == nullptr)
       {
 
-         return error_failed;
+         throw file_open_exception(error_not_found);
 
       }
 
@@ -311,7 +324,7 @@ namespace universal_windows
 
          auto estatus = hresult_to_status(error.code());
 
-         return estatus;
+         throw ::file_open_exception(estatus);
 
       }
 
@@ -320,7 +333,18 @@ namespace universal_windows
 
          m_folder = nullptr;
 
-         return error_failed;
+         m_estatus = error_not_found;
+
+         if (eopen & ::file::e_open_no_exception_on_open)
+         {
+
+            set_nok();
+
+            return;
+
+         }
+
+         throw ::file_open_exception(m_estatus);
 
       }
 
@@ -349,7 +373,7 @@ namespace universal_windows
 
          m_folder = nullptr;
 
-         return error_failed;
+         throw file_open_exception(error_failed);
 
       }
 
@@ -357,7 +381,11 @@ namespace universal_windows
 
       m_eopen = eopen;
 
-      return ::success;
+      set_ok();
+
+      m_estatus = ::success;
+
+      //return ::success;
 
    }
 

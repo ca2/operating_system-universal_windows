@@ -1,7 +1,8 @@
 #include "framework.h"
 #include "apex/operating_system.h"
-#include "apex/platform/app_core.h"
+//#include "apex/platform/app_core.h"
 #include "copydesk.h"
+#include "aura/graphics/image/image.h"
 #include <winrt/Windows.ApplicationModel.DataTransfer.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.UI.Xaml.Media.Imaging.h>
@@ -77,17 +78,19 @@ namespace windowing_universal_windows
    //}
 
 
-   ::e_status copydesk::initialize(::object * pobject)
+   void copydesk::initialize(::object * pobject)
    {
 
-      auto estatus = ::user::copydesk::initialize(pobject);
+      //auto estatus =
+      
+      ::user::copydesk::initialize(pobject);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
       synchronous_lock synchronouslock(mutex());
 
@@ -148,21 +151,23 @@ namespace windowing_universal_windows
 
       OnClipboardUpdate();
 
-      return true;
+      //return true;
 
    }
 
 
-   ::e_status copydesk::destroy()
+   void copydesk::destroy()
    {
 
-      auto estatus1 = ::user::copydesk::destroy();
+      //auto estatus1 = 
+      
+      ::user::copydesk::destroy();
 
 //      auto estatus2 = ::user::message_window::destroy();
 
       //return minimum(estatus1, estatus2);
 
-      return estatus1;
+      //return estatus1;
 
    }
 
@@ -413,7 +418,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status copydesk::_get_filea(::file::path_array & patha, e_op & eop)
+   bool copydesk::_get_filea(::file::path_array & patha, enum_op & eop)
    {
 
       //::count c = _get_file_count();
@@ -462,7 +467,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status copydesk::_set_filea(const ::file::path_array & patha, e_op eop)
+   bool copydesk::_set_filea(const ::file::path_array & patha, enum_op eop)
    {
 
       //ASSERT(::IsWindow(m_hwnd));
@@ -525,13 +530,13 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status copydesk::_set_plain_text(const ::string & str)
+   bool copydesk::_set_plain_text(const ::string & str)
    {
 
       if (!m_pwindow)
       {
 
-         return error_not_initialized;
+         throw ::exception(error_not_initialized);
 
       }
 
@@ -559,25 +564,24 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status copydesk::_get_plain_text(string & str)
+   bool copydesk::_get_plain_text(string & str)
    {
 
       if (!_has_plain_text())
       {
 
-         return error_wrong_state;
+         throw ::exception(error_wrong_state);
 
       }
 
       if (!m_pwindow)
       {
 
-         return error_not_initialized;
+         throw ::exception(error_not_initialized);
 
       }
 
       synchronous_lock synchronouslock(mutex());
-
 
       ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
 
@@ -588,20 +592,20 @@ namespace windowing_universal_windows
 
          }));
 
-            auto hstr = datapackageview.GetTextAsync().get();
+         auto hstr = datapackageview.GetTextAsync().get();
 
-            //if (!ppropertyset->is_true("nok_to_set"))
-            //{
+         //if (!ppropertyset->is_true("nok_to_set"))
+         //{
 
-               str = hstr.begin();
+            str = hstr.begin();
 
-         //   }
+      //   }
 
-         //}));
+      //}));
 
 //      ppropertyset->operator[]("nok_to_set") = true;
 
-  //    sleep(100_ms);
+//    sleep(100_ms);
 
       return true;
 
@@ -635,20 +639,20 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status copydesk::_desk_to_image(::image * pimage)
+   bool copydesk::_desk_to_image(::image * pimage)
    {
 
       if (!_has_image())
       {
 
-         return false;
+         throw ::exception(error_wrong_state);
 
       }
 
       if (!m_pwindow)
       {
 
-         return error_not_initialized;
+         throw ::exception(error_not_initialized);
 
       }
 
@@ -678,7 +682,7 @@ namespace windowing_universal_windows
       if (buffer == nullptr)
       {
 
-         return error_failed;
+         throw exception(error_failed);
 
       }
 
@@ -760,12 +764,12 @@ namespace windowing_universal_windows
 
       //}));
 
-      return ::success;
+      return true;
 
    }
 
 
-   ::e_status copydesk::_image_to_desk(const ::image * pimage)
+   bool copydesk::_image_to_desk(const ::image * pimage)
    {
 
       //ASSERT(::IsWindow(m_hwnd));

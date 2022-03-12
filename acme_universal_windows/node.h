@@ -20,7 +20,7 @@ namespace acme
          ~node() override;
 
 
-         ::e_status implement(__pointer(::acme::node) & pnode, __pointer(class ::system) & psystem) override;
+         void implement(__pointer(::acme::node) & pnode, __pointer(class ::system) & psystem) override;
 
 
          string audio_get_default_library_name() override;

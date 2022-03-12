@@ -12,13 +12,13 @@ namespace universal_windows
 
 
       file_system();
-      virtual ~file_system();
+      ~file_system() override;
 
 
-      virtual ::e_status init_system() override;
+      void init_system() override;
 
 
-      virtual ::e_status update_module_path() override;
+      //void update_module_path() override;
 
 
    };

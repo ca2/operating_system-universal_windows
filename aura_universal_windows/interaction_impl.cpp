@@ -1,5 +1,5 @@
 #include "framework.h"
-//#include "_windows_runtime.h"
+#include "aura/graphics/image/image.h"
 //#include "_.h"
 //#include "_uwp.h"
 //#include "aura/platform/message_queue.h"
@@ -367,12 +367,12 @@ return true;
    interaction_impl::~interaction_impl()
    {
 
-      if(get_application() != nullptr)
-      {
+      //if(get_application() != nullptr)
+      //{
 
-         //m_psystem->window_map().m_map.erase_key((oswindow)(iptr)(void *)get_handle());
+      //   //m_psystem->window_map().m_map.erase_key((oswindow)(iptr)(void *)get_handle());
 
-      }
+      //}
 
    }
 
@@ -4014,52 +4014,52 @@ return true;
    }
 
 
-   bool interaction_impl::LockWindowUpdate()
-   {
+   //void interaction_impl::LockWindowUpdate()
+   //{
 
-      throw ::exception(todo);
+   //   throw ::exception(todo);
 
-      //ASSERT(::is_window(get_handle()));
+   //   //ASSERT(::is_window(get_handle()));
 
-      //return ::LockWindowUpdate(get_handle()) != false;
+   //   //return ::LockWindowUpdate(get_handle()) != false;
 
-      return false;
+   //   //return false;
 
-   }
-
-
-   void interaction_impl::UnlockWindowUpdate()
-   {
-
-      throw ::exception(todo);
-
-      //ASSERT(::is_window(get_handle()));
-      //
-      //::LockWindowUpdate(nullptr);
-
-   }
+   //}
 
 
-   bool interaction_impl::RedrawWindow(const ::rectangle_i32& rectangleUpdate, ::draw2d::region* prgnUpdate, ::u32 flags)
-   {
+   //void interaction_impl::UnlockWindowUpdate()
+   //{
 
-      m_puserinteraction->m_bNeedRedraw = true;
+   //   throw ::exception(todo);
 
-      //throw ::exception(todo);
+   //   //ASSERT(::is_window(get_handle()));
+   //   //
+   //   //::LockWindowUpdate(nullptr);
 
-      //if(::aura::get_system()->get_twf() == nullptr)
-      //   return false;
+   //}
 
-      //if(::aura::get_system()->get_twf()->m_bProDevianMode)
-      //   return true;
 
-      //ASSERT(::is_window(get_handle()));
+   //void interaction_impl::RedrawWindow(const ::rectangle_i32& rectangleUpdate, ::draw2d::region* prgnUpdate, ::u32 flags)
+   //{
 
-      //return ::set_need_redraw(get_handle(), lpRectUpdate, prgnUpdate == nullptr ? nullptr : (HRGN)prgnUpdate->get_os_data(), flags) != false;
+   //   m_puserinteraction->m_bNeedRedraw = true;
 
-      return true;
+   //   //throw ::exception(todo);
 
-   }
+   //   //if(::aura::get_system()->get_twf() == nullptr)
+   //   //   return false;
+
+   //   //if(::aura::get_system()->get_twf()->m_bProDevianMode)
+   //   //   return true;
+
+   //   //ASSERT(::is_window(get_handle()));
+
+   //   //return ::set_need_redraw(get_handle(), lpRectUpdate, prgnUpdate == nullptr ? nullptr : (HRGN)prgnUpdate->get_os_data(), flags) != false;
+
+   //   return true;
+
+   //}
 
 #ifdef WINDOWS_DESKTOP
 
@@ -4104,7 +4104,7 @@ return true;
    }
 
 
-   bool interaction_impl::SetTimer(uptr uEvent, const ::duration& durationElapse, PFN_TIMER pfnTimer, bool bPeriodic, void* pdata)
+   void interaction_impl::SetTimer(uptr uEvent, const ::duration& durationElapse, PFN_TIMER pfnTimer, bool bPeriodic, void* pdata)
    {
 
 
@@ -4113,12 +4113,14 @@ return true;
 
    }
 
-   bool interaction_impl::KillTimer(uptr uEvent)
+
+   void interaction_impl::KillTimer(uptr uEvent)
    {
 
       return ::user::interaction_impl::KillTimer(uEvent);
 
    }
+
 
    bool interaction_impl::IsWindowEnabled()
    {
@@ -6235,7 +6237,7 @@ namespace universal_windows
    }
 
 
-   ::e_status interaction_impl::update_graphics_resources()
+   void interaction_impl::update_graphics_resources()
    {
 
       return ::user::interaction_impl::update_graphics_resources();
@@ -6389,22 +6391,22 @@ namespace universal_windows
    }
 
 
-   ::e_status interaction_impl::show_software_keyboard(::user::primitive * pprimitive, string str, strsize iBeg, strsize iEnd)
+   void interaction_impl::show_software_keyboard(::user::primitive * pprimitive, string str, strsize iBeg, strsize iEnd)
    {
 
       //m_pframeworkview.get().SetText(str, iBeg, iEnd);
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   ::e_status interaction_impl::hide_software_keyboard(::user::primitive * pprimitive)
+   void interaction_impl::hide_software_keyboard(::user::primitive * pprimitive)
    {
 
       //m_pframeworkview.get().SetText(str, iBeg, iEnd);
 
-      return ::success;
+      //return ::success;
 
    }
 

@@ -24,11 +24,18 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "hellosolarsystem", "C:\basis\source\console\hellosolarsystem\uwp_console_hellosolarsystem.vcxproj", "{8643CEFE-A292-4E2D-983E-51775AFAF397}"
 	ProjectSection(ProjectDependencies) = postProject
 		{BC919186-F67A-4FFC-B6BE-0E63DC652A63} = {BC919186-F67A-4FFC-B6BE-0E63DC652A63}
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE} = {FC96F9E0-D65E-4286-95B1-F1FF4873DACE}
 	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "readlines", "C:\basis\source\console\readlines\uwp_console_readlines.vcxproj", "{47BB2E25-EE26-42B7-BF5B-345FF4090F37}"
+	ProjectSection(ProjectDependencies) = postProject
+		{BC919186-F67A-4FFC-B6BE-0E63DC652A63} = {BC919186-F67A-4FFC-B6BE-0E63DC652A63}
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE} = {FC96F9E0-D65E-4286-95B1-F1FF4873DACE}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crypto_openssl", "..\..\..\source\app\crypto_openssl\u_crypto_openssl.vcxproj", "{BC919186-F67A-4FFC-B6BE-0E63DC652A63}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "folder_zip", "..\..\..\source\app\folder_zip\u_folder_zip.vcxproj", "{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -476,6 +483,38 @@ Global
 		{BC919186-F67A-4FFC-B6BE-0E63DC652A63}.stage|x64.Build.0 = stage|x64
 		{BC919186-F67A-4FFC-B6BE-0E63DC652A63}.stage|x86.ActiveCfg = stage|Win32
 		{BC919186-F67A-4FFC-B6BE-0E63DC652A63}.stage|x86.Build.0 = stage|Win32
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.basis|ARM.ActiveCfg = basis|ARM
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.basis|ARM.Build.0 = basis|ARM
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.basis|ARM64.ActiveCfg = basis|ARM64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.basis|ARM64.Build.0 = basis|ARM64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.basis|x64.ActiveCfg = basis|x64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.basis|x64.Build.0 = basis|x64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.basis|x86.ActiveCfg = basis|Win32
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.basis|x86.Build.0 = basis|Win32
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_basis|ARM.ActiveCfg = cube_basis|ARM
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_basis|ARM.Build.0 = cube_basis|ARM
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_basis|ARM64.ActiveCfg = cube_basis|ARM64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_basis|ARM64.Build.0 = cube_basis|ARM64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_basis|x64.ActiveCfg = cube_basis|x64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_basis|x64.Build.0 = cube_basis|x64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_basis|x86.ActiveCfg = cube_basis|Win32
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_basis|x86.Build.0 = cube_basis|Win32
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_stage|ARM.ActiveCfg = cube_stage|ARM
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_stage|ARM.Build.0 = cube_stage|ARM
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_stage|ARM64.ActiveCfg = cube_stage|ARM64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_stage|ARM64.Build.0 = cube_stage|ARM64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_stage|x64.ActiveCfg = cube_stage|x64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_stage|x64.Build.0 = cube_stage|x64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_stage|x86.ActiveCfg = cube_stage|Win32
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.cube_stage|x86.Build.0 = cube_stage|Win32
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.stage|ARM.ActiveCfg = stage|ARM
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.stage|ARM.Build.0 = stage|ARM
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.stage|ARM64.ActiveCfg = stage|ARM64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.stage|ARM64.Build.0 = stage|ARM64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.stage|x64.ActiveCfg = stage|x64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.stage|x64.Build.0 = stage|x64
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.stage|x86.ActiveCfg = stage|Win32
+		{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}.stage|x86.Build.0 = stage|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -24,7 +24,7 @@ namespace apex
          ~node() override;
 
 
-         ::e_status implement(__pointer(::acme::node) & pnode, __pointer(class ::system) & psystem) override;
+         void implement(__pointer(::acme::node) & pnode, __pointer(class ::system) & psystem) override;
 
 
          string system_options_main_body() override;

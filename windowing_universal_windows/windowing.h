@@ -35,13 +35,13 @@ namespace windowing_universal_windows
       ~windowing() override;
 
 
-      ::e_status initialize_windowing(::user::user * puser) override;
+      void initialize_windowing(::user::user * puser) override;
 
       void defer_term_ui() override;
 
       void finalize_windowing() override;
 
-      ::e_status destroy() override;
+      void destroy() override;
 
       //::e_status destroy() override;
 
@@ -95,12 +95,12 @@ namespace windowing_universal_windows
       oswindow _get_mouse_capture(itask_t itask);
 
 
-      ::e_status release_mouse_capture() override;
+      void release_mouse_capture() override;
 
 
       
 
-      virtual ::e_status erase_window(::windowing::window * pwindow);
+      void erase_window(::windowing::window * pwindow) override;
     
 
       using windowing::windowing::get_cursor;
@@ -115,7 +115,7 @@ namespace windowing_universal_windows
 
       virtual void get_cursor_pos(POINT_I32 * ppoint);
 
-      virtual ::e_status set_cursor_position(const ::point_i32 & point);
+      void set_cursor_position(const ::point_i32 & point) override;
 
 
 
@@ -134,7 +134,7 @@ namespace windowing_universal_windows
       //__pointer(::windowing::window) window_from_point(::aura::application * papp, const ::point_i32 & point);
 
       
-      ::e_status windowing_post(const ::routine& routine) override;
+      void windowing_post(const ::routine& routine) override;
 
 
       //static BOOL CALLBACK GetAppsEnumWindowsProc(HWND hwnd, LPARAM lParam);
@@ -146,7 +146,7 @@ namespace windowing_universal_windows
 
       void initialize_keyboard(::windowing::keyboard * pkeyboard) override;
 
-      ::e_status lock_set_foreground_window(bool bLock) override;
+      void lock_set_foreground_window(bool bLock) override;
 
       //virtual wstring _windows_register_window_class(::u32 nClassStyle, hcursor hCursor = 0, HBRUSH hbrBackground = 0, hicon hIcon = 0);
       //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS wstring windows_register_window_class(::object * pobject, ::u32 nClassStyle, hcursor hCursor = 0, HBRUSH hbrBackground = 0, hicon hIcon = 0);

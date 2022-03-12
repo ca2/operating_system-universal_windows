@@ -1,6 +1,7 @@
 // created by Camilo <3CamiloSasukeThomasBorregaardSoerensen  - Honoring Thomas Borregaard S�rensen MY ONLY LORD
 // recreated by Camilo 2021-01-28 16:44
 #include "framework.h"
+#include "aura/graphics/image/image.h"
 
 
 // http ://stackoverflow.com/questions/1913468/how-to-determine-the-size_i32-of-an-icon-from-a-hicon
@@ -116,7 +117,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status icon::load_file(const ::string & strPath)
+   void icon::load_file(const ::string & strPath)
    {
 
       //m_ppathProcessed = m_pcontext->m_papexcontext->defer_process_matter_path(strPath);
@@ -145,7 +146,7 @@ namespace windowing_universal_windows
 
       //}
 
-      return m_path.has_char();
+      //return m_path.has_char();
 
 //      return !m_iconmap.is_empty();
 
@@ -160,19 +161,21 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status icon::load_app_tray_icon(const ::string & strApp)
+   void icon::load_app_tray_icon(const ::string & strApp)
    {
 
       string strMatter = "main/icon.ico";
 
-      if (!load_matter(strMatter))
-      {
+      load_matter(strMatter);
 
-         return false;
+      //if (!load_matter(strMatter))
+      //{
 
-      }
+      //   return false;
 
-      return true;
+      //}
+
+      //return true;
 
    }
 

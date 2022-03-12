@@ -25,35 +25,41 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status windowing::initialize_windowing(::user::user * puser)
+   void windowing::initialize_windowing(::user::user * puser)
    {
 
-      auto estatus = ::windowing::windowing::initialize_windowing(puser);
+      //auto estatus = 
+      
+      ::windowing::windowing::initialize_windowing(puser);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
-      estatus = __construct(m_pdisplay);
+      //estatus = 
+      
+      __construct(m_pdisplay);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
-      estatus = m_pdisplay->initialize_display(this);
+      //estatus = 
+      
+      m_pdisplay->initialize_display(this);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
       bool bCreateSessionWindow = defer_create_system_window();
 
@@ -65,7 +71,7 @@ namespace windowing_universal_windows
       }
 
 
-      return estatus;
+      //return estatus;
 
    }
 
@@ -143,7 +149,7 @@ namespace windowing_universal_windows
    }
 
    
-   ::e_status windowing::destroy()
+   void windowing::destroy()
    {
 
       //if (m_psysteminteraction)
@@ -153,16 +159,18 @@ namespace windowing_universal_windows
 
       //}
 
-      auto estatus = ::windowing::windowing::destroy();
+      //auto estatus = 
+      
+      ::windowing::windowing::destroy();
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
-      return estatus;
+      //return estatus;
 
    }
 
@@ -398,7 +406,7 @@ namespace windowing_universal_windows
       if (pthread)
       {
 
-         itask = pthread->get_ithread();
+         itask = pthread->get_itask();
 
       }
 
@@ -594,7 +602,7 @@ namespace windowing_universal_windows
       if (pthread)
       {
 
-         itask = pthread->get_ithread();
+         itask = pthread->get_itask();
 
       }
 
@@ -622,7 +630,7 @@ namespace windowing_universal_windows
    }
 
    
-   ::e_status windowing::release_mouse_capture()
+   void windowing::release_mouse_capture()
    {
 
       if (m_pwindowCapture)
@@ -631,7 +639,7 @@ namespace windowing_universal_windows
          try
          {
 
-            m_pwindowCapture->m_pimpl->m_puserinteractionCapture.release();
+            m_pwindowCapture->m_puserinteractionimpl->m_puserinteractionCapture.release();
 
          }
          catch (...)
@@ -645,7 +653,7 @@ namespace windowing_universal_windows
 
       m_pwindowCapture.release();
 
-      return success;
+      //return success;
 
    }
 
@@ -677,7 +685,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status windowing::set_cursor_position(const ::point_i32 & point)
+   void windowing::set_cursor_position(const ::point_i32 & point)
    {
 
       //if (!::SetCursorPos(point.x, point.y))
@@ -687,12 +695,12 @@ namespace windowing_universal_windows
 
       //}
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   ::e_status windowing::erase_window(::windowing::window * pwindow)
+   void windowing::erase_window(::windowing::window * pwindow)
    {
 
       //if (!m_windowmap.erase_key(__hwnd(pwindow->get_oswindow())))
@@ -702,7 +710,7 @@ namespace windowing_universal_windows
 
       //}
 
-      return ::success;
+      //return ::success;
 
    }
 
@@ -901,19 +909,21 @@ namespace windowing_universal_windows
    }*/
 
    
-   ::e_status windowing::windowing_post(const ::routine & routine)
+   void windowing::windowing_post(const ::routine & routine)
    {
 
-      auto estatus = m_psystem->m_paurasystem->m_pwindowMain->window_post(routine);
+      //auto estatus =
+      
+      m_psystem->m_paurasystem->m_pwindowMain->window_post(routine);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
-      return estatus;
+      //return estatus;
 
    }
 
@@ -1050,7 +1060,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status windowing::lock_set_foreground_window(bool bLock)
+   void windowing::lock_set_foreground_window(bool bLock)
    {
 
       if (bLock)
@@ -1076,7 +1086,7 @@ namespace windowing_universal_windows
 
       }
 
-      return ::success;
+      //return ::success;
 
    }
 
@@ -1298,7 +1308,7 @@ namespace windowing_universal_windows
 
    //}
 
-   ::extended::transport < ::windowing::icon > window::load_icon(const ::payload& payloadFile)
+   __pointer(::windowing::icon) window::load_icon(const ::payload & payloadFile)
    {
 
       auto picon = __create_new < icon >();
@@ -1306,18 +1316,20 @@ namespace windowing_universal_windows
       if (!picon)
       {
 
-         return nullptr;
+         throw ::exception(error_resource);
 
       }
 
-      auto estatus = picon->load_file(payloadFile);
+      //auto estatus = 
+      
+      picon->load_file(payloadFile);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
       return picon;
 

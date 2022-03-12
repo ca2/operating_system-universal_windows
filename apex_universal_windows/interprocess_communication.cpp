@@ -1,4 +1,6 @@
 #include "framework.h"
+#include "acme/primitive/string/base64.h"
+
 
 //#include "universal_windows.h"
 //#ifndef _UWP
@@ -57,7 +59,8 @@ namespace universal_windows
 
       //}
 
-      ::e_status interprocess_communication_tx::open(const ::string & strChannel, ::launcher * plauncher)
+      
+      void interprocess_communication_tx::open(const ::string & strChannel, ::launcher * plauncher)
       {
 
          if (m_strBaseChannel.has_char())
@@ -72,40 +75,40 @@ namespace universal_windows
 
          m_strBaseChannel = strChannel;
 
-         m_strBaseChannel.replace("_", "-");
-         m_strBaseChannel.replace("/", "-");
+         m_strBaseChannel.find_replace("_", "-");
+         m_strBaseChannel.find_replace("/", "-");
 
-         return true;
+         ///return true;
 
       }
 
 
-      ::e_status interprocess_communication_tx::close()
+      void interprocess_communication_tx::close()
       {
 
-         if (m_strBaseChannel.is_empty())
-         {
+         //if (m_strBaseChannel.is_empty())
+         //{
 
-            return true;
+         //   return true;
 
-         }
+         //}
 
          m_strBaseChannel.Empty();
 
-         return true;
+//         return true;
 
       }
 
 
-      ::e_status interprocess_communication_tx::send(const ::string & strMessage, const duration & durationTimeout)
+      void interprocess_communication_tx::send(const ::string & strMessage, const duration & durationTimeout)
       {
 
-         if (!is_tx_ok())
-         {
-          
-            return false;
+         //if (!is_tx_ok())
+         //{
+         // 
+         //   return false;
 
-         }
+         //}
 
          string anotherappUri = m_strBaseChannel + "://send?message=" + m_psystem->url()->url_encode(strMessage);
 
@@ -124,7 +127,7 @@ namespace universal_windows
 
             }));
 
-         return true;
+         //return true;
 
       }
 
@@ -140,20 +143,19 @@ namespace universal_windows
       }
 
 
-      ::e_status interprocess_communication_tx::send(int message, void * pdata, int len, const ::duration & durationTimeout)
+      void interprocess_communication_tx::send(int message, void * pdata, int len, const ::duration & durationTimeout)
       {
 
-         if (!is_tx_ok())
-         {
+         //if (!is_tx_ok())
+         //{
 
-            return false;
+         //   return false;
 
-         }
+         //}
 
          //memory m;
 
          string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + m_psystem->url()->url_encode(m_psystem->base64()->encode({ pdata, len }));
-         
          
          auto pnode = m_psystem->node();
 
@@ -172,7 +174,7 @@ namespace universal_windows
 
          //::wait(Launcher::LaunchUriAsync(uri), durationTimeout);
 
-         return true;
+         //return true;
 
       }
 
@@ -191,7 +193,7 @@ namespace universal_windows
       }
 
 
-      ::e_status interprocess_communication_rx::create(const ::string & strChannel)
+      void interprocess_communication_rx::create(const ::string & strChannel)
       {
 
          if (m_strBaseChannel.has_char())
@@ -203,28 +205,28 @@ namespace universal_windows
 
          m_strBaseChannel = strChannel;
 
-         m_strBaseChannel.replace("_", "-");
-         m_strBaseChannel.replace("/", "-");
+         m_strBaseChannel.find_replace("_", "-");
+         m_strBaseChannel.find_replace("/", "-");
 
-         return true;
+        // return true;
 
       }
 
 
-      ::e_status interprocess_communication_rx::destroy()
+      void interprocess_communication_rx::destroy()
       {
 
-         if (m_strBaseChannel.is_empty())
-         {
+         //if (m_strBaseChannel.is_empty())
+         //{
 
-            return true;
+         //   return true;
 
-         }
+         //}
 
 
          m_strBaseChannel.Empty();
 
-         return true;
+         //return true;
 
       }
 

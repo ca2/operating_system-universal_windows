@@ -5,6 +5,8 @@
 #include "aura/user/_user.h"
 #include "buffer.h"
 #include <stdio.h>
+#include "aura/graphics/draw2d/_draw2d.h"
+#include "aura/graphics/image/_image.h"
 //#include "aura/node/universal_windows/directx_application.h"
 //#include "aura/os/windows_common/draw2d_direct2d_global.h"
 
@@ -57,17 +59,19 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status buffer::initialize_graphics_graphics(::user::interaction_impl* pimpl)
+   void buffer::initialize_graphics_graphics(::user::interaction_impl* pimpl)
    {
 
-      ::e_status estatus = ::graphics::bitmap_source_buffer::initialize_graphics_graphics(pimpl);
+      //::e_status estatus = 
+      
+      ::graphics::bitmap_source_buffer::initialize_graphics_graphics(pimpl);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
       auto puwpimpl = pimpl->cast < ::universal_windows::interaction_impl >();
 
@@ -79,7 +83,7 @@ namespace windowing_universal_windows
 
       m_bInit = true;
 
-      return estatus;
+      //return estatus;
 
    }
 
@@ -642,26 +646,26 @@ namespace windowing_universal_windows
 
          }
 
-         if (m_pwindow->m_pimpl->m_puserinteraction)
+         if (m_pwindow->m_puserinteractionimpl->m_puserinteraction)
          {
 
             //m_pwindow->m_puserinteraction->start_layout();
 
-            m_pwindow->m_pimpl->m_puserinteraction->set_dim(0, 0, m_size.cx, m_size.cy);
+            m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_dim(0, 0, m_size.cx, m_size.cy);
 
-            m_pwindow->m_pimpl->m_puserinteraction->order_top();
+            m_pwindow->m_puserinteractionimpl->m_puserinteraction->order_top();
 
-            m_pwindow->m_pimpl->m_puserinteraction->display(e_display_normal);
+            m_pwindow->m_puserinteractionimpl->m_puserinteraction->display(e_display_normal);
 
             //defer_resize_top_level_windows();
 
-            m_pwindow->m_pimpl->m_puserinteraction->set_reposition();
+            m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_reposition();
 
-            m_pwindow->m_pimpl->m_puserinteraction->set_need_layout();
+            m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_need_layout();
 
-            m_pwindow->m_pimpl->m_puserinteraction->set_need_redraw();
+            m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_need_redraw();
 
-            m_pwindow->m_pimpl->m_puserinteraction->post_redraw();
+            m_pwindow->m_puserinteractionimpl->m_puserinteraction->post_redraw();
 
          }
 

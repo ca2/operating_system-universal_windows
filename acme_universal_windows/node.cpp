@@ -23,21 +23,23 @@ namespace acme
       }
 
 
-      ::e_status node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
+      void node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
       {
 
          //auto psystem = m_psystem;
 
-         auto estatus = psystem->main();
+         //auto estatus = 
+         
+         psystem->main();
 
-         if (!estatus)
-         {
+         //if (!estatus)
+         //{
 
-            return estatus;
+         //   return estatus;
 
-         }
+         //}
 
-         return estatus;
+         //return estatus;
 
       }
 

@@ -129,10 +129,10 @@ namespace universal_windows
       //bool ExecuteDlgInit(LPVOID lpResource);
 
 
-      virtual bool is_composite() ;
+      bool is_composite() override;
 
 
-      virtual ::e_status update_graphics_resources() ;
+      void update_graphics_resources() override;
 
       // for child windows, views, panes etc
       //virtual bool create_window(::user::interaction * pinteraction, const ::string & lpszClassName, const ::string & lpszWindowName,u32 dwStyle,const RECTANGLE_I32 & rectangle,::user::interaction * pParentWnd,atom atom, ::create * pcreate = nullptr) ;
@@ -251,11 +251,11 @@ namespace universal_windows
       virtual void ShowOwnedPopups(bool bShow = true);
 
       virtual ::draw2d::graphics * GetDCEx(::draw2d::region* prgnClip, u32 flags);
-      virtual bool LockWindowUpdate();
-      virtual void UnlockWindowUpdate();
-      virtual bool RedrawWindow(const ::rectangle_i32& rectangleUpdate = nullptr,
-                                ::draw2d::region* prgnUpdate = nullptr,
-                                ::u32 flags = RDW_INVALIDATE | RDW_ERASE);
+      //virtual bool LockWindowUpdate();
+      //virtual void UnlockWindowUpdate();
+      //virtual bool RedrawWindow(const ::rectangle_i32& rectangleUpdate = nullptr,
+                                //::draw2d::region* prgnUpdate = nullptr,
+                                //::u32 flags = RDW_INVALIDATE | RDW_ERASE);
       //      virtual bool EnableScrollBar(int nSBFlags, ::u32 nArrowFlags = ESB_ENABLE_BOTH);
 
       virtual bool DrawAnimatedRects(int idAni, const RECTANGLE_I32 *lprcFrom, const RECTANGLE_I32 *lprcTo);
@@ -278,8 +278,8 @@ namespace universal_windows
 
 
       // Timer Functions
-      bool SetTimer(uptr uEvent, const ::duration& millisElapse, PFN_TIMER pfnTimer = nullptr, bool bPeriodic = true, void* pdata = nullptr) override;
-      virtual bool KillTimer(uptr uEvent);
+      void SetTimer(uptr uEvent, const ::duration& millisElapse, PFN_TIMER pfnTimer = nullptr, bool bPeriodic = true, void* pdata = nullptr) override;
+      void KillTimer(uptr uEvent) override;
 
       // Window State Functions
       virtual bool IsWindowEnabled();
@@ -684,9 +684,9 @@ namespace universal_windows
 
       virtual bool _is_window() const ;
 
-      virtual ::e_status show_software_keyboard(::user::primitive * pprimitive, string str, strsize iBeg, strsize iEnd) ;
+      void show_software_keyboard(::user::primitive * pprimitive, string str, strsize iBeg, strsize iEnd) override;
 
-      virtual ::e_status hide_software_keyboard(::user::primitive * pprimitive) ;
+      void hide_software_keyboard(::user::primitive * pprimitive) override;
 
       virtual void edit_on_set_focus(::user::interaction* pinteraction) ;
 

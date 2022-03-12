@@ -21,13 +21,13 @@ namespace universal_windows
 
 
       dir_system();
-      virtual ~dir_system();
+      ~dir_system() override;
       
       
-      virtual ::e_status initialize(::object * pobject) override;
+      void initialize(::object * pobject) override;
 
 
-      virtual ::e_status init_system() override;
+      void init_system() override;
 
       //virtual ::std::string dir_root() override;
 
@@ -56,7 +56,6 @@ namespace universal_windows
 
 
 } // namespace windows
-
 
 
 

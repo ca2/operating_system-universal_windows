@@ -13,7 +13,7 @@ namespace windowing_win32
 
 
       system_interaction();
-      virtual ~system_interaction();
+      ~system_interaction() override;
 
 
       void install_message_routing(::channel * pchannel) override;
@@ -22,9 +22,9 @@ namespace windowing_win32
       DECLARE_MESSAGE_HANDLER(on_message_destroy);
 
 
-      virtual bool start_destroying_window() override;
+      void start_destroying_window() override;
 
-      virtual bool is_system_message_window() override;
+      bool is_system_message_window() override;
 
 
    };

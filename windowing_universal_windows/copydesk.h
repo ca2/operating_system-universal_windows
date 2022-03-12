@@ -41,8 +41,8 @@ namespace windowing_universal_windows
 
 
 
-      ::e_status initialize(::object * pobject) override;
-      ::e_status destroy() override;
+      void initialize(::object * pobject) override;
+      void destroy() override;
 
 
       virtual void OnClipboardUpdate();
@@ -55,17 +55,18 @@ namespace windowing_universal_windows
       //virtual HGLOBAL hglobal_get_utf8_text(const ::string & str);
       //virtual HGLOBAL hglobal_get_image(const ::image * pimage);
 
-      ::e_status _set_filea(const ::file::path_array & stra, e_op eop) override;
-      ::e_status _get_filea(::file::path_array & stra, e_op & eop) override;
+      bool _set_filea(const ::file::path_array & stra, enum_op eop) override;
+      bool _get_filea(::file::path_array & stra, enum_op & eop) override;
       bool _has_filea() override;
 
-      ::e_status _set_plain_text(const ::string & str) override;
-      ::e_status _get_plain_text(string & str) override;
+      bool _set_plain_text(const ::string & str) override;
+      bool _get_plain_text(string & str) override;
       bool _has_plain_text() override;
 
-      ::e_status _desk_to_image(::image * pimage) override;
-      ::e_status _image_to_desk(const ::image * pimage) override;
+      bool _desk_to_image(::image * pimage) override;
+      bool _image_to_desk(const ::image * pimage) override;
       bool _has_image() override;
+
 
    };
 

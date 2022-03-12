@@ -27,17 +27,19 @@ namespace universal_windows
 
 
 
-   ::e_status dir_system::initialize(::object * pobject)
+   void dir_system::initialize(::object * pobject)
    {
 
-      auto estatus = ::dir_system::initialize(pobject);
+      //auto estatus =
+      
+      ::dir_system::initialize(pobject);
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
       m_pathInstall = m_psystem->m_pacmedir->install();
 
@@ -130,7 +132,7 @@ pacmedir->create(m_strTimeFolder);
 
 if (!pacmedir->is(m_strTimeFolder))
 {
-   return false;
+   throw exception(error_failed, "Time folder doesn't exist");
 
 }
 
@@ -142,25 +144,27 @@ pacmedir->create(m_strTimeFolder / "time");
 
       //xxdebug_box("win_dir::initialize", "win_dir::initialize", 0);
 
-      return ::success;
+      //return ::success;
 
    }
 
 
-   ::e_status dir_system::init_system()
+   void dir_system::init_system()
    {
 
-      auto estatus = ::dir_system::init_system();
+      //auto estatus = 
+      
+      ::dir_system::init_system();
 
-      if (!estatus)
-      {
+      //if (!estatus)
+      //{
 
-         return estatus;
+      //   return estatus;
 
-      }
+      //}
 
 
-      return ::success;
+      //return ::success;
 
    }
 

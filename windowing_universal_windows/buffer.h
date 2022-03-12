@@ -1,6 +1,9 @@
 #pragma once
 
 
+#include "aura/graphics/graphics/bitmap_source_buffer.h"
+
+
 namespace windowing_universal_windows
 {
 
@@ -111,33 +114,33 @@ namespace windowing_universal_windows
 
 
 
-      virtual ::e_status initialize_graphics_graphics(::user::interaction_impl* pimpl) override;
+      void initialize_graphics_graphics(::user::interaction_impl* pimpl) override;
 
 
       virtual bool create_buffer(const ::size_i32& size, int iStride = -1);
-      virtual void destroy_buffer();
-      virtual bool update_window();
+      void destroy_buffer() override;
+      bool update_window() override;
 
 
       ID2D1DeviceContext * get_device_context();
 
 
-      virtual bool update_window(::image* pimage);
+      bool update_window(::image* pimage) override;
 
 
-      virtual ::draw2d::graphics* on_begin_draw() override;
+      ::draw2d::graphics* on_begin_draw() override;
 
-      virtual void on_end_draw();
+      void on_end_draw() override;
 
 
-      bool create_os_buffer(const ::size_i32& size, int iStride = -1);
-      void destroy_os_buffer();
+      virtual bool create_os_buffer(const ::size_i32& size, int iStride = -1);
+      virtual void destroy_os_buffer();
 
 
       bool update_buffer(const ::size_i32 & size, int iStrideParam = -1) override;
 
 
-      virtual bool buffer_lock_round_swap_key_buffers() override;
+      bool buffer_lock_round_swap_key_buffers() override;
       //::aura::application * get_application() const
       //{
 

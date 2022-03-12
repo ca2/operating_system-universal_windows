@@ -16,50 +16,50 @@ namespace universal_windows
 
 
       dir_context();
-      virtual ~dir_context();
+      ~dir_context() override;
 
 
-      virtual ::e_status initialize(::object * pobject) override;
+      void initialize(::object * pobject) override;
 
-      virtual ::e_status init_system() override;
+      void init_system() override;
 
       using ::dir_context::ls;
       // rls fetchs should set a meaningful m_iRelative value at each returned path
-      virtual ::file::listing & ls(::file::listing & path);
-      virtual ::file::listing & ls_relative_name(::file::listing & path);
+      bool ls(::file::listing & path) override;
+      bool ls_relative_name(::file::listing & path) override;
 
 
-      virtual bool  is_impl(const ::file::path & path) override;
+      bool  is_impl(const ::file::path & path) override;
       virtual bool  is_inside(const ::file::path & pathFolder, const ::file::path & path);
       virtual bool  is_inside_time(const ::file::path & path);
       virtual bool  name_is(const ::file::path & path);
       virtual bool  has_subdir(const ::file::path & path);
 
       virtual ::file::listing & root_ones(::file::listing & listing);
-      virtual bool mk(const ::file::path & path);
-      virtual bool rm(const ::file::path & path, bool bRecursive = true);
+      //virtual bool mk(const ::file::path & path);
+      //virtual bool rm(const ::file::path & path, bool bRecursive = true);
 
 
       virtual ::file::path name(const ::file::path & path);
 
-      virtual ::file::path time();
-      virtual ::file::path stage();
-      virtual ::file::path stageapp();
-      virtual ::file::path netseed();
+      virtual ::file::path time() override;
+      virtual ::file::path stage() override;
+      virtual ::file::path stageapp() override;
+      virtual ::file::path netseed() override;
       //virtual ::file::path matter();
 
-      virtual ::file::path module();
-      virtual ::file::path ca2module();
-      virtual ::file::path time_square(const ::string & strPrefix = nullptr, const ::string & strSuffix = nullptr);
-      virtual ::file::path time_log();
+      virtual ::file::path module() override;
+      //virtual ::file::path ca2module();
+      virtual ::file::path time_square() override;
+      virtual ::file::path time_log(const ::string & strId) override;
 
 
-      virtual ::file::path trash_that_is_not_trash(const ::file::path & path);
+      virtual ::file::path trash_that_is_not_trash(const ::file::path & path) override;
 
 
 
-      virtual ::file::path appdata();
-      virtual ::file::path commonappdata_root();
+      virtual ::file::path appdata(const ::string & strAppId = "") override;
+      virtual ::file::path commonappdata_root() override;
 
       //virtual ::file::path usersystemappdata(const ::string & pcszPrefix);
 
@@ -73,10 +73,10 @@ namespace universal_windows
 
       //virtual ::file::path default_userfolder(const string & pcszPrefix,const string & lpcszLogin);
 
-      virtual ::file::path userquicklaunch();
-      virtual ::file::path userprograms();
+      virtual ::file::path userquicklaunch() override;
+      virtual ::file::path userprograms() override;
 
-      virtual ::file::path commonprograms();
+      virtual ::file::path commonprograms() override;
 
 
 

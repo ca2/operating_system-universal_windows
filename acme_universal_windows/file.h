@@ -58,7 +58,7 @@ namespace universal_windows
       ::file::path get_file_path() const override;
       void set_file_path(const ::file::path & path) override;
 
-      ::extended::status open(const ::file::path & lpszFileName, const ::file::e_open & eopen) override;
+      void open(const ::file::path & lpszFileName, const ::file::e_open & eopen) override;
 
       //virtual bool GetStatus(const ::file::path & lpszFileName,::file::file_status& rStatus);
 

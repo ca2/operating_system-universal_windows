@@ -60,8 +60,8 @@ namespace universal_windows
       //virtual string GetFileTitle() const;
       ::file::path get_file_path() const override;
       //void set_file_path(const ::file::path & pathNewName) override;
-      ::extended::status open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, const ::file::e_open & efileopenParam);
-      ::extended::status open(const ::file::path & lpszfileName, const ::file::e_open & eopen) override;
+      void open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, const ::file::e_open & efileopenParam);
+      void open(const ::file::path & lpszfileName, const ::file::e_open & eopen) override;
 
       //virtual bool GetStatus(const ::file::path & lpszfileName,::file::file_status& rStatus);
 

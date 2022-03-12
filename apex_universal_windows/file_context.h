@@ -25,20 +25,20 @@ namespace universal_windows
 
 
       file_context();
-      virtual ~file_context();
+      ~file_context() override;
 
 
-      virtual ::e_status initialize(::object * pobject) override;
+      void initialize(::object * pobject) override;
 
 
-      virtual ::e_status init_system() override;
+      void init_system() override;
 
 
       void calculate_main_resource_memory() override;
 
 
-      virtual bool get_status(const ::file::path & path, ::file::file_status & status);
-      virtual ::extended::status set_status(const ::file::path & path, const ::file::file_status & status);
+      void get_status(::file::file_status & status, const ::file::path & path) override;
+      void set_status(const ::file::path & path, const ::file::file_status & status) override;
 
 
 
@@ -52,17 +52,17 @@ namespace universal_windows
       virtual ::payload length(const ::file::path & path) override;
       virtual ::payload length(const ::file::path & path, ::payload * pvarQuery) override;
 
-      virtual ::extended::status move(const ::file::path & pszNew, const ::file::path & psz) override;
+      void move(const ::file::path & pszNew, const ::file::path & psz) override;
 
-      virtual ::extended::status del(const ::file::path & psz) override;
+      void erase(const ::file::path & psz) override;
 
       virtual bool is_read_only(const ::file::path & psz) override;
 
-      virtual ::extended::transport < ::file::file > resource_get_file(const ::file::path & path) override;
+      ::file_pointer resource_get_file(const ::file::path & path) override;
 
       virtual bool get_last_write_time(FILETIME * pfiletime, const ::string & strFilename);
 
-      ::e_status update_module_path() override;
+      //::e_status update_module_path() override;
 
       file_pointer get_file(const ::payload & payloadFile, const ::file::e_open & nOpenFlags) override;
 

@@ -73,13 +73,13 @@ namespace universal_windows
    }
 
 
-   bool os_context::shutdown(bool bIfPowerOff)
+   void os_context::shutdown(bool bIfPowerOff)
    {
 
 
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
       //bool retval = true;
       //HANDLE hToken;
       //TOKEN_PRIVILEGES tkp;
@@ -101,7 +101,8 @@ namespace universal_windows
       //return retval;
    }
 
-   bool os_context::reboot()
+   
+   void os_context::reboot()
    {
 //      HANDLE hToken;
 //      TOKEN_PRIVILEGES tkp;
@@ -159,8 +160,9 @@ namespace universal_windows
 //      return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
    }
+
 
    void os_context::terminate_processes_by_title(const ::string & lpszName)
    {
@@ -195,18 +197,24 @@ namespace universal_windows
 
    }
 
-   bool os_context::get_pid_by_path(const ::string & lpszName, u32 & dwPid)
+   
+   bool os_context::path_pid(u32 & dwPid, const ::string & lpszName)
    {
+   
       throw ::exception(error_not_supported);
 
       return false;
+
    }
 
-   bool os_context::get_pid_by_title(const ::string & lpszName, u32 & dwPid)
+
+   bool os_context::title_pid(u32 & dwPid, const ::string & lpszName)
    {
+
       throw ::exception(error_not_supported);
 
       return false;
+
    }
 
 
@@ -355,7 +363,7 @@ namespace universal_windows
    }
 
 
-   bool os_context::local_machine_set_run(const ::string & pszKey, const ::string & pszCommand, bool bSet)
+   void os_context::local_machine_set_run(const ::string & pszKey, const ::string & pszCommand, const ::string & strArguments, bool bSet)
    {
 
       //try
@@ -389,12 +397,12 @@ namespace universal_windows
 
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   bool os_context::local_machine_set_run_once(const ::string & pszKey, const ::string & pszCommand, bool bSet)
+   void os_context::local_machine_set_run_once(const ::string & pszKey, const ::string & pszCommand, const ::string & strArguments, bool bSet)
    {
 
       //try
@@ -426,12 +434,12 @@ namespace universal_windows
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   bool os_context::current_user_set_run(const ::string & pszKey, const ::string & pszCommand, bool bSet)
+   void os_context::current_user_set_run(const ::string & pszKey, const ::string & pszCommand, const ::string & strArguments, bool bSet)
    {
 
       //try
@@ -465,12 +473,12 @@ namespace universal_windows
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   bool os_context::current_user_set_run_once(const ::string & pszKey, const ::string & pszCommand, bool bSet)
+   void os_context::current_user_set_run_once(const ::string & pszKey, const ::string & pszCommand, const ::string & strArguments, bool bSet)
    {
 
       //try
@@ -502,12 +510,12 @@ namespace universal_windows
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   bool os_context::defer_register_ca2_plugin_for_mozilla()
+   void os_context::defer_register_ca2_plugin_for_mozilla()
    {
 
       //try
@@ -540,12 +548,12 @@ namespace universal_windows
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   bool os_context::file_extension_get_open_with_list_keys(string_array & straKey, const ::string & pszExtension)
+   void os_context::file_extension_get_open_with_list_keys(string_array & straKey, const ::string & pszExtension)
    {
 
       //try
@@ -574,12 +582,12 @@ namespace universal_windows
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   bool os_context::file_extension_get_open_with_list_commands(string_array & straCommand, const ::string & pszExtension)
+   void os_context::file_extension_get_open_with_list_commands(string_array & straCommand, const ::string & pszExtension)
    {
 
       //string_array straKey;
@@ -595,12 +603,12 @@ namespace universal_windows
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   bool os_context::file_association_set_default_icon(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & pszIconPath)
+   void os_context::file_association_set_default_icon(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & pszIconPath)
    {
 
       //try
@@ -623,13 +631,13 @@ namespace universal_windows
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
 
    }
 
 
-   bool os_context::file_association_set_shell_open_command(const ::string & pszExtension, const ::string & pszExtensionNamingClass,  const ::string & pszCommand, const ::string & pszParam)
+   void os_context::file_association_set_shell_open_command(const ::string & pszExtension, const ::string & pszExtensionNamingClass,  const ::string & pszCommand, const ::string & pszParam)
    {
 
       //::e_status estatus = ::success;
@@ -713,13 +721,13 @@ namespace universal_windows
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
 
    }
 
 
-   bool os_context::file_association_get_shell_open_command(const ::string & pszExtension, string & strExtensionNamingClass, string & strCommand, string & strParam)
+   void os_context::file_association_get_shell_open_command(const ::string & pszExtension, string & strExtensionNamingClass, string & strCommand, string & strParam)
    {
 
       //try
@@ -768,7 +776,7 @@ namespace universal_windows
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
@@ -1261,7 +1269,7 @@ return false;
    }
 
 
-   ::e_status os_context::enable_service()
+   void os_context::enable_service()
    {
 
       //string strServiceName = calc_service_name();
@@ -1333,12 +1341,12 @@ return false;
       //return enable_service(strServiceName,strDisplayName,strCalling,pname,ppass);
       throw ::exception(error_not_supported);
 
-      return false;
-
+//      return false;
+//
    }
 
 
-   ::e_status os_context::disable_service()
+   void os_context::disable_service()
    {
 
       //string strServiceName = calc_service_name();
@@ -1353,12 +1361,12 @@ return false;
       //return disable_service(strServiceName);
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   ::e_status os_context::start_service()
+   void os_context::start_service()
    {
 
       //string strServiceName = calc_service_name();
@@ -1373,12 +1381,12 @@ return false;
       //return start_service(strServiceName);
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   bool os_context::enable_service(const ::string & strServiceName, const ::string & strDisplayName, const ::string & strCommand, const ::string & strUser, const ::string & strPass)
+   void os_context::enable_service(const ::string & strServiceName, const ::string & strDisplayName, const ::string & strCommand, const ::string & strUser, const ::string & strPass)
    {
 
       //if (strServiceName.is_empty())
@@ -1442,12 +1450,12 @@ return false;
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
 
-   bool os_context::disable_service(const ::string & strServiceName)
+   void os_context::disable_service(const ::string & strServiceName)
    {
 
       //if (strServiceName.is_empty())
@@ -1494,11 +1502,12 @@ return false;
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
-   ::e_status  os_context::stop_service()
+
+   void os_context::stop_service()
    {
 
       //string strServiceName = calc_service_name();
@@ -1509,12 +1518,12 @@ return false;
       //return stop_service(strServiceName);
       throw ::exception(error_not_supported);
 
-      return error_not_supported;
+      //return error_not_supported;
 
    }
 
 
-   bool os_context::start_service(const ::string & strServiceName)
+   void os_context::start_service(const ::string & strServiceName)
    {
 
       //if(strServiceName.is_empty())
@@ -1549,10 +1558,12 @@ return false;
       //return bOk != false;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
+
    }
 
-   bool os_context::stop_service(const ::string & strServiceName)
+
+   void os_context::stop_service(const ::string & strServiceName)
    {
 
       //if(strServiceName.is_empty())
@@ -1593,7 +1604,8 @@ return false;
       //return bOk != false;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
+
    }
 
 
@@ -1617,10 +1629,7 @@ return false;
    }
 
 
-
-
    void os_context::set_file_status(const ::string & pszFileName, const ::file::file_status& status)
-
    {
 
       //u32 wAttr;
@@ -1929,7 +1938,7 @@ return false;
    }
 
 
-   bool os_context::get_default_browser(string & strId, ::file::path & path, string & strParam)
+   void os_context::get_default_browser(string & strId, ::file::path & path, string & strParam)
    {
 
       //try
@@ -2044,14 +2053,14 @@ return false;
       //   return false;
 
       //}
-throw ::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
-return false;
+      //return false;
 
    }
 
 
-   bool os_context::initialize_wallpaper_fileset(::file::set* pfileset, bool bAddSearch)
+   void os_context::initialize_wallpaper_fileset(::file::set* pfileset, bool bAddSearch)
    {
 
       //if (bAddSearch)
@@ -2070,9 +2079,11 @@ return false;
       //return true;
       //throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
+
+
 //#elif defined(LINUX)
 //   //string strDir;
 //   //strDir = m_pcontext->m_papexcontext->dir().path(getenv("HOME"), "Pictures");
@@ -2094,7 +2105,7 @@ return false;
 //#else
 
 
-   bool os_context::file_open(::file::path path, string strParams, string strFolder)
+   void os_context::file_open(::file::path path, string strParams, string strFolder)
    {
 
       //path = m_pcontext->m_papexcontext->defer_process_path(path);
@@ -2216,14 +2227,14 @@ return false;
       //});
 
       //return true;
-throw ::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
-return false;
+      //return false;
 
    }
 
 
-   bool os_context::register_user_auto_start(string strId, string strCommand, bool bRegister)
+   void os_context::register_user_auto_start(const string & strId, const string & strCommand, const string & strArguments, bool bRegister)
    {
 
       //current_user_set_run(strId, strCommand, bRegister);
@@ -2231,7 +2242,7 @@ return false;
       //return true;
       throw ::exception(error_not_supported);
 
-      return false;
+      //return false;
 
    }
 
@@ -2312,7 +2323,7 @@ return false;
    }
 
 
-   bool os_context::set_default_browser()
+   void os_context::set_default_browser()
    {
 
 
@@ -2573,14 +2584,14 @@ return false;
       //sleep(1_s);
 
       //return true;
-throw ::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
-return false;
+      //return false;
 
    }
 
 
-   bool os_context::add_default_program(string_array & straExtension, string_array & straMimeType)
+   void os_context::add_default_program(string_array & straExtension, string_array & straMimeType)
    {
 
       //string strTargetProgId;
@@ -3028,14 +3039,15 @@ return false;
       //}
 
       //return true;
-throw ::exception(error_not_supported);
+         
+      throw ::exception(error_not_supported);
 
-return false;
+      //return false;
 
    }
 
 
-   bool os_context::browse_file_open(property_set & set)
+   void os_context::browse_file_open(property_set & set)
    {
 
       ////::user::interaction* pinteraction = nullptr;
@@ -3282,14 +3294,15 @@ return false;
       ////}
 
       //return bOk;
-throw ::exception(error_not_supported);
+   
+      throw ::exception(error_not_supported);
 
-return false;
+      //return false;
 
    }
 
 
-   bool os_context::browse_file_save(property_set & set)
+   void os_context::browse_file_save(property_set & set)
    {
 
       ////::user::interaction* pinteraction = puiOwner->get_wnd();
@@ -3457,15 +3470,15 @@ return false;
       ////}
 
       //return bOk;
-throw ::exception(error_not_supported);
 
-return false;
+      throw ::exception(error_not_supported);
+
+      //return false;
 
    }
 
 
-
-   bool os_context::browse_folder( property_set & set)
+   void os_context::browse_folder( property_set & set)
    {
 
       ////::user::interaction* pinteraction = puiOwner->get_wnd();
@@ -3579,13 +3592,15 @@ return false;
       ////}
 
       //return bOk;
-throw ::exception(error_not_supported);
 
-return false;
+      throw ::exception(error_not_supported);
+
+      //return false;
 
    }
 
-   bool os_context::browse_file_or_folder(property_set & set)
+
+   void os_context::browse_file_or_folder(property_set & set)
    {
 
       ////::user::interaction* pinteraction = puiOwner->get_wnd();
@@ -3699,9 +3714,9 @@ return false;
 
       //return bOk;
 
-throw ::exception(error_not_supported);
+      throw ::exception(error_not_supported);
 
-return false;
+      //return false;
 
    }
 
@@ -3728,7 +3743,7 @@ return false;
    }
 
 
-   ::e_status os_context::link_open(const string & strUrl, const string & strProfile)
+   void os_context::link_open(const string & strUrl, const string & strProfile)
    {
 
       auto pnode = m_psystem->node();
@@ -3745,11 +3760,9 @@ return false;
 
          }));
 
-      return success;
+      //return success;
 
    }
-
-
 
 
 } // namespace universal_windows
@@ -3802,3 +3815,6 @@ return false;
 //
 //
 //
+
+
+

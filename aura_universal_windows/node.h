@@ -20,11 +20,10 @@ namespace aura
          ~node() override;
 
 
-         ::e_status main() override;
+         void main() override;
 
 
-         virtual void dpi_os_initialize();
-
+         void dpi_os_initialize() override;
 
 
       };

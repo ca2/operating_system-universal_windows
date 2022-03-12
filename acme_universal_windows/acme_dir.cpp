@@ -157,7 +157,7 @@ namespace universal_windows
    ::file::path acme_dir::relative(::file::path path)
    {
 
-      path.replace(":", "");
+      path.find_replace(":", "");
 
       ::str::ends_eat_ci(path, ".exe");
 
@@ -571,15 +571,15 @@ namespace universal_windows
    }
 
 
-   ::e_status acme_dir::is(const char * path1)
+   bool acme_dir::is(const char * path1)
    {
 
-      ::e_status estatusDir = _is(path1);
+      bool bDir = false;
 
-      if (estatusDir)
+      if(_is(bDir, path1))
       {
 
-         return estatusDir;
+         return bDir;
 
       }
 
@@ -588,16 +588,16 @@ namespace universal_windows
       if (!folder)
       {
 
-         return error_failed;
+         return false;
 
       }
 
-      return ::success;
+      return true;
 
    }
 
 
-   ::e_status acme_dir::_is(const char * path1)
+   bool acme_dir::_is(bool & bDir, const char * path1)
    {
 
       u32 dwFileAttributes = ::windows_get_file_attributes(path1);
@@ -612,7 +612,13 @@ namespace universal_windows
       if(!(dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
       {
 
-         return false;
+         bDir = false;
+
+      }
+      else
+      {
+
+         bDir = true;
 
       }
 
@@ -1940,8 +1946,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //      }
 
 
-
-   string acme_dir::get_current_directory()
+   string acme_dir::get_current()
    {
 
       auto size = GetCurrentDirectoryW(0, nullptr);

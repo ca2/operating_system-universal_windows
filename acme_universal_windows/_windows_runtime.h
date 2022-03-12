@@ -2,11 +2,9 @@
 
 
 #undef new
-#include <winrt/Windows.Foundation.h>
-#include <winrt/Windows.UI.Core.h>
+#include "acme/operating_system/universal_windows/nano/_.h"
 #include <winrt/Windows.System.Threading.h>
 #include <winrt/Windows.Foundation.Collections.h>
-#include <winrt/Windows.ApplicationModel.Core.h>
 #include <winrt/Windows.Storage.h>
 #include <winrt/Windows.Storage.Streams.h>
 #include <winrt/Windows.Storage.FileProperties.h>
@@ -26,14 +24,6 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::user::enum_key virtualkey_to_userkey(::winrt
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS uptr virtualkey_to_code(::winrt::Windows::System::VirtualKey e);
 
 
-inline winrt::hstring __hstring(const char * psz)
-{
-
-   wstring wstr(psz);
-
-   return wstr.c_str();
-
-}
 
 
 

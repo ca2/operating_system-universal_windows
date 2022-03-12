@@ -93,7 +93,6 @@
     </ClCompile>
     <ClCompile Include="icon.cpp" />
     <ClCompile Include="keyboard.cpp" />
-    <ClCompile Include="message_box.cpp" />
     <ClCompile Include="node.cpp" />
     <ClCompile Include="shell.cpp" />
     <ClCompile Include="system_interaction.cpp" />
@@ -109,7 +108,6 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="icon.h" />
     <ClInclude Include="keyboard.h" />
-    <ClInclude Include="message_box.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="shell.h" />
     <ClInclude Include="system_interaction.h" />

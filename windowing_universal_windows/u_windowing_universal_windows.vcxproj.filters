@@ -39,9 +39,6 @@
     <ClCompile Include="keyboard.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="message_box.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -90,9 +87,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="keyboard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="message_box.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="node.h">

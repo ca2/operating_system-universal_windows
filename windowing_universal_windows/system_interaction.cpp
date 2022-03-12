@@ -2,6 +2,7 @@
 #include "aura/message.h"
 #include "aura/procedure.h"
 #include "system_interaction.h"
+#include "aura/graphics/image/image.h"
 
 
 namespace windowing_win32
@@ -45,10 +46,10 @@ namespace windowing_win32
    }
 
 
-   bool system_interaction::start_destroying_window()
+   void system_interaction::start_destroying_window()
    {
 
-      return ::user::interaction::start_destroying_window();
+      ::user::interaction::start_destroying_window();
 
    }
 
@@ -87,7 +88,7 @@ namespace windowing_win32
 
             auto psystem = m_psystem->m_paurasystem;
 
-            psystem->signal(id_os_font_change);
+            psystem->signal(id_operating_system_font_list_change);
 
             //fork([this]()
               // {
