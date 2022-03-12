@@ -167,15 +167,15 @@ namespace windowing_universal_windows
    }
 
 
-   ::e_status message_box::add_button(const ::string & strTitle, enum_dialog_result edialogresult)
+   void message_box::add_button(const ::string & strTitle, enum_dialog_result edialogresult)
    {
 
       auto predicate = [this, edialogresult](::winrt::Windows::UI::Popups::IUICommand command)
       {
 
-         m_edialogresult = edialogresult;
+         m_atomResult = edialogresult;
 
-         this->sequence()->set_status(::success);
+         m_estatus = ::success;
 
       };
 
@@ -183,7 +183,7 @@ namespace windowing_universal_windows
 
       m_messagedialog.Commands().Append(command);
 
-      return ::success;
+      //return ::success;
 
    }
 
