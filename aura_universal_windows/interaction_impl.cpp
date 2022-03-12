@@ -28,6 +28,7 @@ namespace universal_windows
    interaction_impl::interaction_impl()
    {
 
+      m_pImpl2 = this;
       //set_layer(LAYERED_OS_USER_INTERACTION_IMPL, this);
       m_bNotifyLayoutCompletedPending        = false;
       m_bScreenRelativeMouseMessagePosition  = false;

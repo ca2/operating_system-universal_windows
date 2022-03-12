@@ -27,20 +27,21 @@ namespace music
             ~out() override;
 
 
-            virtual ::e_status open();
-            virtual ::e_status close();
+            void open() override;
+            void close() override;
 
-            ::e_status note_on(int iChannel, unsigned char uchNote, unsigned char uchVelocity) override;
-            ::e_status note_off(int iChannel, unsigned char uchNote, unsigned char uchVelocity) override;
-            ::e_status program_change(int iChannel, unsigned char uchProgram) override;
+
+            void note_on(int iChannel, unsigned char uchNote, unsigned char uchVelocity) override;
+            void note_off(int iChannel, unsigned char uchNote, unsigned char uchVelocity) override;
+            void program_change(int iChannel, unsigned char uchProgram) override;
             void control_change(int iChannel, unsigned char uchController, unsigned char uchValue);
             void pitch_bend(int iChannel, unsigned short ushBend);
             void send(IMidiMessage const & message);
 
 
-            ::e_status send_short_message(::music::midi::e_message emessage, int iChannel, int iData1, int iData2);
+            void send_short_message(::music::midi::e_message emessage, int iChannel, int iData1, int iData2);
 
-            ::e_status step() override;
+            bool step() override;
 
          };
 

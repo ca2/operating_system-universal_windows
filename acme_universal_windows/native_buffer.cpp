@@ -51,7 +51,6 @@ namespace universal_windows
    void native_buffer::open(const ::file::path & path, const ::file::e_open & eopenParam)
    {
 
-
       ::file::e_open eopen(eopenParam);
 
       m_eopen = eopen;
@@ -186,14 +185,36 @@ namespace universal_windows
             if (!item)
             {
 
-               throw ::exception(error_failed);
+               m_estatus = error_failed;
+
+               set_nok();
+
+               if (efileopenParam & ::file::e_open_no_exception_on_open)
+               {
+
+                  return;
+
+               }
+
+               throw ::exception(m_estatus);
 
             }
 
             if (!item.IsOfType(winrt::Windows::Storage::StorageItemTypes::Folder))
             {
 
-               throw ::exception(error_failed);
+               m_estatus = error_failed;
+
+               set_nok();
+
+               if (efileopenParam & ::file::e_open_no_exception_on_open)
+               {
+
+                  return;
+
+               }
+
+               throw ::exception(m_estatus);
 
             }
 
@@ -208,7 +229,18 @@ namespace universal_windows
       if (m_folder == nullptr)
       {
 
-         throw file_open_exception(error_not_found);
+         m_estatus = error_not_found;
+
+         set_nok();
+
+         if (efileopenParam & ::file::e_open_no_exception_on_open)
+         {
+
+            return;
+
+         }
+
+         throw ::exception(m_estatus);
 
       }
 

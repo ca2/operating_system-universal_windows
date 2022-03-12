@@ -29,12 +29,10 @@ namespace music
          }
 
 
-
-
-         ::e_status out::open()
+         void out::open()
          {
 
-            HRESULT mmrc;
+            //HRESULT mmrc;
 
             //uint32_t uDeviceID = 0;
 
@@ -46,11 +44,12 @@ namespace music
             //   return ::error_failed;
 
 
-            return ::success;
+            //return ::success;
 
          }
 
-         ::e_status out::close()
+
+         void out::close()
          {
 
             //if(m_hmidiout != NULL)
@@ -60,19 +59,21 @@ namespace music
 
             //}
 
-            return ::success;
+            //return ::success;
 
          }
 
-         ::e_status out::send_short_message(::music::midi::e_message emessage, int iChannel, int iData1, int iData2)
+
+         void out::send_short_message(::music::midi::e_message emessage, int iChannel, int iData1, int iData2)
          {
 
             //return translate_mmr(midiOutShortMsg(m_hmidiout, MIDIMSG(((int) etype) >> 4, iChannel, iData1, iData2)));
-            return ::success;
+            //return ::success;
 
          }
 
-         ::e_status out::step()
+
+         bool out::step()
          {
 
             auto IBuffer = windows_runtime_buffer(m_memoryBuffer.get_data(), m_memoryBuffer.get_size());
@@ -81,7 +82,7 @@ namespace music
 
             m_memoryBuffer.clear();
 
-            return ::success;
+            return true;
 
          }
 
@@ -101,7 +102,7 @@ namespace music
          }
 
 
-         ::e_status out::note_on(int iChannel, unsigned char uchNote, unsigned char uchVelocity)
+         void out::note_on(int iChannel, unsigned char uchNote, unsigned char uchVelocity)
          {
 
             iChannel = clip(0, 15, iChannel);
@@ -114,12 +115,12 @@ namespace music
 
             send(message);
 
-            return ::success;
+            //return ::success;
 
          }
 
 
-         ::e_status out::note_off(int iChannel, unsigned char uchNote, unsigned char uchVelocity)
+         void out::note_off(int iChannel, unsigned char uchNote, unsigned char uchVelocity)
          {
 
             iChannel = clip(0, 15, iChannel);
@@ -132,19 +133,19 @@ namespace music
 
             send(message);
 
-            return ::success;
+            //return ::success;
 
          }
 
 
-         ::e_status out::program_change(int iChannel, unsigned char uchProgram)
+         void out::program_change(int iChannel, unsigned char uchProgram)
          {
 
             MidiProgramChangeMessage message(iChannel, uchProgram);
 
             send(message);
 
-            return ::success;
+            //return ::success;
 
          }
 
@@ -158,9 +159,9 @@ namespace music
 
          }
 
+
          void out::pitch_bend(int iChannel, unsigned short ushBend)
          {
-
 
             MidiPitchBendChangeMessage message(iChannel, ushBend);
 
@@ -203,7 +204,6 @@ namespace music
 
 
 } // namespace music
-
 
 
 
