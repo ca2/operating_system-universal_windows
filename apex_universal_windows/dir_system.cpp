@@ -1,8 +1,8 @@
 #include "framework.h"
 #include "apex/operating_system.h"
 #include <Shlobj.h>
-#include "acme/filesystem/filesystem/acme_dir.h"
-#include "acme_universal_windows/acme_dir.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme_universal_windows/acme_directory.h"
 //#include "_windows.h"
 //#include "acme/os/windows_common/cotaskptr.h"
 
@@ -41,9 +41,9 @@ namespace universal_windows
 
       //}
 
-      m_pathInstall = m_psystem->m_pacmedir->install();
+      m_pathInstall = m_psystem->m_pacmedirectory->install();
 
-      //m_psystem->m_pacmedir->m_pplatformdir->_shell_get_special_folder_path(
+      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
         // nullptr,
          //m_strCommonAppData,
          //CSIDL_COMMON_APPDATA,
@@ -54,7 +54,7 @@ namespace universal_windows
       //CSIDL_PROFILE,
       //false);
 
-      //m_pathHome = m_psystem->m_pacmedir->m_pplatformdir->_get_known_folder(FOLDERID_Profile);
+      //m_pathHome = m_psystem->m_pacmedirectory->m_pplatformdir->_get_known_folder(FOLDERID_Profile);
 
       string strHome = getenv("USERPROFILE");
 
@@ -73,7 +73,7 @@ namespace universal_windows
 
       }
 
-      //m_pathCa2Config = m_psystem->m_pacmedir->ca2roaming();
+      //m_pathCa2Config = m_psystem->m_pacmedirectory->ca2roaming();
 
       m_pathCa2Config = m_pathInstall / "ca2/config";
 
@@ -81,12 +81,12 @@ namespace universal_windows
 
       m_strAppData = m_pathInstall / "appdata";
 
-      //m_psystem->m_pacmedir->m_pplatformdir->_shell_get_special_folder_path(
+      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   m_strPrograms,
       //   CSIDL_PROGRAMS,
       //   false);
-      //m_psystem->m_pacmedir->m_pplatformdir->_shell_get_special_folder_path(
+      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   m_strCommonPrograms,
       //   CSIDL_COMMON_PROGRAMS,
@@ -112,20 +112,20 @@ namespace universal_windows
       if (m_strTimeFolder.is_empty())
       {
 
-         m_strTimeFolder = m_psystem->m_pacmedir->appdata() / "time";
+         m_strTimeFolder = m_psystem->m_pacmedirectory->appdata() / "time";
 
       }
 
       if (m_strNetSeedFolder.is_empty())
       {
 
-         m_strNetSeedFolder = m_psystem->m_pacmedir->install() / "net";
+         m_strNetSeedFolder = m_psystem->m_pacmedirectory->install() / "net";
 
       }
 
                auto psystem = m_psystem;
 
-         auto pacmedir = psystem->m_pacmedir;
+         auto pacmedir = psystem->m_pacmedirectory;
 
 pacmedir->create(m_strTimeFolder);
       //xxdebug_box("win_dir::initialize (m_strTimeFolder)", "win_dir::initialize", 0);
@@ -138,7 +138,7 @@ if (!pacmedir->is(m_strTimeFolder))
 
           /*     auto psystem = m_psystem;
 
-         auto pacmedir = psystem->m_pacmedir;*/
+         auto pacmedir = psystem->m_pacmedirectory;*/
 
 pacmedir->create(m_strTimeFolder / "time");
 
@@ -181,7 +181,7 @@ pacmedir->create(m_strTimeFolder / "time");
 
    //   strFolder.replace(":", "");
 
-   //   return m_psystem->m_pacmedir->ca2roaming() / "appdata" / strFolder / strAppId / pszPlatform / pszConfiguration / pszLocale / pszSchema;
+   //   return m_psystem->m_pacmedirectory->ca2roaming() / "appdata" / strFolder / strAppId / pszPlatform / pszConfiguration / pszLocale / pszSchema;
 
    //}
 
@@ -193,7 +193,7 @@ pacmedir->create(m_strTimeFolder / "time");
 
    //   ::file::path pathFolder;
 
-   //   pathFolder = m_psystem->m_pacmedir->stage(strAppId, pszPlatform, pszConfiguration);
+   //   pathFolder = m_psystem->m_pacmedirectory->stage(strAppId, pszPlatform, pszConfiguration);
 
    //   string strName;
 
@@ -211,7 +211,7 @@ pacmedir->create(m_strTimeFolder / "time");
    // ::file::path dir_system::get_last_run_application_path_file(string strAppId)
    // {
 
-   //    ::file::path pathFile = m_psystem->m_pacmedir->local() / "appdata" / strAppId / "last_run_path.txt";
+   //    ::file::path pathFile = m_psystem->m_pacmedirectory->local() / "appdata" / strAppId / "last_run_path.txt";
 
    //    return pathFile;
 

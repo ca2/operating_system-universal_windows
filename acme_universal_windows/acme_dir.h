@@ -7,8 +7,8 @@ namespace universal_windows
 {
 
 
-   class CLASS_DECL_ACME_UNIVERSAL_WINDOWS acme_dir :
-      virtual public ::windows_common::acme_dir
+   class CLASS_DECL_ACME_UNIVERSAL_WINDOWS acme_directory :
+      virtual public ::windows_common::acme_directory
    {
    public:
 
@@ -16,8 +16,8 @@ namespace universal_windows
 
 
 
-      acme_dir();
-      ~acme_dir() override;
+      acme_directory();
+      ~acme_directory() override;
 
 
       //::file::path module_folder() override;
@@ -84,7 +84,7 @@ namespace universal_windows
 
 
 // From acme/filesystem/file/dir.cpp by camilo 
-// From acme_posix/acme_dir.h
+// From acme_posix/acme_directory.h
 // on 2021-08-09 03:20 BRT
 // <3ThomasBorregaardSørensen!!
 
@@ -93,14 +93,14 @@ namespace universal_windows
 // {
 
 
-// class CLASS_DECL_ACME_POSIX acme_dir :
-// virtual public ::acme_dir
+// class CLASS_DECL_ACME_POSIX acme_directory :
+// virtual public ::acme_directory
 // {
 
 // public:
 
-// acme_dir();
-// ~acme_dir() override;
+// acme_directory();
+// ~acme_directory() override;
 
       //virtual string name(const char * path1) override;
 

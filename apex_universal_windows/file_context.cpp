@@ -1,6 +1,6 @@
 #include "framework.h"
 #include "apex/operating_system.h"
-#include "acme/filesystem/filesystem/acme_dir.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
 #include "_windows_runtime.h"
 
 
@@ -750,7 +750,7 @@ namespace universal_windows
 
       ::file::path pathJson;
 
-      pathJson = m_psystem->m_pacmedir->user_appdata_local() / "Dropbox/info.json";
+      pathJson = m_psystem->m_pacmedirectory->user_appdata_local() / "Dropbox/info.json";
 
       return pathJson;
 

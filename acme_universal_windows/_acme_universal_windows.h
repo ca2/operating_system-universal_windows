@@ -9,7 +9,7 @@
 #include "file.h"
 
 
-#include "acme_dir.h"
+#include "acme_directory.h"
 #include "acme_file.h"
 #include "acme_path.h"
 

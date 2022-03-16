@@ -5,8 +5,8 @@
 //#include "dir_system.h"
 //#include "dir_context.h"
 //#include "acme/node/windows/file_find.h"
-#include "acme/filesystem/filesystem/acme_dir.h"
-#include "acme_universal_windows/acme_dir.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme_universal_windows/acme_directory.h"
 
 
 namespace universal_windows
@@ -939,7 +939,7 @@ namespace universal_windows
 
    //      string strDir = stra[i];
 
-   //      m_psystem->m_pacmedir->create(strDir);
+   //      m_psystem->m_pacmedirectory->create(strDir);
    //      {
 
    //         //            m_isdirmap.set(strDir, true, 0);
@@ -985,7 +985,7 @@ namespace universal_windows
 
    //            }
 
-   //            if (m_psystem->m_pacmedir->create_directory(strDir))
+   //            if (m_psystem->m_pacmedirectory->create_directory(strDir))
    //            {
 
    //               //                  m_isdirmap.set(strDir, true, 0);
@@ -1302,7 +1302,7 @@ namespace universal_windows
 
       //::file::path path;
 
-      //m_psystem->m_pacmedir->m_pplatformdir->_shell_get_special_folder_path(
+      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   path,
       //   CSIDL_DESKTOP,
@@ -1319,7 +1319,7 @@ namespace universal_windows
 
       //::file::path path;
 
-      //path = m_psystem->m_pacmedir->m_pplatformdir->_get_known_folder(FOLDERID_Downloads);
+      //path = m_psystem->m_pacmedirectory->m_pplatformdir->_get_known_folder(FOLDERID_Downloads);
 
       //return path;
 
@@ -1333,7 +1333,7 @@ namespace universal_windows
 
       //::file::path path;
 
-      //m_psystem->m_pacmedir->m_pplatformdir->_shell_get_special_folder_path(
+      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   path,
       //   CSIDL_MYMUSIC,
@@ -1351,7 +1351,7 @@ namespace universal_windows
 
       //::file::path path;
 
-      //m_psystem->m_pacmedir->m_pplatformdir->_shell_get_special_folder_path(
+      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   path,
       //   CSIDL_MYVIDEO,
@@ -1369,7 +1369,7 @@ namespace universal_windows
 
       //::file::path path;
 
-      //m_psystem->m_pacmedir->m_pplatformdir->_shell_get_special_folder_path(
+      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   path,
       //   CSIDL_MYPICTURES,

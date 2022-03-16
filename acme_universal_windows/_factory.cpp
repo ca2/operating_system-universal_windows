@@ -10,7 +10,7 @@ __FACTORY_EXPORT void acme_universal_windows_factory(::factory::factory * pfacto
    
    acme_windows_common_factory(pfactory);
 
-   pfactory->add_factory_item < ::universal_windows::acme_dir, ::acme_dir >();
+   pfactory->add_factory_item < ::universal_windows::acme_directory, ::acme_directory >();
    pfactory->add_factory_item < ::universal_windows::acme_file, ::acme_file >();
    pfactory->add_factory_item < ::universal_windows::acme_path, ::acme_path >();
 

@@ -8,7 +8,7 @@ namespace universal_windows
 {
 
 
-   acme_dir::acme_dir()
+   acme_directory::acme_directory()
    {
 
       m_pplatformdir = this;
@@ -16,14 +16,14 @@ namespace universal_windows
    }
 
 
-   acme_dir::~acme_dir()
+   acme_directory::~acme_directory()
    {
 
 
    }
 
 
-   string acme_dir::dir_root()
+   string acme_directory::dir_root()
    {
 
       ::string path;
@@ -44,7 +44,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::get_memory_map_base_folder_path()
+   ::file::path acme_directory::get_memory_map_base_folder_path()
    {
 
       //to path = _get_known_folder(FOLDERID_RoamingAppData);
@@ -59,7 +59,7 @@ namespace universal_windows
 
 
 
-   ::file::path acme_dir::program_data()
+   ::file::path acme_directory::program_data()
    {
 
       return install() / "data";
@@ -67,7 +67,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::roaming()
+   ::file::path acme_directory::roaming()
    {
 
       return install() / "roaming";
@@ -75,7 +75,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::appdata()
+   ::file::path acme_directory::appdata()
    {
 
       return ca2roaming() / "appdata" / app_relative();
@@ -83,7 +83,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::public_system()
+   ::file::path acme_directory::public_system()
    {
 
       return public_root() / "system";
@@ -91,7 +91,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::system()
+   ::file::path acme_directory::system()
    {
 
       return ca2roaming() / "system";
@@ -99,7 +99,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::config()
+   ::file::path acme_directory::config()
    {
 
       return ca2roaming() / "config";
@@ -107,7 +107,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::local()
+   ::file::path acme_directory::local()
    {
 
       return ca2roaming() / "local";
@@ -115,7 +115,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::sensitive()
+   ::file::path acme_directory::sensitive()
    {
 
 #ifdef WINDOWS
@@ -136,7 +136,7 @@ namespace universal_windows
 
 
 
-   string acme_dir::system_short_name()
+   string acme_directory::system_short_name()
    {
 
 #ifdef _UWP
@@ -154,7 +154,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::relative(::file::path path)
+   ::file::path acme_directory::relative(::file::path path)
    {
 
       path.find_replace(":", "");
@@ -168,7 +168,7 @@ namespace universal_windows
 #ifdef _UWP
 
 
-   ::file::path acme_dir::app_relative()
+   ::file::path acme_directory::app_relative()
    {
 
       return "";
@@ -179,7 +179,7 @@ namespace universal_windows
 #else
 
 
-   ::file::path acme_dir::app_relative()
+   ::file::path acme_directory::app_relative()
    {
 
       ::file::path path = m_psystem->m_pacmefile->executable();
@@ -195,7 +195,7 @@ namespace universal_windows
 
 
 
-   ::file::path acme_dir::inplace_install(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path acme_directory::inplace_install(string strAppId, string strPlatform, string strConfiguration)
    {
 
 #ifdef WINDOWS_DESKTOP
@@ -242,12 +242,12 @@ namespace universal_windows
 
       auto psystem = m_psystem;
 
-      auto pacmedir = psystem->m_pacmedir;
+      auto pacmedir = psystem->m_pacmedirectory;
 
 
       return          auto psystem = m_psystem;
 
-      auto pacmedir = psystem->m_pacmedir;
+      auto pacmedir = psystem->m_pacmedirectory;
 
       pacmedir->roaming();
 
@@ -261,7 +261,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::inplace_matter_install(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path acme_directory::inplace_matter_install(string strAppId, string strPlatform, string strConfiguration)
    {
 
 #ifdef WINDOWS_DESKTOP
@@ -282,12 +282,12 @@ namespace universal_windows
 
       auto psystem = m_psystem;
 
-      auto pacmedir = psystem->m_pacmedir;
+      auto pacmedir = psystem->m_pacmedirectory;
 
 
       return          auto psystem = m_psystem;
 
-      auto pacmedir = psystem->m_pacmedir;
+      auto pacmedir = psystem->m_pacmedirectory;
 
       pacmedir->roaming();
 
@@ -301,7 +301,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::install()
+   ::file::path acme_directory::install()
    {
 
       if (m_pathInstallFolder.is_empty())
@@ -316,7 +316,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::default_install()
+   ::file::path acme_directory::default_install()
    {
 
       auto pwsz = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
@@ -330,7 +330,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::beforeca2()
+   ::file::path acme_directory::beforeca2()
    {
 
       return ::file_path_folder(install());
@@ -348,7 +348,7 @@ namespace universal_windows
 #include <Shlobj.h>
 
 
-   ::file::path acme_dir::program_files_x86()
+   ::file::path acme_directory::program_files_x86()
    {
 
       wstring wstrModuleFolder(get_buffer, sizeof(unichar) * 8);
@@ -373,7 +373,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::program_files()
+   ::file::path acme_directory::program_files()
    {
 
       wstring wstrModuleFolder(get_buffer, sizeof(unichar) * 8);
@@ -403,7 +403,7 @@ namespace universal_windows
 #else
 
 
-   ::file::path acme_dir::program_files_x86()
+   ::file::path acme_directory::program_files_x86()
    {
 
       ::file::path path("/opt/ca2");
@@ -413,7 +413,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::program_files()
+   ::file::path acme_directory::program_files()
    {
 
       ::file::path path("/opt/ca2");
@@ -426,7 +426,7 @@ namespace universal_windows
 #endif
 
 
-   ::file::path acme_dir::stage(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path acme_directory::stage(string strAppId, string strPlatform, string strConfiguration)
    {
 
       return inplace_install(strAppId, strPlatform, strConfiguration) / "time" / time_binary_platform(strPlatform) / strConfiguration;
@@ -437,7 +437,7 @@ namespace universal_windows
 #ifdef LINUX
 
 
-   ::file::path acme_dir::home()
+   ::file::path acme_directory::home()
    {
 
       return getenv("HOME");
@@ -450,12 +450,12 @@ namespace universal_windows
 
 #if defined(_UWP) || defined(__APPLE__) || defined(LINUX) || defined(ANDROID)
 
-   ::file::path acme_dir::bookmark()
+   ::file::path acme_directory::bookmark()
    {
 
       auto psystem = m_psystem;
 
-      auto pacmedir = psystem->m_pacmedir;
+      auto pacmedir = psystem->m_pacmedirectory;
 
       return pacmedir->localconfig() / "bookmark";
 
@@ -465,7 +465,7 @@ namespace universal_windows
 #endif
 
 
-   ::file::path acme_dir::home()
+   ::file::path acme_directory::home()
    {
 
       return m_pathInstallFolder / "home";
@@ -473,7 +473,7 @@ namespace universal_windows
    }
 
 
-   void acme_dir::set_path_install_folder(const ::string & pszPath)
+   void acme_directory::set_path_install_folder(const ::string & pszPath)
    {
 
       m_pathInstallFolder = pszPath;
@@ -483,7 +483,7 @@ namespace universal_windows
 
 
 
-   ::file::path acme_dir::sys_temp()
+   ::file::path acme_directory::sys_temp()
    {
 
       return appdata() / "time";
@@ -491,7 +491,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::ca2appdata()
+   ::file::path acme_directory::ca2appdata()
    {
 
       return ca2roaming() / "appdata";
@@ -499,14 +499,14 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::public_root()
+   ::file::path acme_directory::public_root()
    {
 
       return program_data() / "ca2";
 
    }
 
-   ::file::path acme_dir::ca2roaming()
+   ::file::path acme_directory::ca2roaming()
    {
 
       return roaming() / "ca2";
@@ -514,7 +514,7 @@ namespace universal_windows
    }
 
 
-   ::file::path acme_dir::localconfig()
+   ::file::path acme_directory::localconfig()
    {
 
       return ca2roaming() / "localconfig";
@@ -524,7 +524,7 @@ namespace universal_windows
 
    //
 
-   //::file::path acme_dir::pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode)
+   //::file::path acme_directory::pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode)
    //{
 
    //   ::file::path_array stra;
@@ -554,7 +554,7 @@ namespace universal_windows
 
 
 
-   //::file::path acme_dir::get_memory_map_base_folder_path()
+   //::file::path acme_directory::get_memory_map_base_folder_path()
    //{
 
    //   return "";
@@ -562,7 +562,7 @@ namespace universal_windows
    //}
 
 
-   ::file::path acme_dir::user_appdata_local()
+   ::file::path acme_directory::user_appdata_local()
    {
 
       //return _shell_get_special_folder_path(CSIDL_LOCAL_APPDATA);
@@ -571,7 +571,7 @@ namespace universal_windows
    }
 
 
-   bool acme_dir::is(const char * path1)
+   bool acme_directory::is(const char * path1)
    {
 
       bool bDir = false;
@@ -597,7 +597,7 @@ namespace universal_windows
    }
 
 
-   bool acme_dir::_is(bool & bDir, const char * path1)
+   bool acme_directory::_is(bool & bDir, const char * path1)
    {
 
       u32 dwFileAttributes = ::windows_get_file_attributes(path1);
@@ -685,7 +685,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //{
 
 
-      //string acme_dir::name(const char * path1)
+      //string acme_directory::name(const char * path1)
       //{
       //   const char * psz = path1 + strlen(path1) - 1;
       //   while (psz >= path1)
@@ -718,7 +718,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //}
 
 
-   //   ::file::path acme_dir::module_folder()
+   //   ::file::path acme_directory::module_folder()
    //   {
    //
    //   #if defined(ANDROID)
@@ -927,7 +927,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //   }
 
 
-//      ::file::path acme_dir::module_folder()
+//      ::file::path acme_directory::module_folder()
 //      {
 //
 //#if defined(_UWP)
@@ -1190,7 +1190,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
 
 
-      //bool acme_dir::create(const char * path)
+      //bool acme_directory::create(const char * path)
       //{
 
       //   //if (::file::system_dir::g_pthis == nullptr)
@@ -1208,7 +1208,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //#ifndef WINDOWS_DESKTOP
 //
 //
-//      bool acme_dir::create_directory(const char * path)
+//      bool acme_directory::create_directory(const char * path)
 //      {
 //
 //         if (is(path))
@@ -1339,7 +1339,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //               //TRACE("         auto psystem = m_psystem;
 //
-//         auto pacmedir = psystem->m_pacmedir;
+//         auto pacmedir = psystem->m_pacmedirectory;
 //
 //pacmedir->create CreateDirectoryW last error(%d)=%s", dwError, pszError);
 //
@@ -1363,7 +1363,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //#endif
 
 
-//      ::e_status acme_dir::_create_directory(const char * path)
+//      ::e_status acme_directory::_create_directory(const char * path)
 //      {
 //
 //         wstring wstr;
@@ -1413,7 +1413,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
 
 
-      ::file::path acme_dir::module()
+      ::file::path acme_directory::module()
       {
 
 #ifdef WINDOWS
@@ -1444,7 +1444,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::rls(::file::path_array & stra, const char * psz)
+      void acme_directory::rls(::file::path_array & stra, const char * psz)
       {
          ::count start = stra.get_count();
          ls(stra, psz);
@@ -1460,7 +1460,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::rls_dir(::file::path_array & stra, const char * psz)
+      void acme_directory::rls_dir(::file::path_array & stra, const char * psz)
       {
 
          ::count start = stra.get_count();
@@ -1481,7 +1481,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::ls(::file::path_array & stra, const char * psz)
+      void acme_directory::ls(::file::path_array & stra, const char * psz)
       {
 
 #if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1573,7 +1573,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::ls_dir(::file::path_array & stra, const char * psz)
+      void acme_directory::ls_dir(::file::path_array & stra, const char * psz)
       {
 
 #if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1660,7 +1660,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_dir::ls_file(::file::path_array & stra, const char * psz)
+      void acme_directory::ls_file(::file::path_array & stra, const char * psz)
       {
 
 #if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1749,7 +1749,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      ::file::path acme_dir::pathfind(const string & pszEnv, const string & pszTopic, const string & pszMode)
+      ::file::path acme_directory::pathfind(const string & pszEnv, const string & pszTopic, const string & pszMode)
       {
 
          string_array stra;
@@ -1778,7 +1778,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      ::file::path acme_dir::archive()
+      ::file::path acme_directory::archive()
       {
 
 #ifdef WINDOWS
@@ -1796,7 +1796,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      ::file::path acme_dir::tool()
+      ::file::path acme_directory::tool()
       {
 
          return archive() / "tool-windows";
@@ -1804,7 +1804,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      //int acme_dir::make_path(const char * psz)
+      //int acme_directory::make_path(const char * psz)
       //{
 
 
@@ -1813,7 +1813,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //}
 
 
-//      bool acme_dir::_create(const char * pathParam)
+//      bool acme_directory::_create(const char * pathParam)
 //      {
 //
 //         if (is(pathParam))
@@ -1925,7 +1925,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //               //TRACE("         auto psystem = m_psystem;
 //
-////         auto pacmedir = psystem->m_pacmedir;
+////         auto pacmedir = psystem->m_pacmedirectory;
 ////
 ////pacmedir->create CreateDirectoryW last error(%d)=%s", dwError, pszError);
 ////
@@ -1946,7 +1946,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //      }
 
 
-   string acme_dir::get_current()
+   string acme_directory::get_current()
    {
 
       auto size = GetCurrentDirectoryW(0, nullptr);
