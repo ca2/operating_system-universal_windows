@@ -23,10 +23,10 @@ namespace universal_windows
 
       void init_system() override;
 
-      using ::dir_context::ls;
+      using ::dir_context::enumerate;
       // rls fetchs should set a meaningful m_iRelative value at each returned path
-      bool ls(::file::listing & path) override;
-      bool ls_relative_name(::file::listing & path) override;
+      bool enumerate(::file::listing & path) override;
+      //bool ls_relative_name(::file::listing & path) override;
 
 
       bool  is_impl(const ::file::path & path) override;

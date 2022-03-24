@@ -2,7 +2,7 @@
 
 
 #include "aura_universal_windows/_aura_universal_windows.h"
-#include "aura/user/_user.h"
+#include "aura/user/user/_user.h"
 #include "directx/_directx.h"
 #include "direct2d/_direct2d.h"
 #include "_windows_runtime.h"
