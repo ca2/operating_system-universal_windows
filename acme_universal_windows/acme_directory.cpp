@@ -1511,6 +1511,13 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
 
+         if (strRelative.has_char())
+         {
+
+            folder = folder.GetFolderAsync(__hstring(strRelative)).get();
+
+         }
+
          auto items = folder.GetItemsAsync().get();
 
          for (u32 u = 0; u < items.Size(); u++)
