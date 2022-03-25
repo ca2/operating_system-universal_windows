@@ -12,22 +12,10 @@
     <ClCompile Include="_.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="apex.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="application_system_run.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="dir_context.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="dir_system.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="direct2d_tls.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="dummy_ipc.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_factory.cpp">
@@ -45,43 +33,10 @@
     <ClCompile Include="interprocess_communication.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="language.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="launcher.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="library.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="main.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="menu.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="os_context.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="parallelization.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="simple_app.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="simple_shell_launcher.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="sockets.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="time.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="user.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="windows_runtime.cpp">
@@ -101,9 +56,6 @@
     <ClInclude Include="_windows_runtime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="base_file.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="dir_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -119,16 +71,7 @@
     <ClInclude Include="framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="gdi_winrt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="host_interaction.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="interprocess_communication.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="metrowin_metrowin.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="node.h">
@@ -138,12 +81,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="parallelization.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="simple_hold_handle.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="simple_ui.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="sockets.h">

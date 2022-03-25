@@ -12,41 +12,7 @@ namespace windowing_universal_windows
    public:
 
 
-      class framework_view :
-         public winrt::implements< framework_view, ::winrt::Windows::ApplicationModel::Core::IFrameworkView>
-      {
-      public:
 
-         
-         window *          m_pwindow;
-
-
-         framework_view(window * pwindow);
-
-
-         void Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & applicationView);
-         void SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window);
-         virtual void Load(winrt::param::hstring entryPoint);
-         virtual void Run();
-         virtual void Uninitialize();
-
-
-
-      };
-
-      struct framework_view_source :
-         public winrt::implements < framework_view_source, ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource >
-      {
-
-
-         window * m_pwindow;
-
-         framework_view_source(window * pwindow);
-
-         ::winrt::Windows::ApplicationModel::Core::IFrameworkView CreateView();
-
-
-      };
 
 
       //__pointer(window)             m_pwindowNode;

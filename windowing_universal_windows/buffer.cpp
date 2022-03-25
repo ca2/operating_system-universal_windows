@@ -188,6 +188,8 @@ namespace windowing_universal_windows
 
       //auto pdevicecontext = (ID2D1DeviceContext*)m_pdraw2dgraphics->detach();
 
+      m_pdraw2dgraphics->on_end_draw(m_pwindow->get_oswindow());
+
       if (m_pdevicecontext)
       {
 

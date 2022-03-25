@@ -88,7 +88,6 @@
     </ClCompile>
     <ClCompile Include="interaction_impl_message_bypass.cpp" />
     <ClCompile Include="system.cpp" />
-    <ClCompile Include="system_interaction.cpp" />
     <ClCompile Include="timer.cpp" />
     <ClCompile Include="windows_desktop.cpp" />
     <ClCompile Include="_.cpp" />
@@ -97,7 +96,6 @@
     <ClInclude Include="factory_exchange.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="interprocess_communication.h" />
-    <ClInclude Include="system_interaction.h" />
     <ClInclude Include="user.h" />
     <ClInclude Include="windowing.h" />
     <ClInclude Include="_.h" />

@@ -24,9 +24,6 @@
     <ClCompile Include="system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="system_interaction.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -54,9 +51,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="interprocess_communication.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="system_interaction.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="user.h">
