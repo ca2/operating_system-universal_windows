@@ -138,6 +138,10 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
       strPrefix = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
 
+      strRelative.begins_eat("\\");
+
+      strRelative.begins_eat("/");
+
       return ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder();
 
    }
