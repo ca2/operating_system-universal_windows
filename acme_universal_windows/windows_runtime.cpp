@@ -205,14 +205,14 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
    }
 
-   bDir = false;
+   //bDir = false;
 
-   if (!pobject->m_psystem->m_pacmedirectory->_is(bDir, pathFolder) || !bDir)
-   {
+   //if (!pobject->m_psystem->m_pacmedirectory->_is(bDir, pathFolder) || !bDir)
+   //{
 
-      return nullptr;
+   //   return nullptr;
 
-   }
+   //}
 
    auto hstrRelative = __hstring(pathFolder);
 
