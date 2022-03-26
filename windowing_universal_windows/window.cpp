@@ -6796,6 +6796,16 @@ namespace windowing_universal_windows
       // For example, it will not show if there is a keyboard attached.
       m_inputpane.TryShow();
 
+      if (m_puserinteractionimpl->m_puserinteractionFocusRequest != nullptr)
+      {
+
+         m_puserinteractionimpl->m_puserinteractionFocus1 = m_puserinteractionimpl->m_puserinteractionFocusRequest;
+
+         m_puserinteractionimpl->m_puserinteractionFocusRequest = nullptr;
+
+
+      }
+
    }
 
 
@@ -7794,28 +7804,29 @@ namespace windowing_universal_windows
 
          ::user::enum_key ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 
-         if (bSpecialKey || !bTextFocus || m_psystem->get_session()->is_key_pressed(::user::e_key_control)
-            || m_psystem->get_session()->is_key_pressed(::user::e_key_alt))
-         {
+         //if (bSpecialKey s || m_psystem->get_session()->is_key_pressed(::user::e_key_control)
+         //   || m_psystem->get_session()->is_key_pressed(::user::e_key_alt))
+         //{
 
-            pkey->m_atom = e_message_key_down;
-            //pkey->m_playeredUserPrimitive       = m_psystem->get_session()->m_puserinteractionHost;
-            pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
-            pkey->m_ekey = ekey;
-            pkey->m_wparam = pkey->m_nChar;
-            pkey->m_nFlags =(::u32) virtualkey_to_code(args.VirtualKey());
-            pkey->m_lparam = pkey->m_nFlags << 16;
-            //pkey->m_strText            = m_strNewText;
-            //if (pkey->m_strText.has_char())
-            //{
-              // pkey->m_ekey = ::user::e_key_refer_to_text_member;
-            //}
-      //      pkey->m_key = args;
+         pkey->m_atom = e_message_key_down;
+         //pkey->m_playeredUserPrimitive       = m_psystem->get_session()->m_puserinteractionHost;
+         pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
+         pkey->m_ekey = ekey;
+         pkey->m_wparam = pkey->m_nChar;
+         pkey->m_nFlags = (::u32)virtualkey_to_code(args.VirtualKey());
+         pkey->m_lparam = pkey->m_nFlags << 16;
+         //pkey->m_strText            = m_strNewText;
+         //if (pkey->m_strText.has_char())
+         //{
+           // pkey->m_ekey = ::user::e_key_refer_to_text_member;
+         //}
+   //      pkey->m_key = args;
 
 
-            m_puserinteractionimpl->queue_message_handler(pusermessage);
+         m_puserinteractionimpl->queue_message_handler(pusermessage);
 
-         }
+      //   ;;
+      //}
 
       }
 
@@ -7853,8 +7864,8 @@ namespace windowing_universal_windows
 
          ::user::enum_key ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 
-         if (bSpecialKey || !bTextFocus)
-         {
+         //if (bSpecialKey || !bTextFocus)
+         //{
 
             pkey->m_atom = e_message_key_up;
             //pkey->m_playeredUserPrimitive = m_psystem->get_session()->m_puserinteractionHost;
@@ -7898,7 +7909,7 @@ namespace windowing_universal_windows
             m_puserinteractionimpl->queue_message_handler(pusermessage);
             //}
 
-         }
+         //}
 
 
 

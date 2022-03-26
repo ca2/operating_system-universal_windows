@@ -2,42 +2,16 @@
 #pragma once
 
 
-namespace windows_runtime
-{
-
-   
-   class native_buffer;
-
-
-} // namespace windows_runtime
-
-
 namespace universal_windows
 {
 
-   /////////////////////////////////////////////////////////////////////////////
-   // native_buffer - raw unbuffered disk native_buffer I/O
 
    class CLASS_DECL_ACME_UNIVERSAL_WINDOWS native_buffer :
       virtual public ::file::file
    {
    public:
 
-
-      enum Attribute
-      {
-         
-         normal = 0x00,
-         readOnly = 0x01,
-         hidden = 0x02,
-         system = 0x04,
-         volume = 0x08,
-         directory = 0x10,
-         archive = 0x20
-
-      };
-
-      
+            
       bool                                                                 m_bCloseOnDelete;
       ::file::path                                                         m_strFileName;
       ::winrt::Windows::Storage::StorageFile                               m_file = nullptr;
@@ -45,10 +19,10 @@ namespace universal_windows
       ::winrt::Windows::Storage::Streams::IRandomAccessStream              m_stream = nullptr;
       ::file::e_open                                                       m_eopen;
 
-      int m_iPutCharacterBack;
+      memory                                                               m_memoryBuffer;
 
-      native_buffer();
-      native_buffer(::winrt::Windows::Storage::StorageFile file);
+
+      native_buffer(::winrt::Windows::Storage::StorageFile file, const ::file::e_open & efileopen);
       ~native_buffer() override;
 
       void assert_ok() const override;
@@ -62,6 +36,7 @@ namespace universal_windows
       //void set_file_path(const ::file::path & pathNewName) override;
       void open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, const ::file::e_open & efileopenParam);
       void open(const ::file::path & lpszfileName, const ::file::e_open & eopen) override;
+      void open(::winrt::Windows::Storage::StorageFile file, const ::file::e_open & eopen);
 
       //virtual bool GetStatus(const ::file::path & lpszfileName,::file::file_status& rStatus);
 
@@ -70,7 +45,7 @@ namespace universal_windows
 
       //virtual __pointer(::file::file) Duplicate() const;
 
-      int put_character_back(int iCharacter) override;
+      //void put_byte_back(::byte byte) override;
 
       filesize translate(filesize lOff, ::enum_seek eseek) override;
       void set_size(filesize dwNewLen) override;

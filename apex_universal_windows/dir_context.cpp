@@ -1257,7 +1257,7 @@ namespace universal_windows
    //   wstring wstrFileName;
    //   wstrFileName = ::str::international::utf8_to_unicode(pszFileName);
 
-   //   if(!vfxFullPath(wstrFullName,wstrFileName))
+   //   if(!windows_full_path(wstrFullName,wstrFileName))
    //   {
    //      rStatus.m_strFullName.Empty();
    //      return false;

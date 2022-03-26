@@ -582,7 +582,7 @@ pacmedir->create(lpszFileName.folder());
 
 
    //// turn a file, relative path or other into an absolute path
-   //bool CLASS_DECL_ACME vfxFullPath(unichar * lpszPathOut, const unichar * lpszFileIn)
+   //bool CLASS_DECL_ACME windows_full_path(unichar * lpszPathOut, const unichar * lpszFileIn)
    //// lpszPathOut = buffer of _MAX_PATH
    //// lpszFileIn = file, relative path or absolute path
    //// (both in ANSI character set)
@@ -968,7 +968,7 @@ pacmedir->create(lpszFileName.folder());
 //      wstring wstrFullName;
 //      wstring wstrFileName;
 //      wstrFileName = ::str::international::utf8_to_unicode(lpszFileName);
-//      if (!vfxFullPath(wstrFullName, wstrFileName))
+//      if (!windows_full_path(wstrFullName, wstrFileName))
 //      {
 //         rStatus.m_strFullName.Empty();
 //         return false;
@@ -1051,7 +1051,7 @@ pacmedir->create(lpszFileName.folder());
 
 
 
-//bool CLASS_DECL_ACME vfxFullPath(wstring & wstrFullPath, const wstring & wstrPath)
+//bool CLASS_DECL_ACME windows_full_path(wstring & wstrFullPath, const wstring & wstrPath)
 //{
 //
 //   wstrFullPath = wstrPath;

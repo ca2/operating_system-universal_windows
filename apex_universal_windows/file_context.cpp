@@ -25,7 +25,7 @@ namespace universal_windows
    {
 
       //auto estatus = 
-      
+
       ::object::initialize(pobject);
 
       //if (!estatus)
@@ -41,7 +41,7 @@ namespace universal_windows
 
       __refer(m_pdirsystem, psystem->m_pdirsystem);
 
-//      return ::success;
+      //      return ::success;
 
    }
 
@@ -50,7 +50,7 @@ namespace universal_windows
    {
 
       //auto estatus =
-      
+
 //      m_pfilesystem->update_module_path();
 
       //if (!estatus)
@@ -105,7 +105,7 @@ namespace universal_windows
    //   wstrFileIn = ::str::international::utf8_to_unicode(pszFileIn);
 
    //   wstring wstrFileOut;
-   //   bool b = vfxFullPath(wstrFileOut.get_string_buffer(MAX_PATH * 8), wstrFileIn) != false;
+   //   bool b = windows_full_path(wstrFileOut.get_string_buffer(MAX_PATH * 8), wstrFileIn) != false;
    //   if (b)
    //   {
    //      ::str::international::unicode_to_utf8(str, wstrFileOut);
@@ -130,7 +130,7 @@ namespace universal_windows
    //      return true;
    //   }
 
-   //   return vfxFullPath(wstrFullPath, wstrPath) != false;
+   //   return windows_full_path(wstrFullPath, wstrPath) != false;
 
    //}
 
@@ -152,6 +152,66 @@ namespace universal_windows
    //{
    //   vfxGetModuleShortFileName(hInst, strShortName);
    //}
+
+
+   bool file_context::is_file_or_dir(const ::file::path & path, ::file::enum_type * petype)
+   {
+
+      if (::file_context::is_file_or_dir(path, petype))
+      {
+
+         return true;
+
+      }
+
+      string strRelative = path;
+
+      string strPrefix;
+
+      auto folder = windows_runtime_folder(m_pcontext, strRelative, strPrefix);
+
+      if (folder)
+      {
+
+         if (strRelative.is_empty())
+         {
+
+            *petype = ::file::e_type_folder;
+
+         }
+         
+         auto hstrName = __hstring(strRelative);
+
+         auto item = folder.TryGetItemAsync(hstrName).get();
+
+         if (item)
+         {
+
+            if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder))
+            {
+
+               *petype = ::file::e_type_folder;
+
+            }
+            else if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
+            {
+
+               *petype = ::file::e_type_file;
+
+            }
+
+            return false;
+
+         }
+
+         return false;
+
+      }
+
+      return m_psystem->m_pacmepath->is_file_or_dir(path, petype) != false;
+
+   }
+
 
    ::payload file_context::length(const ::file::path & path)
    {
@@ -737,11 +797,65 @@ namespace universal_windows
 
    //}
 
+   
+
 
    file_pointer file_context::get_file(const ::payload & payloadFile, const ::file::e_open & eopenFlags)
    {
 
       return ::file_context::get_file(payloadFile, eopenFlags);
+
+   }
+
+
+   ::file_pointer file_context::create_native_file(const ::file::path & path, const ::file::e_open & eopen)
+   {
+
+      string strRelative = path;
+
+      string strPrefix;
+
+      auto folder = windows_runtime_folder(m_pcontext, strRelative, strPrefix);
+
+      if (folder)
+      {
+
+         auto hstrName = __hstring(strRelative);
+
+         auto item = folder.TryGetItemAsync(hstrName).get();
+
+         if (item)
+         {
+
+            if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
+            {
+
+               ::winrt::Windows::Storage::StorageFile file = nullptr;
+               
+               item.as(file);
+
+               if (file)
+               {
+
+                  auto pfile = __new(::universal_windows::native_buffer(file, eopen));
+
+                  return pfile;
+
+               }
+
+            }
+
+         }
+
+      }
+
+      ::file_pointer pfile;
+
+      m_pcontext->__construct(pfile);
+
+      pfile->open(path, eopen);
+
+      return pfile;
 
    }
 
