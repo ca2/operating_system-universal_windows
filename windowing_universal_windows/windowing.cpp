@@ -892,7 +892,7 @@ namespace windowing_universal_windows
    //}
 
 
-  /* ::e_status windowing::windowing_branch(const ::routine& routine)
+  /* ::e_status windowing::windowing_branch(const ::procedure & procedure)
    {
 
       auto estatus = m_psystem->m_papexsystem->post(routine);
