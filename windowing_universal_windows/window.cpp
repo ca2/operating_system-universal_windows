@@ -3564,7 +3564,7 @@ namespace windowing_universal_windows
 
    //   }
 
-   //   puserinteraction->post_routine(__routine([this]()
+   //   puserinteraction->post_procedure(__routine([this]()
    //      {
 
    //         HWND hwnd = ::SetFocus(get_hwnd());
@@ -6365,7 +6365,7 @@ namespace windowing_universal_windows
 
       };
 
-      pusersystem->m_routineSuccess = __routine(routine);
+      pusersystem->m_procedureSuccess = __routine(routine);
 
       //m_puserinteractionimpl = __create < ::user::interaction_impl >();
 
@@ -6571,7 +6571,7 @@ namespace windowing_universal_windows
 
       auto pprodevian = m_puserinteractionimpl->m_pprodevian;
 
-      puserinteraction->post_routine(pprodevian->m_routineWindowShow);
+      puserinteraction->post_procedure(pprodevian->m_procedureWindowShow);
 
    }
 
@@ -6597,7 +6597,7 @@ namespace windowing_universal_windows
 
       }
 
-      puserinteraction->post_routine(pprodevian->m_routineUpdateScreen);
+      puserinteraction->post_procedure(pprodevian->m_procedureUpdateScreen);
 
    }
 
@@ -7547,7 +7547,7 @@ namespace windowing_universal_windows
 
       //   };
 
-      //   pcs->m_routineSuccess = __routine(routine);
+      //   pcs->m_procedureSuccess = __routine(routine);
 
       //   //m_puserinteractionimpl = __create < ::user::interaction_impl >();
 
