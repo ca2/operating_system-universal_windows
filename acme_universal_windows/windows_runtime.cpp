@@ -79,8 +79,7 @@ CLASS_DECL_EXPORT void main_branch(::matter * pobjectTask, enum_priority epriori
 }
 
 
-
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix)
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::object * pobject, string & strRelative, string & strPrefix)
 {
 
    if (str::begins_eat_ci(strRelative, "image://"))
@@ -138,88 +137,118 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
       strPrefix = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
 
+      strRelative.begins_eat("\\");
+
+      strRelative.begins_eat("/");
+
       return ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder();
 
    }
    else
    {
 
-      auto path = pobject->m_pcontext->defer_process_path(strRelative);
+      return nullptr;
 
-      if (path.is_empty())
+   }
+
+}
+
+
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix)
+{
+
+   auto pfolder = windows_runtime_known_folder(pobject, strRelative, strPrefix);
+
+   if (pfolder)
+   {
+
+      return pfolder;
+
+   }
+
+   auto path = pobject->m_pcontext->defer_process_path(strRelative);
+
+   if (path.is_empty())
+   {
+
+      return nullptr;
+
+   }
+
+   ::file::path pathFolder;
+
+   string strName;
+
+   bool bDir = false;
+
+   if (pobject->m_psystem->m_pacmedirectory->_is(bDir, path) && bDir)
+   {
+
+      pathFolder = path;
+
+   }
+   else
+   {
+
+      pathFolder = path.folder();
+
+      strName = path.name();
+
+   }
+
+   if (pathFolder.is_empty())
+   {
+         
+      auto folder = ::winrt::Windows::ApplicationModel::Package::Current().InstalledLocation();
+
+      return folder;
+
+   }
+
+   //bDir = false;
+
+   //if (!pobject->m_psystem->m_pacmedirectory->_is(bDir, pathFolder) || !bDir)
+   //{
+
+   //   return nullptr;
+
+   //}
+
+   auto hstrRelative = __hstring(pathFolder);
+
+   try
+   {
+
+      auto item = ::winrt::Windows::Storage::StorageFolder::GetFolderFromPathAsync(hstrRelative).get();
+
+      if (!item)
       {
 
          return nullptr;
 
       }
 
-      ::file::path pathFolder;
+      strPrefix = pathFolder;
 
-      string strName;
+      strRelative = strName;
 
-      bool bDir = false;
+      return item;
 
-      if (pobject->m_psystem->m_pacmedirectory->_is(bDir, path) && bDir)
-      {
-
-         pathFolder = path;
-
-      }
-      else
-      {
-
-         pathFolder = path.folder();
-
-         strName = path.name();
-
-      }
-
-      if (pathFolder.is_empty())
-      {
-         
-         auto folder = ::winrt::Windows::ApplicationModel::Package::Current().InstalledLocation();
-
-         return folder;
-
-      }
-
-      auto hstrRelative = __hstring(pathFolder);
-
-      try
-      {
-
-         auto item = ::winrt::Windows::Storage::StorageFolder::GetFolderFromPathAsync(hstrRelative).get();
-
-         if (!item)
-         {
-
-            return nullptr;
-
-         }
-
-         strPrefix = pathFolder;
-
-         strRelative = strName;
-
-         return item;
-
-
-      }
-      catch (const winrt::hresult_error & e)
-      {
-
-         output_debug_string("winrt::hresult_error = " + __string((i32)e.code())+"\n");
-
-      }
-      catch (...)
-      {
-
-
-      }
-
-      return nullptr;
 
    }
+   catch (const winrt::hresult_error & e)
+   {
+
+      output_debug_string("winrt::hresult_error = " + __string((i32)e.code())+"\n");
+
+   }
+   catch (...)
+   {
+
+
+   }
+
+   return nullptr;
 
 }
 

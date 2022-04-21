@@ -115,15 +115,17 @@ namespace universal_windows
 
       //::e_status _create_directory(const char * path) override;
 
-      void rls(::file::path_array & stra, const char * psz) override;
+      //void rls(::file::path_array & stra, const char * psz) override;
 
-      void rls_dir(::file::path_array & stra, const char * psz) override;
+      //void rls_dir(::file::path_array & stra, const char * psz) override;
 
-      void ls(::file::path_array & stra, const char * psz) override;
+      //void ls(::file::path_array & stra, const char * psz) override;
 
-      void ls_dir(::file::path_array & stra, const char * psz) override;
+      //void ls_dir(::file::path_array & stra, const char * psz) override;
 
-      void ls_file(::file::path_array & stra, const char * psz) override;
+      //void ls_file(::file::path_array & stra, const char * psz) override;
+
+      bool enumerate(::file::listing & listing) override;
 
       //int make_path(const char * psz) override;
 

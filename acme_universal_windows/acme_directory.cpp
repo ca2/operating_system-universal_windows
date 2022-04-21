@@ -1444,80 +1444,79 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      void acme_directory::rls(::file::path_array & stra, const char * psz)
+      //void acme_directory::rls(::file::path_array & stra, const char * psz)
+      //{
+      //   ::count start = stra.get_count();
+      //   ls(stra, psz);
+      //   ::count end = stra.get_count();
+      //   for (::index i = start; i < end; i++)
+      //   {
+      //      if (is(stra[i]))
+      //      {
+      //         rls(stra, stra[i]);
+      //      }
+      //   }
+
+      //}
+
+
+      //void acme_directory::rls_dir(::file::path_array & stra, const char * psz)
+      //{
+
+      //   ::count start = stra.get_count();
+
+      //   ls_dir(stra, psz);
+
+      //   ::count end = stra.get_count();
+
+      //   for (::index i = start; i < end; i++)
+      //   {
+
+      //      ::file::path path = stra[i];
+
+      //      rls_dir(stra, path);
+
+      //   }
+
+      //}
+
+
+      bool acme_directory::enumerate(::file::listing & listing)
       {
-         ::count start = stra.get_count();
-         ls(stra, psz);
-         ::count end = stra.get_count();
-         for (::index i = start; i < end; i++)
-         {
-            if (is(stra[i]))
-            {
-               rls(stra, stra[i]);
-            }
-         }
 
-      }
-
-
-      void acme_directory::rls_dir(::file::path_array & stra, const char * psz)
-      {
-
-         ::count start = stra.get_count();
-
-         ls_dir(stra, psz);
-
-         ::count end = stra.get_count();
-
-         for (::index i = start; i < end; i++)
-         {
-
-            ::file::path path = stra[i];
-
-            rls_dir(stra, path);
-
-         }
-
-      }
-
-
-      void acme_directory::ls(::file::path_array & stra, const char * psz)
-      {
-
-#if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
-
-         DIR * dirp = opendir(psz);
-
-         if (dirp == nullptr)
-            return;
-
-         dirent * dp;
-         ::file::path path;
-         while ((dp = readdir(dirp)) != nullptr)
+         if (listing.m_pathFinal.is_empty())
          {
 
-            if (strcmp(dp->d_name, "..") == 0)
-               continue;
-            else if (strcmp(dp->d_name, ".") == 0)
-               continue;
-            path = psz / dp->d_name;
-            path.m_iDir = dp->d_type & DT_DIR ? 1 : 0;
-            path.m_iSize = -1;
-            stra.add(path);
-
-            //output_debug_string("flood for you: dir::ls ----> " + path);
+            listing.m_pathFinal = listing.m_pathUser;
 
          }
 
-         closedir(dirp);
+         if (!is(listing.m_pathFinal))
+         {
 
-#elif defined(_UWP)
+            return false;
 
-         string strRelative(psz);
+         }
+
+         if (!listing.on_start_enumerating(this))
+         {
+
+            return true;
+
+         }
+
+         string strRelative(listing.m_pathFinal);
 
          string strPrefix;
 
          auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
+
+         if (strRelative.has_char())
+         {
+
+            folder = folder.GetFolderAsync(__hstring(strRelative)).get();
+
+         }
 
          auto items = folder.GetItemsAsync().get();
 
@@ -1530,223 +1529,188 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
             path.m_iDir = items.GetAt(u).IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder) ? 1 : 0;
 
-            stra.add(path);
+            listing.defer_add(path);
 
          }
-
-#else
-
-         WIN32_FIND_DATAW FindFileData;
-
-         HANDLE hFind;
-
-         hFind = FindFirstFileW(wstring(psz) + "\\*", &FindFileData);
-
-         if (hFind == INVALID_HANDLE_VALUE)
-         {
-
-            return;
-
-         }
-
-         while (true)
-         {
-
-            if (!windows_file_find_is_dots(FindFileData) && (FindFileData.dwFileAttributes != INVALID_FILE_ATTRIBUTES))
-               stra.add(::file::path(FindFileData.cFileName));
-
-            //if (stra.has_elements() && stra.last() == "teste")
-            //{
-            //   output_debug_string("teste");
-            //}
-
-            if (!FindNextFileW(hFind, &FindFileData))
-               break;
-
-         }
-
-         FindClose(hFind);
-
-#endif
 
 
       }
 
 
-      void acme_directory::ls_dir(::file::path_array & stra, const char * psz)
-      {
+//      void acme_directory::ls_dir(::file::path_array & stra, const char * psz)
+//      {
+//
+//#if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
+//
+//         DIR * dirp = opendir(psz);
+//
+//         if (dirp == nullptr)
+//            return;
+//
+//         dirent * dp;
+//
+//         while ((dp = readdir(dirp)) != nullptr)
+//         {
+//            if (dp->d_name[0] == '.')
+//            {
+//               if (dp->d_name[1] == '\0')
+//                  continue;
+//               if (dp->d_name[1] == '.')
+//               {
+//                  if (dp->d_name[2] == '\0')
+//                     continue;
+//               }
+//            }
+//            ::file::path strPath = psz / dp->d_name;
+//            if (is(strPath))
+//            {
+//               stra.add(strPath);
+//            }
+//
+//         }
+//
+//         closedir(dirp);
+//
+//#elif defined(_UWP)
+//
+//         string strRelative(psz);
+//
+//         string strPrefix;
+//
+//         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
+//
+//         auto folders = folder.GetFoldersAsync().get();
+//
+//         for (u32 u = 0; u < folders.Size(); u++)
+//         {
+//
+//            stra.add(folders.GetAt(u).Path().begin());
+//
+//         }
+//
+//#else
+//
+//         WIN32_FIND_DATAW FindFileData;
+//
+//         HANDLE hFind;
+//
+//         hFind = FindFirstFileW(wstring(psz), &FindFileData);
+//
+//         if (hFind == INVALID_HANDLE_VALUE)
+//            return;
+//
+//         while (true)
+//         {
+//
+//            if (!windows_file_find_is_dots(FindFileData) && (FindFileData.dwFileAttributes != INVALID_FILE_ATTRIBUTES) && (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0)
+//            {
+//
+//               stra.add(::file::path(FindFileData.cFileName));
+//
+//            }
+//
+//            stra.add(::file::path(FindFileData.cFileName));
+//
+//            if (!FindNextFileW(hFind, &FindFileData))
+//               break;
+//
+//         }
+//
+//         FindClose(hFind);
+//
+//#endif
+//
+//
+//      }
+//
+//
+//      void acme_directory::ls_file(::file::path_array & stra, const char * psz)
+//      {
+//
+//#if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
+//
+//         DIR * dirp = opendir(psz);
+//
+//         if (dirp == nullptr)
+//            return;
+//
+//         dirent * dp;
+//
+//         while ((dp = readdir(dirp)) != nullptr)
+//         {
+//            if (dp->d_name[0] == '.')
+//            {
+//               if (dp->d_name[1] == '\0')
+//                  continue;
+//               if (dp->d_name[1] == '.')
+//               {
+//                  if (dp->d_name[2] == '\0')
+//                     continue;
+//               }
+//            }
+//            ::file::path strPath = psz / dp->d_name;
+//            if (!is(strPath))
+//            {
+//               stra.add(strPath);
+//            }
+//
+//         }
+//
+//         closedir(dirp);
+//
+//#elif defined(_UWP)
+//
+//         string strRelative(psz);
+//
+//         string strPrefix;
+//
+//         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
+//
+//         auto files = folder.GetFilesAsync().get();
+//
+//         for (u32 u = 0; u < files.Size(); u++)
+//         {
+//
+//            stra.add(files.GetAt(u).Path().begin());
+//
+//         }
+//
+//
+//#else
+//
+//         WIN32_FIND_DATAW FindFileData;
+//
+//         HANDLE hFind;
+//
+//         hFind = FindFirstFileW(wstring(psz), &FindFileData);
+//
+//         if (hFind == INVALID_HANDLE_VALUE)
+//            return;
+//
+//         while (true)
+//         {
+//
+//            if (!windows_file_find_is_dots(FindFileData) && (FindFileData.dwFileAttributes != INVALID_FILE_ATTRIBUTES) && (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0)
+//            {
+//            }
+//            else
+//            {
+//               stra.add(::file::path(FindFileData.cFileName));
+//            }
+//
+//
+//            stra.add(::file::path(FindFileData.cFileName));
+//
+//            if (!FindNextFileW(hFind, &FindFileData))
+//               break;
+//
+//         }
+//
+//         FindClose(hFind);
+//
+//#endif
 
-#if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
-
-         DIR * dirp = opendir(psz);
-
-         if (dirp == nullptr)
-            return;
-
-         dirent * dp;
-
-         while ((dp = readdir(dirp)) != nullptr)
-         {
-            if (dp->d_name[0] == '.')
-            {
-               if (dp->d_name[1] == '\0')
-                  continue;
-               if (dp->d_name[1] == '.')
-               {
-                  if (dp->d_name[2] == '\0')
-                     continue;
-               }
-            }
-            ::file::path strPath = psz / dp->d_name;
-            if (is(strPath))
-            {
-               stra.add(strPath);
-            }
-
-         }
-
-         closedir(dirp);
-
-#elif defined(_UWP)
-
-         string strRelative(psz);
-
-         string strPrefix;
-
-         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
-
-         auto folders = folder.GetFoldersAsync().get();
-
-         for (u32 u = 0; u < folders.Size(); u++)
-         {
-
-            stra.add(folders.GetAt(u).Path().begin());
-
-         }
-
-#else
-
-         WIN32_FIND_DATAW FindFileData;
-
-         HANDLE hFind;
-
-         hFind = FindFirstFileW(wstring(psz), &FindFileData);
-
-         if (hFind == INVALID_HANDLE_VALUE)
-            return;
-
-         while (true)
-         {
-
-            if (!windows_file_find_is_dots(FindFileData) && (FindFileData.dwFileAttributes != INVALID_FILE_ATTRIBUTES) && (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0)
-            {
-
-               stra.add(::file::path(FindFileData.cFileName));
-
-            }
-
-            stra.add(::file::path(FindFileData.cFileName));
-
-            if (!FindNextFileW(hFind, &FindFileData))
-               break;
-
-         }
-
-         FindClose(hFind);
-
-#endif
-
-
-      }
-
-
-      void acme_directory::ls_file(::file::path_array & stra, const char * psz)
-      {
-
-#if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
-
-         DIR * dirp = opendir(psz);
-
-         if (dirp == nullptr)
-            return;
-
-         dirent * dp;
-
-         while ((dp = readdir(dirp)) != nullptr)
-         {
-            if (dp->d_name[0] == '.')
-            {
-               if (dp->d_name[1] == '\0')
-                  continue;
-               if (dp->d_name[1] == '.')
-               {
-                  if (dp->d_name[2] == '\0')
-                     continue;
-               }
-            }
-            ::file::path strPath = psz / dp->d_name;
-            if (!is(strPath))
-            {
-               stra.add(strPath);
-            }
-
-         }
-
-         closedir(dirp);
-
-#elif defined(_UWP)
-
-         string strRelative(psz);
-
-         string strPrefix;
-
-         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
-
-         auto files = folder.GetFilesAsync().get();
-
-         for (u32 u = 0; u < files.Size(); u++)
-         {
-
-            stra.add(files.GetAt(u).Path().begin());
-
-         }
-
-
-#else
-
-         WIN32_FIND_DATAW FindFileData;
-
-         HANDLE hFind;
-
-         hFind = FindFirstFileW(wstring(psz), &FindFileData);
-
-         if (hFind == INVALID_HANDLE_VALUE)
-            return;
-
-         while (true)
-         {
-
-            if (!windows_file_find_is_dots(FindFileData) && (FindFileData.dwFileAttributes != INVALID_FILE_ATTRIBUTES) && (FindFileData.dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY) != 0)
-            {
-            }
-            else
-            {
-               stra.add(::file::path(FindFileData.cFileName));
-            }
-
-
-            stra.add(::file::path(FindFileData.cFileName));
-
-            if (!FindNextFileW(hFind, &FindFileData))
-               break;
-
-         }
-
-         FindClose(hFind);
-
-#endif
-
-      }
+      //}
 
 
       ::file::path acme_directory::pathfind(const string & pszEnv, const string & pszTopic, const string & pszMode)

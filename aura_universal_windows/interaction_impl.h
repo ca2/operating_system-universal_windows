@@ -5,29 +5,18 @@ namespace universal_windows
 {
 
 
-   CLASS_DECL_AURA LRESULT CALLBACK __send_message_hook(int, WPARAM, LPARAM);
-   //CLASS_DECL_AURA void _gen::StandardSubclass(oswindow);
-   CLASS_DECL_AURA LRESULT CALLBACK __cbt_filter_hook(int, WPARAM, LPARAM);
-   CLASS_DECL_AURA LRESULT __call_window_procedure(::user::interaction * pWnd, oswindow hWnd, ::u32 nMsg, WPARAM wParam, LPARAM lParam);
-
-   
+  
    class CLASS_DECL_AURA_UNIVERSAL_WINDOWS interaction_impl :
       virtual public ::user::interaction_impl
    {
    public:
 
 
-      //::user::message_queue_listener *                                m_plistener;
       bool                                                              m_bNotifyLayoutCompletedPending;
       string                                                            m_strWindowText;
       point_f64                                                         m_pointLastMouseMove;
-      //point_f64                                                       m_pointCursor;
       double                                                            m_dAccumulatedMouseMoveDistance;
       ::duration                                                            m_durationLastMouseMove;
-      //::thread *                                                      m_pthreadDraw;
-      //::user::primitive *                                             m_pbasewnd;
-      //::user::interaction *                                           m_pguieCapture;
-
       iptr_to_iptr                                                      m_mapLong;
       ::mutex                                                           m_mutexQueue;
       manual_reset_event                                                m_evQueue;
@@ -703,14 +692,5 @@ namespace universal_windows
 
 
 } // namespace universal_windows
-
-
-
-//inline ::universal_windows::interaction_impl * __uwp_user_interaction_impl(::layered * playered)
-//{
-//
-//   return (::universal_windows::interaction_impl *)playered->layer(LAYERED_OS_USER_INTERACTION_IMPL);
-//
-//}
 
 

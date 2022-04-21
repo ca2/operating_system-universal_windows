@@ -1,9 +1,9 @@
 #pragma once
 
 
-//CLASS_DECL_APEX_UNIVERSAL_WINDOWS bool vfxFullPath(unichar * pszPathOut, const unichar * pszFileIn);
+//CLASS_DECL_APEX_UNIVERSAL_WINDOWS bool windows_full_path(unichar * pszPathOut, const unichar * pszFileIn);
 
-//CLASS_DECL_APEX_UNIVERSAL_WINDOWS bool vfxFullPath(wstring & wstrFullPath, const wstring & wstrPath);
+//CLASS_DECL_APEX_UNIVERSAL_WINDOWS bool windows_full_path(wstring & wstrFullPath, const wstring & wstrPath);
 //CLASS_DECL_APEX_UNIVERSAL_WINDOWS ::u32 vfxGetFileName(const unichar * pszPathName, unichar * pszTitle, ::u32 nMax);
 
 //CLASS_DECL_APEX_UNIVERSAL_WINDOWS void vfxGetModuleShortFileName(HINSTANCE hInst, string & strShortName);
@@ -48,9 +48,11 @@ namespace universal_windows
       //virtual ::u32 GetFileName(const ::string & pszPathName, string & str);
 
       //virtual void GetModuleShortFileName(HINSTANCE hInst, string & strShortName);
+
+      bool is_file_or_dir(const ::file::path & path, ::file::enum_type * petype = nullptr) override;
       
-      virtual ::payload length(const ::file::path & path) override;
-      virtual ::payload length(const ::file::path & path, ::payload * pvarQuery) override;
+      ::payload length(const ::file::path & path) override;
+      ::payload length(const ::file::path & path, ::payload * pvarQuery) override;
 
       void move(const ::file::path & pszNew, const ::file::path & psz) override;
 
@@ -64,9 +66,9 @@ namespace universal_windows
 
       //::e_status update_module_path() override;
 
-      file_pointer get_file(const ::payload & payloadFile, const ::file::e_open & nOpenFlags) override;
+      ::file_pointer get_file(const ::payload & payloadFile, const ::file::e_open & nOpenFlags) override;
 
-
+      ::file_pointer create_native_file(const ::file::path & path, const ::file::e_open & eopen) override;
 
       virtual ::file::path dropbox_info_network_payload() override;
 

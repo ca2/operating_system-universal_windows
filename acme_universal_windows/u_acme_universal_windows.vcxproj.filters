@@ -12,7 +12,7 @@
     <ClCompile Include="_.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="acme_dir.cpp">
+    <ClCompile Include="acme_directory.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="acme_file.cpp">
@@ -50,7 +50,7 @@
     <ClInclude Include="_windows_runtime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="acme_dir.h">
+    <ClInclude Include="acme_directory.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="acme_file.h">

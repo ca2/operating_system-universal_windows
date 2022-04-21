@@ -2,7 +2,7 @@
 //#include "_uwp.h"
 //#include "aura/os/universal_windows/_uwp.h"
 #include "aura/message.h"
-#include "aura/user/_user.h"
+#include "aura/user/user/_user.h"
 #include "buffer.h"
 #include <stdio.h>
 #include "aura/graphics/draw2d/_draw2d.h"
@@ -187,6 +187,8 @@ namespace windowing_universal_windows
    {
 
       //auto pdevicecontext = (ID2D1DeviceContext*)m_pdraw2dgraphics->detach();
+
+      m_pdraw2dgraphics->on_end_draw(m_pwindow->get_oswindow());
 
       if (m_pdevicecontext)
       {

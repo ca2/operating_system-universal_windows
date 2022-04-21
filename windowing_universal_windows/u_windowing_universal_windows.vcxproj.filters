@@ -7,6 +7,12 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{9bbb73a0-40d0-4f09-b55c-524201fce82b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\universal_windows">
+      <UniqueIdentifier>{bc4e0e1b-7efc-424f-973b-4a2ad859d03f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\universal_windows">
+      <UniqueIdentifier>{12bf8edd-4873-4142-ba9b-f62586f7aa95}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_.cpp">
@@ -53,6 +59,12 @@
     </ClCompile>
     <ClCompile Include="windowing.cpp">
       <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="universal_windows\framework_view.cpp">
+      <Filter>Source Files\universal_windows</Filter>
+    </ClCompile>
+    <ClCompile Include="universal_windows\framework_view_source.cpp">
+      <Filter>Source Files\universal_windows</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -109,6 +121,12 @@
     </ClInclude>
     <ClInclude Include="windowing.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="universal_windows\framework_view.h">
+      <Filter>Header Files\universal_windows</Filter>
+    </ClInclude>
+    <ClInclude Include="universal_windows\framework_view_source.h">
+      <Filter>Header Files\universal_windows</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

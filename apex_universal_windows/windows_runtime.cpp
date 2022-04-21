@@ -3,57 +3,8 @@
 #include "apex/_defer.h"
 #include "acme/operating_system/universal_windows/parallelization_winrt.h"
 #undef new
-//#include <collection.h>
-//#include <ppltasks.h>
-//#define CLASS_DECL_APEX CLASS_DECL_IMPORT
-//#include "acme/constant/_.h"
-//#include "acme/constant/_constant.h"
-//#include "acme/primitive/primitive/estatus.h"
-//#include "acme/primitive/datetime/_.h"
-//#include "acme/primitive/primitive/interlocked_count.h"
-//#include "acme/primitive/primitive/eobject.h"
-//#include "acme/platform/object_reference_count_debug.h"
-//#include "acme/primitive/mathematics/index.h"
-//#include "acme/parallelization/synchronization_result.h"
-//#include "windows_runtime.h"
-//#include "acme/operating_system/windows_common/arg_sec_attrs.h"
-//#include "acme/parallelization/synchronization_object.h"
-//#include "acme/parallelization/event.h"
-//#include "acme/parallelization/manual_reset_event.h"
-//#include "acme/operating_system/universal_windows/multithreading_winrt.h"
-////#include <winrt/Windows.Foundation.Collections.h>
 
 
-
-
-//template < typename PREDICATE >
-//void windows_runtime_async(PREDICATE predicate)
-//{
-//
-//   ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(
-//      CoreDispatcherPriority::Normal,
-//      ref new ::winrt::Windows::UI::Core::DispatchedHandler(PREDICATE));
-//
-//
-//}
-//
-
-//
-//::e_status windows_runtime_launch_uri_synchronously(const char * pszUri, const ::duration & duration)
-//{
-//
-//   ::winrt::Windows::Foundation::Uri uri(__hstring(pszUri));
-//
-//   auto estatus = windows_runtime_synchronously(duration, [uri, duration]()
-//   {
-//
-//      ::wait(::winrt::Windows::System::Launcher::LaunchUriAsync(uri), duration);
-//
-//   });
-//
-//   return estatus;
-//
-//}
 
 
 ::winrt::Windows::Storage::StorageFile windows_runtime_file(::object * pobject, const char * lpcszFileName, ::u32 dwDesiredAcces, ::u32 dwShareMode, ::u32 dwCreationDisposition, ::u32 dwFlagsAndAttributes)

@@ -2,7 +2,7 @@
 
 
 #include "aura_universal_windows/_aura_universal_windows.h"
-#include "aura/user/_user.h"
+#include "aura/user/user/_user.h"
 #include "directx/_directx.h"
 #include "direct2d/_direct2d.h"
 #include "_windows_runtime.h"
@@ -79,6 +79,8 @@ namespace universal_windows
 
 
 //#include "system_interaction.h"
+#include "universal_windows/framework_view.h"
+#include "universal_windows/framework_view_source.h"
 
 
 #include "window.h"
@@ -97,6 +99,8 @@ namespace universal_windows
 
 
 //#include "buffer.h"
+
+
 
 
 #include "node.h"

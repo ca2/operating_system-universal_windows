@@ -1,41 +1,17 @@
 // Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
 #include "framework.h"
 
-//::e_status hresult_to_status(HRESULT hr)
-//{
-//
-//   if (FAILED(hr))
-//   {
-//
-//      return error_failed;
-//
-//   }
-//
-//   return ::success;
-//
-//}
 
 namespace universal_windows
 {
 
 
-   native_buffer::native_buffer()
+   native_buffer::native_buffer(::winrt::Windows::Storage::StorageFile file, const ::file::e_open & eopen)
    {
 
-      m_iPutCharacterBack = -1;
       m_bCloseOnDelete = true;
 
-   }
-
-
-   native_buffer::native_buffer(::winrt::Windows::Storage::StorageFile file)
-   {
-
-      m_iPutCharacterBack = -1;
-
-      m_file = file;
-
-      m_bCloseOnDelete = true;
+      open(file, eopen);
 
    }
 
@@ -104,14 +80,12 @@ namespace universal_windows
    }
    
    
-   int native_buffer::put_character_back(int iCharacter)
-   {
+   //void native_buffer::put_byte_back(::byte byte)
+   //{
 
-      m_iPutCharacterBack = iCharacter;
+   //   m_memoryBuffer.write(strUtf8.c_str(), strUtf8.get_length());
 
-      return m_iPutCharacterBack;
-
-   }
+   //}
 
 
    void native_buffer::open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, const ::file::e_open & efileopenParam)
@@ -305,6 +279,8 @@ namespace universal_windows
 
       folder = m_folder;
 
+      ::winrt::Windows::Storage::StorageFile                               file = nullptr;
+
       try
       {
 
@@ -314,13 +290,13 @@ namespace universal_windows
             if (eopen & ::file::e_open_no_truncate)
             {
 
-               m_file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::OpenIfExists).get();
+               file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::OpenIfExists).get();
 
             }
             else
             {
 
-               m_file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::ReplaceExisting).get();
+               file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::ReplaceExisting).get();
 
             }
 
@@ -336,7 +312,7 @@ namespace universal_windows
                if (item && item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
                {
 
-                  m_file = item.as<::winrt::Windows::Storage::StorageFile>();
+                  file = item.as<::winrt::Windows::Storage::StorageFile>();
 
                }
 
@@ -344,7 +320,7 @@ namespace universal_windows
             catch (...)
             {
 
-               m_file = nullptr;
+               file = nullptr;
 
             }
 
@@ -360,7 +336,7 @@ namespace universal_windows
 
       }
 
-      if (m_file == nullptr)
+      if (file == nullptr)
       {
 
          m_folder = nullptr;
@@ -379,6 +355,16 @@ namespace universal_windows
          throw ::file_open_exception(m_estatus);
 
       }
+
+      return open(file, eopen);
+
+   }
+
+
+   void native_buffer::open(::winrt::Windows::Storage::StorageFile file, const ::file::e_open & eopen)
+   {
+
+      m_file = file;
 
       ASSERT((::file::e_open_read | ::file::e_open_write | ::file::e_open_read_write) == 3);
 
@@ -432,32 +418,6 @@ namespace universal_windows
 
       }
 
-      int iAddUp = 0;
-
-      if (m_iPutCharacterBack >= 0)
-      {
-
-         byte * p = (byte *)pdata;
-
-         *p = m_iPutCharacterBack;
-
-         m_iPutCharacterBack = -1;
-
-         p++;
-
-         nCount--;
-
-         pdata = pdata;
-
-         if (nCount <= 0)
-         {
-
-            return 1;
-
-         }
-         iAddUp = 1;
-
-      }
 
       ::winrt::Windows::Storage::Streams::Buffer buffer((::u32)  nCount);
 
@@ -467,7 +427,7 @@ namespace universal_windows
 
       auto totalRead = windows_runtime_read_buffer(pdata, nCount, buffer);
 
-      return totalRead + iAddUp;
+      return totalRead;
 
    }
 

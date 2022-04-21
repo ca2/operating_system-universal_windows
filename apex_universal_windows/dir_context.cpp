@@ -383,126 +383,130 @@ namespace universal_windows
    }
 
 
-   bool dir_context::ls(::file::listing & listing)
+   bool dir_context::enumerate(::file::listing & listing)
    {
 
-      if (listing.m_bRecursive)
-      {
+      //if (listing.m_bRecursive)
+      //{
 
 
-         index iStart = listing.get_size();
+      //   index iStart = listing.get_size();
 
 
-         {
+      //   {
 
-            __scoped_restore(listing.m_pathUser);
+      //      __scoped_restore(listing.m_pathUser);
 
-            __scoped_restore(listing.m_pathFinal);
+      //      __scoped_restore(listing.m_pathFinal);
 
-            __scoped_restore(listing.m_eextract);
+      //      __scoped_restore(listing.m_eextract);
 
-            if (::dir_context::ls(listing))
-            {
+      //      if (::dir_context::ls(listing))
+      //      {
 
-               return true;
+      //         return true;
 
-            }
+      //      }
 
-            listing.m_estatus = ::success;
+      //      listing.m_estatus = ::success;
 
-            ::file::listing dira;
+      //      ::file::listing dira;
 
-            ls_dir(dira, listing.m_pathUser);
+      //      ls_dir(dira, listing.m_pathUser);
 
-            for (i32 i = 0; i < dira.get_count(); i++)
-            {
+      //      for (i32 i = 0; i < dira.get_count(); i++)
+      //      {
 
-               ::file::path dir_context = dira[i];
+      //         ::file::path dir_context = dira[i];
 
-               if (dir_context == listing.m_pathUser)
-               {
+      //         if (dir_context == listing.m_pathUser)
+      //         {
 
-                  continue;
+      //            continue;
 
-               }
+      //         }
 
-               listing.m_pathUser = dir_context;
+      //         listing.m_pathUser = dir_context;
 
-               if (listing.m_eextract != extract_all)
-               {
+      //         if (listing.m_eextract != extract_all)
+      //         {
 
-                  listing.m_eextract = extract_none;
+      //            listing.m_eextract = extract_none;
 
-               }
+      //         }
 
-               m_pcontext->m_papexcontext->dir().ls(listing);
+      //         m_pcontext->m_papexcontext->dir().ls(listing);
 
-            }
+      //      }
 
-         }
+      //   }
 
-         //file_find file_find;
+      //   //file_find file_find;
 
-         //bool bWorking = file_find.find_file(listing.m_pathUser / "*") != false;
+      //   //bool bWorking = file_find.find_file(listing.m_pathUser / "*") != false;
 
-         //if (bWorking)
-         //{
+      //   //if (bWorking)
+      //   //{
 
-         //   while (bWorking)
-         //   {
+      //   //   while (bWorking)
+      //   //   {
 
-         //      bWorking = file_find.find_next_file() != false;
+      //   //      bWorking = file_find.find_next_file() != false;
 
-         //      if (!file_find.IsDots() && file_find.GetFilePath() != listing.m_pathUser)
-         //      {
+      //   //      if (!file_find.IsDots() && file_find.GetFilePath() != listing.m_pathUser)
+      //   //      {
 
-         //         if ((listing.m_bDir && file_find.IsDirectory()) || (listing.m_bFile && !file_find.IsDirectory()))
-         //         {
+      //   //         if ((listing.m_bDir && file_find.IsDirectory()) || (listing.m_bFile && !file_find.IsDirectory()))
+      //   //         {
 
-         //            if (matches_wildcard_criteria_ci(listing.m_straPattern, file_find.GetFileName()))
-         //            {
+      //   //            if (matches_wildcard_criteria_ci(listing.m_straPattern, file_find.GetFileName()))
+      //   //            {
 
-         //               listing.add(file_find.GetFilePath());
+      //   //               listing.add(file_find.GetFilePath());
 
-         //               listing.last().m_iSize = file_find.get_length();
+      //   //               listing.last().m_iSize = file_find.get_length();
 
-         //               listing.last().m_iDir = file_find.IsDirectory() != false;
+      //   //               listing.last().m_iDir = file_find.IsDirectory() != false;
 
-         //            }
+      //   //            }
 
-         //         }
+      //   //         }
 
-         //      }
+      //   //      }
 
-         //   }
+      //   //   }
 
-         //}
-         //else
-         //{
+      //   //}
+      //   //else
+      //   //{
 
-         //   listing.m_statusresult = ::error_failed;
+      //   //   listing.m_statusresult = ::error_failed;
 
-         //}
+      //   //}
 
-         //for (index i = iStart; i < listing.get_size(); i++)
-         //{
+      //   //for (index i = iStart; i < listing.get_size(); i++)
+      //   //{
 
-         //   listing[i].m_iRelative = listing.m_pathUser.get_length() + 1;
+      //   //   listing[i].m_iRelative = listing.m_pathUser.get_length() + 1;
 
-         //}
+      //   //}
 
-      }
-      else
-      {
+      //}
+      //else
+      //{
 
-         if (::dir_context::ls(listing))
+         if (::dir_context::enumerate(listing))
          {
 
             return true;
 
          }
 
-         listing.m_estatus = ::success;
+         //listing.m_estatus = ::success;
+
+         auto pacmedirectory = m_psystem->m_pacmedirectory;
+
+         return pacmedirectory->enumerate(listing);
 
          //if (listing.m_pathFinal.is_empty())
          //{
@@ -511,241 +515,241 @@ namespace universal_windows
 
          //}
 
-         auto folder = windows_runtime_folder(this, listing.m_pathUser);
+      //   auto folder = windows_runtime_folder(this, listing.m_pathUser);
 
-         if(folder)
-         {
+      //   if(folder)
+      //   {
 
-            winrt::Windows::Storage::Search::QueryOptions options;
+      //      winrt::Windows::Storage::Search::QueryOptions options;
 
-            options.FolderDepth(::winrt::Windows::Storage::Search::FolderDepth::Shallow);
+      //      options.FolderDepth(::winrt::Windows::Storage::Search::FolderDepth::Shallow);
 
-            auto items = folder.CreateItemQueryWithOptions(options).GetItemsAsync().get();
+      //      auto items = folder.CreateItemQueryWithOptions(options).GetItemsAsync().get();
 
-            for(auto item : items)
-            {
+      //      for(auto item : items)
+      //      {
 
-               bool bFolder = item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder);
+      //         bool bFolder = item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder);
 
-               bool bFile = item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File);
-               
-               if ((listing.m_bDir && bFolder)|| (listing.m_bFile && bFile))
-               {
+      //         bool bFile = item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File);
+      //         
+      //         if ((listing.m_bDir && bFolder)|| (listing.m_bFile && bFile))
+      //         {
 
-                  string strName = item.Name().begin();
+      //            string strName = item.Name().begin();
 
-                  if (strName.begins_ci("resident_"))
-                  {
+      //            if (strName.begins_ci("resident_"))
+      //            {
 
-                     TRACE("resident_*");
-                  }
+      //               TRACE("resident_*");
+      //            }
 
-                  if (matches_wildcard_criteria_ci(listing.m_straPattern, strName))
-                  {
+      //            if (matches_wildcard_criteria_ci(listing.m_straPattern, strName))
+      //            {
 
-                     string strPath = item.Path().begin();
+      //               string strPath = item.Path().begin();
 
-                     listing.add(strPath);
+      //               listing.add(strPath);
 
-                     auto basic_properties = item.GetBasicPropertiesAsync().get();
+      //               auto basic_properties = item.GetBasicPropertiesAsync().get();
 
-                     listing.last().m_iSize = basic_properties.Size();
+      //               listing.last().m_iSize = basic_properties.Size();
 
-                     listing.last().m_iDir = bFolder ? 1 : 0;
+      //               listing.last().m_iDir = bFolder ? 1 : 0;
 
-                  }
+      //            }
 
-               }
+      //         }
 
-            }
+      //      }
 
-         }
+      //   }
 
-      }
-
-      return listing;
-
-   }
-
-
-   bool dir_context::ls_relative_name(::file::listing & listing)
-   {
-
-
-      if (listing.m_bRecursive)
-      {
-
-         // to finish;
-
-         index iStart = listing.get_size();
-
-         {
-
-            __scoped_restore(listing.m_pathUser);
-
-            __scoped_restore(listing.m_pathFinal);
-
-            __scoped_restore(listing.m_eextract);
-
-            if (::dir_context::ls(listing))
-            {
-
-               //listing.m_statusresult = ::error_failed;
-
-               return true;
-
-            }
-
-            listing.m_estatus = ::success;
-
-            ::file::listing dira;
-
-            ls_dir(dira, listing.m_pathUser);
-
-            for (i32 i = 0; i < dira.get_count(); i++)
-            {
-
-               ::file::path dir_context = dira[i];
-
-               if (dir_context == listing.m_pathUser)
-               {
-
-                  continue;
-
-               }
-
-               listing.m_pathUser = dir_context;
-
-               if (listing.m_eextract != extract_all)
-               {
-
-                  listing.m_eextract = extract_none;
-
-               }
-
-               m_pcontext->m_papexcontext->dir().ls(listing);
-
-            }
-
-         }
-
-         //file_find file_find;
-
-         //bool bWorking = file_find.find_file(listing.m_pathFinal / "*") != false;
-
-         //if (bWorking)
-         //{
-
-         //   while (bWorking)
-         //   {
-
-         //      bWorking = file_find.find_next_file() != false;
-
-         //      if (!file_find.IsDots() && file_find.GetFilePath() != listing.m_pathFinal)
-         //      {
-
-         //         if ((listing.m_bDir && file_find.IsDirectory()) || (listing.m_bFile && !file_find.IsDirectory()))
-         //         {
-
-         //            if (matches_wildcard_criteria_ci(listing.m_straPattern, file_find.GetFileName()))
-         //            {
-
-         //               listing.add(file_find.GetFilePath());
-
-         //               listing.last().m_iSize = file_find.get_length();
-
-         //               listing.last().m_iDir = file_find.IsDirectory() != false;
-
-         //            }
-
-         //         }
-
-         //      }
-
-         //   }
-
-         //}
-         //else
-         //{
-
-         //   listing.m_statusresult = ::error_failed;
-
-         //}
-
-         //for (index i = iStart; i < listing.get_size(); i++)
-         //{
-
-         //   listing[i].m_iRelative = listing.m_pathUser.get_length() + 1;
-
-         //}
-
-      }
-      else
-      {
-
-         if (::dir_context::ls(listing))
-         {
-
-            return true;
-
-         }
-
-         //file_find file_find;
-
-         //bool bWorking;
-
-         //bWorking = file_find.find_file(listing.m_pathFinal / "*");
-
-         //if (!bWorking)
-         //{
-
-         //   return listing;
-
-         //}
-
-         //while (bWorking)
-         //{
-
-         //   bWorking = file_find.find_next_file();
-
-         //   if (!file_find.IsDots())
-         //   {
-
-         //      if ((listing.m_bDir && file_find.IsDirectory()) || (listing.m_bFile && !file_find.IsDirectory()))
-         //      {
-
-         //         ::file::path pathName = file_find.GetFileName();
-
-         //         //if (strFile.begins_ci("resident_"))
-         //         //{
-
-         //         //   TRACE("resident_*");
-         //         //}
-
-         //         if (matches_wildcard_criteria_ci(listing.m_straPattern, pathName))
-         //         {
-
-         //            listing.add(pathName);
-
-         //            //listing.last().m_iSize = file_find.get_length();
-
-         //            //listing.last().m_iDir = file_find.IsDirectory() != false;
-
-         //         }
-
-         //      }
-
-         //   }
-
-         //}
-
-      }
+      //}
 
       //return listing;
 
-      return ::succeeded(listing.m_estatus);
-
    }
+
+
+   //bool dir_context::ls_relative_name(::file::listing & listing)
+   //{
+
+
+   //   if (listing.m_bRecursive)
+   //   {
+
+   //      // to finish;
+
+   //      index iStart = listing.get_size();
+
+   //      {
+
+   //         __scoped_restore(listing.m_pathUser);
+
+   //         __scoped_restore(listing.m_pathFinal);
+
+   //         __scoped_restore(listing.m_eextract);
+
+   //         if (::dir_context::ls(listing))
+   //         {
+
+   //            //listing.m_statusresult = ::error_failed;
+
+   //            return true;
+
+   //         }
+
+   //         listing.m_estatus = ::success;
+
+   //         ::file::listing dira;
+
+   //         ls_dir(dira, listing.m_pathUser);
+
+   //         for (i32 i = 0; i < dira.get_count(); i++)
+   //         {
+
+   //            ::file::path dir_context = dira[i];
+
+   //            if (dir_context == listing.m_pathUser)
+   //            {
+
+   //               continue;
+
+   //            }
+
+   //            listing.m_pathUser = dir_context;
+
+   //            if (listing.m_eextract != extract_all)
+   //            {
+
+   //               listing.m_eextract = extract_none;
+
+   //            }
+
+   //            m_pcontext->m_papexcontext->dir().ls(listing);
+
+   //         }
+
+   //      }
+
+   //      //file_find file_find;
+
+   //      //bool bWorking = file_find.find_file(listing.m_pathFinal / "*") != false;
+
+   //      //if (bWorking)
+   //      //{
+
+   //      //   while (bWorking)
+   //      //   {
+
+   //      //      bWorking = file_find.find_next_file() != false;
+
+   //      //      if (!file_find.IsDots() && file_find.GetFilePath() != listing.m_pathFinal)
+   //      //      {
+
+   //      //         if ((listing.m_bDir && file_find.IsDirectory()) || (listing.m_bFile && !file_find.IsDirectory()))
+   //      //         {
+
+   //      //            if (matches_wildcard_criteria_ci(listing.m_straPattern, file_find.GetFileName()))
+   //      //            {
+
+   //      //               listing.add(file_find.GetFilePath());
+
+   //      //               listing.last().m_iSize = file_find.get_length();
+
+   //      //               listing.last().m_iDir = file_find.IsDirectory() != false;
+
+   //      //            }
+
+   //      //         }
+
+   //      //      }
+
+   //      //   }
+
+   //      //}
+   //      //else
+   //      //{
+
+   //      //   listing.m_statusresult = ::error_failed;
+
+   //      //}
+
+   //      //for (index i = iStart; i < listing.get_size(); i++)
+   //      //{
+
+   //      //   listing[i].m_iRelative = listing.m_pathUser.get_length() + 1;
+
+   //      //}
+
+   //   }
+   //   else
+   //   {
+
+   //      if (::dir_context::ls(listing))
+   //      {
+
+   //         return true;
+
+   //      }
+
+   //      //file_find file_find;
+
+   //      //bool bWorking;
+
+   //      //bWorking = file_find.find_file(listing.m_pathFinal / "*");
+
+   //      //if (!bWorking)
+   //      //{
+
+   //      //   return listing;
+
+   //      //}
+
+   //      //while (bWorking)
+   //      //{
+
+   //      //   bWorking = file_find.find_next_file();
+
+   //      //   if (!file_find.IsDots())
+   //      //   {
+
+   //      //      if ((listing.m_bDir && file_find.IsDirectory()) || (listing.m_bFile && !file_find.IsDirectory()))
+   //      //      {
+
+   //      //         ::file::path pathName = file_find.GetFileName();
+
+   //      //         //if (strFile.begins_ci("resident_"))
+   //      //         //{
+
+   //      //         //   TRACE("resident_*");
+   //      //         //}
+
+   //      //         if (matches_wildcard_criteria_ci(listing.m_straPattern, pathName))
+   //      //         {
+
+   //      //            listing.add(pathName);
+
+   //      //            //listing.last().m_iSize = file_find.get_length();
+
+   //      //            //listing.last().m_iDir = file_find.IsDirectory() != false;
+
+   //      //         }
+
+   //      //      }
+
+   //      //   }
+
+   //      //}
+
+   //   }
+
+   //   //return listing;
+
+   //   return ::succeeded(listing.m_estatus);
+
+   //}
 
 
    bool dir_context::is_impl(const ::file::path & pcszPath)
@@ -1210,14 +1214,14 @@ namespace universal_windows
    }
 
 
-   bool dir_context::has_subdir(const ::file::path & pszDir)
+   bool dir_context::has_subdir(const ::file::path & pathFolder)
    {
 
       ::file::listing listing;
 
-      listing.m_pathUser = pszDir;
+      listing.set_folder_listing(pathFolder);
 
-      ls_dir(listing);
+      enumerate(listing);
 
       return listing.has_element();
 
@@ -1253,7 +1257,7 @@ namespace universal_windows
    //   wstring wstrFileName;
    //   wstrFileName = ::str::international::utf8_to_unicode(pszFileName);
 
-   //   if(!vfxFullPath(wstrFullName,wstrFileName))
+   //   if(!windows_full_path(wstrFullName,wstrFileName))
    //   {
    //      rStatus.m_strFullName.Empty();
    //      return false;
