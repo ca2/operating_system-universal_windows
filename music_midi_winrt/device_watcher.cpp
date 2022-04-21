@@ -1,4 +1,4 @@
-// Moved from io to midi to device_watcher by 2021-09-23 20:15 BRT <3ThomasBorregaardS�rensen!!
+// Moved from io to midi to device_watcher by 2021-09-23 20:15 BRT <3ThomasBorregaardSørensen!!
 #include "framework.h"
 //#include <mmddk.h>
 
