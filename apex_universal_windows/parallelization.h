@@ -26,14 +26,7 @@ typedef struct tag_MSG
 //CLASS_DECL_APEX void WINAPI TlsShutdown();
 
 
-#ifndef _UWP
-
-CLASS_DECL_APEX BOOL WINAPI SetThreadPriority(htask_t htask,int iPriority);
-
-CLASS_DECL_APEX int WINAPI GetThreadPriority(htask_t htask);
-
-#endif
-
-
-
 //::u32 WinMsgWaitForMultipleObjects(::u32 dwSize,const HANDLE * lphandles,::u32 tickTimeout,::u32 dwWakeMask,::u32 dwFlags);
+
+
+
