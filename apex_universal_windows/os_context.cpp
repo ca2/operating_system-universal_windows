@@ -2342,7 +2342,7 @@ return false;
       //
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "SOFTWARE\\RegisteredApplications", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "SOFTWARE\\RegisteredApplications", true);
 
       //   string strValue;
 
@@ -2352,7 +2352,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId, true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId, true);
 
       //   string strValue;
 
@@ -2362,7 +2362,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities", true);
 
       //   string strValue;
 
@@ -2374,7 +2374,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\FileAssociations", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\FileAssociations", true);
 
       //   string strValue;
 
@@ -2391,7 +2391,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\Startmenu", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\Startmenu", true);
 
       //   string strValue;
 
@@ -2401,7 +2401,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\URLAssociations", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\URLAssociations", true);
 
       //   string strValue;
 
@@ -2423,7 +2423,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\DefaultIcon", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\DefaultIcon", true);
 
       //   string strValue;
 
@@ -2434,7 +2434,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\InstallInfo", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\InstallInfo", true);
 
       //   string strValue;
 
@@ -2448,7 +2448,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\shell\\open\\command", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\shell\\open\\command", true);
 
       //   string strValue;
 
@@ -2487,7 +2487,7 @@ return false;
       //file_association_set_shell_open_command(strTargetProgId, strTargetProgId, strModule, "\"%1\"");
       //{
 
-      //   ::windows::registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\http\\UserChoice", true);
+      //   ::acme_windows::registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\http\\UserChoice", true);
 
       //   string strProgId;
 
@@ -2506,7 +2506,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key key(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\https\\UserChoice", true);
+      //   ::acme_windows::registry::key key(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\https\\UserChoice", true);
 
       //   string strProgId;
 
@@ -2618,7 +2618,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication, true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication, true);
 
       //   string strValue;
 
@@ -2636,7 +2636,7 @@ return false;
       //
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication / "DefaultIcon", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication / "DefaultIcon", true);
 
       //   string strValue;
 
@@ -2655,7 +2655,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication / "InstallInfo", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication / "InstallInfo", true);
 
       //   string strValue;
 
@@ -2693,7 +2693,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication / "shell/open/command", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication / "shell/open/command", true);
 
       //   string strValue;
 
@@ -2715,7 +2715,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "SOFTWARE\\RegisteredApplications", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "SOFTWARE\\RegisteredApplications", true);
 
       //   string strValue;
 
@@ -2732,7 +2732,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities, true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities, true);
 
       //   string strValue;
 
@@ -2764,7 +2764,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "FileAssociations", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "FileAssociations", true);
 
       //   string strValue;
 
@@ -2781,7 +2781,7 @@ return false;
 
       ////{
 
-      ////   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\Startmenu", true);
+      ////   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\Startmenu", true);
 
       ////   string strValue;
 
@@ -2791,7 +2791,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "FileAssociations", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "FileAssociations", true);
 
       //   for (index i = 0; i < straMimeType.get_count(); i++)
       //   {
@@ -2813,7 +2813,7 @@ return false;
 
       //{
 
-      //   ::windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "MimeAssociations", true);
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "MimeAssociations", true);
 
       //   for (index i = 0; i < straMimeType.get_count(); i++)
       //   {
@@ -2933,7 +2933,7 @@ return false;
 
       ////{
 
-      ////   ::windows::registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\http\\UserChoice", true);
+      ////   ::acme_windows::registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\http\\UserChoice", true);
 
       ////   string strProgId;
 
@@ -2951,7 +2951,7 @@ return false;
 
       ////{
 
-      ////   ::windows::registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\https\\UserChoice", true);
+      ////   ::acme_windows::registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\https\\UserChoice", true);
 
       ////   string strProgId;
 
