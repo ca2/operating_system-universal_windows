@@ -109,23 +109,6 @@
 #define VK_KANA             0x15
 #endif
 
-/////////////////////////////////////////////////////////////////////////////
-// Special DEBUG_BREAK: used to break into debugger at critical times
-
-#ifndef DEBUG_BREAK
-#ifdef ___NO_DEBUG_CRT
-// by default, debug break is asm int 3, or a call to DebugBreak, or nothing
-#if defined(_M_IX86) && !defined(___PORTABLE)
-#define DEBUG_BREAK _asm { int 3 }
-#else
-#define DEBUG_BREAK DebugBreak()
-#endif
-#else
-#define DEBUG_BREAK _CrtDbgBreak()
-#endif
-#endif
-
-
 
 /////////////////////////////////////////////////////////////////////////////
 // Standard preprocessor symbols if not already defined
