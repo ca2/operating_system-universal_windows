@@ -119,13 +119,13 @@ namespace windowing_universal_windows
 
       virtual bool create_buffer(const ::size_i32& size, int iStride = -1);
       void destroy_buffer() override;
-      bool update_window() override;
+      bool update_screen() override;
 
 
       ID2D1DeviceContext * get_device_context();
 
 
-      bool update_window(::image* pimage) override;
+      bool update_screen(::image* pimage) override;
 
 
       ::draw2d::graphics* on_begin_draw() override;

@@ -7,13 +7,13 @@ namespace windowing_universal_windows
 
 
    class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS node :
-      virtual public aura::universal_windows::node
+      virtual public aura_universal_windows::node
    {
    public:
 
 
 
-      __reference(::universal_windows::interaction_impl) m_pimplMain;
+      __reference(::aura_universal_windows::interaction_impl) m_pimplMain;
 
       bool                          m_bAppInit;
 
@@ -48,7 +48,10 @@ namespace windowing_universal_windows
 
       //__pointer(::extended::future < ::conversation >) _message_box(::object * pobject, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
 
-      void node_post(const ::routine & routine) override;
+      void node_post(const ::procedure & procedure) override;
+
+
+      void windowing_post(const ::procedure& procedure) override;
 
 
    };

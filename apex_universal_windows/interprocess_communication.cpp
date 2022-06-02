@@ -9,7 +9,7 @@
 // http://stackoverflow.com/questions/23709329/launch-one-metro-app-from-other-metro-app-windows-8
 // souvickcse http://stackoverflow.com/users/2246798/souvickcse
 
-namespace universal_windows
+namespace apex_universal_windows
 {
 
 
@@ -116,7 +116,7 @@ namespace universal_windows
 
          auto pnode = m_psystem->node();
 
-         pnode->node_post(__routine([anotherappUri]()
+         pnode->node_post([anotherappUri]()
             {
 
                auto hstrUri = __hstring(anotherappUri);
@@ -125,7 +125,7 @@ namespace universal_windows
 
                ::winrt::Windows::System::Launcher::LaunchUriAsync(uri);
 
-            }));
+            });
 
          //return true;
 
@@ -159,7 +159,7 @@ namespace universal_windows
          
          auto pnode = m_psystem->node();
 
-         pnode->node_post(__routine([anotherappUri]()
+         pnode->node_post([anotherappUri]()
             {
 
                auto hstrUri = __hstring(anotherappUri);
@@ -168,7 +168,7 @@ namespace universal_windows
 
                ::winrt::Windows::System::Launcher::LaunchUriAsync(uri).get();
 
-            }));
+            });
 
          //::winrt::Windows::Foundation::Uri ^uri = ref new ::winrt::Windows::Foundation::Uri(anotherappURI);
 
@@ -456,8 +456,7 @@ namespace universal_windows
    //} // namespace ipc
 
 
-} // namespace universal_windows
+} // namespace apex_universal_windows
 
 
 
-//#endif

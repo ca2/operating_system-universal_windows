@@ -6,73 +6,64 @@ float g_DPIScaleX__2;
 float g_DPIScaleY__2;
 
 
-namespace aura
+namespace aura_universal_windows
 {
 
 
-   namespace universal_windows
+   node::node()
    {
 
-  
-      node::node()
-      {
-
-      }
-       
-      
-      node::~node()
-      {
+   }
 
 
-      }
+   node::~node()
+   {
 
 
-      void node::main()
-      {
-
-         //auto psystem = m_psystem;
-
-         //auto estatus = psystem->main();
-
-         //if (!estatus)
-         //{
-
-         //   return estatus;
-
-         //}
-
-         //return estatus;
-
-         //return ::success;
-
-      }
+   }
 
 
-      void node::dpi_os_initialize()
-      {
+   void node::main()
+   {
 
-         m_psystem->m_paurasystem->get_session()->m_puser->m_pwindowing->windowing_post(__routine([this]()
-            {
-               //::wait(::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler([]()
-                 // {
+      //auto psystem = m_psystem;
 
-               auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
+      //auto estatus = psystem->main();
 
-               g_DPIScaleX__2 = displayinformation.LogicalDpi();
-               g_DPIScaleY__2 = displayinformation.LogicalDpi();
+      //if (!estatus)
+      //{
 
-               //   })));
-            }));
+      //   return estatus;
 
-      }
+      //}
 
+      //return estatus;
 
+      //return ::success;
 
-
-   } // namespace universal_windows
+   }
 
 
-} // namespace aura
+   void node::dpi_os_initialize()
+   {
+
+      m_psystem->m_paurasystem->get_session()->m_puser->m_pwindowing->windowing_post([this]()
+         {
+            //::wait(::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler([]()
+              // {
+
+            auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
+
+            g_DPIScaleX__2 = displayinformation.LogicalDpi();
+            g_DPIScaleY__2 = displayinformation.LogicalDpi();
+
+            //   })));
+         });
+
+   }
+
+
+} // namespace aura_universal_windows
 
 
 

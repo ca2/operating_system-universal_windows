@@ -53,7 +53,7 @@
 //      ::winrt::event_token                                     m_tokenPointerPressed;
 //
 //
-//      void main_branch(const ::routine & routine);
+//      void main_branch(const ::procedure & procedure);
 //
 //
 //      // IFrameworkView Methods

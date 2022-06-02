@@ -2,7 +2,7 @@
 #pragma once
 
 
-namespace universal_windows
+namespace apex_universal_windows
 {
 
 
@@ -131,7 +131,7 @@ namespace universal_windows
    CLASS_DECL_APEX_UNIVERSAL_WINDOWS string app_install(string strPlatform = "");
 
 
-} // namespace universal_windows
+} // namespace apex_universal_windows
 
 
 

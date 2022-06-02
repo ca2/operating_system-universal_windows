@@ -445,12 +445,12 @@ namespace windowing_universal_windows
    }
 
 
-   ::windowing::window * windowing::get_keyboard_focus(::thread * pthread)
-   {
+   //::windowing::window * windowing::get_keyboard_focus(::thread * pthread)
+   //{
 
-      return m_pwindowFocus;
+   //   return m_pwindowFocus;
 
-   }
+   //}
 
 
    //void windowing::get_app_wnda(hwnd_array & wnda)
@@ -594,68 +594,68 @@ namespace windowing_universal_windows
    //}
 
 
-   ::windowing::window * windowing::get_mouse_capture(::thread * pthread)
-   {
+   //::windowing::window * windowing::get_mouse_capture(::thread * pthread)
+   //{
 
-      itask_t itask = 0;
+   //   itask_t itask = 0;
 
-      if (pthread)
-      {
+   //   if (pthread)
+   //   {
 
-         itask = pthread->get_itask();
+   //      itask = pthread->get_itask();
 
-      }
+   //   }
 
-      auto hwndCapture = _get_mouse_capture(itask);
+   //   auto hwndCapture = _get_mouse_capture(itask);
 
-      if (::is_null(hwndCapture))
-      {
+   //   if (::is_null(hwndCapture))
+   //   {
 
-         return nullptr;
+   //      return nullptr;
 
-      }
+   //   }
 
-      auto pwindow = hwndCapture;
+   //   auto pwindow = hwndCapture;
 
-      return pwindow;
+   //   return pwindow;
 
-   }
+   //}
 
 
-   oswindow windowing::_get_mouse_capture(itask_t itask)
-   {
+   //oswindow windowing::_get_mouse_capture(itask_t itask)
+   //{
 
-      return m_pwindowCapture;
+   //   return m_pwindowCapture;
 
-   }
+   //}
 
    
-   void windowing::release_mouse_capture()
-   {
+   //void windowing::release_mouse_capture()
+   //{
 
-      if (m_pwindowCapture)
-      {
+   //   if (m_pwindowCapture)
+   //   {
 
-         try
-         {
+   //      try
+   //      {
 
-            m_pwindowCapture->m_puserinteractionimpl->m_puserinteractionCapture.release();
+   //         m_pwindowCapture->m_puserinteractionimpl->m_puserinteractionCapture.release();
 
-         }
-         catch (...)
-         {
-
-
-         }
+   //      }
+   //      catch (...)
+   //      {
 
 
-      }
+   //      }
 
-      m_pwindowCapture.release();
 
-      //return success;
+   //   }
 
-   }
+   //   m_pwindowCapture.release();
+
+   //   //return success;
+
+   //}
 
 
    void windowing::get_cursor_pos(POINT_I32 * ppoint)
@@ -909,21 +909,10 @@ namespace windowing_universal_windows
    }*/
 
    
-   void windowing::windowing_post(const ::routine & routine)
+   void windowing::windowing_post(const ::procedure & procedure)
    {
 
-      //auto estatus =
-      
-      m_psystem->m_paurasystem->m_pwindowMain->window_post(routine);
-
-      //if (!estatus)
-      //{
-
-      //   return estatus;
-
-      //}
-
-      //return estatus;
+      m_psystem->m_paurasystem->m_pwindowMain->window_post(procedure);
 
    }
 

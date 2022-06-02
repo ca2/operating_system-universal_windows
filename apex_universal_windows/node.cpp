@@ -2,96 +2,89 @@
 #include "framework.h"
 
 
-namespace apex
+namespace apex_universal_windows
 {
 
 
-   namespace universal_windows
+   node::node()
    {
 
-      
-      node::node()
-      {
+
+   }
 
 
-      }
+   node::~node()
+   {
 
 
-      node::~node()
-      {
+   }
 
 
-      }
+   void node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
+   {
 
+      //auto psystem = m_psystem;
 
-      void node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
-      {
+      //auto estatus = 
 
-         //auto psystem = m_psystem;
+      psystem->main();
 
-         //auto estatus = 
-         
-         psystem->main();
-
-         //if (!estatus)
-         //{
-
-         //   return estatus;
-
-         //}
-
-         //return estatus;
-
-      }
-
-
-      string node::system_options_main_body()
-      {
-
-         string strOptions_;
-
-         strOptions_ += "<br/>";
-         strOptions_ += "<br/>";
-         strOptions_ += "<input type=\"button\" id=\"clear_application_data\" value=\"Clear Application Data\"/>";
-         strOptions_ += "<br/>";
-         strOptions_ += "<br/>";
-
-         if (!m_pClearApplicationDataHandler)
-         {
-
-            m_pClearApplicationDataHandler = m_psystem->m_papexsystem->add_command_handler(
-               "clear_application_data",
-               [this](::message::message * pmessage)
-               {
-
-                  m_psystem->m_pacmefile->clear_application_data();
-
-               });
-
-         }
-
-         return strOptions_;
-
-      }
-
-
-      //void node::handle(::topic * ptopic, ::context * pcontext)
+      //if (!estatus)
       //{
 
-      //   if (ptopic->m_puserelement->m_atom == "clear_application_data")
-      //   {
-
-      //      m_psystem->m_pacmefile->clear_application_data();
-
-      //   }
+      //   return estatus;
 
       //}
 
+      //return estatus;
 
-   } // namespace universal_windows
+   }
 
 
-} // namespace apex
+   string node::system_options_main_body()
+   {
+
+      string strOptions_;
+
+      strOptions_ += "<br/>";
+      strOptions_ += "<br/>";
+      strOptions_ += "<input type=\"button\" id=\"clear_application_data\" value=\"Clear Application Data\"/>";
+      strOptions_ += "<br/>";
+      strOptions_ += "<br/>";
+
+      if (!m_pClearApplicationDataHandler)
+      {
+
+         m_pClearApplicationDataHandler = m_psystem->m_papexsystem->add_command_handler(
+            "clear_application_data",
+            [this](::message::message* pmessage)
+            {
+
+               m_psystem->m_pacmefile->clear_application_data();
+
+            });
+
+      }
+
+      return strOptions_;
+
+   }
+
+
+   //void node::handle(::topic * ptopic, ::context * pcontext)
+   //{
+
+   //   if (ptopic->m_puserelement->m_atom == "clear_application_data")
+   //   {
+
+   //      m_psystem->m_pacmefile->clear_application_data();
+
+   //   }
+
+   //}
+
+
+} // namespace apex_universal_windows
 
 
 

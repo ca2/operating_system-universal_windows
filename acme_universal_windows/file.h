@@ -4,16 +4,11 @@
 
 
 
-class FileException;
-struct FileStatus;
-
-void CLASS_DECL_ACME vfxGetRoot(const unichar * lpszPath, string& wstrRoot);
-void CLASS_DECL_ACME vfxGetRoot(wstring & wstrRoot, const wstring & wstrPath);
 
 
 
 
-namespace universal_windows
+namespace acme_universal_windows
 {
 
    /////////////////////////////////////////////////////////////////////////////
@@ -100,4 +95,8 @@ namespace universal_windows
 
 
 
-} // namespace universal_windows
+} // namespace acme_universal_windows
+
+
+
+

@@ -2,7 +2,7 @@
 #include "aura/graphics/image/image.h"
 
 
-namespace universal_windows
+namespace aura_universal_windows
 {
 
 
@@ -95,8 +95,8 @@ namespace universal_windows
       //MESSAGE_LINK(e_message_erase_background, pchannel, this,&interaction_impl::_001OnEraseBkgnd);
       MESSAGE_LINK(e_message_move, pchannel, this,&interaction_impl::on_message_move);
       MESSAGE_LINK(e_message_size, pchannel, this,&interaction_impl::on_message_size);
-      MESSAGE_LINK(e_message_set_focus, pchannel, this, &interaction_impl::_001OnSetFocus);
-      MESSAGE_LINK(e_message_kill_focus, pchannel, this, &interaction_impl::_001OnKillFocus);
+      MESSAGE_LINK(e_message_set_focus, pchannel, this, &interaction_impl::on_message_set_focus);
+      MESSAGE_LINK(e_message_kill_focus, pchannel, this, &interaction_impl::on_message_kill_focus);
       //MESSAGE_LINK(e_message_show_window, pchannel, this,&interaction_impl::on_message_show_window);
 //      MESSAGE_LINK(ca2m_PRODEVIAN_SYNCH, pchannel, this,&interaction_impl::_001OnProdevianSynch);
       prio_install_message_routing(pchannel);
@@ -113,7 +113,7 @@ namespace universal_windows
    }
 
 
-   void interaction_impl::_001OnSetFocus(::message::message* pmessage)
+   void interaction_impl::on_message_set_focus(::message::message* pmessage)
    {
 
       __pointer(::message::set_keyboard_focus) psetfocus(pmessage);
@@ -128,7 +128,7 @@ namespace universal_windows
    }
 
 
-   void interaction_impl::_001OnKillFocus(::message::message* pmessage)
+   void interaction_impl::on_message_kill_focus(::message::message* pmessage)
    {
 
       __pointer(::message::kill_keyboard_focus) pkillfocus(pmessage);
@@ -614,7 +614,7 @@ namespace universal_windows
    }
 
 
-   //::e_status interaction_impl::main_async(const ::routine & routine, enum_priority epriority)
+   //::e_status interaction_impl::main_async(const ::procedure & procedure, enum_priority epriority)
    //{
 
    //   ::winrt::Windows::UI::Core::CoreDispatcher dispatcher(nullptr);
@@ -2972,7 +2972,7 @@ return true;
    u32 interaction_impl::GetStyle() const
    {
 
-      return get_window_long_ptr(GWL_STYLE);
+      return (::u32) get_window_long_ptr(GWL_STYLE);
 
    }
 
@@ -2980,7 +2980,7 @@ return true;
    u32 interaction_impl::GetExStyle() const
    {
 
-      return get_window_long_ptr(GWL_EXSTYLE);
+      return (::u32) get_window_long_ptr(GWL_EXSTYLE);
 
    }
 
@@ -5039,7 +5039,7 @@ lCallNextHook:
 
 
 
-namespace universal_windows
+namespace aura_universal_windows
 {
 
 
@@ -5320,16 +5320,16 @@ namespace universal_windows
    }
 
 
-   void interaction_impl::show_software_keyboard(::user::primitive * pprimitive, string str, strsize iBeg, strsize iEnd)
-   {
+   //void interaction_impl::show_software_keyboard(::user::primitive * pprimitive, string str, strsize iBeg, strsize iEnd)
+   //{
 
-   }
+   //}
 
 
-   void interaction_impl::hide_software_keyboard(::user::primitive * pprimitive)
-   {
+   //void interaction_impl::hide_software_keyboard(::user::primitive * pprimitive)
+   //{
 
-   }
+   //}
 
 
    void interaction_impl::edit_on_set_focus(::user::interaction* pinteraction)
@@ -5417,7 +5417,7 @@ namespace universal_windows
    }
 
 
-} // namespace universal_windows
+} // namespace aura_universal_windows
 
 
 

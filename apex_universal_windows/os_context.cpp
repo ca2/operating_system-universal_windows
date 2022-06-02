@@ -28,27 +28,7 @@
 }
 
 
-
-//CREDUIAPI
-//BOOL
-//WINAPI
-//CredPackAuthenticationBufferWfoo(
-//_In_ u32                                      dwFlags,
-//_In_ LPWSTR                                     pszUserName,
-//_In_ LPWSTR                                     pszPassword,
-//_Out_writes_bytes_opt_(*pcbPackedCredentials) PBYTE   pPackedCredentials,
-//_Inout_ u32*                                  pcbPackedCredentials
-//);
-
-
-////#include <Wtsapi32.h>
-////#include <Psapi.h>
-////#include <WinCred.h>
-//
-//CLASS_DECL_APEX_WINDOWS HBITMAP get_icon_hbitmap(HICON hICON);
-
-
-namespace universal_windows
+namespace apex_universal_windows
 {
 
 
@@ -2105,7 +2085,7 @@ return false;
 //#else
 
 
-   void os_context::file_open(::file::path path, string strParams, string strFolder)
+   void os_context::file_open(const ::file::path & path, const string & strParams, const ::file::path & pathFolder)
    {
 
       //path = m_pcontext->m_papexcontext->defer_process_path(path);
@@ -3748,7 +3728,7 @@ return false;
 
       auto pnode = m_psystem->node();
 
-      pnode->node_post(__routine([strUrl]()
+      pnode->node_post([strUrl]()
 
          {
 
@@ -3758,63 +3738,12 @@ return false;
 
             ::winrt::Windows::System::Launcher::LaunchUriAsync(uri);
 
-         }));
-
-      //return success;
+         });
 
    }
 
 
-} // namespace universal_windows
-
-
-// CreateLink - Uses the Shell's IShellLink and IPersistFile interfaces
-//              to create and store a shortcut to the specified object.
-//
-// Returns the result of calling the member functions of the interfaces.
-//
-// Parameters:
-// pszPathObj  - Address of a buffer that contains the path of the object,
-
-//                including the file name.
-// pszPathLink - Address of a buffer that contains the path where the
-
-//                Shell link is to be stored, including the file name.
-// pszDesc     - Address of a buffer that contains a description of the
-
-//                Shell link, stored in the Comment field of the link
-//                properties.
-
-//
-//
-//namespace apex
-//{
-//
-//
-//   namespace windows
-//   {
-//
-//
-//      //::e_status node::shell_create_link(::file::path pathObj, ::file::path pathLnk, string strDesc, ::file::path pathIco, int iIcon)
-//      //{
-//
-//      //   wstring wstrObj(pathObj);
-//      //   wstring wstrLnk(pathLnk);
-//      //   wstring wstrDsc(strDesc);
-//      //   wstring wstrIco(pathIco);
-//
-//      //   return hresult_to_estatus(win_create_link(wstrObj, wstrLnk, wstrDsc, wstrIco, iIcon));
-//
-//      //}
-//
-//
-//   } // namespace windows
-//
-//
-//} // namespace apex
-//
-//
-//
+} // namespace apex_universal_windows
 
 
 

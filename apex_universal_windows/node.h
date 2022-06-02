@@ -2,44 +2,37 @@
 #pragma once
 
 
-namespace apex
+namespace apex_universal_windows
 {
 
 
-   namespace universal_windows
+   class CLASS_DECL_APEX_UNIVERSAL_WINDOWS node :
+      virtual public ::acme_universal_windows::node,
+      virtual public ::apex_windows_common::node
    {
+   public:
 
 
-      class CLASS_DECL_APEX_UNIVERSAL_WINDOWS node :
-         virtual public ::acme::universal_windows::node,
-         virtual public ::apex::windows_common::node
-      {
-      public:
+      ::matter_pointer           m_pClearApplicationDataHandler;
 
 
-         ::matter_pointer           m_pClearApplicationDataHandler;
+      node();
+      ~node() override;
 
 
-         node();
-         ~node() override;
+      void implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem) override;
 
 
-         void implement(__pointer(::acme::node) & pnode, __pointer(class ::system) & psystem) override;
+      string system_options_main_body() override;
 
 
-         string system_options_main_body() override;
+      //void handle(::topic * ptopic, ::context * pcontext) override;
 
 
-         //void handle(::topic * ptopic, ::context * pcontext) override;
+   };
 
 
-      };
-
-   
-   } // namespace universal_windows
-
-
-} // namespace apex
+} // namespace apex_universal_windows
 
 
 

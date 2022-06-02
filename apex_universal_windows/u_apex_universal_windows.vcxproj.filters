@@ -80,12 +80,6 @@
     <ClInclude Include="os_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="parallelization.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sockets.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="windows_runtime.h">
       <Filter>Header Files</Filter>
     </ClInclude>

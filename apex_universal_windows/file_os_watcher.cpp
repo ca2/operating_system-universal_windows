@@ -1,11 +1,7 @@
-
 #include "framework.h"
-//#include "_uwp.h"
 
 
-
-
-namespace file
+namespace apex_universal_windows
 {
 
 
@@ -216,7 +212,7 @@ namespace file
 
       //auto item = items->GetAt(i);
 
-      action action;
+      ::file::action action;
 
       action.m_pwatch = this;
 
@@ -237,127 +233,7 @@ namespace file
    }
 
 
-
-   //watch_id os_watcher::add_watch(const ::file::path& pathFolderParam, listener* plistenerParam, bool bRecursive)
-   //{
-
-   //   synchronous_lock synchronouslock(mutex());
-
-   //   atom watchid = ++m_atomLast;
-
-   //   ::file::path pathFolder = get_context()->defer_process_path(pathFolderParam);
-
-   //   //watch_struct ^ pwatch = watch_struct::create_watch(m_str(directory), FILE_NOTIFY_CHANGE_CREATION | FILE_NOTIFY_CHANGE_SIZE | FILE_NOTIFY_CHANGE_FILE_NAME);
-   //   watch_ref ^ watchref = watch_ref::create_watch(pathFolder, bRecursive);
-
-   //   if (watchref == nullptr)
-   //   {
-
-   //      return -1;
-
-   //   }
-
-   //   //watchref->m_bOwn           = bOwn;
-
-   //   watchref->m_bRecursive     = bRecursive;
-
-   //   auto pwatch = __new(os_watch);
-
-   //   pwatch->m_atom               = watchid;
-
-   //   pwatch->m_listenera.add(plistenerParam);
-
-   //   pwatch->m_pwatcher         = this;
-
-   //   pwatch->m_pathFolder        = pathFolder;
-
-   //   pwatch->m_watchref         = watchref;
-
-   //   m_watchmap.set_at(watchid, pwatch);
-
-   //   return watchid;
-
-   //}
-
-
-   //void os_file_watcher::erase_watch(const string & directory)
-   //{
-
-   //   watch_map::pair * ppair = m_watchmap.get_start();
-
-   //   String ^ strDir = directory;
-
-   //   for(; ppair != nullptr; m_watchmap.get_next(ppair))
-   //   {
-
-   //      if(strDir == ppair->element2()->m_strFolder)
-   //      {
-
-   //         erase_watch(ppair->element1());
-
-   //         return;
-
-   //      }
-
-   //   }
-
-   //}
-
-
-   //void os_file_watcher::erase_watch(atom watchid)
-   //{
-
-   //   watch_map::pair * ppair = m_watchmap.plookup(watchid);
-
-   //   if(ppair == nullptr)
-   //      return;
-
-   //   m_watchmap.erase_key(ppair->element1());
-
-   //}
-
-
-   //string os_file_watcher::watch_path(atom watchid)
-   //{
-
-   //   return m_watchmap[watchid]->m_strFolder;
-
-   //}
-
-
-   //bool os_file_watcher::update()
-   //{
-   //   //MsgWaitForMultipleObjectsEx(0, nullptr, 0, QS_ALLINPUT, MWMO_ALERTABLE);
-
-   //   return true;
-
-   //}
-
-
-   //void os_file_watcher::handle_action(action * ptopic)
-   //{
-   //   /*Action fwAction;
-
-   //   switch(action)
-   //   {
-   //   case FILE_ACTION_RENAMED_NEW_NAME:
-   //   case FILE_ACTION_ADDED:
-   //   	fwAction = Actions::Add;
-   //   	break;
-   //   case FILE_ACTION_RENAMED_OLD_NAME:
-   //   case FILE_ACTION_REMOVED:
-   //   	fwAction = Actions::Delete;
-   //   	break;
-   //   case FILE_ACTION_MODIFIED:
-   //   	fwAction = Actions::Modified;
-   //   	break;
-   //   };
-
-   //   watch->mFileWatchListener->handleFileAction(watch->mWatchid, watch->m_strDirName, filename, fwAction);*/
-   //}
-
-} // namespace file_watcher
-
+} // namespace apex_universal_windows
 
 
 

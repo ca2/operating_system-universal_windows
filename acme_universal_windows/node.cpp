@@ -2,69 +2,61 @@
 #include "framework.h"
 
 
-namespace acme
+namespace acme_universal_windows
 {
 
 
-   namespace universal_windows
+   node::node()
    {
 
-      
-      node::node()
-      {
-
-      }
-      
-      
-      node::~node()
-      {
+   }
 
 
-      }
+   node::~node()
+   {
 
 
-      void node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
-      {
-
-         //auto psystem = m_psystem;
-
-         //auto estatus = 
-         
-         psystem->main();
-
-         //if (!estatus)
-         //{
-
-         //   return estatus;
-
-         //}
-
-         //return estatus;
-
-      }
+   }
 
 
-      string node::audio_get_default_library_name()
-      {
+   void node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
+   {
 
-         return "audio_xaudio";
+      //auto psystem = m_psystem;
 
-      }
+      //auto estatus = 
+
+      psystem->main();
+
+      //if (!estatus)
+      //{
+
+      //   return estatus;
+
+      //}
+
+      //return estatus;
+
+   }
 
 
-      string node::veriwell_multimedia_music_midi_get_default_library_name()
-      {
+   string node::audio_get_default_library_name()
+   {
 
-         return "music_midi_winrt";
+      return "audio_xaudio";
 
-      }
-
-
-   } // namespace universal_windows
+   }
 
 
-} // namespace acme
+   string node::veriwell_multimedia_music_midi_get_default_library_name()
+   {
 
+      return "music_midi_winrt";
+
+   }
+
+
+} // namespace acme_universal_windows
 
 
 

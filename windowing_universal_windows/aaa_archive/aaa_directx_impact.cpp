@@ -18,7 +18,7 @@ namespace windowing_universal_windows
 //   }
 //
 //
-//   void impact::main_branch(const ::routine & routine)
+//   void impact::main_branch(const ::procedure & procedure)
 //   {
 //
 //      ::winrt::Windows::UI::Core::CoreDispatcher dispatcher = nullptr;

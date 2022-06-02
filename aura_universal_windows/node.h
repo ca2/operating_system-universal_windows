@@ -2,37 +2,31 @@
 #pragma once
 
 
-namespace aura
+namespace aura_universal_windows
 {
 
-   
-   namespace universal_windows
+
+   class CLASS_DECL_AURA_UNIVERSAL_WINDOWS node :
+      virtual public ::aura_windows_common::node,
+      virtual public ::apex_universal_windows::node
    {
-
-      class CLASS_DECL_AURA_UNIVERSAL_WINDOWS node :
-         virtual public aura::windows_common::node,
-         virtual public apex::universal_windows::node
-      {
-      public:
+   public:
 
 
-         node();
-         ~node() override;
+      node();
+      ~node() override;
 
 
-         void main() override;
+      void main() override;
 
 
-         void dpi_os_initialize() override;
+      void dpi_os_initialize() override;
 
 
-      };
+   };
 
 
-   } // namespace universal_windows
-
-
-} // namespace aura
+} // namespace aura_universal_windows
 
 
 

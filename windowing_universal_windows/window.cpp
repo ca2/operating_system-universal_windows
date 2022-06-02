@@ -217,8 +217,8 @@ namespace windowing_universal_windows
 
 
          //MESSAGE_LINK(e_message_show_window, pchannel, this, &window::on_message_show_window);
-         //MESSAGE_LINK(e_message_kill_focus, pchannel, this, &window::_001OnKillFocus);
-         //MESSAGE_LINK(e_message_set_focus, pchannel, this, &window::_001OnSetFocus);
+         //MESSAGE_LINK(e_message_kill_focus, pchannel, this, &window::on_message_kill_focus);
+         //MESSAGE_LINK(e_message_set_focus, pchannel, this, &window::on_message_set_focus);
          //MESSAGE_LINK(e_message_set_cursor, pchannel, this, &window::on_message_set_cursor);
 
       }
@@ -425,72 +425,72 @@ namespace windowing_universal_windows
             //});
 
             //topic.wait();
-         window_send(__routine(15_s, [this, &rectangleWindow]()
-            {
+               window_send({ e_timeout , 15_s, [this, &rectangleWindow]()
+                  {
 
-               //   m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
+                     //   m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
 
-               //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
-               //   {
+                     //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
+                     //   {
 
-               //      m_applicationview.SetPreferredMinSize({ (float)rectangleWindow.Width, (float)rectangleWindow.Height });
+                     //      m_applicationview.SetPreferredMinSize({ (float)rectangleWindow.Width, (float)rectangleWindow.Height });
 
-               //   }
+                     //   }
 
-               m_window.Activate();
-
-
-
-               //   //auto applicationview1 = m_applicationview;
-
-               //   //auto Id1 = applicationview1.Id();
-
-               //   //::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
-               //   //Id1,
-               //   //::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
-
-               //   //rectangleWindow = m_window.Bounds();
-               //
-               //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
-               //   {
-
-               //      m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectangleWindow.Width,(float)rectangleWindow.Height }));
-
-               //   }
+                     m_window.Activate();
 
 
 
+                     //   //auto applicationview1 = m_applicationview;
 
-            }));
+                     //   //auto Id1 = applicationview1.Id();
+
+                     //   //::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
+                     //   //Id1,
+                     //   //::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
+
+                     //   //rectangleWindow = m_window.Bounds();
+                     //
+                     //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
+                     //   {
+
+                     //      m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectangleWindow.Width,(float)rectangleWindow.Height }));
+
+                     //   }
+
+
+
+
+                  } });
 
 
       }
       //else
       //{
 
-         window_send(__routine(15_s, [this, pusersystem, puserinteraction, &rectangleWindow]()
-         {
+      window_send({ e_timeout, 15_s, [this, pusersystem, puserinteraction, &rectangleWindow]()
+      {
 
-            m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
+         m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
 
-            ::rectangle_i32 rectangle;
+         ::rectangle_i32 rectangle;
 
-            get_rect_normal(rectangle);
+         get_rect_normal(rectangle);
 
-            auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+         auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
-            auto & sketch = puserinteraction->layout().sketch();
+         auto& sketch = puserinteraction->layout().sketch();
 
-            puserinteraction->place(rectangle);
+         puserinteraction->place(rectangle);
 
-            auto & design = puserinteraction->layout().design();
+         auto& design = puserinteraction->layout().design();
 
-            design.m_point = rectangle.top_left();
+         design.m_point = rectangle.top_left();
 
-            design.m_size = rectangle.size();
+         design.m_size = rectangle.size();
 
 
-         }));
+      } });
 
       //}
 
@@ -1690,42 +1690,42 @@ namespace windowing_universal_windows
    }
 
 
-   void window::set_keyboard_focus()
-   {
+   //void window::set_keyboard_focus()
+   //{
 
-      windowing()->m_pwindowFocus = this;
+   //   windowing()->m_pwindowFocus = this;
 
-      if (m_puserinteractionimpl)
-      {
+   //   if (m_puserinteractionimpl)
+   //   {
 
-         if (m_puserinteractionimpl->m_puserinteractionFocusRequest)
-         {
+   //      if (m_puserinteractionimpl->m_puserinteractionFocusRequest)
+   //      {
 
-            m_puserinteractionimpl->m_puserinteractionFocus1 = m_puserinteractionimpl->m_puserinteractionFocusRequest;
+   //         m_puserinteractionimpl->m_puserinteractionFocus1 = m_puserinteractionimpl->m_puserinteractionFocusRequest;
 
-            m_puserinteractionimpl->m_puserinteractionFocusRequest.release();
+   //         m_puserinteractionimpl->m_puserinteractionFocusRequest.release();
 
-            if (m_puserinteractionimpl->m_puserinteractionFocus1)
-            {
+   //         if (m_puserinteractionimpl->m_puserinteractionFocus1)
+   //         {
 
-               if (m_puserinteractionimpl->m_puserinteractionFocus1->keyboard_focus_is_focusable())
-               {
-
-
-                  SetInternalFocus();
-
-               }
-
-            }
-
-         }
-
-      }
+   //            if (m_puserinteractionimpl->m_puserinteractionFocus1->keyboard_focus_is_focusable())
+   //            {
 
 
-      //return ::success;
+   //               SetInternalFocus();
 
-   }
+   //            }
+
+   //         }
+
+   //      }
+
+   //   }
+
+
+   //   //return ::success;
+
+   //}
 
 
    //__pointer(window) window::get_active_window()
@@ -1772,94 +1772,93 @@ namespace windowing_universal_windows
    }
 
 
-   void window::set_mouse_capture()
-   {
+   //void window::set_mouse_capture()
+   //{
 
-      windowing()->m_pwindowCapture = this;
+   //   windowing()->m_pwindowMouseCapture = this;
 
-      //return ::success;
-
-   }
+   //}
 
 
-   bool window::has_mouse_capture() const
-   {
 
-      return windowing()->m_pwindowCapture == this;
+   //bool window::has_mouse_capture() const
+   //{
 
-   }
+   //   return windowing()->m_pwindowCapture == this;
 
-
-   bool window::has_keyboard_focus() const
-   {
-
-      return windowing()->m_pwindowFocus == this && m_bInternalFocus;
-
-   }
+   //}
 
 
-   bool window::is_active_window() const
-   {
+   //bool window::has_keyboard_focus() const
+   //{
 
-      //itask_t itask = 0;
+   //   return windowing()->m_pwindowFocus == this && m_bInternalFocus;
 
-      //auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+   //}
 
-      //if (puserinteraction && puserinteraction->m_pthreadUserInteraction)
-      //{
 
-      //   itask = puserinteraction->m_pthreadUserInteraction->get_ithread();
+   //bool window::is_active_window() const
+   //{
 
-      //}
+   //   //itask_t itask = 0;
 
-      //GUITHREADINFO info = {};
+   //   //auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
-      //info.cbSize = sizeof(GUITHREADINFO);
+   //   //if (puserinteraction && puserinteraction->m_pthreadUserInteraction)
+   //   //{
 
-      //HWND hwndActive;
+   //   //   itask = puserinteraction->m_pthreadUserInteraction->get_ithread();
 
-      //if (GetGUIThreadInfo((DWORD)itask, &info))
-      //{
+   //   //}
 
-      //   hwndActive = info.hwndActive;
+   //   //GUITHREADINFO info = {};
 
-      //}
-      //else
-      //{
+   //   //info.cbSize = sizeof(GUITHREADINFO);
 
-      //   hwndActive = ::GetActiveWindow();
+   //   //HWND hwndActive;
 
-      //}
+   //   //if (GetGUIThreadInfo((DWORD)itask, &info))
+   //   //{
 
-      //if (hwndActive == get_hwnd())
-      //{
+   //   //   hwndActive = info.hwndActive;
 
-      //   return true;
+   //   //}
+   //   //else
+   //   //{
 
-      //}
+   //   //   hwndActive = ::GetActiveWindow();
 
-      ////auto puserinteraction = psystem->ui_from_handle(oswindowActive);
+   //   //}
 
-      ////if (::is_set(puserinteraction))
-      ////{
+   //   //if (hwndActive == get_hwnd())
+   //   //{
 
-      ////   if (puserinteraction->m_pthreadUserInteraction == puserinteraction->m_pthreadUserInteraction)
-      ////   {
+   //   //   return true;
 
-      ////      if (puserinteraction->m_ewindowflag & e_window_flag_satellite_window)
-      ////      {
+   //   //}
 
-      ////         return true;
+   //   ////auto puserinteraction = psystem->ui_from_handle(oswindowActive);
 
-      ////      }
+   //   ////if (::is_set(puserinteraction))
+   //   ////{
 
-      ////   }
+   //   ////   if (puserinteraction->m_pthreadUserInteraction == puserinteraction->m_pthreadUserInteraction)
+   //   ////   {
 
-      ////}
+   //   ////      if (puserinteraction->m_ewindowflag & e_window_flag_satellite_window)
+   //   ////      {
 
-      return false;
+   //   ////         return true;
 
-   }
+   //   ////      }
+
+   //   ////   }
+
+   //   ////}
+
+   //   return false;
+
+   //}
 
 
    void window::destroy_window()
@@ -3071,14 +3070,14 @@ namespace windowing_universal_windows
       //   return;
 
       //str = wstr;
-      m_pwindowing->windowing_send(__routine(15_s, [&str]()
+      m_pwindowing->windowing_send({ e_timeout, 15_s, [&str]()
          {
 
             auto  applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
 
             str = applicationview.Title().begin();
 
-         }));
+         } });
 
    }
 
@@ -4121,7 +4120,7 @@ namespace windowing_universal_windows
       //}
 
 
-   //void window::_001OnSetFocus(::message::message * pmessage)
+   //void window::on_message_set_focus(::message::message * pmessage)
    //{
 
    //   //m_bFocusImpl = true;
@@ -4136,7 +4135,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //void window::_001OnKillFocus(::message::message * pmessage)
+   //void window::on_message_kill_focus(::message::message * pmessage)
    //{
 
    //   //m_bFocusImpl = false;
@@ -6335,7 +6334,7 @@ namespace windowing_universal_windows
       auto routine = [this]()
       {
 
-         window_send(__routine(15_s, [this]()
+         window_send({ e_timeout, 15_s, [this]()
             {
 
                //pbuffer->m_windowBounds = m_window->Bounds;
@@ -6348,7 +6347,7 @@ namespace windowing_universal_windows
 
                on_window_size_changed(m_window, size);
 
-            }));
+            } });
 
          auto puserinteraction = m_psystem->get_session()->m_puserprimitiveHost;
 
@@ -6365,11 +6364,11 @@ namespace windowing_universal_windows
 
       };
 
-      pusersystem->m_procedureSuccess = __routine(routine);
+      pusersystem->m_procedureSuccess = routine;
 
       //m_puserinteractionimpl = __create < ::user::interaction_impl >();
 
-      window_send(__routine(15_s, [this]()
+      window_send({ e_timeout, 15_s, [this]()
          {
 
             auto window = m_window;
@@ -6413,7 +6412,7 @@ namespace windowing_universal_windows
 
             m_window = m_window;
 
-         }));
+         } } );
 
       pusersystem->m_puserinteractionimpl = m_puserinteractionimpl;
 
@@ -6714,7 +6713,7 @@ namespace windowing_universal_windows
    }
 
 
-   void window::main_post(const ::routine & routine)
+   void window::main_post(const ::procedure & procedure)
    {
 
       ::winrt::Windows::UI::Core::CoreDispatcher dispatcher = nullptr;
@@ -6733,10 +6732,10 @@ namespace windowing_universal_windows
       }
 
       dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
-         ::winrt::Windows::UI::Core::DispatchedHandler([routine]()
+         ::winrt::Windows::UI::Core::DispatchedHandler([procedure]()
             {
 
-               routine();
+               procedure();
 
             }));
 
@@ -6796,15 +6795,18 @@ namespace windowing_universal_windows
       // For example, it will not show if there is a keyboard attached.
       m_inputpane.TryShow();
 
-      if (m_puserinteractionimpl->m_puserinteractionFocusRequest != nullptr)
-      {
 
-         m_puserinteractionimpl->m_puserinteractionFocus1 = m_puserinteractionimpl->m_puserinteractionFocusRequest;
+      ::sandbox_windowing::window::SetInternalFocus();
 
-         m_puserinteractionimpl->m_puserinteractionFocusRequest = nullptr;
+      //if (m_puserinteractionimpl->m_puserinteractionFocusRequest != nullptr)
+      //{
+
+      //   m_puserinteractionimpl->m_puserinteractionFocus1 = m_puserinteractionimpl->m_puserinteractionFocusRequest;
+
+      //   m_puserinteractionimpl->m_puserinteractionFocusRequest = nullptr;
 
 
-      }
+      //}
 
    }
 
@@ -6869,7 +6871,7 @@ namespace windowing_universal_windows
 
       set_input_text(wstrText);
 
-      m_pwindowing->windowing_post(__routine([this, iBeg, iEnd]()
+      m_pwindowing->windowing_post([this, iBeg, iEnd]()
          {
 
             widestring wstrText = get_input_text();
@@ -6882,7 +6884,7 @@ namespace windowing_universal_windows
 
             m_editcontext.NotifyTextChanged(m_selection, (::i32) wstrText.get_length(),  sel);
 
-         }));
+         });
 
    }
 
@@ -8344,7 +8346,7 @@ namespace windowing_universal_windows
       }
 
 
-      void window::window_post(const ::routine & routine)
+      void window::window_post(const ::procedure & procedure)
       {
 
          auto dispatcher = m_window.Dispatcher();
@@ -8352,10 +8354,10 @@ namespace windowing_universal_windows
          if (dispatcher)
          {
 
-            auto handler = ::winrt::Windows::UI::Core::DispatchedHandler([routine]()
+            auto handler = ::winrt::Windows::UI::Core::DispatchedHandler([procedure]()
                {
 
-                  routine();
+                  procedure();
 
                });
 

@@ -358,7 +358,7 @@ namespace windowing_universal_windows
 
       ::count c = -1;
 
-      m_pwindow->window_post(__routine([this]()
+      m_pwindow->window_post([this]()
          {
 
             synchronous_lock synchronouslock(mutex());
@@ -411,7 +411,7 @@ namespace windowing_universal_windows
 
             //return m_cFileCount;
 
-         }));
+         });
 
       return c;
 
@@ -512,7 +512,7 @@ namespace windowing_universal_windows
 
       bool bHasText = false;
 
-      m_pwindow->window_send(__routine(15_s, [this, &bHasText]()
+      m_pwindow->window_send({ e_timeout, 15_s, [this, &bHasText]()
          {
 
             synchronous_lock synchronouslock(mutex());
@@ -523,7 +523,7 @@ namespace windowing_universal_windows
             bHasText = datapackageview.Contains(
                ::winrt::Windows::ApplicationModel::DataTransfer::StandardDataFormats::Text());
 
-         }));
+         } });
 
       return bHasText;
 
@@ -540,7 +540,7 @@ namespace windowing_universal_windows
 
       }
 
-      m_pwindow->window_post(__routine([this, str]()
+      m_pwindow->window_post([this, str]()
          {
 
             synchronous_lock synchronouslock(mutex());
@@ -557,7 +557,7 @@ namespace windowing_universal_windows
 
             ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::Flush();
 
-         }));
+         });
       
       return ::success;
 
@@ -585,12 +585,12 @@ namespace windowing_universal_windows
 
       ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
 
-      m_pwindow->window_send(__routine(15_s, [&datapackageview]()
+      m_pwindow->window_send({ e_timeout, 15_s, [&datapackageview]()
          {
 
             datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
 
-         }));
+         } });
 
          auto hstr = datapackageview.GetTextAsync().get();
 
@@ -624,7 +624,7 @@ namespace windowing_universal_windows
 
       bool bHasImage = false;
 
-      m_pwindow->window_send(__routine(15_s, [&bHasImage]()
+      m_pwindow->window_send({ e_timeout, 15_s, [&bHasImage]()
          {
 
             auto datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
@@ -632,7 +632,7 @@ namespace windowing_universal_windows
             bHasImage = datapackageview.Contains(
                ::winrt::Windows::ApplicationModel::DataTransfer::StandardDataFormats::Bitmap());
 
-         }));
+         } });
 
       return bHasImage;
 
@@ -660,12 +660,12 @@ namespace windowing_universal_windows
 
       ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
 
-      m_pwindow->window_send(__routine(15_min, [&datapackageview]()
+      m_pwindow->window_send({ e_timeout, 15_min, [&datapackageview]()
          {
 
             datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
 
-         }));
+         }});
 
       defer_co_initialize_ex(true);
 

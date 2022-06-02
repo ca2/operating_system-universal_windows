@@ -21,7 +21,7 @@ inline bool hfile_is_nok(::hfile hfile)
 }
 
 
-namespace universal_windows
+namespace acme_universal_windows
 {
 
 
@@ -1047,114 +1047,7 @@ pacmedir->create(lpszFileName.folder());
    }
 
 
-} // namespace universal_windows
+} // namespace acme_universal_windows
 
-
-
-//bool CLASS_DECL_ACME windows_full_path(wstring & wstrFullPath, const wstring & wstrPath)
-//{
-//
-//   wstrFullPath = wstrPath;
-//
-//   return true;
-//
-//}
-
-
-
-//bool CLASS_DECL_ACME vfxResolveShortcut(string & strTarget, const char * pszSource, ::user::primitive * puiMessageParentOptional)
-//{
-//
-//#ifdef WINDOWS_DESKTOP
-//
-//   ::user::interaction * pinteraction = puiMessageParentOptional;
-//
-//   wstring wstrFileOut;
-//   wstring wstrFileIn = ::str::international::utf8_to_unicode(pszSource);
-//
-//   ::u32 dwVersion = GetVersion();
-//
-//   // get the Windows version.
-//
-//   ::u32 dwWindowsMajorVersion =  (::u32)(__LOBYTE(LOWORD(dwVersion)));
-//   ::u32 dwWindowsMinorVersion =  (::u32)(HIBYTE(LOWORD(dwVersion)));
-//
-//   // get the build number.
-//
-//   ::u32 dwBuild;
-//
-//   if (dwVersion < 0x80000000)              // Windows NT
-//      dwBuild = (::u32)(HIWORD(dwVersion));
-//   else if (dwWindowsMajorVersion < 4)      // Win32s
-//      dwBuild = (::u32)(HIWORD(dwVersion) & ~0x8000);
-//   else                                     // Windows Me/98/95
-//      dwBuild =  0;
-//
-//   bool bNativeUnicode;
-//   if (dwVersion < 0x80000000)              // Windows NT
-//      bNativeUnicode = true;
-//   else if (dwWindowsMajorVersion < 4)      // Win32s
-//      bNativeUnicode = false;
-//   else                                     // Windows Me/98/95
-//      bNativeUnicode = false;
-//
-//
-//   //   __COM com;
-//   IShellLinkW* psl;
-//   wstrFileOut = L"";
-//
-//   SHFILEINFOW info;
-//   if ((shell::SHGetFileInfo(wstrFileIn, 0, &info, sizeof(info),
-//                             SHGFI_ATTRIBUTES) == 0) || !(info.dwAttributes & SFGAO_LINK))
-//   {
-//      return false;
-//   }
-//
-//   HRESULT hr ;
-//   if (FAILED(hr = CoCreateInstance(CLSID_ShellLink, nullptr, CLSCTX_INPROC_SERVER, IID_IShellLinkW,
-//                                    (LPVOID*)&psl)))
-//   {
-//      return false;
-//   }
-//
-//   IPersistFile *ppf;
-//   if (SUCCEEDED(psl->QueryInterface(IID_IPersistFile, (LPVOID*)&ppf)))
-//   {
-//      if (SUCCEEDED(ppf->Load(wstrFileIn, STGM_READ)))
-//      {
-//         /* Resolve the link, this may post UI to find the link */
-//         if (SUCCEEDED(psl->Resolve(pinteraction == nullptr ? nullptr : (oswindow) pinteraction->get_os_data(),
-//                                    SLR_ANY_MATCH | (pinteraction == nullptr ? (SLR_NO_UI | (8400 << 16)) : 0))))
-//         {
-//            wstrFileOut.alloc(MAX_PATH);
-//            bool bOk;
-//            if(SUCCEEDED(psl->GetPath(wstrFileOut, MAX_PATH, nullptr, 0)))
-//            {
-//               bOk = true;
-//               wstrFileOut.release_string_buffer();
-//               strTarget = ::str::international::unicode_to_utf8((const widechar *) wstrFileOut);
-//            }
-//            else
-//            {
-//               bOk = false;
-//            }
-//            ppf->Release();
-//            psl->Release();
-//            return bOk;
-//         }
-//      }
-//      ppf->Release();
-//   }
-//   psl->Release();
-//   return false;
-//
-//#else
-//
-//   throw ::exception(todo);
-//
-//
-//#endif
-//
-//}
 
 

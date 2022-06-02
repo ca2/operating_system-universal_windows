@@ -1,9 +1,8 @@
 #pragma once
 
 
-namespace universal_windows
+namespace aura_universal_windows
 {
-
 
   
    class CLASS_DECL_AURA_UNIVERSAL_WINDOWS interaction_impl :
@@ -73,7 +72,7 @@ namespace universal_windows
 
       virtual void handle(::topic * ptopic, ::context * pcontext);
 
-      //virtual ::e_status main_async(const ::routine & routine, enum_priority epriority = e_priority_normal);
+      //virtual ::e_status main_async(const ::procedure & procedure, enum_priority epriority = e_priority_normal);
 
       void _002OnDraw(::image * pimage);
 
@@ -86,9 +85,9 @@ namespace universal_windows
       // DECLARE_MESSAGE_HANDLER(on_message_show_window);
       DECLARE_MESSAGE_HANDLER(_001OnProdevianSynch);
 
-      DECLARE_MESSAGE_HANDLER(_001OnSetFocus);
+      DECLARE_MESSAGE_HANDLER(on_message_set_focus);
 
-      DECLARE_MESSAGE_HANDLER(_001OnKillFocus);
+      DECLARE_MESSAGE_HANDLER(on_message_kill_focus);
 
       
 #if(WINVER >= 0x0500)
@@ -361,7 +360,7 @@ namespace universal_windows
 
       virtual bool IsChild(::user::interaction *   pWnd);
       virtual ::user::interaction *  get_parent() const ;
-      using ::user::interaction_impl::set_parent;
+      //using ::user::interaction_impl::set_parent;
 //      ::user::interaction *  SetParent(::user::interaction *  pWndNewParent);
       //static __pointer(::user::interaction_impl) WindowFromPoint(POINT_I32 point_i32);
 
@@ -673,9 +672,9 @@ namespace universal_windows
 
       virtual bool _is_window() const ;
 
-      void show_software_keyboard(::user::primitive * pprimitive, string str, strsize iBeg, strsize iEnd) override;
+      //void show_software_keyboard(::user::primitive * pprimitive, string str, strsize iBeg, strsize iEnd) override;
 
-      void hide_software_keyboard(::user::primitive * pprimitive) override;
+      //void hide_software_keyboard(::user::primitive * pprimitive) override;
 
       virtual void edit_on_set_focus(::user::interaction* pinteraction) ;
 
@@ -691,6 +690,7 @@ namespace universal_windows
    };
 
 
-} // namespace universal_windows
+} // namespace aura_universal_windows
+
 
 

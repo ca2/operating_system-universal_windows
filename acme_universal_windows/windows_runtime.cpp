@@ -72,7 +72,7 @@ CLASS_DECL_EXPORT void main_branch(::matter * pobjectTask, enum_priority epriori
    windows_runtime_async([pobjectTask]()
    {
 
-      pobjectTask->operator()();
+      pobjectTask->call_run();
 
    }, epriority);
 

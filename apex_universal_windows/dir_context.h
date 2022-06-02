@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace universal_windows
+namespace apex_universal_windows
 {
 
 
@@ -29,7 +29,7 @@ namespace universal_windows
       //bool ls_relative_name(::file::listing & path) override;
 
 
-      bool  is_impl(const ::file::path & path) override;
+      //bool  is_impl(const ::file::path & path) override;
       virtual bool  is_inside(const ::file::path & pathFolder, const ::file::path & path);
       virtual bool  is_inside_time(const ::file::path & path);
       virtual bool  name_is(const ::file::path & path);
@@ -97,8 +97,7 @@ namespace universal_windows
    };
 
 
-} // namespace windows
-
+} // namespace apex_universal_windows
 
 
 

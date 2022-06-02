@@ -4,12 +4,12 @@
 #include "apex/filesystem/filesystem/file_watcher.h"
 
 
-namespace file
+namespace apex_universal_windows
 {
 
 
    class CLASS_DECL_APEX_UNIVERSAL_WINDOWS os_watch :
-      virtual public watch
+      virtual public ::file::watch
    {
    public:
 
@@ -41,7 +41,7 @@ namespace file
 
 
    class CLASS_DECL_APEX_UNIVERSAL_WINDOWS os_watcher :
-      virtual public watcher
+      virtual public ::file::watcher
    {
    public:
 
@@ -53,7 +53,7 @@ namespace file
    };
 
 
-} // namespace file_watcher
+} // namespace apex_universal_windows
 
 
 

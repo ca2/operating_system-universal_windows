@@ -1,7 +1,7 @@
 #pragma once
 
 
-namespace universal_windows
+namespace apex_universal_windows
 {
 
 
@@ -55,7 +55,7 @@ namespace universal_windows
    };
 
 
-} // namespace windows
+} // namespace apex_universal_windows
 
 
 

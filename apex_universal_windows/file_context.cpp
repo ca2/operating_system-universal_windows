@@ -5,7 +5,7 @@
 #include "_windows_runtime.h"
 
 
-namespace universal_windows
+namespace apex_universal_windows
 {
 
 
@@ -154,61 +154,19 @@ namespace universal_windows
    //}
 
 
-   bool file_context::is_file_or_dir(const ::file::path & path, ::file::enum_type * petype)
+   ::file::enum_type file_context::get_type(const ::file::path& path)
    {
 
-      if (::file_context::is_file_or_dir(path, petype))
+      auto etype = ::file_context::get_type(path);
+
+      if (etype != ::file::e_type_unknown)
       {
 
-         return true;
+         return etype;
 
       }
 
-      string strRelative = path;
-
-      string strPrefix;
-
-      auto folder = windows_runtime_folder(m_pcontext, strRelative, strPrefix);
-
-      if (folder)
-      {
-
-         if (strRelative.is_empty())
-         {
-
-            *petype = ::file::e_type_folder;
-
-         }
-         
-         auto hstrName = __hstring(strRelative);
-
-         auto item = folder.TryGetItemAsync(hstrName).get();
-
-         if (item)
-         {
-
-            if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder))
-            {
-
-               *petype = ::file::e_type_folder;
-
-            }
-            else if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
-            {
-
-               *petype = ::file::e_type_file;
-
-            }
-
-            return false;
-
-         }
-
-         return false;
-
-      }
-
-      return m_psystem->m_pacmepath->is_file_or_dir(path, petype) != false;
+      return m_psystem->m_pacmepath->get_type(path);
 
    }
 
@@ -837,7 +795,7 @@ namespace universal_windows
                if (file)
                {
 
-                  auto pfile = __new(::universal_windows::native_buffer(file, eopen));
+                  auto pfile = __new(::acme_universal_windows::native_buffer(file, eopen));
 
                   return pfile;
 
@@ -872,6 +830,6 @@ namespace universal_windows
    }
 
 
-} // namespace windows
+} // namespace apex_universal_windows
 
 

@@ -3,12 +3,12 @@
 #pragma once
 
 
-namespace universal_windows
+namespace acme_universal_windows
 {
 
 
    class CLASS_DECL_ACME_UNIVERSAL_WINDOWS acme_path :
-      virtual public ::windows_common::acme_path
+      virtual public ::acme_windows_common::acme_path
    {
    public:
 
@@ -17,18 +17,16 @@ namespace universal_windows
       ~acme_path() override;
 
 
-
-
-      //virtual bool __win_find_is_dots(WIN32_FIND_DATAW & data);
-
-
       ::file::path _final(const char * path) override;
+
+
+      ::file::enum_type get_type(const char * pszPath) override;
 
 
    };
 
 
-} // namespace universal_windows
+} // namespace acme_universal_windows
 
 
 

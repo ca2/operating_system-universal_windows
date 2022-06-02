@@ -86,7 +86,7 @@ namespace windowing_universal_windows
 
       //auto estatus = 
       
-      aura::universal_windows::node::call_member(i);
+      aura_universal_windows::node::call_member(i);
 
       //if (!estatus)
       //{
@@ -175,7 +175,7 @@ namespace windowing_universal_windows
    //}
 
 
-   void node::node_post(const ::routine & routine)
+   void node::node_post(const ::procedure & procedure)
    {
 
       auto window = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow();
@@ -183,14 +183,20 @@ namespace windowing_universal_windows
       auto dispatcher = window.Dispatcher();
       
       dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
-         [routine]()
+         [procedure]()
       {
          
-         routine();
+            procedure();
 
       });
 
-      //return ::success;
+   }
+
+
+   void node::windowing_post(const ::procedure& procedure)
+   {
+
+      node_post(procedure);
 
    }
 

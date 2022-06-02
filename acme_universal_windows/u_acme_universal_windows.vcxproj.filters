@@ -59,12 +59,6 @@
     <ClInclude Include="acme_path.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="acme_universal_windows.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="acme_universal_windows_factory_exchange.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="file.h">
       <Filter>Header Files</Filter>
     </ClInclude>

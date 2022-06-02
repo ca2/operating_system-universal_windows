@@ -4,7 +4,7 @@
 #include "_windows_runtime.h"
 
 
-namespace universal_windows
+namespace acme_universal_windows
 {
 
 
@@ -1533,6 +1533,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          }
 
+         return true;
 
       }
 
@@ -1929,7 +1930,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
 
 
-} // namespace universal_windows
+} // namespace acme_universal_windows
 
 
 

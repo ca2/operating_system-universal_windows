@@ -1,9 +1,7 @@
 #pragma once
 
 
-//CLASS_DECL_APEX_WINDOWS HRESULT os_create_link(::file::path pathObj, ::file::path pathLink, string strDesc, ::file::path pathIcon = nullptr, int iIcon = 0);
-
-namespace universal_windows
+namespace apex_universal_windows
 {
 
 
@@ -54,7 +52,10 @@ namespace universal_windows
       bool open_in_ie(const ::string & pcsz);
 
 
-      void file_open(::file::path path, string strParams = "", string strFolder = "") override;
+      //void file_open(::file::path path, string strParams = "", string strFolder = "") override;
+
+      void file_open(const ::file::path& path, const ::string& strParams = "", const ::file::path& pathFolder = "") override;
+
       
       void browse_file_open(property_set & set) override;
       void browse_file_save(property_set & set) override;
@@ -114,7 +115,7 @@ namespace universal_windows
    };
 
 
-} // namespace universal_windows
+} // namespace apex_universal_windows
 
 
 

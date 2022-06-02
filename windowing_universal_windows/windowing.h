@@ -7,7 +7,7 @@ namespace windowing_universal_windows
 
 
    class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS windowing :
-      virtual public ::windowing::windowing
+      virtual public ::sandbox_windowing::windowing
    {
    public:
 
@@ -20,8 +20,8 @@ namespace windowing_universal_windows
       critical_section                 m_criticalsection;
       //window_map                       m_windowmap;
       __pointer(class display)         m_pdisplay;
-      __pointer(class window)          m_pwindowCapture;
-      __pointer(class window)          m_pwindowFocus;
+      //__pointer(class window)          m_pwindowCapture;
+      //__pointer(class window)          m_pwindowFocus;
 
 //#ifdef WINDOWS_DESKTOP
 
@@ -86,16 +86,16 @@ namespace windowing_universal_windows
       virtual HWND zorder_to_hwnd(const zorder & zorder);
 
       
-      ::windowing::window * get_keyboard_focus(::thread * pthread) override;
+      //::windowing::window * get_keyboard_focus(::thread * pthread) override;
 
 
-      ::windowing::window * get_mouse_capture(::thread * pthread) override;
+      //::windowing::window * get_mouse_capture(::thread * pthread) override;
 
       
-      oswindow _get_mouse_capture(itask_t itask);
+      // oswindow _get_mouse_capture(itask_t itask);
 
 
-      void release_mouse_capture() override;
+      //void release_mouse_capture() override;
 
 
       

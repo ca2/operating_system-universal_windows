@@ -1,16 +1,7 @@
 #pragma once
 
 
-//CLASS_DECL_APEX_UNIVERSAL_WINDOWS bool windows_full_path(unichar * pszPathOut, const unichar * pszFileIn);
-
-//CLASS_DECL_APEX_UNIVERSAL_WINDOWS bool windows_full_path(wstring & wstrFullPath, const wstring & wstrPath);
-//CLASS_DECL_APEX_UNIVERSAL_WINDOWS ::u32 vfxGetFileName(const unichar * pszPathName, unichar * pszTitle, ::u32 nMax);
-
-//CLASS_DECL_APEX_UNIVERSAL_WINDOWS void vfxGetModuleShortFileName(HINSTANCE hInst, string & strShortName);
-//CLASS_DECL_APEX_UNIVERSAL_WINDOWS void vfxGetModuleShortFileName(HINSTANCE hInst, string & strShortName);
-
-
-namespace universal_windows
+namespace apex_universal_windows
 {
 
 
@@ -49,7 +40,9 @@ namespace universal_windows
 
       //virtual void GetModuleShortFileName(HINSTANCE hInst, string & strShortName);
 
-      bool is_file_or_dir(const ::file::path & path, ::file::enum_type * petype = nullptr) override;
+      //bool is_file_or_dir(const ::file::path & path, ::file::enum_type * petype = nullptr) override;
+
+      ::file::enum_type get_type(const ::file::path& path) override;
       
       ::payload length(const ::file::path & path) override;
       ::payload length(const ::file::path & path, ::payload * pvarQuery) override;
@@ -79,7 +72,7 @@ namespace universal_windows
    };
 
 
-} // namespace windows
+} // namespace apex_universal_windows
 
 
 

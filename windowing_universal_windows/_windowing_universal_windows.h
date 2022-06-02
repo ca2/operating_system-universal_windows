@@ -6,7 +6,7 @@
 #include "directx/_directx.h"
 #include "direct2d/_direct2d.h"
 #include "_windows_runtime.h"
-
+#include "aura/windowing/sandbox/_sandbox.h"
 
 
 

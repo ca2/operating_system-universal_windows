@@ -7,7 +7,7 @@ namespace windowing_universal_windows
 
 
    class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS window :
-      virtual public ::windowing::window
+      virtual public ::sandbox_windowing::window
    {
    public:
 
@@ -116,7 +116,7 @@ namespace windowing_universal_windows
       void on_initialize_object() override;
 
 
-      void main_post(const ::routine & routine);
+      void main_post(const ::procedure & procedure);
 
       void defer_process_activation_message();
       // IFrameworkView Methods
@@ -354,7 +354,7 @@ namespace windowing_universal_windows
       
       void exit_zoomed() override;
       
-      void set_keyboard_focus() override;
+      //void set_keyboard_focus() override;
       
       void set_active_window() override;
 
@@ -362,15 +362,15 @@ namespace windowing_universal_windows
       
       void set_foreground_window() override;
       
-      void set_mouse_capture() override;
+      //void set_mouse_capture() override;
 
 
 
-      virtual bool has_mouse_capture() const;
-      virtual bool has_keyboard_focus() const;
+      //virtual bool has_mouse_capture() const;
+      //virtual bool has_keyboard_focus() const;
 
 
-      virtual bool is_active_window() const override;
+      //virtual bool is_active_window() const override;
 
 
 
@@ -459,10 +459,10 @@ namespace windowing_universal_windows
 
       DECLARE_MESSAGE_HANDLER(on_message_destroy);
       DECLARE_MESSAGE_HANDLER(on_message_create);
-      //DECLARE_MESSAGE_HANDLER(_001OnKillFocus);
+      //DECLARE_MESSAGE_HANDLER(on_message_kill_focus);
       DECLARE_MESSAGE_HANDLER(_001OnPaint);
       DECLARE_MESSAGE_HANDLER(_001OnPrint);
-      //DECLARE_MESSAGE_HANDLER(_001OnSetFocus);
+      //DECLARE_MESSAGE_HANDLER(on_message_set_focus);
       DECLARE_MESSAGE_HANDLER(on_message_non_client_calculate_size);
       ////DECLARE_MESSAGE_HANDLER(on_message_set_cursor);
       DECLARE_MESSAGE_HANDLER(_001OnEraseBkgnd);
@@ -1181,7 +1181,7 @@ namespace windowing_universal_windows
       void graphics_unlock() override;
 
       
-      void window_post(const ::routine & routine) override;
+      void window_post(const ::procedure & procedure) override;
 
       bool is_branch_current() const override;
 
