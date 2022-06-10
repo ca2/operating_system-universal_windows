@@ -124,7 +124,7 @@ namespace acme_universal_windows
 
       string strRelative = pathFolder;
 
-      ::str::begins_eat_ci(strRelative, strPrefix);
+      ::str().begins_eat_ci(strRelative, strPrefix);
 
       strRelative.trim("\\/");
 
@@ -223,7 +223,7 @@ namespace acme_universal_windows
       m_strFileName.Empty();
 
       m_strFileName = path;
-      //      m_wstrnative_bufferName    = ::str::international::utf8_to_unicode(m_strFileName);
+      //      m_wstrnative_bufferName    = utf8_to_unicode(m_strFileName);
 
       ASSERT(sizeof(HANDLE) == sizeof(uptr));
       ASSERT(::file::e_open_share_compat == 0);

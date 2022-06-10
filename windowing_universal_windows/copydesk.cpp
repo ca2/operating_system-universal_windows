@@ -200,7 +200,7 @@ namespace windowing_universal_windows
    //   for (i32 i = 0; i < patha.get_size(); i++)
    //   {
 
-   //      iLen += ::str::international::utf8_to_unicode_count(patha[i]) + 1;
+   //      iLen += utf8_to_unicode_count(patha[i]) + 1;
 
    //   }
 
@@ -222,9 +222,9 @@ namespace windowing_universal_windows
    //   for (i32 i = 0; i < patha.get_size(); i++)
    //   {
 
-   //      ::count c = ::str::international::utf8_to_unicode_count(patha[i]) + 1;
+   //      ::count c = utf8_to_unicode_count(patha[i]) + 1;
 
-   //      ::str::international::utf8_to_unicode(pwsz, c, patha[i]);
+   //      utf8_to_unicode(pwsz, c, patha[i]);
 
 
    //      pwsz += c;
@@ -245,11 +245,11 @@ namespace windowing_universal_windows
    //HGLOBAL copydesk::hglobal_get_wide_text(const ::string & str)
    //{
 
-   //   ::count c = ::str::international::utf8_to_unicode_count(str) + 1;
+   //   ::count c = utf8_to_unicode_count(str) + 1;
    //   HGLOBAL hglb = ::GlobalAlloc(GMEM_MOVEABLE, (SIZE_T) (c * sizeof(WCHAR)));
    //   unichar * pwsz = (unichar *) ::GlobalLock(hglb);
 
-   //   ::str::international::utf8_to_unicode(pwsz, c, str);
+   //   utf8_to_unicode(pwsz, c, str);
 
    //   ::GlobalUnlock(hglb);
 

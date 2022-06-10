@@ -26,7 +26,7 @@
 //
 //   {
 //
-//      return ::LoadLibraryW(::str::international::utf8_to_unicode(psz));
+//      return ::LoadLibraryW(utf8_to_unicode(psz));
 //
 //
 //   }
@@ -113,7 +113,7 @@
 //
 //   {
 //
-//      return ::ExtractIconW(hInst, ::str::international::utf8_to_unicode(pszExeFileName), nIconIndex);
+//      return ::ExtractIconW(hInst, utf8_to_unicode(pszExeFileName), nIconIndex);
 //
 //
 //   }
@@ -123,7 +123,7 @@
 //
 //   {
 //
-//      return ::DeleteFileW(::str::international::utf8_to_unicode(pFileName)) != false;
+//      return ::DeleteFileW(utf8_to_unicode(pFileName)) != false;
 //
 //
 //   }

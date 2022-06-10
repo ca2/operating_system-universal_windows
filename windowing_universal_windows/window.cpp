@@ -256,7 +256,7 @@ namespace windowing_universal_windows
 
       //__refer(m_pthreadUserImpl, puserinteraction->m_pthreadUserInteraction OBJECT_REFERENCE_COUNT_DEBUG_COMMA_THIS_FUNCTION_LINE);
 
-      //m_strDebug += ::str::demangle(puserinteraction->type_name()) + ";";
+      //m_strDebug += ::str().demangle(puserinteraction->type_name()) + ";";
 
       //ASSERT(pusersystem->m_createstruct.lpszClass == nullptr || __is_valid_string(pusersystem->m_createstruct.lpszClass) || __is_valid_atom(pusersystem->m_createstruct.lpszClass));
 
@@ -5750,7 +5750,7 @@ namespace windowing_universal_windows
 //
 //            TRACE("e_message_left_button_down");
 //
-//            string strType = ::str::demangle(puserinteraction->type_name());
+//            string strType = ::str().demangle(puserinteraction->type_name());
 //
 //            if (strType.contains_ci("list_box"))
 //            {
@@ -5822,7 +5822,7 @@ namespace windowing_universal_windows
 //            if (puserinteraction)
 //            {
 //
-//               strType = ::str::demangle(puserinteraction->type_name());
+//               strType = ::str().demangle(puserinteraction->type_name());
 //
 //               if (strType.contains_ci("list_box"))
 //               {

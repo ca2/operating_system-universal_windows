@@ -132,7 +132,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
    //   return ::winrt::Windows::Storage::ApplicationData::Current.TemporaryFolder();
 
    //}
-   else if (::str::begins_eat_ci(strRelative, string(::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin())))
+   else if (::str().begins_eat_ci(strRelative, string(::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin())))
    {
 
       strPrefix = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
@@ -442,7 +442,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 //
 //   strRelative.trim_right("/\\");
 //
-//   ::str::begins_eat_ci(strRelative, strPrefix);
+//   ::str().begins_eat_ci(strRelative, strPrefix);
 //
 //   strRelative.trim_left("/\\");
 //
@@ -472,7 +472,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 //
 //         strPrefix.replace("/", "\\");
 //
-//         ::str::begins_eat_ci(strRelative, strPrefix);
+//         ::str().begins_eat_ci(strRelative, strPrefix);
 //
 //         strRelative.trim("/\\");
 //
@@ -599,7 +599,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 //      else
 //      {
 //
-//         if (::str::begins_eat_ci(str, "image://"))
+//         if (::str().begins_eat_ci(str, "image://"))
 //         {
 //
 //            strPrefix = "image://";
@@ -619,7 +619,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 //
 //         }
 //
-//         if (::str::begins_eat_ci(str, "music://"))
+//         if (::str().begins_eat_ci(str, "music://"))
 //         {
 //
 //            strPrefix = "music://";
@@ -639,7 +639,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 //
 //         }
 //
-//         if (::str::begins_eat_ci(str, "video://"))
+//         if (::str().begins_eat_ci(str, "video://"))
 //         {
 //
 //            strPrefix = "video://";
@@ -659,7 +659,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 //
 //         }
 //
-//         if (::str::begins_eat_ci(str, "document://"))
+//         if (::str().begins_eat_ci(str, "document://"))
 //         {
 //
 //            strPrefix = "document://";

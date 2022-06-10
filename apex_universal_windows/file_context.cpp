@@ -81,7 +81,7 @@ namespace apex_universal_windows
 
    //   // return true;
 
-   //   if (::str::begins_ci(pszFileIn, "http://"))
+   //   if (::str().begins_ci(pszFileIn, "http://"))
 
    //   {
 
@@ -91,7 +91,7 @@ namespace apex_universal_windows
    //      return true;
 
    //   }
-   //   else if (::str::begins_ci(pszFileIn, "https://"))
+   //   else if (::str().begins_ci(pszFileIn, "https://"))
 
    //   {
 
@@ -102,13 +102,13 @@ namespace apex_universal_windows
 
    //   }
    //   wstring wstrFileIn;
-   //   wstrFileIn = ::str::international::utf8_to_unicode(pszFileIn);
+   //   wstrFileIn = utf8_to_unicode(pszFileIn);
 
    //   wstring wstrFileOut;
    //   bool b = windows_full_path(wstrFileOut.get_string_buffer(MAX_PATH * 8), wstrFileIn) != false;
    //   if (b)
    //   {
-   //      ::str::international::unicode_to_utf8(str, wstrFileOut);
+   //      unicode_to_utf8(str, wstrFileOut);
    //   }
    //   return b;
    //}
@@ -119,12 +119,12 @@ namespace apex_universal_windows
    //   /*      if(::apex::file_context::FullPath(wstrFullPath, wstrPath))
    //   return true;*/
 
-   //   if (::str::begins_ci(wstrPath, L"http://"))
+   //   if (::str().begins_ci(wstrPath, L"http://"))
    //   {
    //      wstrFullPath = wstrPath;
    //      return true;
    //   }
-   //   else if (::str::begins_ci(wstrPath, L"https://"))
+   //   else if (::str().begins_ci(wstrPath, L"https://"))
    //   {
    //      wstrFullPath = wstrPath;
    //      return true;
@@ -140,11 +140,11 @@ namespace apex_universal_windows
    //{
    //   i32 nMax = MAX_PATH * 8;
    //   wstring wstrPathName;
-   //   wstrPathName = ::str::international::utf8_to_unicode(pszPathName);
+   //   wstrPathName = utf8_to_unicode(pszPathName);
 
    //   wstring wstrTitle;
    //   ::u32 user = vfxGetFileName(wstrPathName, wstrTitle.get_string_buffer(nMax), nMax);
-   //   str = ::str::international::unicode_to_utf8(wstrTitle);
+   //   str = unicode_to_utf8(wstrTitle);
    //   return user;
    //}
 
@@ -186,7 +186,7 @@ namespace apex_universal_windows
 
       WIN32_FILE_ATTRIBUTE_DATA data;
 
-      if (!GetFileAttributesExW(::str::international::utf8_to_unicode(path), GetFileExInfoStandard, &data))
+      if (!GetFileAttributesExW(utf8_to_unicode(path), GetFileExInfoStandard, &data))
       {
          varRet.set_type(::e_type_null);
       }

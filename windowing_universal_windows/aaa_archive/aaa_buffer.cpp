@@ -591,7 +591,7 @@ namespace windowing_universal_windows
 //
 //            //::SetWindowPos(get_hwnd(), HWND_TOPMOST, point.x, point.y, size.cx, size.cy, SWP_NOZORDER);
 //
-//            string strType = ::str::demangle(m_pimpl->m_puserinteraction->type_name());
+//            string strType = ::str().demangle(m_pimpl->m_puserinteraction->type_name());
 //
 //            if (strType.contains_ci("font_format"))
 //            {

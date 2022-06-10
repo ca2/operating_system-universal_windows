@@ -130,7 +130,7 @@ pacmedir->create(lpszFileName.folder());
       m_path.Empty();
 
       m_path     = lpszFileName;
-//      m_wstrFileName    = ::str::international::utf8_to_unicode(m_path);
+//      m_wstrFileName    = utf8_to_unicode(m_path);
 
       ASSERT(sizeof(HANDLE) == sizeof(uptr));
       ASSERT(::file::e_open_share_compat == 0);
@@ -196,7 +196,7 @@ pacmedir->create(lpszFileName.folder());
          dwCreateFlag = OPEN_EXISTING;
 
       // attempt file creation
-      //HANDLE hFile = shell::CreateFile(::str::international::utf8_to_unicode(m_path), dwAccess, dwShareMode, &sa, dwCreateFlag, FILE_ATTRIBUTE_NORMAL, nullptr);
+      //HANDLE hFile = shell::CreateFile(utf8_to_unicode(m_path), dwAccess, dwShareMode, &sa, dwCreateFlag, FILE_ATTRIBUTE_NORMAL, nullptr);
       hfile hfile = ::hfile_create(m_path, dwAccess, dwShareMode, &sa, dwCreateFlag, FILE_ATTRIBUTE_NORMAL, nullptr);
       if (hfile_is_nok(hfile))
       {
@@ -248,7 +248,7 @@ pacmedir->create(lpszFileName.folder());
 //            return error_failed;
 //         }
 
-         //m_path = ::str::international::unicode_to_utf8(m_wstrFileName);
+         //m_path = unicode_to_utf8(m_wstrFileName);
 
          hfile = ::hfile_create("\\\\?\\" + m_path, dwAccess, dwShareMode, &sa, dwCreateFlag, FILE_ATTRIBUTE_NORMAL, nullptr);
 
@@ -967,13 +967,13 @@ pacmedir->create(lpszFileName.folder());
 //      // attempt to fully qualify path first
 //      wstring wstrFullName;
 //      wstring wstrFileName;
-//      wstrFileName = ::str::international::utf8_to_unicode(lpszFileName);
+//      wstrFileName = utf8_to_unicode(lpszFileName);
 //      if (!windows_full_path(wstrFullName, wstrFileName))
 //      {
 //         rStatus.m_strFullName.Empty();
 //         return false;
 //      }
-//      ::str::international::unicode_to_utf8(rStatus.m_strFullName, wstrFullName);
+//      unicode_to_utf8(rStatus.m_strFullName, wstrFullName);
 //
 //      WIN32_FIND_DATA findFileData;
 //      HANDLE hFind = FindFirstFile((char *)lpszFileName, &findFileData);
