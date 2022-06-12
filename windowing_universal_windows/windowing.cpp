@@ -12,7 +12,7 @@ namespace windowing_universal_windows
    windowing::windowing()
    {
 
-      m_pWindowing = this;
+      m_pWindowing2 = this;
 
 //      set_layer(LAYERED_IMPL, this);
 
