@@ -77,7 +77,9 @@ namespace windowing_universal_windows
 
       m_pwindow = (class window *) pimpl->m_pwindow->m_pWindow;
 
-      m_dDpiIni = 96.0;
+      m_dDpiIni = m_psystem->m_paurasystem->m_dDpi;
+
+      m_dDpi = m_psystem->m_paurasystem->m_dDpi;
 
       CreateDeviceIndependentResources();
 
@@ -749,7 +751,6 @@ namespace windowing_universal_windows
 
          m_bWindowSizeChangeInProgress = true;
 
-
          HRESULT hr;
 
          ::windowing::graphics_lock graphicslock(m_pwindow);
@@ -759,10 +760,8 @@ namespace windowing_universal_windows
          m_windowBounds.Width = (float)m_size.cx;
          m_windowBounds.Height = (float)m_size.cy;
 
-         if (m_pswapchain != nullptr)
-         {
-            return;
-         }
+         //if (m_pswapchain != nullptr)
+         //{
          //   ID3D11RenderTargetView * nullViews[] = { nullptr };
          //   directx::directx()->m_pdevicecontext->OMSetRenderTargets(ARRAYSIZE(nullViews), nullViews, nullptr);
          //   
@@ -829,12 +828,15 @@ namespace windowing_universal_windows
          if (m_pswapchain == nullptr)
          {
 
+               directx::directx()->m_pdevicecontext->Flush();
+   directx::directx()->m_pdevicecontext->ClearState();
+
+
             auto displayInformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
 
             m_sizeBuffer.cx = displayInformation.ScreenWidthInRawPixels();
 
             m_sizeBuffer.cy = displayInformation.ScreenHeightInRawPixels();
-
 
             // Otherwise, create a new one using the same adapter as the existing Direct3D device.
             DXGI_SWAP_CHAIN_DESC1 swapChainDesc = { 0 };
@@ -848,8 +850,8 @@ namespace windowing_universal_windows
             swapChainDesc.BufferCount = 2;                               // Use double-buffering to minimize latency.
             swapChainDesc.Scaling = DXGI_SCALING_NONE;
             swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL; // All Metro style apps must use this SwapEffect.
-            //swapChainDesc.AlphaMode = DXGI_ALPHA_MODE_PREMULTIPLIED;
-            swapChainDesc.Flags = 0;
+            swapChainDesc.AlphaMode = DXGI_ALPHA_MODE_PREMULTIPLIED;
+            swapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_FOREGROUND_LAYER;
 
             comptr<IDXGIDevice1> dxgiDevice;
 
@@ -888,6 +890,14 @@ namespace windowing_universal_windows
             throw_if_failed(hr);
 
          }
+
+         //DXGI_SWAP_CHAIN_DESC1 desc1 = { 0 };
+
+         //m_pswapchain->GetDesc1(&desc1);
+
+         //m_sizeBuffer.cx = desc1.Width;
+
+         //m_sizeBuffer.cy = desc1.Height;
 
          if (m_b3D)
          {
@@ -965,7 +975,6 @@ namespace windowing_universal_windows
                m_dDpi
             );
 
-
          hr = direct2d::direct2d()->m_pd2device->CreateDeviceContext(
             //D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
             D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS,
@@ -979,7 +988,6 @@ namespace windowing_universal_windows
          hr = m_pswapchain->GetBuffer(0, IID_PPV_ARGS(&dxgiBackBuffer));
 
          ::throw_if_failed(hr);
-
 
          hr = m_pdevicecontext->CreateBitmapFromDxgiSurface(
             dxgiBackBuffer,
@@ -997,6 +1005,8 @@ namespace windowing_universal_windows
 
       void buffer::DestroyWindowSizeDependentResources()
       {
+
+         
 
          //HRESULT hr;
 
@@ -1077,6 +1087,8 @@ namespace windowing_universal_windows
                   // to sleep until the next VSync. This ensures we don't waste any cycles rendering
                   // frames that will never be displayed to the screen.
                   hr = m_pswapchain->Present1(1, 0, &parameters);
+
+                  //hr = m_pswapchain->Present(1, 0);
 
                   if (directx::directx()->m_pdevicecontext)
                   {

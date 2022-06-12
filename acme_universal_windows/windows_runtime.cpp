@@ -82,7 +82,7 @@ CLASS_DECL_EXPORT void main_branch(::matter * pobjectTask, enum_priority epriori
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::object * pobject, string & strRelative, string & strPrefix)
 {
 
-   if (str::begins_eat_ci(strRelative, "image://"))
+   if (str().begins_eat_ci(strRelative, "image://"))
    {
 
       strPrefix = "image://";
@@ -90,7 +90,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::PicturesLibrary();
 
    }
-   else if (str::begins_eat_ci(strRelative, "music://"))
+   else if (str().begins_eat_ci(strRelative, "music://"))
    {
 
       strPrefix = "music://";
@@ -98,7 +98,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::MusicLibrary();
 
    }
-   else if (str::begins_eat_ci(strRelative, "video://"))
+   else if (str().begins_eat_ci(strRelative, "video://"))
    {
 
       strPrefix = "video://";
@@ -106,7 +106,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::VideosLibrary();
 
    }
-   else if (str::begins_eat_ci(strRelative, "document://"))
+   else if (str().begins_eat_ci(strRelative, "document://"))
    {
 
       strPrefix = "document://";
@@ -114,7 +114,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::DocumentsLibrary();
 
    }
-   else if (str::begins_eat_ci(strRelative, "dropbox://"))
+   else if (str().begins_eat_ci(strRelative, "dropbox://"))
    {
 
       string strHome = getenv("USERPROFILE");

@@ -6393,6 +6393,8 @@ namespace windowing_universal_windows
 
             auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
 
+            m_psystem->m_paurasystem->m_dDpi = displayinformation.LogicalDpi();
+
             displayinformation.DpiChanged(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DpiChanged));
 
             displayinformation.DisplayContentsInvalidated(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DisplayContentsInvalidated));
@@ -7633,7 +7635,12 @@ namespace windowing_universal_windows
 
          auto pbuffer = m_puserinteractionimpl->get_window_graphics();
 
-         pbuffer->update_buffer(size);
+         if (::is_set(pbuffer))
+         {
+
+            pbuffer->update_buffer(size);
+
+         }
 
          //::lparam lparam(size);
 //

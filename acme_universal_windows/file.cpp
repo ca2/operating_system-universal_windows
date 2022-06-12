@@ -99,13 +99,13 @@ namespace acme_universal_windows
 
       string strPath = path;
 
-      str::begins_eat_ci(strPath,"image:\\\\");
+      str().begins_eat_ci(strPath,"image:\\\\");
 
-      str::begins_eat_ci(strPath, "music:\\\\");
+      str().begins_eat_ci(strPath, "music:\\\\");
 
-      str::begins_eat_ci(strPath, "video:\\\\");
+      str().begins_eat_ci(strPath, "video:\\\\");
 
-      if (str::begins_eat_ci(strPath, "document:\\\\"))
+      if (str().begins_eat_ci(strPath, "document:\\\\"))
       {
 
          output_debug_string("document:\\\\" + strPath);
