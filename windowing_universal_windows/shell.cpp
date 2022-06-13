@@ -24,7 +24,9 @@ namespace windowing_universal_windows
 
       m_iThread = 0;
 
-      defer_co_initialize_ex(false);
+      //defer_co_initialize_ex(false);
+
+      defer_co_initialize_ex(true);
 
 
 

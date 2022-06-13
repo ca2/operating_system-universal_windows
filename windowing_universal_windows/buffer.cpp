@@ -337,7 +337,7 @@ namespace windowing_universal_windows
    bool buffer::defer_init()
    {
 
-      ::draw2d::lock draw2dlock;
+      //::draw2d::lock draw2dlock;
 
       if (m_bInitialized)
       {
@@ -378,7 +378,7 @@ namespace windowing_universal_windows
    void buffer::HandleDeviceLost()
    {
 
-      ::draw2d::lock draw2dlock;
+      //::draw2d::lock draw2dlock;
 
       //// Reset these member variables to ensure that SetDpi recreates all resources.
       float dpi = m_dDpi;
@@ -423,7 +423,7 @@ namespace windowing_universal_windows
    void buffer::CreateDeviceIndependentResources()
    {
 
-      ::draw2d::lock draw2dlock;
+      //::draw2d::lock draw2dlock;
 
       D2D1_FACTORY_OPTIONS options;
       ZeroMemory(&options, sizeof(D2D1_FACTORY_OPTIONS));
@@ -539,7 +539,7 @@ namespace windowing_universal_windows
    void buffer::CreateDeviceResources()
    {
 
-      ::draw2d::lock draw2dlock;
+      //::draw2d::lock draw2dlock;
 
       //direct2d::direct2d() = __new(::draw2d_direct2d::plugin);
 
@@ -583,7 +583,7 @@ namespace windowing_universal_windows
    void buffer::OnChangeDpi(float dpi)
    {
 
-      ::draw2d::lock draw2dlock;
+      //::draw2d::lock draw2dlock;
 
       if (dpi != m_dDpi)
       {
@@ -1238,7 +1238,7 @@ namespace windowing_universal_windows
    void buffer::ValidateDevice()
    {
 
-      ::draw2d::lock draw2dlock;
+      //::draw2d::lock draw2dlock;
       // The D3D Device is no longer valid if the default adapter changes or if
       // the device has been erased.
 

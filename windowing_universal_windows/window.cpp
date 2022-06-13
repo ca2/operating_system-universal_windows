@@ -6619,7 +6619,7 @@ namespace windowing_universal_windows
    void window::graphics_lock()
    {
 
-      direct2d::direct2d()->m_d2dMultithread->Enter();
+      //direct2d::direct2d()->m_d2dMultithread->Enter();
 
    }
 
@@ -6627,7 +6627,7 @@ namespace windowing_universal_windows
    void window::graphics_unlock()
    {
 
-      direct2d::direct2d()->m_d2dMultithread->Leave();
+      //direct2d::direct2d()->m_d2dMultithread->Leave();
 
    }
 
