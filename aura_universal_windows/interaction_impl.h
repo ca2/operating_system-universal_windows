@@ -90,12 +90,10 @@ namespace aura_universal_windows
       DECLARE_MESSAGE_HANDLER(on_message_kill_focus);
 
       
-#if(WINVER >= 0x0500)
+      void show_software_keyboard(::user::element* pelement) override;
 
-      //      bool GetWindowInfo(PWINDOWINFO pwi) const;
-      //    bool GetTitleBarInfo(PTITLEBARINFO pti) const;
-
-#endif   // WINVER >= 0x0500
+      void hide_software_keyboard(::user::element* pelement) override;
+  
 
       //      virtual ::user::interaction_impl * from_os_data(void * pdata);
       //    virtual void * get_os_data() const;

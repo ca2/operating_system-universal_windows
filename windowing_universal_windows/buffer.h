@@ -7,6 +7,27 @@
 namespace windowing_universal_windows
 {
 
+
+   class graphics_device_lock
+   {
+   public:
+
+      graphics_device_lock()
+      {
+
+         direct2d::direct2d()->m_d2dMultithread->Enter();
+
+      }
+
+
+      ~graphics_device_lock()
+      {
+
+         direct2d::direct2d()->m_d2dMultithread->Leave();
+
+      }
+   };
+
    
    enum enum_phase
    {
@@ -107,6 +128,7 @@ namespace windowing_universal_windows
       //app  ^        m_pframeworkview;
 
       ::draw2d::graphics_pointer       m_pdraw2dgraphics;
+      D2D1_COLOR_F                     m_d2d1colorfBackground;
 
 
       buffer();
@@ -157,6 +179,7 @@ namespace windowing_universal_windows
       virtual void CreateDeviceResources();
       virtual void SetDpi(float dpi);
       virtual void OnChangeDpi(float dpi);
+      virtual void OnChangeTheme();
       virtual void UpdateForWindowSizeChange();
       virtual void CreateWindowSizeDependentResources();
       virtual void DestroyWindowSizeDependentResources();

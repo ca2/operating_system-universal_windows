@@ -77,9 +77,9 @@ namespace windowing_universal_windows
 
       m_pwindow = (class window *)pimpl->m_pwindow->m_pWindow;
 
-      m_dDpiIni = m_psystem->m_paurasystem->m_dDpi;
+      m_dDpiIni = (float) m_psystem->m_paurasystem->m_dDpi;
 
-      m_dDpi = m_psystem->m_paurasystem->m_dDpi;
+      m_dDpi = (float) m_psystem->m_paurasystem->m_dDpi;
 
       CreateDeviceIndependentResources();
 
@@ -164,19 +164,7 @@ namespace windowing_universal_windows
 
       }
 
-
-      ::winrt::Windows::UI::ViewManagement::UISettings uisettings;
-
-      auto colorBackground = uisettings.GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
-
-      D2D1_COLOR_F color32 = {};
-
-      color32.a = 1.0f;
-      color32.r = colorBackground.R / 255.f;
-      color32.g = colorBackground.G / 255.f;
-      color32.b = colorBackground.B / 255.f;
-
-      m_pdevicecontext->Clear(color32);
+      m_pdevicecontext->Clear(m_d2d1colorfBackground);
 
       m_pdevicecontext->SetTransform(D2D1::Matrix3x2F::Identity());
 
@@ -610,6 +598,21 @@ namespace windowing_universal_windows
    }
 
 
+   void buffer::OnChangeTheme()
+   {
+
+      ::winrt::Windows::UI::ViewManagement::UISettings uisettings;
+
+      auto colorBackground = uisettings.GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
+
+      m_d2d1colorfBackground.a = 1.0f;
+      m_d2d1colorfBackground.r = colorBackground.R / 255.f;
+      m_d2d1colorfBackground.g = colorBackground.G / 255.f;
+      m_d2d1colorfBackground.b = colorBackground.B / 255.f;
+
+   }
+
+
    void buffer::UpdateForWindowSizeChange()
    {
 
@@ -633,7 +636,7 @@ namespace windowing_universal_windows
       if (m_size.cx != m_windowBounds.Width || m_size.cy != m_windowBounds.Height)
       {
 
-         ::draw2d::lock lock;
+         ::draw2d::lock lock(this);
 
          CreateWindowSizeDependentResources();
 
@@ -656,7 +659,7 @@ namespace windowing_universal_windows
 
          //m_pwindow->m_puserinteraction->start_layout();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_dim(0, 0, m_size.cx, m_size.cy);
+         m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_placement(0, 0, m_size.cx, m_size.cy);
 
          m_pwindow->m_puserinteractionimpl->m_puserinteraction->order_top();
 
@@ -753,7 +756,7 @@ namespace windowing_universal_windows
 
       HRESULT hr;
 
-      ::windowing::graphics_lock graphicslock(m_pwindow);
+      graphics_device_lock graphicsdevicelock;
 
       // Store the window bounds so the next time we get a SizeChanged event we can
       // avoid rebuilding everything if the size_i32 is identical.
@@ -835,6 +838,8 @@ namespace windowing_universal_windows
 
       m_sizeBuffer.cy = maximum(cyScreen, m_size.cy);
 
+      bool bBufferUpdated = false;
+
       if (m_pswapchain == nullptr)
       {
 
@@ -890,9 +895,17 @@ namespace windowing_universal_windows
 
          throw_if_failed(hr);
 
+         bBufferUpdated = true;
+
       }
-      else
+      else if(m_size.cx > m_sizeBuffer.cx || m_size.cy > m_sizeBuffer.cy)
       {
+
+         //synchronous_lock synchronouslockObjects(m_psystem->m_paurasystem->draw2d()->get_object_list_mutex());
+         //synchronous_lock synchronouslockImages(m_psystem->m_paurasystem->draw2d()->get_image_list_mutex());
+         //synchronous_lock synchronouslockGraphicsContext(m_psystem->m_paurasystem->draw2d()->get_graphics_context_list_mutex());
+
+         m_psystem->m_paurasystem->draw2d()->clear_all_objects_os_data();
          //
          //            //if (m_pswapchain != nullptr)
          ////{
@@ -912,9 +925,20 @@ namespace windowing_universal_windows
          ////   m_bWindowSizeChangeInProgress = true;
          //
          ////   */
+         ID3D11RenderTargetView * nullViews[] = { nullptr };
+         directx::directx()->m_pdevicecontext->OMSetRenderTargets(ARRAYSIZE(nullViews), nullViews, nullptr);
+         m_prendertargetview = nullptr;
+         m_pdevicecontext->SetTarget(nullptr);
          directx::directx()->m_pdevicecontext->Flush();
          directx::directx()->m_pdevicecontext->ClearState();
          direct2d::direct2d()->m_pd2device->ClearResources();
+         m_pdevicecontext = nullptr;
+         m_pbitmap = nullptr;
+         m_prendertargetview = nullptr;
+         m_pstencilview = nullptr;
+
+         if(directx::directx()->m_pdevicecontext->GetType() 
+            != D3D11_DEVICE_CONTEXT_IMMEDIATE)
          {
             comptr < ID3D11CommandList > pcommandlist;
             hr = directx::directx()->m_pdevicecontext->FinishCommandList(false, &pcommandlist);
@@ -957,114 +981,121 @@ namespace windowing_universal_windows
 
          }
 
+         bBufferUpdated = true;
+
       }
 
-      DXGI_SWAP_CHAIN_DESC1 desc1 = { 0 };
-
-      m_pswapchain->GetDesc1(&desc1);
-
-      m_sizeBuffer.cx = desc1.Width;
-
-      m_sizeBuffer.cy = desc1.Height;
-
-      if (m_b3D)
+      if (bBufferUpdated)
       {
 
-         // Create a Direct3D render target impact of the __swap chain back buffer.
-         comptr<ID3D11Texture2D> backBuffer;
+         DXGI_SWAP_CHAIN_DESC1 desc1 = { 0 };
 
-         HRESULT hr = m_pswapchain->GetBuffer(0, IID_PPV_ARGS(&backBuffer));
+         m_pswapchain->GetDesc1(&desc1);
 
-         throw_if_failed(hr);
+         m_sizeBuffer.cx = desc1.Width;
 
-         hr = directx::directx()->m_pdevice->CreateRenderTargetView(
-            backBuffer,
-            nullptr,
-            &m_prendertargetview
+         m_sizeBuffer.cy = desc1.Height;
+
+         if (m_b3D)
+         {
+
+            // Create a Direct3D render target impact of the __swap chain back buffer.
+            comptr<ID3D11Texture2D> backBuffer;
+
+            HRESULT hr = m_pswapchain->GetBuffer(0, IID_PPV_ARGS(&backBuffer));
+
+            throw_if_failed(hr);
+
+            hr = directx::directx()->m_pdevice->CreateRenderTargetView(
+               backBuffer,
+               nullptr,
+               &m_prendertargetview
+            );
+
+            throw_if_failed(hr);
+
+            // Cache the rendertarget dimensions in our helper class for convenient use.
+            D3D11_TEXTURE2D_DESC backBufferDesc = { 0 };
+            backBuffer->GetDesc(&backBufferDesc);
+            m_renderTargetSize.Width = static_cast<float>(backBufferDesc.Width);
+            m_renderTargetSize.Height = static_cast<float>(backBufferDesc.Height);
+
+            // Create a depth stencil impact for use with 3D rendering if needed.
+            CD3D11_TEXTURE2D_DESC depthStencilDesc(
+               DXGI_FORMAT_D24_UNORM_S8_UINT,
+               backBufferDesc.Width,
+               backBufferDesc.Height,
+               1,
+               1,
+               D3D11_BIND_DEPTH_STENCIL
+            );
+
+            comptr<ID3D11Texture2D> depthStencil;
+
+            hr = directx::directx()->m_pdevice->CreateTexture2D(
+               &depthStencilDesc,
+               nullptr,
+               &depthStencil
+            );
+
+            throw_if_failed(hr);
+
+            auto viewDesc = CD3D11_DEPTH_STENCIL_VIEW_DESC(D3D11_DSV_DIMENSION_TEXTURE2D);
+
+            hr = directx::directx()->m_pdevice->CreateDepthStencilView(
+               depthStencil,
+               &viewDesc,
+               &m_pstencilview
+            );
+
+            throw_if_failed(hr);
+
+            // Set the 3D rendering viewport to target the entire window.
+            CD3D11_VIEWPORT viewport(
+               0.0f,
+               0.0f,
+               static_cast<float>(backBufferDesc.Width),
+               static_cast<float>(backBufferDesc.Height)
+            );
+
+            directx::directx()->m_pdevicecontext->RSSetViewports(1, &viewport);
+
+         }
+
+         // Create a Direct2D target bitmap associated with the
+         // __swap chain back buffer and set it as the current target.
+         D2D1_BITMAP_PROPERTIES1 bitmapProperties =
+            D2D1::BitmapProperties1(
+               D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
+               D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED),
+               m_dDpi,
+               m_dDpi
+            );
+
+         hr = direct2d::direct2d()->m_pd2device->CreateDeviceContext(
+            //D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
+            D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS,
+            &m_pdevicecontext
          );
 
-         throw_if_failed(hr);
+         ::throw_if_failed(hr);
 
-         // Cache the rendertarget dimensions in our helper class for convenient use.
-         D3D11_TEXTURE2D_DESC backBufferDesc = { 0 };
-         backBuffer->GetDesc(&backBufferDesc);
-         m_renderTargetSize.Width = static_cast<float>(backBufferDesc.Width);
-         m_renderTargetSize.Height = static_cast<float>(backBufferDesc.Height);
+         comptr<IDXGISurface> dxgiBackBuffer;
 
-         // Create a depth stencil impact for use with 3D rendering if needed.
-         CD3D11_TEXTURE2D_DESC depthStencilDesc(
-            DXGI_FORMAT_D24_UNORM_S8_UINT,
-            backBufferDesc.Width,
-            backBufferDesc.Height,
-            1,
-            1,
-            D3D11_BIND_DEPTH_STENCIL
-         );
+         hr = m_pswapchain->GetBuffer(0, IID_PPV_ARGS(&dxgiBackBuffer));
 
-         comptr<ID3D11Texture2D> depthStencil;
+         ::throw_if_failed(hr);
 
-         hr = directx::directx()->m_pdevice->CreateTexture2D(
-            &depthStencilDesc,
-            nullptr,
-            &depthStencil
-         );
+         hr = m_pdevicecontext->CreateBitmapFromDxgiSurface(
+            dxgiBackBuffer,
+            &bitmapProperties,
+            &m_pbitmap);
 
-         throw_if_failed(hr);
+         ::throw_if_failed(hr);
 
-         auto viewDesc = CD3D11_DEPTH_STENCIL_VIEW_DESC(D3D11_DSV_DIMENSION_TEXTURE2D);
-
-         hr = directx::directx()->m_pdevice->CreateDepthStencilView(
-            depthStencil,
-            &viewDesc,
-            &m_pstencilview
-         );
-
-         throw_if_failed(hr);
-
-         // Set the 3D rendering viewport to target the entire window.
-         CD3D11_VIEWPORT viewport(
-            0.0f,
-            0.0f,
-            static_cast<float>(backBufferDesc.Width),
-            static_cast<float>(backBufferDesc.Height)
-         );
-
-         directx::directx()->m_pdevicecontext->RSSetViewports(1, &viewport);
+         m_pdevicecontext->SetTarget(m_pbitmap);
 
       }
-
-      // Create a Direct2D target bitmap associated with the
-      // __swap chain back buffer and set it as the current target.
-      D2D1_BITMAP_PROPERTIES1 bitmapProperties =
-         D2D1::BitmapProperties1(
-            D2D1_BITMAP_OPTIONS_TARGET | D2D1_BITMAP_OPTIONS_CANNOT_DRAW,
-            D2D1::PixelFormat(DXGI_FORMAT_B8G8R8A8_UNORM, D2D1_ALPHA_MODE_PREMULTIPLIED),
-            m_dDpi,
-            m_dDpi
-         );
-
-      hr = direct2d::direct2d()->m_pd2device->CreateDeviceContext(
-         //D2D1_DEVICE_CONTEXT_OPTIONS_NONE,
-         D2D1_DEVICE_CONTEXT_OPTIONS_ENABLE_MULTITHREADED_OPTIMIZATIONS,
-         &m_pdevicecontext
-      );
-
-      ::throw_if_failed(hr);
-
-      comptr<IDXGISurface> dxgiBackBuffer;
-
-      hr = m_pswapchain->GetBuffer(0, IID_PPV_ARGS(&dxgiBackBuffer));
-
-      ::throw_if_failed(hr);
-
-      hr = m_pdevicecontext->CreateBitmapFromDxgiSurface(
-         dxgiBackBuffer,
-         &bitmapProperties,
-         &m_pbitmap);
-
-      ::throw_if_failed(hr);
-
-      m_pdevicecontext->SetTarget(m_pbitmap);
 
       //m_bBeginDraw = false;
 

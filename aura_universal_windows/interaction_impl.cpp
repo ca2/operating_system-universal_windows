@@ -51,9 +51,9 @@ namespace aura_universal_windows
    bool interaction_impl::_native_create_window_ex(__pointer(::user::system) pusersystem)
    {
 
-      auto x = m_puserinteraction->layout().design().origin().x;
+      auto x = m_puserinteraction->const_layout().design().origin().x;
 
-      auto y = m_puserinteraction->layout().design().origin().y;
+      auto y = m_puserinteraction->const_layout().design().origin().y;
 
       auto cx = m_puserinteraction->width();
 
@@ -136,6 +136,23 @@ namespace aura_universal_windows
       //m_pframeworkview.get().RemoveInternalFocus();
 
    }
+
+
+   void interaction_impl::show_software_keyboard(::user::element* pelement)
+   {
+
+      
+
+   }
+
+
+   void interaction_impl::hide_software_keyboard(::user::element* pelement)
+   {
+
+      
+
+   }
+
 
 
    void interaction_impl::on_message_destroy(::message::message * pmessage)

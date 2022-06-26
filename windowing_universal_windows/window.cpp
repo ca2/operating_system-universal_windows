@@ -401,13 +401,13 @@ namespace windowing_universal_windows
 
       ::winrt::Windows::Foundation::Rect rectangleWindow;
 
-      rectangleWindow.X = (float) puserinteraction->layout().design().m_point.x;
+      rectangleWindow.X = (float) puserinteraction->const_layout().design().m_point.x;
 
-      rectangleWindow.Y = (float)puserinteraction->layout().design().m_point.y;
+      rectangleWindow.Y = (float)puserinteraction->const_layout().design().m_point.y;
 
-      rectangleWindow.Width = (float)puserinteraction->layout().design().m_size.cx;
+      rectangleWindow.Width = (float)puserinteraction->const_layout().design().m_size.cx;
 
-      rectangleWindow.Height = (float)puserinteraction->layout().design().m_size.cy;
+      rectangleWindow.Height = (float)puserinteraction->const_layout().design().m_size.cy;
 
       if (!m_window)
       {
@@ -479,15 +479,11 @@ namespace windowing_universal_windows
 
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
-         auto& sketch = puserinteraction->layout().sketch();
+         auto& sketch = puserinteraction->const_layout().sketch();
 
          puserinteraction->place(rectangle);
 
-         auto& design = puserinteraction->layout().design();
-
-         design.m_point = rectangle.top_left();
-
-         design.m_size = rectangle.size();
+         puserinteraction->place(rectangle, ::user::e_layout_design);
 
 
       } });
@@ -562,10 +558,10 @@ namespace windowing_universal_windows
 
       //puserinteraction->layout().sketch().set_modified();
 
-      int x = puserinteraction->layout().sketch().origin().x;
-      int y = puserinteraction->layout().sketch().origin().y;
-      int cx = puserinteraction->layout().sketch().size().cx;
-      int cy = puserinteraction->layout().sketch().size().cy;
+      int x = puserinteraction->const_layout().sketch().origin().x;
+      int y = puserinteraction->const_layout().sketch().origin().y;
+      int cx = puserinteraction->const_layout().sketch().size().cx;
+      int cy = puserinteraction->const_layout().sketch().size().cy;
 
       HWND hwndParent = nullptr;
 
@@ -6619,7 +6615,7 @@ namespace windowing_universal_windows
    void window::graphics_lock()
    {
 
-      //direct2d::direct2d()->m_d2dMultithread->Enter();
+      ///direct2d::direct2d()->m_d2dMultithread->Enter();
 
    }
 
@@ -6627,7 +6623,7 @@ namespace windowing_universal_windows
    void window::graphics_unlock()
    {
 
-      //direct2d::direct2d()->m_d2dMultithread->Leave();
+      ///direct2d::direct2d()->m_d2dMultithread->Leave();
 
    }
 

@@ -5,6 +5,51 @@
 #include "_windows_runtime.h"
 
 
+string consume_token(::string & str, const ::string_array & straSeparator)
+{
+
+   ::index iFind = -1;
+
+   ::index iSeparator = -1;
+
+   for (::index i = 0; i < straSeparator.get_size(); i++)
+   {
+
+      if (straSeparator[i].is_empty())
+      {
+
+         throw exception(error_bad_argument);
+
+      }
+
+      ::index iFindSeparator = str.find(straSeparator[i]);
+      
+      if (iFind < 0 || (iFindSeparator > 0 && iFindSeparator < iFind))
+      {
+
+         iFind = iFindSeparator;
+
+         iSeparator = i;
+
+      }
+
+   }
+
+   ::string strToken;
+
+   if (iFind >= 0)
+   {
+
+      strToken = str.Left(iFind);
+
+      str = str.Mid(iFind + straSeparator[iSeparator].get_length());
+
+   }
+
+   return strToken;
+
+}
+
 namespace apex_universal_windows
 {
 
@@ -778,26 +823,55 @@ namespace apex_universal_windows
       if (folder)
       {
 
-         auto hstrName = __hstring(strRelative);
+         strRelative.trim_left("\\/");
 
-         auto item = folder.TryGetItemAsync(hstrName).get();
-
-         if (item)
+         try
          {
 
-            if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
+            while (strRelative.contains("\\") || strRelative.contains("/"))
             {
 
-               ::winrt::Windows::Storage::StorageFile file = nullptr;
-               
-               item.as(file);
+               string strCurrentFolder = consume_token(strRelative, { "\\", "/" });
 
-               if (file)
+               auto hstrName = __hstring(strCurrentFolder);
+
+               folder = folder.GetFolderAsync(hstrName).get();
+
+            }
+
+         }
+         catch (...)
+         {
+
+            folder = nullptr;
+
+         }
+
+         if (folder)
+         {
+
+            auto hstrName = __hstring(strRelative);
+
+            auto item = folder.TryGetItemAsync(hstrName).get();
+
+            if (item)
+            {
+
+               if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
                {
 
-                  auto pfile = __new(::acme_universal_windows::native_buffer(file, eopen));
+                  ::winrt::Windows::Storage::StorageFile file = nullptr;
 
-                  return pfile;
+                  item.as(file);
+
+                  if (file)
+                  {
+
+                     auto pfile = __new(::acme_universal_windows::native_buffer(file, eopen));
+
+                     return pfile;
+
+                  }
 
                }
 

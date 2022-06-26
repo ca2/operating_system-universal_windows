@@ -15,6 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_flag", "..\..\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_hellomultiverse", "..\..\..\source\app-core\hellomultiverse\uwp_app_core_hellomultiverse.vcxproj", "{4F014FB0-074E-4E70-964B-3439F852FA85}"
 	ProjectSection(ProjectDependencies) = postProject
+		{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E} = {4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}
 		{7707D115-94A0-432D-A057-66C1540CD598} = {7707D115-94A0-432D-A057-66C1540CD598}
 	EndProjectSection
 EndProject

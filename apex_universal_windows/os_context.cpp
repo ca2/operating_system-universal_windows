@@ -1735,7 +1735,7 @@ throw ::exception(error_not_supported);
    }
 
 
-   bool os_context::resolve_link(::file::path & path, const ::string & strSource, string * pstrDirectory, string * pstrParams)
+   bool os_context::resolve_link(::file::path & path, const ::string & strSource, string * pstrDirectory, string * pstrParams, string * pstrIconLocation, int * piIcon)
    {
 
       //if (::os_context::resolve_link(path, strSource, pstrDirectory, pstrParams))
