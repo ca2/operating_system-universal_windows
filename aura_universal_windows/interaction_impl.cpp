@@ -5142,7 +5142,7 @@ namespace aura_universal_windows
 
       //m_puserinteraction->on_after_graphical_update();
 
-      synchronous_lock synchronouslock(m_puserinteraction->mutex());
+      //synchronous_lock synchronouslock(m_puserinteraction->mutex());
 
       auto puserinteractionpointeraChild = m_puserinteraction->m_puserinteractionpointeraChild;
 
