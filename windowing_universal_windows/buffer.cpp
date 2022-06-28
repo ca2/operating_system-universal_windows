@@ -204,6 +204,8 @@ namespace windowing_universal_windows
 
             }
 
+            
+
          }
 
       }
@@ -1185,10 +1187,15 @@ namespace windowing_universal_windows
                // The first argument instructs DXGI to block until VSync, putting the application
                // to sleep until the next VSync. This ensures we don't waste any cycles rendering
                // frames that will never be displayed to the screen.
-               hr = m_pswapchain->Present1(1, 0, &parameters);
+               //hr = m_pswapchain->Present1(1, 0, &parameters);
 
-               //hr = m_pswapchain->Present(1, 0);
+               ::duration durationSwapChainPresent;
+               durationSwapChainPresent.Now();
 
+               hr = m_pswapchain->Present(0, 0);
+
+               auto e2 = durationSwapChainPresent.elapsed();
+               output_debug_string("durationSwapChainPresent " + __string(e2.floating_millisecond().m_d) + "ms\n");
                if (directx::directx()->m_pdevicecontext)
                {
 

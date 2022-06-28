@@ -7747,27 +7747,43 @@ namespace windowing_universal_windows
       {
 
          if (m_psystem->get_session() == nullptr)
+         {
+
             return;
+
+         }
 
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
          if (puserinteraction == nullptr)
+         {
+
             return;
+
+         }
 
          if (puserinteraction->m_pinteractionimpl == nullptr)
+         {
+
             return;
 
-         __pointer(::user::message) pusermessage;
+         }
 
          auto pkey = __new(::message::key);
 
-         pusermessage = pkey;
-
          pkey->m_atom = e_message_char;
-         //pkey->m_playeredUserPrimitive = puserinteraction;
-         pkey->m_nChar = keycode_to_char(args.KeyCode());
 
-         puserinteraction->m_pinteractionimpl->m_pImpl2->queue_message_handler(pusermessage);
+         pkey->m_ekey = ::user::e_key_refer_to_text_member;
+
+         wd32char wd32ch = args.KeyCode();
+
+         char sz[16];
+         
+         wd32_to_ansi(sz, &wd32ch, 1);
+
+         pkey->m_strText = sz;
+
+         puserinteraction->m_pinteractionimpl->m_pImpl2->queue_message_handler(pkey);
 
       }
 
@@ -7792,16 +7808,16 @@ namespace windowing_universal_windows
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
          if (puserinteraction == nullptr)
+         {
+
             return;
+
+         }
 
          //if (puserinteraction->m_pinteractionimpl == nullptr)
            // return;
 
-         __pointer(::user::message) pusermessage;
-
          auto pkey = __new(::message::key);
-
-         pusermessage = pkey;
 
          bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
 
@@ -7828,7 +7844,7 @@ namespace windowing_universal_windows
    //      pkey->m_key = args;
 
 
-         m_puserinteractionimpl->queue_message_handler(pusermessage);
+         m_puserinteractionimpl->queue_message_handler(pkey);
 
       //   ;;
       //}
