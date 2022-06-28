@@ -7746,13 +7746,6 @@ namespace windowing_universal_windows
       void window::OnCharacterReceived(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args)
       {
 
-         if (m_psystem->get_session() == nullptr)
-         {
-
-            return;
-
-         }
-
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
          if (puserinteraction == nullptr)
@@ -7769,19 +7762,28 @@ namespace windowing_universal_windows
 
          }
 
+         wd32char wd32ch = args.KeyCode();
+
+         if (wd32ch < 32)
+         {
+
+            // It is control character.
+
+            return;
+
+         }
+
          auto pkey = __new(::message::key);
 
          pkey->m_atom = e_message_char;
 
          pkey->m_ekey = ::user::e_key_refer_to_text_member;
 
-         wd32char wd32ch = args.KeyCode();
+         char szUtf8[32];
 
-         char sz[16];
+         wd32_to_ansi(szUtf8, &wd32ch, 1);
          
-         wd32_to_ansi(sz, &wd32ch, 1);
-
-         pkey->m_strText = sz;
+         pkey->m_strText = szUtf8;
 
          puserinteraction->m_pinteractionimpl->m_pImpl2->queue_message_handler(pkey);
 
