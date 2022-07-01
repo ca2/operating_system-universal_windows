@@ -3,6 +3,9 @@
 #include "_windows_runtime.h"
 
 
+CLASS_DECL_ACME string consume_token(::string & str, const ::string_array & straSeparator);
+
+
 ::winrt::Windows::UI::Core::CoreDispatcherPriority windows_runtime_UICoreDispatcherPriority(enum_priority epriority)
 {
 
@@ -70,11 +73,11 @@ CLASS_DECL_EXPORT void main_branch(::matter * pobjectTask, enum_priority epriori
 {
 
    windows_runtime_async([pobjectTask]()
-   {
+      {
 
-      pobjectTask->call_run();
+         pobjectTask->call_run();
 
-   }, epriority);
+      }, epriority);
 
 }
 
@@ -154,7 +157,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 }
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix)
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix)
 {
 
    auto pfolder = windows_runtime_known_folder(pobject, strRelative, strPrefix);
@@ -198,7 +201,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
    if (pathFolder.is_empty())
    {
-         
+
       auto folder = ::winrt::Windows::ApplicationModel::Package::Current().InstalledLocation();
 
       return folder;
@@ -239,7 +242,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
    catch (const winrt::hresult_error & e)
    {
 
-      output_debug_string("winrt::hresult_error = " + __string((i32)e.code())+"\n");
+      output_debug_string("winrt::hresult_error = " + __string((i32)e.code()) + "\n");
 
    }
    catch (...)
@@ -253,7 +256,101 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 }
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, const ::file::path & path)
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix)
+{
+
+   auto folder = _windows_runtime_folder(pobject, strRelative, strPrefix);
+
+   if (folder)
+   {
+
+      strRelative.trim_left("\\/");
+
+      string strRelativeHere(strRelative);
+
+      string strPrefixBase(strPrefix);
+
+      try
+      {
+
+         string strPrefixMore;
+
+         while (true)
+         {
+
+            string strCurrentFolder = consume_token(strRelativeHere, { "\\", "/" });
+
+            if (strCurrentFolder.is_empty())
+            {
+
+               if (strRelativeHere.is_empty())
+               {
+
+                  break;
+
+               }
+
+               strCurrentFolder = strRelativeHere;
+
+               strRelativeHere.Empty();
+
+            }
+
+            auto hstrName = __hstring(strCurrentFolder);
+
+            auto item = folder.TryGetItemAsync(hstrName).get();
+
+            if (!item)
+            {
+
+               return nullptr;
+
+            }
+
+            if (!item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder))
+            {
+
+               break;
+
+            }
+
+            item.as(folder);
+
+            if (strPrefixMore.has_char())
+            {
+
+               strPrefixMore += "/" + strCurrentFolder;
+
+            }
+            else
+            {
+
+               strPrefixMore = strCurrentFolder;
+
+            }
+
+            strRelative = strRelativeHere;
+
+            strPrefix = ::file::path(strPrefixBase) / ::file::path(strPrefixMore);
+
+         }
+
+      }
+      catch (...)
+      {
+
+         folder = nullptr;
+
+      }
+
+   }
+
+   return folder;
+
+}
+
+
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, const ::file::path & path)
 {
 
    try
@@ -272,55 +369,54 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windo
 
       }
 
-      if (strRelative.is_empty())
+      if (strRelative.has_char())
       {
 
-
-         return folder;
+         return nullptr;
 
       }
 
-      string_array straItems;
+      //string_array straItems;
 
-      string_array straSeparator;
+      //string_array straSeparator;
 
-      straSeparator.add("/");
+      //straSeparator.add("/");
 
-      straSeparator.add("\\");
+      //straSeparator.add("\\");
 
-      straItems.add_smallest_tokens(strRelative, straSeparator, false);
+      //straItems.add_smallest_tokens(strRelative, straSeparator, false);
 
-      for (auto & strItem : straItems)
-      {
+      //for (auto & strItem : straItems)
+      //{
 
-         auto hstrItem = __hstring(strItem);
+      //   auto hstrItem = __hstring(strItem);
 
-         auto item = folder.TryGetItemAsync(hstrItem).get();
+      //   auto item = folder.TryGetItemAsync(hstrItem).get();
 
-         if (!item)
-         {
+      //   if (!item)
+      //   {
 
-            return nullptr;
+      //      return nullptr;
 
-         }
+      //   }
 
-         if (!item.IsOfType(winrt::Windows::Storage::StorageItemTypes::Folder))
-         {
+      //   if (!item.IsOfType(winrt::Windows::Storage::StorageItemTypes::Folder))
+      //   {
 
-            return nullptr;
+      //      return nullptr;
 
-         }
+      //   }
 
-         folder = item.as<::winrt::Windows::Storage::StorageFolder>();
+      //   folder = item.as<::winrt::Windows::Storage::StorageFolder>();
 
-         if (!folder)
-         {
+      //   if (!folder)
+      //   {
 
-            return nullptr;
+      //      return nullptr;
 
-         }
+      //   }
 
-      }
+      //}
 
       return folder;
 
@@ -783,7 +879,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS memsize windows_runtime_read_buffer(void * p, 
 
    auto reader = ::winrt::Windows::Storage::Streams::DataReader::FromBuffer(ibuffer);
 
-   winrt::array_view < byte > bytes((unsigned char *) p, ((unsigned char *)p) + s);
+   winrt::array_view < byte > bytes((unsigned char *)p, ((unsigned char *)p) + s);
 
    reader.ReadBytes(bytes);
 
@@ -823,7 +919,7 @@ memory windows_runtime_buffer_memory(::winrt::Windows::Storage::Streams::IBuffer
 
    ::winrt::Windows::Storage::Streams::DataWriter writer;
 
-   ::winrt::array_view < const byte > bytes((byte *) p, ((byte *) p) + s);
+   ::winrt::array_view < const byte > bytes((byte *)p, ((byte *)p) + s);
 
    writer.WriteBytes(bytes);
 
@@ -1088,7 +1184,7 @@ uptr virtualkey_to_char(::winrt::Windows::System::VirtualKey e)
    case ::winrt::Windows::System::VirtualKey::Escape:
       bSpecialKey = true;
       return ::user::e_key_escape;
-   case (::winrt::Windows::System::VirtualKey) 186:
+   case (::winrt::Windows::System::VirtualKey)186:
       return ::user::e_key_semicolon;
    case (::winrt::Windows::System::VirtualKey)187:
       return ::user::e_key_equal;
@@ -1105,10 +1201,10 @@ uptr virtualkey_to_char(::winrt::Windows::System::VirtualKey e)
    case ::winrt::Windows::System::VirtualKey::Space:
       return ::user::e_key_space;
    default:
-      {
-         int iKey = (int)e;
-         //ASSERT(FALSE);
-      }
+   {
+      int iKey = (int)e;
+      //ASSERT(FALSE);
+   }
    }
 
    return (::user::enum_key)e;

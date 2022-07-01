@@ -17,21 +17,22 @@ namespace aura_universal_windows
    }
 
 
-   void interaction_impl::construct(oswindow hWnd)
+   void interaction_impl::construct(::oswindow hWnd)
    {
 
       m_bScreenRelativeMouseMessagePosition  = false;
+
       m_nModalResult = 0;
 
    }
 
 
-   const MSG* interaction_impl::GetCurrentMessage()
-   {
+   //const MSG* interaction_impl::GetCurrentMessage()
+   //{
 
-      return nullptr;
+   //   return nullptr;
 
-   }
+   //}
 
 
    LRESULT interaction_impl::Default()
@@ -894,7 +895,7 @@ namespace aura_universal_windows
 
          if(puserinteractionFocus != nullptr
                && puserinteractionFocus->is_window()
-               && puserinteractionFocus->get_top_level() != nullptr)
+               && puserinteractionFocus->top_level() != nullptr)
          {
             puserinteractionFocus->send(pkey);
             if(pmessage->m_bRet)
@@ -1953,19 +1954,19 @@ return true;
       Default();*/
    }
 
-   bool gen_GotScrollLines;
+   //bool gen_GotScrollLines;
 
-   void interaction_impl::OnSettingChange(::u32 uFlags, const ::string & lpszSection)
-   {
-      UNUSED_ALWAYS(uFlags);
-      UNUSED_ALWAYS(lpszSection);
+   //void interaction_impl::OnSettingChange(::u32 uFlags, const ::string & lpszSection)
+   //{
+   //   UNUSED_ALWAYS(uFlags);
+   //   UNUSED_ALWAYS(lpszSection);
 
-      // force refresh of settings that we cache
-      gen_GotScrollLines = false;
+   //   // force refresh of settings that we cache
+   //   gen_GotScrollLines = false;
 
 
-      interaction_impl::OnDisplayChange(0,0);    // to update system metrics, etc.
-   }
+   //   //interaction_impl::OnDisplayChange(0,0);    // to update system metrics, etc.
+   //}
 
    void interaction_impl::OnDevModeChange(char * lpDeviceName)
    {
@@ -2006,25 +2007,25 @@ return true;
 
 #endif
 
-   LRESULT interaction_impl::OnDisplayChange(WPARAM,LPARAM)
-   {
-      // update metrics if this interaction_impl is the main interaction_impl
-      //if(::aura::get_system()->GetMainWnd() == this)
-      //{
-      //   // update any system metrics cache
-      //   //         afxData.UpdateSysMetrics();
-      //}
+   //LRESULT interaction_impl::OnDisplayChange(WPARAM,LPARAM)
+   //{
+   //   // update metrics if this interaction_impl is the main interaction_impl
+   //   //if(::aura::get_system()->GetMainWnd() == this)
+   //   //{
+   //   //   // update any system metrics cache
+   //   //   //         afxData.UpdateSysMetrics();
+   //   //}
 
-      // forward this message to all other child windows
-      if(!(GetStyle() & WS_CHILD))
-      {
-         const MSG* pMsg = GetCurrentMessage();
-         send_message_to_descendants(pMsg->message,pMsg->wParam,(i32) pMsg->lParam,
-                                     true,true);
-      }
+   //   // forward this message to all other child windows
+   //   if(!(GetStyle() & WS_CHILD))
+   //   {
+   //      const MSG* pMsg = GetCurrentMessage();
+   //      send_message_to_descendants(pMsg->message,pMsg->wParam,(i32) pMsg->lParam,
+   //                                  true,true);
+   //   }
 
-      return Default();
-   }
+   //   return Default();
+   //}
 
    LRESULT interaction_impl::OnDragList(WPARAM,LPARAM lParam)
    {
@@ -2489,49 +2490,51 @@ return true;
    /////////////////////////////////////////////////////////////////////////////
    // Extra interaction_impl support for dynamic subclassing of controls
 
-   bool interaction_impl::SubclassWindow(oswindow hWnd)
-   {
 
-      throw ::exception(todo);
-      return false;
+   //bool interaction_impl::SubclassWindow(::oswindow oswindow)
+   //{
 
-   }
-   
+   //   throw ::exception(todo);
 
-   bool interaction_impl::SubclassDlgItem(::u32 nID,::user::interaction_impl * pParent)
-   {
+   //   return false;
 
-      throw ::exception(todo);
-      return false;
+   //}
+   //
 
-      //ASSERT(pParent != nullptr);
-      //ASSERT(::is_window(WIN_WINDOW(pParent)->get_handle()));
+   //bool interaction_impl::SubclassDlgItem(::u32 nID,::user::interaction_impl * pParent)
+   //{
 
-      //// check for normal dialog control first
-      //oswindow hWndControl = ::GetDlgItem(WIN_WINDOW(pParent)->get_handle(), nID);
-      //if (hWndControl != nullptr)
-      //   return SubclassWindow(hWndControl);
+   //   throw ::exception(todo);
+   //   return false;
+
+   //   //ASSERT(pParent != nullptr);
+   //   //ASSERT(::is_window(WIN_WINDOW(pParent)->get_handle()));
+
+   //   //// check for normal dialog control first
+   //   //oswindow hWndControl = ::GetDlgItem(WIN_WINDOW(pParent)->get_handle(), nID);
+   //   //if (hWndControl != nullptr)
+   //   //   return SubclassWindow(hWndControl);
 
 
-      //return false;   // control not found
-   }
+   //   //return false;   // control not found
+   //}
 
-   oswindow interaction_impl::UnsubclassWindow()
-   {
+   //oswindow interaction_impl::UnsubclassWindow()
+   //{
 
-      throw ::exception(todo);
+   //   throw ::exception(todo);
 
-      //ASSERT(::is_window(get_handle()));
+   //   //ASSERT(::is_window(get_handle()));
 
-      //// set WNDPROC back to original value
-      //WNDPROC* lplpfn = GetSuperWndProcAddr();
-      //SetWindowLongPtr(get_handle(), GWLP_WNDPROC, (iptr)*lplpfn);
-      //*lplpfn = nullptr;
+   //   //// set WNDPROC back to original value
+   //   //WNDPROC* lplpfn = GetSuperWndProcAddr();
+   //   //SetWindowLongPtr(get_handle(), GWLP_WNDPROC, (iptr)*lplpfn);
+   //   //*lplpfn = nullptr;
 
-      //// and Detach the oswindow from the interaction_impl object
-      //return Detach();
-      return nullptr;
-   }
+   //   //// and Detach the oswindow from the interaction_impl object
+   //   //return Detach();
+   //   return nullptr;
+   //}
 
 
    bool interaction_impl::IsChild(::user::interaction *  pWnd)
@@ -3735,29 +3738,29 @@ return true;
 
 #endif
 
-   void interaction_impl::GetDlgItem(atom atom,oswindow* phWnd) const
-   {
+   //void interaction_impl::GetDlgItem(atom atom,oswindow* phWnd) const
+   //{
 
-      throw ::exception(todo);
+   //   throw ::exception(todo);
 
-      //ASSERT(::is_window(get_handle()));
-      //ASSERT(phWnd != nullptr);
-      //*phWnd = ::GetDlgItem(get_handle(), (int) atom);
+   //   //ASSERT(::is_window(get_handle()));
+   //   //ASSERT(phWnd != nullptr);
+   //   //*phWnd = ::GetDlgItem(get_handle(), (int) atom);
 
-   }
+   //}
 
-   ::u32 interaction_impl::GetDlgItemInt(int nID,BOOL * lpTrans,bool bSigned) const
-   {
+   //::u32 interaction_impl::GetDlgItemInt(int nID,BOOL * lpTrans,bool bSigned) const
+   //{
 
-      throw ::exception(todo);
+   //   throw ::exception(todo);
 
-      //ASSERT(::is_window(get_handle()));
+   //   //ASSERT(::is_window(get_handle()));
 
-      //return ::GetDlgItemInt(get_handle(), nID, lpTrans, bSigned);
+   //   //return ::GetDlgItemInt(get_handle(), nID, lpTrans, bSigned);
 
-      return 0;
+   //   return 0;
 
-   }
+   //}
 
 #ifdef WINDOWS_DESKTOP
 
@@ -4572,58 +4575,103 @@ return true;
 
 #endif
 
-   void interaction_impl::OnChangeCbChain(oswindow,oswindow)
-   {
-      Default();
-   }
+   
    void interaction_impl::OnDestroyClipboard()
    {
+      
       Default();
+
    }
+
+
    void interaction_impl::OnDrawClipboard()
    {
+
       Default();
+
    }
+
+
    void interaction_impl::OnHScrollClipboard(::user::interaction_impl *,::u32,::u32)
    {
+
       Default();
+
    }
+
+
    void interaction_impl::OnPaintClipboard(::user::interaction_impl *,HGLOBAL)
    {
+
       Default();
+
    }
+
+
    void interaction_impl::OnRenderAllFormats()
    {
+
       Default();
+
    }
+
+
    void interaction_impl::OnRenderFormat(::u32)
    {
+
       Default();
+
    }
+
+
    void interaction_impl::OnSizeClipboard(::user::interaction_impl *,HGLOBAL)
    {
+
       Default();
+
    }
+
+
    void interaction_impl::OnVScrollClipboard(::user::interaction_impl *,::u32,::u32)
    {
+
       Default();
+
    }
+
+
    ::u32 interaction_impl::OnGetDlgCode()
    {
+
       return (::u32)Default();
+
    }
+
+
    void interaction_impl::OnMDIActivate(bool,::user::interaction_impl *,::user::interaction_impl *)
    {
+
       Default();
+
    }
+
+
    void interaction_impl::OnEnterMenuLoop(bool)
    {
+
       Default();
+
    }
+
+
    void interaction_impl::OnExitMenuLoop(bool)
    {
+
       Default();
+
    }
+
+
    // Win4 support
 
 #ifdef WINDOWS_DESKTOP
@@ -4659,10 +4707,10 @@ return true;
 
    }
 
-   void interaction_impl::OnWinIniChange(const ::string &)
-   {
-      Default();
-   }
+   //void interaction_impl::OnWinIniChange(const ::string &)
+   //{
+   //   Default();
+   //}
    void interaction_impl::OnChangeUIState(::u32,::u32)
    {
       Default();
@@ -4739,61 +4787,61 @@ return true;
 
    }
 
-   ////////////////////////////////////////////////////////////////////////////
-   // UI related ::user::interaction_impl functions
+   //////////////////////////////////////////////////////////////////////////////
+   //// UI related ::user::interaction_impl functions
 
-   oswindow interaction_impl::GetSafeOwner_(oswindow hParent,oswindow* pWndTop)
-   {
+   //oswindow interaction_impl::GetSafeOwner_(oswindow hParent,oswindow* pWndTop)
+   //{
 
-      throw ::exception(todo);
+   //   throw ::exception(todo);
 
-      //// get ::user::interaction_impl to start with
-      //oswindow hWnd = hParent;
-      //if (hWnd == nullptr)
-      //{
-      //   /* trans      frame_window* pFrame = channel::GetRoutingFrame_();
-      //   if (pFrame != nullptr)
-      //   hWnd = pFrame->get_handle();
-      //   else
-      //   hWnd = ::aura::get_system()->GetMainWnd()->get_handle();*/
-      //}
+   //   //// get ::user::interaction_impl to start with
+   //   //oswindow hWnd = hParent;
+   //   //if (hWnd == nullptr)
+   //   //{
+   //   //   /* trans      frame_window* pFrame = channel::GetRoutingFrame_();
+   //   //   if (pFrame != nullptr)
+   //   //   hWnd = pFrame->get_handle();
+   //   //   else
+   //   //   hWnd = ::aura::get_system()->GetMainWnd()->get_handle();*/
+   //   //}
 
-      //// a popup ::user::interaction_impl cannot be owned by a child ::user::interaction_impl
-      //while (hWnd != nullptr && (::GetWindowLong(hWnd, GWL_STYLE) & WS_CHILD))
-      //   hWnd = ::get_parent(hWnd);
+   //   //// a popup ::user::interaction_impl cannot be owned by a child ::user::interaction_impl
+   //   //while (hWnd != nullptr && (::GetWindowLong(hWnd, GWL_STYLE) & WS_CHILD))
+   //   //   hWnd = ::get_parent(hWnd);
 
-      //// determine toplevel ::user::interaction_impl to disable as well
-      //oswindow hWndTop = hWnd, hWndTemp = hWnd;
-      //for (;;)
-      //{
-      //   if (hWndTemp == nullptr)
-      //      break;
-      //   else
-      //      hWndTop = hWndTemp;
-      //   hWndTemp = ::get_parent(hWndTop);
-      //}
+   //   //// determine toplevel ::user::interaction_impl to disable as well
+   //   //oswindow hWndTop = hWnd, hWndTemp = hWnd;
+   //   //for (;;)
+   //   //{
+   //   //   if (hWndTemp == nullptr)
+   //   //      break;
+   //   //   else
+   //   //      hWndTop = hWndTemp;
+   //   //   hWndTemp = ::get_parent(hWndTop);
+   //   //}
 
-      //// get last active popup of first non-child that was found
-      //if (hParent == nullptr && hWnd != nullptr)
-      //   hWnd = ::GetLastActivePopup(hWnd);
+   //   //// get last active popup of first non-child that was found
+   //   //if (hParent == nullptr && hWnd != nullptr)
+   //   //   hWnd = ::GetLastActivePopup(hWnd);
 
-      //// disable and store top level parent ::user::interaction_impl if specified
-      //if (pWndTop != nullptr)
-      //{
-      //   if (hWndTop != nullptr && ::IsWindowEnabled(hWndTop) && hWndTop != hWnd)
-      //   {
-      //      *pWndTop = hWndTop;
-      //      ::EnableWindow(hWndTop, false);
-      //   }
-      //   else
-      //      *pWndTop = nullptr;
-      //}
+   //   //// disable and store top level parent ::user::interaction_impl if specified
+   //   //if (pWndTop != nullptr)
+   //   //{
+   //   //   if (hWndTop != nullptr && ::IsWindowEnabled(hWndTop) && hWndTop != hWnd)
+   //   //   {
+   //   //      *pWndTop = hWndTop;
+   //   //      ::EnableWindow(hWndTop, false);
+   //   //   }
+   //   //   else
+   //   //      *pWndTop = nullptr;
+   //   //}
 
-      //return hWnd;    // return the owner as oswindow
+   //   //return hWnd;    // return the owner as oswindow
 
-      return nullptr;
+   //   return nullptr;
 
-   }
+   //}
 
 
    /////////////////////////////////////////////////////////////////////////////

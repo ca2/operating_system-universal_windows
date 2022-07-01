@@ -240,11 +240,7 @@ namespace windowing_universal_windows
    void window::create_window(::user::interaction_impl * pimpl)
    {
 
-      auto psession = get_session();
-
-      auto puser = psession->user();
-
-      auto pwindowing = puser->windowing();
+      auto pwindowing = windowing();
 
       m_pwindowing = pwindowing;
 
@@ -496,6 +492,14 @@ namespace windowing_universal_windows
          throw ::exception(error_failed);
 
       }
+
+      puserinteraction->m_puserinteractionTopLevel = puserinteraction->_top_level();
+
+      puserinteraction->m_puserframeParent = puserinteraction->_parent_frame();
+
+      puserinteraction->m_puserframeTopLevel = puserinteraction->_top_level_frame();
+
+      puserinteraction->m_pwindow = this;
 
       //set_window_long(GWL_STYLE, pusersystem->m_createstruct.style);
 
@@ -771,6 +775,14 @@ namespace windowing_universal_windows
 
       //return ::GetFocus() == get_hwnd();
       return false;
+
+   }
+
+
+   bool window::is_full_screen() const 
+   {
+
+      return m_applicationview.IsFullScreenMode();
 
    }
 
@@ -2742,7 +2754,7 @@ namespace windowing_universal_windows
    ::windowing::window * window::get_owner() const
    {
 
-      oswindow oswindow = get_owner_oswindow();
+      ::oswindow oswindow = m_oswindow;
 
       auto pwindow = m_pwindowing->window(oswindow);
 
@@ -6502,7 +6514,7 @@ namespace windowing_universal_windows
    float window::get_dpi_for_window()
    {
 
-      oswindow oswindow = get_oswindow();
+      ::oswindow oswindow = m_oswindow;
 
       //return (float) ::get_dpi_for_window(oswindow);
 
@@ -7746,6 +7758,13 @@ namespace windowing_universal_windows
       void window::OnCharacterReceived(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args)
       {
 
+         if (m_bInternalFocus)
+         {
+
+            return;
+
+         }
+
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
          if (puserinteraction == nullptr)
@@ -7948,29 +7967,34 @@ namespace windowing_universal_windows
       void window::OnWindowVisibilityChanged(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args)
       {
 
-         auto pbuffer = __buffer(m_puserinteractionimpl->get_window_graphics());
-
          if (args.Visible())
          {
 
-            if (pbuffer->m_bCoreWindowVisible.is_empty())
+            auto pbuffer = __buffer(m_puserinteractionimpl->get_window_graphics());
+
+            if (pbuffer)
             {
 
-               pbuffer->m_bCoreWindowVisible = true;
-
-            }
-            else if (pbuffer->m_bCoreWindowVisible.isFalse())
-            {
-
-               pbuffer->m_bCoreWindowVisible = true;
-
-               winrt::Windows::UI::Core::CoreWindow window = m_window;
-
-               if (window)
+               if (pbuffer->m_bCoreWindowVisible.is_empty())
                {
 
-                  //pbuffer->HandleDeviceLost();
-                  pbuffer->CreateWindowSizeDependentResources();
+                  pbuffer->m_bCoreWindowVisible = true;
+
+               }
+               else if (pbuffer->m_bCoreWindowVisible.isFalse())
+               {
+
+                  pbuffer->m_bCoreWindowVisible = true;
+
+                  winrt::Windows::UI::Core::CoreWindow window = m_window;
+
+                  if (window)
+                  {
+
+                     //pbuffer->HandleDeviceLost();
+                     pbuffer->CreateWindowSizeDependentResources();
+
+                  }
 
                }
 
@@ -7980,7 +8004,9 @@ namespace windowing_universal_windows
          else
          {
 
-            if (pbuffer->m_bCoreWindowVisible)
+            auto pbuffer = __buffer(m_puserinteractionimpl->get_window_graphics());
+
+            if (pbuffer && pbuffer->m_bCoreWindowVisible)
             {
 
                pbuffer->m_bCoreWindowVisible = false;
@@ -7993,16 +8019,25 @@ namespace windowing_universal_windows
 
       }
 
+
       void window::OnPointerMoved(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
       {
 
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
          if (puserinteraction == nullptr)
+         {
+
             return;
 
+         }
+
          if (puserinteraction->m_pinteractionimpl == nullptr)
+         {
+
             return;
+
+         }
 
          __pointer(::user::message) pusermessage;
 
@@ -8015,11 +8050,15 @@ namespace windowing_universal_windows
          pusermessage = pmouse;
 
          pmouse->m_point.x = (::i32)pointerPoint.RawPosition().X;
+
          pmouse->m_point.y = (::i32)pointerPoint.RawPosition().Y;
+
          pmouse->m_atom = e_message_mouse_move;
          //pmouse->m_playeredUserPrimitive  = m_psystem->get_session()->m_puserinteractionHost;
 
          m_pointLastCursor = pointerPoint.RawPosition();
+
+         set_cursor_position({ (int) m_pointLastCursor.X, (int) m_pointLastCursor.Y});
 
          puserinteraction->m_pinteractionimpl->queue_message_handler(pusermessage);
 
@@ -8097,6 +8136,8 @@ namespace windowing_universal_windows
 
          m_pointLastCursor = pointerPoint.RawPosition();
 
+         set_cursor_position({ (int)m_pointLastCursor.X, (int)m_pointLastCursor.Y });
+
          puserinteraction->m_pinteractionimpl->queue_message_handler(pmouse);
 
       }
@@ -8165,6 +8206,8 @@ namespace windowing_universal_windows
 
          m_pointLastCursor = pointerPoint.RawPosition();
 
+         set_cursor_position({ (int)m_pointLastCursor.X, (int)m_pointLastCursor.Y });
+
          puserinteraction->m_pinteractionimpl->queue_message_handler(pmouse);
 
       }
@@ -8179,17 +8222,22 @@ namespace windowing_universal_windows
 
          auto puserprimitiveFocus = puserinteraction->get_keyboard_focus();
 
-         auto puserinteractionFocus = puserprimitiveFocus->m_puserinteraction;
-
-         if (puserinteractionFocus)
+         if (puserprimitiveFocus)
          {
 
-            ::rectangle_i32 r = puserinteractionFocus->get_window_rect();
+            auto puserinteractionFocus = puserprimitiveFocus->m_puserinteraction;
 
-            m_rectangleInputContentRect.X = (float)r.left;
-            m_rectangleInputContentRect.Y = (float)r.top;
-            m_rectangleInputContentRect.Width = (float)r.width();
-            m_rectangleInputContentRect.Height = (float)r.height();
+            if (puserinteractionFocus)
+            {
+
+               ::rectangle_i32 r = puserinteractionFocus->get_window_rect();
+
+               m_rectangleInputContentRect.X = (float)r.left;
+               m_rectangleInputContentRect.Y = (float)r.top;
+               m_rectangleInputContentRect.Width = (float)r.width();
+               m_rectangleInputContentRect.Height = (float)r.height();
+
+            }
 
          }
 

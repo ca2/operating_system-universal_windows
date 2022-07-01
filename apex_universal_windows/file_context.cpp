@@ -5,50 +5,6 @@
 #include "_windows_runtime.h"
 
 
-string consume_token(::string & str, const ::string_array & straSeparator)
-{
-
-   ::index iFind = -1;
-
-   ::index iSeparator = -1;
-
-   for (::index i = 0; i < straSeparator.get_size(); i++)
-   {
-
-      if (straSeparator[i].is_empty())
-      {
-
-         throw exception(error_bad_argument);
-
-      }
-
-      ::index iFindSeparator = str.find(straSeparator[i]);
-      
-      if (iFind < 0 || (iFindSeparator > 0 && iFindSeparator < iFind))
-      {
-
-         iFind = iFindSeparator;
-
-         iSeparator = i;
-
-      }
-
-   }
-
-   ::string strToken;
-
-   if (iFind >= 0)
-   {
-
-      strToken = str.Left(iFind);
-
-      str = str.Mid(iFind + straSeparator[iSeparator].get_length());
-
-   }
-
-   return strToken;
-
-}
 
 namespace apex_universal_windows
 {
@@ -219,43 +175,70 @@ namespace apex_universal_windows
    ::payload file_context::length(const ::file::path & path)
    {
 
-      ::payload varRet;
+      //::payload varRet;
 
       //varRet = ::file_context::length(path);
 
       //if (!varRet.is_null())
+      //{
+      // 
       //   return varRet;
 
+      //}
 
-#ifdef WINDOWS
+      string strRelative = path;
+
+      string strPrefix;
+
+      auto folder = windows_runtime_folder(this, strRelative, strPrefix);
+
+      if (folder)
+      {
+
+         auto hstrName = __hstring(strRelative);
+
+         auto item = folder.TryGetItemAsync(hstrName).get();
+
+         if (item)
+         {
+
+            if (item.IsOfType(winrt::Windows::Storage::StorageItemTypes::File))
+            {
+               
+               winrt::Windows::Storage::StorageFile file=nullptr;
+
+               item.as(file);
+
+               if (file)
+               {
+
+                  auto basicproperties = file.GetBasicPropertiesAsync().get();
+
+                  if (basicproperties)
+                  {
+
+                     return basicproperties.Size();
+
+                  }
+
+               }
+
+            }
+
+         }
+
+      }
 
       WIN32_FILE_ATTRIBUTE_DATA data;
 
-      if (!GetFileAttributesExW(utf8_to_unicode(path), GetFileExInfoStandard, &data))
+      if (GetFileAttributesExW(utf8_to_unicode(path), GetFileExInfoStandard, &data))
       {
-         varRet.set_type(::e_type_null);
-      }
-      else
-      {
-         varRet = (u32)data.nFileSizeLow;
+         
+         return make64_from32(data.nFileSizeLow, data.nFileSizeHigh);
+
       }
 
-#else
-
-      struct stat stat;
-
-      if (::stat(strPath, &stat) == -1)
-      {
-         varRet.set_type(::e_type_null);
-      }
-      else
-      {
-         varRet = stat.st_size;
-      }
-
-#endif
-
-      return varRet;
+      return ::e_type_null;
 
    }
 
@@ -266,7 +249,7 @@ namespace apex_universal_windows
       // TODO: I don't remember what pvarQuery is used for, in the time of reimplementation
       // of this function. Maybe you should consider it in some case(s).
 
-      return length(path);
+      return ::file_context::length(path, pvarQuery);
 
    }
 
@@ -822,30 +805,6 @@ namespace apex_universal_windows
 
       if (folder)
       {
-
-         strRelative.trim_left("\\/");
-
-         try
-         {
-
-            while (strRelative.contains("\\") || strRelative.contains("/"))
-            {
-
-               string strCurrentFolder = consume_token(strRelative, { "\\", "/" });
-
-               auto hstrName = __hstring(strCurrentFolder);
-
-               folder = folder.GetFolderAsync(hstrName).get();
-
-            }
-
-         }
-         catch (...)
-         {
-
-            folder = nullptr;
-
-         }
 
          if (folder)
          {

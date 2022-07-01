@@ -316,15 +316,22 @@ namespace windowing_universal_windows
       //inline void set_hwnd(HWND hwnd) { set_oswindow(__oswindow(hwnd)); }
       bool get_rect_normal(RECTANGLE_I32 * prectangle) override;
 
+
       bool operator== (const window & window) const
       {
-         return get_oswindow() == window.get_oswindow();
+
+         return oswindow() == window.oswindow();
+
       }
+
 
       bool operator!= (const window & window) const
       {
+
          return !operator==(window);
+
       }
+
 
       class windowing * windowing() const { return m_pwindowing.cast < ::windowing_universal_windows::windowing > (); }
 
@@ -334,6 +341,9 @@ namespace windowing_universal_windows
 
       virtual bool has_capture() const;
       virtual bool has_focus() const;
+
+
+      bool is_full_screen() const override;
 
       //void send_client_event(Atom atom, unsigned int numArgs, ...);
       //i32 store_name(const ::string & psz);
@@ -530,7 +540,7 @@ namespace windowing_universal_windows
       //virtual void CalcWindowRect(RECTANGLE_I32 * pClientRect, ::u32 nAdjustType = adjustBorder);
 
 
-      void get_child_by_id(atom atom, oswindow * poswindow_) const;
+      void get_child_by_id(atom atom, ::oswindow * poswindow_) const;
 
       //virtual bool _is_window() const override;
 
@@ -799,11 +809,11 @@ namespace windowing_universal_windows
 
       
       virtual ::windowing::window * get_parent() const override;
-      virtual oswindow get_parent_oswindow() const override;
+      virtual ::oswindow get_parent_oswindow() const override;
       void set_parent(::windowing::window * pwindow) override;
 
       virtual ::windowing::window * get_owner() const override;
-      virtual oswindow get_owner_oswindow() const override;
+      virtual ::oswindow get_owner_oswindow() const override;
       void set_owner(::windowing::window * pwindow) override;
 
       //virtual ::user::interaction * set_owner(::user::interaction * pWndNewParent);

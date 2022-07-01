@@ -658,46 +658,46 @@ namespace windowing_universal_windows
    //}
 
 
-   void windowing::get_cursor_pos(POINT_I32 * ppoint)
-   {
+   //void windowing::get_cursor_pos(POINT_I32 * ppoint)
+   //{
 
 
-      if (get_session()->m_bSystemSynchronizedCursor)
-      {
+   //   if (get_session()->m_bSystemSynchronizedCursor)
+   //   {
 
-         //POINT point;
+   //      //POINT point;
 
-         ////::GetCursorPos(&point);
+   //      ////::GetCursorPos(&point);
 
-         //m_pointCursor.x = point.x;
+   //      //m_pointCursor.x = point.x;
 
-         //m_pointCursor.y = point.y;
+   //      //m_pointCursor.y = point.y;
 
-      }
+   //   }
 
-      if (ppoint != nullptr)
-      {
+   //   if (ppoint != nullptr)
+   //   {
 
-         *ppoint = m_pointCursor;
+   //      *ppoint = m_pointCursor;
 
-      }
+   //   }
 
-   }
+   //}
 
 
-   void windowing::set_cursor_position(const ::point_i32 & point)
-   {
+   //void windowing::set_cursor_position(const ::point_i32 & point)
+   //{
 
-      //if (!::SetCursorPos(point.x, point.y))
-      //{
+   //   //if (!::SetCursorPos(point.x, point.y))
+   //   //{
 
-      //   return error_failed;
+   //   //   return error_failed;
 
-      //}
+   //   //}
 
-      //return ::success;
+   //   //return ::success;
 
-   }
+   //}
 
 
    void windowing::erase_window(::windowing::window * pwindow)
@@ -1080,12 +1080,12 @@ namespace windowing_universal_windows
    }
 
 
-   void windowing::get_cursor_position(POINT_I32* ppoint)
-   {
+   //void windowing::get_cursor_position(POINT_I32* ppoint)
+   //{
 
-      //::GetCursorPos((POINT *) ppoint);
+   //   ppoint = m_pointCursor;
 
-   }
+   //}
 
 
    //#ifdef WINDOWS_DESKTOP

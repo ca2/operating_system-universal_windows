@@ -557,7 +557,7 @@ namespace windowing_universal_windows
 
       ::rectangle_i32 rectangleWkspace;
 
-      index iBestWkspace = get_best_wkspace(&rectangleWkspace, rectangle);
+      index iBestWkspace = get_best_workspace(nullptr, &rectangleWkspace, rectangle);
 
       edisplay edisplay;
 
@@ -828,7 +828,7 @@ namespace windowing_universal_windows
    }
 
 
-   index display::get_best_monitor(RECTANGLE_I32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation)
+   index display::get_best_monitor(::windowing::window * pwindow, RECTANGLE_I32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation)
    {
 
       index iMatchingMonitor = -1;
@@ -842,7 +842,7 @@ namespace windowing_universal_windows
       if (eactivation & e_activation_under_mouse_cursor || rectangle.is_null())
       {
 
-         ::point_i32 pointCursor = m_pwindowing->get_cursor_position();
+         ::point_i32 pointCursor = pwindow->get_cursor_position();
 
          rectangle.set(pointCursor - ::size_i32(5, 5), ::size_i32(10, 10));
 
@@ -915,7 +915,7 @@ namespace windowing_universal_windows
    }
 
 
-   index display::get_best_wkspace(::rectangle_i32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation)
+   index display::get_best_workspace(::windowing::window * pwindow, ::rectangle_i32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation)
    {
 
       index iMatchingWkspace = -1;
@@ -929,7 +929,7 @@ namespace windowing_universal_windows
       if (eactivation & e_activation_under_mouse_cursor || rectangle.is_null())
       {
 
-         ::point_i32 pointCursor = m_pwindowing->get_cursor_position();
+         ::point_i32 pointCursor = pwindow->get_cursor_position();
 
          rectangle.set(pointCursor - ::size_i32(5, 5), ::size_i32(10, 10));
 
@@ -1003,7 +1003,7 @@ namespace windowing_universal_windows
 
       ::rectangle_i32 rectangleMonitor;
 
-      index iMatchingMonitor = get_best_monitor(rectangleMonitor, rectangleParam);
+      index iMatchingMonitor = get_best_monitor(nullptr, rectangleMonitor, rectangleParam);
 
       prectangle->left = rectangleMonitor.left;
 

@@ -20,6 +20,8 @@ namespace aura_universal_windows
       ::mutex                                                           m_mutexQueue;
       manual_reset_event                                                m_evQueue;
       __pointer_array(::user::message)                                  m_messageaQueue;
+      int m_nModalResult; // for return values from ::user::interaction_impl::RunModalLoop
+
 
 
       interaction_impl();
@@ -27,7 +29,7 @@ namespace aura_universal_windows
       ~interaction_impl() override;
 
 
-      virtual void construct(oswindow hwnd);
+      virtual void construct(::oswindow hwnd);
 
 
       void assert_ok() const override;
@@ -51,7 +53,7 @@ namespace aura_universal_windows
       virtual iptr get_window_long_ptr(i32 nIndex) const;
       virtual iptr set_window_long_ptr(i32 nIndex, iptr lValue) ;
 
-      static const MSG* GetCurrentMessage();
+      //static const MSG* GetCurrentMessage();
 
       void install_message_routing(::channel * pchannel) override;
 
@@ -106,9 +108,9 @@ namespace aura_universal_windows
 
       // subclassing/unsubclassing functions
       virtual void pre_subclass_window();
-      bool SubclassWindow(oswindow hWnd);
-      bool SubclassDlgItem(::u32 nID, ::user::interaction_impl * pParent);
-      oswindow UnsubclassWindow();
+      //bool SubclassWindow(::oswindow hWnd);
+      //bool SubclassDlgItem(::u32 nID, ::user::interaction_impl * pParent);
+      //::oswindow UnsubclassWindow();
 
       // handling of RT_DLGINIT resource (extension to RT_DIALOG)
       //bool ExecuteDlgInit(const ::string & lpszResourceName);
@@ -152,7 +154,7 @@ namespace aura_universal_windows
 
       // get immediate child with given ID
       //      using ::user::interaction::GetDlgItem;
-      void GetDlgItem(atom atom, oswindow* phWnd) const;
+      void GetDlgItem(atom atom, ::oswindow* phWnd) const;
 
       //virtual bool IsWindow() const;
 
@@ -306,7 +308,7 @@ namespace aura_universal_windows
       virtual bool DlgDirSelect(__out_ecount_z(nSize) char * lpString, __in int nSize, __in int nIDListBox);
       virtual bool DlgDirSelectComboBox(__out_ecount_z(nSize) char * lpString, __in int nSize, __in int nIDComboBox);*/
 
-      virtual ::u32 GetDlgItemInt(int nID, BOOL * lpTrans = nullptr, bool bSigned = true) const;
+      // virtual ::u32 GetDlgItemInt(int nID, BOOL * lpTrans = nullptr, bool bSigned = true) const;
       //      virtual int GetDlgItemText(__in int nID, __out_ecount_part_z(nMaxCount, return + 1) char * lpStr, __in int nMaxCount) const;
       //    virtual int GetDlgItemText(int nID, string & rString) const;
       virtual ::user::interaction_impl * GetNextDlgGroupItem(::user::interaction_impl * pWndCtl, bool bPrevious = false) const;
@@ -348,7 +350,7 @@ namespace aura_universal_windows
       virtual ::user::interaction *  ChildWindowFromPoint(POINT_I32 point_i32);
       virtual ::user::interaction *  ChildWindowFromPoint(POINT_I32 point, ::u32 nFlags);
       static __pointer(::user::interaction_impl) FindWindow(const ::string & lpszClassName, const ::string & lpszWindowName);
-      static __pointer(::user::interaction_impl) FindWindowEx(oswindow hwndParent, oswindow hwndChildAfter, const ::string & lpszClass, const ::string & lpszWindow);
+      static __pointer(::user::interaction_impl) FindWindowEx(::oswindow hwndParent, ::oswindow hwndChildAfter, const ::string & lpszClass, const ::string & lpszWindow);
 
       //      virtual ::user::interaction * GetNextWindow(::u32 nFlag = GW_HWNDNEXT);
       virtual ::user::interaction *  GetTopWindow();
@@ -496,8 +498,8 @@ namespace aura_universal_windows
       void OnSpoolerStatus(::u32 nStatus, ::u32 nJobs);
       void OnSysColorChange();
       void OnTimeChange();
-      void OnSettingChange(::u32 uFlags, const ::string & lpszSection);
-      void OnWinIniChange(const ::string & lpszSection);
+      //void OnSettingChange(::u32 uFlags, const ::string & lpszSection);
+      //void OnWinIniChange(const ::string & lpszSection);
 
       // Input message handler member functions
       void OnChar(::u32 nChar, ::u32 nRepCnt, ::u32 nFlags);
@@ -528,7 +530,6 @@ namespace aura_universal_windows
 
       // Clipboard message handler member functions
       void OnAskCbFormatName(__in ::u32 nMaxCount, __out_ecount_z(nMaxCount) char * lpszString);
-      void OnChangeCbChain(oswindow hWndRemove, oswindow hWndAfter);
       void OnDestroyClipboard();
       void OnDrawClipboard();
       void OnHScrollClipboard(::user::interaction_impl * pClipAppWnd, ::u32 nSBCode, ::u32 nPos);
@@ -607,14 +608,13 @@ namespace aura_universal_windows
       virtual void on_final_release();
       //static void _FilterToolTipMessage(MSG* pMsg, ::user::interaction_impl * pWnd);
       bool _EnableToolTips(bool bEnable, ::u32 nFlag);
-      static oswindow GetSafeOwner_(oswindow hWnd, oswindow* pWndTop);
+      //static ::oswindow GetSafeOwner_(::oswindow hWnd, :oswindow* pWndTop);
       void PrepareForHelp();
 
       //::u32 m_nFlags;      // see WF_ flags above
 
       //      WNDPROC m_pfnSuper; // for subclassing of controls
-      static const ::u32 m_nMsgDragList;
-      int m_nModalResult; // for return values from ::user::interaction_impl::RunModalLoop
+      //static const ::u32 m_nMsgDragList;
 
       //::write_text::font * m_pfont;
 
@@ -630,11 +630,11 @@ namespace aura_universal_windows
       CLASS_DECL_AURA friend LRESULT CALLBACK __send_message_hook(int, WPARAM, LPARAM);
       //CLASS_DECL_AURA friend void _gen::StandardSubclass(oswindow);
       CLASS_DECL_AURA friend LRESULT CALLBACK __cbt_filter_hook(int, WPARAM, LPARAM);
-      CLASS_DECL_AURA friend LRESULT __call_window_procedure(::user::interaction * pWnd, oswindow hWnd, ::u32 nMsg, WPARAM wParam, LPARAM lParam);
+      CLASS_DECL_AURA friend LRESULT __call_window_procedure(::user::interaction * pWnd, ::oswindow hWnd, ::u32 nMsg, WPARAM wParam, LPARAM lParam);
 
       // standard message implementation
       //LRESULT OnNTCtlColor(WPARAM wParam, LPARAM lParam);
-      LRESULT OnDisplayChange(WPARAM, LPARAM);
+      //LRESULT OnDisplayChange(WPARAM, LPARAM);
       LRESULT OnDragList(WPARAM, LPARAM);
 
       //static BOOL CALLBACK GetAppsEnumWindowsProc(oswindow hwnd, LPARAM lParam);
