@@ -56,7 +56,7 @@ namespace windowing_universal_windows
       m_bExtendingLeft = false;
       m_bTextCompositionActive = false;
 
-      m_pWindow = this;
+      m_pWindow4 = this;
 
       //set_layer(LAYERED_IMPL, this);
       //m_plongmap  = new iptr_to_iptr;

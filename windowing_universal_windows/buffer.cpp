@@ -78,7 +78,7 @@ namespace windowing_universal_windows
 
       auto puwpimpl = pimpl->cast < ::aura_universal_windows::interaction_impl >();
 
-      m_pwindow = (class window *)pimpl->m_pwindow->m_pWindow;
+      m_pwindow = (class window *)pimpl->m_pwindow->m_pWindow4;
 
       m_dDpiIni = (float) m_psystem->m_paurasystem->m_dDpi;
 
