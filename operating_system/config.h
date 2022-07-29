@@ -27,6 +27,9 @@
 #endif
 
 
+#define BROAD_PRECOMPILED_HEADER 1
+
+
 #define OPERATING_SYSTEM_NAMESPACE universal_windows
 
 #define DEFAULT_DIR_SEPARATOR "\\"
