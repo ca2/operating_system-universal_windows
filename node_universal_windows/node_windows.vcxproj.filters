@@ -42,9 +42,10 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="..\version.rc">
+    <ResourceCompile Include="..\deployment\deployment.rc">
       <Filter>Resource Files</Filter>
     </ResourceCompile>
+
   </ItemGroup>
   <ItemGroup>
     <None Include="node_windows.def">
