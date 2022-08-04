@@ -60,10 +60,10 @@
     <ClCompile Include="windowing.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="universal_windows\framework_view.cpp">
+    <ClCompile Include="universal_windows\framework_impact.cpp">
       <Filter>Source Files\universal_windows</Filter>
     </ClCompile>
-    <ClCompile Include="universal_windows\framework_view_source.cpp">
+    <ClCompile Include="universal_windows\framework_impact_source.cpp">
       <Filter>Source Files\universal_windows</Filter>
     </ClCompile>
   </ItemGroup>
@@ -122,10 +122,10 @@
     <ClInclude Include="windowing.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="universal_windows\framework_view.h">
+    <ClInclude Include="universal_windows\framework_impact.h">
       <Filter>Header Files\universal_windows</Filter>
     </ClInclude>
-    <ClInclude Include="universal_windows\framework_view_source.h">
+    <ClInclude Include="universal_windows\framework_impact_source.h">
       <Filter>Header Files\universal_windows</Filter>
     </ClInclude>
   </ItemGroup>

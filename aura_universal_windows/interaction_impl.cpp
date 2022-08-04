@@ -637,10 +637,10 @@ namespace aura_universal_windows
 
    //   ::winrt::Windows::UI::Core::CoreDispatcher dispatcher(nullptr);
 
-   //   if (m_view.get())
+   //   if (m_impact.get())
    //   {
 
-   //      dispatcher = m_view.get().Dispatcher();
+   //      dispatcher = m_impact.get().Dispatcher();
 
    //   }
    //   else
@@ -5125,7 +5125,7 @@ namespace aura_universal_windows
    //}
 
 
-   void interaction_impl::set_view_port_org(::image * pimage)
+   void interaction_impl::set_impact_port_org(::image * pimage)
    {
       // graphics will be already set its impact port to the interaction_impl for linux - cairo with xlib
 
@@ -5139,7 +5139,7 @@ namespace aura_universal_windows
    }
 
 
-   void interaction_impl::offset_view_port_org(RECTANGLE_I32 * lprectScreen)
+   void interaction_impl::offset_impact_port_org(RECTANGLE_I32 * lprectScreen)
    {
    }
 

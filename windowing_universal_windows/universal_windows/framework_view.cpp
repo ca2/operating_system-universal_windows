@@ -6,7 +6,7 @@ namespace windowing_universal_windows
 {
 
 
-   framework_view::framework_view(window * pwindow) :
+   framework_impact::framework_impact(window * pwindow) :
       m_pwindow(pwindow)
    {
 
@@ -15,7 +15,7 @@ namespace windowing_universal_windows
    }
 
 
-   void framework_view::Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & coreapplicationview)
+   void framework_impact::Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & coreapplicationview)
    {
 
       ::winrt::Windows::UI::ViewManagement::UISettings uisettings;
@@ -42,7 +42,7 @@ namespace windowing_universal_windows
    }
 
 
-   void framework_view::SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window)
+   void framework_impact::SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window)
    {
 
       m_pwindow->m_window = window;
@@ -166,13 +166,13 @@ namespace windowing_universal_windows
    }
 
 
-   void framework_view::Load(winrt::param::hstring entryPoint)
+   void framework_impact::Load(winrt::param::hstring entryPoint)
    {
 
    }
 
 
-   void framework_view::Run()
+   void framework_impact::Run()
    {
 
       m_pwindow->m_window.Activate();
@@ -182,7 +182,7 @@ namespace windowing_universal_windows
    }
 
 
-   void framework_view::Uninitialize()
+   void framework_impact::Uninitialize()
    {
 
    }

@@ -662,9 +662,9 @@ namespace aura_universal_windows
 
       //winrt::agile_ref < ::winrt::Windows::UI::Core::CoreWindow > get_os_window();
 
-      void set_view_port_org(::image * pimage);
+      void set_impact_port_org(::image * pimage);
 
-      void offset_view_port_org(RECTANGLE_I32 * lprectScreen);
+      void offset_impact_port_org(RECTANGLE_I32 * lprectScreen);
 
       void queue_message_handler(::message::message * pusermessage) override;
 

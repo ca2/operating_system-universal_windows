@@ -6,14 +6,14 @@ namespace windowing_universal_windows
 {
 
 
-   struct framework_view_source :
-      public winrt::implements < framework_view_source, ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource >
+   struct framework_impact_source :
+      public winrt::implements < framework_impact_source, ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource >
    {
 
 
       window * m_pwindow;
 
-      framework_view_source(window * pwindow);
+      framework_impact_source(window * pwindow);
 
       ::winrt::Windows::ApplicationModel::Core::IFrameworkView CreateView();
 

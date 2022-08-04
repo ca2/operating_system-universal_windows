@@ -6,8 +6,8 @@ namespace windowing_universal_windows
 {
 
 
-   class framework_view :
-      public winrt::implements< framework_view, ::winrt::Windows::ApplicationModel::Core::IFrameworkView>
+   class framework_impact :
+      public winrt::implements< framework_impact, ::winrt::Windows::ApplicationModel::Core::IFrameworkView>
    {
    public:
 
@@ -15,7 +15,7 @@ namespace windowing_universal_windows
       window * m_pwindow;
 
 
-      framework_view(window * pwindow);
+      framework_impact(window * pwindow);
 
 
       void Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & applicationView);

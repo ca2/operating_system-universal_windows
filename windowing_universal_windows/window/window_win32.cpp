@@ -522,7 +522,7 @@ wstring windowing::_windows_get_user_interaction_window_class(::user::interactio
    //INITCOMMONCONTROLSEX init;
    //init.dwSize = sizeof(init);
 
-   if (etype == ::user::interaction::type_frame || etype == ::user::interaction::type_view)
+   if (etype == ::user::interaction::type_frame || etype == ::user::interaction::type_impact)
    {
 
       // SDI Frame or MDI Child windows or views - normal colors

@@ -72,8 +72,8 @@
     <ClCompile Include="copydesk.cpp" />
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="display.cpp" />
-    <ClCompile Include="universal_windows\framework_view.cpp" />
-    <ClCompile Include="universal_windows\framework_view_source.cpp" />
+    <ClCompile Include="universal_windows\framework_impact.cpp" />
+    <ClCompile Include="universal_windows\framework_impact_source.cpp" />
     <ClCompile Include="_factory.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='basis|Win32'">Create</PrecompiledHeader>
@@ -114,8 +114,8 @@
     <ClInclude Include="shell.h" />
     <ClInclude Include="system_interaction.h" />
     <ClInclude Include="top_level_enum.h" />
-    <ClInclude Include="universal_windows\framework_view.h" />
-    <ClInclude Include="universal_windows\framework_view_source.h" />
+    <ClInclude Include="universal_windows\framework_impact.h" />
+    <ClInclude Include="universal_windows\framework_impact_source.h" />
     <ClInclude Include="user_system.h" />
     <ClInclude Include="window.h" />
     <ClInclude Include="windowing.h" />

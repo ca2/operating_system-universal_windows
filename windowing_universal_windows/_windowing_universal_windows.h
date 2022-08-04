@@ -79,8 +79,8 @@ namespace universal_windows
 
 
 //#include "system_interaction.h"
-#include "universal_windows/framework_view.h"
-#include "universal_windows/framework_view_source.h"
+#include "universal_windows/framework_impact.h"
+#include "universal_windows/framework_impact_source.h"
 
 
 #include "window.h"

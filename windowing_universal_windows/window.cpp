@@ -45,8 +45,8 @@ namespace windowing_universal_windows
 
 
    window::window() :
-      m_frameworkviewsource{ {::winrt::make<framework_view_source >(this)} },
-      m_frameworkview{ {::winrt::make<framework_view >(this)} }
+      m_frameworkviewsource{ {::winrt::make<framework_impact_source >(this)} },
+      m_frameworkview{ {::winrt::make<framework_impact >(this)} }
    {
 
       //m_straActivationMessage.add("app-core-flag://send/?message=");
@@ -4986,7 +4986,7 @@ namespace windowing_universal_windows
    }
 
 
-   void window::set_viewport_org(::draw2d::graphics_pointer & pgraphics)
+   void window::set_impactport_org(::draw2d::graphics_pointer & pgraphics)
    {
 
       // graphics will be already set its window port to the window for linux - cairo with xlib

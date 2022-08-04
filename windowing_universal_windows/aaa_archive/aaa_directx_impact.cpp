@@ -23,10 +23,10 @@ namespace windowing_universal_windows
 //
 //      ::winrt::Windows::UI::Core::CoreDispatcher dispatcher = nullptr;
 //
-//      if (m_pwindow->m_view.get())
+//      if (m_pwindow->m_impact.get())
 //      {
 //
-//         dispatcher = m_pwindow->m_view.get().Dispatcher();
+//         dispatcher = m_pwindow->m_impact.get().Dispatcher();
 //
 //      }
 //      else

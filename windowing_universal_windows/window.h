@@ -1111,7 +1111,7 @@ namespace windowing_universal_windows
 
       virtual void track_mouse_hover() override;
 
-      void set_viewport_org(::draw2d::graphics_pointer & pgraphics);
+      void set_impactport_org(::draw2d::graphics_pointer & pgraphics);
 
 
       void on_set_parent(::user::interaction * pinteraction);
