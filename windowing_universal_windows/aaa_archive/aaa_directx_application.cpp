@@ -114,7 +114,7 @@
 //
 //      //}
 //
-//      //m_psystem->get_session()->m_papplication = this;
+//      //m_psystem->get_session()->m_papexapplication = this;
 //
 //      //m_psystem->get_session()->m_puserprimitiveHost = m_pdxi;
 //
@@ -182,7 +182,7 @@
 //
 //      m_pwindow->m_pdirectxbase = m_pdirectxbase;
 //
-//      //m_pwindow->m_papplication = this;
+//      //m_pwindow->m_papexapplication = this;
 //
 //      pcs->m_pimpl = m_pwindow->m_pimpl;
 //

@@ -6327,7 +6327,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //m_psystem->get_session()->m_papplication = this;
+      //m_psystem->get_session()->m_papexapplication = this;
 
       //m_psystem->get_session()->m_puserprimitiveHost = m_pdxi;
 
@@ -7516,7 +7516,7 @@ namespace windowing_universal_windows
 
       //   //}
 
-      //   //m_psystem->get_session()->m_papplication = this;
+      //   //m_psystem->get_session()->m_papexapplication = this;
 
       //   //m_psystem->get_session()->m_puserprimitiveHost = m_pdxi;
 
@@ -7584,7 +7584,7 @@ namespace windowing_universal_windows
 
       //   pbuffer = pbuffer;
 
-      //   //m_papplication = this;
+      //   //m_papexapplication = this;
 
       //   pcs->m_puserinteractionimpl = m_puserinteractionimpl;
 
@@ -7716,7 +7716,7 @@ namespace windowing_universal_windows
                   if (strMessage.has_char())
                   {
 
-                     m_psystem->m_pappMain->m_papplication->add_activation_message(strMessage);
+                     m_psystem->m_pacmeapplicationMain->m_papexapplication->add_activation_message(strMessage);
 
                   }
 

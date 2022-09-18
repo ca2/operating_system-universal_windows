@@ -30,7 +30,7 @@ namespace windowing_universal_windows
       //void message_box_factory() override;
 
 
-      void implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem) override;
+      void implement(__pointer(::acme::node)& pnode, __pointer(::acme::system)& psystem) override;
 
 
       void call_member(::i64 i) override;

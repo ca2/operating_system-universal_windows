@@ -19,7 +19,7 @@ namespace acme_universal_windows
    }
 
 
-   void node::implement(__pointer(::acme::node)& pnode, __pointer(class ::system)& psystem)
+   void node::implement(__pointer(::acme::node)& pnode, __pointer(::acme::system)& psystem)
    {
 
       //auto psystem = m_psystem;
