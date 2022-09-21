@@ -1,4 +1,5 @@
 #include "framework.h"
+#include "os_context.h"
 #include <wincred.h>
 #include <wtsapi32.h>
 //#include <shobjidl.h>

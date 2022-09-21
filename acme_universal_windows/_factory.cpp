@@ -1,5 +1,8 @@
 #include "framework.h"
-
+#include "acme_directory.h"
+#include "acme_file.h"
+#include "acme_path.h"
+#include "node.h"
 
 __FACTORY_EXPORT void acme_windows_common_factory(::factory::factory * pfactory);
 

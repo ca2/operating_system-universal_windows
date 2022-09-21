@@ -15,4 +15,4 @@
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS uptr keycode_to_char(uptr n);
 
 
-
+#include "_windows_runtime.h"

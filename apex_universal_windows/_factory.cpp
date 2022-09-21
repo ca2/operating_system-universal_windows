@@ -1,4 +1,13 @@
 #include "framework.h"
+#include "file_context.h"
+#include "file_system.h"
+#include "dir_context.h"
+#include "dir_system.h"
+#include "os_context.h"
+#include "interprocess_communication.h"
+#include "file_os_watcher.h"
+//#include "file_os_watch.h"
+#include "node.h"
 
 
 __FACTORY_EXPORT void acme_universal_windows_factory(::factory::factory* pfactory);

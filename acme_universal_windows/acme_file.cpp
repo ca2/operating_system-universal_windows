@@ -2,8 +2,7 @@
 // 03:09 BRT <3ThomasBorregaardSørensen
 // Copied by camilo from operating-system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #include "framework.h"
-#include "acme/operating_system.h"
-#include <stdio.h>
+#include "acme_file.h"
 
 
 #define DEBUG_POPULATING_APPLICATION_DATA

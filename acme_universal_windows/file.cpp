@@ -1,5 +1,7 @@
 #include "framework.h"
-//#include "acme/operating_system/windows_common/file.h"
+#include "file.h"
+#include "acme/filesystem/filesystem/acme_file.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
 
 
 #define NULL_HFILE ((::hfile) (iptr) (-1))

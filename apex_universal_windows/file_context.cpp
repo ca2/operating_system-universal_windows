@@ -1,9 +1,13 @@
 #include "framework.h"
+#include "file_context.h"
+#include "file_system.h"
+#include "dir_system.h"
+#include "acme_universal_windows/native_buffer.h"
 #include "apex/operating_system.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/acme_file.h"
+#include "acme/filesystem/filesystem/acme_path.h"
 #include "acme/include/_c_swap.h"
-#include "_windows_runtime.h"
-
 
 
 namespace apex_universal_windows

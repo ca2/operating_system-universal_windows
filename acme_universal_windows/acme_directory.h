@@ -3,6 +3,9 @@
 #pragma once
 
 
+#include "acme_windows_common/acme_directory.h"
+
+
 namespace acme_universal_windows
 {
 

@@ -1,4 +1,5 @@
 #include "framework.h"
+#include "dir_system.h"
 #include "apex/operating_system.h"
 #include <Shlobj.h>
 #include "acme/filesystem/filesystem/acme_directory.h"

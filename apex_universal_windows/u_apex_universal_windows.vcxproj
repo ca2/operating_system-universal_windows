@@ -109,7 +109,7 @@
     <ClInclude Include="os_context.h" />
     <ClInclude Include="windows_runtime.h" />
     <ClInclude Include="_.h" />
-    <ClInclude Include="_apex_universal_windows.h" />
+    <ClInclude Include="aaa_apex_universal_windows.h" />
     <ClInclude Include="_windows_runtime.h" />
   </ItemGroup>
   <ItemGroup>
@@ -140,6 +140,7 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
     <ProjectName>apex_universal_windows</ProjectName>
+    <WindowsTargetPlatformMinVersion>10.0.19041.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|Win32'" Label="Configuration">

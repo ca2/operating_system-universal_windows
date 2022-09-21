@@ -1,4 +1,5 @@
 #include "framework.h"
+#include "file_os_watcher.h"
 
 
 namespace apex_universal_windows

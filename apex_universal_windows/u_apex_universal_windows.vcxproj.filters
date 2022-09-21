@@ -50,7 +50,7 @@
     <ClInclude Include="_.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="_apex_universal_windows.h">
+    <ClInclude Include="aaa_apex_universal_windows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="_windows_runtime.h">

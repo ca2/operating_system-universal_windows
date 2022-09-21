@@ -1,4 +1,5 @@
 #include "framework.h"
+#include "interprocess_communication.h"
 #include "acme/primitive/string/base64.h"
 
 
