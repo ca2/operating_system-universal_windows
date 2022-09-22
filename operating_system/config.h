@@ -39,8 +39,8 @@
 
 
 //#define WINRT_SOCKETS
-#define BSD_STYLE_SOCKETS
-#define HAVE_OPENSSL 1
+//#define BSD_STYLE_SOCKETS
+//#define HAVE_OPENSSL 1
 
 
 #define OPERATING_SYSTEM_NAME   "universal_windows"
