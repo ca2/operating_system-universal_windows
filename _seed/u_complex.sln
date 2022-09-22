@@ -51,7 +51,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "write_text_direct2d", "C:\b
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_complex_drawing", "C:\basis\source\app-complex\drawing\u_app_complex_drawing.vcxproj", "{D0F0D410-AC70-44BB-8FE0-A31D83F6DB6C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_complex_drawing", "C:\basis\source\app-complex\drawing\uwp_app_complex_drawing.vcxproj", "{0104E54B-4452-48AA-A653-9024E97B2DDE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_complex_drawing", "C:\basis\source\app-complex\drawing\__implement\uwp_app_complex_drawing.vcxproj", "{0104E54B-4452-48AA-A653-9024E97B2DDE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{320713E0-CEA7-4EF5-A154-AB3A96D41A52} = {320713E0-CEA7-4EF5-A154-AB3A96D41A52}
 		{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E} = {4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}
@@ -67,7 +67,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_complex_form", "..\..\.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_simple_form", "..\..\..\source\app-simple\form\u_app_simple_form.vcxproj", "{4324BA4A-FAE3-42FE-8A09-1FBA4BC0D688}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_complex_form", "..\..\..\source\app-complex\form\uwp_app_complex_form.vcxproj", "{F68A9F06-330C-436C-A9F2-B7E0C9F8E2EE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_complex_form", "..\..\..\source\app-complex\form\__implement\uwp_app_complex_form.vcxproj", "{F68A9F06-330C-436C-A9F2-B7E0C9F8E2EE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{6A3E3812-82B9-4423-BB63-C9687C967C67} = {6A3E3812-82B9-4423-BB63-C9687C967C67}
 	EndProjectSection
@@ -76,7 +76,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_tranquillum", ".
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_light", "..\..\..\source\game\light\u_game_light.vcxproj", "{BD718A0E-A0E8-401D-A034-572023184665}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_light", "..\..\..\source\game\light\uwp_game_light.vcxproj", "{BD11EBA6-C53A-4370-8F72-C6407FD72002}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_light", "..\..\..\source\game\light\__implement\uwp_game_light.vcxproj", "{BD11EBA6-C53A-4370-8F72-C6407FD72002}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "estamira", "..\..\..\source\game\estamira\u_estamira.vcxproj", "{11EAEEB4-B87E-4BD4-8D34-DDAA240D696D}"
 EndProject

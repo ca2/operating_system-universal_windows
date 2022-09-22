@@ -69,11 +69,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_note", "..\..\..\s
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_photo", "..\..\..\source\app-core\photo\u_app_core_photo.vcxproj", "{036C5910-7BEB-4F0F-8CC2-127006397D39}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_photo", "..\..\..\source\app-core\photo\uwp_app_core_photo.vcxproj", "{3862FCBB-91A7-4204-B261-AA2295183693}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_photo", "..\..\..\source\app-core\photo\__implement\uwp_app_core_photo.vcxproj", "{3862FCBB-91A7-4204-B261-AA2295183693}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_picture", "..\..\..\source\app-core\picture\u_app_core_picture.vcxproj", "{970486D3-2A54-4FF0-892E-499AEB554FEF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_picture", "..\..\..\source\app-core\picture\uwp_app_core_picture.vcxproj", "{C76177A8-6988-4B34-B611-09FCD3A8FEE3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_picture", "..\..\..\source\app-core\picture\__implement\uwp_app_core_picture.vcxproj", "{C76177A8-6988-4B34-B611-09FCD3A8FEE3}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_core", "..\..\..\source\app\experience_core\u_experience_core.vcxproj", "{B2D7833B-9B59-4826-BBDF-C270A2115E86}"
 EndProject
@@ -81,11 +81,11 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crypto_openssl", "..\..\..\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "folder_zip", "..\..\..\source\app\folder_zip\u_folder_zip.vcxproj", "{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_addressbook", "..\..\..\source\app-core\addressbook\uwp_app_core_addressbook.vcxproj", "{C74936CA-4A27-4AE9-9DBF-0023072AF710}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_addressbook", "..\..\..\source\app-core\addressbook\__implement\uwp_app_core_addressbook.vcxproj", "{C74936CA-4A27-4AE9-9DBF-0023072AF710}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_hash_hub", "..\..\..\source\app-core\hash_hub\uwp_app_core_hash_hub.vcxproj", "{B175BE09-A693-4EF3-8424-53225338B1EB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_hash_hub", "..\..\..\source\app-core\hash_hub\__implement\uwp_app_core_hash_hub.vcxproj", "{B175BE09-A693-4EF3-8424-53225338B1EB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_note", "..\..\..\source\app-core\note\uwp_app_core_note.vcxproj", "{813956B0-026B-4034-A797-D150133988CC}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_note", "..\..\..\source\app-core\note\__implement\uwp_app_core_note.vcxproj", "{813956B0-026B-4034-A797-D150133988CC}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

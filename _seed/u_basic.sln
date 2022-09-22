@@ -5,15 +5,15 @@ VisualStudioVersion = 17.1.31903.286
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_cidadedecuritiba_alphaclock", "..\..\..\source\app-cidadedecuritiba\alphaclock\u_alphaclock.vcxproj", "{B95D79F5-DEF9-4250-B4A2-6AE610921998}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_cidadedecuritiba_alphaclock", "..\..\..\source\app-cidadedecuritiba\alphaclock\uwp_alphaclock.vcxproj", "{DCBBA884-E5A3-462C-A4C8-9B6FC96A4863}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_cidadedecuritiba_alphaclock", "..\..\..\source\app-cidadedecuritiba\alphaclock\__implement\uwp_alphaclock.vcxproj", "{DCBBA884-E5A3-462C-A4C8-9B6FC96A4863}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_clockverse", "..\..\..\source\app-core\clockverse\u_clockverse.vcxproj", "{34A0F689-0750-42FE-9D01-919C7E2A6591}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_flag", "..\..\..\source\app-core\flag\u_flag.vcxproj", "{B467CF99-AD0F-403B-8E30-3CBA23756713}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_flag", "..\..\..\source\app-core\flag\uwp_flag.vcxproj", "{777CE92D-E0D6-4E51-88FC-CDE519A0CAF6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_flag", "..\..\..\source\app-core\flag\__implement\uwp_flag.vcxproj", "{777CE92D-E0D6-4E51-88FC-CDE519A0CAF6}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_hellomultiverse", "..\..\..\source\app-core\hellomultiverse\uwp_app_core_hellomultiverse.vcxproj", "{4F014FB0-074E-4E70-964B-3439F852FA85}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_hellomultiverse", "..\..\..\source\app-core\hellomultiverse\__implement\uwp_app_core_hellomultiverse.vcxproj", "{4F014FB0-074E-4E70-964B-3439F852FA85}"
 	ProjectSection(ProjectDependencies) = postProject
 		{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E} = {4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}
 		{7707D115-94A0-432D-A057-66C1540CD598} = {7707D115-94A0-432D-A057-66C1540CD598}
@@ -23,7 +23,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_hellomultiverse", 
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_projection", "..\..\..\source\app-core\projection\u_projection.vcxproj", "{74158384-2A95-4068-88F1-C9128259AE4A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_projection", "..\..\..\source\app-core\projection\uwp_projection.vcxproj", "{5FE41D8B-A8D2-4CF3-9FB3-CBF207089177}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_projection", "..\..\..\source\app-core\projection\__implement\uwp_projection.vcxproj", "{5FE41D8B-A8D2-4CF3-9FB3-CBF207089177}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme", "..\..\..\source\app\acme\u_acme.vcxproj", "{74A3EA71-9358-4441-A0CC-D5771DF8DFBD}"
 EndProject
@@ -75,7 +75,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "..\..\.
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "regular_expression_pcre2", "..\..\..\source\app\regular_expression_pcre2\u_regular_expression_pcre2.vcxproj", "{DD9B6157-147B-4082-89CB-2C857FB41A28}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_clockverse_no_audio", "..\..\..\source\app-core\clockverse\uwp_app_core_clockverse_no_audio.vcxproj", "{D4389928-C7F4-4BED-9BCA-721C2C5991B6}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_clockverse_no_audio", "..\..\..\source\app-core\clockverse\__implement\uwp_app_core_clockverse_no_audio.vcxproj", "{D4389928-C7F4-4BED-9BCA-721C2C5991B6}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crypto_openssl", "..\..\..\source\app\crypto_openssl\u_crypto_openssl.vcxproj", "{BC919186-F67A-4FFC-B6BE-0E63DC652A63}"
 EndProject

@@ -63,13 +63,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_core", "..\..\..
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "estamira", "..\..\..\source\game\estamira\u_estamira.vcxproj", "{11EAEEB4-B87E-4BD4-8D34-DDAA240D696D}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_arch001", "..\..\..\source\game\arch001\uwp_game_arch001.vcxproj", "{A75F7F5E-43F7-48B7-94C3-01AA326FB123}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_arch001", "..\..\..\source\game\arch001\__implement\uwp_game_arch001.vcxproj", "{A75F7F5E-43F7-48B7-94C3-01AA326FB123}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_arch001", "..\..\..\source\game\arch001\u_arch001.vcxproj", "{52952CB1-FF97-47A0-BBE4-C5CAC159A5CE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_coincube", "..\..\..\source\game\coincube\u_coincube.vcxproj", "{BD718A0E-A0E8-401D-A034-572023184665}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_coincube", "..\..\..\source\game\coincube\uwp_game_coincube.vcxproj", "{BD11EBA6-C53A-4370-8F72-C6407FD72002}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_coincube", "..\..\..\source\game\coincube\__implement\uwp_game_coincube.vcxproj", "{BD11EBA6-C53A-4370-8F72-C6407FD72002}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crypto_openssl", "..\..\..\source\app\crypto_openssl\u_crypto_openssl.vcxproj", "{BC919186-F67A-4FFC-B6BE-0E63DC652A63}"
 EndProject

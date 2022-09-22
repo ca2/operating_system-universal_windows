@@ -73,19 +73,19 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_pacman", "..\..\..\sou
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_arkanoid", "..\..\..\source\game\arkanoid\u_arkanoid.vcxproj", "{E91D6F1F-26DB-43A9-810A-7BE9AE241B68}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_tictactoe", "..\..\..\source\game\tictactoe\uwp_game_tictactoe.vcxproj", "{E6CE81AE-1D73-4395-86C6-BF8512444246}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_tictactoe", "..\..\..\source\game\tictactoe\__implement\uwp_game_tictactoe.vcxproj", "{E6CE81AE-1D73-4395-86C6-BF8512444246}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_tetris", "..\..\..\source\game\tetris\uwp_game_tetris.vcxproj", "{396DFBFD-BCD6-40EE-B39E-C178F98A506B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_tetris", "..\..\..\source\game\tetris\__implement\uwp_game_tetris.vcxproj", "{396DFBFD-BCD6-40EE-B39E-C178F98A506B}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "game_game_of_life", "..\..\..\source\game\game_of_life\u_game_of_life.vcxproj", "{0E5D2487-5AEB-4590-B16C-53421299ABA2}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_game_of_life", "..\..\..\source\game\game_of_life\uwp_game_game_of_life.vcxproj", "{EDF55590-CDC6-4B98-B61E-273FF1900507}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_game_of_life", "..\..\..\source\game\game_of_life\__implement\uwp_game_game_of_life.vcxproj", "{EDF55590-CDC6-4B98-B61E-273FF1900507}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_pacman", "..\..\..\source\game\pacman\uwp_game_pacman.vcxproj", "{C8357394-9826-43C4-8777-76CDE2B398C0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_pacman", "..\..\..\source\game\pacman\__implement\uwp_game_pacman.vcxproj", "{C8357394-9826-43C4-8777-76CDE2B398C0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_sokoban", "..\..\..\source\game\sokoban\uwp_game_sokoban.vcxproj", "{B767D94B-9CF7-4682-8AB3-9407763C2C9B}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_sokoban", "..\..\..\source\game\sokoban\__implement\uwp_game_sokoban.vcxproj", "{B767D94B-9CF7-4682-8AB3-9407763C2C9B}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_arkanoid", "..\..\..\source\game\arkanoid\uwp_game_arkanoid.vcxproj", "{0CFFA364-648A-4598-B75C-473718933441}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_game_arkanoid", "..\..\..\source\game\arkanoid\__implement\uwp_game_arkanoid.vcxproj", "{0CFFA364-648A-4598-B75C-473718933441}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "folder_zip", "..\..\..\source\app\folder_zip\u_folder_zip.vcxproj", "{FC96F9E0-D65E-4286-95B1-F1FF4873DACE}"
 EndProject
