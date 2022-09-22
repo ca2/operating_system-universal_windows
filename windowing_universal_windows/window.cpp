@@ -1,11 +1,22 @@
 // created by Camilo 2021-01-31 04:56 BRT <3CamiloSasukeThomasBorregaardSoerensen
 #include "framework.h"
+#include "window.h"
+#include "windowing.h"
+#include "buffer.h"
 #include "acme/constant/timer.h"
 #include "aura_universal_windows/interaction_impl.h"
 #include "aura/user/user/interaction_prodevian.h"
+#include "aura/user/user/system.h"
 #include "aura/message/user.h"
 #include "aura/graphics/draw2d/graphics.h"
-
+#include "universal_windows/framework_impact_source.h"
+#include "universal_windows/framework_impact.h"
+#include "direct2d/direct2d.h"
+#include <winrt/Windows.UI.ViewManagement.h>
+#include "aura/platform/system.h"
+#include "cursor.h"
+#include "windowing.h"
+#include "_windows_runtime.h"
 
 
 #undef ALOG_CONTEXT
@@ -102,7 +113,6 @@ namespace windowing_universal_windows
    window::~window()
    {
 
-      ::direct2d::finalize();
       //::acme::del(m_plongmap);
 
    }
@@ -4991,7 +5001,7 @@ namespace windowing_universal_windows
 
       // graphics will be already set its window port to the window for linux - cairo with xlib
 
-      pgraphics->SetViewportOrg(::point_i32());
+      pgraphics->set_origin(::point_i32());
 
    }
 
@@ -7975,16 +7985,16 @@ namespace windowing_universal_windows
             if (pbuffer)
             {
 
-               if (pbuffer->m_bCoreWindowVisible.is_empty())
+               if (pbuffer->m_tristateCoreWindowVisible.is_empty())
                {
 
-                  pbuffer->m_bCoreWindowVisible = true;
+                  pbuffer->m_tristateCoreWindowVisible = true;
 
                }
-               else if (pbuffer->m_bCoreWindowVisible.isFalse())
+               else if (pbuffer->m_tristateCoreWindowVisible.isFalse())
                {
 
-                  pbuffer->m_bCoreWindowVisible = true;
+                  pbuffer->m_tristateCoreWindowVisible = true;
 
                   winrt::Windows::UI::Core::CoreWindow window = m_window;
 
@@ -8006,10 +8016,10 @@ namespace windowing_universal_windows
 
             auto pbuffer = __buffer(m_puserinteractionimpl->get_window_graphics());
 
-            if (pbuffer && pbuffer->m_bCoreWindowVisible)
+            if (pbuffer && pbuffer->m_tristateCoreWindowVisible)
             {
 
-               pbuffer->m_bCoreWindowVisible = false;
+               pbuffer->m_tristateCoreWindowVisible = false;
 
                pbuffer->DestroyWindowSizeDependentResources();
 

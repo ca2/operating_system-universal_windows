@@ -1,5 +1,11 @@
 // Created by camilo on 2021-08-30 21:54 BRT <3ThomasBS_!!
 #include "framework.h"
+#include "node.h"
+#include "aura/platform/system.h"
+#include "aura/platform/session.h"
+#include "aura/user/user/user.h"
+#include "aura/windowing/windowing.h"
+#include "interaction_impl.h"
 
 
 float g_DPIScaleX__2;

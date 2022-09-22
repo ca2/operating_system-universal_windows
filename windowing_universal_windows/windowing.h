@@ -2,6 +2,9 @@
 #pragma once
 
 
+#include "aura/windowing/sandbox/windowing.h"
+
+
 namespace windowing_universal_windows
 {
 
@@ -12,6 +15,15 @@ namespace windowing_universal_windows
    public:
 
 
+      // From node
+      __reference(::aura_universal_windows::interaction_impl) m_pimplMain;
+
+      bool                          m_bAppInit;
+
+      //auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
+
+      ::winrt::Windows::UI::ViewManagement::UISettings m_uisettings;
+      // END From node
 
 
       //i64_map < ::user::enum_key >     m_mapKey;
@@ -47,9 +59,15 @@ namespace windowing_universal_windows
 
       //void get_cursor_position(POINT_I32* ppoint) override;
 
-      virtual bool defer_create_system_window();
+      //virtual bool defer_create_system_window();
       //virtual __pointer(::user::interaction) create_system_window();
       //::extended::transport < system_interaction > create_system_window();
+
+      // From Node
+      void app_init();
+      void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);
+      virtual void fetch_user_color();
+      // END From Node
 
 
       //inline system_interaction * system_window() { return m_psysteminteraction; }

@@ -89,11 +89,11 @@
     <AppxManifest Include="Package10.appxmanifest" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="uwp_app_net_TemporaryKey.pfx" />
-    <None Include="..\..\..\operating-system\storage-universal_windows\third\binary\Win32\basis\pcre.dll" />
-    <None Include="..\..\..\operating-system\storage-universal_windows\third\binary\Win32\basis\zlib.dll" />
-    <None Include="..\..\..\operating-system\storage-universal_windows\third\binary\x64\basis\pcre.dll" />
-    <None Include="..\..\..\operating-system\storage-universal_windows\third\binary\x64\basis\zlib.dll" />
-    <None Include="uwp_app_simple_app_TemporaryKey.pfx" />
+    <None Include="..\uwp_app_net_TemporaryKey.pfx" />
+    <None Include="..\..\..\..\operating-system\storage-universal_windows\third\binary\Win32\basis\pcre.dll" />
+    <None Include="..\..\..\..\operating-system\storage-universal_windows\third\binary\Win32\basis\zlib.dll" />
+    <None Include="..\..\..\..\operating-system\storage-universal_windows\third\binary\x64\basis\pcre.dll" />
+    <None Include="..\..\..\..\operating-system\storage-universal_windows\third\binary\x64\basis\zlib.dll" />
+    <None Include="..\uwp_app_simple_app_TemporaryKey.pfx" />
   </ItemGroup>
 </Project>

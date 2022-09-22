@@ -1,6 +1,9 @@
 #pragma once
 
 
+#include "aura/user/user/interaction_impl.h"
+
+
 namespace aura_universal_windows
 {
 

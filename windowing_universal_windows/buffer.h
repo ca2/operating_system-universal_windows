@@ -2,6 +2,10 @@
 
 
 #include "aura/graphics/graphics/bitmap_source_buffer.h"
+#include "direct2d/direct2d.h"
+
+#include <wincodec.h>
+
 
 
 namespace windowing_universal_windows
@@ -47,7 +51,7 @@ namespace windowing_universal_windows
 
       enum_phase                                            m_ephase;
 
-      ::boolean                                          m_bCoreWindowVisible;
+      ::tristate                                            m_tristateCoreWindowVisible;
       bool                                                  m_bWindowSizeChangeInProgress;
       bool                                                  m_b3D;
       ::mutex                                               m_mutexDc;

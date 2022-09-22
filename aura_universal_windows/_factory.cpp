@@ -1,5 +1,7 @@
 #include "framework.h"
-#include "_windows_runtime.h"
+#include "node.h"
+#include "interaction_impl.h"
+
 
 __FACTORY_EXPORT void apex_universal_windows_factory(::factory::factory * pfactory);
 

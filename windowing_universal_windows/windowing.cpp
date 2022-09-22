@@ -1,8 +1,17 @@
 // Created by camilo on 2021-01-30 <3ThomasBS_!!
 #include "framework.h"
-
-
-//wparam MapLeftRightKeys(wparam vk, lparam lParam);
+#include "windowing.h"
+#include "display.h"
+#include "keyboard.h"
+#include "window.h"
+#include "icon.h"
+#include "aura/user/user/zorder.h"
+#include "aura/user/user/interaction.h"
+#include "aura/message/user.h"
+#include "aura/platform/system.h"
+#include "aura/windowing/window.h"
+#include "direct2d/direct2d.h"
+#include <winrt/Windows.UI.ViewManagement.h>
 
 
 namespace windowing_universal_windows
@@ -21,6 +30,8 @@ namespace windowing_universal_windows
 
    windowing::~windowing()
    {
+
+      ::direct2d::finalize();
 
    }
 
@@ -61,14 +72,14 @@ namespace windowing_universal_windows
 
       //}
 
-      bool bCreateSessionWindow = defer_create_system_window();
+      //bool bCreateSessionWindow = defer_create_system_window();
 
-      if (!bCreateSessionWindow)
-      {
+      //if (!bCreateSessionWindow)
+      //{
 
-         WARNING("Could not create session window");
+      //   WARNING("Could not create session window");
 
-      }
+      //}
 
 
       //return estatus;
@@ -76,28 +87,71 @@ namespace windowing_universal_windows
    }
 
 
-   bool windowing::defer_create_system_window()
+   //bool windowing::defer_create_system_window()
+   //{
+
+   //   //if (m_psysteminteraction)
+   //   //{
+
+   //   //   return true;
+
+   //   //}
+
+   //   //m_psysteminteraction = create_system_window();
+
+   //   //if (!m_psysteminteraction)
+   //   //{
+
+   //   //   return false;
+
+   //   //}
+
+   //   return true;
+
+   //}
+
+
+   void windowing::OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings uisettings, ::winrt::Windows::Foundation::IInspectable inpectable)
+   {
+   
+      fetch_user_color();
+   
+      //auto luminance = color.get_luminance();
+   
+      //return luminance < 0.5;
+   
+   
+      //m_psystem->m_papexsystem->signal(id_user_color);
+   
+   }
+   
+   
+   void windowing::fetch_user_color()
+   {
+   
+      auto colortypeBackground = ::winrt::Windows::UI::ViewManagement::UIColorType::Background;
+   
+      auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
+   
+      auto colorvalue = uisettings.GetColorValue(colortypeBackground);
+   
+      auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
+   
+      m_psystem->m_pnode->background_color(colorBackground);
+   
+   }
+   
+
+
+   void windowing::app_init()
    {
 
-      //if (m_psysteminteraction)
-      //{
+      //m_uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
 
-      //   return true;
-
-      //}
-
-      //m_psysteminteraction = create_system_window();
-
-      //if (!m_psysteminteraction)
-      //{
-
-      //   return false;
-
-      //}
-
-      return true;
+      m_uisettings.ColorValuesChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::ViewManagement::UISettings, winrt::Windows::Foundation::IInspectable>(this, &windowing::OnUISettingsColorValuesChange));
 
    }
+
 
 
    //::extended::transport < system_interaction > windowing::create_system_window()

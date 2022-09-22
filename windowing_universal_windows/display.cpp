@@ -1,6 +1,12 @@
 // created by Camilo <3CamiloSasukeThomasBorregaardSoerensen  - Honoring Thomas Borregaard Sørensen MY ONLY LORD
 // recreated by Camilo 2021-02-02 20:55
 #include "framework.h"
+#include "display.h"
+#include "aura/graphics/draw2d/graphics.h"
+#include "aura/platform/system.h"
+#include "aura/windowing/monitor.h"
+#include "aura/windowing/window.h"
+#include "aura/windowing/windowing.h"
 
 
 namespace windowing_universal_windows
@@ -741,7 +747,7 @@ namespace windowing_universal_windows
       if (edisplay == e_display_none)
       {
 
-         edisplay = e_display_normal;
+         edisplay = e_display_restored;
 
       }
 

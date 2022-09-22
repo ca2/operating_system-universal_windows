@@ -2,6 +2,11 @@
 #pragma once
 
 
+#include "aura/windowing/sandbox/window.h"
+#include <winrt/Windows.UI.Text.Core.h>
+#include <winrt/Windows.Graphics.Display.h>
+
+
 namespace windowing_universal_windows
 {
 

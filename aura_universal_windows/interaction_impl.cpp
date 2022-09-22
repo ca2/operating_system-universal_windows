@@ -1,5 +1,9 @@
 #include "framework.h"
+#include "interaction_impl.h"
 #include "aura/graphics/image/image.h"
+#include "aura/platform/session.h"
+#include "aura/message/user.h"
+#include "aura/windowing/window.h"
 
 
 namespace aura_universal_windows
@@ -5133,7 +5137,7 @@ namespace aura_universal_windows
       rectangle_i32 rectangleWindow;
       m_puserinteraction->get_window_rect(rectangleWindow);
       //      get_wnd()->screen_to_client(rectangleWindow);
-      pimage->SetViewportOrg(point_i32(rectangleWindow.top_left()));
+      pimage->set_origin(point_i32(rectangleWindow.top_left()));
       //pimage->SelectClipRgn(nullptr);
 
    }

@@ -1,7 +1,8 @@
 #include "framework.h"
-#include "apex/operating_system.h"
-//#include "apex/platform/app_core.h"
 #include "copydesk.h"
+#include "window.h"
+#include "windowing.h"
+#include "apex/operating_system.h"
 #include "aura/graphics/image/image.h"
 #include <winrt/Windows.ApplicationModel.DataTransfer.h>
 #include <winrt/Windows.Graphics.Imaging.h>

@@ -3,6 +3,8 @@
 #include "aura/procedure.h"
 #include "system_interaction.h"
 #include "aura/graphics/image/image.h"
+#include "aura/platform/system.h"
+#include "aura/message/user.h"
 
 
 namespace windowing_win32

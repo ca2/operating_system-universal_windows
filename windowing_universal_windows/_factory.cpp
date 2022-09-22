@@ -1,4 +1,15 @@
 #include "framework.h"
+#include "windowing.h"
+#include "window.h"
+#include "display.h"
+#include "buffer.h"
+#include "cursor.h"
+#include "icon.h"
+#include "shell.h"
+#include "copydesk.h"
+#include "keyboard.h"
+#include "node.h"
+#include "aura/windowing/desktop_environment.h"
 
 
 __FACTORY_EXPORT void aura_universal_windows_factory(::factory::factory * pfactory);
@@ -23,6 +34,6 @@ __FACTORY_EXPORT void windowing_universal_windows_factory(::factory::factory * p
 
    pfactory->add_factory_item < ::windowing_universal_windows::keyboard, ::windowing::keyboard >();
 
-   pfactory->add_factory_item < ::windowing_universal_windows::node, ::acme::node >();
+   pfactory->add_factory_item < ::windowing::desktop_environment >();
 
 }

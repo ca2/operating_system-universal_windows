@@ -67,6 +67,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="node.cpp" />
     <ClCompile Include="_factory.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='basis|Win32'">Create</PrecompiledHeader>
@@ -86,22 +87,13 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='stage|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='cube_stage|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="interaction_impl_message_bypass.cpp" />
-    <ClCompile Include="system.cpp" />
-    <ClCompile Include="timer.cpp" />
-    <ClCompile Include="windows_desktop.cpp" />
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="factory_exchange.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="interprocess_communication.h" />
-    <ClInclude Include="user.h" />
-    <ClInclude Include="windowing.h" />
+    <ClInclude Include="node.h" />
     <ClInclude Include="_.h" />
-    <ClInclude Include="_node_universal_windows.h" />
-    <ClInclude Include="_node_windows_private.h" />
-    <ClInclude Include="_windows.h" />
+    <ClInclude Include="aaa_node_universal_windows.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\source\app\acme\u_acme.vcxproj">
@@ -118,6 +110,9 @@
     </ProjectReference>
     <ProjectReference Include="..\..\operating-system-windows_common\acme_windows_common\u_acme_windows_common.vcxproj">
       <Project>{4a44d9ca-a46e-4bb3-8ad5-8bcace5228ce}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\..\operating-system-windows_common\apex_windows_common\u_apex_windows_common.vcxproj">
+      <Project>{bc71de03-0bcb-46ed-a9c5-d1dd8242c511}</Project>
     </ProjectReference>
     <ProjectReference Include="..\..\operating-system-windows_common\aura_windows_common\u_aura_windows_common.vcxproj">
       <Project>{da5570cd-d399-45cb-94e3-e81735d80f3a}</Project>
@@ -146,6 +141,7 @@
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
     <ApplicationTypeRevision>10.0</ApplicationTypeRevision>
     <ProjectName>node_universal_windows</ProjectName>
+    <WindowsTargetPlatformMinVersion>10.0.19041.0</WindowsTargetPlatformMinVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='basis|Win32'" Label="Configuration">

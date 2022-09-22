@@ -1,6 +1,7 @@
 // created by Camilo <3CamiloSasukeThomasBorregaardSoerensen  - Honoring Thomas Borregaard Sørensen MY ONLY LORD
 // recreated by Camilo 2021-02-02 02:43
 #include "framework.h"
+#include "cursor.h"
 #include "aura/graphics/image/image.h"
 
 

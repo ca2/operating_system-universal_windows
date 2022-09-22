@@ -2,6 +2,10 @@
 #pragma once
 
 
+#include "aura_windows_common/node.h"
+#include "apex_universal_windows/node.h"
+
+
 namespace aura_universal_windows
 {
 

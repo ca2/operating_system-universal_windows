@@ -1,5 +1,9 @@
 // from window by Camilo 2022-03-25 09:00 BRT <3CamiloSasukeThomasBorregaardSoerensen
 #include "framework.h"
+#include "framework_impact.h"
+#include <winrt/Windows.UI.ViewManagement.h>
+#include "windowing_universal_windows/window.h"
+#include "windowing_universal_windows/windowing.h"
 
 
 namespace windowing_universal_windows
@@ -145,19 +149,19 @@ namespace windowing_universal_windows
 
       //m_psystem->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
 
-      auto pnode = m_pwindow->m_psystem->m_pnode->m_pWindowingUniversalWindowsNode;
+      auto pwindowing = m_pwindow->windowing();
 
-      if (!pnode->m_bAppInit)
+      if (!pwindowing->m_bAppInit)
       {
 
-         pnode->app_init();
+         pwindowing->app_init();
 
       }
 
-      if (!pnode->m_bHasNodePostedSystemInitialRequest)
+      if (!m_pwindow->m_psystem->node()->m_bHasNodePostedSystemInitialRequest)
       {
 
-         pnode->m_bHasNodePostedSystemInitialRequest = true;
+         m_pwindow->m_psystem->node()->m_bHasNodePostedSystemInitialRequest = true;
 
          m_pwindow->m_psystem->post_initial_request();
 

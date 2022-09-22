@@ -1,6 +1,7 @@
 #include "framework.h"
+#include "icon.h"
 #include "aura/operating_system.h"
-#include "aura/user/user/_user.h"
+#include "aura/graphics/image/drawing.h"
 #undef User
 #undef Usr
 #include "shell.h"

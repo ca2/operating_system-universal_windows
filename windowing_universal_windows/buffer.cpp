@@ -1,14 +1,21 @@
 #include "framework.h"
-//#include "_uwp.h"
-//#include "aura/os/universal_windows/_uwp.h"
 #include "aura/message.h"
-#include "aura/user/user/_user.h"
 #include "buffer.h"
+#include "window.h"
+#include "windowing.h"
 #include <stdio.h>
-#include "aura/graphics/draw2d/_draw2d.h"
+#include "directx/directx.h"
+#include "aura/graphics/draw2d/graphics.h"
+#include "aura/graphics/draw2d/lock.h"
 #include "aura/graphics/image/_image.h"
-//#include "aura/node/universal_windows/directx_application.h"
-//#include "aura/os/windows_common/draw2d_direct2d_global.h"
+#include "aura/windowing/window.h"
+#include "aura_universal_windows/interaction_impl.h"
+#include "aura/platform/session.h"
+#include "aura/platform/system.h"
+#include "aura_universal_windows/node.h"
+#include "aura/user/user/user.h"
+#include <winrt/Windows.UI.ViewManagement.h>
+
 
 ::size_i32 winrt_get_big_back_buffer_size();
 
@@ -124,7 +131,7 @@ namespace windowing_universal_windows
 
       auto pwindow = m_pwindow;
 
-      if (!m_bCoreWindowVisible || m_ephase != e_phase_draw)
+      if (!m_tristateCoreWindowVisible || m_ephase != e_phase_draw)
       {
 
          return nullptr;
@@ -360,7 +367,6 @@ namespace windowing_universal_windows
 
       //m_pimage->alloc(get_application()->create_new, this);
       //m_pimage = create_image({1000,  1000});
-
 
       return true;
 
@@ -668,7 +674,7 @@ namespace windowing_universal_windows
 
          m_pwindow->m_puserinteractionimpl->m_puserinteraction->order_top();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->display(e_display_normal);
+         m_pwindow->m_puserinteractionimpl->m_puserinteraction->display(e_display_restored);
 
          //defer_resize_top_level_windows();
 
@@ -1114,7 +1120,7 @@ namespace windowing_universal_windows
 
       //HRESULT hr;
 
-      ::windowing::graphics_lock devicelock(m_pwindow);
+      graphics_device_lock devicelock;
 
       // Store the window bounds so the next time we get a SizeChanged event we can
       // avoid rebuilding everything if the size_i32 is identical.
@@ -1153,7 +1159,7 @@ namespace windowing_universal_windows
 
       {
 
-         ::windowing::graphics_lock graphicslock(m_pwindow);
+         graphics_device_lock devicelock;
 
          if (!defer_init())
          {
