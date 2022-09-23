@@ -4,9 +4,12 @@
 #include "file_system.h"
 #include "apex/operating_system.h"
 #include "acme/id.h"
-#include <Shlobj.h>
+//#include <Shlobj.h>
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme_universal_windows/acme_directory.h"
+#undef new
+#include <winrt/Windows.Storage.h>
+//#include "_windows_runtime.h"
 
 
 namespace apex_universal_windows

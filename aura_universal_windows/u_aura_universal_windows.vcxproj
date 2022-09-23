@@ -96,7 +96,7 @@
     <ClInclude Include="node.h" />
     <ClInclude Include="_.h" />
     <ClInclude Include="aaa_aura_universal_windows.h" />
-    <ClInclude Include="_windows_runtime.h" />
+    <ClInclude Include="aaa_windows_runtime.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\source\app\acme\u_acme.vcxproj">

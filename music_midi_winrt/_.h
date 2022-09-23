@@ -2,7 +2,7 @@
 
 
 #include "app-veriwell/multimedia/_.h"
-#include "acme_universal_windows/_.h"
+#include "aura_universal_windows/_.h"
 
 
 #if defined(_VERIWELL_MULTIMEDIA_MUSIC_MIDI_WINRT_LIBRARY)
@@ -26,6 +26,7 @@ namespace music
 
          
          class midi;
+         class device_watcher;
 
 
       } // namespace winrt

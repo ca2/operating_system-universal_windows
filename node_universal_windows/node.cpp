@@ -5,6 +5,7 @@
 #include "aura/platform/system.h"
 #include "windowing_universal_windows/window.h"
 #include "windowing_universal_windows/windowing.h"
+#include <winrt/Windows.UI.Core.h>
 
 
 float g_DPIScaleX__2;

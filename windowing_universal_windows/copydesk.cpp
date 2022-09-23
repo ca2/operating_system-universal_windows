@@ -4,6 +4,8 @@
 #include "windowing.h"
 #include "apex/operating_system.h"
 #include "aura/graphics/image/image.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme_universal_windows/_winrt_stream.h"
 #include <winrt/Windows.ApplicationModel.DataTransfer.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.UI.Xaml.Media.Imaging.h>

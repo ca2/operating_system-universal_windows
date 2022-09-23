@@ -2,6 +2,11 @@
 #pragma once
 
 
+//#include "_windows_runtime.h"
+#undef new
+#include <winrt/Windows.Storage.h>
+
+
 namespace acme_universal_windows
 {
 

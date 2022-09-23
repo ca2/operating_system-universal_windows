@@ -3,8 +3,10 @@
 
 
 #include "aura/windowing/sandbox/window.h"
+#undef new
 #include <winrt/Windows.UI.Text.Core.h>
 #include <winrt/Windows.Graphics.Display.h>
+#include <winrt/Windows.ApplicationModel.Core.h>
 
 
 namespace windowing_universal_windows

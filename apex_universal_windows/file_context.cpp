@@ -8,7 +8,10 @@
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_path.h"
 #include "acme/include/_c_swap.h"
-
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "_winrt_storage.h"
+#include <winrt/Windows.Storage.FileProperties.h>
+//#include "_windows_runtime.h"
 
 namespace apex_universal_windows
 {

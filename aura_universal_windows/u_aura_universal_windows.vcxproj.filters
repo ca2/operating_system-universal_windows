@@ -32,7 +32,7 @@
     <ClInclude Include="aaa_aura_universal_windows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="_windows_runtime.h">
+    <ClInclude Include="aaa_windows_runtime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="framework.h">

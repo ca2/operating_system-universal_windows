@@ -30,7 +30,7 @@ namespace apex_universal_windows
 } // namespace apex_universal_windows
 
 
-#include "_windows_runtime.h"
+//#include "_windows_runtime.h"
 
 
 

@@ -2,9 +2,10 @@
 #include "framework.h"
 #include "apex/_defer.h"
 #include "acme/operating_system/universal_windows/parallelization_winrt.h"
-#undef new
-
-
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "_winrt_storage.h"
+#include "acme_universal_windows/_winrt_stream.h"
+#include <winrt/Windows.Storage.FileProperties.h>
 
 
 ::winrt::Windows::Storage::StorageFile windows_runtime_file(::object * pobject, const char * lpcszFileName, ::u32 dwDesiredAcces, ::u32 dwShareMode, ::u32 dwCreationDisposition, ::u32 dwFlagsAndAttributes)

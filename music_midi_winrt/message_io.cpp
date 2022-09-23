@@ -12,14 +12,15 @@
 // message_io.xaml.cpp
 // Implementation of the message_io class
 //
-
 #include "framework.h"
+#include "message_io.h"
 
-using namespace ::winrt::Windows::Foundation;
-using namespace ::winrt::Windows::UI;
-using namespace ::winrt::Windows::UI::Core;
-using namespace ::winrt::Windows::Storage::Streams;
-using namespace ::winrt::Windows::Devices::Midi;
+
+//using namespace ::winrt::Windows::Foundation;
+//using namespace ::winrt::Windows::UI;
+//using namespace ::winrt::Windows::UI::Core;
+//using namespace ::winrt::Windows::Storage::Streams;
+//using namespace ::winrt::Windows::Devices::Midi;
 
 namespace music
 {
@@ -87,7 +88,7 @@ namespace music
 
        
 
-         void message_io::OnMessageReceived(MidiInPort const & sender, MidiMessageReceivedEventArgs const & args)
+         void message_io::OnMessageReceived(::winrt::Windows::Devices::Midi::MidiInPort const & sender, ::winrt::Windows::Devices::Midi::MidiMessageReceivedEventArgs const & args)
          {
             //IMidiMessage^ midiMessage = args->Message;
 

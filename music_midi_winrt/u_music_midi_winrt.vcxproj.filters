@@ -12,25 +12,10 @@
     <ClInclude Include="framework.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="io.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="_music_midi_winrt.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="music_midi_winrt_factory_exchange.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="aaa_file.h">
+    <ClInclude Include="message_io.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="out.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sequence.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="sequence_thread.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="translation.h">
@@ -39,13 +24,13 @@
     <ClInclude Include="midi.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="thread.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="_.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="device_watcher.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="aaa_windows_runtime.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -53,10 +38,7 @@
     <ClCompile Include="framework.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="io.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="music_midi_winrt.cpp">
+    <ClCompile Include="message_io.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="_factory.cpp">

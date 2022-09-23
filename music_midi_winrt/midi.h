@@ -1,6 +1,13 @@
 #pragma once
 
 
+#include "app-veriwell/multimedia/music/midi/midi.h"
+#undef new
+
+#include <winrt/Windows.Devices.h>
+#include <winrt/Windows.Devices.Midi.h>
+
+
 namespace music
 {
 
@@ -19,10 +26,10 @@ namespace music
          public:
 
 
-            map < MidiMessageType, string >                 m_messageTypeMap;
-            MidiMessageType                                 m_messageType;
-            array < ::winrt::agile_ref < MidiInPort > >     m_midiInPortArray;
-            array < ::winrt::agile_ref < IMidiOutPort > >   m_midiOutPortArray;
+            ::map < ::winrt::Windows::Devices::Midi::MidiMessageType, ::string >                 m_messageTypeMap;
+            ::winrt::Windows::Devices::Midi::MidiMessageType                                 m_messageType;
+            array < ::winrt::agile_ref < ::winrt::Windows::Devices::Midi::MidiInPort > >     m_midiInPortArray;
+            array < ::winrt::agile_ref < ::winrt::Windows::Devices::Midi::IMidiOutPort > >   m_midiOutPortArray;
 
             string_array                                    m_straOut;
 
@@ -44,8 +51,8 @@ namespace music
             //void clear_out_ports();
 
 
-            DeviceInformation GetDeviceInformationForInPort(::winrt::hstring friendlyName);
-            DeviceInformation GetDeviceInformationForOutPort(::winrt::hstring friendlyName);
+            ::winrt::Windows::Devices::Enumeration::DeviceInformation GetDeviceInformationForInPort(::winrt::hstring friendlyName);
+            ::winrt::Windows::Devices::Enumeration::DeviceInformation GetDeviceInformationForOutPort(::winrt::hstring friendlyName);
 
             //void CloseOutPort(::winrt::hstring portId);
 

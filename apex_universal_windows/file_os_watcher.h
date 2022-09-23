@@ -2,6 +2,8 @@
 
 
 #include "apex/filesystem/filesystem/file_watcher.h"
+#include "_winrt_storage.h"
+#include <winrt/Windows.Storage.Search.h>
 
 
 namespace apex_universal_windows

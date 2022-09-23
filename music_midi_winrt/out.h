@@ -1,6 +1,12 @@
 #pragma once
 
 
+#include "app-veriwell/multimedia/music/midi/out.h"
+#undef new
+#include <winrt/Windows.Devices.h>
+#include <winrt/Windows.Devices.Midi.h>
+
+
 namespace music
 {
 
@@ -12,6 +18,7 @@ namespace music
       namespace winrt
       {
 
+
          class CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_WINRT out :
             virtual public ::music::midi::message_out
          {
@@ -20,7 +27,7 @@ namespace music
 
 //            HMIDIOUT       m_hmidiout;
             memory m_memoryBuffer;
-            ::winrt::agile_ref < IMidiOutPort >    m_midiOutPort;
+            ::winrt::agile_ref < ::winrt::Windows::Devices::Midi::IMidiOutPort >    m_midiOutPort;
 
 
             out();
@@ -36,10 +43,10 @@ namespace music
             void program_change(int iChannel, unsigned char uchProgram) override;
             void control_change(int iChannel, unsigned char uchController, unsigned char uchValue);
             void pitch_bend(int iChannel, unsigned short ushBend);
-            void send(IMidiMessage const & message);
+            void send(::winrt::Windows::Devices::Midi::IMidiMessage const & message);
 
 
-            void send_short_message(::music::midi::e_message emessage, int iChannel, int iData1, int iData2);
+            void send_short_message(::music::midi::enum_midi_message emessage, int iChannel, int iData1, int iData2);
 
             bool step() override;
 

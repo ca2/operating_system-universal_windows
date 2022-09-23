@@ -12,11 +12,16 @@
 #include "universal_windows/framework_impact_source.h"
 #include "universal_windows/framework_impact.h"
 #include "direct2d/direct2d.h"
-#include <winrt/Windows.UI.ViewManagement.h>
 #include "aura/platform/system.h"
 #include "cursor.h"
 #include "windowing.h"
-#include "_windows_runtime.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme_universal_windows/_winrt_system.h"
+#include <winrt/Windows.UI.Core.h>
+#include <winrt/Windows.UI.Input.h>
+#include <winrt/Windows.UI.ViewManagement.h>
+#include <winrt/Windows.ApplicationModel.Activation.h>
+
 
 
 #undef ALOG_CONTEXT

@@ -110,7 +110,7 @@
     <ClInclude Include="windows_runtime.h" />
     <ClInclude Include="_.h" />
     <ClInclude Include="aaa_apex_universal_windows.h" />
-    <ClInclude Include="_windows_runtime.h" />
+    <ClInclude Include="_winrt_storage.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\source\app\acme\u_acme.vcxproj">

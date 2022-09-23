@@ -14,6 +14,7 @@
 #include "aura/platform/system.h"
 #include "aura_universal_windows/node.h"
 #include "aura/user/user/user.h"
+#include <winrt/Windows.UI.Core.h>
 #include <winrt/Windows.UI.ViewManagement.h>
 
 

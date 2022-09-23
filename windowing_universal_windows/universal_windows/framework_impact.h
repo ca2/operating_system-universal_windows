@@ -2,6 +2,10 @@
 #pragma once
 
 
+#undef new
+#include <winrt/Windows.ApplicationModel.Core.h>
+
+
 namespace windowing_universal_windows
 {
 

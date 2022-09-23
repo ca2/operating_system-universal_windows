@@ -1,10 +1,11 @@
 #include "framework.h"
-//
+#include "midi.h"
+
 
 __FACTORY_EXPORT void music_midi_winrt_factory(::factory::factory * pfactory)// :
    // ::object(pobject) //,
             //::multimedia::winrt::factory_exchange(pobject)
-         {
+{
 
    // pfactory->add_factory_item < ::music::midi::winrt::sequence, ::music::midi::sequence                  >();
    //       pfactory->add_factory_item < buffer, ::music::midi::file::buffer                 >();

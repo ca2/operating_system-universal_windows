@@ -1,5 +1,9 @@
 // Moved from io to midi to device_watcher by 2021-09-23 20:15 BRT <3ThomasBorregaardSørensen!!
 #include "framework.h"
+#include "device_watcher.h"
+#include "midi.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include <winrt/Windows.Foundation.Collections.h>
 //#include <mmddk.h>
 
 // http://blogs.msdn.com/b/matthew_van_eerde/archive/2012/09/21/enumerating-midi-devices.aspx
@@ -32,7 +36,7 @@ namespace music
             m_bEnumCompleted(false)
          {
 
-            m_devicewatcher = DeviceInformation::CreateWatcher(__hstring(strMidiSelector));
+            m_devicewatcher = ::winrt::Windows::Devices::Enumeration::DeviceInformation::CreateWatcher(__hstring(strMidiSelector));
 
             m_tokenPortAdded = m_devicewatcher.Added({ this, &device_watcher::OnPortAdded });
 
@@ -75,7 +79,7 @@ namespace music
          }
 
 
-         DeviceInformationCollection device_watcher::GetDeviceInformationCollection()
+         ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection device_watcher::GetDeviceInformationCollection()
          {
 
             return m_deviceinformationcollection;
@@ -86,7 +90,7 @@ namespace music
          void device_watcher::update_ports()
          {
 
-            DeviceInformationCollection deviceinformationcollection = DeviceInformation::FindAllAsync(__hstring(m_strMidiSelector)).get();
+            ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection deviceinformationcollection = ::winrt::Windows::Devices::Enumeration::DeviceInformation::FindAllAsync(__hstring(m_strMidiSelector)).get();
 
             //m_pmidi->clear_out_ports();
 
@@ -103,7 +107,7 @@ namespace music
                for (::u32 u = 0; u < deviceinformationcollection.Size(); u++)
                {
 
-                  DeviceInformation deviceinformation = deviceinformationcollection.GetAt(u);
+                  ::winrt::Windows::Devices::Enumeration::DeviceInformation deviceinformation = deviceinformationcollection.GetAt(u);
 
                   string strId = "winrt:" + string(deviceinformation.Id().begin());
 
@@ -118,7 +122,7 @@ namespace music
          }
 
 
-         void device_watcher::OnPortAdded(DeviceWatcher const & deviceWatcher, DeviceInformation const & devInfo)
+         void device_watcher::OnPortAdded(::winrt::Windows::Devices::Enumeration::DeviceWatcher const & deviceWatcher, ::winrt::Windows::Devices::Enumeration::DeviceInformation const & devInfo)
          {
 
             if (m_bEnumCompleted)
@@ -131,7 +135,7 @@ namespace music
          }
 
 
-         void device_watcher::OnPortRemoved(DeviceWatcher const & deviceWatcher, DeviceInformationUpdate const & devInfoUpdate)
+         void device_watcher::OnPortRemoved(::winrt::Windows::Devices::Enumeration::DeviceWatcher const & deviceWatcher, ::winrt::Windows::Devices::Enumeration::DeviceInformationUpdate const & devInfoUpdate)
          {
 
             if (m_bEnumCompleted)
@@ -144,7 +148,7 @@ namespace music
          }
 
 
-         void device_watcher::OnPortUpdated(DeviceWatcher const & deviceWatcher, DeviceInformationUpdate const & devInfoUpdate)
+         void device_watcher::OnPortUpdated(::winrt::Windows::Devices::Enumeration::DeviceWatcher const & deviceWatcher, ::winrt::Windows::Devices::Enumeration::DeviceInformationUpdate const & devInfoUpdate)
          {
 
             if (m_bEnumCompleted)
@@ -157,7 +161,7 @@ namespace music
          }
 
 
-         void device_watcher::OnPortEnumCompleted(DeviceWatcher const & deviceWatcher, IInspectable  const & obj)
+         void device_watcher::OnPortEnumCompleted(::winrt::Windows::Devices::Enumeration::DeviceWatcher const & deviceWatcher, ::winrt::Windows::Foundation::IInspectable  const & obj)
          {
 
             m_bEnumCompleted = true;

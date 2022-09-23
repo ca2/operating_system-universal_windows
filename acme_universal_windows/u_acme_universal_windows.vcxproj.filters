@@ -47,7 +47,7 @@
     <ClInclude Include="aaaa_acme_universal_windows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="_windows_runtime.h">
+    <ClInclude Include="_winrt_storage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="acme_directory.h">
@@ -69,6 +69,18 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="node.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_winrt_sss.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_winrt_stream.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_winrt_system.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="_winrt_core.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -13,7 +13,7 @@
 //#include "_aura_universal_windows.h"
 
 
-#include "_windows_runtime.h"
+//#include "_windows_runtime.h"
 
 
 #include "apex/_defer.h"

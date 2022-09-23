@@ -1,4 +1,9 @@
 #include "framework.h"
+#include "midi.h"
+#include "device_watcher.h"
+#include "out.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include <winrt/Windows.Foundation.Collections.h>
 //#include <mmddk.h>
 
 // http://blogs.msdn.com/b/matthew_van_eerde/archive/2012/09/21/enumerating-midi-devices.aspx
@@ -26,7 +31,7 @@ namespace music
          midi::midi()
          {
 
-            m_pmidiOutDeviceWatcher = __new(device_watcher(this, MidiOutPort::GetDeviceSelector().begin()));
+            m_pmidiOutDeviceWatcher = __new(device_watcher(this, ::winrt::Windows::Devices::Midi::MidiOutPort::GetDeviceSelector().begin()));
 
             m_pmidiOutDeviceWatcher->start_device_watcher();
 
@@ -43,17 +48,17 @@ namespace music
          }
 
 
-         DeviceInformation midi::GetDeviceInformationForInPort(::winrt::hstring friendlyName)
+         ::winrt::Windows::Devices::Enumeration::DeviceInformation midi::GetDeviceInformationForInPort(::winrt::hstring friendlyName)
          {
 
-            DeviceInformation retValue = nullptr;
+            ::winrt::Windows::Devices::Enumeration::DeviceInformation retValue = nullptr;
 
-            DeviceInformationCollection inputCollection = m_pmidiInDeviceWatcher->GetDeviceInformationCollection();
+            ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection inputCollection = m_pmidiInDeviceWatcher->GetDeviceInformationCollection();
 
             for (::u32 u = 0; u < inputCollection.Size(); u++)
             {
 
-               DeviceInformation devInfo = inputCollection.GetAt(u);
+               ::winrt::Windows::Devices::Enumeration::DeviceInformation devInfo = inputCollection.GetAt(u);
 
                if (0 == wcsicmp(devInfo.Name().begin(), friendlyName.begin()))
                {
@@ -69,15 +74,15 @@ namespace music
          }
 
 
-         DeviceInformation midi::GetDeviceInformationForOutPort(::winrt::hstring atom)
+         ::winrt::Windows::Devices::Enumeration::DeviceInformation midi::GetDeviceInformationForOutPort(::winrt::hstring atom)
          {
 
-            DeviceInformationCollection inputCollection = m_pmidiOutDeviceWatcher->GetDeviceInformationCollection();
+            ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection inputCollection = m_pmidiOutDeviceWatcher->GetDeviceInformationCollection();
 
             for (::u32 u = 0; u < inputCollection.Size(); u++)
             {
 
-               DeviceInformation deviceinformation = inputCollection.GetAt(u);
+               ::winrt::Windows::Devices::Enumeration::DeviceInformation deviceinformation = inputCollection.GetAt(u);
 
                if (0 == wcscmp(deviceinformation.Id().begin(), atom.begin()))
                {
@@ -208,14 +213,14 @@ namespace music
 
                   auto pout = __new(out);
 
-                  DeviceInformation deviceinformation = GetDeviceInformationForOutPort(__hstring(strDevice));
+                  ::winrt::Windows::Devices::Enumeration::DeviceInformation deviceinformation = GetDeviceInformationForOutPort(__hstring(strDevice));
 
                   if (deviceinformation)
                   {
 
                      string strId = deviceinformation.Id().begin();
 
-                     auto outport = MidiOutPort::FromIdAsync(deviceinformation.Id()).get();
+                     auto outport = ::winrt::Windows::Devices::Midi::MidiOutPort::FromIdAsync(deviceinformation.Id()).get();
 
                      if (outport)
                      {

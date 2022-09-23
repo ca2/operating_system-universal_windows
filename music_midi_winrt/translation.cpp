@@ -1,4 +1,5 @@
 #include "framework.h"
+#include "translation.h"
 
 
 namespace music

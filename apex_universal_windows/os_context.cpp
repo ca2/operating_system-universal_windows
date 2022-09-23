@@ -1,13 +1,13 @@
 #include "framework.h"
 #include "os_context.h"
-#include <wincred.h>
-#include <wtsapi32.h>
-//#include <shobjidl.h>
-#include <ShellApi.h>
-#include <Security.h>
+//#include <wincred.h>
+//#include <wtsapi32.h>
+//#include <ShellApi.h>
+//#include <Security.h>
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/acme_path.h"
-
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include <winrt/Windows.System.h>
 
 
 ::e_status hresult_to_estatus(HRESULT hresult)

@@ -3,8 +3,8 @@
 
 #include "aura/graphics/graphics/bitmap_source_buffer.h"
 #include "direct2d/direct2d.h"
-
 #include <wincodec.h>
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
 
 
 

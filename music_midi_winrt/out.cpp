@@ -1,4 +1,8 @@
 #include "framework.h"
+#include "out.h"
+#include "midi.h"
+#include "acme_universal_windows/_winrt_stream.h"
+#include "app-veriwell/multimedia/music/midi/sequencer.h"
 
 
 namespace music
@@ -64,7 +68,7 @@ namespace music
          }
 
 
-         void out::send_short_message(::music::midi::e_message emessage, int iChannel, int iData1, int iData2)
+         void out::send_short_message(::music::midi::enum_midi_message emessage, int iChannel, int iData1, int iData2)
          {
 
             //return translate_mmr(midiOutShortMsg(m_hmidiout, MIDIMSG(((int) etype) >> 4, iChannel, iData1, iData2)));
@@ -87,7 +91,7 @@ namespace music
          }
 
 
-         void out::send(IMidiMessage const & message)
+         void out::send(::winrt::Windows::Devices::Midi::IMidiMessage const & message)
          {
             //for (auto out : _midiOutPortArray)
             //{
@@ -111,7 +115,7 @@ namespace music
 
             uchVelocity = clip(0, 127, uchVelocity);
 
-            MidiNoteOnMessage message(iChannel, uchNote, uchVelocity);
+            ::winrt::Windows::Devices::Midi::MidiNoteOnMessage message(iChannel, uchNote, uchVelocity);
 
             send(message);
 
@@ -129,7 +133,7 @@ namespace music
 
             uchVelocity = clip(0, 127, uchVelocity);
 
-            MidiNoteOffMessage message(iChannel, uchNote, uchVelocity);
+            ::winrt::Windows::Devices::Midi::MidiNoteOffMessage message(iChannel, uchNote, uchVelocity);
 
             send(message);
 
@@ -141,7 +145,7 @@ namespace music
          void out::program_change(int iChannel, unsigned char uchProgram)
          {
 
-            MidiProgramChangeMessage message(iChannel, uchProgram);
+            ::winrt::Windows::Devices::Midi::MidiProgramChangeMessage message(iChannel, uchProgram);
 
             send(message);
 
@@ -153,7 +157,7 @@ namespace music
          void out::control_change(int iChannel, unsigned char uchController, unsigned char uchValue)
          {
 
-            MidiControlChangeMessage message(iChannel, uchController, uchValue);
+            ::winrt::Windows::Devices::Midi::MidiControlChangeMessage message(iChannel, uchController, uchValue);
 
             send(message);
 
@@ -163,7 +167,7 @@ namespace music
          void out::pitch_bend(int iChannel, unsigned short ushBend)
          {
 
-            MidiPitchBendChangeMessage message(iChannel, ushBend);
+            ::winrt::Windows::Devices::Midi::MidiPitchBendChangeMessage message(iChannel, ushBend);
 
             send(message);
 

@@ -1,6 +1,12 @@
 // Created by camilo on 2021-08-31 11:56 BRT <3ThomasBS__!!
 #include "framework.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "_winrt_core.h"
+#include "_winrt_stream.h"
+#include "_winrt_system.h"
+#include <winrt/Windows.UI.Core.h>
+#include <winrt/Windows.System.Threading.h>
 
 
 CLASS_DECL_ACME string consume_token(::string & str, const ::string_array & straSeparator);

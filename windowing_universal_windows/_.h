@@ -2,8 +2,6 @@
 
 
 #include "aura_universal_windows/_.h"
-//#include "aura/user/_.h"
-#include "directx/_.h"
 #include "direct2d/_.h"
 
 

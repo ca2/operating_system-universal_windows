@@ -6,6 +6,10 @@
 #include "aura/user/user/user.h"
 #include "aura/windowing/windowing.h"
 #include "interaction_impl.h"
+#undef new
+#include <winrt/Windows.Graphics.Display.h>
+
+//#include "_windows_runtime.h"
 
 
 float g_DPIScaleX__2;

@@ -785,7 +785,11 @@
     <ClInclude Include="node.h" />
     <ClInclude Include="_.h" />
     <ClInclude Include="aaaa_acme_universal_windows.h" />
-    <ClInclude Include="_windows_runtime.h" />
+    <ClInclude Include="_winrt_sss.h" />
+    <ClInclude Include="_winrt_storage.h" />
+    <ClInclude Include="_winrt_stream.h" />
+    <ClInclude Include="_winrt_system.h" />
+    <ClInclude Include="_winrt_core.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\source\app\acme\u_acme.vcxproj">

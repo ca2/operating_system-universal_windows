@@ -4,8 +4,6 @@
 #include "aura_universal_windows/_windows_runtime.h" 
 
 
-
-
 #undef new
 #include <winrt/Windows.ApplicationModel.Activation.h>
 #include <winrt/Windows.ApplicationModel.Core.h>
@@ -29,18 +27,6 @@
 
 #define new ACME_NEW
 
-
-inline ::winrt::Windows::Foundation::Rect ScaleRect(::winrt::Windows::Foundation::Rect rectangle, double scale)
-{
-
-   rectangle.X = (float)(rectangle.X * scale);
-   rectangle.Y = (float)(rectangle.Y * scale);
-   rectangle.Width = (float)(rectangle.Width * scale);
-   rectangle.Height = (float)(rectangle.Height * scale);
-
-   return rectangle;
-
-}
 
 
 //#include "direct2d_buffer.h"

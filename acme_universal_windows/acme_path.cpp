@@ -3,6 +3,9 @@
 #include "framework.h"
 #include "acme_path.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "_winrt_storage.h"
+
 
 
 namespace acme_universal_windows

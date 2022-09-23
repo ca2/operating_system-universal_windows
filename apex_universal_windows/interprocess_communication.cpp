@@ -1,6 +1,8 @@
 #include "framework.h"
 #include "interprocess_communication.h"
 #include "acme/primitive/string/base64.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include <winrt/Windows.System.h>
 
 
 //#include "universal_windows.h"

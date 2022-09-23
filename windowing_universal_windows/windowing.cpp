@@ -11,6 +11,7 @@
 #include "aura/platform/system.h"
 #include "aura/windowing/window.h"
 #include "direct2d/direct2d.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include <winrt/Windows.UI.ViewManagement.h>
 
 

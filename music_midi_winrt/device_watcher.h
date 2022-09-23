@@ -2,6 +2,10 @@
 #pragma once
 
 
+#undef new
+#include <winrt/Windows.Devices.Enumeration.h>
+
+
 namespace music
 {
 
@@ -29,8 +33,8 @@ namespace music
             ::winrt::event_token          m_tokenPortEnumComplete;
 
 
-            DeviceWatcher                 m_devicewatcher = nullptr;
-            DeviceInformationCollection   m_deviceinformationcollection = nullptr;
+            ::winrt::Windows::Devices::Enumeration::DeviceWatcher                 m_devicewatcher = nullptr;
+            ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection   m_deviceinformationcollection = nullptr;
 
             bool                          m_bEnumCompleted;
 
@@ -42,14 +46,14 @@ namespace music
             void start_device_watcher();
             void stop_device_watcher();
 
-            DeviceInformationCollection GetDeviceInformationCollection();
+            ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection GetDeviceInformationCollection();
 
             void update_ports();
 
-            void OnPortAdded(DeviceWatcher const & deviceWatcher, DeviceInformation const & devInfo);
-            void OnPortRemoved(DeviceWatcher  const & deviceWatcher, DeviceInformationUpdate const & devInfoUpdate);
-            void OnPortUpdated(DeviceWatcher  const & deviceWatcher, DeviceInformationUpdate const & devInfoUpdate);
-            void OnPortEnumCompleted(DeviceWatcher const & deviceWatcher, IInspectable const & obj);
+            void OnPortAdded(::winrt::Windows::Devices::Enumeration::DeviceWatcher const & deviceWatcher, ::winrt::Windows::Devices::Enumeration::DeviceInformation const & devInfo);
+            void OnPortRemoved(::winrt::Windows::Devices::Enumeration::DeviceWatcher  const & deviceWatcher, ::winrt::Windows::Devices::Enumeration::DeviceInformationUpdate const & devInfoUpdate);
+            void OnPortUpdated(::winrt::Windows::Devices::Enumeration::DeviceWatcher  const & deviceWatcher, ::winrt::Windows::Devices::Enumeration::DeviceInformationUpdate const & devInfoUpdate);
+            void OnPortEnumCompleted(::winrt::Windows::Devices::Enumeration::DeviceWatcher const & deviceWatcher, ::winrt::Windows::Foundation::IInspectable const & obj);
 
 
          };

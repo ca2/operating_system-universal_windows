@@ -53,7 +53,7 @@
     <ClInclude Include="aaa_apex_universal_windows.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="_windows_runtime.h">
+    <ClInclude Include="_winrt_storage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="dir_context.h">

@@ -1,5 +1,5 @@
+// From _windows_runtime.h by camilo on 2022-09-23 ~01:10 <3ThomasBorregaardSorensen!!
 #pragma once
-
 
 #include "_.h"
 #undef new
@@ -18,11 +18,6 @@ struct __declspec(uuid("5b0d3235-4dba-4d44-865e-8f1d0e4fd04d")) __declspec(novta
 };
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS uptr virtualkey_to_char(::winrt::Windows::System::VirtualKey e);
-
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::user::enum_key virtualkey_to_userkey(::winrt::Windows::System::VirtualKey e, bool & bSpecialKey);
-
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS uptr virtualkey_to_code(::winrt::Windows::System::VirtualKey e);
 
 
 
@@ -30,38 +25,22 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS uptr virtualkey_to_code(::winrt::Windows::Syst
 
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS void main_branch(::matter * pobjectTask, enum_priority epriority);
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::UI::Core::CoreDispatcherPriority windows_runtime_UICoreDispatcherPriority(enum_priority epriority);
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::System::Threading::WorkItemPriority windows_runtime_WorkItemPriority(enum_priority epriority);
 
 
 
-template < typename PREDICATE >
-void windows_runtime_async(PREDICATE predicate, enum_priority epriority = e_priority_normal)
-{
-
-   auto priority = windows_runtime_UICoreDispatcherPriority(epriority);
-
-   auto mainview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView();
-
-   auto dispatcher = mainview.CoreWindow().Dispatcher();
-
-   auto handler = ::winrt::Windows::UI::Core::DispatchedHandler(predicate);
-
-   dispatcher.RunAsync(priority, handler);
-
-}
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix);
-
-
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder _windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix);
-
-
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::object * pobject, string & strRelative, string & strPrefix);
-
-
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, const ::file::path & path);
+//////CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix);
+//////
+//////
+//////CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix);
+//////
+//////
+//////CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::object * pobject, string & strRelative, string & strPrefix);
+//////
+//////
+//////CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, const ::file::path & path);
 
 
 template < typename PREDICATE >
@@ -163,7 +142,7 @@ template < typename PREDICATE >
 
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS memsize windows_runtime_read_buffer(void * p, memsize s, ::winrt::Windows::Storage::Streams::IBuffer ibuffer);
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::Streams::IBuffer windows_runtime_buffer(const void * p, memsize s);
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::Streams::IBuffer windows_runtime_buffer(const void * p, memsize s);
 
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS memory windows_runtime_buffer_memory(::winrt::Windows::Storage::Streams::IBuffer ibuffer, memsize pos = 0, memsize size = -1);
 

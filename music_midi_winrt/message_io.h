@@ -2,8 +2,14 @@
 
 
 //using namespace Platform;
-using namespace ::winrt::Windows::Devices::Enumeration;
-using namespace ::winrt::Windows::Devices::Midi;
+//using namespace ::winrt::Windows::Devices::Enumeration;
+//using namespace ::winrt::Windows::Devices::Midi;
+#undef new
+
+
+#include <winrt/Windows.Devices.h>
+#include <winrt/Windows.Devices.Midi.h>
+
 
 namespace music
 {
@@ -38,7 +44,7 @@ namespace music
 
 
 
-            void OnMessageReceived(MidiInPort const &sender, MidiMessageReceivedEventArgs const & args);
+            void OnMessageReceived(::winrt::Windows::Devices::Midi::MidiInPort const &sender, ::winrt::Windows::Devices::Midi::MidiMessageReceivedEventArgs const & args);
 
           /*  DeviceInformation GetDeviceInformationForInPort(::winrt::hstring friendlyName);
             DeviceInformation GetDeviceInformationForOutPort(::winrt::hstring friendlyName);

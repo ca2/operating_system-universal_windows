@@ -1,11 +1,10 @@
 // Created by camilo on 2021-08-31 19:54 BRT <3ThomasBS__!!
+// From _windows_storage.h on 2022-09-23 01:49 <3ThomasBorregaardSorensen!!
 #pragma once
 
 
-#include "acme_universal_windows/_windows_runtime.h"
-#include <winrt/Windows.Storage.Search.h>
-
-
+#include "acme_universal_windows/_winrt_storage.h"
+//#include <winrt/Windows.Storage.Search.h>
 
 //::winrt::Windows::Storage::StorageFile windows_runtime_file(const char * lpcszFileName, ::u32 dwDesiredAcces, ::u32 dwShareMode, LPSECURITY_ATTRIBUTES lpSA, ::u32 dwCreationDisposition, ::u32 dwFlagsAndAttributes, HANDLE hTemplateFile)
 

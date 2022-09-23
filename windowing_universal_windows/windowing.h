@@ -3,6 +3,9 @@
 
 
 #include "aura/windowing/sandbox/windowing.h"
+//#include "_windows_runtime.h"
+#undef new
+#include <winrt/Windows.UI.ViewManagement.h>
 
 
 namespace windowing_universal_windows

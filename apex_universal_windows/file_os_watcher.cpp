@@ -1,4 +1,5 @@
 #include "framework.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "file_os_watcher.h"
 
 

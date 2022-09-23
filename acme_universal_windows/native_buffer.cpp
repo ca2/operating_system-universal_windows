@@ -2,6 +2,10 @@
 #include "framework.h"
 #include "native_buffer.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "_winrt_storage.h"
+#include "_winrt_stream.h"
+//#include <winrt/Windows.Storage.Streams.h>
 
 
 namespace acme_universal_windows
@@ -419,7 +423,6 @@ namespace acme_universal_windows
          return 0;
 
       }
-
 
       ::winrt::Windows::Storage::Streams::Buffer buffer((::u32)  nCount);
 
