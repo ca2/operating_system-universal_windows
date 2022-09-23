@@ -221,6 +221,8 @@ namespace windowing_universal_windows
 
       }
 
+
+
    }
 
 
@@ -235,6 +237,12 @@ namespace windowing_universal_windows
    void buffer::destroy_buffer()
    {
 
+
+   }
+
+
+   void buffer::on_after_graphical_update()
+   {
 
    }
 
@@ -1109,6 +1117,25 @@ namespace windowing_universal_windows
 
       }
 
+
+      if (m_bWindowSizeChangeInProgress)
+      {
+
+         m_bWindowSizeChangeInProgress = false;
+
+         m_pwindow->m_pwindowing->windowing_post([this]()
+            {
+
+               //A window size_i32 change has been initiated and the app has just completed presenting
+               //the first frame with the new size. Notify the resize manager so we can short
+               //circuit any resize animation and prevent unnecessary delays.
+               m_pwindow->m_resizemanager.NotifyLayoutCompleted();
+
+            });
+
+      }
+
+
       //m_bBeginDraw = false;
 
    }
@@ -1126,21 +1153,26 @@ namespace windowing_universal_windows
       // Store the window bounds so the next time we get a SizeChanged event we can
       // avoid rebuilding everything if the size_i32 is identical.
       m_windowBounds.Width = (float)m_size.cx;
+
       m_windowBounds.Height = (float)m_size.cy;
 
       m_sizeBuffer = { 0,0 };
 
-
       m_pswapchain = nullptr;
 
       m_prendertargetview = nullptr;
+      
       m_pstencilview = nullptr;
+
       if (m_pdevicecontext)
       {
+
          m_pdevicecontext->SetTarget(nullptr);
 
       }
+      
       m_pdevicecontext = nullptr;
+
       m_pbitmap = nullptr;
 
    }
@@ -1254,11 +1286,11 @@ namespace windowing_universal_windows
             }
             else
             {
+
                if (FAILED(hr))
                {
 
                   throw_if_failed(hr);
-
 
                }
 
@@ -1271,23 +1303,6 @@ namespace windowing_universal_windows
          }
 
          m_ephase = e_phase_draw;
-
-      }
-
-      if (m_bWindowSizeChangeInProgress)
-      {
-
-         m_bWindowSizeChangeInProgress = false;
-
-         m_pwindow->m_pwindowing->windowing_post([this]()
-            {
-
-               //A window size_i32 change has been initiated and the app has just completed presenting
-               //the first frame with the new size. Notify the resize manager so we can short
-               //circuit any resize animation and prevent unnecessary delays.
-               m_pwindow->m_resizemanager.NotifyLayoutCompleted();
-
-            });
 
       }
 

@@ -8009,6 +8009,7 @@ namespace windowing_universal_windows
                      //pbuffer->HandleDeviceLost();
                      pbuffer->CreateWindowSizeDependentResources();
 
+
                   }
 
                }

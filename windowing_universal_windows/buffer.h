@@ -145,8 +145,10 @@ namespace windowing_universal_windows
 
       virtual bool create_buffer(const ::size_i32& size, int iStride = -1);
       void destroy_buffer() override;
-      bool update_screen() override;
 
+      void on_after_graphical_update() override;
+
+      bool update_screen() override;
 
       ID2D1DeviceContext * get_device_context();
 
