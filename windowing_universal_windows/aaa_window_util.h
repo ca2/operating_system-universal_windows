@@ -26,7 +26,7 @@ namespace windowing_win32
 
 
       class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS Array :
-         public __pointer_array(hwnd_tree)
+         public pointer_array < hwnd_tree >
       {
       public:
 
@@ -104,7 +104,7 @@ namespace windowing_win32
    };
 
 
-   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS __pointer(hwnd_array) get_top_level_windows(bool bDesktop = true, bool bVisible = true);
+   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS ::pointer<hwnd_array>get_top_level_windows(bool bDesktop = true, bool bVisible = true);
    CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS hwnd_array get_hwnda(const ::user::interaction_array & a);
 
 

@@ -61,7 +61,7 @@
 //
 //      enum_phase                                            m_ephase;
 //
-//      ///__pointer(::draw2d_direct2d::plugin)               m_pplugin;
+//      ///::pointer<::draw2d_direct2d::plugin>              m_pplugin;
 //      
 //      ::boolean                                          m_bCoreWindowVisible;
 //
@@ -70,7 +70,7 @@
 //      ::mutex                                               m_mutexDc;
 //      size_i32                                              m_size;
 //      ::size_i32                                            m_sizeBuffer;
-//      __pointer(::windowing_universal_windows::window)      m_pwindow;
+//      ::pointer<::windowing_universal_windows::window>     m_pwindow;
 //      bool                                                  m_bInitialized;
 //      bool                                                  m_bInit;
 //      ::image_pointer                                       m_pimage;

@@ -22,14 +22,14 @@ namespace windowing_universal_windows
 
 
 
-      //__pointer(window)             m_pwindowNode;
+      //::pointer<window>            m_pwindowNode;
       ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource         m_frameworkviewsource;
 
       ::winrt::Windows::ApplicationModel::Core::IFrameworkView               m_frameworkview;
 
 
       int   m_iMouse;
-      //__pointer(class ::windowing_universal_windows::buffer)   m_pBdbuffer;
+      //::pointer<class ::windowing_universal_windows::buffer>   m_pBdbuffer;
 
 
       //comptr < ::windowing_universal_windows::application > 
@@ -45,7 +45,7 @@ namespace windowing_universal_windows
       //UINT                                    m_uiMessage;
       //WPARAM                                  m_wparam;
       //LPARAM                                  m_lparam;
-      //__pointer(::universal_windows::interaction_impl)    m_pimpl2;
+      //::pointer<::universal_windows::interaction_impl>   m_pimpl2;
       ::duration                                  m_durationLastMouseMove;
       ::point_i32                               m_pointMouseMove;
       
@@ -102,7 +102,7 @@ namespace windowing_universal_windows
 
       ::mutex                                                  m_mutex;
 
-      //__pointer(directx_interaction)                           m_pdxi;
+      //::pointer<directx_interaction>                          m_pdxi;
 
       bool                                                     m_bLeftButton;
 
@@ -531,7 +531,7 @@ namespace windowing_universal_windows
 
 
       // advanced creation (allows access to extended styles)
-      //virtual bool create_window_ex(::user::interaction * pinteraction, __pointer(::user::system) pusersystem, ::user::interaction * puiParent, atom atom) override;
+      //virtual bool create_window_ex(::user::interaction * pinteraction, ::pointer<::user::system>pusersystem, ::user::interaction * puiParent, atom atom) override;
 
       //virtual ::e_status native_create_host() override;
 
@@ -658,7 +658,7 @@ namespace windowing_universal_windows
       //virtual bool _is_window_visible() override;
       virtual void ShowOwnedPopups(bool bShow = true);
 
-      virtual __pointer(::draw2d::graphics) GetDCEx(::draw2d::region * prgnClip, u32 flags);
+      virtual ::pointer<::draw2d::graphics>GetDCEx(::draw2d::region * prgnClip, u32 flags);
       virtual bool LockWindowUpdate();
       virtual void UnlockWindowUpdate();
 
@@ -1203,7 +1203,7 @@ namespace windowing_universal_windows
       bool is_branch_current() const override;
 
 
-      __pointer(::windowing::icon) load_icon(const ::payload& payloadFile) override;
+      ::pointer<::windowing::icon>load_icon(const ::payload& payloadFile) override;
 
 
 

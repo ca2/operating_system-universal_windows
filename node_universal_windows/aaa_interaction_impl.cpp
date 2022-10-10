@@ -273,7 +273,7 @@ namespace windows
    //void interaction_impl::on_message_show_window(::message::message * pmessage)
    //{
 
-   //   __pointer(::message::show_window) pshowwindow(pmessage);
+   //   ::pointer<::message::show_window>pshowwindow(pmessage);
 
    //   if (pshowwindow->m_bShow)
    //   {
@@ -311,7 +311,7 @@ namespace windows
 
    //   }
 
-   //   __pointer(::message::move) pmove(pmessage);
+   //   ::pointer<::message::move>pmove(pmessage);
 
    //   if (m_puserinteraction->layout().sketch().origin() != pmove->m_point)
    //   {
@@ -358,7 +358,7 @@ namespace windows
 
    //   }
 
-   //   __pointer(::message::size) psize(pmessage);
+   //   ::pointer<::message::size>psize(pmessage);
 
    //   if (m_puserinteraction->layout().sketch().size() != psize->m_size)
    //   {
@@ -384,7 +384,7 @@ namespace windows
    //void interaction_impl::_001OnEnable(::message::message * pmessage)
    //{
 
-   //   __pointer(::message::enable) penable(pmessage);
+   //   ::pointer<::message::enable>penable(pmessage);
 
    //   if (penable != nullptr)
    //   {
@@ -525,7 +525,7 @@ namespace windows
    //void interaction_impl::pre_translate_message(::message::message * pmessage)
    //{
 
-   //   __pointer(::user::message) pusermessage(pmessage);
+   //   ::pointer<::user::message>pusermessage(pmessage);
 
    //}
 
@@ -720,7 +720,7 @@ namespace windows
    //   PrepareForHelp();
 
    //   // need to use top level parent (for the case where get_handle() is in DLL)
-   //   __pointer(::user::interaction) pwindow = EnsureTopLevelParent();
+   //   ::pointer<::user::interaction>pwindow = EnsureTopLevelParent();
 
    //   TRACE(trace_category_appmsg, e_trace_level_warning, "WinHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
 
@@ -748,7 +748,7 @@ namespace windows
    //PrepareForHelp();
 
    //// need to use top level parent (for the case where get_handle() is in DLL)
-   //__pointer(::user::interaction) pwindow = EnsureTopLevelParent();
+   //::pointer<::user::interaction>pwindow = EnsureTopLevelParent();
 
    //TRACE(trace_category_appmsg, e_trace_level_warning, "HtmlHelp: pszHelpFile = '%s', dwData: $%lx, fuCommand: %d.\n", pApp->m_pszHelpFilePath, dwData, nCmd);
 
@@ -763,7 +763,7 @@ namespace windows
    //void interaction_impl::PrepareForHelp()
    //{
 
-   //   __pointer(::user::interaction) pFrameWnd = m_puserinteraction;
+   //   ::pointer<::user::interaction>pFrameWnd = m_puserinteraction;
 
    //   if (pFrameWnd.is_set())
    //   {
@@ -779,7 +779,7 @@ namespace windows
    //   send_message_to_descendants(WM_CANCELMODE, 0, 0, true, true);
 
    //   // need to use top level parent (for the case where get_handle() is in DLL)
-   //   __pointer(::user::interaction) pwindow = EnsureTopLevel();
+   //   ::pointer<::user::interaction>pwindow = EnsureTopLevel();
    //   (pwindow.m_p)->send_message(WM_CANCELMODE);
    //   (pwindow.m_p)->send_message_to_descendants(WM_CANCELMODE, 0, 0, true, true);
 
@@ -903,7 +903,7 @@ namespace windows
    //bool interaction_impl::HandleFloatingSysCommand(::u32 nID, lparam lParam)
    //{
 
-   //   __pointer(::user::interaction) pParent = get_top_level();
+   //   ::pointer<::user::interaction>pParent = get_top_level();
 
    //   switch (nID & 0xfff0)
    //   {
@@ -1203,7 +1203,7 @@ namespace windows
    //void interaction_impl::on_message_create(::message::message * pmessage)
    //{
 
-   //   __pointer(::message::create) pcreate(pmessage);
+   //   ::pointer<::message::create>pcreate(pmessage);
 
 
    //   {
@@ -2073,7 +2073,7 @@ namespace windows
 
 
 
-   //__pointer(::draw2d::graphics) interaction_impl::GetDCEx(::draw2d::region* prgnClip, u32 flags)
+   //::pointer<::draw2d::graphics>interaction_impl::GetDCEx(::draw2d::region* prgnClip, u32 flags)
    //{
 
    //   ASSERT(_is_window());
@@ -2712,7 +2712,7 @@ namespace windows
    }
 
 
-   __pointer(::windowing::icon) interaction_impl::get_icon() const
+   ::pointer<::windowing::icon>interaction_impl::get_icon() const
    {
 
       return m_pwindow->get_icon();
@@ -2911,7 +2911,7 @@ namespace windows
    //void interaction_impl::on_message_set_cursor(::message::message * pmessage)
    //{
 
-   //   __pointer(::user::message) pusermessage(pmessage);
+   //   ::pointer<::user::message>pusermessage(pmessage);
 
    //   auto psession = get_session();
 
@@ -3073,7 +3073,7 @@ namespace windows
    //void interaction_impl::_001OnGetMinMaxInfo(::message::message * pmessage)
    //{
 
-   //   __pointer(::user::message) pusermessage(pmessage);
+   //   ::pointer<::user::message>pusermessage(pmessage);
 
    //}
 
@@ -3446,7 +3446,7 @@ namespace windows
    //   ::windowing::window * pwindow = hParent;
    //   if (oswindow == nullptr)
    //   {
-   //      /* trans      __pointer(::user::frame_window) pFrame = channel::GetRoutingFrame_();
+   //      /* trans      ::pointer<::user::frame_window>pFrame = channel::GetRoutingFrame_();
    //      if (pFrame != nullptr)
    //      oswindow = pFrame->get_handle();
    //      else
@@ -3601,7 +3601,7 @@ namespace windows
 
    //void interaction_impl::_001OnEraseBkgnd(::message::message * pmessage)
    //{
-   //   __pointer(::message::erase_bkgnd) perasebkgnd(pmessage);
+   //   ::pointer<::message::erase_bkgnd>perasebkgnd(pmessage);
    //   perasebkgnd->m_bRet = true;
    //   perasebkgnd->set_result(true);
    //}
@@ -3763,7 +3763,7 @@ namespace windows
 //
 ////#ifdef WINDOWS_DESKTOP
 //
-//      __pointer(::user::message) pusermessage(pmessage);
+//      ::pointer<::user::message>pusermessage(pmessage);
 //
 //      wparam wparam;
 //
@@ -3823,7 +3823,7 @@ namespace windows
 //
 ////#ifdef WINDOWS_DESKTOP
 //
-//      __pointer(::message::nc_calc_size) pcalcsize(pmessage);
+//      ::pointer<::message::nc_calc_size>pcalcsize(pmessage);
 //
 //      BOOL bCalcValidRects = pcalcsize->GetCalcValidRects();
 //      NCCALCSIZE_PARAMS* pncsp = pcalcsize->m_pparams;
@@ -3917,7 +3917,7 @@ namespace windows
 //      }
 //
 //
-//      //__pointer(::user::message) pusermessage(pmessage);
+//      //::pointer<::user::message>pusermessage(pmessage);
 //
 //      pcalcsize->m_lresult = 0;
 //
@@ -4258,7 +4258,7 @@ namespace windows
 //   if (!((pwindow)->GetStyle() & WS_CHILD))
 //   {
 //      
-//      __pointer(::user::interaction) pTopLevel = pwindow->get_top_level();
+//      ::pointer<::user::interaction>pTopLevel = pwindow->get_top_level();
 //
 //      if (pTopLevel && (!pWndOther || !::is_window((pWndOther)->get_handle()) || pTopLevel != (pWndOther)->get_top_level()))
 //      {
@@ -4445,7 +4445,7 @@ namespace windows
 //         message == WM_IME_ENDCOMPOSITION)
 //      {
 //
-//         __pointer(::message::key) pkey(pusermessage);
+//         ::pointer<::message::key>pkey(pusermessage);
 //
 //         if (message == e_message_key_down)
 //         {
@@ -4587,7 +4587,7 @@ namespace windows
 //      {
 //      if(pusermessage->m_wparam == BERGEDGE_GETAPP)
 //      {
-//      __pointer(::aura::application)* ppapp= (__pointer(::aura::application)*) pusermessage->m_lparam;
+//      ::pointer<::aura::application> ppapp= (::pointer<::aura::application> pusermessage->m_lparam;
 //      *ppapp = get_application();
 //      pusermessage->m_bRet = true;
 //      return;
@@ -4790,7 +4790,7 @@ namespace windows
 //         //user::window_util::SortByZOrder(oswindowa);
 //         //for (i32 i = 0; i < oswindowa.get_size(); i++)
 //         //{
-//         //   __pointer(::user::interaction) pinteraction = wnda.find_first(oswindowa[i]);
+//         //   ::pointer<::user::interaction>pinteraction = wnda.find_first(oswindowa[i]);
 //         //   if (pinteraction != nullptr)
 //         //   {
 //
@@ -4827,7 +4827,7 @@ namespace windows
 //     
 //         message::key * pkey = (::message::key *) pusermessage;
 //
-//         __pointer(::user::interaction) puiFocus;
+//         ::pointer<::user::interaction>puiFocus;
 //         
 //         auto papexsession = get_session();
 //

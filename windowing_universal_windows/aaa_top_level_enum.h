@@ -60,7 +60,7 @@ namespace windowing_win32
    public:
 
 
-      __pointer(hwnd_array)         m_phwnda;
+      ::pointer<hwnd_array>        m_phwnda;
       bool                          m_bVisible;
 
 

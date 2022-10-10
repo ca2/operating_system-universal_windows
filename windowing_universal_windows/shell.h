@@ -20,7 +20,7 @@ namespace windowing_universal_windows
    public:
 
 
-      //__composite(::user::message_queue)              m_pmessagequeue;
+      //::pointer<::user::message_queue>             m_pmessagequeue;
 
       //comptr<IThumbnailHandlerFactory> m_thumbnailhandlerfactory;
 

@@ -25,7 +25,7 @@ namespace windowing_win32
 {
 
    /// from top to bottom
-   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS __pointer(hwnd_array) get_top_level_windows(bool bDesktop, bool bVisible)
+   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS ::pointer<hwnd_array>get_top_level_windows(bool bDesktop, bool bVisible)
    {
 
       /// from top to bottom

@@ -43,7 +43,7 @@ namespace apex_universal_windows
 
       //}
 
-      __pointer(::apex::system) psystem = get_system();
+      ::pointer<::apex::system>psystem = get_system();
 
       __refer(m_pfilesystem, psystem->m_pfilesystem);
 
@@ -397,7 +397,7 @@ namespace apex_universal_windows
 
       }
 
-      __pointer(::apex::system) psystem = get_system();
+      ::pointer<::apex::system>psystem = get_system();
 
       if (read_resource_as_memory(*pfile->get_primitive_memory(), (HINSTANCE) psystem->m_hinstance, iId, psz))
       {

@@ -516,7 +516,7 @@ namespace windowing_universal_windows
    //}
 
 
-   __pointer(::user::message) windowing::get_user_message(MESSAGE * pmsg)
+   ::pointer<::user::message>windowing::get_user_message(MESSAGE * pmsg)
    {
 
       //throw ::exception(todo("message"));
@@ -905,7 +905,7 @@ namespace windowing_universal_windows
    //   for (i32 i = 0; i < primitivepointera.primitive_count(); i++)
    //   {
 
-   //      __pointer(::user::interaction) puserinteraction = primitivepointera.primitive_at(i);
+   //      ::pointer<::user::interaction>puserinteraction = primitivepointera.primitive_at(i);
 
    //      hwnda.add((HWND) puserinteraction->get_oswindow());
 
@@ -915,7 +915,7 @@ namespace windowing_universal_windows
 
    //}
 
-   //__pointer(::windowing::window) windowing::window_from_point(::aura::application * papp, const ::point_i32 & point)
+   //::pointer<::windowing::window>windowing::window_from_point(::aura::application * papp, const ::point_i32 & point)
    //{
 
    //   auto uia = *papp->m_puserinteractiona;
@@ -987,7 +987,7 @@ namespace windowing_universal_windows
    }
 
 
-   //__pointer(::user::interaction) windowing::create_system_window()
+   //::pointer<::user::interaction>windowing::create_system_window()
    //{
 
    //   auto psysteminteraction = __create_new < system_interaction >();
@@ -1221,9 +1221,9 @@ namespace windowing_universal_windows
 //
 //      auto pdocument = m_mapimpactsystem[COLORSEL_IMPACT]->open_document_file(puiOwner->get_application(), ::e_type_null, __visible(true));
 //
-//      __pointer(::userex::color_impact) pimpact = pdocument->get_typed_impact < ::userex::color_impact >();
+//      ::pointer<::userex::color_impact>pimpact = pdocument->get_typed_impact < ::userex::color_impact >();
 //
-//      __pointer(::user::frame_window) pframe = pimpact->top_level_frame();
+//      ::pointer<::user::frame_window>pframe = pimpact->top_level_frame();
 //
 //      pframe->set_owner(puiOwner);
 //
@@ -1352,7 +1352,7 @@ namespace windowing_universal_windows
 
    //}
 
-   __pointer(::windowing::icon) window::load_icon(const ::payload & payloadFile)
+   ::pointer<::windowing::icon>window::load_icon(const ::payload & payloadFile)
    {
 
       auto picon = __create_new < icon >();

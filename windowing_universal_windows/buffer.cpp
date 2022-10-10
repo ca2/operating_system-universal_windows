@@ -1393,7 +1393,7 @@ namespace windowing_universal_windows
 
    //   //   pimpl->_001UpdateBuffer();
 
-   //   //   __pointer(::window_double_buffer) pbuffer = pimpl->m_spgraphics;
+   //   //   ::pointer<::window_double_buffer>pbuffer = pimpl->m_spgraphics;
 
    //   //   if (pbuffer.is_set())
    //   //   {

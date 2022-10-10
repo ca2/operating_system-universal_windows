@@ -227,7 +227,7 @@ namespace windowing_universal_windows
 
       }
 
-      __pointer(::image) pimage;
+      ::pointer<::image>pimage;
 
       __construct(pimage);
 

@@ -1419,7 +1419,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //estatus = __compose_new(m_pmessagequeue);
+      //estatus = __construct_new(m_pmessagequeue);
 
 
       //if (!estatus)

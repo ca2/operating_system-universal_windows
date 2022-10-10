@@ -57,7 +57,7 @@ namespace windowing_universal_windows
       ::mutex                                               m_mutexDc;
       size_i32                                              m_size;
       ::size_i32                                            m_sizeBuffer;
-      __pointer(window)                                     m_pwindow;
+      ::pointer<window>                                    m_pwindow;
       bool                                                  m_bInitialized;
       bool                                                  m_bInit;
       ::image_pointer                                       m_pimage;

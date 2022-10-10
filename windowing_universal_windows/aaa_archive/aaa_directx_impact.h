@@ -11,8 +11,8 @@
 //   public:
 //
 //
-//      //__pointer(::user::interaction)                           m_puserinteraction;
-//      //__pointer(::windowing_universal_windows::window)         m_pwindow;
+//      //::pointer<::user::interaction>                          m_puserinteraction;
+//      //::pointer<::windowing_universal_windows::window>        m_pwindow;
 //      bool                                                     m_bTextCompositionActive;
 //      //widestring                                             m_strText;
 //      widestring                                               m_strNewText;

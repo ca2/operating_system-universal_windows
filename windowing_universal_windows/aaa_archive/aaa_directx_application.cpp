@@ -414,7 +414,7 @@
 //      if (puserinteractionHost->m_pimpl == nullptr)
 //         return;
 //
-//      __pointer(::user::message) pusermessage;
+//      ::pointer<::user::message>pusermessage;
 //
 //      auto pkey  = __new(::message::key);
 //
@@ -454,7 +454,7 @@
 //      //if (puserinteractionHost->m_pimpl == nullptr)
 //        // return;
 //
-//      __pointer(::user::message) pusermessage;
+//      ::pointer<::user::message>pusermessage;
 //
 //      auto pkey  = __new(::message::key);
 //
@@ -507,7 +507,7 @@
 //      if (puserinteractionHost->m_pimpl == nullptr)
 //         return;
 //
-//      __pointer(::user::message) pusermessage;
+//      ::pointer<::user::message>pusermessage;
 //
 //      ::message::key * pkey = new  ::message::key;
 //
@@ -651,7 +651,7 @@
 //      if (puserinteractionHost->m_pimpl == nullptr)
 //         return;
 //
-//      __pointer(::user::message) pusermessage;
+//      ::pointer<::user::message>pusermessage;
 //
 //      ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
 //
@@ -707,7 +707,7 @@
 //
 //      }
 //
-//      __pointer(::user::message) pusermessage;
+//      ::pointer<::user::message>pusermessage;
 //
 //      ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
 //
@@ -783,7 +783,7 @@
 //      if (puserinteractionHost->m_pimpl == nullptr)
 //         return;
 //
-//      __pointer(::user::message) pusermessage;
+//      ::pointer<::user::message>pusermessage;
 //
 //      ::message::mouse * pmouse = new  ::message::mouse;
 //

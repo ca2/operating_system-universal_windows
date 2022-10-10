@@ -234,7 +234,7 @@ namespace music
             void player::pre_translate_message(::message::message * pmessage)
             {
 
-               __pointer(::user::message) pusermessage(pmessage);
+               ::pointer<::user::message>pusermessage(pmessage);
 
                //ASSERT(GetMainWnd() == NULL);
                //   if(pMsg->message == MM_MOM_DONE ||
@@ -292,7 +292,7 @@ namespace music
             void player::OnUserMessage(::message::message * pmessage)
             {
 
-               __pointer(::user::message) pusermessage(pmessage);
+               ::pointer<::user::message>pusermessage(pmessage);
 
                if(pusermessage->m_wparam == 3377)
                {
@@ -431,7 +431,7 @@ namespace music
             void player::on_attribute_change(::message::message * pmessage)
             {
 
-               __pointer(::music::midi::attribute_message) pchange(pmessage);
+               ::pointer<::music::midi::attribute_message>pchange(pmessage);
 
                switch(pchange->m_eattribute)
                {
@@ -470,7 +470,7 @@ namespace music
             void player::OnMultimediaMidiOutputMessageDone(::message::message * pmessage)
             {
 
-               __pointer(::user::message) pusermessage(pmessage);
+               ::pointer<::user::message>pusermessage(pmessage);
 
                //HMIDISTRM hmidistream = (HMIDISTRM) pusermessage->m_wparam;
 
@@ -486,7 +486,7 @@ namespace music
 
             void player::OnMultimediaMidiOutputMessagePositionCB(::message::message * pmessage)
             {
-               __pointer(::user::message) pusermessage(pmessage);
+               ::pointer<::user::message>pusermessage(pmessage);
                //LPMIDIHDR lpmidihdr = (LPMIDIHDR) pusermessage->m_wparam;
                ////          get_sequence()->OnPositionCB(lpmidihdr);
 
@@ -503,7 +503,7 @@ namespace music
             void player::OnNotifyEvent(::message::message * pmessage)
             {
 
-               __pointer(::user::message) pusermessage(pmessage);
+               ::pointer<::user::message>pusermessage(pmessage);
 
                sp(::music::midi::player::notify_event) pdata(pusermessage->m_lparam);
 

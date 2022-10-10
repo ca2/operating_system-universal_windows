@@ -269,7 +269,7 @@ namespace windowing_win32
             try
             {
 
-               __pointer(::user::interaction) pframe = (m_userinteractionaHidden.element_at(0));
+               ::pointer<::user::interaction>pframe = (m_userinteractionaHidden.element_at(0));
 
                if (pframe != nullptr)
                {

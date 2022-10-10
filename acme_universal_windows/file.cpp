@@ -58,12 +58,12 @@ namespace acme_universal_windows
 
    }
 
-   //__pointer(::file::file) file::Duplicate() const
+   //::pointer<::file::file>file::Duplicate() const
    //{
    //   ASSERT_VALID(this);
    //   ASSERT(m_hfile != (::u32)NULL_HFILE);
 
-   //   __pointer(file) pFile = __new(file());
+   //   ::pointer<file>pFile = __new(file());
    //   HANDLE hFile;
    //   if (!::DuplicateHandle(::GetCurrentProcess(), (HANDLE)m_hfile,
    //                          ::GetCurrentProcess(), &hFile, 0, false, DUPLICATE_SAME_ACCESS))
@@ -735,7 +735,7 @@ pacmedir->create(lpszFileName.folder());
    /////////////////////////////////////////////////////////////////////////////
    // WinFileException helpers
 
-   //void CLASS_DECL_ACME throw_exception(__pointer(::acme::application) papp, int cause, ::i32 lOsError, const char * lpszFileName /* == nullptr */)
+   //void CLASS_DECL_ACME throw_exception(::pointer<::acme::application>papp, int cause, ::i32 lOsError, const char * lpszFileName /* == nullptr */)
    //{
 
    //   throw ::exception(::file::exception(WinFileException::OsErrorToException(lOsError),lOsError,lpszFileName));

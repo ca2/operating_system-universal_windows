@@ -83,7 +83,7 @@ namespace music
          void sequence_thread::OnMidiSequenceEvent(::message::message * pobj)
          {
 
-            __pointer(::user::message) pusermessage(pobj);
+            ::pointer<::user::message>pusermessage(pobj);
 
             sp(::music::midi::sequence::event) pevent(pusermessage->m_lparam);
 

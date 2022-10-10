@@ -1,4 +1,4 @@
-// Moved from io to midi to device_watcher by 2021-09-23 20:15 BRT <3ThomasBorregaardSørensen!!
+// Moved from io to midi to device_watcher by 2021-09-23 20:15 BRT <3ThomasBorregaardSï¿½rensen!!
 #pragma once
 
 
@@ -24,7 +24,7 @@ namespace music
          public:
 
 
-            __pointer(midi)               m_pmidi;
+            ::pointer<midi>              m_pmidi;
             string                        m_strMidiSelector;
 
             ::winrt::event_token          m_tokenPortAdded;

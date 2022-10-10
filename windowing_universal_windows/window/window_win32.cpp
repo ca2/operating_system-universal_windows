@@ -416,7 +416,7 @@ LRESULT CALLBACK __window_procedure(HWND hwnd, UINT message, WPARAM wparam, LPAR
 //   if (!(pwindow->get_style() & WS_CHILD))
 //   {
 //
-//      __pointer(::user::interaction) pTopLevel = pwindow->get_top_level();
+//      ::pointer<::user::interaction>pTopLevel = pwindow->get_top_level();
 //
 //      if (pTopLevel && (!pWndOther || !::IsWindow((pWndOther)->get_hwnd()) || pTopLevel != (pWndOther)->get_top_level()))
 //      {

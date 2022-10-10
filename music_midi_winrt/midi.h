@@ -34,8 +34,8 @@ namespace music
             string_array                                    m_straOut;
 
 
-            __pointer(device_watcher)                       m_pmidiInDeviceWatcher;
-            __pointer(device_watcher)                       m_pmidiOutDeviceWatcher;
+            ::pointer<device_watcher>                      m_pmidiInDeviceWatcher;
+            ::pointer<device_watcher>                      m_pmidiOutDeviceWatcher;
 
 
             midi();
@@ -59,11 +59,11 @@ namespace music
             //void CloseInPort(::winrt::hstring portId);
 
 
-            __pointer(::music::midi::message_out) get_message_out(const string & strDevice) override;
+            ::pointer<::music::midi::message_out>get_message_out(const string & strDevice) override;
 
             void enumerate_midi_out_devices() override;
 
-            __pointer(::music::midi::sequencer) create_midi_sequencer(sequence * psequence, const string & strDevice);
+            ::pointer<::music::midi::sequencer>create_midi_sequencer(sequence * psequence, const string & strDevice);
 
 
          };

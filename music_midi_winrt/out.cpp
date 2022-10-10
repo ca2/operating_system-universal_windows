@@ -174,7 +174,7 @@ namespace music
          }
 
 
-         __pointer(::music::midi::sequencer) midi::create_midi_sequencer(sequence * psequence, const string & strDevice)
+         ::pointer<::music::midi::sequencer>midi::create_midi_sequencer(sequence * psequence, const string & strDevice)
          {
 
             string strEngine = device_engine(strDevice);

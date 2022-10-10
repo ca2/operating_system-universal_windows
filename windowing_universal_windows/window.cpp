@@ -850,7 +850,7 @@ namespace windowing_universal_windows
 
             //psystem->enum_display_monitors();
 
-            //__pointer(::user::interaction) puserinteraction;
+            //::pointer<::user::interaction>puserinteraction;
 
             //while(psystem->get_frame(puserinteraction))
             //{
@@ -1751,7 +1751,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //__pointer(window) window::get_active_window()
+   //::pointer<window>window::get_active_window()
    //{
 
    //   throw ::interface_only();
@@ -2617,7 +2617,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //__pointer(::windows::buffer) pbuffer = m_pgraphics;
+      //::pointer<::windows::buffer>pbuffer = m_pgraphics;
 
       //ASSERT(pbuffer.is_set());
 
@@ -3376,7 +3376,7 @@ namespace windowing_universal_windows
 
 
 
-   __pointer(::draw2d::graphics) window::GetDCEx(::draw2d::region * prgnClip, u32 flags)
+   ::pointer<::draw2d::graphics>window::GetDCEx(::draw2d::region * prgnClip, u32 flags)
    {
 
       //ASSERT(::IsWindow(get_hwnd()));
@@ -4393,7 +4393,7 @@ namespace windowing_universal_windows
    //void window::_001OnGetMinMaxInfo(::message::message * pmessage)
    //{
 
-   //   __pointer(::message::message) pmessage(pmessage);
+   //   ::pointer<::message::message>pmessage(pmessage);
 
    //}
 
@@ -4770,7 +4770,7 @@ namespace windowing_universal_windows
    //   HWND hwnd = hParent;
    //   if (hwnd == nullptr)
    //   {
-   //      /* trans      __pointer(::user::frame_window) pFrame = channel::GetRoutingFrame_();
+   //      /* trans      ::pointer<::user::frame_window>pFrame = channel::GetRoutingFrame_();
    //      if (pFrame != nullptr)
    //      hwnd = pFrame->get_hwnd();
    //      else
@@ -4925,7 +4925,7 @@ namespace windowing_universal_windows
 
    // void window::_001OnEraseBkgnd(::message::message * pmessage)
    // {
-   //    __pointer(::message::erase_bkgnd) perasebkgnd(pmessage);
+   //    ::pointer<::message::erase_bkgnd>perasebkgnd(pmessage);
    //    perasebkgnd->m_bRet = true;
    //    perasebkgnd->set_result(true);
    // }
@@ -5290,7 +5290,7 @@ namespace windowing_universal_windows
    void window::on_message_non_client_calculate_size(::message::message * pmessage)
    {
 
-      //__pointer(::message::nc_calc_size) pcalcsize(pmessage);
+      //::pointer<::message::nc_calc_size>pcalcsize(pmessage);
 
       //BOOL bCalcValidRects = pcalcsize->GetCalcValidRects();
 
@@ -5388,7 +5388,7 @@ namespace windowing_universal_windows
       //}
 
 
-      ////__pointer(::message::message) pmessage(pmessage);
+      ////::pointer<::message::message>pmessage(pmessage);
 
       //pcalcsize->m_lresult = 0;
 
@@ -5703,7 +5703,7 @@ namespace windowing_universal_windows
 //      {
 //      if(pmessage->m_wparam == BERGEDGE_GETAPP)
 //      {
-//      __pointer(::aura::window)* ppapp= (__pointer(::aura::window)*) pmessage->m_lparam;
+//      ::pointer<::aura::window> ppapp= (::pointer<::aura::window> pmessage->m_lparam;
 //      *ppapp = get_application();
 //      pmessage->m_bRet = true;
 //      return;
@@ -5906,7 +5906,7 @@ namespace windowing_universal_windows
 //         //user::window_util::SortByZOrder(hwnda);
 //         //for (i32 i = 0; i < hwnda.get_size(); i++)
 //         //{
-//         //   __pointer(::user::interaction) puserinteraction = wnda.find_first(hwnda[i]);
+//         //   ::pointer<::user::interaction>puserinteraction = wnda.find_first(hwnda[i]);
 //         //   if (puserinteraction != nullptr)
 //         //   {
 //
@@ -5943,7 +5943,7 @@ namespace windowing_universal_windows
 //
 //         message::key * pkey = (::message::key *)pmessage;
 //
-//         __pointer(::user::interaction) puiFocus;
+//         ::pointer<::user::interaction>puiFocus;
 //
 //         auto papexsession = get_session();
 //
@@ -6311,7 +6311,7 @@ namespace windowing_universal_windows
    void window::on_message_create(::message::message * pmessage)
    {
 
-      __pointer(::message::create) pcreate(pmessage);
+      ::pointer<::message::create>pcreate(pmessage);
 
 
       //direct2d::defer_initialize();
@@ -7048,7 +7048,7 @@ namespace windowing_universal_windows
          else
          {
 
-            ___pointer < ::user::message > spbase;
+            ::pointer<::user::message>spbase;
 
             auto pkey = __new(::message::key);
 
@@ -7901,7 +7901,7 @@ namespace windowing_universal_windows
          if (puserinteraction->m_pinteractionimpl == nullptr)
             return;
 
-         __pointer(::user::message) pusermessage;
+         ::pointer<::user::message>pusermessage;
 
          auto pkey = __new(::message::key);
 
@@ -8055,7 +8055,7 @@ namespace windowing_universal_windows
 
          }
 
-         __pointer(::user::message) pusermessage;
+         ::pointer<::user::message>pusermessage;
 
          ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
 

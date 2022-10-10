@@ -16,7 +16,7 @@
 //
 //
 //
-//      __reference(::aura_universal_windows::interaction_impl) m_pimplMain;
+//      ::pointer<::aura_universal_windows::interaction_impl>m_pimplMain;
 //
 //      bool                          m_bAppInit;
 //
@@ -33,7 +33,7 @@
 //      //void message_box_factory() override;
 //
 //
-//      void implement(__pointer(::acme::node)& pnode, __pointer(::acme::system)& psystem) override;
+//      void implement(::pointer<::acme::node> pnode, ::pointer<::acme::system>psystem) override;
 //
 //
 //      void call_member(::i64 i) override;
@@ -49,7 +49,7 @@
 //
 //      void app_init();
 //
-//      //__pointer(::extended::future < ::conversation >) _message_box(::object * pobject, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
+//      //pointer< ::extended::future < ::conversation > > _message_box(::object * pobject, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
 //
 //      void node_post(const ::procedure & procedure) override;
 //

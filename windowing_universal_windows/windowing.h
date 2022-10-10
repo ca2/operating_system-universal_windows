@@ -19,7 +19,7 @@ namespace windowing_universal_windows
 
 
       // From node
-      __reference(::aura_universal_windows::interaction_impl) m_pimplMain;
+      ::pointer<::aura_universal_windows::interaction_impl>m_pimplMain;
 
       bool                          m_bAppInit;
 
@@ -34,14 +34,14 @@ namespace windowing_universal_windows
 
       critical_section                 m_criticalsection;
       //window_map                       m_windowmap;
-      __pointer(class display)         m_pdisplay;
-      //__pointer(class window)          m_pwindowCapture;
-      //__pointer(class window)          m_pwindowFocus;
+      ::pointer<class display>         m_pdisplay;
+      //::pointer<class window>          m_pwindowCapture;
+      //::pointer<class window>          m_pwindowFocus;
 
 //#ifdef WINDOWS_DESKTOP
 
       //#pragma message("at macos??")
-      //__pointer(system_interaction)    m_psysteminteraction;
+      //::pointer<system_interaction>   m_psysteminteraction;
 
 //#endif
 
@@ -63,7 +63,7 @@ namespace windowing_universal_windows
       //void get_cursor_position(POINT_I32* ppoint) override;
 
       //virtual bool defer_create_system_window();
-      //virtual __pointer(::user::interaction) create_system_window();
+      //virtual ::pointer<::user::interaction>create_system_window();
       //::extended::transport < system_interaction > create_system_window();
 
       // From Node
@@ -85,10 +85,10 @@ namespace windowing_universal_windows
 
       ::windowing::display * display() override;
 
-      //__pointer(::windowing::monitor) get_main_monitor();
+      //::pointer<::windowing::monitor>get_main_monitor();
 
 
-      virtual __pointer(::user::message) get_user_message(MESSAGE * pmsg);
+      virtual ::pointer<::user::message>get_user_message(MESSAGE * pmsg);
 
 
       //virtual void enum_draw2d_fonts(::write_text::font_enumeration_item_array & itema) override;
@@ -152,7 +152,7 @@ namespace windowing_universal_windows
 
       //virtual void get_app_wnda(hwnd_array & wnda);
 
-      //__pointer(::windowing::window) window_from_point(::aura::application * papp, const ::point_i32 & point);
+      //::pointer<::windowing::window>window_from_point(::aura::application * papp, const ::point_i32 & point);
 
       
       void windowing_post(const ::procedure & procedure) override;

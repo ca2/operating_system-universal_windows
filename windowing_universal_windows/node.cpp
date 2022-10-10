@@ -35,7 +35,7 @@
 //   //}
 //
 //
-//   void node::implement(__pointer(::acme::node)& pnode, __pointer(::acme::system)& psystem)
+//   void node::implement(::pointer<::acme::node> pnode, ::pointer<::acme::system>psystem)
 //   {
 //
 //      //auto estatus = 

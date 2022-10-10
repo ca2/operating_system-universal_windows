@@ -60,7 +60,7 @@ namespace acme_universal_windows
       u64 ReadHuge(void * lpBuffer, u64 dwCount);
       void WriteHuge(const void * lpBuffer, u64 dwCount);
 
-      //virtual __pointer(::file::file) Duplicate() const;
+      //virtual ::pointer<::file::file>Duplicate() const;
 
       filesize translate(filesize offset, ::enum_seek eseek) override;
       void set_size(filesize dwNewLen) override;
