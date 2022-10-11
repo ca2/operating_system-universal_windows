@@ -1,4 +1,4 @@
-// From windowing_universal_windows by camilo on 2022-09-22 01:07 <3ThomasBorregaardSorensen!!
+﻿// From windowing_universal_windows by camilo on 2022-09-22 01:07 <3ThomasBorregaardSorensen!!
 // Created by camilo on 2021-09-04 22:55 BRT <3ThomasBS_!!
 #include "framework.h"
 #include "node.h"
@@ -40,7 +40,7 @@ namespace node_universal_windows
    //}
 
 
-   void node::implement(::pointer<::acme::node> pnode, ::pointer<::acme::system>psystem)
+   void node::implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem)
    {
 
       //auto estatus = 

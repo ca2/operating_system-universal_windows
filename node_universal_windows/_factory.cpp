@@ -1,4 +1,4 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "node.h"
 
 
@@ -23,10 +23,10 @@ __FACTORY_EXPORT void node_universal_windows_factory(::factory::factory * pfacto
 
    //add_factory_item < ::windows::copydesk, ::user::copydesk >();
    //add_factory_item < ::windows::shell_open, ::shell_open >();
-   //add_factory_item < ::windows::interprocess_communication_base, ::interprocess_communication::base >();
-   //add_factory_item < ::windows::interprocess_communication_tx, ::interprocess_communication::tx >();
-   //add_factory_item < ::windows::interprocess_communication_rx, ::interprocess_communication::rx >();
-   //add_factory_item < ::windows::interprocess_communication, ::interprocess_communication::interprocess_communication >();
+   //add_factory_item < ::windows::interprocess_communication_base, ::inteprocess_channel::base >();
+   //add_factory_item < ::windows::interprocess_caller, ::interprocess::caller >();
+   //add_factory_item < ::windows::interprocess_handler, ::interprocess::handler >();
+   //add_factory_item < ::windows::inteprocess_channel, ::inteprocess_channel::inteprocess_channel >();
 
 
    //pfactory->add_factory_item < ::windows::interaction_impl, ::user::interaction_impl >();

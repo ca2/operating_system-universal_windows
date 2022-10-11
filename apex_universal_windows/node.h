@@ -1,4 +1,4 @@
-// Created by camilo on 2021-08-29 21:06 BRT <3ThomasBS_!!
+﻿// Created by camilo on 2021-08-29 21:06 BRT <3ThomasBS_!!
 #pragma once
 
 
@@ -24,7 +24,7 @@ namespace apex_universal_windows
       ~node() override;
 
 
-      void implement(::pointer<::acme::node> pnode, ::pointer<::acme::system>psystem) override;
+      void implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem) override;
 
 
       string system_options_main_body() override;

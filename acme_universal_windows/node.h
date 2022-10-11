@@ -1,4 +1,4 @@
-// Created by camilo on 2021-08-30 16:40 BRT <3ThomasBS_!!
+﻿// Created by camilo on 2021-08-30 16:40 BRT <3ThomasBS_!!
 #pragma once
 
 
@@ -19,7 +19,7 @@ namespace acme_universal_windows
       ~node() override;
 
 
-      void implement(::pointer<::acme::node>& pnode, ::pointer<::acme::system> psystem) override;
+      void implement(::pointer<::acme::node>& pnode, ::pointer<::acme::system> & psystem) override;
 
 
       string audio_get_default_library_name() override;

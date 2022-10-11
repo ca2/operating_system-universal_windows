@@ -22,6 +22,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_projection", "..\..\..\source\app-core\projection\u_projection.vcxproj", "{74158384-2A95-4068-88F1-C9128259AE4A}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_projection", "..\..\..\source\app-core\projection\__implement\uwp_app_core_projection.vcxproj", "{5FE41D8B-A8D2-4CF3-9FB3-CBF207089177}"
+	ProjectSection(ProjectDependencies) = postProject
+		{E38ECF25-A157-4402-A803-F54759FF1C91} = {E38ECF25-A157-4402-A803-F54759FF1C91}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme", "..\..\..\source\app\acme\u_acme.vcxproj", "{74A3EA71-9358-4441-A0CC-D5771DF8DFBD}"
 EndProject

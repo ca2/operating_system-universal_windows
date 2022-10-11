@@ -1,4 +1,4 @@
-// created by Camilo 2021-01-31 04:56 BRT <3CamiloSasukeThomasBorregaardSoerensen
+﻿// created by Camilo 2021-01-31 04:56 BRT <3CamiloSasukeThomasBorregaardSoerensen
 #include "framework.h"
 #include "window.h"
 #include "windowing.h"
@@ -7709,8 +7709,6 @@ namespace windowing_universal_windows
       void window::OnActivated(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & applicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs const & args)
       {
 
-         m_window.Activate();
-
          if (args != nullptr)
          {
 
@@ -7721,21 +7719,28 @@ namespace windowing_universal_windows
 
                string str = protocolActivatedEventArgs.Uri().AbsoluteUri().begin();
 
-               string strServer = m_psystem->url()->get_server(str);
-
-               if (strServer == "send")
+               if (m_psystem->_handle_uri(str))
                {
 
-                  string strMessage = m_psystem->url()->get_param(str, "message");
-
-                  if (strMessage.has_char())
-                  {
-
-                     m_psystem->m_pacmeapplicationMain->m_papexapplication->add_activation_message(strMessage);
-
-                  }
+                  return;
 
                }
+
+               //string strServer = m_psystem->url()->get_server(str);
+
+               //if (strServer == "send")
+               //{
+
+               //   string strMessage = m_psystem->url()->get_param(str, "message");
+
+               //   if (strMessage.has_char())
+               //   {
+
+               //      m_psystem->m_pacmeapplicationMain->m_papexapplication->add_activation_message(strMessage);
+
+               //   }
+
+               //}
 
                //m_psystem->add_create(pcreate);
 
@@ -7754,6 +7759,7 @@ namespace windowing_universal_windows
 
          }
 
+         m_window.Activate();
 
       }
 

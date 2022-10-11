@@ -1,4 +1,4 @@
-// From windowing_universal_windows by camilo on 2022-09-22 01:07 <3ThomasBorregaardSorensen!!
+﻿// From windowing_universal_windows by camilo on 2022-09-22 01:07 <3ThomasBorregaardSorensen!!
 // Created by camilo on 2021-09-04 22:51 BRT <3ThomasBS_!!
 #pragma once
 
@@ -34,7 +34,7 @@ namespace node_universal_windows
       //void message_box_factory() override;
 
 
-      void implement(::pointer<::acme::node> pnode, ::pointer<::acme::system>psystem) override;
+      void implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem) override;
 
 
       void call_member(::i64 i) override;

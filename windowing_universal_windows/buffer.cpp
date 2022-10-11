@@ -1,5 +1,5 @@
-#include "framework.h"
-#include "aura/message.h"
+﻿#include "framework.h"
+////#include "aura/message.h"
 #include "buffer.h"
 #include "window.h"
 #include "windowing.h"
@@ -7,7 +7,7 @@
 #include "directx/directx.h"
 #include "aura/graphics/draw2d/graphics.h"
 #include "aura/graphics/draw2d/lock.h"
-#include "aura/graphics/image/_image.h"
+//#include "aura/graphics/image/_image.h"
 #include "aura/windowing/window.h"
 #include "aura_universal_windows/interaction_impl.h"
 #include "aura/platform/session.h"
@@ -1457,7 +1457,16 @@ namespace windowing_universal_windows
    //}
 
 
+
+
+
+
+
+   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS buffer * __buffer(::graphics::graphics * pgraphics)
+   {
+
+      return pgraphics->m_pWindowingUniversalWindowsBuffer;
+
+   }
+
 } // namespace windowing_universal_windows
-
-
-

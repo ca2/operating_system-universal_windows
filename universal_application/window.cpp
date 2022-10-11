@@ -42,7 +42,7 @@ namespace app_net
 
       auto papplication = get_application();
 
-      papplication->m_bInterprocessIntercommunication = false;
+      papplication->m_bInterprocessCommunication = false;
 
       ::user::interaction * p = this;
 

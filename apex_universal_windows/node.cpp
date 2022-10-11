@@ -1,4 +1,4 @@
-// Created by camilo on 2021-08-29 21:11 BRT <3ThomasBS_!!
+﻿// Created by camilo on 2021-08-29 21:11 BRT <3ThomasBS_!!
 #include "framework.h"
 #include "node.h"
 #include "acme/filesystem/filesystem/acme_file.h"
@@ -22,7 +22,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::implement(::pointer<::acme::node> pnode, ::pointer<::acme::system>psystem)
+   void node::implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem)
    {
 
       //auto psystem = m_psystem;

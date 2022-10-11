@@ -1,5 +1,5 @@
-#include "framework.h"
-#include "interprocess_communication.h"
+﻿#include "framework.h"
+#include "interprocess_handler.h"
 #include "acme/primitive/string/base64.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include <winrt/Windows.System.h>
@@ -16,7 +16,7 @@ namespace apex_universal_windows
 {
 
 
-   //namespace interprocess_communication
+   //namespace interprocess_handler
    //{
 
 
@@ -26,437 +26,456 @@ namespace apex_universal_windows
 
 
    interprocess_communication_base::interprocess_communication_base()
-      {
+   {
 
-      }
+   }
 
    interprocess_communication_base::~interprocess_communication_base()
+   {
+   }
+
+   interprocess_caller::interprocess_caller()
+   {
+
+   }
+
+   interprocess_caller::~interprocess_caller()
+   {
+   }
+
+   //bool tx::open(const char * pszChannel, launcher * plauncher)
+   //{
+
+   //   __UNREFERENCED_PARAMETER(plauncher);
+
+   //   if (m_strBaseChannel.has_char())
+   //      close();
+
+   //   // LaunchUri protocol is m_strBaseChannel
+
+   //   m_strBaseChannel = pszChannel;
+
+   //   m_strBaseChannel.replace("_", "-");
+   //   m_strBaseChannel.replace("/", "-");
+
+   //   return true;
+
+   //}
+
+
+   void interprocess_caller::open(const ::string & strChannel, ::launcher * plauncher)
+   {
+
+      if (m_strBaseChannel.has_char())
       {
+
+         close();
+
       }
 
-   interprocess_communication_tx::interprocess_communication_tx()
-      {
 
-      }
+      // LaunchUri protocol is m_strBaseChannel
 
-   interprocess_communication_tx::~interprocess_communication_tx()
-      {
-      }
+      m_strBaseChannel = strChannel;
 
-      //bool tx::open(const char * pszChannel, launcher * plauncher)
+      m_strBaseChannel.find_replace("_", "-");
+      m_strBaseChannel.find_replace("/", "-");
+
+      ///return true;
+
+   }
+
+
+   void interprocess_caller::close()
+   {
+
+      //if (m_strBaseChannel.is_empty())
       //{
-
-      //   __UNREFERENCED_PARAMETER(plauncher);
-
-      //   if (m_strBaseChannel.has_char())
-      //      close();
-
-      //   // LaunchUri protocol is m_strBaseChannel
-
-      //   m_strBaseChannel = pszChannel;
-
-      //   m_strBaseChannel.replace("_", "-");
-      //   m_strBaseChannel.replace("/", "-");
 
       //   return true;
 
       //}
 
-      
-      void interprocess_communication_tx::open(const ::string & strChannel, ::launcher * plauncher)
-      {
+      m_strBaseChannel.Empty();
 
-         if (m_strBaseChannel.has_char())
+      //         return true;
+
+   }
+
+
+   void interprocess_caller::send(const ::string & strMessage, const duration & durationTimeout)
+   {
+
+      //if (!is_tx_ok())
+      //{
+      // 
+      //   return false;
+
+      //}
+
+      string anotherappUri = m_strBaseChannel + "://send?message=" + m_psystem->url()->url_encode(strMessage);
+
+      //windows_runtime_launch_uri_synchronously(anotherappUri, durationTimeout);
+
+      auto pnode = m_psystem->node();
+
+      pnode->node_post([this, anotherappUri]()
          {
 
-            close();
+            auto hstrUri = __hstring(anotherappUri);
 
-         }
+            ::winrt::Windows::Foundation::Uri uri(hstrUri);
 
+            auto res = ::winrt::Windows::System::Launcher::LaunchUriAsync(uri);
 
-         // LaunchUri protocol is m_strBaseChannel
-
-         m_strBaseChannel = strChannel;
-
-         m_strBaseChannel.find_replace("_", "-");
-         m_strBaseChannel.find_replace("/", "-");
-
-         ///return true;
-
-      }
+            fork([this, res]()
+               {
 
 
-      void interprocess_communication_tx::close()
-      {
+                  bool bOk = res.get();
 
-         //if (m_strBaseChannel.is_empty())
-         //{
+                  if (bOk)
+                  {
 
-         //   return true;
+                     output_debug_string("LaunchUriAsync was ok");
 
-         //}
+                  }
+                  else
+                  {
 
-         m_strBaseChannel.Empty();
+                     output_debug_string("LaunchUriAsync was nok");
+                  }
+               });
 
-//         return true;
+         });
 
-      }
+      //return true;
 
-
-      void interprocess_communication_tx::send(const ::string & strMessage, const duration & durationTimeout)
-      {
-
-         //if (!is_tx_ok())
-         //{
-         // 
-         //   return false;
-
-         //}
-
-         string anotherappUri = m_strBaseChannel + "://send?message=" + m_psystem->url()->url_encode(strMessage);
-
-         //windows_runtime_launch_uri_synchronously(anotherappUri, durationTimeout);
-
-         auto pnode = m_psystem->node();
-
-         pnode->node_post([anotherappUri]()
-            {
-
-               auto hstrUri = __hstring(anotherappUri);
-
-               ::winrt::Windows::Foundation::Uri uri(hstrUri);
-
-               ::winrt::Windows::System::Launcher::LaunchUriAsync(uri);
-
-            });
-
-         //return true;
-
-      }
+   }
 
 
-      bool interprocess_communication_tx::is_tx_ok()
-      {
+   bool interprocess_caller::is_tx_ok()
+   {
 
-         //return ::IsWindow(m_hwnd) != false;
+      //return ::IsWindow(m_hwnd) != false;
 
-         return m_strBaseChannel.has_char();
-
-
-      }
+      return m_strBaseChannel.has_char();
 
 
-      void interprocess_communication_tx::send(int message, void * pdata, int len, const ::duration & durationTimeout)
-      {
-
-         //if (!is_tx_ok())
-         //{
-
-         //   return false;
-
-         //}
-
-         //memory m;
-
-         string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + m_psystem->url()->url_encode(m_psystem->base64()->encode({ pdata, len }));
-         
-         auto pnode = m_psystem->node();
-
-         pnode->node_post([anotherappUri]()
-            {
-
-               auto hstrUri = __hstring(anotherappUri);
-
-               ::winrt::Windows::Foundation::Uri uri(hstrUri);
-
-               ::winrt::Windows::System::Launcher::LaunchUriAsync(uri).get();
-
-            });
-
-         //::winrt::Windows::Foundation::Uri ^uri = ref new ::winrt::Windows::Foundation::Uri(anotherappURI);
-
-         //::wait(Launcher::LaunchUriAsync(uri), durationTimeout);
-
-         //return true;
-
-      }
+   }
 
 
-      interprocess_communication_rx::interprocess_communication_rx()
-      {
+   void interprocess_caller::send(int message, void * pdata, int len, const ::duration & durationTimeout)
+   {
 
-         m_preceiver = nullptr;
+      //if (!is_tx_ok())
+      //{
 
-      }
+      //   return false;
 
+      //}
 
-      interprocess_communication_rx::~interprocess_communication_rx()
-      {
+      //memory m;
 
-      }
+      string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + m_psystem->url()->url_encode(m_psystem->base64()->encode({ pdata, len }));
 
+      auto pnode = m_psystem->node();
 
-      void interprocess_communication_rx::create(const ::string & strChannel)
-      {
-
-         if (m_strBaseChannel.has_char())
+      pnode->node_post([anotherappUri]()
          {
 
-            destroy();
+            auto hstrUri = __hstring(anotherappUri);
 
-         }
+            ::winrt::Windows::Foundation::Uri uri(hstrUri);
 
-         m_strBaseChannel = strChannel;
+            ::winrt::Windows::System::Launcher::LaunchUriAsync(uri).get();
 
-         m_strBaseChannel.find_replace("_", "-");
-         m_strBaseChannel.find_replace("/", "-");
+         });
 
-        // return true;
+      //::winrt::Windows::Foundation::Uri ^uri = ref new ::winrt::Windows::Foundation::Uri(anotherappURI);
 
-      }
+      //::wait(Launcher::LaunchUriAsync(uri), durationTimeout);
+
+      //return true;
+
+   }
 
 
-      void interprocess_communication_rx::destroy()
+   interprocess_handler::interprocess_handler()
+   {
+
+      m_preceiver = nullptr;
+
+   }
+
+
+   interprocess_handler::~interprocess_handler()
+   {
+
+   }
+
+
+   void interprocess_handler::create(const ::string & strChannel)
+   {
+
+      if (m_strBaseChannel.has_char())
       {
 
-         //if (m_strBaseChannel.is_empty())
-         //{
-
-         //   return true;
-
-         //}
-
-
-         m_strBaseChannel.Empty();
-
-         //return true;
+         destroy();
 
       }
 
-      //void rx::receiver::on_ipc_receive(rx * prx, const char * pszMessage)
+      m_strBaseChannel = strChannel;
+
+      m_strBaseChannel.find_replace("_", "-");
+      m_strBaseChannel.find_replace("/", "-");
+
+      // return true;
+
+   }
+
+
+   void interprocess_handler::destroy()
+   {
+
+      //if (m_strBaseChannel.is_empty())
       //{
-
-      //}
-
-      //void rx::receiver::on_ipc_receive(rx * prx, int message, void * pdata, memsize len)
-      //{
-
-      //}
-
-
-      //void rx::receiver::on_ipc_post(rx * prx, long long int a, long long int b)
-      //{
-
-      //}
-
-
-      //void * interprocess_communication_rx::on_interprocess_receive(const char * pszMessage)
-      //{
-
-      //   if (m_preceiver != nullptr)
-      //   {
-      //      m_preceiver->on_interprocess_receive(prx, pszMessage);
-      //   }
-
-      //   // ODOW - on date of writing : return ignored by this windows implementation
-
-      //   return nullptr;
-
-      //}
-
-      //void * rx::on_interprocess_receive(rx * prx, int message, void * pdata, memsize len)
-      //{
-
-      //   if (m_preceiver != nullptr)
-      //   {
-      //      m_preceiver->on_interprocess_receive(prx, message, pdata, len);
-      //   }
-
-      //   // ODOW - on date of writing : return ignored by this windows implementation
-
-      //   return nullptr;
-
-      //}
-
-
-      //void * rx::on_interprocess_post(rx * prx, long long int a, long long int b)
-      //{
-
-      //   if (m_preceiver != nullptr)
-      //   {
-
-      //      m_preceiver->on_interprocess_post(prx, a, b);
-
-      //   }
-
-      //   // ODOW - on date of writing : return ignored by this windows implementation
-
-      //   return nullptr;
-
-      //}
-
-
-
-      bool interprocess_communication_rx::on_idle()
-      {
-
-         return false;
-
-      }
-
-      bool interprocess_communication_rx::is_rx_ok()
-      {
-
-         return m_strBaseChannel.has_char();
-
-      }
-
-
-      //interprocess_communication::interprocess_communication()
-      //{
-
-
-      //}
-
-
-      //interprocess_communication::~interprocess_communication()
-      //{
-
-
-      //}
-
-
-      //bool ipc::open_ab(const char * pszChannel, const char * pszModule, launcher * plauncher)
-      //{
-
-      //   m_strChannel = pszChannel;
-
-      //   m_rx.m_preceiver = this;
-
-      //   string strChannelRx = m_strChannel;
-
-      //   string strChannelTx = m_strChannel;
-
-      //   if (!m_rx.create(strChannelRx))
-      //   {
-
-      //      return false;
-
-      //   }
-
-      //   if (!tx::open(strChannelTx, plauncher))
-      //   {
-
-      //      return false;
-
-      //   }
 
       //   return true;
 
       //}
 
 
-      //bool ipc::open_ba(const char * pszChannel, const char * pszModule, launcher * plauncher)
-      //{
+      m_strBaseChannel.Empty();
 
-      //   m_strChannel = pszChannel;
+      //return true;
 
-      //   m_rx.m_preceiver = this;
+   }
 
-      //   string strChannelRx = m_strChannel;
+   //void rx::receiver::on_ipc_receive(rx * prx, const char * pszMessage)
+   //{
 
-      //   string strChannelTx = m_strChannel;
+   //}
 
-      //   if (!m_rx.create(strChannelRx))
-      //   {
+   //void rx::receiver::on_ipc_receive(rx * prx, int message, void * pdata, memsize len)
+   //{
 
-      //      return false;
-
-      //   }
-
-      //   if (!tx::open(strChannelTx, plauncher))
-      //   {
-
-      //      return false;
-
-      //   }
-
-      //   return true;
-
-      //}
+   //}
 
 
-      //bool interprocess_communication::create(const ::string & strChannel, const char * pszModule)
-      //{
+   //void rx::receiver::on_ipc_post(rx * prx, long long int a, long long int b)
+   //{
 
-      //   m_strChannel = pszChannel;
-
-      //   m_rx.m_preceiver = this;
-
-      //   string strChannelRx = m_strChannel;
-
-      //   string strChannelTx = m_strChannel;
-
-      //   if (!m_rx.create(strChannelRx))
-      //   {
-
-      //      return false;
-
-      //   }
-
-      //   if (!tx::open(strChannelTx))
-      //   {
-
-      //      return false;
-
-      //   }
-
-      //   return true;
-
-      //}
+   //}
 
 
-      //bool interprocess_communication::open_ba(const char * pszChannel, const char * pszModule)
-      //{
+   //void * interprocess_handler::on_interprocess_receive(const char * pszMessage)
+   //{
 
-      //   m_strChannel = pszChannel;
+   //   if (m_preceiver != nullptr)
+   //   {
+   //      m_preceiver->on_interprocess_receive(prx, pszMessage);
+   //   }
 
-      //   m_rx.m_preceiver = this;
+   //   // ODOW - on date of writing : return ignored by this windows implementation
 
-      //   string strChannelRx = m_strChannel;
+   //   return nullptr;
 
-      //   string strChannelTx = m_strChannel;
+   //}
 
-      //   if (!m_rx.create(strChannelRx))
-      //   {
+   //void * rx::on_interprocess_receive(rx * prx, int message, void * pdata, memsize len)
+   //{
 
-      //      return false;
+   //   if (m_preceiver != nullptr)
+   //   {
+   //      m_preceiver->on_interprocess_receive(prx, message, pdata, len);
+   //   }
 
-      //   }
+   //   // ODOW - on date of writing : return ignored by this windows implementation
 
-      //   if (!tx::open(strChannelTx))
-      //   {
+   //   return nullptr;
 
-      //      return false;
+   //}
 
-      //   }
 
-      //   return true;
+   //void * rx::on_interprocess_post(rx * prx, long long int a, long long int b)
+   //{
 
-      //}
+   //   if (m_preceiver != nullptr)
+   //   {
+
+   //      m_preceiver->on_interprocess_post(prx, a, b);
+
+   //   }
+
+   //   // ODOW - on date of writing : return ignored by this windows implementation
+
+   //   return nullptr;
+
+   //}
 
 
 
+   bool interprocess_handler::on_idle()
+   {
 
-      //bool interprocess_communication::is_rx_tx_ok()
-      //{
+      return false;
 
-      //   return m_rx.is_rx_ok() && is_tx_ok();
+   }
 
-      //}
+   bool interprocess_handler::is_rx_ok()
+   {
+
+      return m_strBaseChannel.has_char();
+
+   }
 
 
-   //} // namespace ipc
+   //interprocess_handler::interprocess_handler()
+   //{
+
+
+   //}
+
+
+   //interprocess_handler::~interprocess_handler()
+   //{
+
+
+   //}
+
+
+   //bool ipc::open_ab(const char * pszChannel, const char * pszModule, launcher * plauncher)
+   //{
+
+   //   m_strChannel = pszChannel;
+
+   //   m_rx.m_preceiver = this;
+
+   //   string strChannelRx = m_strChannel;
+
+   //   string strChannelTx = m_strChannel;
+
+   //   if (!m_rx.create(strChannelRx))
+   //   {
+
+   //      return false;
+
+   //   }
+
+   //   if (!tx::open(strChannelTx, plauncher))
+   //   {
+
+   //      return false;
+
+   //   }
+
+   //   return true;
+
+   //}
+
+
+   //bool ipc::open_ba(const char * pszChannel, const char * pszModule, launcher * plauncher)
+   //{
+
+   //   m_strChannel = pszChannel;
+
+   //   m_rx.m_preceiver = this;
+
+   //   string strChannelRx = m_strChannel;
+
+   //   string strChannelTx = m_strChannel;
+
+   //   if (!m_rx.create(strChannelRx))
+   //   {
+
+   //      return false;
+
+   //   }
+
+   //   if (!tx::open(strChannelTx, plauncher))
+   //   {
+
+   //      return false;
+
+   //   }
+
+   //   return true;
+
+   //}
+
+
+   //bool interprocess_handler::create(const ::string & strChannel, const char * pszModule)
+   //{
+
+   //   m_strChannel = pszChannel;
+
+   //   m_rx.m_preceiver = this;
+
+   //   string strChannelRx = m_strChannel;
+
+   //   string strChannelTx = m_strChannel;
+
+   //   if (!m_rx.create(strChannelRx))
+   //   {
+
+   //      return false;
+
+   //   }
+
+   //   if (!tx::open(strChannelTx))
+   //   {
+
+   //      return false;
+
+   //   }
+
+   //   return true;
+
+   //}
+
+
+   //bool interprocess_handler::open_ba(const char * pszChannel, const char * pszModule)
+   //{
+
+   //   m_strChannel = pszChannel;
+
+   //   m_rx.m_preceiver = this;
+
+   //   string strChannelRx = m_strChannel;
+
+   //   string strChannelTx = m_strChannel;
+
+   //   if (!m_rx.create(strChannelRx))
+   //   {
+
+   //      return false;
+
+   //   }
+
+   //   if (!tx::open(strChannelTx))
+   //   {
+
+   //      return false;
+
+   //   }
+
+   //   return true;
+
+   //}
+
+
+
+
+   //bool interprocess_handler::is_rx_tx_ok()
+   //{
+
+   //   return m_rx.is_rx_ok() && is_tx_ok();
+
+   //}
+
+
+//} // namespace ipc
 
 
 } // namespace apex_universal_windows

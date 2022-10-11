@@ -1,11 +1,11 @@
-// Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
+﻿// Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
 #include "framework.h"
 #include "native_buffer.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "_winrt_storage.h"
 #include "_winrt_stream.h"
-//#include <winrt/Windows.Storage.Streams.h>
+#include "acme_windows_common/hresult_exception.h"
 
 
 namespace acme_universal_windows
@@ -77,7 +77,13 @@ namespace acme_universal_windows
 
          }
 
-         throw ::file_open_exception(m_estatus);
+         auto dwLastError = -1;
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, m_path, "!windows_runtime_folder", m_eopen);
 
       }
 
@@ -336,9 +342,13 @@ namespace acme_universal_windows
       catch (const winrt::hresult_error & error)
       {
 
+         auto hresult = error.code();
+
          auto estatus = hresult_to_status(error.code());
 
-         throw ::file_open_exception(estatus);
+         auto errorcode = __hresult(hresult);
+
+         throw ::file::exception(estatus, errorcode, m_path, "!::SetEndOfFile", m_eopen);
 
       }
 
@@ -358,7 +368,8 @@ namespace acme_universal_windows
 
          }
 
-         throw ::file_open_exception(m_estatus);
+         throw ::file::exception(m_estatus, {e_error_code_type_unknown
+      ,-1}, m_path, "!::SetEndOfFile", m_eopen);
 
       }
 
@@ -397,7 +408,7 @@ namespace acme_universal_windows
 
          m_folder = nullptr;
 
-         throw file_open_exception(error_failed);
+         throw ::file::exception(m_estatus, { e_error_code_type_unknown, -1 }, m_path, "null", m_eopen);
 
       }
 

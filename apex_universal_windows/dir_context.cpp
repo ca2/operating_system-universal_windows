@@ -1,9 +1,9 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "dir_context.h"
 #include "dir_system.h"
 #include "file_system.h"
 #include "apex/operating_system.h"
-#include "acme/id.h"
+#include "acme/constant/id.h"
 //#include <Shlobj.h>
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme_universal_windows/acme_directory.h"
@@ -45,9 +45,9 @@ namespace apex_universal_windows
 
       ::pointer<::apex::system>psystem = get_system();
 
-      __refer(m_pfilesystem, psystem->m_pfilesystem);
+      m_pfilesystem = psystem->m_pfilesystem;
 
-      __refer(m_pdirsystem, psystem->m_pdirsystem);
+      m_pdirsystem =  psystem->m_pdirsystem;
 
       string strPath = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
 

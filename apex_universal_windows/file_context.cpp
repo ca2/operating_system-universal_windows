@@ -1,4 +1,4 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "file_context.h"
 #include "file_system.h"
 #include "dir_system.h"
@@ -45,9 +45,9 @@ namespace apex_universal_windows
 
       ::pointer<::apex::system>psystem = get_system();
 
-      __refer(m_pfilesystem, psystem->m_pfilesystem);
+      m_pfilesystem = psystem->m_pfilesystem;
 
-      __refer(m_pdirsystem, psystem->m_pdirsystem);
+      m_pdirsystem =psystem->m_pdirsystem;
 
       //      return ::success;
 
@@ -662,9 +662,13 @@ namespace apex_universal_windows
       if ((wAttr = windows_get_file_attributes(path)) == (::u32)INVALID_FILE_ATTRIBUTES)
       {
 
-         DWORD dwLastError = ::GetLastError();
+         auto dwLastError = ::GetLastError();
 
-         throw ::file::exception(::error_io, dwLastError, path);
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, path, "!::windows_get_file_attributes");
 
       }
 
@@ -677,9 +681,13 @@ namespace apex_universal_windows
          if (!SetFileAttributesW((LPWSTR)(const widechar *)pszFileName, (::u32)status.m_attribute))
          {
 
-            DWORD dwLastError = ::GetLastError();
+            auto dwLastError = ::GetLastError();
 
-            throw ::file::exception(::error_io, dwLastError, 0, pszFileName);
+            auto estatus = last_error_to_status(dwLastError);
+
+            auto errorcode = __last_error(dwLastError);
+
+            throw ::file::exception(estatus, errorcode, pszFileName, "!::SetFileAttributes");
 
          }
 
@@ -721,33 +729,39 @@ namespace apex_universal_windows
          if (hFile == INVALID_HANDLE_VALUE)
          {
 
-            auto lastError = ::GetLastError();
+            auto dwLastError = ::GetLastError();
 
-            auto estatus = ::last_error_to_status(lastError);
+            auto estatus = last_error_to_status(dwLastError);
 
-            throw ::file_open_exception(estatus, path);
+            auto errorcode = __last_error(dwLastError);
+
+            throw ::file::exception(estatus, errorcode, path, "hfile_create == INVALID_HANDLE_VALUE");
 
          }
 
          if (!SetFileTime((HANDLE)hFile, pCreationTime, pLastAccessTime, pLastWriteTime))
          {
 
-            auto lastError = ::GetLastError();
+            auto dwLastError = ::GetLastError();
 
-            auto estatus = ::last_error_to_status(lastError);
+            auto estatus = last_error_to_status(dwLastError);
 
-            throw ::file::exception(estatus, path);
+            auto errorcode = __last_error(dwLastError);
+
+            throw ::file::exception(estatus, errorcode, path, "!::SetFileTime");
 
          }
 
          if (!::CloseHandle(hFile))
          {
 
-            auto lastError = ::GetLastError();
+            auto dwLastError = ::GetLastError();
 
-            auto estatus = ::last_error_to_status(lastError);
+            auto estatus = last_error_to_status(dwLastError);
 
-            throw ::file::exception(estatus, path);
+            auto errorcode = __last_error(dwLastError);
+
+            throw ::file::exception(estatus, errorcode, path, "!::CloseHandle");
 
          }
 
@@ -759,11 +773,13 @@ namespace apex_universal_windows
          if (!SetFileAttributesW((LPWSTR)(const widechar *)pszFileName, (::u32)status.m_attribute))
          {
 
-            auto lastError = ::GetLastError();
+            auto dwLastError = ::GetLastError();
 
-            auto estatus = ::last_error_to_status(lastError);
+            auto estatus = last_error_to_status(dwLastError);
 
-            throw ::file::exception(estatus, path);
+            auto errorcode = __last_error(dwLastError);
+
+            throw ::file::exception(estatus, errorcode, pszFileName, "!::SetFileAttributesW");
 
          }
 

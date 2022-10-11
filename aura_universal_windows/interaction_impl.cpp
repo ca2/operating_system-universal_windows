@@ -1,5 +1,6 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "interaction_impl.h"
+#include "aura/graphics/graphics/graphics.h"
 #include "aura/graphics/image/image.h"
 #include "aura/platform/session.h"
 #include "aura/message/user.h"
@@ -278,36 +279,36 @@ namespace aura_universal_windows
    {
       ::object::dump(dumpcontext);
 
-      //dumpcontext << "\nm_hWnd = " << (void *)get_handle();
-
-#ifdef WINDOWS_DESKTOP
-
-      if(get_handle() == nullptr || get_handle() == HWND_BOTTOM || get_handle() == HWND_TOPMOST || get_handle() == HWND_NOTOPMOST)
-      {
-         // not a normal interaction_impl - nothing more to dump
-         return;
-      }
-
-
-      if (!::is_window(get_handle()))
-      {
-         // not a valid interaction_impl
-         dumpcontext << " (illegal oswindow)";
-         return; // don't do anything more
-      }
-#endif
-
-      ::rectangle_i32 rectangle;
-      ((::user::interaction_impl *) this)->m_puserinteraction->get_window_rect(&rectangle);
-      dumpcontext << "\nrect = " << rectangle;
-      dumpcontext << "\nparent ::user::interaction_impl * = " << (void *)((::user::interaction_impl *) this)->get_parent();
-
-#ifdef WINDOWS_DESKTOP
-      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
-      if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
-         dumpcontext << "\nid = " << __get_dialog_control_id(get_handle());
-#endif
-      dumpcontext << "\n";
+//      //dumpcontext << "\nm_hWnd = " << (void *)get_handle();
+//
+//#ifdef WINDOWS_DESKTOP
+//
+//      if(get_handle() == nullptr || get_handle() == HWND_BOTTOM || get_handle() == HWND_TOPMOST || get_handle() == HWND_NOTOPMOST)
+//      {
+//         // not a normal interaction_impl - nothing more to dump
+//         return;
+//      }
+//
+//
+//      if (!::is_window(get_handle()))
+//      {
+//         // not a valid interaction_impl
+//         dumpcontext << " (illegal oswindow)";
+//         return; // don't do anything more
+//      }
+//#endif
+//
+//      ::rectangle_i32 rectangle;
+//      ((::user::interaction_impl *) this)->m_puserinteraction->get_window_rect(&rectangle);
+//      dumpcontext << "\nrect = " << rectangle;
+//      dumpcontext << "\nparent ::user::interaction_impl * = " << (void *)((::user::interaction_impl *) this)->get_parent();
+//
+//#ifdef WINDOWS_DESKTOP
+//      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
+//      if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
+//         dumpcontext << "\nid = " << __get_dialog_control_id(get_handle());
+//#endif
+//      dumpcontext << "\n";
    }
 
    bool interaction_impl::DestroyWindow()

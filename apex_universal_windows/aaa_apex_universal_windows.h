@@ -7,7 +7,7 @@
 //#include "_windows_runtime.h"
 //
 //
-//#include "interprocess_communication.h"
+//#include "inteprocess_channel.h"
 //
 //
 //#include "file_system.h"

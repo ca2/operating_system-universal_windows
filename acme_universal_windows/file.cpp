@@ -1,4 +1,4 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "file.h"
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
@@ -232,7 +232,7 @@ pacmedir->create(lpszFileName.folder());
 
             }
 
-            throw ::file_open_exception(m_estatus, string_format("file: \"%s\"", m_path.c_str()));
+            throw ::file::exception(m_estatus, __last_error(dwLastError), m_path, "!hfile_create", m_eopen);
 
 
             //return ::last_error_to_status(dwLastError);
@@ -284,7 +284,7 @@ pacmedir->create(lpszFileName.folder());
 
             }
 
-            throw ::file_open_exception(m_estatus, string_format("file: \"%s\"", m_path.c_str()));
+            throw ::file::exception(m_estatus, __last_error(dwLastError), m_path, "!hfile_create", m_eopen);
 
 
 
@@ -318,8 +318,14 @@ pacmedir->create(lpszFileName.folder());
 
       if (!::ReadFile((HANDLE)m_hfile, lpBuf, (::u32)nCount, &dwRead, nullptr))
       {
+
+         auto dwLastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
        
-         throw ::file::exception((::i32)::GetLastError(), m_path);
+         throw ::file::exception(estatus, errorcode, m_path, "!::ReadFile", m_eopen);
 
       }
 
@@ -344,7 +350,13 @@ pacmedir->create(lpszFileName.folder());
       if (!::WriteFile((HANDLE)m_hfile, lpBuf, (::u32)nCount, &nWritten, nullptr))
       {
 
-         throw ::file::exception(error_file, (::i32)::GetLastError(), 0, m_path);
+         auto dwLastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, m_path, "!::WriteFile", m_eopen);
 
       }
 
@@ -352,7 +364,13 @@ pacmedir->create(lpszFileName.folder());
       if (nWritten < (::u32) nCount)
       {
 
-         throw ::file::exception(error_file, error_disk_full, -1, m_path);
+         auto dwLastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, m_path, "nWritten < nCount", m_eopen);
 
       }
 
@@ -365,7 +383,13 @@ pacmedir->create(lpszFileName.folder());
       if (m_hfile == NULL_HFILE)
       {
 
-         throw ::file::exception(error_null_pointer, (::i32)0, m_path);
+         auto dwLastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, m_path, "hfile == NULL_HFILE", m_eopen);
 
       }
 
@@ -384,7 +408,13 @@ pacmedir->create(lpszFileName.folder());
       if (posNew == (filesize)-1)
       {
 
-         throw ::file::exception(error_file, ::GetLastError(), 0, m_path);
+         auto dwLastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, m_path, "!SetFilePointer", m_eopen);
 
       }
 
@@ -406,7 +436,13 @@ pacmedir->create(lpszFileName.folder());
       if (pos == (filesize)-1)
       {
 
-         throw ::file::exception(error_file, ::GetLastError(), 0, m_path);
+         auto dwLastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, m_path, "SetFilePointer < 0", m_eopen);
 
       }
 
@@ -425,7 +461,13 @@ pacmedir->create(lpszFileName.folder());
       if (!::FlushFileBuffers((HANDLE)m_hfile))
       {
 
-         throw ::file::exception(error_file, (::i32)::GetLastError(), m_path);
+         auto dwLastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, m_path, "!::FlushFileBuffers", m_eopen);
 
       }
 
@@ -448,7 +490,13 @@ pacmedir->create(lpszFileName.folder());
       if (bError)
       {
 
-         throw ::file::exception(error_file, (::i32)::GetLastError(), m_path);
+         auto dwLastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, m_path, "!::CloseHandle", m_eopen);
 
       }
 
@@ -500,7 +548,13 @@ pacmedir->create(lpszFileName.folder());
       if (!::SetEndOfFile((HANDLE)m_hfile))
       {
 
-         throw ::file::exception(error_file, (::i32)::GetLastError(), 0, m_path);
+         auto dwLastError = ::GetLastError();
+
+         auto estatus = last_error_to_status(dwLastError);
+
+         auto errorcode = __last_error(dwLastError);
+
+         throw ::file::exception(estatus, errorcode, m_path, "!::SetEndOfFile", m_eopen);
 
       }
 
@@ -621,9 +675,9 @@ pacmedir->create(lpszFileName.folder());
 
       ::file::file::dump(dumpcontext);
 
-      dumpcontext << "with handle " << (::uptr) m_hfile;
-      dumpcontext << " and name \"" << m_path << "\"";
-      dumpcontext << "\n";
+      //dumpcontext << "with handle " << (::uptr) m_hfile;
+      //dumpcontext << " and name \"" << m_path << "\"";
+      //dumpcontext << "\n";
 
    }
 

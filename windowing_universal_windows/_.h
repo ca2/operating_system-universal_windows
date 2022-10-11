@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 #include "aura_universal_windows/_.h"
@@ -23,12 +23,7 @@ namespace windowing_universal_windows
    class hwnd_array;
    class window;
 
-   inline buffer * __buffer(::graphics::graphics * pgraphics) 
-   { 
-      
-      return pgraphics->m_pWindowingUniversalWindowsBuffer; 
-   
-   }
+   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS buffer * __buffer(::graphics::graphics * pgraphics);
 
 
 } // namespace windowing_universal_windows
