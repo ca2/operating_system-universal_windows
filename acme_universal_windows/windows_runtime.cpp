@@ -1,4 +1,4 @@
-// Created by camilo on 2021-08-31 11:56 BRT <3ThomasBS__!!
+﻿// Created by camilo on 2021-08-31 11:56 BRT <3ThomasBS__!!
 #include "framework.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
@@ -121,6 +121,14 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       strPrefix = "document://";
 
       return ::winrt::Windows::Storage::KnownFolders::DocumentsLibrary();
+
+   }
+   else if (str().begins_eat_ci(strRelative, "localfolder://"))
+   {
+
+      strPrefix = "localfolder://";
+
+      return ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder();
 
    }
    else if (str().begins_eat_ci(strRelative, "dropbox://"))

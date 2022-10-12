@@ -53,9 +53,7 @@ namespace apex_universal_windows
 
       INFORMATION("ApplicationData::Current().LocalFolder()=" << strPath);
 
-      //return ::success;
-
-
+      m_pathLocalFolder = strPath;
 
    }
 
