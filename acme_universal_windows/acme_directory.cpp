@@ -1,4 +1,4 @@
-// Create on 2021-03-21 20:00 <3ThomasBS_
+﻿// Create on 2021-03-21 20:00 <3ThomasBS_
 // Copied by camilo from operating-system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #include "framework.h"
 #include "acme_directory.h"
@@ -1421,7 +1421,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
 #ifdef WINDOWS
 
-         wstring path(get_buffer, MAX_PATH * 8);
+         wstring path(e_get_buffer, MAX_PATH * 8);
 
          if (!GetModuleFileNameW(nullptr, path, (::u32)path.size()))
          {

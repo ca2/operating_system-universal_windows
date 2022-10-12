@@ -1,4 +1,4 @@
-// From acme/filesystem/file/_.cpp by camilo on 2021-08-09 
+﻿// From acme/filesystem/file/_.cpp by camilo on 2021-08-09 
 // 03:09 BRT <3ThomasBorregaardSørensen
 // Copied by camilo from operating-system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #include "framework.h"
@@ -38,7 +38,7 @@ namespace acme_universal_windows
 
       {
 
-         wstring wstrPath(get_buffer, MAX_PATH * 16);
+         wstring wstrPath(e_get_buffer, MAX_PATH * 16);
 
          if (!GetModuleFileNameW(nullptr, wstrPath, (DWORD)wstrPath.get_length()))
          {
