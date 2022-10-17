@@ -64,6 +64,9 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_simple_application", "..\..\..\source\app-simple\application\__implement\uwp_app_simple_application.vcxproj", "{851D4041-37B0-48E6-8931-6FAA920FD805}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_simple_drawing", "..\..\..\source\app-simple\drawing\__implement\uwp_app_simple_drawing.vcxproj", "{D5E70553-DB15-4AA3-8438-7562C363ACFC}"
+	ProjectSection(ProjectDependencies) = postProject
+		{B198613A-71EE-49B6-B066-ABC8E8538DC9} = {B198613A-71EE-49B6-B066-ABC8E8538DC9}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_simple_nanogui_example", "..\..\..\source\app-simple\nanogui_example\__implement\uwp_app_simple_nanogui_example.vcxproj", "{B0F73836-FE37-4559-A654-016242409D24}"
 EndProject

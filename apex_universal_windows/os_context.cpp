@@ -1,4 +1,4 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "os_context.h"
 //#include <wincred.h>
 //#include <wtsapi32.h>
@@ -1732,6 +1732,14 @@ return false;
 throw ::exception(error_not_supported);
 
 //return false;
+
+   }
+
+
+   bool os_context::is_alias(const char * psz)
+   {
+
+      return false;
 
    }
 

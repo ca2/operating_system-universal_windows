@@ -20,7 +20,7 @@
 
 ::size_i32 winrt_get_big_back_buffer_size();
 
-#include "__debug_power.h"
+//#include "__debug_power.h"
 
 
 #define TIME_REPORTING 0
