@@ -126,7 +126,7 @@ namespace aura_universal_windows
       void update_graphics_resources() override;
 
       // for child windows, views, panes etc
-      //virtual bool create_window(::user::interaction * pinteraction, const ::string & lpszClassName, const ::string & lpszWindowName,u32 dwStyle,const RECTANGLE_I32 & rectangle,::user::interaction * pParentWnd,atom atom, ::create * pcreate = nullptr) ;
+      //virtual bool create_window(::user::interaction * pinteraction, const ::string & lpszClassName, const ::string & lpszWindowName,u32 dwStyle,const ::rectangle_i32 &rectangle,::user::interaction * pParentWnd,atom atom, ::create * pcreate = nullptr) ;
 
       virtual bool _native_create_window_ex(::pointer<::user::system>pcs);
 
@@ -141,7 +141,7 @@ namespace aura_universal_windows
 
       //virtual bool CreateEx(u32 dwExStyle, const ::string & lpszClassName,
       //                      const char * lpszWindowName, u32 dwStyle,
-      //                      const RECTANGLE_I32& rectangle,
+      //                      const ::rectangle_i32 &rectangle,
       //                      ::user::interaction* pParentWnd, atom atom,
       //                      LPVOID lpParam = nullptr);
 
