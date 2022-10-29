@@ -6,16 +6,16 @@
 #include <winrt/Windows.Storage.h>
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix);
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix);
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix);
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix);
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::object * pobject, string & strRelative, string & strPrefix);
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::particle * pparticle, string & strRelative, string & strPrefix);
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, const ::file::path & path);
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::particle * pparticle, const ::file::path & path);
 
 
 

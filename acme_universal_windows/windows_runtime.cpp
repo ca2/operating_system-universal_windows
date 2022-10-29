@@ -88,7 +88,7 @@ CLASS_DECL_EXPORT void main_branch(::matter * pobjectTask, enum_priority epriori
 }
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::object * pobject, string & strRelative, string & strPrefix)
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::particle * pparticle, string & strRelative, string & strPrefix)
 {
 
    if (str().begins_eat_ci(strRelative, "image://"))
@@ -171,7 +171,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 }
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix)
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix)
 {
 
    auto pfolder = windows_runtime_known_folder(pobject, strRelative, strPrefix);
@@ -198,7 +198,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windo
 
    bool bDir = false;
 
-   if (pobject->m_psystem->m_pacmedirectory->_is(bDir, path) && bDir)
+   if (pobject->acmedirectory()->_is(bDir, path) && bDir)
    {
 
       pathFolder = path;
@@ -224,7 +224,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windo
 
    //bDir = false;
 
-   //if (!pobject->m_psystem->m_pacmedirectory->_is(bDir, pathFolder) || !bDir)
+   //if (!pobject->acmedirectory()->_is(bDir, pathFolder) || !bDir)
    //{
 
    //   return nullptr;
@@ -270,7 +270,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windo
 }
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, string & strRelative, string & strPrefix)
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix)
 {
 
    auto folder = _windows_runtime_folder(pobject, strRelative, strPrefix);
@@ -364,7 +364,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 }
 
 
-CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::object * pobject, const ::file::path & path)
+CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::particle * pparticle, const ::file::path & path)
 {
 
    try
@@ -1347,7 +1347,7 @@ uptr virtualkey_to_code(::winrt::Windows::System::VirtualKey e)
 //      //if(psystem->is_system())
 //      //{
 //
-//      //   m_psystem->set_finish();
+//      //   acmesystem()->set_finish();
 //
 //      //}
 //
@@ -1368,7 +1368,7 @@ uptr virtualkey_to_code(::winrt::Windows::System::VirtualKey e)
 //   catch(::exit_exception &)
 //   {
 //
-//      //m_psystem->set_finish();
+//      //acmesystem()->set_finish();
 //
 //   }
 //

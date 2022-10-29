@@ -545,7 +545,7 @@
 ////      //if(psystem->is_system())
 ////      //{
 ////
-////      //   m_psystem->set_finish();
+////      //   acmesystem()->set_finish();
 ////
 ////      //}
 ////
@@ -566,7 +566,7 @@
 ////   catch(::exit_exception &)
 ////   {
 ////
-////      //m_psystem->set_finish();
+////      //acmesystem()->set_finish();
 ////
 ////   }
 ////

@@ -13,7 +13,7 @@ namespace music
       {
 
 
-         buffer::buffer(::object * pobject) :
+         buffer::buffer(::particle * pparticle) :
             ::object(pobject),
             primitive::memory_container (pobject),
             ::music::midi::file::buffer(pobject)

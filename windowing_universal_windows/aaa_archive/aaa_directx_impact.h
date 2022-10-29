@@ -16,7 +16,7 @@
 //      bool                                                     m_bTextCompositionActive;
 //      //widestring                                             m_strText;
 //      widestring                                               m_strNewText;
-//      ::aura::system * m_psystem;
+//      ::aura::system * acmesystem();
 //
 //      ::winrt::Windows::UI::Core::CoreWindowResizeManager      m_resizemanager = nullptr;
 //
@@ -80,7 +80,7 @@
 //      impact();
 //
 //
-//      //inline ::user::interaction* host() { return Sess(m_psystem->get_session())->host(); }
+//      //inline ::user::interaction* host() { return Sess(acmesystem()->get_session())->host(); }
 //      //inline ::user::interaction * host() { return m_puserinteraction->get_host_window(); }
 //      inline ::user::interaction * host() { return m_puserinteraction; }
 //

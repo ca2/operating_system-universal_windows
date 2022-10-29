@@ -36,7 +36,7 @@ namespace aura_universal_windows
    void node::main()
    {
 
-      //auto psystem = m_psystem;
+      //auto psystem = acmesystem();
 
       //auto estatus = psystem->main();
 
@@ -57,7 +57,7 @@ namespace aura_universal_windows
    void node::dpi_os_initialize()
    {
 
-      m_psystem->m_paurasystem->get_session()->m_puser->m_pwindowing->windowing_post([this]()
+      acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->windowing_post([this]()
          {
             //::wait(::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler([]()
               // {

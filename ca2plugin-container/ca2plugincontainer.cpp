@@ -33,7 +33,7 @@ int __win_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, i
    int nReturnCode = 0;
 
 
-   vsstring strChannel = get_command_line_param(::GetCommandLine(), "channel");
+   vsstring strChannel = get_command_line_parameter(::GetCommandLine(), "channel");
 
 
    g_hmutex = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ca2plugin-container::" + strChannel);

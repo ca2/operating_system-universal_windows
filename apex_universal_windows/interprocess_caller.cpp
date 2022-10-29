@@ -98,7 +98,7 @@ namespace apex_universal_windows
 
       //}
 
-      //string anotherappUri = m_strBaseChannel + "://send?message=" + m_psystem->url()->url_encode(strMessage);
+      //string anotherappUri = m_strBaseChannel + "://send?message=" + acmesystem()->url()->url_encode(strMessage);
 
       //string anotherappUri = strUri;
 
@@ -106,7 +106,7 @@ namespace apex_universal_windows
 
       auto hstrUri = __hstring(strUri);
 
-      auto pnode = m_psystem->node();
+      auto pnode = acmesystem()->node();
 
       pnode->node_post([this, hstrUri]()
          {
@@ -163,9 +163,9 @@ namespace apex_universal_windows
 
    //   //memory m;
 
-   //   string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + m_psystem->url()->url_encode(m_psystem->base64()->encode({ pdata, len }));
+   //   string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + acmesystem()->url()->url_encode(acmesystem()->base64()->encode({ pdata, len }));
 
-   //   auto pnode = m_psystem->node();
+   //   auto pnode = acmesystem()->node();
 
    //   pnode->node_post([anotherappUri]()
    //      {

@@ -45,7 +45,7 @@ namespace node_universal_windows
 
       //auto estatus = 
       
-      m_psystem->m_paurasystem->branch_synchronously();
+      acmesystem()->m_paurasystem->branch_synchronously();
 
       //if (!estatus)
       //{
@@ -62,7 +62,7 @@ namespace node_universal_windows
 
       pwindowMain->initialize(this);
 
-      m_psystem->m_paurasystem->m_pwindowMain = pwindowMain;
+      acmesystem()->m_paurasystem->m_pwindowMain = pwindowMain;
 
       ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(pwindowMain->m_frameworkviewsource);
 
@@ -144,7 +144,7 @@ namespace node_universal_windows
    //   //return luminance < 0.5;
 
 
-   //   //m_psystem->m_papexsystem->signal(id_user_color);
+   //   //acmesystem()->m_papexsystem->signal(id_user_color);
 
    //}
 
@@ -160,7 +160,7 @@ namespace node_universal_windows
 
    //   auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
 
-   //   m_psystem->m_pnode->background_color(colorBackground);
+   //   acmesystem()->m_pnode->background_color(colorBackground);
 
    //}
 

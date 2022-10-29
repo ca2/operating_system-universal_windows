@@ -119,7 +119,7 @@ namespace acme_universal_windows
       if ((eopen & ::file::e_open_defer_create_directory) && (eopen & ::file::e_open_write))
       {
 
-                  auto psystem = m_psystem;
+                  auto psystem = acmesystem();
 
          auto pacmedir = psystem->m_pacmedirectory;
 
@@ -243,7 +243,7 @@ pacmedir->create(lpszFileName.folder());
 
 //         try
 //         {
-////            m_psystem->m_spfilesystem.m_p->FullPath(m_path, m_path);
+////            acmesystem()->m_spfilesystem.m_p->FullPath(m_path, m_path);
 //         }
 //         catch(...)
 //         {

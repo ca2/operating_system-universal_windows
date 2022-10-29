@@ -35,7 +35,7 @@ namespace windowing_universal_windows
       colorBackground.green = uicolorBackground.G;
       colorBackground.blue = uicolorBackground.B;
 
-      m_pwindow->m_psystem->m_pnode->background_color(colorBackground);
+      m_pwindow->acmesystem()->m_pnode->background_color(colorBackground);
 
       m_pwindow->m_coreapplicationview = coreapplicationview;
 
@@ -133,13 +133,13 @@ namespace windowing_universal_windows
 
       //pbuffer = __new(directx_base);
 
-      //pbuffer->m_psystem = m_psystem;
+      //pbuffer->acmesystem() = acmesystem();
 
       auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
 
       //pbuffer->Initialize(window, displayinformation.LogicalDpi());
 
-      //pbuffer->initialize(m_psystem->m_papplicationStartup);
+      //pbuffer->initialize(acmesystem()->m_papplicationStartup);
 
       //install_directx_application_message_routing();
 
@@ -147,9 +147,9 @@ namespace windowing_universal_windows
 
       //m_bXXXFirst = true;
 
-      //m_psystem->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = this;
+      //acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = this;
 
-      //m_psystem->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
+      //acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
 
       auto pwindowing = m_pwindow->windowing();
 
@@ -160,12 +160,12 @@ namespace windowing_universal_windows
 
       }
 
-      if (!m_pwindow->m_psystem->node()->m_bHasNodePostedSystemInitialRequest)
+      if (!m_pwindow->acmesystem()->node()->m_bHasNodePostedSystemInitialRequest)
       {
 
-         m_pwindow->m_psystem->node()->m_bHasNodePostedSystemInitialRequest = true;
+         m_pwindow->acmesystem()->node()->m_bHasNodePostedSystemInitialRequest = true;
 
-         m_pwindow->m_psystem->post_initial_request();
+         m_pwindow->acmesystem()->post_initial_request();
 
       }
 

@@ -40,7 +40,7 @@ namespace draw2d_gdiplus
       virtual ~printer();
 
 
-      virtual ::e_status initialize(::object * pobject) override;
+      virtual ::e_status initialize(::particle * pparticle) override;
 
       virtual bool open(const ::string & pszDeviceName);
       virtual ::draw2d::graphics * create_graphics();

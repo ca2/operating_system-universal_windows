@@ -59,7 +59,7 @@ namespace acme_universal_windows
    void acme_file::clear_application_data()
    {
 
-      m_psystem->m_pnode->node_post([]()
+      acmesystem()->m_pnode->node_post([]()
          {
 
             auto data = ::winrt::Windows::Storage::ApplicationData::Current();

@@ -81,7 +81,7 @@ namespace windowing_universal_windows
    //}
 
 
-   void copydesk::initialize(::object * pobject)
+   void copydesk::initialize(::particle * pparticle)
    {
 
       //auto estatus =

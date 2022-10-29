@@ -29,7 +29,7 @@ namespace apex_universal_windows
    }
 
 
-   void dir_context::initialize(::object * pobject)
+   void dir_context::initialize(::particle * pparticle)
    {
 
       //auto estatus = 
@@ -505,7 +505,7 @@ namespace apex_universal_windows
 
          //listing.m_estatus = ::success;
 
-         auto pacmedirectory = m_psystem->m_pacmedirectory;
+         auto pacmedirectory = acmedirectory();
 
          return pacmedirectory->enumerate(listing);
 
@@ -944,7 +944,7 @@ namespace apex_universal_windows
 
    //      string strDir = stra[i];
 
-   //      m_psystem->m_pacmedirectory->create(strDir);
+   //      acmedirectory()->create(strDir);
    //      {
 
    //         //            m_isdirmap.set(strDir, true, 0);
@@ -990,7 +990,7 @@ namespace apex_universal_windows
 
    //            }
 
-   //            if (m_psystem->m_pacmedirectory->create_directory(strDir))
+   //            if (acmedirectory()->create_directory(strDir))
    //            {
 
    //               //                  m_isdirmap.set(strDir, true, 0);
@@ -1307,7 +1307,7 @@ namespace apex_universal_windows
 
       //::file::path path;
 
-      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
+      //acmedirectory()->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   path,
       //   CSIDL_DESKTOP,
@@ -1324,7 +1324,7 @@ namespace apex_universal_windows
 
       //::file::path path;
 
-      //path = m_psystem->m_pacmedirectory->m_pplatformdir->_get_known_folder(FOLDERID_Downloads);
+      //path = acmedirectory()->m_pplatformdir->_get_known_folder(FOLDERID_Downloads);
 
       //return path;
 
@@ -1338,7 +1338,7 @@ namespace apex_universal_windows
 
       //::file::path path;
 
-      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
+      //acmedirectory()->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   path,
       //   CSIDL_MYMUSIC,
@@ -1356,7 +1356,7 @@ namespace apex_universal_windows
 
       //::file::path path;
 
-      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
+      //acmedirectory()->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   path,
       //   CSIDL_MYVIDEO,
@@ -1374,7 +1374,7 @@ namespace apex_universal_windows
 
       //::file::path path;
 
-      //m_psystem->m_pacmedirectory->m_pplatformdir->_shell_get_special_folder_path(
+      //acmedirectory()->m_pplatformdir->_shell_get_special_folder_path(
       //   nullptr,
       //   path,
       //   CSIDL_MYPICTURES,

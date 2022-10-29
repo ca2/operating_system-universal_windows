@@ -150,7 +150,7 @@ namespace acme_universal_windows
 
       ::file::path pathSystemShortName = localconfig() / "system_short_name.txt";
 
-      return m_psystem->m_pacmefile->as_string(pathSystemShortName).trimmed();
+      return acmefile()->as_string(pathSystemShortName).trimmed();
 
 #endif
 
@@ -185,7 +185,7 @@ namespace acme_universal_windows
    ::file::path acme_directory::app_relative()
    {
 
-      ::file::path path = m_psystem->m_pacmefile->executable();
+      ::file::path path = acmefile()->executable();
 
       path = relative(path);
 
@@ -243,12 +243,12 @@ namespace acme_universal_windows
 
 #elif defined(ANDROID)
 
-      auto psystem = m_psystem;
+      auto psystem = acmesystem();
 
       auto pacmedir = psystem->m_pacmedirectory;
 
 
-      return          auto psystem = m_psystem;
+      return          auto psystem = acmesystem();
 
       auto pacmedir = psystem->m_pacmedirectory;
 
@@ -283,12 +283,12 @@ namespace acme_universal_windows
 
 #elif defined(ANDROID)
 
-      auto psystem = m_psystem;
+      auto psystem = acmesystem();
 
       auto pacmedir = psystem->m_pacmedirectory;
 
 
-      return          auto psystem = m_psystem;
+      return          auto psystem = acmesystem();
 
       auto pacmedir = psystem->m_pacmedirectory;
 
@@ -456,7 +456,7 @@ namespace acme_universal_windows
    ::file::path acme_directory::bookmark()
    {
 
-      auto psystem = m_psystem;
+      auto psystem = acmesystem();
 
       auto pacmedir = psystem->m_pacmedirectory;
 
@@ -586,7 +586,7 @@ namespace acme_universal_windows
 
       }
 
-      auto folder = windows_runtime_folder(m_psystem, path1);
+      auto folder = windows_runtime_folder(acmesystem(), path1);
 
       if (!folder)
       {
@@ -726,7 +726,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //   #if defined(ANDROID)
    //
-   //      return m_psystem->m_pacmepath->app_module().folder();
+   //      return acmepath()->app_module().folder();
    //
    //   #elif defined(_UWP)
    //
@@ -1340,7 +1340,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //               FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM, nullptr, dwError, 0, (char *)&pszError, 8, nullptr);
 //
-//               //TRACE("         auto psystem = m_psystem;
+//               //TRACE("         auto psystem = acmesystem();
 //
 //         auto pacmedir = psystem->m_pacmedirectory;
 //
@@ -1512,7 +1512,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          string strPrefix;
 
-         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
+         auto folder = windows_runtime_folder(acmesystem(), strRelative, strPrefix);
 
          auto items = folder.GetItemsAsync().get();
 
@@ -1574,7 +1574,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         string strPrefix;
 //
-//         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
+//         auto folder = windows_runtime_folder(acmesystem(), strRelative, strPrefix);
 //
 //         auto folders = folder.GetFoldersAsync().get();
 //
@@ -1661,7 +1661,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         string strPrefix;
 //
-//         auto folder = windows_runtime_folder(m_psystem, strRelative, strPrefix);
+//         auto folder = windows_runtime_folder(acmesystem(), strRelative, strPrefix);
 //
 //         auto files = folder.GetFilesAsync().get();
 //
@@ -1884,7 +1884,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //               FormatMessage(FORMAT_MESSAGE_ALLOCATE_BUFFER | FORMAT_MESSAGE_FROM_SYSTEM, nullptr, dwError, 0, (WCHAR *)&pwszError, 8, nullptr);
 //
-//               //TRACE("         auto psystem = m_psystem;
+//               //TRACE("         auto psystem = acmesystem();
 //
 ////         auto pacmedir = psystem->m_pacmedirectory;
 ////

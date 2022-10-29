@@ -21,7 +21,7 @@ namespace windows
 
 
 
-   ::e_status shell_open::initialize(::object * pobject)
+   ::e_status shell_open::initialize(::particle * pparticle)
    {
 
       auto estatus = ::shell_open::initialize(pobject);

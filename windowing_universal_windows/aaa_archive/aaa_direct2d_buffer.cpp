@@ -89,11 +89,11 @@
 //
 //      m_dpi = m_dpiIni;
 //
-//      m_psystem->m_dpi = m_dpiIni;
+//      acmesystem()->m_dpi = m_dpiIni;
 //
 //      m_bInitialized = true;
 //
-//      m_psystem->m_pnode->m_pauranode->dpi_os_initialize();
+//      acmesystem()->m_pnode->m_pauranode->dpi_os_initialize();
 //
 //      //m_pimage->alloc(get_application()->create_new, this);
 //      //m_pimage = create_image({1000,  1000});
@@ -293,7 +293,7 @@
 //      
 //      // Only handle window size_i32 changed if there is no pending DPI change.
 //
-//      m_psystem->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this, dpi]()
+//      acmesystem()->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this, dpi]()
 //         {
 //
 //            OnChangeDpi(dpi);
@@ -302,7 +302,7 @@
 //         //{
 //           // OnChangeDpi(dpi);
 //
-//            //         m_psystem->m_psystem->m_possystemwindow->m_bWindowSizeChange = true;
+//            //         acmesystem()->acmesystem()->m_possystemwindow->m_bWindowSizeChange = true;
 //
 //         //}));
 //
@@ -321,7 +321,7 @@
 //
 //         m_dpi = dpi;
 //
-//         m_psystem->m_dpi = dpi;
+//         acmesystem()->m_dpi = dpi;
 //
 //         if (m_bCreated)
 //         {
@@ -344,7 +344,7 @@
 //   void direct2d_buffer::UpdateForWindowSizeChange()
 //   {
 //
-//      m_psystem->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this]()
+//      acmesystem()->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this]()
 //         {
 //            //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
 //            //{
@@ -366,19 +366,19 @@
 //
 //         ::draw2d::lock lock;
 //
-//         auto ptopic = m_psystem->topic(id_os_dark_mode);
+//         auto ptopic = acmesystem()->topic(id_os_dark_mode);
 //
-//         m_psystem->handle_subject(ptopic);
+//         acmesystem()->handle_subject(ptopic);
 //
 //         CreateWindowSizeDependentResources();
 //
 //         if (m_size.area() > 0)
 //         {
 //
-//            m_psystem->fork([this]()
+//            acmesystem()->fork([this]()
 //            {
 //
-//               m_psystem->on_graphics_ready();
+//               acmesystem()->on_graphics_ready();
 //
 //            });
 //
@@ -424,7 +424,7 @@
 //   //void direct2d_buffer::defer_resize_top_level_windows()
 //   //{
 //
-//   //   if (m_psystem->m_bExperienceMainFrame)
+//   //   if (acmesystem()->m_bExperienceMainFrame)
 //   //   {
 //
 //   //      auto puserinteractionpointeraChild = m_pwindow->m_puserinteraction->m_puserinteractionpointeraChild;
@@ -931,7 +931,7 @@
 //
 //   //   dc->attach((ID2D1DeviceContext *) m_pd2d1devicecontext.Get());
 //
-//   //   auto pimpl = m_psystem->get_session()->m_puserinteractionHost->m_pimpl;
+//   //   auto pimpl = acmesystem()->get_session()->m_puserinteractionHost->m_pimpl;
 //
 //   //   //throw_todo();
 //

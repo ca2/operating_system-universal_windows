@@ -23,7 +23,7 @@ namespace acme_universal_windows
    void node::implement(::pointer<::acme::node>& pnode, ::pointer<::acme::system>& psystem)
    {
 
-      //auto psystem = m_psystem;
+      //auto psystem = acmesystem();
 
       //auto estatus = 
 

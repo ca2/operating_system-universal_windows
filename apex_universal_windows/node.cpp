@@ -25,7 +25,7 @@ namespace apex_universal_windows
    void node::implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem)
    {
 
-      //auto psystem = m_psystem;
+      //auto psystem = acmesystem();
 
       //auto estatus = 
 
@@ -57,12 +57,12 @@ namespace apex_universal_windows
       if (!m_pClearApplicationDataHandler)
       {
 
-         m_pClearApplicationDataHandler = m_psystem->m_papexsystem->add_command_handler(
+         m_pClearApplicationDataHandler = acmesystem()->m_papexsystem->add_command_handler(
             "clear_application_data",
             [this](::message::message* pmessage)
             {
 
-               m_psystem->m_pacmefile->clear_application_data();
+               acmefile()->clear_application_data();
 
             });
 
@@ -79,7 +79,7 @@ namespace apex_universal_windows
    //   if (ptopic->m_puserelement->m_atom == "clear_application_data")
    //   {
 
-   //      m_psystem->m_pacmefile->clear_application_data();
+   //      acmefile()->clear_application_data();
 
    //   }
 

@@ -88,9 +88,9 @@ namespace windowing_universal_windows
 
       m_pwindow = (class window *)pimpl->m_pwindow->m_pWindow4;
 
-      m_dDpiIni = (float) m_psystem->m_paurasystem->m_dDpi;
+      m_dDpiIni = (float) acmesystem()->m_paurasystem->m_dDpi;
 
-      m_dDpi = (float) m_psystem->m_paurasystem->m_dDpi;
+      m_dDpi = (float) acmesystem()->m_paurasystem->m_dDpi;
 
       CreateDeviceIndependentResources();
 
@@ -368,11 +368,11 @@ namespace windowing_universal_windows
 
       m_dDpi = m_dDpiIni;
 
-      m_psystem->m_paurasystem->m_dDpi = m_dDpiIni;
+      acmesystem()->m_paurasystem->m_dDpi = m_dDpiIni;
 
       m_bInitialized = true;
 
-      m_psystem->m_pnode->m_pauranode->dpi_os_initialize();
+      acmesystem()->m_pnode->m_pauranode->dpi_os_initialize();
 
       //m_pimage->alloc(get_application()->create_new, this);
       //m_pimage = create_image({1000,  1000});
@@ -570,7 +570,7 @@ namespace windowing_universal_windows
 
       // Only handle window size_i32 changed if there is no pending DPI change.
 
-      m_psystem->m_paurasession->m_puser->m_pwindowing->windowing_post([this, dpi]()
+      acmesystem()->m_paurasession->m_puser->m_pwindowing->windowing_post([this, dpi]()
          {
 
             OnChangeDpi(dpi);
@@ -579,7 +579,7 @@ namespace windowing_universal_windows
             //{
               // OnChangeDpi(dpi);
 
-               //         m_psystem->m_psystem->m_possystemwindow->m_bWindowSizeChange = true;
+               //         acmesystem()->acmesystem()->m_possystemwindow->m_bWindowSizeChange = true;
 
             //}));
 
@@ -598,7 +598,7 @@ namespace windowing_universal_windows
 
          m_dDpi = dpi;
 
-         m_psystem->m_paurasystem->m_dDpi = dpi;
+         acmesystem()->m_paurasystem->m_dDpi = dpi;
 
          if (m_bCreated)
          {
@@ -636,7 +636,7 @@ namespace windowing_universal_windows
    void buffer::UpdateForWindowSizeChange()
    {
 
-      m_psystem->m_paurasession->m_puser->m_pwindowing->windowing_post([this]()
+      acmesystem()->m_paurasession->m_puser->m_pwindowing->windowing_post([this]()
          {
             //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
             //{
@@ -663,10 +663,10 @@ namespace windowing_universal_windows
          if (m_size.area() > 0)
          {
 
-            m_psystem->fork([this]()
+            acmesystem()->fork([this]()
                {
 
-                  m_psystem->m_paurasystem->on_graphics_ready();
+                  acmesystem()->m_paurasystem->on_graphics_ready();
 
                });
 
@@ -712,7 +712,7 @@ namespace windowing_universal_windows
    //void buffer::defer_resize_top_level_windows()
    //{
 
-   //   if (m_psystem->m_bExperienceMainFrame)
+   //   if (acmesystem()->m_bExperienceMainFrame)
    //   {
 
    //      auto puserinteractionpointeraChild = m_pwindow->m_puserinteraction->m_puserinteractionpointeraChild;
@@ -921,11 +921,11 @@ namespace windowing_universal_windows
       else if(m_size.cx > m_sizeBuffer.cx || m_size.cy > m_sizeBuffer.cy)
       {
 
-         //synchronous_lock synchronouslockObjects(m_psystem->m_paurasystem->draw2d()->get_object_list_mutex());
-         //synchronous_lock synchronouslockImages(m_psystem->m_paurasystem->draw2d()->get_image_list_mutex());
-         //synchronous_lock synchronouslockGraphicsContext(m_psystem->m_paurasystem->draw2d()->get_graphics_context_list_mutex());
+         //synchronous_lock synchronouslockObjects(acmesystem()->m_paurasystem->draw2d()->get_object_list_mutex());
+         //synchronous_lock synchronouslockImages(acmesystem()->m_paurasystem->draw2d()->get_image_list_mutex());
+         //synchronous_lock synchronouslockGraphicsContext(acmesystem()->m_paurasystem->draw2d()->get_graphics_context_list_mutex());
 
-         m_psystem->m_paurasystem->draw2d()->clear_all_objects_os_data();
+         acmesystem()->m_paurasystem->draw2d()->clear_all_objects_os_data();
          //
          //            //if (m_pswapchain != nullptr)
          ////{
@@ -1384,7 +1384,7 @@ namespace windowing_universal_windows
 
    //   dc->attach((ID2D1DeviceContext *) m_pdevicecontext);
 
-   //   auto pimpl = m_psystem->get_session()->m_puserinteractionHost->m_pimpl;
+   //   auto pimpl = acmesystem()->get_session()->m_puserinteractionHost->m_pimpl;
 
    //   //throw_todo();
 

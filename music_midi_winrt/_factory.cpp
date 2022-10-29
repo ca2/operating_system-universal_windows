@@ -32,7 +32,7 @@ __FACTORY_EXPORT void music_midi_winrt_factory(::factory::factory * pfactory)// 
 //} // namespace music
 //
 //
-//void ca2_factory(::object * pobject)
+//void ca2_factory(::particle * pparticle)
 //{
 //
 //   ::music::midi::winrt::factory_exchange factoryexchange(pobject);

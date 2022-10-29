@@ -36,7 +36,7 @@ namespace windowing_win32
 #endif
    }
 
-   void notification_area::Initialize(::object * pobject)
+   void notification_area::Initialize(::particle * pparticle)
    {
 
 #ifdef WINDOWS_DESKTOP
@@ -117,7 +117,7 @@ namespace windowing_win32
 
          GetWindowThreadProcessId(tray.hwnd, &dwProcessId);
 
-         auto psystem = m_psystem;
+         auto psystem = acmesystem();
 
          auto pnode = psystem->node();
 

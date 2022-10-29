@@ -41,7 +41,7 @@ namespace windowing_universal_windows
 //#ifdef WINDOWS_DESKTOP
 
       //#pragma message("at macos??")
-      //::pointer<system_interaction>   m_psysteminteraction;
+      //::pointer<system_interaction>   acmesystem()interaction;
 
 //#endif
 
@@ -73,7 +73,7 @@ namespace windowing_universal_windows
       // END From Node
 
 
-      //inline system_interaction * system_window() { return m_psysteminteraction; }
+      //inline system_interaction * system_window() { return acmesystem()interaction; }
 
       //virtual HICON _load_icon(string_array& straMatter, string strIcon, int cx, int cy);
 
@@ -170,7 +170,7 @@ namespace windowing_universal_windows
       void lock_set_foreground_window(bool bLock) override;
 
       //virtual wstring _windows_register_window_class(::u32 nClassStyle, hcursor hCursor = 0, HBRUSH hbrBackground = 0, hicon hIcon = 0);
-      //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS wstring windows_register_window_class(::object * pobject, ::u32 nClassStyle, hcursor hCursor = 0, HBRUSH hbrBackground = 0, hicon hIcon = 0);
+      //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS wstring windows_register_window_class(::particle * pparticle, ::u32 nClassStyle, hcursor hCursor = 0, HBRUSH hbrBackground = 0, hicon hIcon = 0);
       //virtual bool _windows_register_class(WNDCLASSEXW* puserinteractionclass);
       //
       //virtual wstring _windows_calc_icon_window_class(::user::interaction* pinteraction, u32 dwDefaultStyle, const ::string & pszMatter) override;

@@ -91,16 +91,16 @@ namespace windowing_universal_windows
    //bool windowing::defer_create_system_window()
    //{
 
-   //   //if (m_psysteminteraction)
+   //   //if (acmesystem()interaction)
    //   //{
 
    //   //   return true;
 
    //   //}
 
-   //   //m_psysteminteraction = create_system_window();
+   //   //acmesystem()interaction = create_system_window();
 
-   //   //if (!m_psysteminteraction)
+   //   //if (!acmesystem()interaction)
    //   //{
 
    //   //   return false;
@@ -122,7 +122,7 @@ namespace windowing_universal_windows
       //return luminance < 0.5;
    
    
-      //m_psystem->m_papexsystem->signal(id_user_color);
+      //acmesystem()->m_papexsystem->signal(id_user_color);
    
    }
    
@@ -138,7 +138,7 @@ namespace windowing_universal_windows
    
       auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
    
-      m_psystem->m_pnode->background_color(colorBackground);
+      acmesystem()->m_pnode->background_color(colorBackground);
    
    }
    
@@ -183,10 +183,10 @@ namespace windowing_universal_windows
    void windowing::defer_term_ui()
    {
 
-      //if (m_psysteminteraction)
+      //if (acmesystem()interaction)
       //{
 
-      //   m_psysteminteraction->start_destroying_window();
+      //   acmesystem()interaction->start_destroying_window();
 
       //}
 
@@ -199,7 +199,7 @@ namespace windowing_universal_windows
 
       ::windowing::windowing::finalize_windowing();
 
-      //m_psysteminteraction.release();
+      //acmesystem()interaction.release();
 
    }
 
@@ -207,10 +207,10 @@ namespace windowing_universal_windows
    void windowing::destroy()
    {
 
-      //if (m_psysteminteraction)
+      //if (acmesystem()interaction)
       //{
 
-      //   m_psysteminteraction->start_destroying_window();
+      //   acmesystem()interaction->start_destroying_window();
 
       //}
 
@@ -541,7 +541,7 @@ namespace windowing_universal_windows
       //      try
       //      {
 
-      //         pinteraction = pimpl->m_psysteminteraction;
+      //         pinteraction = pimpl->acmesystem()interaction;
 
       //      }
       //      catch (...)
@@ -950,7 +950,7 @@ namespace windowing_universal_windows
   /* ::e_status windowing::windowing_branch(const ::procedure & procedure)
    {
 
-      auto estatus = m_psystem->m_papexsystem->post(routine);
+      auto estatus = acmesystem()->m_papexsystem->post(routine);
 
       if (!estatus)
       {
@@ -967,7 +967,7 @@ namespace windowing_universal_windows
    void windowing::windowing_post(const ::procedure & procedure)
    {
 
-      m_psystem->m_paurasystem->m_pwindowMain->window_post(procedure);
+      acmesystem()->m_paurasystem->m_pwindowMain->window_post(procedure);
 
    }
 

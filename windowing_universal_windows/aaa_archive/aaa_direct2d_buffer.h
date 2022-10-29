@@ -66,7 +66,7 @@
 //      ::boolean                                          m_bCoreWindowVisible;
 //
 //      bool                                                  m_b3D;
-//      ::aura::system *                                      m_psystem;
+//      ::aura::system *                                      acmesystem();
 //      ::mutex                                               m_mutexDc;
 //      size_i32                                              m_size;
 //      ::size_i32                                            m_sizeBuffer;

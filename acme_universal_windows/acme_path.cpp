@@ -37,7 +37,7 @@ namespace acme_universal_windows
       try
       {
 
-         if (m_psystem->m_pacmedirectory->is(path))
+         if (acmedirectory()->is(path))
          {
 
             hfile = hfile_create(path,
@@ -113,22 +113,22 @@ namespace acme_universal_windows
 
       ::object* pobject = nullptr;
 
-      if (m_psystem->m_pacmeapplicationMain)
+      if (acmesystem()->m_pacmeapplicationMain)
       {
 
-         pobject = m_psystem->m_pacmeapplicationMain;
+         pobject = acmesystem()->m_pacmeapplicationMain;
 
       }
-      else if (m_psystem->m_pacmeapplicationStartup)
+      else if (acmesystem()->m_pacmeapplicationStartup)
       {
 
-         pobject = m_psystem->m_pacmeapplicationStartup;
+         pobject = acmesystem()->m_pacmeapplicationStartup;
 
       }
       else
       {
 
-         pobject = m_psystem;
+         pobject = acmesystem();
       }
 
       auto folder = windows_runtime_folder(pobject, strRelative, strPrefix);

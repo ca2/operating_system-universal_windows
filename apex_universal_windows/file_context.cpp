@@ -29,7 +29,7 @@ namespace apex_universal_windows
    }
 
 
-   void file_context::initialize(::object * pobject)
+   void file_context::initialize(::particle * pparticle)
    {
 
       //auto estatus = 
@@ -174,7 +174,7 @@ namespace apex_universal_windows
 
       }
 
-      return m_psystem->m_pacmepath->get_type(path);
+      return acmepath()->get_type(path);
 
    }
 
@@ -327,7 +327,7 @@ namespace apex_universal_windows
    void file_context::erase(const ::file::path & psz)
    {
 
-      m_psystem->m_pacmefile->erase(psz);
+      acmefile()->erase(psz);
       //{
       //
       //   return error_failed;
@@ -441,7 +441,7 @@ namespace apex_universal_windows
    void file_context::get_status(::file::file_status & rStatus, const ::file::path & path)
    {
 
-      auto pathFull = m_psystem->m_pacmepath->_final(path);
+      auto pathFull = acmepath()->_final(path);
 
       wstring wstrFullName(pathFull);
 
@@ -879,7 +879,7 @@ namespace apex_universal_windows
 
       ::file::path pathJson;
 
-      pathJson = m_psystem->m_pacmedirectory->user_appdata_local() / "Dropbox/info.json";
+      pathJson = acmedirectory()->user_appdata_local() / "Dropbox/info.json";
 
       return pathJson;
 

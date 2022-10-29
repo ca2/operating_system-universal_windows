@@ -24,7 +24,7 @@ namespace apex_universal_windows
       ~dir_system() override;
       
       
-      void initialize(::object * pobject) override;
+      void initialize(::particle * pparticle) override;
 
 
       void init_system() override;

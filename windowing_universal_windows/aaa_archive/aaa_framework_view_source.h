@@ -141,7 +141,7 @@ namespace windowing_universal_windows
    //public:
 
    //   
-   //   ::aura::system *     m_psystem;
+   //   ::aura::system *     acmesystem();
 
    //   string               m_strId;
 

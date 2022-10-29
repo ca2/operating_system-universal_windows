@@ -28,7 +28,7 @@ namespace aura_universal_windows
 
 
       interaction_impl();
-      //interaction_impl(::object * pobject);
+      //interaction_impl(::particle * pparticle);
       ~interaction_impl() override;
 
 

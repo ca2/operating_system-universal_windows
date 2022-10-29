@@ -6,7 +6,7 @@
 //{
 //
 //
-//   folder_watch::folder_watch(::object * pobject) :
+//   folder_watch::folder_watch(::particle * pparticle) :
 //      ::object(pobject),
 //      ::thread(pobject)
 //   {

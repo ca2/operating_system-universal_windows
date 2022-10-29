@@ -331,7 +331,7 @@ namespace windowing_universal_windows
 
       //auto puser = psession->user();
 
-      //auto psystem = m_psystem->m_paurasystem;
+      //auto psystem = acmesystem()->m_paurasystem;
 
       //auto pnode = psystem->node();
 
@@ -354,7 +354,7 @@ namespace windowing_universal_windows
 
       //}
 
-      ////auto psystem = m_psystem->m_paurasystem;
+      ////auto psystem = acmesystem()->m_paurasystem;
 
 
       //comptr < IShellIcon > pshellicon;
@@ -484,7 +484,7 @@ namespace windowing_universal_windows
       //   //      else
       //   //      {
 
-      //   //         auto psystem = m_psystem;
+      //   //         auto psystem = acmesystem();
 
       //   //         auto pnode = psystem->node();
 
@@ -548,7 +548,7 @@ namespace windowing_universal_windows
       //            else
       //            {
 
-      //               auto psystem = m_psystem;
+      //               auto psystem = acmesystem();
 
       //               auto pnode = psystem->node();
 
@@ -715,7 +715,7 @@ namespace windowing_universal_windows
 
       //      string strIcon;
 
-      //      strIcon = m_psystem->m_pacmedirectory->config() / "shell/app_theme" / getfileimage.m_imagekey.m_strShellThemePrefix + strExtension + ".ico";
+      //      strIcon = acmedirectory()->config() / "shell/app_theme" / getfileimage.m_imagekey.m_strShellThemePrefix + strExtension + ".ico";
 
       //      if (m_pcontext->m_papexcontext->file().exists(strIcon))
       //      {
@@ -1014,7 +1014,7 @@ namespace windowing_universal_windows
    //}
 
 
-   shell::enum_folder shell::get_folder_type(::object * pobject, const ::string & pcsz)
+   shell::enum_folder shell::get_folder_type(::particle * pparticle, const ::string & pcsz)
    {
 
       return get_folder_type(pobject, utf8_to_unicode(pcsz));
@@ -1022,14 +1022,14 @@ namespace windowing_universal_windows
    }
 
 
-   shell::enum_folder shell::get_folder_type(::object * pobject, const ::wstring & wstrPath)
+   shell::enum_folder shell::get_folder_type(::particle * pparticle, const ::wstring & wstrPath)
    {
 
       string strPath;
 
       unicode_to_utf8(strPath, wstrPath);
 
-      auto psystem = m_psystem;
+      auto psystem = acmesystem();
 
       auto pacmedir = psystem->m_pacmedirectory;
 
@@ -1042,7 +1042,7 @@ namespace windowing_universal_windows
       else
       {
 
-         if (m_psystem->fast_is_decompressable_folder(strPath))
+         if (acmesystem()->fast_is_decompressable_folder(strPath))
          {
 
             return e_folder_zip;
@@ -1396,7 +1396,7 @@ namespace windowing_universal_windows
    //}
 
 
-   void shell::initialize(::object * pobject)
+   void shell::initialize(::particle * pparticle)
    {
 
       if (m_bInitialized)
@@ -1667,7 +1667,7 @@ namespace windowing_universal_windows
       if (reserve_image(getfileimage))
       {
 
-         //auto psystem = m_psystem->m_paurasystem;
+         //auto psystem = acmesystem()->m_paurasystem;
 
          //auto pnode = psystem->node()->m_pAuraPlatform;
 

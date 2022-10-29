@@ -5,7 +5,7 @@ namespace simple_drawing
 {
 
 
-   main_impact::main_impact(::object * pobject):
+   main_impact::main_impact(::particle * pparticle):
       object(pobject),
       ::user::split_layout(pobject),
       ::user::split_impact(pobject),

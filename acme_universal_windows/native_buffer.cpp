@@ -49,11 +49,7 @@ namespace acme_universal_windows
       if ((eopen & ::file::e_open_defer_create_directory) && (eopen & ::file::e_open_write))
       {
 
-         auto psystem = m_psystem;
-
-         auto pacmedir = psystem->m_pacmedirectory;
-
-         pacmedir->create(path.folder());
+acmedirectory()create(path.folder());
 
       }
 
