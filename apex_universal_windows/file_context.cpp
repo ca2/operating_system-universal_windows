@@ -454,7 +454,7 @@ namespace apex_universal_windows
        
          DWORD lastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(lastError);
+         auto estatus = ::windows::last_error_status(lastError);
 
          throw ::exception(estatus);
 
@@ -664,7 +664,7 @@ namespace apex_universal_windows
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 
@@ -683,7 +683,7 @@ namespace apex_universal_windows
 
             auto dwLastError = ::GetLastError();
 
-            auto estatus = last_error_to_status(dwLastError);
+            auto estatus = ::windows::last_error_status(dwLastError);
 
             auto errorcode = __last_error(dwLastError);
 
@@ -731,7 +731,7 @@ namespace apex_universal_windows
 
             auto dwLastError = ::GetLastError();
 
-            auto estatus = last_error_to_status(dwLastError);
+            auto estatus = ::windows::last_error_status(dwLastError);
 
             auto errorcode = __last_error(dwLastError);
 
@@ -744,7 +744,7 @@ namespace apex_universal_windows
 
             auto dwLastError = ::GetLastError();
 
-            auto estatus = last_error_to_status(dwLastError);
+            auto estatus = ::windows::last_error_status(dwLastError);
 
             auto errorcode = __last_error(dwLastError);
 
@@ -757,7 +757,7 @@ namespace apex_universal_windows
 
             auto dwLastError = ::GetLastError();
 
-            auto estatus = last_error_to_status(dwLastError);
+            auto estatus = ::windows::last_error_status(dwLastError);
 
             auto errorcode = __last_error(dwLastError);
 
@@ -775,7 +775,7 @@ namespace apex_universal_windows
 
             auto dwLastError = ::GetLastError();
 
-            auto estatus = last_error_to_status(dwLastError);
+            auto estatus = ::windows::last_error_status(dwLastError);
 
             auto errorcode = __last_error(dwLastError);
 

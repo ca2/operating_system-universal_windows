@@ -75,7 +75,7 @@ acmedirectory()create(path.folder());
 
          auto dwLastError = -1;
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 

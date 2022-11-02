@@ -204,7 +204,7 @@ pacmedir->create(lpszFileName.folder());
       {
          ::u32 dwLastError = ::GetLastError();
 
-         m_estatus = last_error_to_status(dwLastError);
+         m_estatus = ::windows::last_error_status(dwLastError);
 
          if(dwLastError != ERROR_FILE_NOT_FOUND && dwLastError != ERROR_PATH_NOT_FOUND)
          {
@@ -235,7 +235,7 @@ pacmedir->create(lpszFileName.folder());
             throw ::file::exception(m_estatus, __last_error(dwLastError), m_path, "!hfile_create", m_eopen);
 
 
-            //return ::last_error_to_status(dwLastError);
+            //return ::::windows::last_error_status(dwLastError);
 
             //}
 
@@ -273,7 +273,7 @@ pacmedir->create(lpszFileName.folder());
 
 
             ::u32 dwLastError = ::GetLastError();
-            m_estatus = ::last_error_to_status(dwLastError);
+            m_estatus = ::::windows::last_error_status(dwLastError);
 
             if (eopen & ::file::e_open_no_exception_on_open)
             {
@@ -321,7 +321,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
        
@@ -352,7 +352,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 
@@ -366,7 +366,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 
@@ -385,7 +385,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 
@@ -410,7 +410,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 
@@ -438,7 +438,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 
@@ -463,7 +463,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 
@@ -492,7 +492,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 
@@ -550,7 +550,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto dwLastError = ::GetLastError();
 
-         auto estatus = last_error_to_status(dwLastError);
+         auto estatus = ::windows::last_error_status(dwLastError);
 
          auto errorcode = __last_error(dwLastError);
 
