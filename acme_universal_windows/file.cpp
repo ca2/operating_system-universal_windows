@@ -232,10 +232,10 @@ pacmedir->create(lpszFileName.folder());
 
             }
 
-            throw ::file::exception(m_estatus, __last_error(dwLastError), m_path, "!hfile_create", m_eopen);
+            throw ::file::exception(m_estatus, ::windows::last_error_error_code(dwLastError), m_path, "!hfile_create", m_eopen);
 
 
-            //return ::::windows::last_error_status(dwLastError);
+            //return ::windows::last_error_status(dwLastError);
 
             //}
 
@@ -273,7 +273,7 @@ pacmedir->create(lpszFileName.folder());
 
 
             ::u32 dwLastError = ::GetLastError();
-            m_estatus = ::::windows::last_error_status(dwLastError);
+            m_estatus = ::windows::last_error_status(dwLastError);
 
             if (eopen & ::file::e_open_no_exception_on_open)
             {
@@ -284,7 +284,7 @@ pacmedir->create(lpszFileName.folder());
 
             }
 
-            throw ::file::exception(m_estatus, __last_error(dwLastError), m_path, "!hfile_create", m_eopen);
+            throw ::file::exception(m_estatus, ::windows::last_error_error_code(dwLastError), m_path, "!hfile_create", m_eopen);
 
 
 
@@ -323,7 +323,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
        
          throw ::file::exception(estatus, errorcode, m_path, "!::ReadFile", m_eopen);
 
@@ -354,7 +354,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, m_path, "!::WriteFile", m_eopen);
 
@@ -368,7 +368,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, m_path, "nWritten < nCount", m_eopen);
 
@@ -387,7 +387,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, m_path, "hfile == NULL_HFILE", m_eopen);
 
@@ -412,7 +412,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, m_path, "!SetFilePointer", m_eopen);
 
@@ -440,7 +440,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, m_path, "SetFilePointer < 0", m_eopen);
 
@@ -465,7 +465,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, m_path, "!::FlushFileBuffers", m_eopen);
 
@@ -494,7 +494,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, m_path, "!::CloseHandle", m_eopen);
 
@@ -552,7 +552,7 @@ pacmedir->create(lpszFileName.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, m_path, "!::SetEndOfFile", m_eopen);
 

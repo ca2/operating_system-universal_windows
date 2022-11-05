@@ -1205,7 +1205,7 @@ namespace windowing_universal_windows
       //SHFILEINFOW shfi = {};
 
       //if (getfileimage.m_imagekey.m_strPath.get_length() == 2
-      //   && ansi_char_is_alphabetic(getfileimage.m_imagekey.m_strPath[0])
+      //   && ansi_char_isalpha(getfileimage.m_imagekey.m_strPath[0])
       //   && getfileimage.m_imagekey.m_strPath[1] == ':')
       //{
 
@@ -1250,7 +1250,7 @@ namespace windowing_universal_windows
 
       //   i32 i = 0;
 
-      //   while (i < strProtocol.get_length() && ansi_char_is_alphanumeric(strProtocol[i]))
+      //   while (i < strProtocol.get_length() && ansi_char_is_alnum(strProtocol[i]))
       //   {
 
       //      i++;

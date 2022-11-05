@@ -666,7 +666,7 @@ namespace apex_universal_windows
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, path, "!::windows_get_file_attributes");
 
@@ -685,7 +685,7 @@ namespace apex_universal_windows
 
             auto estatus = ::windows::last_error_status(dwLastError);
 
-            auto errorcode = __last_error(dwLastError);
+            auto errorcode = ::windows::last_error_error_code(dwLastError);
 
             throw ::file::exception(estatus, errorcode, pszFileName, "!::SetFileAttributes");
 
@@ -733,7 +733,7 @@ namespace apex_universal_windows
 
             auto estatus = ::windows::last_error_status(dwLastError);
 
-            auto errorcode = __last_error(dwLastError);
+            auto errorcode = ::windows::last_error_error_code(dwLastError);
 
             throw ::file::exception(estatus, errorcode, path, "hfile_create == INVALID_HANDLE_VALUE");
 
@@ -746,7 +746,7 @@ namespace apex_universal_windows
 
             auto estatus = ::windows::last_error_status(dwLastError);
 
-            auto errorcode = __last_error(dwLastError);
+            auto errorcode = ::windows::last_error_error_code(dwLastError);
 
             throw ::file::exception(estatus, errorcode, path, "!::SetFileTime");
 
@@ -759,7 +759,7 @@ namespace apex_universal_windows
 
             auto estatus = ::windows::last_error_status(dwLastError);
 
-            auto errorcode = __last_error(dwLastError);
+            auto errorcode = ::windows::last_error_error_code(dwLastError);
 
             throw ::file::exception(estatus, errorcode, path, "!::CloseHandle");
 
@@ -777,7 +777,7 @@ namespace apex_universal_windows
 
             auto estatus = ::windows::last_error_status(dwLastError);
 
-            auto errorcode = __last_error(dwLastError);
+            auto errorcode = ::windows::last_error_error_code(dwLastError);
 
             throw ::file::exception(estatus, errorcode, pszFileName, "!::SetFileAttributesW");
 

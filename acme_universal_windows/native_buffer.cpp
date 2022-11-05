@@ -77,7 +77,7 @@ acmedirectory()create(path.folder());
 
          auto estatus = ::windows::last_error_status(dwLastError);
 
-         auto errorcode = __last_error(dwLastError);
+         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
          throw ::file::exception(estatus, errorcode, m_path, "!windows_runtime_folder", m_eopen);
 
@@ -340,7 +340,7 @@ acmedirectory()create(path.folder());
 
          auto hresult = error.code();
 
-         auto estatus = hresult_to_status(error.code());
+         auto estatus = ::windows::hresult_status(error.code());
 
          auto errorcode = __hresult(hresult);
 

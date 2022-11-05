@@ -35,7 +35,7 @@
 //   bool CLASS_DECL_ACME_WINDOWS shell_get_special_folder_path(HWND hwnd, ::file::path& str, i32 csidl, bool fCreate)
 //   {
 //
-//      return ::SHGetSpecialFolderPathW(hwnd, wtostring(str, MAX_PATH * 8), csidl, fCreate) != false;
+//      return ::SHGetSpecialFolderPathW(hwnd, wstring_adaptor(str, MAX_PATH * 8), csidl, fCreate) != false;
 //
 //   }
 //
@@ -62,7 +62,7 @@
 //   ::u32 get_current_directory(string& str)
 //   {
 //
-//      return ::GetCurrentDirectoryW(MAX_PATH * 8, wtostring(str, MAX_PATH * 8));
+//      return ::GetCurrentDirectoryW(MAX_PATH * 8, wstring_adaptor(str, MAX_PATH * 8));
 //
 //   }
 //
@@ -70,7 +70,7 @@
 //   ::u32 get_temp_path(string& str)
 //   {
 //
-//      return ::GetTempPathW(MAX_PATH * 8, wtostring(str, MAX_PATH * 8));
+//      return ::GetTempPathW(MAX_PATH * 8, wstring_adaptor(str, MAX_PATH * 8));
 //
 //   }
 //
