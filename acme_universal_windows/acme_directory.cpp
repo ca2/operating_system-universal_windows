@@ -162,7 +162,7 @@ namespace acme_universal_windows
 
       path.find_replace(":", "");
 
-      ::str().ends_eat_ci(path, ".exe");
+      path.ends_eat_ci(".exe");
 
       return path;
 

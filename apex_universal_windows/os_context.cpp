@@ -1945,43 +1945,43 @@ return false;
 
       //   key._get("ProgId", strProgId);
 
-      //   if (::str().begins(strProgId, "App") && strHash.has_char())
+      //   if (strProgId.begins("App") && strHash.has_char())
       //   {
 
       //      strId = "edge";
 
       //   }
-      //   if (::str().begins_ci(strProgId, "IE."))
+      //   if (strProgId.begins_ci("IE."))
       //   {
 
       //      strId = "ie";
 
       //   }
-      //   else if (::str().begins_ci(strProgId, "ChromeHTML"))
+      //   else if (strProgId.begins_ci("ChromeHTML"))
       //   {
 
       //      strId = "chrome";
 
       //   }
-      //   else if (::str().begins_ci(strProgId, "FirefoxHTML"))
+      //   else if (strProgId.begins_ci("FirefoxHTML"))
       //   {
 
       //      strId = "firefox";
 
       //   }
-      //   else if (::str().begins_ci(strProgId, "Opera"))
+      //   else if (strProgId.begins_ci("Opera"))
       //   {
 
       //      strId = "opera";
 
       //   }
-      //   else if (::str().begins_ci(strProgId, "VivaldiHTM."))
+      //   else if (strProgId.begins_ci("VivaldiHTM."))
       //   {
 
       //      strId = "vivaldi";
 
       //   }
-      //   else if (::str().ends_ci(strProgId, "app_core_commander"))
+      //   else if (strProgId.ends_ci("app_core_commander"))
       //   {
 
       //      strId = "commander";
@@ -2007,7 +2007,7 @@ return false;
 
       //   }
 
-      //   bool bQuote = ::str().begins_eat_ci(strDefault, "\"");
+      //   bool bQuote = strDefault.begins_eat_ci("\"");
 
       //   strsize iFind = strDefault.find_ci(".exe");
 
@@ -2029,7 +2029,7 @@ return false;
       //   if (bQuote)
       //   {
 
-      //      ::str().begins_eat_ci(strParam, "\"");
+      //      strParam.begins_eat_ci("\"");
 
       //   }
 
@@ -2295,7 +2295,7 @@ return false;
 //
 //      }
 //
-//      if (!::str().ends_ci(str, ".exe"))
+//      if (!str.ends_ci(".exe"))
 //      {
 //
 //         str += ".exe";

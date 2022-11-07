@@ -89,7 +89,7 @@ namespace apex_universal_windows
 
    //   // return true;
 
-   //   if (::str().begins_ci(pszFileIn, "http://"))
+   //   if (pszFileIn.begins_ci("http://"))
 
    //   {
 
@@ -99,7 +99,7 @@ namespace apex_universal_windows
    //      return true;
 
    //   }
-   //   else if (::str().begins_ci(pszFileIn, "https://"))
+   //   else if (pszFileIn.begins_ci("https://"))
 
    //   {
 
@@ -127,12 +127,12 @@ namespace apex_universal_windows
    //   /*      if(::apex::file_context::FullPath(wstrFullPath, wstrPath))
    //   return true;*/
 
-   //   if (::str().begins_ci(wstrPath, L"http://"))
+   //   if (wstrPath.begins_ci(L"http://"))
    //   {
    //      wstrFullPath = wstrPath;
    //      return true;
    //   }
-   //   else if (::str().begins_ci(wstrPath, L"https://"))
+   //   else if (wstrPath.begins_ci(L"https://"))
    //   {
    //      wstrFullPath = wstrPath;
    //      return true;

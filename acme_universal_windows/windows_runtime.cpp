@@ -149,7 +149,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
    //   return ::winrt::Windows::Storage::ApplicationData::Current.TemporaryFolder();
 
    //}
-   else if (::str().begins_eat_ci(strRelative, string(::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin())))
+   else if (strRelative.begins_eat_ci(string(::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin())))
    {
 
       strPrefix = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
@@ -552,7 +552,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //   strRelative.trim_right("/\\");
 //
-//   ::str().begins_eat_ci(strRelative, strPrefix);
+//   strRelative.begins_eat_ci(strPrefix);
 //
 //   strRelative.trim_left("/\\");
 //
@@ -582,7 +582,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //         strPrefix.replace("/", "\\");
 //
-//         ::str().begins_eat_ci(strRelative, strPrefix);
+//         strRelative.begins_eat_ci(strPrefix);
 //
 //         strRelative.trim("/\\");
 //
@@ -709,7 +709,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //      else
 //      {
 //
-//         if (::str().begins_eat_ci(str, "image://"))
+//         if (str.begins_eat_ci("image://"))
 //         {
 //
 //            strPrefix = "image://";
@@ -729,7 +729,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //         }
 //
-//         if (::str().begins_eat_ci(str, "music://"))
+//         if (str.begins_eat_ci("music://"))
 //         {
 //
 //            strPrefix = "music://";
@@ -749,7 +749,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //         }
 //
-//         if (::str().begins_eat_ci(str, "video://"))
+//         if (str.begins_eat_ci("video://"))
 //         {
 //
 //            strPrefix = "video://";
@@ -769,7 +769,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //         }
 //
-//         if (::str().begins_eat_ci(str, "document://"))
+//         if (str.begins_eat_ci("document://"))
 //         {
 //
 //            strPrefix = "document://";

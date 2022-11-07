@@ -132,7 +132,7 @@ acmedirectory()create(path.folder());
 
       string strRelative = pathFolder;
 
-      ::str().begins_eat_ci(strRelative, strPrefix);
+      strRelative.begins_eat_ci(strPrefix);
 
       strRelative.trim("\\/");
 
