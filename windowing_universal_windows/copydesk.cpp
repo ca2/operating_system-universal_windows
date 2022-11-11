@@ -21,7 +21,7 @@ namespace windowing_universal_windows
    copydesk::copydesk()
    {
 
-      defer_create_mutex();
+      defer_create_synchronization();
 
    }
 
@@ -35,7 +35,7 @@ namespace windowing_universal_windows
    void copydesk::OnClipboardUpdate()
    {
 
-      synchronous_lock synchronouslock(mutex());
+      synchronous_lock synchronouslock(synchronization());
 
       m_cFileCount = -1;
       m_iPriorityTextFormat = -2;
@@ -95,7 +95,7 @@ namespace windowing_universal_windows
 
       //}
 
-      synchronous_lock synchronouslock(mutex());
+      synchronous_lock synchronouslock(synchronization());
 
       //WNDCLASS wndcls = {};
 
@@ -364,7 +364,7 @@ namespace windowing_universal_windows
       m_pwindow->window_post([this]()
          {
 
-            synchronous_lock synchronouslock(mutex());
+            synchronous_lock synchronouslock(synchronization());
 
 
             //if(m_cFileCount < 0)
@@ -379,7 +379,7 @@ namespace windowing_universal_windows
             //   else
             //   {
 
-            //      synchronous_lock synchronouslock(mutex());
+            //      synchronous_lock synchronouslock(synchronization());
 
             //      if (!::OpenClipboard(__hwnd(get_oswindow())))
             //      //if(!OpenClipboard())
@@ -433,7 +433,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //synchronous_lock synchronouslock(mutex());
+      //synchronous_lock synchronouslock(synchronization());
 
       //if (!::OpenClipboard(__hwnd(get_oswindow())))
       //{
@@ -475,7 +475,7 @@ namespace windowing_universal_windows
 
       //ASSERT(::IsWindow(m_hwnd));
 
-      //synchronous_lock synchronouslock(mutex());
+      //synchronous_lock synchronouslock(synchronization());
 
       //if (!::OpenClipboard(__hwnd(get_oswindow())))
       //{
@@ -518,7 +518,7 @@ namespace windowing_universal_windows
       m_pwindow->window_send({ e_timeout, 15_s, [this, &bHasText]()
          {
 
-            synchronous_lock synchronouslock(mutex());
+            synchronous_lock synchronouslock(synchronization());
 
 
             auto datapackageview = ::winrt::Windows::ApplicationModel::DataTransfer::Clipboard::GetContent();
@@ -546,7 +546,7 @@ namespace windowing_universal_windows
       m_pwindow->window_post([this, str]()
          {
 
-            synchronous_lock synchronouslock(mutex());
+            synchronous_lock synchronouslock(synchronization());
 
             ::winrt::Windows::ApplicationModel::DataTransfer::DataPackage package;
 
@@ -584,7 +584,7 @@ namespace windowing_universal_windows
 
       }
 
-      synchronous_lock synchronouslock(mutex());
+      synchronous_lock synchronouslock(synchronization());
 
       ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
 
@@ -659,7 +659,7 @@ namespace windowing_universal_windows
 
       }
 
-      //synchronous_lock synchronouslock(mutex());
+      //synchronous_lock synchronouslock(synchronization());
 
       ::winrt::Windows::ApplicationModel::DataTransfer::DataPackageView datapackageview(nullptr);
 
@@ -777,7 +777,7 @@ namespace windowing_universal_windows
 
       //ASSERT(::IsWindow(m_hwnd));
 
-      synchronous_lock synchronouslock(mutex());
+      synchronous_lock synchronouslock(synchronization());
 
       //if (!::OpenClipboard(__hwnd(get_oswindow())))
       //{

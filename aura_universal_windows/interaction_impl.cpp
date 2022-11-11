@@ -5278,7 +5278,7 @@ namespace aura_universal_windows
 
       return ::user::interaction_impl::queue_message_handler(pmessage);
 
-      //synchronous_lock synchronouslock(mutex());
+      //synchronous_lock synchronouslock(synchronization());
 
       //m_messagelist.add_tail(pmessage);
 
@@ -5348,7 +5348,7 @@ namespace aura_universal_windows
 
          //::pointer<::user::message>pusermessage = pbaseParam;
 
-      synchronous_lock synchronouslock(mutex());
+      synchronous_lock synchronouslock(synchronization());
 
       m_messagelist.add_tail(pmessage);
 

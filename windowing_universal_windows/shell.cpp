@@ -21,7 +21,7 @@ namespace windowing_universal_windows
 
       m_iMaxThreadCount = 1;
 
-      defer_create_mutex();
+      defer_create_synchronization();
 
       m_iThread = 0;
 
@@ -755,7 +755,7 @@ namespace windowing_universal_windows
 
       //      HRESULT hrExtract = E_FAIL;
 
-      //      synchronous_lock synchronouslock(mutex());
+      //      synchronous_lock synchronouslock(synchronization());
 
       //      auto iaSize = m_iaSize;
 
@@ -1464,7 +1464,7 @@ namespace windowing_universal_windows
    void shell::add_system_icon(int iIcon, _get_file_image_ & getfileimage)
    {
 
-      synchronous_lock synchronouslock(mutex());
+      synchronous_lock synchronouslock(synchronization());
 
       auto iaSize = m_iaSize;
 
@@ -1491,7 +1491,7 @@ namespace windowing_universal_windows
       //if (pathIconParam.ends_ci(".ico"))
       //{
 
-      //   synchronous_lock synchronouslock(mutex());
+      //   synchronous_lock synchronouslock(synchronization());
 
       //   auto iaSize = m_iaSize;
 
@@ -1671,7 +1671,7 @@ namespace windowing_universal_windows
 
          //auto pnode = psystem->node()->m_pAuraPlatform;
 
-         //synchronous_lock synchronouslock(mutex());
+         //synchronous_lock synchronouslock(synchronization());
 
          //auto iaSize = m_iaSize;
 

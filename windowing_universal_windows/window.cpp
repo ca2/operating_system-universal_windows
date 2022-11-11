@@ -5113,7 +5113,7 @@ namespace windowing_universal_windows
    void window::show_task(bool bShow)
    {
 
-      synchronous_lock synchronouslock(mutex());
+      synchronous_lock synchronouslock(synchronization());
 
       // https://www.daniweb.com/programming/software-development/threads/457564/mfc-window-disablehide-taskbar-icon
 
