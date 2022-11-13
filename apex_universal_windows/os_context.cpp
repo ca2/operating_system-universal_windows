@@ -1002,7 +1002,7 @@ namespace apex_universal_windows
 //      HICON hicon = nullptr;
 //
 //      // Display a dialog box to request credentials.
-//      __zero(u);
+//      zero(u);
 //      u.cbSize = sizeof(u);
 //      u.hwndParent = nullptr;
 //
@@ -1791,7 +1791,7 @@ throw ::exception(error_not_supported);
 
       //SHFILEINFOW info;
 
-      //__zero(info);
+      //zero(info);
 
       //defer_co_initialize_ex(false);
 
@@ -2106,7 +2106,7 @@ return false;
 
       //   SHELLEXECUTEINFOW si;
 
-      //   __zero(si);
+      //   zero(si);
 
       //   PeekMessage(nullptr, nullptr, 0, 0, 0);
 

@@ -1106,7 +1106,7 @@ namespace windowing_universal_windows
 
       //m_monitorinfoa.allocate(m_monitorinfoa.get_size() + 1);
 
-      //__zero(m_monitorinfoa.last());
+      //zero(m_monitorinfoa.last());
 
       //m_hmonitora.add(hmonitor);
 

@@ -102,7 +102,7 @@ namespace windowing_universal_windows
 
       //      m_osdisplay = nullptr;
       //
-      //      __zero(m_visual);
+      //      zero(m_visual);
       //
       //      m_iDepth = -1;
       //
@@ -5054,7 +5054,7 @@ namespace windowing_universal_windows
 
    //   WINDOWPLACEMENT wp;
 
-   //   __zero(wp);
+   //   zero(wp);
 
    //   if (!GetWindowPlacement(&wp))
    //      return false;
@@ -5619,7 +5619,7 @@ namespace windowing_universal_windows
 //         }
 //         ::DeleteObject(hrgn); /* finished with region */
 //         WINDOWPLACEMENT wp;
-//         __zero(wp);
+//         zero(wp);
 //         wp.length = sizeof(WINDOWPLACEMENT);
 //         ::GetWindowPlacement(get_hwnd(), &wp);
 //         bool bZoomed = ::IsZoomed(get_hwnd()) != false;

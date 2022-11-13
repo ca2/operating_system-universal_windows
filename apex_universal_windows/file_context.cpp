@@ -422,7 +422,7 @@ namespace apex_universal_windows
 
       WIN32_FILE_ATTRIBUTE_DATA data;
 
-      __zero(data);
+      zero(data);
 
       if (!GetFileAttributesExW(wstring(strFilename), GetFileExInfoStandard, &data))
       {
