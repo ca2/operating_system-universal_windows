@@ -212,7 +212,7 @@ namespace windowing_universal_windows
 
       ::windowing::window::install_message_routing(pchannel);
 
-      MESSAGE_LINK(e_message_create, pchannel, this, &window::on_message_create);
+      MESSAGE_LINK(MESSAGE_CREATE, pchannel, this, &window::on_message_create);
 
       auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
@@ -244,10 +244,10 @@ namespace windowing_universal_windows
       pimpl->install_message_routing(pchannel);
 
 
-      MESSAGE_LINK(e_message_destroy, pchannel, this, &window::on_message_destroy);
+      MESSAGE_LINK(MESSAGE_DESTROY, pchannel, this, &window::on_message_destroy);
       MESSAGE_LINK(WM_GETICON, pchannel, this, &window::on_message_get_icon);
 
-      //MESSAGE_LINK(e_message_create, pchannel, pimpl, &::user::interaction_impl::_001OnPrioCreate);
+      //MESSAGE_LINK(MESSAGE_CREATE, pchannel, pimpl, &::user::interaction_impl::_001OnPrioCreate);
 
    }
 
@@ -535,7 +535,7 @@ namespace windowing_universal_windows
 
       //::size_i32 sizeDrawn;
 
-      //synchronous_lock slGraphics(m_pgraphics->mutex());
+      //synchronous_lock slGraphics(m_pgraphics->synchronization());
 
       //::synchronization_object * psync = m_pgraphics->get_draw_lock();
 
@@ -545,7 +545,7 @@ namespace windowing_universal_windows
 
       //slGraphics.unlock();
 
-      synchronous_lock synchronouslock(puserinteraction->mutex());
+      synchronous_lock synchronouslock(puserinteraction->synchronization());
 
       if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
       {
@@ -2383,7 +2383,7 @@ namespace windowing_universal_windows
    //bool window::reset(::windowing::cursor * pcursor, ::aura::session * psession)
    //{
 
-   //   synchronous_lock synchronouslock(psession->mutex());
+   //   synchronous_lock synchronouslock(psession->synchronization());
 
    //   if (::is_null(puserinteraction))
    //   {
@@ -2505,7 +2505,7 @@ namespace windowing_universal_windows
 
    //   auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
-   //   synchronous_lock synchronouslock(puserinteraction->mutex());
+   //   synchronous_lock synchronouslock(puserinteraction->synchronization());
 
    //   ASSERT(::IsWindow(get_hwnd()));
 
@@ -5337,7 +5337,7 @@ namespace windowing_universal_windows
       //   ::GetWindowInfo(hwnd, &wi);
 
       //   /* Maximized windows always have a non-client border that hangs over
-      //   the edge of the screen, so the size_i32 proposed by e_message_non_client_calcsize is
+      //   the edge of the screen, so the size_i32 proposed by e_message_non_client_calc_size is
       //   fine. Just adjust the top border to erase the u title. */
       //   pncsp->rgrc[0].left = client.left;
 
@@ -5380,7 +5380,7 @@ namespace windowing_universal_windows
       //else
       //{
       //   /* For the non-maximized case, set the output const rectangle_i32 & to what it was
-      //   before e_message_non_client_calcsize modified it. This will make the client size_i32 the
+      //   before e_message_non_client_calc_size modified it. This will make the client size_i32 the
       //   same as the non-client size. */
       //   __copy(pncsp->rgrc[0],nonclient);
 

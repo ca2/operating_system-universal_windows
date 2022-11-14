@@ -565,7 +565,7 @@ namespace windowing_universal_windows
 
       index iBestWkspace = get_best_workspace(&rectangleWkspace, rectangle);
 
-      edisplay edisplay;
+      ::e_display edisplay;
 
       ::e_display edisplayPrevious = *pedisplay;
 

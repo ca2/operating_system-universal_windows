@@ -1535,9 +1535,9 @@ namespace windowing_universal_windows
    void shell::add_icon(int iSize, HICON hicon, _get_file_image_ & getfileimage)
    {
 
-      synchronous_lock synchronouslock(m_pimagelist[iSize]->mutex());
+      synchronous_lock synchronouslock(m_pimagelist[iSize]->synchronization());
 
-      synchronous_lock slHover(m_pimagelistHover[iSize]->mutex());
+      synchronous_lock slHover(m_pimagelistHover[iSize]->synchronization());
 
       auto pwindowingicon = __create_new < icon >();
 
