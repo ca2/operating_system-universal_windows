@@ -1250,7 +1250,7 @@ namespace windowing_universal_windows
 
       //   i32 i = 0;
 
-      //   while (i < strProtocol.get_length() && ansi_char_is_alnum(strProtocol[i]))
+      //   while (i < strProtocol.get_length() && character_isalnum(strProtocol[i]))
       //   {
 
       //      i++;
