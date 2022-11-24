@@ -43,21 +43,21 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windowing_universal_windows
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "node_universal_windows", "..\..\operating-system-universal_windows\node_universal_windows\u_node_universal_windows.vcxproj", "{6A3E3812-82B9-4423-BB63-C9687C967C67}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "C:\debug\source\app\database_sqlite3\u_database_sqlite3.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "..\..\..\source\app\database_sqlite3\u_database_sqlite3.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\operating-system-windows_common\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "write_text_direct2d", "..\..\operating-system-windows_common\write_text_direct2d\u_write_text_direct2d.vcxproj", "{E90B52B8-AB16-4D55-87D6-CF2389746776}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_complex_drawing", "C:\debug\source\app-complex\drawing\u_app_complex_drawing.vcxproj", "{D0F0D410-AC70-44BB-8FE0-A31D83F6DB6C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_complex_drawing", "..\..\..\source\app-complex\drawing\u_app_complex_drawing.vcxproj", "{D0F0D410-AC70-44BB-8FE0-A31D83F6DB6C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_complex_drawing", "C:\debug\source\app-complex\drawing\__implement\uwp_app_complex_drawing.vcxproj", "{0104E54B-4452-48AA-A653-9024E97B2DDE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_complex_drawing", "..\..\..\source\app-complex\drawing\__implement\uwp_app_complex_drawing.vcxproj", "{0104E54B-4452-48AA-A653-9024E97B2DDE}"
 	ProjectSection(ProjectDependencies) = postProject
 		{320713E0-CEA7-4EF5-A154-AB3A96D41A52} = {320713E0-CEA7-4EF5-A154-AB3A96D41A52}
 		{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E} = {4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}
 	EndProjectSection
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "C:\debug\source\app\core\u_core.vcxproj", "{65070F1F-14DB-474E-96DE-CB920740DCC4}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "core", "..\..\..\source\app\core\u_core.vcxproj", "{65070F1F-14DB-474E-96DE-CB920740DCC4}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crypto_openssl", "..\..\..\source\app\crypto_openssl\u_crypto_openssl.vcxproj", "{BC919186-F67A-4FFC-B6BE-0E63DC652A63}"
 EndProject

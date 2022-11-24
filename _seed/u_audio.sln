@@ -55,29 +55,29 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windowing_universal_windows
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "node_universal_windows", "..\..\operating-system-universal_windows\node_universal_windows\u_node_universal_windows.vcxproj", "{6A3E3812-82B9-4423-BB63-C9687C967C67}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_chronometer", "C:\debug\source\app-core\chronometer\u_chronometer.vcxproj", "{7E928639-7D12-47F9-966F-2B7CCF06E487}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_chronometer", "..\..\..\source\app-core\chronometer\u_chronometer.vcxproj", "{7E928639-7D12-47F9-966F-2B7CCF06E487}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_chronometer", "C:\debug\source\app-core\chronometer\__implement\uwp_app_core_chronometer.vcxproj", "{1F8306DF-4992-449F-993B-253B9675EA82}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_chronometer", "..\..\..\source\app-core\chronometer\__implement\uwp_app_core_chronometer.vcxproj", "{1F8306DF-4992-449F-993B-253B9675EA82}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_timer", "C:\debug\source\app-core\timer\u_timer.vcxproj", "{E718D01D-F8AD-4DDE-99F2-FE3A875BB6CA}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_timer", "..\..\..\source\app-core\timer\u_timer.vcxproj", "{E718D01D-F8AD-4DDE-99F2-FE3A875BB6CA}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_timer", "C:\debug\source\app-core\timer\__implement\uwp_app_core_timer.vcxproj", "{6078BB0A-E5B1-4C7C-BE06-C6157788E11E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_timer", "..\..\..\source\app-core\timer\__implement\uwp_app_core_timer.vcxproj", "{6078BB0A-E5B1-4C7C-BE06-C6157788E11E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_todo", "C:\debug\source\app-core\todo\u_todo.vcxproj", "{733B3C3F-5750-4A74-BDC2-7AFD65F91AAB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_core_todo", "..\..\..\source\app-core\todo\u_todo.vcxproj", "{733B3C3F-5750-4A74-BDC2-7AFD65F91AAB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_todo", "C:\debug\source\app-core\todo\__implement\uwp_app_core_todo.vcxproj", "{E82AA010-B099-4FBB-B100-3C1975ACFA7A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_core_todo", "..\..\..\source\app-core\todo\__implement\uwp_app_core_todo.vcxproj", "{E82AA010-B099-4FBB-B100-3C1975ACFA7A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_cidadedecuritiba_alphaclock", "C:\debug\source\app-cidadedecuritiba\alphaclock\u_alphaclock.vcxproj", "{B95D79F5-DEF9-4250-B4A2-6AE610921998}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_cidadedecuritiba_alphaclock", "..\..\..\source\app-cidadedecuritiba\alphaclock\u_alphaclock.vcxproj", "{B95D79F5-DEF9-4250-B4A2-6AE610921998}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "C:\debug\source\app\database_sqlite3\u_database_sqlite3.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "..\..\..\source\app\database_sqlite3\u_database_sqlite3.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio", "C:\debug\source\app-core\audio\u_audio.vcxproj", "{1935706B-4846-4A53-808F-9123FCBA7DFD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio", "..\..\..\source\app-core\audio\u_audio.vcxproj", "{1935706B-4846-4A53-808F-9123FCBA7DFD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "userdatetime", "C:\debug\source\app-core\userdatetime\u_userdatetime.vcxproj", "{106E3938-FA19-4D4D-83D5-A36692C93E86}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "userdatetime", "..\..\..\source\app-core\userdatetime\u_userdatetime.vcxproj", "{106E3938-FA19-4D4D-83D5-A36692C93E86}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "write_text_direct2d", "..\..\operating-system-windows_common\write_text_direct2d\u_write_text_direct2d.vcxproj", "{E90B52B8-AB16-4D55-87D6-CF2389746776}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio_resample_swresample", "C:\debug\source\app-core\audio_resample_swresample\u_audio_resample_swresample.vcxproj", "{8DB9D849-0FCB-41AD-8D7A-FA19E5BE8E23}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio_resample_swresample", "..\..\..\source\app-core\audio_resample_swresample\u_audio_resample_swresample.vcxproj", "{8DB9D849-0FCB-41AD-8D7A-FA19E5BE8E23}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_core", "..\..\..\source\app\experience_core\u_experience_core.vcxproj", "{B2D7833B-9B59-4826-BBDF-C270A2115E86}"
 EndProject

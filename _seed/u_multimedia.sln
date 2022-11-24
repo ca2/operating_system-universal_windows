@@ -51,13 +51,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windowing_universal_windows
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "node_universal_windows", "..\..\operating-system-universal_windows\node_universal_windows\u_node_universal_windows.vcxproj", "{6A3E3812-82B9-4423-BB63-C9687C967C67}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gcom", "C:\debug\source\app-core\gcom\u_gcom.vcxproj", "{B7AFCEFA-8451-7723-8F97-4543BB980265}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "gcom", "..\..\..\source\app-core\gcom\u_gcom.vcxproj", "{B7AFCEFA-8451-7723-8F97-4543BB980265}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "C:\debug\source\app\database_sqlite3\u_database_sqlite3.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "..\..\..\source\app\database_sqlite3\u_database_sqlite3.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio", "C:\debug\source\app-core\audio\u_audio.vcxproj", "{1935706B-4846-4A53-808F-9123FCBA7DFD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio", "..\..\..\source\app-core\audio\u_audio.vcxproj", "{1935706B-4846-4A53-808F-9123FCBA7DFD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio_resample_swresample", "C:\debug\source\app-core\audio_resample_swresample\u_audio_resample_swresample.vcxproj", "{8DB9D849-0FCB-41AD-8D7A-FA19E5BE8E23}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio_resample_swresample", "..\..\..\source\app-core\audio_resample_swresample\u_audio_resample_swresample.vcxproj", "{8DB9D849-0FCB-41AD-8D7A-FA19E5BE8E23}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_veriwell_waven", "..\..\..\source\app-veriwell\waven\u_waven.vcxproj", "{A57CD8BD-B339-4A1D-8B3F-FA34D191746D}"
 EndProject
@@ -69,31 +69,31 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_veriwell_keyboard",
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_veriwell_waven", "..\..\..\source\app-veriwell\waven\__implement\uwp_app_veriwell_waven.vcxproj", "{4F5F745E-CCC2-4D90-8923-F5BA47A125C0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "multimedia", "C:\debug\source\app-core\multimedia\u_multimedia.vcxproj", "{845177FA-3079-4B23-8F97-4543BB980265}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "multimedia", "..\..\..\source\app-core\multimedia\u_multimedia.vcxproj", "{845177FA-3079-4B23-8F97-4543BB980265}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "veriwell", "C:\debug\source\app-veriwell\veriwell\u_veriwell.vcxproj", "{F20DCBAE-5E9B-4A38-A236-B7FBCFE0FA55}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "veriwell", "..\..\..\source\app-veriwell\veriwell\u_veriwell.vcxproj", "{F20DCBAE-5E9B-4A38-A236-B7FBCFE0FA55}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "veriwell_multimedia", "C:\debug\source\app-veriwell\multimedia\u_veriwell_multimedia.vcxproj", "{ED4FE36A-391F-43F4-BDF6-9528FF0632EE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "veriwell_multimedia", "..\..\..\source\app-veriwell\multimedia\u_veriwell_multimedia.vcxproj", "{ED4FE36A-391F-43F4-BDF6-9528FF0632EE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_veriwell_verisimplevideo", "C:\debug\source\app-veriwell\verisimplevideo\u_app_veriwell_verisimplevideo.vcxproj", "{6EFD6175-9504-40E7-BD03-30281D864FAB}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_veriwell_verisimplevideo", "..\..\..\source\app-veriwell\verisimplevideo\u_app_veriwell_verisimplevideo.vcxproj", "{6EFD6175-9504-40E7-BD03-30281D864FAB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_veriwell_verisimplevideo", "C:\debug\source\app-veriwell\verisimplevideo\__implement\uwp_app_veriwell_verisimplevideo.vcxproj", "{1D48D1DB-4B78-4A65-A2E5-657F22DB7516}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_veriwell_verisimplevideo", "..\..\..\source\app-veriwell\verisimplevideo\__implement\uwp_app_veriwell_verisimplevideo.vcxproj", "{1D48D1DB-4B78-4A65-A2E5-657F22DB7516}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "video_decode_ffmpeg", "C:\debug\source\app-veriwell\video_decode_ffmpeg\u_veriwell_video_decode_ffmpeg.vcxproj", "{6194CE72-4893-4284-AF9E-DB807B49093F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "video_decode_ffmpeg", "..\..\..\source\app-veriwell\video_decode_ffmpeg\u_veriwell_video_decode_ffmpeg.vcxproj", "{6194CE72-4893-4284-AF9E-DB807B49093F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_veriwell_musical_player_lite", "C:\debug\source\app-veriwell\musical_player_lite\u_app_veriwell_musical_player_lite.vcxproj", "{D41641B1-CB8E-4F50-9E09-DB6BDD837C82}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_veriwell_musical_player_lite", "..\..\..\source\app-veriwell\musical_player_lite\u_app_veriwell_musical_player_lite.vcxproj", "{D41641B1-CB8E-4F50-9E09-DB6BDD837C82}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_veriwell_musical_player_lite", "C:\debug\source\app-veriwell\musical_player_lite\__implement\uwp_app_veriwell_musical_player_lite.vcxproj", "{9C6FC641-43F3-416A-85F6-7809ABF404D3}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_veriwell_musical_player_lite", "..\..\..\source\app-veriwell\musical_player_lite\__implement\uwp_app_veriwell_musical_player_lite.vcxproj", "{9C6FC641-43F3-416A-85F6-7809ABF404D3}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_veriwell_musical_player", "C:\debug\source\app-veriwell\musical_player\u_app_veriwell_musical_player.vcxproj", "{B129E54B-2E26-4F73-8504-862FAC9B97AF}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "app_veriwell_musical_player", "..\..\..\source\app-veriwell\musical_player\u_app_veriwell_musical_player.vcxproj", "{B129E54B-2E26-4F73-8504-862FAC9B97AF}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_veriwell_musical_player", "C:\debug\source\app-veriwell\musical_player\__implement\uwp_app_veriwell_musical_player.vcxproj", "{2AEF6AF1-32A0-4AEF-B4F3-3F566C0C1399}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "uwp_app_veriwell_musical_player", "..\..\..\source\app-veriwell\musical_player\__implement\uwp_app_veriwell_musical_player.vcxproj", "{2AEF6AF1-32A0-4AEF-B4F3-3F566C0C1399}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "music_midi_winrt", "..\..\operating-system-universal_windows\music_midi_winrt\u_music_midi_winrt.vcxproj", "{C1B4AA3F-5E8A-4AB1-977D-423C5785C666}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_tranquillum", "C:\debug\source\app\experience_tranquillum\u_experience_tranquillum.vcxproj", "{671B8C46-4264-45E4-9AEF-7D6302160339}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_tranquillum", "..\..\..\source\app\experience_tranquillum\u_experience_tranquillum.vcxproj", "{671B8C46-4264-45E4-9AEF-7D6302160339}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_anthill", "C:\debug\source\app\experience_anthill\u_experience_anthill.vcxproj", "{12DC390E-2D5D-4C05-B304-56D96D939D78}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_anthill", "..\..\..\source\app\experience_anthill\u_experience_anthill.vcxproj", "{12DC390E-2D5D-4C05-B304-56D96D939D78}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "experience_core", "..\..\..\source\app\experience_core\u_experience_core.vcxproj", "{B2D7833B-9B59-4826-BBDF-C270A2115E86}"
 EndProject
