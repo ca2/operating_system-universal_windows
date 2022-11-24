@@ -7,6 +7,8 @@
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/acme_path.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme/platform/node.h"
+#include "acme/platform/system.h"
 #include <winrt/Windows.System.h>
 
 

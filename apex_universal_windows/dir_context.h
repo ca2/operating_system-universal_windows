@@ -1,4 +1,7 @@
-#pragma once
+﻿#pragma once
+
+
+#include "apex/filesystem/filesystem/dir_context.h"
 
 
 namespace apex_universal_windows

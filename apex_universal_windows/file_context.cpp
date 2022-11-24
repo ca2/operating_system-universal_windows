@@ -2,14 +2,23 @@
 #include "file_context.h"
 #include "file_system.h"
 #include "dir_system.h"
-#include "acme_universal_windows/native_buffer.h"
-#include "apex/operating_system.h"
+#include "acme/filesystem/file/exception.h"
+#include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_path.h"
 #include "acme/include/_c_swap.h"
+#include "apex/platform/system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme_universal_windows/native_buffer.h"
+
+
 #include "_winrt_storage.h"
+
+
+#include "acme/_operating_system.h"
+
+
 #include <winrt/Windows.Storage.FileProperties.h>
 //#include "_windows_runtime.h"
 
@@ -34,7 +43,7 @@ namespace apex_universal_windows
 
       //auto estatus = 
 
-      ::object::initialize(pobject);
+      ::object::initialize(pparticle);
 
       //if (!estatus)
       //{
@@ -238,7 +247,7 @@ namespace apex_universal_windows
 
       WIN32_FILE_ATTRIBUTE_DATA data;
 
-      if (GetFileAttributesExW(utf8_to_unicode(path), GetFileExInfoStandard, &data))
+      if (GetFileAttributesExW(wstring(path), GetFileExInfoStandard, &data))
       {
          
          return make64_from32(data.nFileSizeLow, data.nFileSizeHigh);
@@ -659,7 +668,7 @@ namespace apex_universal_windows
       LPFILETIME pLastWriteTime = nullptr;
 
 
-      if ((wAttr = windows_get_file_attributes(path)) == (::u32)INVALID_FILE_ATTRIBUTES)
+      if ((wAttr = ::windows::get_file_attributes(path)) == (::u32)INVALID_FILE_ATTRIBUTES)
       {
 
          auto dwLastError = ::GetLastError();

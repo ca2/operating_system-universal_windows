@@ -2,6 +2,8 @@
 #include "framework.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme/platform/context.h"
+#include "acme/primitive/primitive/memory.h"
 #include "_winrt_core.h"
 #include "_winrt_stream.h"
 #include "_winrt_system.h"
@@ -91,7 +93,7 @@ CLASS_DECL_EXPORT void main_branch(::matter * pobjectTask, enum_priority epriori
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::particle * pparticle, string & strRelative, string & strPrefix)
 {
 
-   if (str().begins_eat_ci(strRelative, "image://"))
+   if (strRelative.begins_eat_ci("image://"))
    {
 
       strPrefix = "image://";
@@ -99,7 +101,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::PicturesLibrary();
 
    }
-   else if (str().begins_eat_ci(strRelative, "music://"))
+   else if (strRelative.begins_eat_ci("music://"))
    {
 
       strPrefix = "music://";
@@ -107,7 +109,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::MusicLibrary();
 
    }
-   else if (str().begins_eat_ci(strRelative, "video://"))
+   else if (strRelative.begins_eat_ci("video://"))
    {
 
       strPrefix = "video://";
@@ -115,7 +117,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::VideosLibrary();
 
    }
-   else if (str().begins_eat_ci(strRelative, "document://"))
+   else if (strRelative.begins_eat_ci("document://"))
    {
 
       strPrefix = "document://";
@@ -123,7 +125,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::DocumentsLibrary();
 
    }
-   else if (str().begins_eat_ci(strRelative, "localfolder://"))
+   else if (strRelative.begins_eat_ci("localfolder://"))
    {
 
       strPrefix = "localfolder://";
@@ -131,7 +133,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder();
 
    }
-   else if (str().begins_eat_ci(strRelative, "dropbox://"))
+   else if (strRelative.begins_eat_ci("dropbox://"))
    {
 
       string strHome = getenv("USERPROFILE");
@@ -174,7 +176,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix)
 {
 
-   auto pfolder = windows_runtime_known_folder(pobject, strRelative, strPrefix);
+   auto pfolder = windows_runtime_known_folder(pparticle, strRelative, strPrefix);
 
    if (pfolder)
    {
@@ -183,7 +185,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windo
 
    }
 
-   auto path = pobject->m_pcontext->defer_process_path(strRelative);
+   auto path = pparticle->m_pcontext->defer_process_path(strRelative);
 
    if (path.is_empty())
    {
@@ -198,7 +200,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windo
 
    bool bDir = false;
 
-   if (pobject->acmedirectory()->_is(bDir, path) && bDir)
+   if (pparticle->acmedirectory()->_is(bDir, path) && bDir)
    {
 
       pathFolder = path;
@@ -256,7 +258,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windo
    catch (const winrt::hresult_error & e)
    {
 
-      output_debug_string("winrt::hresult_error = " + __string((i32)e.code()) + "\n");
+      output_debug_string("winrt::hresult_error = " + as_string((i32)e.code()) + "\n");
 
    }
    catch (...)
@@ -273,7 +275,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windo
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix)
 {
 
-   auto folder = _windows_runtime_folder(pobject, strRelative, strPrefix);
+   auto folder = _windows_runtime_folder(pparticle, strRelative, strPrefix);
 
    if (folder)
    {
@@ -374,7 +376,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 
       string strPrefix;
 
-      auto folder = windows_runtime_folder(pobject, strRelative, strPrefix);
+      auto folder = windows_runtime_folder(pparticle, strRelative, strPrefix);
 
       if (folder == nullptr)
       {
@@ -1026,28 +1028,28 @@ uptr virtualkey_to_char(::winrt::Windows::System::VirtualKey e)
       return 'y';
    case ::winrt::Windows::System::VirtualKey::Z:
       return 'z';
-   case ::winrt::Windows::System::VirtualKey::Shift:
-      return VK_SHIFT;
-   case ::winrt::Windows::System::VirtualKey::LeftShift:
-      return VK_LSHIFT;
-   case ::winrt::Windows::System::VirtualKey::RightShift:
-      return VK_RSHIFT;
-   case ::winrt::Windows::System::VirtualKey::Control:
-      return VK_CONTROL;
-   case ::winrt::Windows::System::VirtualKey::LeftControl:
-      return VK_LCONTROL;
-   case ::winrt::Windows::System::VirtualKey::RightControl:
-      return VK_RCONTROL;
-   case ::winrt::Windows::System::VirtualKey::Menu:
-      return VK_MENU;
-   case ::winrt::Windows::System::VirtualKey::LeftMenu:
-      return VK_LMENU;
-   case ::winrt::Windows::System::VirtualKey::RightMenu:
-      return VK_RMENU;
-   case ::winrt::Windows::System::VirtualKey::Tab:
-      return VK_TAB;
-   case ::winrt::Windows::System::VirtualKey::Enter:
-      return VK_RETURN;
+   //case ::winrt::Windows::System::VirtualKey::Shift:
+   //   return VK_SHIFT;
+   //case ::winrt::Windows::System::VirtualKey::LeftShift:
+   //   return VK_LSHIFT;
+   //case ::winrt::Windows::System::VirtualKey::RightShift:
+   //   return VK_RSHIFT;
+   //case ::winrt::Windows::System::VirtualKey::Control:
+   //   return VK_CONTROL;
+   //case ::winrt::Windows::System::VirtualKey::LeftControl:
+   //   return VK_LCONTROL;
+   //case ::winrt::Windows::System::VirtualKey::RightControl:
+   //   return VK_RCONTROL;
+   //case ::winrt::Windows::System::VirtualKey::Menu:
+   //   return VK_MENU;
+   //case ::winrt::Windows::System::VirtualKey::LeftMenu:
+   //   return VK_LMENU;
+   //case ::winrt::Windows::System::VirtualKey::RightMenu:
+   //   return VK_RMENU;
+   //case ::winrt::Windows::System::VirtualKey::Tab:
+   //   return VK_TAB;
+   //case ::winrt::Windows::System::VirtualKey::Enter:
+   //   return VK_RETURN;
    default:
       ;
    }
@@ -1302,24 +1304,24 @@ uptr virtualkey_to_code(::winrt::Windows::System::VirtualKey e)
       return 'y';
    case ::winrt::Windows::System::VirtualKey::Z:
       return 'z';
-   case ::winrt::Windows::System::VirtualKey::Shift:
-      return VK_SHIFT;
-   case ::winrt::Windows::System::VirtualKey::LeftShift:
-      return VK_LSHIFT;
-   case ::winrt::Windows::System::VirtualKey::RightShift:
-      return VK_RSHIFT;
-   case ::winrt::Windows::System::VirtualKey::Control:
-      return VK_CONTROL;
-   case ::winrt::Windows::System::VirtualKey::LeftControl:
-      return VK_LCONTROL;
-   case ::winrt::Windows::System::VirtualKey::RightControl:
-      return VK_RCONTROL;
-   case ::winrt::Windows::System::VirtualKey::Menu:
-      return VK_MENU;
-   case ::winrt::Windows::System::VirtualKey::LeftMenu:
-      return VK_LMENU;
-   case ::winrt::Windows::System::VirtualKey::RightMenu:
-      return VK_RMENU;
+   //case ::winrt::Windows::System::VirtualKey::Shift:
+   //   return VK_SHIFT;
+   //case ::winrt::Windows::System::VirtualKey::LeftShift:
+   //   return VK_LSHIFT;
+   //case ::winrt::Windows::System::VirtualKey::RightShift:
+   //   return VK_RSHIFT;
+   //case ::winrt::Windows::System::VirtualKey::Control:
+   //   return VK_CONTROL;
+   //case ::winrt::Windows::System::VirtualKey::LeftControl:
+   //   return VK_LCONTROL;
+   //case ::winrt::Windows::System::VirtualKey::RightControl:
+   //   return VK_RCONTROL;
+   //case ::winrt::Windows::System::VirtualKey::Menu:
+   //   return VK_MENU;
+   //case ::winrt::Windows::System::VirtualKey::LeftMenu:
+   //   return VK_LMENU;
+   //case ::winrt::Windows::System::VirtualKey::RightMenu:
+   //   return VK_RMENU;
    default:
       ;
    }

@@ -1,8 +1,11 @@
 ﻿// Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
 #include "framework.h"
 #include "native_buffer.h"
+#include "acme/filesystem/file/exception.h"
+#include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme/platform/node.h"
 #include "_winrt_storage.h"
 #include "_winrt_stream.h"
 #include "acme_windows_common/hresult_exception.h"
@@ -49,7 +52,7 @@ namespace acme_universal_windows
       if ((eopen & ::file::e_open_defer_create_directory) && (eopen & ::file::e_open_write))
       {
 
-acmedirectory()create(path.folder());
+         acmedirectory()->create(path.folder());
 
       }
 
@@ -145,7 +148,7 @@ acmedirectory()create(path.folder());
       else
       {
 
-         defer_co_initialize_ex(true);
+         acmenode()->defer_co_initialize_ex(true);
 
          string_array straItems;
 
@@ -342,7 +345,7 @@ acmedirectory()create(path.folder());
 
          auto estatus = ::windows::hresult_status(error.code());
 
-         auto errorcode = __hresult(hresult);
+         auto errorcode = hresult_error_code(hresult);
 
          throw ::file::exception(estatus, errorcode, m_path, "!::SetEndOfFile", m_eopen);
 
@@ -412,7 +415,7 @@ acmedirectory()create(path.folder());
 
       m_eopen = eopen;
 
-      set_ok();
+      set_ok_flag();
 
       m_estatus = ::success;
 
@@ -631,20 +634,20 @@ acmedirectory()create(path.folder());
 
 
 
-   void native_buffer::assert_ok() const
-   {
+   //void native_buffer::assert_ok() const
+   //{
 
-      ::file::file::assert_ok();
+   //   ::file::file::assert_ok();
 
-   }
+   //}
 
 
-   void native_buffer::dump(dump_context & dumpcontext) const
-   {
+   //void native_buffer::dump(dump_context & dumpcontext) const
+   //{
 
-      ::file::file::dump(dumpcontext);
+   //   ::file::file::dump(dumpcontext);
 
-   }
+   //}
 
 
    //string native_buffer::GetFileName() const

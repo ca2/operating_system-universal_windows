@@ -1,21 +1,23 @@
 ﻿#include "framework.h"
 #include "file.h"
+#include "acme/filesystem/file/exception.h"
+#include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 
 
-#define NULL_HFILE ((::hfile) (iptr) (-1))
+#include "acme/_operating_system.h"
 
 
-inline bool hfile_is_ok(::hfile hfile)
+inline bool hfile_is_ok(HANDLE hfile)
 {
 
-   return hfile != NULL_HFILE;
+   return hfile != INVALID_HANDLE_VALUE && hfile != nullptr;
 
 }
 
 
-inline bool hfile_is_nok(::hfile hfile)
+inline bool hfile_is_nok(HANDLE hfile)
 {
 
    return !hfile_is_ok(hfile);
@@ -38,7 +40,7 @@ namespace acme_universal_windows
    file::file()
    {
 
-      m_hfile = NULL_HFILE;
+      m_hfile = INVALID_HANDLE_VALUE;
 
       m_bCloseOnDelete = true;
 
@@ -49,7 +51,7 @@ namespace acme_universal_windows
    file::~file()
    {
 
-      if (m_hfile != NULL_HFILE && m_bCloseOnDelete)
+      if (m_hfile != INVALID_HANDLE_VALUE && m_bCloseOnDelete)
       {
 
          close();
@@ -61,7 +63,7 @@ namespace acme_universal_windows
    //::pointer<::file::file>file::Duplicate() const
    //{
    //   ASSERT_VALID(this);
-   //   ASSERT(m_hfile != (::u32)NULL_HFILE);
+   //   ASSERT(m_hfile != (::u32)INVALID_HANDLE_VALUE);
 
    //   ::pointer<file>pFile = __new(file());
    //   HANDLE hFile;
@@ -73,7 +75,7 @@ namespace acme_universal_windows
    //      throw ::exception(::exception("integer_exception 1"));
    //   }
    //   pFile->m_hfile = (::u32)hFile;
-   //   ASSERT(pFile->m_hfile != (::u32)NULL_HFILE);
+   //   ASSERT(pFile->m_hfile != (::u32)INVALID_HANDLE_VALUE);
    //   pFile->m_bCloseOnDelete = m_bCloseOnDelete;
    //   return pFile;
    //}
@@ -84,7 +86,7 @@ namespace acme_universal_windows
 
       ::file::e_open eopen(efileopenParam);
 
-      if (m_hfile != NULL_HFILE)
+      if (m_hfile != INVALID_HANDLE_VALUE)
       {
        
          close();
@@ -101,34 +103,30 @@ namespace acme_universal_windows
 
       string strPath = path;
 
-      str().begins_eat_ci(strPath,"image:\\\\");
+      //str().begins_eat_ci(strPath.begins_eat_ci("image:\\\\");
 
-      str().begins_eat_ci(strPath, "music:\\\\");
+      //str().begins_eat_ci(strPath, "music:\\\\");
 
-      str().begins_eat_ci(strPath, "video:\\\\");
+      //str().begins_eat_ci(strPath, "video:\\\\");
 
-      if (str().begins_eat_ci(strPath, "document:\\\\"))
-      {
+      //if (str().begins_eat_ci(strPath, "document:\\\\"))
+      //{
 
-         output_debug_string("document:\\\\" + strPath);
+      //   output_debug_string("document:\\\\" + strPath);
 
-      }
+      //}
 
 
       ::file::path lpszFileName(strPath);
       if ((eopen & ::file::e_open_defer_create_directory) && (eopen & ::file::e_open_write))
       {
 
-                  auto psystem = acmesystem();
-
-         auto pacmedir = psystem->m_pacmedirectory;
-
-pacmedir->create(lpszFileName.folder());
+         acmedirectory()->create(lpszFileName.folder());
 
       }
 
       m_bCloseOnDelete = false;
-      m_hfile = NULL_HFILE;
+      m_hfile = INVALID_HANDLE_VALUE;
       m_path.Empty();
 
       m_path     = lpszFileName;
@@ -199,7 +197,7 @@ pacmedir->create(lpszFileName.folder());
 
       // attempt file creation
       //HANDLE hFile = shell::CreateFile(utf8_to_unicode(m_path), dwAccess, dwShareMode, &sa, dwCreateFlag, FILE_ATTRIBUTE_NORMAL, nullptr);
-      hfile hfile = ::hfile_create(m_path, dwAccess, dwShareMode, &sa, dwCreateFlag, FILE_ATTRIBUTE_NORMAL, nullptr);
+      HANDLE hfile = ::hfile_create(m_path, dwAccess, dwShareMode, &sa, dwCreateFlag, FILE_ATTRIBUTE_NORMAL, nullptr);
       if (hfile_is_nok(hfile))
       {
          ::u32 dwLastError = ::GetLastError();
@@ -306,7 +304,7 @@ pacmedir->create(lpszFileName.folder());
    memsize file::read(void * lpBuf, memsize nCount)
    {
       ASSERT_VALID(this);
-      ASSERT(m_hfile != NULL_HFILE);
+      ASSERT(m_hfile != INVALID_HANDLE_VALUE);
 
       if (nCount == 0)
          return 0;   // avoid Win32 "nullptr-read"
@@ -337,7 +335,7 @@ pacmedir->create(lpszFileName.folder());
    void file::write(const void * lpBuf, memsize nCount)
    {
       ASSERT_VALID(this);
-      ASSERT(m_hfile != NULL_HFILE);
+      ASSERT(m_hfile != INVALID_HANDLE_VALUE);
 
       if (nCount == 0)
          return;     // avoid Win32 "nullptr-write" option
@@ -380,7 +378,7 @@ pacmedir->create(lpszFileName.folder());
    filesize file::translate(filesize offset, ::enum_seek eseek)
    {
 
-      if (m_hfile == NULL_HFILE)
+      if (m_hfile == INVALID_HANDLE_VALUE)
       {
 
          auto dwLastError = ::GetLastError();
@@ -389,12 +387,12 @@ pacmedir->create(lpszFileName.folder());
 
          auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-         throw ::file::exception(estatus, errorcode, m_path, "hfile == NULL_HFILE", m_eopen);
+         throw ::file::exception(estatus, errorcode, m_path, "hfile == INVALID_HANDLE_VALUE", m_eopen);
 
       }
 
       ASSERT_VALID(this);
-      ASSERT(m_hfile != NULL_HFILE);
+      ASSERT(m_hfile != INVALID_HANDLE_VALUE);
       ASSERT(eseek == ::e_seek_set || eseek == ::e_seek_from_end || eseek == ::e_seek_current);
       ASSERT(::e_seek_set == FILE_BEGIN && ::e_seek_from_end == FILE_END && ::e_seek_current == FILE_CURRENT);
 
@@ -426,7 +424,7 @@ pacmedir->create(lpszFileName.folder());
    filesize file::get_position() const
    {
       ASSERT_VALID(this);
-      ASSERT(m_hfile != NULL_HFILE);
+      ASSERT(m_hfile != INVALID_HANDLE_VALUE);
 
       LONG lLoOffset = 0;
       LONG lHiOffset = 0;
@@ -455,7 +453,7 @@ pacmedir->create(lpszFileName.folder());
 
       ASSERT_VALID(this);
 
-      if (m_hfile == NULL_HFILE)
+      if (m_hfile == INVALID_HANDLE_VALUE)
          return;
 
       if (!::FlushFileBuffers((HANDLE)m_hfile))
@@ -477,13 +475,13 @@ pacmedir->create(lpszFileName.folder());
    void file::close()
    {
       ASSERT_VALID(this);
-      ASSERT(m_hfile != NULL_HFILE);
+      ASSERT(m_hfile != INVALID_HANDLE_VALUE);
 
       bool bError = false;
-      if (m_hfile != NULL_HFILE)
+      if (m_hfile != INVALID_HANDLE_VALUE)
          bError = !::CloseHandle((HANDLE)m_hfile);
 
-      m_hfile = NULL_HFILE;
+      m_hfile = INVALID_HANDLE_VALUE;
       m_bCloseOnDelete = false;
       m_path.Empty();
 
@@ -506,11 +504,11 @@ pacmedir->create(lpszFileName.folder());
    //void file::Abort()
    //{
    //   ASSERT_VALID(this);
-   //   if (m_hfile != (::u32)NULL_HFILE)
+   //   if (m_hfile != (::u32)INVALID_HANDLE_VALUE)
    //   {
    //      // close but ignore errors
    //      ::CloseHandle((HANDLE)m_hfile);
-   //      m_hfile = (::u32)NULL_HFILE;
+   //      m_hfile = (::u32)INVALID_HANDLE_VALUE;
    //   }
    //   m_path.Empty();
    //}
@@ -521,7 +519,7 @@ pacmedir->create(lpszFileName.folder());
       
       ASSERT_VALID(this);
 
-      ASSERT(m_hfile != NULL_HFILE);
+      ASSERT(m_hfile != INVALID_HANDLE_VALUE);
 
    }
 
@@ -531,7 +529,7 @@ pacmedir->create(lpszFileName.folder());
 
       ASSERT_VALID(this);
 
-      ASSERT(m_hfile != NULL_HFILE);
+      ASSERT(m_hfile != INVALID_HANDLE_VALUE);
 
    }
 
@@ -541,7 +539,7 @@ pacmedir->create(lpszFileName.folder());
 
       ASSERT_VALID(this);
 
-      ASSERT(m_hfile != NULL_HFILE);
+      ASSERT(m_hfile != INVALID_HANDLE_VALUE);
 
       translate((::i32)dwNewLen, (::enum_seek)::e_seek_set);
 
@@ -661,25 +659,25 @@ pacmedir->create(lpszFileName.folder());
    //}
 
 
-   void file::assert_ok() const
-   {
+   //void file::assert_ok() const
+   //{
 
-      ::file::file::assert_ok();
-      // we permit the descriptor m_hfile to be any value for derived classes
+   //   ::file::file::assert_ok();
+   //   // we permit the descriptor m_hfile to be any value for derived classes
 
-   }
+   //}
 
 
-   void file::dump(dump_context & dumpcontext) const
-   {
+   //void file::dump(dump_context & dumpcontext) const
+   //{
 
-      ::file::file::dump(dumpcontext);
+   //   ::file::file::dump(dumpcontext);
 
-      //dumpcontext << "with handle " << (::uptr) m_hfile;
-      //dumpcontext << " and name \"" << m_path << "\"";
-      //dumpcontext << "\n";
+   //   //dumpcontext << "with handle " << (::uptr) m_hfile;
+   //   //dumpcontext << " and name \"" << m_path << "\"";
+   //   //dumpcontext << "\n";
 
-   }
+   //}
 
 
 /* Error Codes */
@@ -1062,7 +1060,7 @@ pacmedir->create(lpszFileName.folder());
    bool file::is_opened() const
    {
 
-      return m_hfile != NULL_HFILE;
+      return m_hfile != INVALID_HANDLE_VALUE;
 
    }
 

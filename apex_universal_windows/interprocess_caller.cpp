@@ -2,8 +2,9 @@
 #include "framework.h"
 #include "interprocess_caller.h"
 #include "interprocess_target.h"
-#include "acme/primitive/string/base64.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme/platform/node.h"
+#include "acme/primitive/string/base64.h"
 #include <winrt/Windows.System.h>
 
 
@@ -106,9 +107,7 @@ namespace apex_universal_windows
 
       auto hstrUri = __hstring(strUri);
 
-      auto pnode = acmesystem()->node();
-
-      pnode->node_post([this, hstrUri]()
+      acmenode()->node_post([this, hstrUri]()
          {
 
             ::winrt::Windows::Foundation::Uri uri(hstrUri);

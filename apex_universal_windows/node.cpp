@@ -2,6 +2,7 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/filesystem/filesystem/acme_file.h"
+#include "apex/platform/system.h"
 
 
 namespace apex_universal_windows

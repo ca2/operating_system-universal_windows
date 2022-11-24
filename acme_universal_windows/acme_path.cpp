@@ -1,11 +1,15 @@
-// Create on 2021-03-22 09:12 <3ThomasBS_
+﻿// Create on 2021-03-22 09:12 <3ThomasBS_
 // Copied by camilo from operating-system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #include "framework.h"
 #include "acme_path.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/platform/application.h"
+#include "acme/platform/system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "_winrt_storage.h"
 
+
+#include "acme/_operating_system.h"
 
 
 namespace acme_universal_windows

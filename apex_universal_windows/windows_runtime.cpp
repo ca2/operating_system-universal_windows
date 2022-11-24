@@ -1,4 +1,4 @@
-// Created by camilo on 2021-08-30 16:53 BRT <3ThomasBS__!!
+﻿// Created by camilo on 2021-08-30 16:53 BRT <3ThomasBS__!!
 #include "framework.h"
 //#include "apex/_defer.h"
 #include "acme/operating_system/universal_windows/parallelization_winrt.h"
@@ -51,7 +51,7 @@
 
    string strPrefix;
 
-   ::winrt::Windows::Storage::StorageFolder folder = windows_runtime_folder(pobject, strRelative, strPrefix);
+   ::winrt::Windows::Storage::StorageFolder folder = windows_runtime_folder(pparticle, strRelative, strPrefix);
 
    if (folder == nullptr)
    {
