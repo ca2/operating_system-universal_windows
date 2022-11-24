@@ -34,13 +34,56 @@ namespace windowing_universal_windows
 
       //defer_co_initialize_ex(false);
 
-      acmenode()->defer_co_initialize_ex(true);
 
    }
 
 
    shell::~shell()
    {
+
+   }
+
+
+   void shell::initialize(::particle* pparticle)
+   {
+
+      if (m_bInitialized)
+      {
+
+         //return ::success;
+
+         return;
+
+      }
+
+      //auto estatus = 
+
+      //::user::shell::initialize(pparticle);
+
+      //if (!estatus)
+      //{
+
+      //   return estatus;
+
+      //}
+
+      //estatus = __construct_new(m_pmessagequeue);
+
+
+      //if (!estatus)
+      //{
+
+      //   return estatus;
+
+      //}
+
+      //m_pmessagequeue->create_message_queue("user::shell", this);
+
+      //return estatus;
+
+      ::user::shell::initialize(pparticle);
+    
+      acmenode()->defer_co_initialize_ex(true);
 
    }
 
@@ -1396,44 +1439,44 @@ namespace windowing_universal_windows
    //}
 
 
-   void shell::initialize(::particle * pparticle)
-   {
+   //void shell::initialize(::particle * pparticle)
+   //{
 
-      if (m_bInitialized)
-      {
+   //   if (m_bInitialized)
+   //   {
 
-         //return ::success;
+   //      //return ::success;
 
-         return;
+   //      return;
 
-      }
+   //   }
 
-      //auto estatus = 
-      
-      ::user::shell::initialize(pparticle);
+   //   //auto estatus = 
+   //   
+   //   ::user::shell::initialize(pparticle);
 
-      //if (!estatus)
-      //{
+   //   //if (!estatus)
+   //   //{
 
-      //   return estatus;
+   //   //   return estatus;
 
-      //}
+   //   //}
 
-      //estatus = __construct_new(m_pmessagequeue);
+   //   //estatus = __construct_new(m_pmessagequeue);
 
 
-      //if (!estatus)
-      //{
+   //   //if (!estatus)
+   //   //{
 
-      //   return estatus;
+   //   //   return estatus;
 
-      //}
+   //   //}
 
-      //m_pmessagequeue->create_message_queue("user::shell", this);
+   //   //m_pmessagequeue->create_message_queue("user::shell", this);
 
-      //return estatus;
+   //   //return estatus;
 
-   }
+   //}
 
 
    //::e_status shell::run()
