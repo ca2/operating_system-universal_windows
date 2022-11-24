@@ -1,4 +1,4 @@
-// created by Camilo <3CamiloSasukeThomasBorregaardSoerensen  - Honoring Thomas Borregaard Sørensen MY ONLY LORD
+﻿// created by Camilo <3CamiloSasukeThomasBorregaardSoerensen  - Honoring Thomas Borregaard Sørensen MY ONLY LORD
 // recreated by Camilo 2021-02-02 20:55
 #include "framework.h"
 #include "display.h"
@@ -65,7 +65,7 @@ namespace windowing_universal_windows
 
 
 
-   index display::get_main_monitor(RECTANGLE_I32 * prectangle)
+   index display::get_main_monitor(RECTANGLE_I32 & rectangle)
    {
 
       //index iMainMonitor = 0;
@@ -245,7 +245,7 @@ namespace windowing_universal_windows
    //}
 
 
-   index display::get_main_workspace(RECTANGLE_I32 * prectangle)
+   index display::get_main_workspace(RECTANGLE_I32 & rectangle)
 
    {
 
@@ -526,7 +526,7 @@ namespace windowing_universal_windows
 
          pmonitor->get_monitor_rectangle(rectangleMonitor);
 
-         if (rectangleIntersect.top_left_null_intersect(&rectangleParam, rectangleMonitor))
+         if (rectangleIntersect.top_left_null_intersect(rectangleParam, rectangleMonitor))
          {
 
             if (rectangleIntersect.area() >= 0)
@@ -547,7 +547,7 @@ namespace windowing_universal_windows
 
 
 
-   ::mutex g_monitor_adjust;
+   //::mutex g_monitor_adjust;
 
 
 
@@ -556,7 +556,7 @@ namespace windowing_universal_windows
    i64 g_i_get_best_zoneing = 0;
 
    
-   index display::_get_best_zoneing(edisplay * pedisplay, ::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangleRequest, bool bPreserveSize)
+   index display::_get_best_zoneing(::e_display * pedisplay, ::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangleRequest, bool bPreserveSize)
    {
 
       ::rectangle_i32 rectangle(rectangleRequest);
@@ -914,7 +914,7 @@ namespace windowing_universal_windows
 
       }
 
-      iMatchingMonitor = get_main_monitor(prectangle);
+      iMatchingMonitor = get_main_monitor(*prectangle);
 
       return iMatchingMonitor;
 
@@ -997,7 +997,7 @@ namespace windowing_universal_windows
 
       }
 
-      iMatchingWkspace = get_main_workspace(prectangle);
+      iMatchingWkspace = get_main_workspace(*prectangle);
 
       return iMatchingWkspace;
 

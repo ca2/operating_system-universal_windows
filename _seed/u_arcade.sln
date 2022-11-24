@@ -23,39 +23,39 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio_decode_wave", "..\..\
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio_decode_libmpg123", "..\..\..\source\app-veriwell\audio_decode_libmpg123\u_audio_decode_libmpg123.vcxproj", "{6B2FE6CD-C8CE-4105-AA10-A2B959E58F7C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio_xaudio", "C:\debug\operating-system\operating-system-windows_common\audio_xaudio\u_audio_xaudio.vcxproj", "{2C7655E4-B348-438A-B32F-7931585BB6E7}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio_xaudio", "..\..\operating-system-windows_common\audio_xaudio\u_audio_xaudio.vcxproj", "{2C7655E4-B348-438A-B32F-7931585BB6E7}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "multimedia_xaudio", "C:\debug\operating-system\operating-system-windows_common\multimedia_xaudio\u_multimedia_xaudio.vcxproj", "{D04B626B-5830-429E-B633-71874563AF6F}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "multimedia_xaudio", "..\..\operating-system-windows_common\multimedia_xaudio\u_multimedia_xaudio.vcxproj", "{D04B626B-5830-429E-B633-71874563AF6F}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "direct2d", "C:\debug\operating-system\operating-system-windows_common\direct2d\u_direct2d.vcxproj", "{91608259-0B1F-4DEB-A867-873618075395}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "direct2d", "..\..\operating-system-windows_common\direct2d\u_direct2d.vcxproj", "{91608259-0B1F-4DEB-A867-873618075395}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "directx", "C:\debug\operating-system\operating-system-windows_common\directx\u_directx.vcxproj", "{41F27C23-968D-49A8-B050-E1643437B612}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "directx", "..\..\operating-system-windows_common\directx\u_directx.vcxproj", "{41F27C23-968D-49A8-B050-E1643437B612}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "C:\debug\operating-system\operating-system-windows_common\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\operating-system-windows_common\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imaging_wic", "C:\debug\operating-system\operating-system-windows_common\imaging_wic\u_imaging_wic.vcxproj", "{B3A245F9-C92F-4487-AEF7-CB0531F665BD}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "imaging_wic", "..\..\operating-system-windows_common\imaging_wic\u_imaging_wic.vcxproj", "{B3A245F9-C92F-4487-AEF7-CB0531F665BD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_windows_common", "C:\debug\operating-system\operating-system-windows_common\acme_windows_common\u_acme_windows_common.vcxproj", "{4A44D9CA-A46E-4BB3-8AD5-8BCACE5228CE}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_windows_common", "..\..\operating-system-windows_common\acme_windows_common\u_acme_windows_common.vcxproj", "{4A44D9CA-A46E-4BB3-8AD5-8BCACE5228CE}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_windows_common", "C:\debug\operating-system\operating-system-windows_common\apex_windows_common\u_apex_windows_common.vcxproj", "{BC71DE03-0BCB-46ED-A9C5-D1DD8242C511}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_windows_common", "..\..\operating-system-windows_common\apex_windows_common\u_apex_windows_common.vcxproj", "{BC71DE03-0BCB-46ED-A9C5-D1DD8242C511}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_windows_common", "C:\debug\operating-system\operating-system-windows_common\aura_windows_common\u_aura_windows_common.vcxproj", "{DA5570CD-D399-45CB-94E3-E81735D80F3A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_windows_common", "..\..\operating-system-windows_common\aura_windows_common\u_aura_windows_common.vcxproj", "{DA5570CD-D399-45CB-94E3-E81735D80F3A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_universal_windows", "C:\debug\operating-system\operating-system-universal_windows\acme_universal_windows\u_acme_universal_windows.vcxproj", "{E38ECF25-A157-4402-A803-F54759FF1C91}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_universal_windows", "..\..\operating-system-universal_windows\acme_universal_windows\u_acme_universal_windows.vcxproj", "{E38ECF25-A157-4402-A803-F54759FF1C91}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_universal_windows", "C:\debug\operating-system\operating-system-universal_windows\apex_universal_windows\u_apex_universal_windows.vcxproj", "{310FEC1B-4DEB-40C9-8ED2-4D8FD9CF52D0}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_universal_windows", "..\..\operating-system-universal_windows\apex_universal_windows\u_apex_universal_windows.vcxproj", "{310FEC1B-4DEB-40C9-8ED2-4D8FD9CF52D0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_universal_windows", "C:\debug\operating-system\operating-system-universal_windows\aura_universal_windows\u_aura_universal_windows.vcxproj", "{DC91F8BC-AFD2-441B-8C90-BE101E7A8617}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_universal_windows", "..\..\operating-system-universal_windows\aura_universal_windows\u_aura_universal_windows.vcxproj", "{DC91F8BC-AFD2-441B-8C90-BE101E7A8617}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windowing_universal_windows", "C:\debug\operating-system\operating-system-universal_windows\windowing_universal_windows\u_windowing_universal_windows.vcxproj", "{320713E0-CEA7-4EF5-A154-AB3A96D41A52}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windowing_universal_windows", "..\..\operating-system-universal_windows\windowing_universal_windows\u_windowing_universal_windows.vcxproj", "{320713E0-CEA7-4EF5-A154-AB3A96D41A52}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "node_universal_windows", "C:\debug\operating-system\operating-system-universal_windows\node_universal_windows\u_node_universal_windows.vcxproj", "{6A3E3812-82B9-4423-BB63-C9687C967C67}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "node_universal_windows", "..\..\operating-system-universal_windows\node_universal_windows\u_node_universal_windows.vcxproj", "{6A3E3812-82B9-4423-BB63-C9687C967C67}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "C:\debug\source\app\database_sqlite3\u_database_sqlite3.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio", "C:\debug\source\app-core\audio\u_audio.vcxproj", "{1935706B-4846-4A53-808F-9123FCBA7DFD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "write_text_direct2d", "C:\debug\operating-system\operating-system-windows_common\write_text_direct2d\u_write_text_direct2d.vcxproj", "{E90B52B8-AB16-4D55-87D6-CF2389746776}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "write_text_direct2d", "..\..\operating-system-windows_common\write_text_direct2d\u_write_text_direct2d.vcxproj", "{E90B52B8-AB16-4D55-87D6-CF2389746776}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "audio_resample_swresample", "C:\debug\source\app-core\audio_resample_swresample\u_audio_resample_swresample.vcxproj", "{8DB9D849-0FCB-41AD-8D7A-FA19E5BE8E23}"
 EndProject

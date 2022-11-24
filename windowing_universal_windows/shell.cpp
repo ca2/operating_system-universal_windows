@@ -1,13 +1,20 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "icon.h"
-#include "acme/operating_system.h"
-#include "aura/graphics/image/drawing.h"
-#undef User
-#undef Usr
 #include "shell.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
-#include "aura/graphics/image/list.h"
+#include "acme/parallelization/synchronous_lock.h"
+#include "acme/platform/node.h"
+#include "acme/platform/system.h"
+#include "apex/filesystem/filesystem/dir_context.h"
+#include "apex/filesystem/filesystem/file_context.h"
+#include "apex/platform/context.h"
+#include "aura/graphics/image/drawing.h"
 #include "aura/graphics/image/icon.h"
+#include "aura/graphics/image/list.h"
+
+
+#include "acme/_operating_system.h"
+
 
 
 namespace windowing_universal_windows
@@ -27,10 +34,7 @@ namespace windowing_universal_windows
 
       //defer_co_initialize_ex(false);
 
-      defer_co_initialize_ex(true);
-
-
-
+      acmenode()->defer_co_initialize_ex(true);
 
    }
 
@@ -1014,10 +1018,10 @@ namespace windowing_universal_windows
    //}
 
 
-   shell::enum_folder shell::get_folder_type(::particle * pparticle, const ::string & pcsz)
+   shell::enum_folder shell::get_folder_type(::particle * pparticle, const ::string & str)
    {
 
-      return get_folder_type(pobject, utf8_to_unicode(pcsz));
+      return get_folder_type(pparticle, wstring(str));
 
    }
 
@@ -1027,13 +1031,9 @@ namespace windowing_universal_windows
 
       string strPath;
 
-      unicode_to_utf8(strPath, wstrPath);
+      strPath = wstrPath;
 
-      auto psystem = acmesystem();
-
-      auto pacmedir = psystem->m_pacmedirectory;
-
-      if (pacmedir->is(strPath))
+      if (acmedirectory()->is(strPath))
       {
 
          return e_folder_file_system;
@@ -1074,13 +1074,13 @@ namespace windowing_universal_windows
 
       getfileimage.m_iImage = 0x80000000;
 
-      if (::str().begins_ci(getfileimage.m_imagekey.m_strPath, "uifs:"))
+      if (getfileimage.m_imagekey.m_strPath.begins_ci("uifs:"))
       {
 
          if (reserve_image(getfileimage))
          {
 
-            ::file::path path = m_pcontext->m_papexcontext->dir().matter("cloud.ico");
+            ::file::path path = dir()->matter("cloud.ico");
 
             set_icon(path, getfileimage);
 
@@ -1090,30 +1090,13 @@ namespace windowing_universal_windows
          return true;
 
       }
-      else if (::str().begins_ci(getfileimage.m_imagekey.m_strPath, "fs:"))
+      else if (getfileimage.m_imagekey.m_strPath.begins_ci("fs:"))
       {
 
          if (reserve_image(getfileimage))
          {
 
-            ::file::path path = m_pcontext->m_papexcontext->dir().matter("remote.ico");
-
-            set_icon(path, getfileimage);
-
-         }
-
-         //return iImage;
-
-         return true;
-
-      }
-      else if (::str().begins_ci(getfileimage.m_imagekey.m_strPath, "ftp:"))
-      {
-
-         if (reserve_image(getfileimage))
-         {
-
-            ::file::path path = m_pcontext->m_papexcontext->dir().matter("ftp.ico");
+            ::file::path path = dir()->matter("remote.ico");
 
             set_icon(path, getfileimage);
 
@@ -1124,11 +1107,28 @@ namespace windowing_universal_windows
          return true;
 
       }
-
-      if (::str().ends_ci(getfileimage.m_imagekey.m_strPath, ".aura"))
+      else if (getfileimage.m_imagekey.m_strPath.begins_ci("ftp:"))
       {
 
-         string str = m_pcontext->m_papexcontext->file().as_string(getfileimage.m_imagekey.m_strPath);
+         if (reserve_image(getfileimage))
+         {
+
+            ::file::path path = dir()->matter("ftp.ico");
+
+            set_icon(path, getfileimage);
+
+         }
+
+         //return iImage;
+
+         return true;
+
+      }
+
+      if (getfileimage.m_imagekey.m_strPath.ends_ci(".aura"))
+      {
+
+         string str = file()->as_string(getfileimage.m_imagekey.m_strPath);
 
          if (str.begins_eat_ci("ca2prompt\r\n"))
          {
@@ -1276,7 +1276,7 @@ namespace windowing_universal_windows
 
       string strExtension;
 
-      if (::str().ends_ci(getfileimage.m_imagekey.m_strPath, ".sln"))
+      if (getfileimage.m_imagekey.m_strPath.ends_ci(".sln"))
       {
 
          //output_debug_string("test .sln");
@@ -1410,7 +1410,7 @@ namespace windowing_universal_windows
 
       //auto estatus = 
       
-      ::user::shell::initialize(pobject);
+      ::user::shell::initialize(pparticle);
 
       //if (!estatus)
       //{
@@ -1441,7 +1441,7 @@ namespace windowing_universal_windows
    {
 
 
-      defer_co_initialize_ex(true);
+      acmenode()->defer_co_initialize_ex(true);
 
       //m_thumbnailhandlerfactory.CoCreateInstance(CLSID_ThumbnailHandlerFactory);
 

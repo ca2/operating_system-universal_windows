@@ -33,23 +33,23 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "acme_universal_windows", ".
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_universal_windows", "..\apex_universal_windows\u_apex_universal_windows.vcxproj", "{310FEC1B-4DEB-40C9-8ED2-4D8FD9CF52D0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_windows_common", "C:\debug\operating-system\operating-system-windows_common\apex_windows_common\u_apex_windows_common.vcxproj", "{BC71DE03-0BCB-46ED-A9C5-D1DD8242C511}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "apex_windows_common", "..\..\operating-system-windows_common\apex_windows_common\u_apex_windows_common.vcxproj", "{BC71DE03-0BCB-46ED-A9C5-D1DD8242C511}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_windows_common", "C:\debug\operating-system\operating-system-windows_common\aura_windows_common\u_aura_windows_common.vcxproj", "{DA5570CD-D399-45CB-94E3-E81735D80F3A}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_windows_common", "..\..\operating-system-windows_common\aura_windows_common\u_aura_windows_common.vcxproj", "{DA5570CD-D399-45CB-94E3-E81735D80F3A}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_universal_windows", "C:\debug\operating-system\operating-system-universal_windows\aura_universal_windows\u_aura_universal_windows.vcxproj", "{DC91F8BC-AFD2-441B-8C90-BE101E7A8617}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "aura_universal_windows", "..\..\operating-system-universal_windows\aura_universal_windows\u_aura_universal_windows.vcxproj", "{DC91F8BC-AFD2-441B-8C90-BE101E7A8617}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "directx", "C:\debug\operating-system\operating-system-windows_common\directx\u_directx.vcxproj", "{41F27C23-968D-49A8-B050-E1643437B612}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "directx", "..\..\operating-system-windows_common\directx\u_directx.vcxproj", "{41F27C23-968D-49A8-B050-E1643437B612}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windowing_universal_windows", "C:\debug\operating-system\operating-system-universal_windows\windowing_universal_windows\u_windowing_universal_windows.vcxproj", "{320713E0-CEA7-4EF5-A154-AB3A96D41A52}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "windowing_universal_windows", "..\..\operating-system-universal_windows\windowing_universal_windows\u_windowing_universal_windows.vcxproj", "{320713E0-CEA7-4EF5-A154-AB3A96D41A52}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "node_universal_windows", "C:\debug\operating-system\operating-system-universal_windows\node_universal_windows\u_node_universal_windows.vcxproj", "{6A3E3812-82B9-4423-BB63-C9687C967C67}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "node_universal_windows", "..\..\operating-system-universal_windows\node_universal_windows\u_node_universal_windows.vcxproj", "{6A3E3812-82B9-4423-BB63-C9687C967C67}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "database_sqlite3", "C:\debug\source\app\database_sqlite3\u_database_sqlite3.vcxproj", "{BA9BFF50-1888-4722-8DEE-73A3B5B32BCB}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "C:\debug\operating-system\operating-system-windows_common\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "draw2d_direct2d", "..\..\operating-system-windows_common\draw2d_direct2d\u_draw2d_direct2d.vcxproj", "{4DBA8B7C-BB83-4098-8901-08E3F5AEE45E}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "write_text_direct2d", "C:\debug\operating-system\operating-system-windows_common\write_text_direct2d\u_write_text_direct2d.vcxproj", "{E90B52B8-AB16-4D55-87D6-CF2389746776}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "write_text_direct2d", "..\..\operating-system-windows_common\write_text_direct2d\u_write_text_direct2d.vcxproj", "{E90B52B8-AB16-4D55-87D6-CF2389746776}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "crypto_openssl", "..\..\..\source\app\crypto_openssl\u_crypto_openssl.vcxproj", "{BC919186-F67A-4FFC-B6BE-0E63DC652A63}"
 EndProject

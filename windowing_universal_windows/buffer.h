@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 #include "aura/graphics/graphics/bitmap_source_buffer.h"
@@ -54,7 +54,7 @@ namespace windowing_universal_windows
       ::tristate                                            m_tristateCoreWindowVisible;
       bool                                                  m_bWindowSizeChangeInProgress;
       bool                                                  m_b3D;
-      ::mutex                                               m_mutexDc;
+      ::pointer < ::particle >                              m_pparticleMutexDc;
       size_i32                                              m_size;
       ::size_i32                                            m_sizeBuffer;
       ::pointer<window>                                    m_pwindow;

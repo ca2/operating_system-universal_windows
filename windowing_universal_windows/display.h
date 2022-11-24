@@ -1,4 +1,4 @@
-// created by Camilo <3ThomasBorregaardSoerensen_!!
+﻿// created by Camilo <3ThomasBorregaardSoerensen_!!
 // recreated by Camilo 2021-02-02 16:49
 #pragma once
 
@@ -49,7 +49,7 @@ namespace windowing_universal_windows
 
       void enum_display_monitors() override;
 
-      ::index get_main_monitor(RECTANGLE_I32 * prectangle = nullptr) override;
+      ::index get_main_monitor(RECTANGLE_I32 & rectangle) override;
 
       ::count get_monitor_count() override;
       //virtual bool  get_monitor_rect(index iMonitor, RECTANGLE_I32 * prectangle) override;
@@ -58,7 +58,7 @@ namespace windowing_universal_windows
       //virtual bool  get_desk_monitor_rect(index iMonitor, RECTANGLE_I32 * prectangle) override;
 
 
-      index get_main_workspace(RECTANGLE_I32 * prectangle = nullptr) override;
+      index get_main_workspace(RECTANGLE_I32 & rectangle) override;
 
       ::count get_workspace_count() override;
       //virtual bool  get_wkspace_rect(index iWkspace, RECTANGLE_I32 * prectangle) override;
@@ -90,7 +90,7 @@ namespace windowing_universal_windows
       virtual void _get_monitor(rectangle_i32_array & rectaMonitor, rectangle_i32_array& rectaIntersect, const rectangle_i32 & rectangleParam);
 
 
-      virtual index _get_best_zoneing(edisplay * pedisplay, ::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, bool bPreserveSize = false);
+      virtual index _get_best_zoneing(::e_display * pedisplay, ::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, bool bPreserveSize = false);
 
       index get_best_monitor(RECTANGLE_I32 * prectangle, const ::rectangle_i32 & rectangle, ::e_activation eactivation = e_activation_default, ::windowing::window* pwindowGetCursorPosition = nullptr) override;
 

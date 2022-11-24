@@ -1,7 +1,10 @@
 ﻿#include "framework.h"
 #include "interaction_impl.h"
+#include "acme/constant/message.h"
+#include "acme/exception/not_implemented.h"
 #include "aura/graphics/graphics/graphics.h"
 #include "aura/graphics/image/image.h"
+#include "acme/parallelization/synchronous_lock.h"
 #include "aura/platform/session.h"
 #include "aura/message/user.h"
 #include "aura/windowing/window.h"
@@ -215,101 +218,101 @@ namespace aura_universal_windows
         // post_non_client_destroy();
    }
 
-   void interaction_impl::assert_ok() const
-   {
-      //if(get_handle() == nullptr)
-        // return;     // nullptr (unattached) windows are valid
-
-      // check for special wnd??? values
-      ASSERT(HWND_TOP == nullptr);       // same as desktop
-#ifdef WINDOWS_DESKTOP
-      if (get_handle() == HWND_BOTTOM)
-      {
-      }
-      else if (get_handle() == HWND_TOPMOST)
-      {
-      }
-      else if (get_handle() == HWND_NOTOPMOST)
-      {
-      }
-      else
-#endif
-      {
-         // should be a normal interaction_impl
-#ifdef WINDOWS_DESKTOP
-         ASSERT(::is_window(get_handle()));
-#else
-         throw ::exception(todo);
-#endif
-
-         // should also be in the permanent or temporary handle ::map
-         //single_lock synchronouslock(afxMutexHwnd(),true);
-         //hwnd_map * pMap = afxMapHWND();
-         //if(pMap == nullptr) // inside thread not having windows
-         //   return; // let go
-         //ASSERT(pMap != nullptr);
-
-         //         ::object* p=nullptr;
-         /*if(pMap)
-         {
-         ASSERT( (p = pMap->lookup_permanent(get_handle())) != nullptr ||
-         (p = pMap->lookup_temporary(get_handle())) != nullptr);
-         }*/
-
-         //ASSERT(dynamic_cast < ::user::interaction_impl * > (p) == this);   // must be us
-
-         // Note: if either of the above asserts fire and you are
-         // writing a multithreaded application, it is likely that
-         // you have passed a C++ object from one thread to another
-         // and have used that object in a way that was not intended.
-         // (only simple inline wrapper functions should be used)
-         //
-         // In general, interaction_impl objects should be passed by oswindow from
-         // one thread to another.  The receiving thread can wrap
-         // the oswindow with a interaction_impl object by using ::universal_windows::interaction_impl::from_handle.
-         //
-         // It is dangerous to pass C++ objects from one thread to
-         // another, unless the objects are designed to be used in
-         // such a manner.
-      }
-   }
-
-
-   void interaction_impl::dump(dump_context & dumpcontext) const
-   {
-      ::object::dump(dumpcontext);
-
-//      //dumpcontext << "\nm_hWnd = " << (void *)get_handle();
+//   void interaction_impl::assert_ok() const
+//   {
+//      //if(get_handle() == nullptr)
+//        // return;     // nullptr (unattached) windows are valid
 //
+//      // check for special wnd??? values
+//      ASSERT(HWND_TOP == nullptr);       // same as desktop
 //#ifdef WINDOWS_DESKTOP
-//
-//      if(get_handle() == nullptr || get_handle() == HWND_BOTTOM || get_handle() == HWND_TOPMOST || get_handle() == HWND_NOTOPMOST)
+//      if (get_handle() == HWND_BOTTOM)
 //      {
-//         // not a normal interaction_impl - nothing more to dump
-//         return;
 //      }
-//
-//
-//      if (!::is_window(get_handle()))
+//      else if (get_handle() == HWND_TOPMOST)
 //      {
-//         // not a valid interaction_impl
-//         dumpcontext << " (illegal oswindow)";
-//         return; // don't do anything more
 //      }
+//      else if (get_handle() == HWND_NOTOPMOST)
+//      {
+//      }
+//      else
+//#endif
+//      {
+//         // should be a normal interaction_impl
+//#ifdef WINDOWS_DESKTOP
+//         ASSERT(::is_window(get_handle()));
+//#else
+//         throw ::exception(todo);
 //#endif
 //
-//      ::rectangle_i32 rectangle;
-//      ((::user::interaction_impl *) this)->m_puserinteraction->get_window_rect(&rectangle);
-//      dumpcontext << "\nrect = " << rectangle;
-//      dumpcontext << "\nparent ::user::interaction_impl * = " << (void *)((::user::interaction_impl *) this)->get_parent();
+//         // should also be in the permanent or temporary handle ::map
+//         //single_lock synchronouslock(afxMutexHwnd(),true);
+//         //hwnd_map * pMap = afxMapHWND();
+//         //if(pMap == nullptr) // inside thread not having windows
+//         //   return; // let go
+//         //ASSERT(pMap != nullptr);
 //
-//#ifdef WINDOWS_DESKTOP
-//      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
-//      if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
-//         dumpcontext << "\nid = " << __get_dialog_control_id(get_handle());
-//#endif
-//      dumpcontext << "\n";
-   }
+//         //         ::object* p=nullptr;
+//         /*if(pMap)
+//         {
+//         ASSERT( (p = pMap->lookup_permanent(get_handle())) != nullptr ||
+//         (p = pMap->lookup_temporary(get_handle())) != nullptr);
+//         }*/
+//
+//         //ASSERT(dynamic_cast < ::user::interaction_impl * > (p) == this);   // must be us
+//
+//         // Note: if either of the above asserts fire and you are
+//         // writing a multithreaded application, it is likely that
+//         // you have passed a C++ object from one thread to another
+//         // and have used that object in a way that was not intended.
+//         // (only simple inline wrapper functions should be used)
+//         //
+//         // In general, interaction_impl objects should be passed by oswindow from
+//         // one thread to another.  The receiving thread can wrap
+//         // the oswindow with a interaction_impl object by using ::universal_windows::interaction_impl::from_handle.
+//         //
+//         // It is dangerous to pass C++ objects from one thread to
+//         // another, unless the objects are designed to be used in
+//         // such a manner.
+//      }
+//   }
+//
+//
+//   void interaction_impl::dump(dump_context & dumpcontext) const
+//   {
+//      ::object::dump(dumpcontext);
+//
+////      //dumpcontext << "\nm_hWnd = " << (void *)get_handle();
+////
+////#ifdef WINDOWS_DESKTOP
+////
+////      if(get_handle() == nullptr || get_handle() == HWND_BOTTOM || get_handle() == HWND_TOPMOST || get_handle() == HWND_NOTOPMOST)
+////      {
+////         // not a normal interaction_impl - nothing more to dump
+////         return;
+////      }
+////
+////
+////      if (!::is_window(get_handle()))
+////      {
+////         // not a valid interaction_impl
+////         dumpcontext << " (illegal oswindow)";
+////         return; // don't do anything more
+////      }
+////#endif
+////
+////      ::rectangle_i32 rectangle;
+////      ((::user::interaction_impl *) this)->m_puserinteraction->get_window_rect(&rectangle);
+////      dumpcontext << "\nrect = " << rectangle;
+////      dumpcontext << "\nparent ::user::interaction_impl * = " << (void *)((::user::interaction_impl *) this)->get_parent();
+////
+////#ifdef WINDOWS_DESKTOP
+////      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
+////      if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
+////         dumpcontext << "\nid = " << __get_dialog_control_id(get_handle());
+////#endif
+////      dumpcontext << "\n";
+//   }
 
    bool interaction_impl::DestroyWindow()
    {

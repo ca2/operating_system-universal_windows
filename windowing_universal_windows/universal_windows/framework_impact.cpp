@@ -1,7 +1,9 @@
-// from window by Camilo 2022-03-25 09:00 BRT <3CamiloSasukeThomasBorregaardSoerensen
+﻿// from window by Camilo 2022-03-25 09:00 BRT <3CamiloSasukeThomasBorregaardSoerensen
 #include "framework.h"
 #include "framework_impact.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme/platform/node.h"
+#include "acme/platform/system.h"
 #include <winrt/Windows.UI.Core.h>
 #include <winrt/Windows.UI.ViewManagement.h>
 #include "windowing_universal_windows/window.h"

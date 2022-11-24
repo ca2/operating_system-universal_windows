@@ -1,4 +1,4 @@
-// created by Camilo <3CamiloSasukeThomasBorregaardSoerensen  - Honoring Thomas Borregaard Sørensen MY ONLY LORD
+﻿// created by Camilo <3CamiloSasukeThomasBorregaardSoerensen  - Honoring Thomas Borregaard Sørensen MY ONLY LORD
 // recreated by Camilo 2021-01-28 16:44
 #include "framework.h"
 #include "icon.h"
@@ -229,7 +229,7 @@ namespace windowing_universal_windows
 
       ::pointer<::image>pimage;
 
-      __construct(pimage);
+      ::__construct(this, pimage);
 
       bool bOk = false;
 

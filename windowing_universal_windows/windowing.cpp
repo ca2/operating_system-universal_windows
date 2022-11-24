@@ -1,10 +1,11 @@
-// Created by camilo on 2021-01-30 <3ThomasBS_!!
+﻿// Created by camilo on 2021-01-30 <3ThomasBS_!!
 #include "framework.h"
 #include "windowing.h"
 #include "display.h"
 #include "keyboard.h"
 #include "window.h"
 #include "icon.h"
+#include "acme/platform/node.h"
 #include "aura/user/user/zorder.h"
 #include "aura/user/user/interaction.h"
 #include "aura/message/user.h"
@@ -138,7 +139,7 @@ namespace windowing_universal_windows
    
       auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
    
-      acmesystem()->m_pnode->background_color(colorBackground);
+      acmenode()->background_color(colorBackground);
    
    }
    
