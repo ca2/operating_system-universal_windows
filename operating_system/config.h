@@ -1,4 +1,7 @@
-#pragma once
+﻿#pragma once
+
+
+#pragma warning(disable:4251)
 
 
 #define NTDDI_VERSION   0x0A000000 // NTDDI_WIN10
