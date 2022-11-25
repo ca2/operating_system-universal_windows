@@ -1,6 +1,8 @@
-#include "framework.h"
-#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+﻿#include "framework.h"
 #include "file_os_watcher.h"
+#include "apex/filesystem/file/action.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "apex/platform/context.h"
 
 
 namespace apex_universal_windows

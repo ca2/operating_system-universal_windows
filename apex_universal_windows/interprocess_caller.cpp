@@ -2,8 +2,9 @@
 #include "framework.h"
 #include "interprocess_caller.h"
 #include "interprocess_target.h"
-#include "acme/primitive/string/base64.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme/platform/node.h"
+#include "acme/primitive/string/base64.h"
 #include <winrt/Windows.System.h>
 
 
@@ -98,7 +99,7 @@ namespace apex_universal_windows
 
       //}
 
-      //string anotherappUri = m_strBaseChannel + "://send?message=" + acmesystem()->url()->url_encode(strMessage);
+      //string anotherappUri = m_strBaseChannel + "://send?message=" + acmesystem()->url()->::url::encode(strMessage);
 
       //string anotherappUri = strUri;
 
@@ -106,9 +107,7 @@ namespace apex_universal_windows
 
       auto hstrUri = __hstring(strUri);
 
-      auto pnode = acmesystem()->node();
-
-      pnode->node_post([this, hstrUri]()
+      acmenode()->node_post([this, hstrUri]()
          {
 
             ::winrt::Windows::Foundation::Uri uri(hstrUri);
@@ -163,7 +162,7 @@ namespace apex_universal_windows
 
    //   //memory m;
 
-   //   string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + acmesystem()->url()->url_encode(acmesystem()->base64()->encode({ pdata, len }));
+   //   string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + acmesystem()->url()->::url::encode(acmesystem()->base64()->encode({ pdata, len }));
 
    //   auto pnode = acmesystem()->node();
 

@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 #include <shlobj.h>
@@ -48,10 +48,13 @@ namespace windowing_universal_windows
       ~shell() override;
 
 
+      void initialize(::particle* pparticle) override;
+
+
       ::user::shell::_get_file_image_ * new_get_file_image() override;
 
 
-      void initialize(::particle * pparticle) override;
+      //void initialize(::particle * pparticle) override;
 
 
       void run() override;

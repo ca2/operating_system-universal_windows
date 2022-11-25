@@ -1,9 +1,13 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "dir_system.h"
-#include "apex/operating_system.h"
-#include <Shlobj.h>
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme_universal_windows/acme_directory.h"
+
+
+#include "acme/_operating_system.h"
+
+
+#include <Shlobj.h>
 
 
 namespace apex_universal_windows
@@ -24,12 +28,12 @@ namespace apex_universal_windows
 
 
 
-   void dir_system::initialize(::particle * pparticle)
+   void dir_system::initialize(::particle* pparticle)
    {
 
       //auto estatus =
-      
-      ::dir_system::initialize(pobject);
+
+      ::dir_system::initialize(pparticle);
 
       //if (!estatus)
       //{
@@ -120,24 +124,20 @@ namespace apex_universal_windows
 
       }
 
-               auto psystem = acmesystem();
-
-         auto pacmedir = psystem->m_pacmedirectory;
-
-pacmedir->create(m_strTimeFolder);
+      acmedirectory()->create(m_strTimeFolder);
       //xxdebug_box("win_dir::initialize (m_strTimeFolder)", "win_dir::initialize", 0);
 
-if (!pacmedir->is(m_strTimeFolder))
-{
-   throw exception(error_failed, "Time folder doesn't exist");
+      if (!acmedirectory()->is(m_strTimeFolder))
+      {
+         throw exception(error_failed, "Time folder doesn't exist");
 
-}
+      }
 
-          /*     auto psystem = acmesystem();
+      /*     auto psystem = acmesystem();
 
-         auto pacmedir = psystem->m_pacmedirectory;*/
+     auto pacmedir = psystem->m_pacmedirectory;*/
 
-pacmedir->create(m_strTimeFolder / "time");
+      acmedirectory()->create(m_strTimeFolder / "time");
 
       //xxdebug_box("win_dir::initialize", "win_dir::initialize", 0);
 
@@ -150,7 +150,7 @@ pacmedir->create(m_strTimeFolder / "time");
    {
 
       //auto estatus = 
-      
+
       ::dir_system::init_system();
 
       //if (!estatus)

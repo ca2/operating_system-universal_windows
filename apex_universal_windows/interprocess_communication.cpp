@@ -113,7 +113,7 @@ namespace apex_universal_windows
 
       //}
 
-      string anotherappUri = m_strBaseChannel + "://send?message=" + acmesystem()->url()->url_encode(strMessage);
+      string anotherappUri = m_strBaseChannel + "://send?message=" + acmesystem()->url()->::url::encode(strMessage);
 
       //windows_runtime_launch_uri_synchronously(anotherappUri, durationTimeout);
 
@@ -177,7 +177,7 @@ namespace apex_universal_windows
 
       //memory m;
 
-      string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + acmesystem()->url()->url_encode(acmesystem()->base64()->encode({ pdata, len }));
+      string anotherappUri = m_strBaseChannel + "://send?messagebin=" + __string(message) + "," + acmesystem()->url()->::url::encode(acmesystem()->base64()->encode({ pdata, len }));
 
       auto pnode = acmesystem()->node();
 

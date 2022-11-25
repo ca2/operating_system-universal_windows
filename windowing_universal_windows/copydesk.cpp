@@ -1,11 +1,19 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "copydesk.h"
 #include "window.h"
 #include "windowing.h"
-#include "apex/operating_system.h"
+#include "acme/parallelization/synchronous_lock.h"
+#include "acme/platform/node.h"
+#include "acme/platform/system.h"
+//#include "apex/operating_system.h"
 #include "aura/graphics/image/image.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme_universal_windows/_winrt_stream.h"
+
+
+#include "acme/_operating_system.h"
+
+
 #include <winrt/Windows.ApplicationModel.DataTransfer.h>
 #include <winrt/Windows.Graphics.Imaging.h>
 #include <winrt/Windows.UI.Xaml.Media.Imaging.h>
@@ -86,7 +94,7 @@ namespace windowing_universal_windows
 
       //auto estatus =
       
-      ::user::copydesk::initialize(pobject);
+      ::user::copydesk::initialize(pparticle);
 
       //if (!estatus)
       //{
@@ -670,7 +678,7 @@ namespace windowing_universal_windows
 
          }});
 
-      defer_co_initialize_ex(true);
+      acmenode()->defer_co_initialize_ex(true);
 
       string str = ::winrt::Windows::ApplicationModel::DataTransfer::StandardDataFormats::Bitmap().begin();
 

@@ -3,6 +3,12 @@
 // Copied by camilo from operating-system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #include "framework.h"
 #include "acme_file.h"
+#include "acme/platform/node.h"
+
+
+#include "acme/_operating_system.h"
+
+
 #undef new
 #include <winrt/Windows.Storage.h>
 
@@ -59,7 +65,7 @@ namespace acme_universal_windows
    void acme_file::clear_application_data()
    {
 
-      acmesystem()->m_pnode->node_post([]()
+      acmenode()->node_post([]()
          {
 
             auto data = ::winrt::Windows::Storage::ApplicationData::Current();

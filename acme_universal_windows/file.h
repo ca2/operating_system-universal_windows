@@ -1,11 +1,7 @@
-#pragma once
+﻿#pragma once
 
 
-
-
-
-
-
+#include "acme/_operating_system.h"
 
 
 namespace acme_universal_windows
@@ -33,15 +29,15 @@ namespace acme_universal_windows
 
 
       bool                 m_bCloseOnDelete;
-      hfile                m_hfile;
+      HANDLE               m_hfile;
 
 
       file();
       ~file() override;
 
 
-      void assert_ok() const override;
-      void dump(dump_context& dumpcontext) const override;
+      //void assert_ok() const override;
+      //void dump(dump_context& dumpcontext) const override;
 
 
       operator HANDLE() const;

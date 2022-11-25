@@ -3,8 +3,17 @@
 #include "framework.h"
 #include "acme_directory.h"
 #include "acme_file.h"
+#include "acme/filesystem/filesystem/listing.h"
+#include "acme/platform/node.h"
+
+
+#include "acme/_operating_system.h"
+
+
 #include "_winrt_storage.h"
+
 #include <winrt/Windows.Foundation.Collections.h>
+
 
 
 namespace acme_universal_windows
@@ -432,7 +441,7 @@ namespace acme_universal_windows
    ::file::path acme_directory::stage(string strAppId, string strPlatform, string strConfiguration)
    {
 
-      return inplace_install(strAppId, strPlatform, strConfiguration) / "time" / time_binary_platform(strPlatform) / strConfiguration;
+      return inplace_install(strAppId, strPlatform, strConfiguration) / "time" / acmenode()->time_binary_platform(strPlatform) / strConfiguration;
 
    }
 
@@ -456,11 +465,7 @@ namespace acme_universal_windows
    ::file::path acme_directory::bookmark()
    {
 
-      auto psystem = acmesystem();
-
-      auto pacmedir = psystem->m_pacmedirectory;
-
-      return pacmedir->localconfig() / "bookmark";
+      return localconfig() / "bookmark";
 
    }
 
@@ -586,7 +591,7 @@ namespace acme_universal_windows
 
       }
 
-      auto folder = windows_runtime_folder(acmesystem(), path1);
+      auto folder = windows_runtime_folder(this, path1);
 
       if (!folder)
       {
@@ -603,7 +608,7 @@ namespace acme_universal_windows
    bool acme_directory::_is(bool & bDir, const char * path1)
    {
 
-      u32 dwFileAttributes = ::windows_get_file_attributes(path1);
+      u32 dwFileAttributes = ::windows::get_file_attributes(path1);
 
       if (dwFileAttributes == INVALID_FILE_ATTRIBUTES)
       {
@@ -1512,7 +1517,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          string strPrefix;
 
-         auto folder = windows_runtime_folder(acmesystem(), strRelative, strPrefix);
+         auto folder = windows_runtime_folder(this, strRelative, strPrefix);
 
          auto items = folder.GetItemsAsync().get();
 

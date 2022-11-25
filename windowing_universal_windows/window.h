@@ -1,4 +1,4 @@
-// created by Camilo 2021-01-31 04:56 BRT <3CamiloSasukeThomasBorregaardSoerensen
+﻿// created by Camilo 2021-01-31 04:56 BRT <3CamiloSasukeThomasBorregaardSoerensen
 #pragma once
 
 
@@ -100,7 +100,7 @@ namespace windowing_universal_windows
 
       bool                                                     m_bFontopusShift;
 
-      ::mutex                                                  m_mutex;
+      ::pointer < ::particle >                                 m_pparticleMutex;
 
       //::pointer<directx_interaction>                          m_pdxi;
 
@@ -120,7 +120,7 @@ namespace windowing_universal_windows
       ~window() override;
       
 
-      void on_initialize_object() override;
+      void on_initialize_particle() override;
 
 
       void main_post(const ::procedure & procedure);
@@ -226,8 +226,8 @@ namespace windowing_universal_windows
 
 
 
-      void assert_ok() const override;
-      void dump(dump_context & dumpcontext) const override;
+      //void assert_ok() const override;
+      //void dump(dump_context & dumpcontext) const override;
 
 
       virtual void install_message_routing(channel * pchannel) override;
@@ -420,9 +420,9 @@ namespace windowing_universal_windows
 
       virtual bool screen_to_client(POINT_I32 * ppoint) override;
 
-      virtual bool on_set_window_position(const class ::zorder& zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags) override;
+      virtual bool on_set_window_position(const class ::zorder& zorder, i32 x, i32 y, i32 cx, i32 cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
 
-      virtual bool set_window_position(const class ::zorder & zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags) override;
+      virtual bool set_window_position(const class ::zorder& zorder, i32 x, i32 y, i32 cx, i32 cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
 
       //virtual bool _set_window_pos(class::zorder zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags) override;
 
@@ -652,7 +652,7 @@ namespace windowing_universal_windows
       //virtual void sketch_prepare_window_minimize(::e_activation eactivation) override;
       //virtual void sketch_prepare_window_maximize() override;
       //virtual void sketch_prepare_window_full_screen(const ::rectangle_i32 & rectangleHint = nullptr) override;
-      //virtual void sketch_prepare_window_restore(edisplay edisplay) override;
+      //virtual void sketch_prepare_window_restore(::e_display edisplay) override;
 
 
       //virtual bool _is_window_visible() override;

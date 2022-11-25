@@ -17,7 +17,7 @@ namespace apex_universal_windows
    public:
 
 
-      ::matter_pointer           m_pClearApplicationDataHandler;
+      ::pointer < ::particle >           m_pClearApplicationDataHandler;
 
 
       node();

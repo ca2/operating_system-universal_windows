@@ -7,6 +7,8 @@
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/acme_path.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme/platform/node.h"
+#include "acme/platform/system.h"
 #include <winrt/Windows.System.h>
 
 
@@ -3089,11 +3091,11 @@ return false;
 
       //      array < wstring > wstraSpecs;
 
-      //      ::papaya::array::copy(wstraSpecs, set["file_filter_specs"].stra());
+      //      ::acme::container::copy(wstraSpecs, set["file_filter_specs"].stra());
 
       //      array < wstring > wstraNames;
 
-      //      ::papaya::array::copy(wstraNames, set["file_filter_names"].stra());
+      //      ::acme::container::copy(wstraNames, set["file_filter_names"].stra());
 
       //      rgSpec.set_size(minimum(wstraSpecs.get_size(), wstraNames.get_size()));
 
@@ -3339,11 +3341,11 @@ return false;
 
       //      array < wstring > wstraSpecs;
 
-      //      ::papaya::array::copy(wstraSpecs, set["file_filter_specs"].stra());
+      //      ::acme::container::copy(wstraSpecs, set["file_filter_specs"].stra());
 
       //      array < wstring > wstraNames;
 
-      //      ::papaya::array::copy(wstraNames, set["file_filter_names"].stra());
+      //      ::acme::container::copy(wstraNames, set["file_filter_names"].stra());
 
       //      rgSpec.set_size(minimum(wstraSpecs.get_size(), wstraNames.get_size()));
 

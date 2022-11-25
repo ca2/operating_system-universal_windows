@@ -2,6 +2,9 @@
 #include "system_interaction.h"
 ////#include "aura/message.h"
 ////#include "aura/procedure.h"
+#include "acme/constant/id.h"
+#include "acme/constant/message.h"
+#include "acme/platform/node.h"
 #include "aura/graphics/image/image.h"
 #include "aura/platform/system.h"
 #include "aura/message/user.h"
@@ -32,7 +35,7 @@ namespace windowing_win32
 
       ::user::interaction::install_message_routing(pchannel);
 
-      MESSAGE_LINK(e_message_destroy, pchannel, this, &system_interaction::on_message_destroy);
+      MESSAGE_LINK(MESSAGE_DESTROY, pchannel, this, &system_interaction::on_message_destroy);
       MESSAGE_LINK(e_message_display_change, pchannel, this, &system_interaction::_001OnMessage);
       MESSAGE_LINK(e_message_setting_change, pchannel, this, &system_interaction::_001OnMessage);
       MESSAGE_LINK(e_message_font_change, pchannel, this, &system_interaction::_001OnMessage);

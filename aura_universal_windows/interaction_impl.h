@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 
 #include "aura/user/user/interaction_impl.h"
@@ -20,7 +20,7 @@ namespace aura_universal_windows
       double                                                            m_dAccumulatedMouseMoveDistance;
       ::duration                                                            m_durationLastMouseMove;
       iptr_to_iptr                                                      m_mapLong;
-      ::mutex                                                           m_mutexQueue;
+      ::pointer < ::particle >                                          m_pparticleMutexQueue;
       manual_reset_event                                                m_evQueue;
       pointer_array < ::user::message >                                  m_messageaQueue;
       int m_nModalResult; // for return values from ::user::interaction_impl::RunModalLoop
@@ -35,8 +35,8 @@ namespace aura_universal_windows
       virtual void construct(::oswindow hwnd);
 
 
-      void assert_ok() const override;
-      void dump(dump_context & dumpcontext) const override;
+      //void assert_ok() const override;
+      //void dump(dump_context & dumpcontext) const override;
 
 
       virtual bool has_pending_graphical_update();

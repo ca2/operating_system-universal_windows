@@ -1,8 +1,8 @@
-// Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
+﻿// Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
 #pragma once
 
 
-//#include "_windows_runtime.h"
+#include "acme/primitive/primitive/memory.h"
 #undef new
 #include <winrt/Windows.Storage.h>
 
@@ -30,8 +30,8 @@ namespace acme_universal_windows
       native_buffer(::winrt::Windows::Storage::StorageFile file, const ::file::e_open & efileopen);
       ~native_buffer() override;
 
-      void assert_ok() const override;
-      void dump(dump_context & dumpcontext) const override;
+      //void assert_ok() const override;
+      //void dump(dump_context & dumpcontext) const override;
 
       filesize get_position() const override;
       bool get_status(::file::file_status & rStatus) const override;
