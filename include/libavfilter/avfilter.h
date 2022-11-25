@@ -47,7 +47,13 @@
 #include "libavutil/pixfmt.h"
 #include "libavutil/rational.h"
 
+#include "libavfilter/version_major.h"
+#ifndef HAVE_AV_CONFIG_H
+/* When included as part of the ffmpeg build, only include the major version
+ * to avoid unnecessary rebuilds. When included externally, keep including
+ * the full version information. */
 #include "libavfilter/version.h"
+#endif
 
 /**
  * Return the LIBAVFILTER_VERSION_INT constant.
@@ -307,13 +313,20 @@ typedef struct AVFilter {
          * and outputs are fixed), shortly before the format negotiation. This
          * callback may be called more than once.
          *
-         * This callback must set AVFilterLink.outcfg.formats on every input link
-         * and AVFilterLink.incfg.formats on every output link to a list of
-         * pixel/sample formats that the filter supports on that link. For audio
-         * links, this filter must also set @ref AVFilterLink.incfg.samplerates
-         * "in_samplerates" / @ref AVFilterLink.outcfg.samplerates "out_samplerates"
-         * and @ref AVFilterLink.incfg.channel_layouts "in_channel_layouts" /
-         * @ref AVFilterLink.outcfg.channel_layouts "out_channel_layouts" analogously.
+         * This callback must set ::AVFilterLink's
+         * @ref AVFilterFormatsConfig.formats "outcfg.formats"
+         * on every input link and
+         * @ref AVFilterFormatsConfig.formats "incfg.formats"
+         * on every output link to a list of pixel/sample formats that the filter
+         * supports on that link.
+         * For audio links, this filter must also set
+         * @ref AVFilterFormatsConfig.samplerates "incfg.samplerates"
+         *  /
+         * @ref AVFilterFormatsConfig.samplerates "outcfg.samplerates"
+         * and @ref AVFilterFormatsConfig.channel_layouts "incfg.channel_layouts"
+         *  /
+         * @ref AVFilterFormatsConfig.channel_layouts "outcfg.channel_layouts"
+         * analogously.
          *
          * This callback must never be NULL if the union is in this state.
          *
@@ -543,7 +556,14 @@ struct AVFilterLink {
     int h;                      ///< agreed upon image height
     AVRational sample_aspect_ratio; ///< agreed upon sample aspect ratio
     /* These parameters apply only to audio */
-    uint64_t channel_layout;    ///< channel layout of current buffer (see libavutil/channel_layout.h)
+#if FF_API_OLD_CHANNEL_LAYOUT
+    /**
+     * channel layout of current buffer (see libavutil/channel_layout.h)
+     * @deprecated use ch_layout
+     */
+    attribute_deprecated
+    uint64_t channel_layout;
+#endif
     int sample_rate;            ///< samples per second
 
     int format;                 ///< agreed upon media format
@@ -556,6 +576,8 @@ struct AVFilterLink {
      * input link is assumed to be an unchangeable property.
      */
     AVRational time_base;
+
+    AVChannelLayout ch_layout;  ///< channel layout of current buffer (see libavutil/channel_layout.h)
 
     /*****************************************************************
      * All fields below this line are not part of the public API. They
@@ -631,11 +653,6 @@ struct AVFilterLink {
      * called with more samples, it will split them.
      */
     int max_samples;
-
-    /**
-     * Number of channels.
-     */
-    int channels;
 
     /**
      * Number of past frames sent through the link.
