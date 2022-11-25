@@ -27,6 +27,9 @@ namespace acme_universal_windows
       string veriwell_multimedia_music_midi_get_default_library_name() override;
 
 
+      bool set_process_priority(::enum_priority epriority);
+
+
    };
 
 

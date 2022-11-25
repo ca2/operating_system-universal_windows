@@ -58,6 +58,16 @@ namespace acme_universal_windows
    }
 
 
+   bool node::set_process_priority(::enum_priority epriority)
+   {
+
+
+      return false;
+
+
+   }
+
+
 } // namespace acme_universal_windows
 
 

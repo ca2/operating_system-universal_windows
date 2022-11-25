@@ -1,6 +1,7 @@
-#pragma once
+﻿#pragma once
 
 
+#include "acme/primitive/primitive/memory.h"
 #include "app-veriwell/multimedia/music/midi/out.h"
 #undef new
 #include <winrt/Windows.Devices.h>
