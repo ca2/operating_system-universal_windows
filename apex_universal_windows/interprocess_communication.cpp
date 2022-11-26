@@ -103,7 +103,7 @@ namespace apex_universal_windows
    }
 
 
-   void interprocess_caller::send(const ::string & strMessage, const duration & durationTimeout)
+   void interprocess_caller::send(const ::string & strMessage, const class time & timeTimeout)
    {
 
       //if (!is_tx_ok())
@@ -115,7 +115,7 @@ namespace apex_universal_windows
 
       string anotherappUri = m_strBaseChannel + "://send?message=" + acmesystem()->url()->::url::encode(strMessage);
 
-      //windows_runtime_launch_uri_synchronously(anotherappUri, durationTimeout);
+      //windows_runtime_launch_uri_synchronously(anotherappUri, timeTimeout);
 
       auto pnode = acmesystem()->node();
 
@@ -165,7 +165,7 @@ namespace apex_universal_windows
    }
 
 
-   void interprocess_caller::send(int message, void * pdata, int len, const ::duration & durationTimeout)
+   void interprocess_caller::send(int message, void * pdata, int len, const class time & timeTimeout)
    {
 
       //if (!is_tx_ok())
@@ -194,7 +194,7 @@ namespace apex_universal_windows
 
       //::winrt::Windows::Foundation::Uri ^uri = ref new ::winrt::Windows::Foundation::Uri(anotherappURI);
 
-      //::wait(Launcher::LaunchUriAsync(uri), durationTimeout);
+      //::wait(Launcher::LaunchUriAsync(uri), timeTimeout);
 
       //return true;
 

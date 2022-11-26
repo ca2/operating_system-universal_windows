@@ -46,7 +46,7 @@ namespace windowing_universal_windows
       //WPARAM                                  m_wparam;
       //LPARAM                                  m_lparam;
       //::pointer<::universal_windows::interaction_impl>   m_pimpl2;
-      ::duration                                  m_durationLastMouseMove;
+      class ::time                                  m_timeLastMouseMove;
       ::point_i32                               m_pointMouseMove;
       
       bool                                                     m_bTextCompositionActive;
@@ -92,7 +92,7 @@ namespace windowing_universal_windows
 
       ::u32                                                    m_dwMouseMoveThrottle;
 
-      //::duration                                                   m_durationLastMouseMove;
+      //class ::time                                                   m_timeLastMouseMove;
 
       string                                                   m_strId;
 
@@ -675,7 +675,7 @@ namespace windowing_universal_windows
 
       //#if(WINVER >= 0x0500)
       //
-      //      virtual bool AnimateWindow(const ::duration & duration, u32 dwFlags);
+      //      virtual bool AnimateWindow(const class time & time, u32 dwFlags);
       //
       //#endif   // WINVER >= 0x0500
       //
@@ -834,7 +834,7 @@ namespace windowing_universal_windows
 //
 //#if(WINVER >= 0x0500)
 //
-//      virtual bool FlashWindowEx(u32 dwFlags, ::u32  uCount, ::duration tickTimeout);
+//      virtual bool FlashWindowEx(u32 dwFlags, ::u32  uCount, class ::time tickTimeout);
 //
 //#endif   // WINVER >= 0x0500
 //

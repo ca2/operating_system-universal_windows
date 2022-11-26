@@ -510,18 +510,18 @@ namespace aura_universal_windows
    }
 #endif
 
-//   bool interaction_impl::AnimateWindow(::duration ::duration,u32 dwFlags)
+//   bool interaction_impl::AnimateWindow(::time ::time,u32 dwFlags)
 //   {
 //#ifdef WINDOWS_DESKTOP
 //      ASSERT(::is_window((oswindow)get_os_data()));
-//      return ::AnimateWindow((oswindow)get_os_data(), ::duration, dwFlags) != false;
+//      return ::AnimateWindow((oswindow)get_os_data(), ::time, dwFlags) != false;
 //#else
 //      throw ::exception(todo);
 //#endif
 //      return false;
 //   }
 
-   //bool interaction_impl::FlashWindowEx(u32 dwFlags,::u32  uCount,::duration tickTimeout)
+   //bool interaction_impl::FlashWindowEx(u32 dwFlags,::u32  uCount,::time tickTimeout)
    //{
    //   throw ::exception(todo);
 
@@ -2143,13 +2143,13 @@ return true;
    //   oswindow m_hwnd;
    //   HDC m_hdc;
 
-   //   print_window(oswindow hwnd,HDC hdc,::duration tickTimeout)
+   //   print_window(oswindow hwnd,HDC hdc,::time tickTimeout)
    //   {
    //      m_event.ResetEvent();
    //      m_hwnd = hwnd;
    //      m_hdc = hdc;
    //      begin_thread(&print_window::s_print_window,(LPVOID) this,::e_priority_above_normal);
-   //      if(m_event.wait(::duration(tickTimeout)).timeout())
+   //      if(m_event.wait(::time(tickTimeout)).timeout())
    //      {
    //         TRACE("print_window::time_out");
    //      }
@@ -2183,7 +2183,7 @@ return true;
    {
       __UNREFERENCED_PARAMETER(pmessage);
       //      ::aura::get_system()->get_event(m_pthread)->SetEvent();
-      //    ::aura::get_system()->get_event(::aura::get_system()->get_twf())->wait(::duration(8400));
+      //    ::aura::get_system()->get_event(::aura::get_system()->get_twf())->wait(::time(8400));
    }
 
    void interaction_impl::_001OnPaint(::message::message * pmessage)
@@ -3577,11 +3577,11 @@ return true;
    }
 
 
-   void interaction_impl::SetTimer(uptr uEvent, const ::duration& durationElapse, PFN_TIMER pfnTimer, bool bPeriodic, void* pdata)
+   void interaction_impl::SetTimer(uptr uEvent, const class time & timeElapse, PFN_TIMER pfnTimer, bool bPeriodic, void* pdata)
    {
 
 
-      return ::user::interaction_impl::SetTimer(uEvent, durationElapse,pfnTimer, bPeriodic, pdata);
+      return ::user::interaction_impl::SetTimer(uEvent, timeElapse,pfnTimer, bPeriodic, pdata);
 
 
    }
@@ -5317,7 +5317,7 @@ namespace aura_universal_windows
 
          //      m_dAccumulatedMouseMoveDistance += dDistanceFromLast;
 
-         //      double dTimeFromLast = (double) m_durationLastMouseMove.elapsed().m_i / 1000.0;
+         //      double dTimeFromLast = (double) m_timeLastMouseMove.elapsed().m_i / 1000.0;
 
          //      if (dTimeFromLast == 0.) dTimeFromLast = 0.001;
 
@@ -5334,7 +5334,7 @@ namespace aura_universal_windows
 
          //      m_dAccumulatedMouseMoveDistance = 0.0;
 
-         //      m_durationLastMouseMove.Now();
+         //      m_timeLastMouseMove.Now();
 
          //   }
 

@@ -193,7 +193,7 @@ namespace windowing_universal_windows
       //virtual bool _visible_top_level_contains_all_names(string_array& stra);
       //virtual bool _visible_top_level_contains_name(string str);
       //virtual bool _top_level_contains_name(string str);
-      //virtual string _get_window_text_timeout(oswindow oswindow, const ::duration & duration = 1_s);
+      //virtual string _get_window_text_timeout(oswindow oswindow, const class time & time = 1_s);
 
 
    };

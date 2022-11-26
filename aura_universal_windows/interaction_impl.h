@@ -18,7 +18,7 @@ namespace aura_universal_windows
       string                                                            m_strWindowText;
       point_f64                                                         m_pointLastMouseMove;
       double                                                            m_dAccumulatedMouseMoveDistance;
-      ::duration                                                            m_durationLastMouseMove;
+      class ::time                                                            m_timeLastMouseMove;
       iptr_to_iptr                                                      m_mapLong;
       ::pointer < ::particle >                                          m_pparticleMutexQueue;
       manual_reset_event                                                m_evQueue;
@@ -254,7 +254,7 @@ namespace aura_universal_windows
 
 //#if(WINVER >= 0x0500)
 //
-//      virtual bool AnimateWindow(const ::duration & duration, u32 dwFlags);
+//      virtual bool AnimateWindow(const class time & time, u32 dwFlags);
 //
 //#endif   // WINVER >= 0x0500
 
@@ -269,7 +269,7 @@ namespace aura_universal_windows
 
 
       // Timer Functions
-      void SetTimer(uptr uEvent, const ::duration& millisElapse, PFN_TIMER pfnTimer = nullptr, bool bPeriodic = true, void* pdata = nullptr) override;
+      void SetTimer(uptr uEvent, const class ::time& millisElapse, PFN_TIMER pfnTimer = nullptr, bool bPeriodic = true, void* pdata = nullptr) override;
       void KillTimer(uptr uEvent) override;
 
       // Window State Functions
@@ -376,7 +376,7 @@ namespace aura_universal_windows
 
 //#if(WINVER >= 0x0500)
 //
-//      virtual bool FlashWindowEx(u32 dwFlags, ::u32  uCount, ::duration tickTimeout);
+//      virtual bool FlashWindowEx(u32 dwFlags, ::u32  uCount, class ::time tickTimeout);
 //
 //#endif   // WINVER >= 0x0500
 //

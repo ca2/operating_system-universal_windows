@@ -1239,13 +1239,13 @@ namespace windowing_universal_windows
 //
 //   }
 
-   //string windowing::_get_window_text_timeout(oswindow oswindow, const ::duration& durationSendMessageMax)
+   //string windowing::_get_window_text_timeout(oswindow oswindow, const class time & timeSendMessageMax)
    //{
 
    //   DWORD_PTR dw = 0;
 
    //   ////if (!SendMessageTimeoutW(hwnd, WM_GETTEXTLENGTH, 0, 0, SMTO_ABORTIFHUNG | SMTO_NOTIMEOUTIFNOTHUNG, 100, &dw))
-   //   //if (!SendMessageTimeoutW((HWND)oswindow, WM_GETTEXTLENGTH, 0, 0, SMTO_ABORTIFHUNG, __os(durationSendMessageMax), &dw))
+   //   //if (!SendMessageTimeoutW((HWND)oswindow, WM_GETTEXTLENGTH, 0, 0, SMTO_ABORTIFHUNG, __os(timeSendMessageMax), &dw))
    //   //{
 
    //   //   return "";
@@ -1263,7 +1263,7 @@ namespace windowing_universal_windows
 
    //   auto pwsz = wstr.get_string_buffer(dw);
 
-   //   //if (!SendMessageTimeoutW((HWND)oswindow, WM_GETTEXT, dw + 1, (LPARAM)pwsz, SMTO_ABORTIFHUNG, __os(durationSendMessageMax), &dw))
+   //   //if (!SendMessageTimeoutW((HWND)oswindow, WM_GETTEXT, dw + 1, (LPARAM)pwsz, SMTO_ABORTIFHUNG, __os(timeSendMessageMax), &dw))
    //   //{
 
    //   //   return "";

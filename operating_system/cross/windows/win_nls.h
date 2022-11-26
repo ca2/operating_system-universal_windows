@@ -637,7 +637,7 @@ extern "C" {
 
 //#if (WINVER >= 0x0600)
 #define LOCALE_SNAME                  0x0000005c   // locale name (ie: en-us)
-#define LOCALE_SDURATION              0x0000005d   // time duration format, eg "hh:mm:ss"
+#define LOCALE_SDURATION              0x0000005d   // time time format, eg "hh:mm:ss"
 #define LOCALE_SKEYBOARDSTOINSTALL    0x0000005e   // Used internally, see GetKeyboardLayoutName() function
 #define LOCALE_SSHORTESTDAYNAME1      0x00000060   // Shortest day name for Monday
 #define LOCALE_SSHORTESTDAYNAME2      0x00000061   // Shortest day name for Tuesday

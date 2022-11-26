@@ -88,11 +88,11 @@ namespace app_net
 
          string strDots = "...";
 
-         auto elapsed = m_durationStartGettingUrl.elapsed();
+         auto elapsed = m_timeStartGettingUrl.elapsed();
 
-         auto ::duration = duration(elapsed).::duration();
+         auto ::time = time(elapsed).::time();
 
-         strGet = "Getting Url " + strDots.Left((::duration.m_i / 300) % 4);
+         strGet = "Getting Url " + strDots.Left((::time.m_i / 300) % 4);
 
       }
       else
@@ -139,7 +139,7 @@ namespace app_net
 
       m_bGettingUrl = true;
 
-      m_durationStartGettingUrl.Now();
+      m_timeStartGettingUrl.Now();
 
       fork([this]()
          {

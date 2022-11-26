@@ -89,7 +89,7 @@ namespace apex_universal_windows
    }
 
 
-   void interprocess_caller::call(const ::string & strUri, const duration & durationTimeout)
+   void interprocess_caller::call(const ::string & strUri, const class time & timeTimeout)
    {
 
       //if (!is_tx_ok())
@@ -103,7 +103,7 @@ namespace apex_universal_windows
 
       //string anotherappUri = strUri;
 
-      //windows_runtime_launch_uri_synchronously(anotherappUri, durationTimeout);
+      //windows_runtime_launch_uri_synchronously(anotherappUri, timeTimeout);
 
       auto hstrUri = __hstring(strUri);
 
@@ -150,7 +150,7 @@ namespace apex_universal_windows
    }
 
 
-   //void interprocess_caller::call(int message, void * pdata, int len, const ::duration & durationTimeout)
+   //void interprocess_caller::call(int message, void * pdata, int len, const class time & timeTimeout)
    //{
 
    //   //if (!is_tx_ok())
@@ -179,7 +179,7 @@ namespace apex_universal_windows
 
    //   //::winrt::Windows::Foundation::Uri ^uri = ref new ::winrt::Windows::Foundation::Uri(anotherappURI);
 
-   //   //::wait(Launcher::LaunchUriAsync(uri), durationTimeout);
+   //   //::wait(Launcher::LaunchUriAsync(uri), timeTimeout);
 
    //   //return true;
 

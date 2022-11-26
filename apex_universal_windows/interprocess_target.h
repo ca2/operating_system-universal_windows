@@ -70,8 +70,8 @@ namespace apex_universal_windows
    //
    //      virtual void restart_apex_ipc();
    //
-   //      //bool ensure_tx(const ::string & pszMessage, duration durationTimeout = one_hour());
-   //      //bool ensure_tx(int message, void * pdata, int len, duration durationTimeout = one_hour());
+   //      //bool ensure_tx(const ::string & pszMessage, time timeTimeout = one_hour());
+   //      //bool ensure_tx(int message, void * pdata, int len, time timeTimeout = one_hour());
    //
    //
    //      bool is_rx_tx_ok();

@@ -38,7 +38,7 @@ namespace app_net
       ::write_text::font_pointer  m_pfont;
       string                  m_strGet;
       bool                    m_bGettingUrl;
-      ::duration                    m_durationStartGettingUrl;
+      class ::time                    m_timeStartGettingUrl;
 
 
       window();

@@ -6226,7 +6226,7 @@ namespace windowing_universal_windows
       //while (ptask->task_get_run())
       //{
 
-      //   if (m_durationLastMouseMove.elapsed() < 20_ms)
+      //   if (m_timeLastMouseMove.elapsed() < 20_ms)
       //   {
 
       //      ::preempt(30_ms);
@@ -6288,7 +6288,7 @@ namespace windowing_universal_windows
 
       //   lparam = MAKELPARAM(pointMouseMove.x, pointMouseMove.y);
 
-      //   m_durationLastMouseMove.Now();
+      //   m_timeLastMouseMove.Now();
 
       //   //pimpl->m_puserinteraction->post_message(e_message_mouse_move, 0, lparam);
       //   
@@ -8089,7 +8089,7 @@ namespace windowing_universal_windows
 
          puserinteraction->m_pinteractionimpl->queue_message_handler(pusermessage);
 
-         m_durationLastMouseMove = ::duration::now();
+         m_timeLastMouseMove = ::time::now();
 
       }
 
@@ -8416,7 +8416,7 @@ namespace windowing_universal_windows
                   catch(...)
                   {
                   }
-               })), 5); // wait for up to 5 ::durations
+               })), 5); // wait for up to 5 ::times
 
                m_pointLastCursor = p;*/
 

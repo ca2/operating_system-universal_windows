@@ -44,7 +44,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::System::Threading::WorkItemPr
 
 
 template < typename PREDICATE >
-::e_status windows_runtime_synchronously(const ::duration & duration, PREDICATE predicate, enum_priority epriority = e_priority_normal)
+::e_status windows_runtime_synchronously(const class time & time, PREDICATE predicate, enum_priority epriority = e_priority_normal)
 {
 
    auto pmutex = __new(mutex);
@@ -86,7 +86,7 @@ template < typename PREDICATE >
 
       }, epriority);
 
-   pevent->wait(duration);
+   pevent->wait(time);
 
    synchronous_lock synchronouslock(pmutex);
 
