@@ -49,7 +49,7 @@ namespace apex_universal_windows
 
       //}
 
-      ::pointer<::apex::system>psystem = get_system();
+      ::pointer<::apex::system>psystem = acmesystem();
 
       m_pfilesystem = psystem->m_pfilesystem;
 
@@ -875,7 +875,7 @@ namespace apex_universal_windows
    ::file::path dir_context::module()
    {
 
-      ::pointer<::apex::system>psystem = get_system();
+      ::pointer<::apex::system>psystem = acmesystem();
 
       return psystem->m_pdirsystem->m_pathModule;
 
@@ -885,7 +885,7 @@ namespace apex_universal_windows
    //::file::path dir_context::ca2module()
    //{
 
-   //   ::pointer<::apex::system>psystem = get_system();
+   //   ::pointer<::apex::system>psystem = acmesystem();
 
    //   return psystem->m_pdirsystem->m_pathCa2Module;
 

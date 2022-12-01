@@ -321,7 +321,7 @@ namespace ca2plugin_container
     return str;
 }
 */
-   void * host::get_system()
+   void * hostacmesystem()
    {
 
       if(m_pvoidSystem == NULL)

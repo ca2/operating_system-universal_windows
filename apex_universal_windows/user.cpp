@@ -127,7 +127,7 @@
 //
 //
 //
-//#undef ::apex::get_system()
+//#undef ::apexacmesystem()
 //#undef Platform
 //
 //using namespace Platform;
@@ -137,9 +137,9 @@
 //using namespace ::winrt::Windows::ApplicationModel;
 //using namespace ::winrt::Windows::ApplicationModel::Core;
 //using namespace ::winrt::Windows::ApplicationModel::Activation;
-//using namespace ::winrt::Windows::::apex::get_system();
+//using namespace ::winrt::Windows::::apexacmesystem();
 //using namespace ::winrt::Windows::Graphics::Display;
-//using namespace ::winrt::Windows::::apex::get_system()::Threading;
+//using namespace ::winrt::Windows::::apexacmesystem()::Threading;
 //
 //uptr keycode_to_char(uptr n)
 //{
@@ -147,103 +147,103 @@
 //}
 //
 //
-//uptr virtualkey_to_char(::winrt::Windows::::apex::get_system()::VirtualKey e)
+//uptr virtualkey_to_char(::winrt::Windows::::apexacmesystem()::VirtualKey e)
 //{
 //   switch (e)
 //   {
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number0:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number0:
 //      return '0';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number1:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number1:
 //      return '1';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number2:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number2:
 //      return '2';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number3:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number3:
 //      return '3';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number4:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number4:
 //      return '4';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number5:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number5:
 //      return '5';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number6:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number6:
 //      return '6';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number7:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number7:
 //      return '7';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number8:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number8:
 //      return '8';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number9:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number9:
 //      return '9';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::A:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::A:
 //      return 'a';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::B:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::B:
 //      return 'b';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::C:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::C:
 //      return 'c';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::D:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::D:
 //      return 'd';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::E:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::E:
 //      return 'e';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::F:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::F:
 //      return 'f';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::G:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::G:
 //      return 'g';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::H:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::H:
 //      return 'h';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::I:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::I:
 //      return 'i';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::J:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::J:
 //      return 'j';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::K:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::K:
 //      return 'k';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::L:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::L:
 //      return 'l';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::M:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::M:
 //      return 'm';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::N:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::N:
 //      return 'n';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::O:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::O:
 //      return 'o';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::P:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::P:
 //      return 'p';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Q:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Q:
 //      return 'q';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::R:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::R:
 //      return 'r';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::S:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::S:
 //      return 's';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::T:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::T:
 //      return 't';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::U:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::U:
 //      return 'u';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::V:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::V:
 //      return 'v';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::W:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::W:
 //      return 'w';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::X:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::X:
 //      return 'x';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Y:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Y:
 //      return 'y';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Z:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Z:
 //      return 'z';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Shift:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Shift:
 //      return VK_SHIFT;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::LeftShift:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::LeftShift:
 //      return VK_LSHIFT;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::RightShift:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::RightShift:
 //      return VK_RSHIFT;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Control:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Control:
 //      return VK_CONTROL;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::LeftControl:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::LeftControl:
 //      return VK_LCONTROL;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::RightControl:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::RightControl:
 //      return VK_RCONTROL;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Menu:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Menu:
 //      return VK_MENU;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::LeftMenu:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::LeftMenu:
 //      return VK_LMENU;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::RightMenu:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::RightMenu:
 //      return VK_RMENU;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Tab:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Tab:
 //      return VK_TAB;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Enter:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Enter:
 //      return VK_RETURN;
 //   default:
 //      ;
@@ -252,147 +252,147 @@
 //}
 //
 //
-//::user::enum_key virtualkey_to_userkey(::winrt::Windows::::apex::get_system()::VirtualKey e, bool& bSpecialKey)
+//::user::enum_key virtualkey_to_userkey(::winrt::Windows::::apexacmesystem()::VirtualKey e, bool& bSpecialKey)
 //{
 //   bSpecialKey = false;
 //   switch (e)
 //   {
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number0:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number0:
 //      return ::user::e_key_0;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number1:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number1:
 //      return ::user::e_key_1;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number2:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number2:
 //      return ::user::e_key_2;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number3:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number3:
 //      return ::user::e_key_3;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number4:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number4:
 //      return ::user::e_key_4;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number5:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number5:
 //      return ::user::e_key_5;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number6:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number6:
 //      return ::user::e_key_6;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number7:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number7:
 //      return ::user::e_key_7;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number8:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number8:
 //      return ::user::e_key_8;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number9:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number9:
 //      return ::user::e_key_9;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::A:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::A:
 //      return ::user::e_key_a;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::B:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::B:
 //      return ::user::e_key_b;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::C:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::C:
 //      return ::user::e_key_c;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::D:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::D:
 //      return ::user::e_key_d;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::E:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::E:
 //      return ::user::e_key_e;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::F:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::F:
 //      return ::user::e_key_f;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::G:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::G:
 //      return ::user::e_key_g;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::H:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::H:
 //      return ::user::e_key_h;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::I:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::I:
 //      return ::user::e_key_i;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::J:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::J:
 //      return ::user::e_key_j;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::K:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::K:
 //      return ::user::e_key_k;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::L:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::L:
 //      return ::user::e_key_l;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::M:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::M:
 //      return ::user::e_key_m;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::N:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::N:
 //      return ::user::e_key_n;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::O:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::O:
 //      return ::user::e_key_o;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::P:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::P:
 //      return ::user::e_key_p;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Q:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Q:
 //      return ::user::e_key_q;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::R:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::R:
 //      return ::user::e_key_r;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::S:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::S:
 //      return ::user::e_key_s;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::T:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::T:
 //      return ::user::e_key_t;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::U:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::U:
 //      return ::user::e_key_u;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::V:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::V:
 //      return ::user::e_key_v;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::W:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::W:
 //      return ::user::e_key_w;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::X:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::X:
 //      return ::user::e_key_x;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Y:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Y:
 //      return ::user::e_key_y;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Z:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Z:
 //      return ::user::e_key_z;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Shift:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Shift:
 //      bSpecialKey = true;
 //      return ::user::e_key_shift;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::LeftShift:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::LeftShift:
 //      bSpecialKey = true;
 //      return ::user::e_key_left_shift;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::RightShift:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::RightShift:
 //      bSpecialKey = true;
 //      return ::user::e_key_right_shift;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Control:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Control:
 //      bSpecialKey = true;
 //      return ::user::e_key_control;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::LeftControl:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::LeftControl:
 //      bSpecialKey = true;
 //      return ::user::e_key_left_control;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::RightControl:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::RightControl:
 //      bSpecialKey = true;
 //      return ::user::e_key_right_control;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Menu:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Menu:
 //      bSpecialKey = true;
 //      return ::user::e_key_alt;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::LeftMenu:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::LeftMenu:
 //      bSpecialKey = true;
 //      return ::user::e_key_left_alt;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::RightMenu:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::RightMenu:
 //      bSpecialKey = true;
 //      return ::user::e_key_right_alt;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Tab:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Tab:
 //      bSpecialKey = true;
 //      return ::user::e_key_tab;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Enter:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Enter:
 //      bSpecialKey = true;
 //      return ::user::e_key_return;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Delete:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Delete:
 //      bSpecialKey = true;
 //      return ::user::e_key_delete;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Back:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Back:
 //      bSpecialKey = true;
 //      return ::user::e_key_back;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Left:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Left:
 //      bSpecialKey = true;
 //      return ::user::e_key_left;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Right:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Right:
 //      bSpecialKey = true;
 //      return ::user::e_key_right;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Up:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Up:
 //      bSpecialKey = true;
 //      return ::user::e_key_up;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Down:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Down:
 //      bSpecialKey = true;
 //      return ::user::e_key_down;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::PageUp:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::PageUp:
 //      bSpecialKey = true;
 //      return ::user::e_key_up;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::PageDown:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::PageDown:
 //      bSpecialKey = true;
 //      return ::user::e_key_down;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Home:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Home:
 //      bSpecialKey = true;
 //      return ::user::e_key_home;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::End:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::End:
 //      bSpecialKey = true;
 //      return ::user::e_key_end;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Escape:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Escape:
 //      bSpecialKey = true;
 //      return ::user::e_key_escape;
 //   case 186:
@@ -409,7 +409,7 @@
 //      return ::user::e_key_semicolon2;
 //   case 193:
 //      return ::user::e_key_slash2;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Space:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Space:
 //      return ::user::e_key_space;
 //   default:
 //      ;
@@ -424,99 +424,99 @@
 //}
 //
 //
-//uptr virtualkey_to_code(::winrt::Windows::::apex::get_system()::VirtualKey e)
+//uptr virtualkey_to_code(::winrt::Windows::::apexacmesystem()::VirtualKey e)
 //{
 //   switch (e)
 //   {
 //   case 190:
 //      return '.';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number0:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number0:
 //      return 1;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number1:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number1:
 //      return 2;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number2:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number2:
 //      return 3;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number3:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number3:
 //      return 4;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number4:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number4:
 //      return 5;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number5:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number5:
 //      return 6;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number6:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number6:
 //      return 7;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number7:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number7:
 //      return 8;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number8:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number8:
 //      return 9;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Number9:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Number9:
 //      return 10;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::A:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::A:
 //      return 'a';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::B:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::B:
 //      return 'b';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::C:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::C:
 //      return 'ca';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::D:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::D:
 //      return 'd';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::E:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::E:
 //      return 'e';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::F:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::F:
 //      return 'f';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::G:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::G:
 //      return 'g';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::H:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::H:
 //      return 'h';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::I:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::I:
 //      return 'i';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::J:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::J:
 //      return 'j';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::K:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::K:
 //      return 'k';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::L:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::L:
 //      return 'l';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::M:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::M:
 //      return 'm';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::N:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::N:
 //      return 'n';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::O:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::O:
 //      return 'o';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::P:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::P:
 //      return 'p';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Q:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Q:
 //      return 'q';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::R:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::R:
 //      return 'r';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::S:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::S:
 //      return 's';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::T:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::T:
 //      return 't';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::U:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::U:
 //      return 'u';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::V:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::V:
 //      return 'v';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::W:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::W:
 //      return 'w';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Y:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Y:
 //      return 'y';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Z:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Z:
 //      return 'z';
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Shift:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Shift:
 //      return VK_SHIFT;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::LeftShift:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::LeftShift:
 //      return VK_LSHIFT;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::RightShift:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::RightShift:
 //      return VK_RSHIFT;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Control:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Control:
 //      return VK_CONTROL;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::LeftControl:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::LeftControl:
 //      return VK_LCONTROL;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::RightControl:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::RightControl:
 //      return VK_RCONTROL;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::Menu:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::Menu:
 //      return VK_MENU;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::LeftMenu:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::LeftMenu:
 //      return VK_LMENU;
-//   case ::winrt::Windows::::apex::get_system()::VirtualKey::RightMenu:
+//   case ::winrt::Windows::::apexacmesystem()::VirtualKey::RightMenu:
 //      return VK_RMENU;
 //   default:
 //      ;
@@ -585,7 +585,7 @@
 ////    CLASS_DECL_APEX color32_t get_system_app_background_color()
 ////    {
 //
-////       auto color = ::apex::get_system()->get_session()->m_frameworkview->m_puisettings->GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
+////       auto color = ::apexacmesystem()->get_session()->m_frameworkview->m_puisettings->GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
 //
 ////       auto r = color.R;
 //
@@ -600,7 +600,7 @@
 ////    //CLASS_DECL_APEX double get_system_app_luminance()
 ////    //{
 //
-////    //   auto color = ::apex::get_system()->get_session()->m_frameworkview->m_puisettings->GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
+////    //   auto color = ::apexacmesystem()->get_session()->m_frameworkview->m_puisettings->GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
 //
 ////    //   double r = color.R;
 //
@@ -620,7 +620,7 @@
 ////    //   {
 //
 //
-////    //      auto color = ::apex::get_system()->get_session()->m_frameworkview->m_puisettings->GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
+////    //      auto color = ::apexacmesystem()->get_session()->m_frameworkview->m_puisettings->GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
 //
 ////    //      auto r = color.R;
 //
@@ -637,7 +637,7 @@
 ////    //   {
 //
 //
-////    //      auto color = ::apex::get_system()->get_session()->m_frameworkview->m_puisettings->GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
+////    //      auto color = ::apexacmesystem()->get_session()->m_frameworkview->m_puisettings->GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
 //
 ////    //      double r = color.R;
 //

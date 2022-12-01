@@ -293,7 +293,7 @@
 //      
 //      // Only handle window size_i32 changed if there is no pending DPI change.
 //
-//      acmesystem()->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this, dpi]()
+//      acmesession()->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this, dpi]()
 //         {
 //
 //            OnChangeDpi(dpi);
@@ -344,7 +344,7 @@
 //   void direct2d_buffer::UpdateForWindowSizeChange()
 //   {
 //
-//      acmesystem()->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this]()
+//      acmesession()->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this]()
 //         {
 //            //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
 //            //{

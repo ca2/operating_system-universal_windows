@@ -117,16 +117,16 @@ namespace acme_universal_windows
 
       ::object* pobject = nullptr;
 
-      if (acmesystem()->m_pacmeapplicationMain)
+      if (acmesystem()->acmeapplication())
       {
 
-         pobject = acmesystem()->m_pacmeapplicationMain;
+         pobject = acmesystem()->acmeapplication();
 
       }
-      else if (acmesystem()->m_pacmeapplicationStartup)
+      else if (acmesystem()->acmeapplication())
       {
 
-         pobject = acmesystem()->m_pacmeapplicationStartup;
+         pobject = acmesystem()->acmeapplication();
 
       }
       else

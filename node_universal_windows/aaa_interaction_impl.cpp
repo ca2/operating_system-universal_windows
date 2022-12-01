@@ -710,7 +710,7 @@ namespace windows
    //   __UNREFERENCED_PARAMETER(nCmd);
    //   throw ::interface_only();
 
-   //   /*      application* pApp = ::aura::get_system();
+   //   /*      application* pApp = ::auraacmesystem();
    //   ASSERT_VALID(pApp);
    //   ASSERT(pApp->m_pszHelpFilePath != nullptr);
    //   ASSERT(pApp->m_eHelpType == afxWinHelp);
@@ -736,7 +736,7 @@ namespace windows
    ////{
    //// throw ::interface_only();
    ///*
-   //application* pApp = ::aura::get_system();
+   //application* pApp = ::auraacmesystem();
    //ASSERT_VALID(pApp);
    //ASSERT(pApp->m_pszHelpFilePath != nullptr);
    //// to call HtmlHelp the m_fUseHtmlHelp must be set in
@@ -796,7 +796,7 @@ namespace windows
    //   __UNREFERENCED_PARAMETER(nCmd);
    //   throw ::interface_only();
    //   /*
-   //   application* pApp = ::aura::get_system();
+   //   application* pApp = ::auraacmesystem();
    //   ASSERT_VALID(pApp);
    //   if (pApp->m_eHelpType == afxHTMLHelp)
    //   {
@@ -1085,7 +1085,7 @@ namespace windows
 //   {
 //      throw ::interface_only();
 //
-//      /*      application* pApp = ::aura::get_system();
+//      /*      application* pApp = ::auraacmesystem();
 //      if (pApp != nullptr && pApp->m_puiMain == this)
 //      {
 //      // recolor global brushes used by control bars
@@ -1121,7 +1121,7 @@ namespace windows
 //      __UNREFERENCED_PARAMETER(pDeviceName);
 //
 //      throw ::interface_only();
-//      /*application* pApp = ::aura::get_system();
+//      /*application* pApp = ::auraacmesystem();
 //      if (pApp != nullptr && pApp->m_puiMain == this)
 //      pApp->DevModeChange(pDeviceName);
 //
@@ -3989,7 +3989,7 @@ namespace windows
 //
 //   }
 //
-//   if (::aura::get_system() == nullptr)
+//   if (::auraacmesystem() == nullptr)
 //   {
 //
 //      return 0;

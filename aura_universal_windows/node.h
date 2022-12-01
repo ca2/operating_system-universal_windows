@@ -21,7 +21,7 @@ namespace aura_universal_windows
       ~node() override;
 
 
-      void main() override;
+      void on_request(::request * prequest) override;
 
 
       void dpi_os_initialize() override;

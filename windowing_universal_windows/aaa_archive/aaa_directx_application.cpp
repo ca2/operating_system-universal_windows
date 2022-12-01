@@ -9,7 +9,7 @@
 //int g_iMouse;
 //
 //
-////#undef ::aura::get_system()
+////#undef ::auraacmesystem()
 ////#undef Platform
 ////
 ////
@@ -20,9 +20,9 @@
 ////using namespace ::winrt::Windows::ApplicationModel;
 ////using namespace ::winrt::Windows::ApplicationModel::Core;
 ////using namespace ::winrt::Windows::ApplicationModel::Activation;
-////using namespace ::winrt::Windows::::aura::get_system();
+////using namespace ::winrt::Windows::::auraacmesystem();
 ////using namespace ::winrt::Windows::Graphics::Display;
-////using namespace ::winrt::Windows::::aura::get_system()::Threading;
+////using namespace ::winrt::Windows::::auraacmesystem()::Threading;
 ////
 ////
 //

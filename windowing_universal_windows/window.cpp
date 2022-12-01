@@ -7464,7 +7464,7 @@ namespace windowing_universal_windows
    int g_iMouse;
 
 
-   //#undef ::aura::get_system()
+   //#undef ::auraacmesystem()
    //#undef Platform
    //
    //
@@ -7475,9 +7475,9 @@ namespace windowing_universal_windows
    //using namespace ::winrt::Windows::ApplicationModel;
    //using namespace ::winrt::Windows::ApplicationModel::Core;
    //using namespace ::winrt::Windows::ApplicationModel::Activation;
-   //using namespace ::winrt::Windows::::aura::get_system();
+   //using namespace ::winrt::Windows::::auraacmesystem();
    //using namespace ::winrt::Windows::Graphics::Display;
-   //using namespace ::winrt::Windows::::aura::get_system()::Threading;
+   //using namespace ::winrt::Windows::::auraacmesystem()::Threading;
    //
    //
 
@@ -7741,7 +7741,7 @@ namespace windowing_universal_windows
                //   if (strMessage.has_char())
                //   {
 
-               //      acmesystem()->m_pacmeapplicationMain->m_papexapplication->add_activation_message(strMessage);
+               //      acmesystem()->acmeapplication()->m_papexapplication->add_activation_message(strMessage);
 
                //   }
 

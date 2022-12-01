@@ -35,7 +35,7 @@ namespace node_universal_windows
    //void node::message_box_factory()
    //{
 
-   //   ::factory::add_factory_item < ::windowing_universal_windows::message_box, ::user::message_box >();
+   //   factory()->add_factory_item < ::windowing_universal_windows::message_box, ::user::message_box >();
 
    //}
 

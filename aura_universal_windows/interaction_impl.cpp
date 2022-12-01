@@ -593,7 +593,7 @@ namespace aura_universal_windows
       __UNREFERENCED_PARAMETER(nCmd);
       throw ::not_implemented();
       /*
-      application* pApp = ::aura::get_system();
+      application* pApp = ::auraacmesystem();
       ASSERT_VALID(pApp);
       if (pApp->m_eHelpType == afxHTMLHelp)
       {
@@ -821,7 +821,7 @@ namespace aura_universal_windows
          ////::pointer<base_session>psession;
          ////if(get_application()->m_pcoreapp->is_system())
          ////{
-         ////   psession = ::aura::get_system()->query_session(0);
+         ////   psession = ::auraacmesystem()->query_session(0);
          ////   if(psession != nullptr && psession->m_bSessionSynchronizedCursor)
          ////   {
          ////      psession->m_pointCursor = pmouse->m_point;
@@ -1948,7 +1948,7 @@ return true;
    {
       throw ::not_implemented();
 
-      /*      application* pApp = ::aura::get_system();
+      /*      application* pApp = ::auraacmesystem();
       if (pApp != nullptr && pApp->GetMainWnd() == this)
       {
       // recolor global brushes used by control bars
@@ -1980,7 +1980,7 @@ return true;
    {
       __UNREFERENCED_PARAMETER(lpDeviceName);
       throw ::not_implemented();
-      /*application* pApp = ::aura::get_system();
+      /*application* pApp = ::auraacmesystem();
       if (pApp != nullptr && pApp->GetMainWnd() == this)
       pApp->DevModeChange(lpDeviceName);
 
@@ -2000,7 +2000,7 @@ return true;
    {
       if (!(GetStyle() & WS_CHILD))
       {
-         ::user::interaction* pMainWnd = ::aura::get_system()->GetMainWnd();
+         ::user::interaction* pMainWnd = ::auraacmesystem()->GetMainWnd();
          if (pMainWnd != nullptr &&
                GetKeyState(VK_SHIFT) >= 0 &&
                GetKeyState(VK_CONTROL) >= 0 &&
@@ -2018,7 +2018,7 @@ return true;
    //LRESULT interaction_impl::OnDisplayChange(WPARAM,LPARAM)
    //{
    //   // update metrics if this interaction_impl is the main interaction_impl
-   //   //if(::aura::get_system()->GetMainWnd() == this)
+   //   //if(::auraacmesystem()->GetMainWnd() == this)
    //   //{
    //   //   // update any system metrics cache
    //   //   //         afxData.UpdateSysMetrics();
@@ -2182,8 +2182,8 @@ return true;
    void interaction_impl::_001OnProdevianSynch(::message::message * pmessage)
    {
       __UNREFERENCED_PARAMETER(pmessage);
-      //      ::aura::get_system()->get_event(m_pthread)->SetEvent();
-      //    ::aura::get_system()->get_event(::aura::get_system()->get_twf())->wait(::time(8400));
+      //      ::auraacmesystem()->get_event(m_pthread)->SetEvent();
+      //    ::auraacmesystem()->get_event(::auraacmesystem()->get_twf())->wait(::time(8400));
    }
 
    void interaction_impl::_001OnPaint(::message::message * pmessage)
@@ -2398,7 +2398,7 @@ return true;
    //   ////   // center within appropriate monitor coordinates
    //   ////   if (hWndCenter == nullptr)
    //   ////   {
-   //   ////      oswindow hwDefault = ::aura::get_system()->GetMainWnd()->_get_handle();
+   //   ////      oswindow hwDefault = ::auraacmesystem()->GetMainWnd()->_get_handle();
 
    //   ////      GetMonitorInfo(
    //   ////         MonitorFromWindow(hwDefault, MONITOR_DEFAULTTOPRIMARY), &mi);
@@ -3520,10 +3520,10 @@ return true;
 
    //   //throw ::exception(todo);
 
-   //   //if(::aura::get_system()->get_twf() == nullptr)
+   //   //if(::auraacmesystem()->get_twf() == nullptr)
    //   //   return false;
 
-   //   //if(::aura::get_system()->get_twf()->m_bProDevianMode)
+   //   //if(::auraacmesystem()->get_twf()->m_bProDevianMode)
    //   //   return true;
 
    //   //ASSERT(::is_window(get_handle()));
@@ -4310,8 +4310,8 @@ return true;
    //    throw ::exception(todo);
 
    //    //::pointer<::user::message>pusermessage(pmessage);
-   //    //if(::aura::get_system()->get_cursor() != nullptr
-   //    //   && ::aura::get_system()->get_cursor()->m_ecursor != cursor_system)
+   //    //if(::auraacmesystem()->get_cursor() != nullptr
+   //    //   && ::auraacmesystem()->get_cursor()->m_ecursor != cursor_system)
    //    //{
    //    //   ::SetCursor(nullptr);
    //    //}
@@ -4811,7 +4811,7 @@ return true;
    //   //   if (pFrame != nullptr)
    //   //   hWnd = pFrame->get_handle();
    //   //   else
-   //   //   hWnd = ::aura::get_system()->GetMainWnd()->get_handle();*/
+   //   //   hWnd = ::auraacmesystem()->GetMainWnd()->get_handle();*/
    //   //}
 
    //   //// a popup ::user::interaction_impl cannot be owned by a child ::user::interaction_impl
@@ -5087,7 +5087,7 @@ lCallNextHook:
    //void interaction_impl::_001BaseWndInterfaceMap()
    //{
 
-   //   ::aura::get_system()->window_map().set((oswindow)(iptr)(void *)get_handle(),this);
+   //   ::auraacmesystem()->window_map().set((oswindow)(iptr)(void *)get_handle(),this);
 
    //}
 
