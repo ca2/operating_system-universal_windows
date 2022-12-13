@@ -1,10 +1,10 @@
 #pragma once
 
 
-typedef char            ansichar;
-typedef wchar_t         widechar;
-typedef wchar_t         wd16char;
-typedef unsigned int    wd32char;
+typedef char            ::ansi_character;
+typedef wchar_t         ::wide_character;
+typedef wchar_t         ::wd16_character;
+typedef unsigned int    ::wd32_character;
 
 
 

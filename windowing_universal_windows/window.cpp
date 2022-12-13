@@ -6904,7 +6904,7 @@ namespace windowing_universal_windows
       m_pwindowing->windowing_post([this, iBeg, iEnd]()
          {
 
-            widestring wstrText = get_input_text();
+            wide_string wstrText = get_input_text();
 
             ::winrt::Windows::UI::Text::Core::CoreTextRange sel;
 
@@ -6983,7 +6983,7 @@ namespace windowing_universal_windows
 
       ::winrt::Windows::UI::Text::Core::CoreTextTextRequest  request = args.Request();
 
-      widestring wstrText = get_input_text();
+      wide_string wstrText = get_input_text();
 
       wstrText = wstrText.Mid(
          request.Range().StartCaretPosition,
@@ -7014,13 +7014,13 @@ namespace windowing_universal_windows
 
       ::output_debug_string("range" + ::as_string(range.StartCaretPosition) + "," + ::as_string(range.EndCaretPosition) + "\n");
 
-      widestring newText = args.Text().begin();
+      wide_string newText = args.Text().begin();
 
       auto newSelection = args.NewSelection();
 
       auto pwsz = newText.c_str();
 
-      widestring wstrText = get_input_text();
+      wide_string wstrText = get_input_text();
 
       string strText = wstrText.Left(range.StartCaretPosition) + newText + wstrText.Mid(range.EndCaretPosition);
 
@@ -7391,7 +7391,7 @@ namespace windowing_universal_windows
       else
       {
 
-         widestring wstrText = get_input_text();
+         wide_string wstrText = get_input_text();
 
          range.EndCaretPosition = minimum((::i32) wstrText.length(), (range.EndCaretPosition + direction));
 
@@ -7475,9 +7475,9 @@ namespace windowing_universal_windows
    //using namespace ::winrt::Windows::ApplicationModel;
    //using namespace ::winrt::Windows::ApplicationModel::Core;
    //using namespace ::winrt::Windows::ApplicationModel::Activation;
-   //using namespace ::winrt::Windows::::auraacmesystem();
+   //using namespace ::winrt::Windows::auraacmesystem();
    //using namespace ::winrt::Windows::Graphics::Display;
-   //using namespace ::winrt::Windows::::auraacmesystem()::Threading;
+   //using namespace ::winrt::Windows::auraacmesystem()::Threading;
    //
    //
 
@@ -7807,7 +7807,7 @@ namespace windowing_universal_windows
 
          }
 
-         wd32char wd32ch = args.KeyCode();
+         ::wd32_character wd32ch = args.KeyCode();
 
          if (wd32ch < 32)
          {
@@ -8285,10 +8285,10 @@ namespace windowing_universal_windows
       }
 
 
-      widestring window::get_input_text()
+      wide_string window::get_input_text()
       {
 
-         widestring wstrText;
+         wide_string wstrText;
 
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
@@ -8312,7 +8312,7 @@ namespace windowing_universal_windows
       }
 
 
-      bool window::set_input_text(const widestring & wstr)
+      bool window::set_input_text(const wide_string & wstr)
       {
 
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
@@ -8338,7 +8338,7 @@ namespace windowing_universal_windows
       }
 
 
-      //void window::get_input_text(const widestring & wstr)
+      //void window::get_input_text(const wide_string & wstr)
       //{
 
 

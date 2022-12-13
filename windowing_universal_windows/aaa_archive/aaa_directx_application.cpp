@@ -20,9 +20,9 @@
 ////using namespace ::winrt::Windows::ApplicationModel;
 ////using namespace ::winrt::Windows::ApplicationModel::Core;
 ////using namespace ::winrt::Windows::ApplicationModel::Activation;
-////using namespace ::winrt::Windows::::auraacmesystem();
+////using namespace ::winrt::Windows::auraacmesystem();
 ////using namespace ::winrt::Windows::Graphics::Display;
-////using namespace ::winrt::Windows::::auraacmesystem()::Threading;
+////using namespace ::winrt::Windows::auraacmesystem()::Threading;
 ////
 ////
 //
@@ -894,10 +894,10 @@
 //   }
 //
 //   
-//   widestring application::get_input_text()
+//   wide_string application::get_input_text()
 //   {
 //
-//      widestring wstrText;
+//      wide_string wstrText;
 //
 //      auto pfocusui = m_puserinteraction->get_keyboard_focus();
 //
@@ -919,7 +919,7 @@
 //   }
 //
 //
-//   bool application::set_input_text(const widestring & wstr)
+//   bool application::set_input_text(const wide_string & wstr)
 //   {
 //
 //      auto pfocusui = m_puserinteraction->get_keyboard_focus();
@@ -943,7 +943,7 @@
 //   }
 //
 //
-//   //void application::get_input_text(const widestring & wstr)
+//   //void application::get_input_text(const wide_string & wstr)
 //   //{
 //
 //

@@ -1282,9 +1282,9 @@ namespace windowing_universal_windows
       //// And then should find icon by extension if
       //// it is a file or as folder otherwise.
 
-      //strsize iFind = imagekey.m_strPath.find_ci("://");
+      //strsize iFind = imagekey.m_strPath.case_insensitive_find("://");
 
-      //strsize iFind2 = imagekey.m_strPath.find_ci(":");
+      //strsize iFind2 = imagekey.m_strPath.case_insensitive_find(":");
 
       //if (iFind >= 0 || iFind2 >= 2)
       //{

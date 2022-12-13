@@ -253,7 +253,7 @@ namespace windowing_universal_windows
 //      m_pwindow->m_pwindowing->windowing_branch(__routine([this, iBeg, iEnd]()
 //      {
 //            
-//         widestring wstrText = get_input_text();
+//         wide_string wstrText = get_input_text();
 //
 //         ::winrt::Windows::UI::Text::Core::CoreTextRange sel;
 //
@@ -332,7 +332,7 @@ namespace windowing_universal_windows
 //      
 //      ::winrt::Windows::UI::Text::Core::CoreTextTextRequest  request = args.Request();
 //
-//      widestring wstrText = get_input_text();
+//      wide_string wstrText = get_input_text();
 //
 //      wstrText = wstrText.Mid(
 //         request.Range().StartCaretPosition,
@@ -363,13 +363,13 @@ namespace windowing_universal_windows
 //
 //      ::output_debug_string("range" + __string(range.StartCaretPosition) + "," + __string(range.EndCaretPosition) +"\n");
 //
-//      widestring newText = args.Text().begin();
+//      wide_string newText = args.Text().begin();
 //
 //      auto newSelection = args.NewSelection();
 //
 //      auto pwsz = newText.c_str();
 //
-//      widestring wstrText = get_input_text();
+//      wide_string wstrText = get_input_text();
 //
 //      string strText = wstrText.Left( range.StartCaretPosition) + newText + wstrText.Mid(range.EndCaretPosition);
 //
@@ -738,7 +738,7 @@ namespace windowing_universal_windows
 //      else
 //      {
 //
-//         widestring wstrText = get_input_text();
+//         wide_string wstrText = get_input_text();
 //
 //         range.EndCaretPosition = minimum(wstrText.length(), range.EndCaretPosition + direction);
 //
