@@ -1574,7 +1574,7 @@ return false;
 
       //SERVICE_STATUS ss;
 
-      //__memset(&ss,0,sizeof(ss));
+      //memory_set(&ss,0,sizeof(ss));
 
       //bool bOk = ::ControlService(hdlServ,SERVICE_CONTROL_STOP,&ss) != false;
 

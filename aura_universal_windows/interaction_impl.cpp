@@ -5026,7 +5026,7 @@ run:
             if (s_atomMenu == 0)
             {
                WNDCLASSEX wc;
-               __memset(&wc, 0, sizeof(WNDCLASSEX));
+               memory_set(&wc, 0, sizeof(WNDCLASSEX));
                wc.cbSize = sizeof(WNDCLASSEX);
                s_atomMenu = (ATOM)::GetClassInfoEx(nullptr, "#32768", &wc);
             }

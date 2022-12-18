@@ -1004,7 +1004,7 @@ namespace acme_universal_windows
    {
       ASSERT_VALID(this);
 
-      //__memset(&rStatus, 0, sizeof(::file::file_status));
+      //memory_set(&rStatus, 0, sizeof(::file::file_status));
 
       // copy file name from cached m_path
       rStatus.m_strFullName = m_path;

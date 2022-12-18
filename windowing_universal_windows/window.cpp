@@ -2583,7 +2583,7 @@ namespace windowing_universal_windows
 
       //PAINTSTRUCT paint;
 
-      //__memset(&paint, 0, sizeof(paint));
+      //memory_set(&paint, 0, sizeof(paint));
 
       //HDC hdc = ::BeginPaint(get_hwnd(), &paint);
 
