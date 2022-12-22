@@ -2,7 +2,7 @@
 #pragma once
 
 
-::e_status windows_runtime_launch_uri_async(const char * pszUri, const class time & time);
+::e_status windows_runtime_launch_uri_async(const scoped_string & strUri, const class time & time);
 
 
 

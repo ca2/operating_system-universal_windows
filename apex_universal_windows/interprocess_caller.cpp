@@ -31,7 +31,7 @@ namespace apex_universal_windows
    }
 
 
-   //bool tx::open(const char * pszChannel, launcher * plauncher)
+   //bool tx::open(const scoped_string & strChannel, launcher * plauncher)
    //{
 
    //   __UNREFERENCED_PARAMETER(plauncher);
@@ -82,7 +82,7 @@ namespace apex_universal_windows
 
       //}
 
-      m_strBaseChannel.Empty();
+      m_strBaseChannel.empty();
 
       //         return true;
 

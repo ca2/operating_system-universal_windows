@@ -5780,7 +5780,7 @@ namespace windowing_universal_windows
 //
 //            string strType = ::str().demangle(puserinteraction->type_name());
 //
-//            if (strType.contains_ci("list_box"))
+//            if (strType.case_insensitive_contains("list_box"))
 //            {
 //
 //               ::output_debug_string("list_box e_message_left_button_down");
@@ -5807,7 +5807,7 @@ namespace windowing_universal_windows
 //
 //            string strType;
 //
-//            if (strType.contains_ci("list_box"))
+//            if (strType.case_insensitive_contains("list_box"))
 //            {
 //
 //               ::output_debug_string("list_box e_message_non_client_left_button_down");
@@ -5852,7 +5852,7 @@ namespace windowing_universal_windows
 //
 //               strType = ::str().demangle(puserinteraction->type_name());
 //
-//               if (strType.contains_ci("list_box"))
+//               if (strType.case_insensitive_contains("list_box"))
 //               {
 //
 //                  //::output_debug_string("list_box e_message_mouse_move");
@@ -6926,9 +6926,9 @@ namespace windowing_universal_windows
       wstring wstrText = get_input_text();
 
       // Modify the internal text store.
-      wstrText = wstrText.Left(modifiedRange.StartCaretPosition) +
+      wstrText = wstrText.left(modifiedRange.StartCaretPosition) +
          text +
-         wstrText.Mid(modifiedRange.EndCaretPosition);
+         wstrText.substr(modifiedRange.EndCaretPosition);
 
       // Move the caret to the end of the replacement text.
       m_selection.StartCaretPosition = (::i32) (modifiedRange.StartCaretPosition + wstrText.length());
@@ -6985,7 +6985,7 @@ namespace windowing_universal_windows
 
       wide_string wstrText = get_input_text();
 
-      wstrText = wstrText.Mid(
+      wstrText = wstrText.substr(
          request.Range().StartCaretPosition,
          minimum(request.Range().EndCaretPosition, wstrText.length()) - request.Range().StartCaretPosition);
 
@@ -7022,7 +7022,7 @@ namespace windowing_universal_windows
 
       wide_string wstrText = get_input_text();
 
-      string strText = wstrText.Left(range.StartCaretPosition) + newText + wstrText.Mid(range.EndCaretPosition);
+      string strText = wstrText.left(range.StartCaretPosition) + newText + wstrText.substr(range.EndCaretPosition);
 
       m_strNewText = newText;
 
@@ -7211,9 +7211,9 @@ namespace windowing_universal_windows
 
       auto pfocusui = puserinteraction->get_keyboard_focus();
 
-      //m_strText.Empty();
+      //m_strText.empty();
 
-      //m_strNewText.Empty();
+      //m_strNewText.empty();
 
       if (pfocusui)
       {
@@ -7303,7 +7303,7 @@ namespace windowing_universal_windows
          //   range.StartCaretPosition = maximum(0, range.StartCaretPosition - 1);
          //   ReplaceText(range, "");
          //}
-         //m_strNewText.Empty();
+         //m_strNewText.empty();
          break;
 
          // Left arrow
@@ -7337,7 +7337,7 @@ namespace windowing_universal_windows
          //      SetSelectionAndNotify(range);
          //   }
          //}
-         //m_strNewText.Empty();
+         //m_strNewText.empty();
          break;
 
          // Right arrow
@@ -7371,7 +7371,7 @@ namespace windowing_universal_windows
          //      SetSelectionAndNotify(range);
          //   }
          //}
-         //m_strNewText.Empty();
+         //m_strNewText.empty();
          break;
       }
    }

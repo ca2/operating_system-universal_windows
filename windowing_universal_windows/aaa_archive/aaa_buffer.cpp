@@ -593,7 +593,7 @@ namespace windowing_universal_windows
 //
 //            string strType = ::str().demangle(m_pimpl->m_puserinteraction->type_name());
 //
-//            if (strType.contains_ci("font_format"))
+//            if (strType.case_insensitive_contains("font_format"))
 //            {
 //
 //               INFORMATION("font_format going to UpdateLayeredWindow");

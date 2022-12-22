@@ -1287,7 +1287,7 @@ namespace windowing_universal_windows
 
    //         string strWindowText = _get_window_text_timeout(oswindow, 50_ms);
 
-   //         return strWindowText.contains_ci(str);
+   //         return strWindowText.case_insensitive_contains(str);
 
    //      });
 
@@ -1311,7 +1311,7 @@ namespace windowing_universal_windows
 
    //         string strWindowText = _get_window_text_timeout(oswindow, 50_ms);
 
-   //         return strWindowText.contains_ci(str);
+   //         return strWindowText.case_insensitive_contains(str);
 
    //      });
 
@@ -1338,7 +1338,7 @@ namespace windowing_universal_windows
    //         for (auto& str : stra)
    //         {
 
-   //            if (!strWindowText.contains_ci(str))
+   //            if (!strWindowText.case_insensitive_contains(str))
    //            {
 
    //               return false;

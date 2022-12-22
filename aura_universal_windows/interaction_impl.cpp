@@ -4966,7 +4966,7 @@ run:
                goto lCallNextHook;
 
             // get class name of the interaction_impl that is being created
-            const char * pszClassName;
+            const scoped_string & strClassName;
             char szClassName[_countof("ime")+1];
             if (dword_ptr(lpcs->lpszClass) > 0xffff)
             {

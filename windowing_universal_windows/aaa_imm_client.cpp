@@ -190,7 +190,7 @@ void imm_client::_001OnIme(::message::message * pmessage)
 
             m_puserinteraction->edit_undo();
 
-            m_strImeComposition.Empty();
+            m_strImeComposition.empty();
 
          }
 
@@ -653,7 +653,7 @@ string imm_client::get_ime_composition() const
 void imm_client::clear_ime_composition()
 {
 
-   m_strImeComposition.Empty();
+   m_strImeComposition.empty();
 
    m_bTextCompositionActive2 = false;
 
@@ -665,7 +665,7 @@ void imm_client::clear_ime_composition()
 
    m_puserinteraction->edit_undo();
 
-   m_strImeComposition.Empty();
+   m_strImeComposition.empty();
 
 
 }

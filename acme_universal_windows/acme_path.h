@@ -23,7 +23,7 @@ namespace acme_universal_windows
       ::file::path _final(const char * path) override;
 
 
-      ::file::enum_type get_type(const char * pszPath) override;
+      ::file::enum_type get_type(const scoped_string & strPath) override;
 
 
    };

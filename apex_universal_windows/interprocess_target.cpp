@@ -60,13 +60,13 @@ namespace apex_universal_windows
       //}
 
 
-      m_strBaseChannel.Empty();
+      m_strBaseChannel.empty();
 
       //return true;
 
    }
 
-   //void rx::receiver::on_ipc_receive(rx * prx, const char * pszMessage)
+   //void rx::receiver::on_ipc_receive(rx * prx, const scoped_string & strMessage)
    //{
 
    //}
@@ -83,7 +83,7 @@ namespace apex_universal_windows
    //}
 
 
-   //void * interprocess_target::on_interprocess_receive(const char * pszMessage)
+   //void * interprocess_target::on_interprocess_receive(const scoped_string & strMessage)
    //{
 
    //   if (m_preceiver != nullptr)

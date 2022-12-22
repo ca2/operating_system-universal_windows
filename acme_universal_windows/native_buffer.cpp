@@ -231,7 +231,7 @@ namespace acme_universal_windows
 
       m_bCloseOnDelete = false;
       //m_hnative_buffer = (::u32)hnative_bufferNull;
-      m_strFileName.Empty();
+      m_strFileName.empty();
 
       m_strFileName = path;
       //      m_wstrnative_bufferName    = utf8_to_unicode(m_strFileName);
@@ -540,7 +540,7 @@ namespace acme_universal_windows
    //   //   ::CloseHandle((HANDLE)m_hnative_buffer);
    //   //   m_hnative_buffer = (::u32)hnative_bufferNull;
    //   //}
-   //   //m_strFileName.Empty();
+   //   //m_strFileName.empty();
    //}
 
    void native_buffer::lock(filesize dwPos, filesize dwCount)
@@ -615,7 +615,7 @@ namespace acme_universal_windows
    //}
 
    /*
-   void native_buffer::Rename(const char * pszOldName, const char * pszNewName)
+   void native_buffer::Rename(const scoped_string & strOldName, const scoped_string & strNewName)
 
    {
    if (!::Movenative_buffer((char *)pszOldName, (char *)pszNewName))
@@ -623,7 +623,7 @@ namespace acme_universal_windows
    WinFileException::ThrowOsError(get_application(), (::i32)::get_last_error());
    }
 
-   void native_buffer::erase(const char * pszfileName)
+   void native_buffer::erase(const scoped_string & strfileName)
 
    {
    if (!::Deletenative_buffer((char *)pszfileName))

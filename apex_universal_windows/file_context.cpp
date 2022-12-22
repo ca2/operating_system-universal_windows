@@ -397,7 +397,7 @@ namespace apex_universal_windows
 
       strExtension.make_upper();
 
-      const char * psz = strExtension;
+      const scoped_string & str = strExtension;
 
       if (strExtension == "HTML")
       {

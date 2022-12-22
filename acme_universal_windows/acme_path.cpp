@@ -108,7 +108,7 @@ namespace acme_universal_windows
    }
 
 
-   ::file::enum_type acme_path::get_type(const char * pszPath)
+   ::file::enum_type acme_path::get_type(const scoped_string & strPath)
    {
 
       string strRelative = pszPath;

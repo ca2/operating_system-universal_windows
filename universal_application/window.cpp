@@ -92,7 +92,7 @@ namespace app_net
 
          auto ::time = time(elapsed).::time();
 
-         strGet = "Getting Url " + strDots.Left((::time.m_i / 300) % 4);
+         strGet = "Getting Url " + strDots.left((::time.m_i / 300) % 4);
 
       }
       else

@@ -43,7 +43,7 @@ namespace apex_universal_windows
    {
    }
 
-   //bool tx::open(const char * pszChannel, launcher * plauncher)
+   //bool tx::open(const scoped_string & strChannel, launcher * plauncher)
    //{
 
    //   __UNREFERENCED_PARAMETER(plauncher);
@@ -96,7 +96,7 @@ namespace apex_universal_windows
 
       //}
 
-      m_strBaseChannel.Empty();
+      m_strBaseChannel.empty();
 
       //         return true;
 
@@ -246,13 +246,13 @@ namespace apex_universal_windows
       //}
 
 
-      m_strBaseChannel.Empty();
+      m_strBaseChannel.empty();
 
       //return true;
 
    }
 
-   //void rx::receiver::on_ipc_receive(rx * prx, const char * pszMessage)
+   //void rx::receiver::on_ipc_receive(rx * prx, const scoped_string & strMessage)
    //{
 
    //}
@@ -269,7 +269,7 @@ namespace apex_universal_windows
    //}
 
 
-   //void * interprocess_handler::on_interprocess_receive(const char * pszMessage)
+   //void * interprocess_handler::on_interprocess_receive(const scoped_string & strMessage)
    //{
 
    //   if (m_preceiver != nullptr)
@@ -345,7 +345,7 @@ namespace apex_universal_windows
    //}
 
 
-   //bool ipc::open_ab(const char * pszChannel, const char * pszModule, launcher * plauncher)
+   //bool ipc::open_ab(const scoped_string & strChannel, const scoped_string & strModule, launcher * plauncher)
    //{
 
    //   m_strChannel = pszChannel;
@@ -375,7 +375,7 @@ namespace apex_universal_windows
    //}
 
 
-   //bool ipc::open_ba(const char * pszChannel, const char * pszModule, launcher * plauncher)
+   //bool ipc::open_ba(const scoped_string & strChannel, const scoped_string & strModule, launcher * plauncher)
    //{
 
    //   m_strChannel = pszChannel;
@@ -405,7 +405,7 @@ namespace apex_universal_windows
    //}
 
 
-   //bool interprocess_handler::create(const ::string & strChannel, const char * pszModule)
+   //bool interprocess_handler::create(const ::string & strChannel, const scoped_string & strModule)
    //{
 
    //   m_strChannel = pszChannel;
@@ -435,7 +435,7 @@ namespace apex_universal_windows
    //}
 
 
-   //bool interprocess_handler::open_ba(const char * pszChannel, const char * pszModule)
+   //bool interprocess_handler::open_ba(const scoped_string & strChannel, const scoped_string & strModule)
    //{
 
    //   m_strChannel = pszChannel;

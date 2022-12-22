@@ -230,7 +230,7 @@ void installer::on_receive(small_ipc_rx_channel * prxchannel, const ::string & p
 {
    vsstring strMessage(pszMessage);
    int iRet = 0;
-   const char * pszSuffix;
+   const scoped_string & strSuffix;
    if((pszSuffix = str_begins_inc_dup(strMessage, "synch_spaadmin:")) != NULL)
    {
       if(g_bInstalling)

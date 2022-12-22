@@ -127,7 +127,7 @@ namespace acme_universal_windows
 
       m_bCloseOnDelete = false;
       m_hfile = INVALID_HANDLE_VALUE;
-      m_path.Empty();
+      m_path.empty();
 
       m_path     = lpszFileName;
 //      m_wstrFileName    = utf8_to_unicode(m_path);
@@ -483,7 +483,7 @@ namespace acme_universal_windows
 
       m_hfile = INVALID_HANDLE_VALUE;
       m_bCloseOnDelete = false;
-      m_path.Empty();
+      m_path.empty();
 
       if (bError)
       {
@@ -510,7 +510,7 @@ namespace acme_universal_windows
    //      ::CloseHandle((HANDLE)m_hfile);
    //      m_hfile = (::u32)INVALID_HANDLE_VALUE;
    //   }
-   //   m_path.Empty();
+   //   m_path.empty();
    //}
 
    
@@ -1024,7 +1024,7 @@ namespace acme_universal_windows
 //      wstrFileName = utf8_to_unicode(lpszFileName);
 //      if (!windows_full_path(wstrFullName, wstrFileName))
 //      {
-//         rStatus.m_strFullName.Empty();
+//         rStatus.m_strFullName.empty();
 //         return false;
 //      }
 //      unicode_to_utf8(rStatus.m_strFullName, wstrFullName);

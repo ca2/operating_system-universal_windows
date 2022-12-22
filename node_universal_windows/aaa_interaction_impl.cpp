@@ -102,7 +102,7 @@ namespace windows
    interaction_impl::~interaction_impl()
    {
 
-      if (m_strDebug.contains_ci("main_frame"))
+      if (m_strDebug.case_insensitive_contains("main_frame"))
       {
 
          output_debug_string("main_frame");
@@ -4659,7 +4659,7 @@ namespace windows
 //
 //            string strType = ::str().demangle(m_puserinteraction->type_name());
 //
-//            if (strType.contains_ci("list_box"))
+//            if (strType.case_insensitive_contains("list_box"))
 //            {
 //
 //               ::output_debug_string("list_box e_message_left_button_down");
@@ -4686,7 +4686,7 @@ namespace windows
 //
 //            string strType;
 //
-//            if (strType.contains_ci("list_box"))
+//            if (strType.case_insensitive_contains("list_box"))
 //            {
 //
 //               ::output_debug_string("list_box e_message_non_client_left_button_down");
@@ -4731,7 +4731,7 @@ namespace windows
 //
 //               strType = ::str().demangle(m_puserinteraction->type_name());
 //
-//               if (strType.contains_ci("list_box"))
+//               if (strType.case_insensitive_contains("list_box"))
 //               {
 //
 //                  //::output_debug_string("list_box e_message_mouse_move");

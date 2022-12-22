@@ -242,9 +242,9 @@ namespace acme_universal_windows
       else
       {
 
-         path /= strAppId.Left(iFind);
+         path /= strAppId.left(iFind);
 
-         path /= strAppId.Mid(iFind + 1);
+         path /= strAppId.substr(iFind + 1);
 
       }
 
@@ -695,7 +695,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
       //string acme_directory::name(const char * path1)
       //{
-      //   const char * psz = path1 + strlen(path1) - 1;
+      //   const scoped_string & str = path1 + strlen(path1) - 1;
       //   while (psz >= path1)
       //   {
       //      if (*psz != '\\' && *psz != '/' && *psz != ':')
@@ -710,7 +710,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //   }
       //   if (psz >= path1) // strChar == "\\" || strChar == "/"
       //   {
-      //      const char * pszEnd = psz;
+      //      const scoped_string & strEnd = psz;
       //      /*while(psz >= path1)
       //       {
       //       if(*psz != '\\' && *psz != '/' && *psz != ':')
@@ -1452,7 +1452,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      //void acme_directory::rls(::file::path_array & stra, const char * psz)
+      //void acme_directory::rls(::file::path_array & stra, const scoped_string & str)
       //{
       //   ::count start = stra.get_count();
       //   ls(stra, psz);
@@ -1468,7 +1468,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //}
 
 
-      //void acme_directory::rls_dir(::file::path_array & stra, const char * psz)
+      //void acme_directory::rls_dir(::file::path_array & stra, const scoped_string & str)
       //{
 
       //   ::count start = stra.get_count();
@@ -1539,7 +1539,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-//      void acme_directory::ls_dir(::file::path_array & stra, const char * psz)
+//      void acme_directory::ls_dir(::file::path_array & stra, const scoped_string & str)
 //      {
 //
 //#if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1626,7 +1626,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //      }
 //
 //
-//      void acme_directory::ls_file(::file::path_array & stra, const char * psz)
+//      void acme_directory::ls_file(::file::path_array & stra, const scoped_string & str)
 //      {
 //
 //#if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1770,7 +1770,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       }
 
 
-      //int acme_directory::make_path(const char * psz)
+      //int acme_directory::make_path(const scoped_string & str)
       //{
 
 

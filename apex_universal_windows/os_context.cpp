@@ -729,7 +729,7 @@ namespace apex_universal_windows
       //keyLink.get(nullptr, strFormat);
       //{
 
-      //   const char * psz = strFormat;
+      //   const scoped_string & str = strFormat;
 
       //   try
       //   {
@@ -1738,7 +1738,7 @@ throw ::exception(error_not_supported);
    }
 
 
-   bool os_context::is_alias(const char * psz)
+   bool os_context::is_alias(const scoped_string & str)
    {
 
       return false;
@@ -2020,13 +2020,13 @@ return false;
 
       //   }
 
-      //   path = strDefault.Left(iFind);
+      //   path = strDefault.left(iFind);
 
       //   path += ".exe";
 
       //   //MessageBox(nullptr, path, "pathProgram", e_message_box_ok);
 
-      //   strParam = strDefault.Mid(iFind + 5);
+      //   strParam = strDefault.substr(iFind + 5);
 
       //   if (bQuote)
       //   {

@@ -92,7 +92,7 @@ namespace apex_universal_windows
 
       void set_file_status(const ::string & pszFileName, const ::file::file_status& status) override;
 
-      bool is_alias(const char * psz) override;
+      bool is_alias(const scoped_string & str) override;
 
       void initialize_wallpaper_fileset(::file::set* pset, bool bAddSearch) override;
       

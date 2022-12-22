@@ -308,7 +308,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 
                strCurrentFolder = strRelativeHere;
 
-               strRelativeHere.Empty();
+               strRelativeHere.empty();
 
             }
 
