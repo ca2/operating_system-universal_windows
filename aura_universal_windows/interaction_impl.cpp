@@ -217,103 +217,6 @@ namespace aura_universal_windows
       //else
         // post_non_client_destroy();
    }
-
-//   void interaction_impl::assert_ok() const
-//   {
-//      //if(get_handle() == nullptr)
-//        // return;     // nullptr (unattached) windows are valid
-//
-//      // check for special wnd??? values
-//      ASSERT(HWND_TOP == nullptr);       // same as desktop
-//#ifdef WINDOWS_DESKTOP
-//      if (get_handle() == HWND_BOTTOM)
-//      {
-//      }
-//      else if (get_handle() == HWND_TOPMOST)
-//      {
-//      }
-//      else if (get_handle() == HWND_NOTOPMOST)
-//      {
-//      }
-//      else
-//#endif
-//      {
-//         // should be a normal interaction_impl
-//#ifdef WINDOWS_DESKTOP
-//         ASSERT(::is_window(get_handle()));
-//#else
-//         throw ::exception(todo);
-//#endif
-//
-//         // should also be in the permanent or temporary handle ::map
-//         //single_lock synchronouslock(afxMutexHwnd(),true);
-//         //hwnd_map * pMap = afxMapHWND();
-//         //if(pMap == nullptr) // inside thread not having windows
-//         //   return; // let go
-//         //ASSERT(pMap != nullptr);
-//
-//         //         ::object* p=nullptr;
-//         /*if(pMap)
-//         {
-//         ASSERT( (p = pMap->lookup_permanent(get_handle())) != nullptr ||
-//         (p = pMap->lookup_temporary(get_handle())) != nullptr);
-//         }*/
-//
-//         //ASSERT(dynamic_cast < ::user::interaction_impl * > (p) == this);   // must be us
-//
-//         // Note: if either of the above asserts fire and you are
-//         // writing a multithreaded application, it is likely that
-//         // you have passed a C++ object from one thread to another
-//         // and have used that object in a way that was not intended.
-//         // (only simple inline wrapper functions should be used)
-//         //
-//         // In general, interaction_impl objects should be passed by oswindow from
-//         // one thread to another.  The receiving thread can wrap
-//         // the oswindow with a interaction_impl object by using ::universal_windows::interaction_impl::from_handle.
-//         //
-//         // It is dangerous to pass C++ objects from one thread to
-//         // another, unless the objects are designed to be used in
-//         // such a manner.
-//      }
-//   }
-//
-//
-//   void interaction_impl::dump(dump_context & dumpcontext) const
-//   {
-//      ::object::dump(dumpcontext);
-//
-////      //dumpcontext << "\nm_hWnd = " << (void *)get_handle();
-////
-////#ifdef WINDOWS_DESKTOP
-////
-////      if(get_handle() == nullptr || get_handle() == HWND_BOTTOM || get_handle() == HWND_TOPMOST || get_handle() == HWND_NOTOPMOST)
-////      {
-////         // not a normal interaction_impl - nothing more to dump
-////         return;
-////      }
-////
-////
-////      if (!::is_window(get_handle()))
-////      {
-////         // not a valid interaction_impl
-////         dumpcontext << " (illegal oswindow)";
-////         return; // don't do anything more
-////      }
-////#endif
-////
-////      ::rectangle_i32 rectangle;
-////      ((::user::interaction_impl *) this)->m_puserinteraction->get_window_rect(&rectangle);
-////      dumpcontext << "\nrect = " << rectangle;
-////      dumpcontext << "\nparent ::user::interaction_impl * = " << (void *)((::user::interaction_impl *) this)->get_parent();
-////
-////#ifdef WINDOWS_DESKTOP
-////      dumpcontext << "\nstyle = " << (void *)(dword_ptr)::GetWindowLong(get_handle(), GWL_STYLE);
-////      if (::GetWindowLong(get_handle(), GWL_STYLE) & WS_CHILD)
-////         dumpcontext << "\nid = " << __get_dialog_control_id(get_handle());
-////#endif
-////      dumpcontext << "\n";
-//   }
-
    bool interaction_impl::DestroyWindow()
    {
       //single_lock synchronouslock(m_pthread == nullptr ? nullptr : &m_pthread->m_mutex,true);
@@ -592,23 +495,6 @@ namespace aura_universal_windows
       __UNREFERENCED_PARAMETER(dwData);
       __UNREFERENCED_PARAMETER(nCmd);
       throw ::not_implemented();
-      /*
-      application* pApp = ::auraacmesystem();
-      ASSERT_VALID(pApp);
-      if (pApp->m_eHelpType == afxHTMLHelp)
-      {
-      // translate from WinHelp commands and data to to HtmlHelp
-      ASSERT((nCmd == HELP_CONTEXT) || (nCmd == HELP_CONTENTS) || (nCmd == HELP_FINDER));
-      if (nCmd == HELP_CONTEXT)
-      nCmd = HH_HELP_CONTEXT;
-      else if (nCmd == HELP_CONTENTS)
-      nCmd = HH_DISPLAY_TOC;
-      else if (nCmd == HELP_FINDER)
-      nCmd = HH_HELP_FINDER;
-      HtmlHelp(dwData, nCmd);
-      }
-      else
-      WinHelp(dwData, nCmd);*/
    }
 
 #endif
@@ -1028,7 +914,7 @@ namespace aura_universal_windows
 pMessageMap = (*pMessageMap->pfnGetBaseMap)())
 {
 // Note: catch not so common but fatal mistake!!
-//       // BEGIN_MESSAGE_MAP(CMyWnd, CMyWnd)
+//       // 
 ASSERT(pMessageMap != (*pMessageMap->pfnGetBaseMap)());
 if (message < 0xC000)
 {
@@ -1803,112 +1689,6 @@ return true;
       // no special processing
    }
 
-
-   //bool interaction_impl::SendChildNotifyLastMsg(LRESULT* pResult)
-   //{
-
-   //   return false;
-
-   //}
-
-
-   //bool interaction_impl::ReflectLastMsg(oswindow hWndChild,LRESULT* pResult)
-   //{
-   //   return false;
-   //   //// get the ::map, and if no ::map, then this message does not need reflection
-   //   //single_lock synchronouslock(afxMutexHwnd(),true);
-   //   //hwnd_map * pMap = afxMapHWND();
-   //   //if(pMap == nullptr)
-   //   //   return false;
-
-   //   //// check if in permanent ::map, if it is reflect it (could be OLE control)
-   //   //::user::interaction * pWnd = hWndChild->interaction_impl();
-   //   //if(pWnd == nullptr)
-   //   //{
-   //   //   return false;
-   //   //}
-
-   //   //// only OLE controls and permanent windows will get reflected msgs
-   //   //ASSERT(pWnd != nullptr);
-   //   //return WIN_WINDOW(pWnd)->SendChildNotifyLastMsg(pResult);
-   //}
-
-   //bool interaction_impl::OnChildNotify(::u32 uMsg,WPARAM wParam,LPARAM lParam,LRESULT* pResult)
-   //{
-
-   //   return ReflectChildNotify(uMsg,wParam,lParam,pResult);
-   //}
-
-   //bool interaction_impl::ReflectChildNotify(::u32 uMsg,WPARAM wParam,LPARAM lParam,LRESULT* pResult)
-   //{
-   //   __UNREFERENCED_PARAMETER(wParam);
-   //   // Note: reflected messages are send directly to interaction_impl::OnWndMsg
-   //   //  and interaction_impl::_001OnCommand for speed and because these messages are not
-   //   //  routed by normal _001OnCommand routing (they are only dispatched)
-
-   //   switch(uMsg)
-   //   {
-   //   // normal messages (just wParam, lParam through OnWndMsg)
-   //   case e_message_hscroll:
-   //   case e_message_vscroll:
-   //   case WM_PARENTNOTIFY:
-   //   case WM_DRAWITEM:
-   //   case e_message_measure_item:
-   //   case WM_DELETEITEM:
-   //   case WM_VKEYTOITEM:
-   //   case WM_CHARTOITEM:
-   //   case WM_COMPAREITEM:
-   //      // reflect the message through the message ::map as WM_REFLECT_BASE+uMsg
-   //      //return interaction_impl::OnWndMsg(WM_REFLECT_BASE+uMsg, wParam, lParam, pResult);
-   //      return false;
-
-   //   // special case for e_message_command
-   //   case e_message_command:
-   //   {
-   //      // reflect the message through the message ::map as OCM_COMMAND
-   //      /* xxx         int nCode = HIWORD(wParam);
-   //      if (interaction_impl::_001OnCommand(0, MAKELONG(nCode, WM_REFLECT_BASE+e_message_command), nullptr, nullptr))
-   //      {
-   //      if (pResult != nullptr)
-   //      *pResult = 1;
-   //      return true;
-   //      } */
-   //   }
-   //   break;
-
-   //   // special case for WM_NOTIFY
-   //   case WM_NOTIFY:
-   //   {
-   //      // reflect the message through the message ::map as OCM_NOTIFY
-   //      NMHDR* pNMHDR = (NMHDR*)lParam;
-   //      //            int nCode = pNMHDR->code;
-   //      //            __NOTIFY notify;
-   //      //          notify.pResult = pResult;
-   //      //        notify.pNMHDR = pNMHDR;
-   //      // xxxx         return interaction_impl::_001OnCommand(0, MAKELONG(nCode, WM_REFLECT_BASE+WM_NOTIFY), &notify, nullptr);
-   //   }
-
-   //   // other special cases (WM_CTLCOLOR family)
-   //   default:
-   //      if(uMsg >= WM_CTLCOLORMSGBOX && uMsg <= WM_CTLCOLORSTATIC)
-   //      {
-   //         // fill in special struct for compatiblity with 16-bit WM_CTLCOLOR
-   //         /*__CTLCOLOR ctl;
-   //         ctl.hDC = (HDC)wParam;
-   //         ctl.nCtlType = uMsg - WM_CTLCOLORMSGBOX;
-   //         //ASSERT(ctl.nCtlType >= CTLCOLOR_MSGBOX);
-   //         ASSERT(ctl.nCtlType <= CTLCOLOR_STATIC);
-
-   //         // reflect the message through the message ::map as OCM_CTLCOLOR
-   //         bool bResult = interaction_impl::OnWndMsg(WM_REFLECT_BASE+WM_CTLCOLOR, 0, (LPARAM)&ctl, pResult);
-   //         if ((HBRUSH)*pResult == nullptr)
-   //         bResult = false;
-   //         return bResult;*/
-   //         return false;
-   //      }
-   //      break;
-   //   }
-
    //   return false;   // let the parent handle it
    //}
 
@@ -1948,18 +1728,6 @@ return true;
    {
       throw ::not_implemented();
 
-      /*      application* pApp = ::auraacmesystem();
-      if (pApp != nullptr && pApp->GetMainWnd() == this)
-      {
-      // recolor global brushes used by control bars
-      afxData.UpdateSysColors();
-      }
-
-      // forward this message to all other child windows
-      if (!(GetStyle() & WS_CHILD))
-      send_message_to_descendants(WM_SYSCOLORCHANGE, 0, 0L, true, true);
-
-      Default();*/
    }
 
    //bool gen_GotScrollLines;
@@ -2015,25 +1783,6 @@ return true;
 
 #endif
 
-   //LRESULT interaction_impl::OnDisplayChange(WPARAM,LPARAM)
-   //{
-   //   // update metrics if this interaction_impl is the main interaction_impl
-   //   //if(::auraacmesystem()->GetMainWnd() == this)
-   //   //{
-   //   //   // update any system metrics cache
-   //   //   //         afxData.UpdateSysMetrics();
-   //   //}
-
-   //   // forward this message to all other child windows
-   //   if(!(GetStyle() & WS_CHILD))
-   //   {
-   //      const MSG* pMsg = GetCurrentMessage();
-   //      send_message_to_descendants(pMsg->message,pMsg->wParam,(i32) pMsg->lParam,
-   //                                  true,true);
-   //   }
-
-   //   return Default();
-   //}
 
    LRESULT interaction_impl::OnDragList(WPARAM,LPARAM lParam)
    {
@@ -4955,7 +4704,7 @@ run:
       ASSERT(lpcs != nullptr);
 
       ::user::interaction * pWndInit = pThreadState->m_pWndInit;
-      bool bContextIsDLL = afxContextIsDLL;
+      bool bContextIsDLL = ::windows_definition::ContextIsDLL;
       if (pWndInit != nullptr || (!(lpcs->style & WS_CHILD) && !bContextIsDLL))
       {
          // Note: special check to avoid subclassing the IME interaction_impl
@@ -5007,11 +4756,11 @@ run:
             ASSERT(pOldWndProc != nullptr);
 
             // subclass the interaction_impl with standard __window_procedure
-            WNDPROC afxWndProc = __get_window_procedure();
+            WNDPROC ::windows_definition::WndProc = __get_window_procedure();
             oldWndProc = (WNDPROC)SetWindowLongPtr(hWnd, GWLP_WNDPROC,
-                                                   (dword_ptr)afxWndProc);
+                                                   (dword_ptr)::windows_definition::WndProc);
             ASSERT(oldWndProc != nullptr);
-            if (oldWndProc != afxWndProc)
+            if (oldWndProc != ::windows_definition::WndProc)
                *pOldWndProc = oldWndProc;
 
             pThreadState->m_pWndInit = nullptr;

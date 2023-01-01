@@ -55,15 +55,6 @@
 
 #endif //VC_EXTRALEAN
 
-/////////////////////////////////////////////////////////////////////////////
-// Turn off warnings for /W4
-// To resume any of these warning: #pragma warning(default: 4xxx)
-// which should be placed after the AFX include files
-
-#pragma warning(push)
-#pragma warning(disable: 4311 4312)
-#pragma warning(disable: 4201)  // winnt.h uses nameless structs
-#define _WINSOCKAPI_
 
 #include <winapifamily.h>
 #include <windows.h>

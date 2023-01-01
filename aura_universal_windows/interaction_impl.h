@@ -405,7 +405,7 @@ namespace aura_universal_windows
       //virtual bool SetWindowContextHelpId(u32 dwContextHelpId);
       //virtual u32 GetWindowContextHelpId() const;
 
-      // Dialog Data support
+       support
       //virtual bool UpdateData(bool bSaveAndValidate = true);
       // data wnd must be same type as this
 
