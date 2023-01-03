@@ -19,7 +19,7 @@ ATOM spa_install_register_window_class(HINSTANCE hInstance)
 	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
    wcex.lpszMenuName	   = NULL;
 	wcex.lpszClassName	= "TeDigoS�";
-	//wcex.hIcon			   = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_CCVOTAGUS_CA2_SPA));
+	//wcex.hIcon			   = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_STORE_CA2_SPA));
 	//wcex.hIconSm		   = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 	wcex.hIcon			   = NULL;
 	wcex.hIconSm		   = NULL;
