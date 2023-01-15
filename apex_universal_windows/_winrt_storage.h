@@ -1,5 +1,5 @@
 // Created by camilo on 2021-08-31 19:54 BRT <3ThomasBS__!!
-// From _windows_storage.h on 2022-09-23 01:49 <3ThomasBorregaardSorensen!!
+// From _windows_storage.h on 2022-09-23 01:49 <3ThomasBorregaardSørensen!!
 #pragma once
 
 

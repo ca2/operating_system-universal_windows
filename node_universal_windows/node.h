@@ -1,4 +1,4 @@
-﻿// From windowing_universal_windows by camilo on 2022-09-22 01:07 <3ThomasBorregaardSorensen!!
+﻿// From windowing_universal_windows by camilo on 2022-09-22 01:07 <3ThomasBorregaardSørensen!!
 // Created by camilo on 2021-09-04 22:51 BRT <3ThomasBS_!!
 #pragma once
 

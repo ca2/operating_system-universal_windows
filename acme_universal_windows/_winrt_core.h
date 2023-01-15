@@ -1,4 +1,4 @@
-// From _windows_runtime.h by camilo on 2022-09-23 ~05:30 <3ThomasBorregaardSorensen!!
+// From _windows_runtime.h by camilo on 2022-09-23 ~05:30 <3ThomasBorregaardSørensen!!
 #pragma once
 
 
