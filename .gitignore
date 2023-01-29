@@ -45,6 +45,7 @@ _matter.zip
 project.lock.json
 project.assets.json
 
+_packages.txt
 deployment.rc
 application_build_helper_input.txt
 application_build_helper_output.txt
