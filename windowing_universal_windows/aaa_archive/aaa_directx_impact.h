@@ -64,7 +64,7 @@
 //    //  virtual void Uninitialize() override = 0;
 //      //void Uninitialize();
 //
-//      virtual ::winrt::Windows::Foundation::Rect get_window_rect() = 0;
+//      virtual ::winrt::Windows::Foundation::Rect window_rectangle() = 0;
 //      virtual ::winrt::Windows::Foundation::Point get_cursor_position() = 0;
 //
 //

@@ -868,7 +868,7 @@
 //      if (puserinteraction)
 //      {
 //
-//         ::rectangle_i32 r = puserinteraction->get_window_rect();
+//         ::rectangle_i32 r = puserinteraction->window_rectangle();
 //
 //         m_rectangleInputContentRect.X = (float) r.left;
 //         m_rectangleInputContentRect.Y = (float)r.top;
@@ -950,7 +950,7 @@
 //   //}
 //
 //
-//   ::winrt::Windows::Foundation::Rect application::get_window_rect()
+//   ::winrt::Windows::Foundation::Rect application::window_rectangle()
 //   {
 //
 //      ::winrt::Windows::Foundation::Rect rectangle = m_rectangleLastWindowRect;

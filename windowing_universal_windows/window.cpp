@@ -6064,7 +6064,7 @@ namespace windowing_universal_windows
 //   }
 
 
-   bool window::get_window_rect(RECTANGLE_I32 * prectangle)
+   bool window::window_rectangle(RECTANGLE_I32 * prectangle)
    {
 
       //RECT rectangle;
@@ -6098,7 +6098,7 @@ namespace windowing_universal_windows
    //}
 
 
-   bool window::get_client_rect(RECTANGLE_I32 * prectangle)
+   bool window::client_rectangle(RECTANGLE_I32 * prectangle)
    {
 
       //RECT rectangle;
@@ -8257,7 +8257,7 @@ namespace windowing_universal_windows
             if (puserinteractionFocus)
             {
 
-               ::rectangle_i32 r = puserinteractionFocus->get_window_rect();
+               ::rectangle_i32 r = puserinteractionFocus->window_rectangle();
 
                m_rectangleInputContentRect.X = (float)r.left;
                m_rectangleInputContentRect.Y = (float)r.top;
@@ -8345,7 +8345,7 @@ namespace windowing_universal_windows
       //}
 
 
-      ::winrt::Windows::Foundation::Rect window::get_window_rect()
+      ::winrt::Windows::Foundation::Rect window::window_rectangle()
       {
 
          ::winrt::Windows::Foundation::Rect rectangle = m_rectangleLastWindowRect;

@@ -134,7 +134,7 @@ namespace windowing_universal_windows
           //  virtual void Uninitialize() override = 0;
             //void Uninitialize();
 
-      virtual ::winrt::Windows::Foundation::Rect get_window_rect();
+      virtual ::winrt::Windows::Foundation::Rect window_rectangle();
       virtual ::winrt::Windows::Foundation::Point get_cursor_position();
       ::point_i32 get_mouse_cursor_position() override;
 
@@ -256,7 +256,7 @@ namespace windowing_universal_windows
       // IFrameworkView Methods
 
 
-      //virtual ::winrt::Windows::Foundation::Rect get_window_rect() override;
+      //virtual ::winrt::Windows::Foundation::Rect window_rectangle() override;
       //virtual ::winrt::Windows::Foundation::Point get_cursor_position() override;
 
       //virtual ::winrt::Windows::Foundation::Rect get_input_content_rect() override;
@@ -601,16 +601,16 @@ namespace windowing_universal_windows
       virtual ::u32 ArrangeIconicWindows();
       //virtual void BringToTop(::e_display edisplay);
       //virtual bool BringWindowToTop();
-      //using ::user::interaction_impl::get_window_rect;
-      //virtual bool get_window_rect(RECTANGLE_I64 * prectangle);
+      //using ::user::interaction_impl::window_rectangle;
+      //virtual bool window_rectangle(RECTANGLE_I64 * prectangle);
 
-      //using ::user::interaction_impl::get_client_rect;
-      //virtual bool get_client_rect(RECTANGLE_I64 * prectangle);
+      //using ::user::interaction_impl::client_rectangle;
+      //virtual bool client_rectangle(RECTANGLE_I64 * prectangle);
 
 
       //virtual void rects_from_os();
-      virtual bool get_window_rect(RECTANGLE_I32 * prectangle);
-      virtual bool get_client_rect(RECTANGLE_I32 * prectangle);
+      virtual bool window_rectangle(RECTANGLE_I32 * prectangle);
+      virtual bool client_rectangle(RECTANGLE_I32 * prectangle);
 
 
 
