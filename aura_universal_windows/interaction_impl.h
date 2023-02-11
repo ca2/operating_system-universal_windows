@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 
+#include "acme/parallelization/manual_reset_event.h"
 #include "aura/user/user/interaction_impl.h"
 
 
@@ -405,7 +406,7 @@ namespace aura_universal_windows
       //virtual bool SetWindowContextHelpId(u32 dwContextHelpId);
       //virtual u32 GetWindowContextHelpId() const;
 
-       support
+       //support
       //virtual bool UpdateData(bool bSaveAndValidate = true);
       // data wnd must be same type as this
 
@@ -425,9 +426,9 @@ namespace aura_universal_windows
       //virtual bool OnCommand(WPARAM wParam, LPARAM lParam);
       //virtual bool OnNotify(WPARAM wParam, LPARAM lParam, LRESULT* pResult);
 
-      void OnActivate(::u32 nState, ::user::interaction_impl * pWndOther, bool bMinimized);
-      void OnActivateApp(bool bActive, u32 dwThreadID);
-      LRESULT OnActivateTopLevel(WPARAM, LPARAM);
+      //void OnActivate(::u32 nState, ::user::interaction_impl * pWndOther, bool bMinimized);
+      //void OnActivateApp(bool bActive, u32 dwThreadID);
+      //LRESULT OnActivateTopLevel(WPARAM, LPARAM);
       void OnCancelMode();
       void OnChildActivate();
       void OnClose();
