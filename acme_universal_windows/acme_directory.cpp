@@ -171,7 +171,7 @@ namespace acme_universal_windows
 
       path.find_replace(":", "");
 
-      path.ends_eat_ci(".exe");
+      path.case_insensitive_ends_eat(".exe");
 
       return path;
 
@@ -579,19 +579,19 @@ namespace acme_universal_windows
    }
 
 
-   bool acme_directory::is(const char * path1)
+   bool acme_directory::is(const ::file::path & path)
    {
 
       bool bDir = false;
 
-      if(_is(bDir, path1))
+      if(_is(bDir, path))
       {
 
          return bDir;
 
       }
 
-      auto folder = windows_runtime_folder(this, path1);
+      auto folder = windows_runtime_folder(this, path);
 
       if (!folder)
       {
@@ -605,10 +605,10 @@ namespace acme_universal_windows
    }
 
 
-   bool acme_directory::_is(bool & bDir, const char * path1)
+   bool acme_directory::_is(bool & bDir, const ::file::path & path)
    {
 
-      u32 dwFileAttributes = ::windows::get_file_attributes(path1);
+      u32 dwFileAttributes = ::windows::get_file_attributes(path);
 
       if (dwFileAttributes == INVALID_FILE_ATTRIBUTES)
       {

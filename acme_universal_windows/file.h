@@ -1,6 +1,7 @@
 ﻿#pragma once
 
 
+#include "acme/filesystem/file/file.h"
 #include "acme/_operating_system.h"
 
 
@@ -58,9 +59,9 @@ namespace acme_universal_windows
 
       //virtual ::pointer<::file::file>Duplicate() const;
 
-      filesize translate(filesize offset, ::enum_seek eseek) override;
+      void translate(filesize offset, ::enum_seek eseek) override;
       void set_size(filesize dwNewLen) override;
-      filesize get_size() const override;
+      filesize size() const override;
 
       virtual memsize read(void * lpBuf, memsize nCount) override;
       virtual void write(const void * lpBuf, memsize nCount) override;

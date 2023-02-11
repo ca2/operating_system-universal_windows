@@ -103,13 +103,13 @@ namespace acme_universal_windows
 
       string strPath = path;
 
-      //str().begins_eat_ci(strPath.begins_eat_ci("image:\\\\");
+      //str().case_insensitive_begins_eat(strPath.case_insensitive_begins_eat("image:\\\\");
 
-      //str().begins_eat_ci(strPath, "music:\\\\");
+      //str().case_insensitive_begins_eat(strPath, "music:\\\\");
 
-      //str().begins_eat_ci(strPath, "video:\\\\");
+      //str().case_insensitive_begins_eat(strPath, "video:\\\\");
 
-      //if (str().begins_eat_ci(strPath, "document:\\\\"))
+      //if (str().case_insensitive_begins_eat(strPath, "document:\\\\"))
       //{
 
       //   output_debug_string("document:\\\\" + strPath);
@@ -375,7 +375,7 @@ namespace acme_universal_windows
    }
 
    
-   filesize file::translate(filesize offset, ::enum_seek eseek)
+   void file::translate(filesize offset, ::enum_seek eseek)
    {
 
       if (m_hfile == INVALID_HANDLE_VALUE)
@@ -416,7 +416,7 @@ namespace acme_universal_windows
 
       }
 
-      return posNew;
+      //return posNew;
 
    }
 
@@ -559,7 +559,7 @@ namespace acme_universal_windows
    }
 
 
-   filesize file::get_size() const
+   filesize file::size() const
    {
       
       ASSERT_VALID(this);
@@ -569,11 +569,13 @@ namespace acme_universal_windows
       // seek is a non const operation
       file* pFile = (file*)this;
 
-      dwCur = pFile->translate(0L, ::e_seek_current);
+      dwCur = pFile->get_position();
 
-      dwLen = pFile->seek_to_end();
+      pFile->seek_to_end();
 
-      VERIFY(dwCur == (u64)pFile->translate((filesize) dwCur, ::e_seek_set));
+      dwLen = pFile->get_position();
+
+      pFile->translate((filesize) dwCur, ::e_seek_set);
 
       return (filesize) dwLen;
 

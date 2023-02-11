@@ -447,14 +447,14 @@ namespace windowing_universal_windows
 #endif // __DEBUG
 
 
-      throw_hresult_if_failed(
+      defer_throw_hresult(
          DWriteCreateFactory(
             DWRITE_FACTORY_TYPE_SHARED,
             __unknown_of(m_pwritefactory)
          )
       );
 
-      throw_hresult_if_failed(
+      defer_throw_hresult(
          CoCreateInstance(
             CLSID_WICImagingFactory,
             nullptr,
@@ -517,7 +517,7 @@ namespace windowing_universal_windows
 
 
       //// Create a DirectWrite text format object.
-      //::universal_windows::throw_hresult_if_failed(
+      //::universal_windows::defer_throw_hresult(
       //m_pwritefactory->CreateTextFormat(
       //L"Gabriola",
       //nullptr,
@@ -531,12 +531,12 @@ namespace windowing_universal_windows
       //);
 
       //// Center the text horizontally.
-      //::universal_windows::throw_hresult_if_failed(
+      //::universal_windows::defer_throw_hresult(
       //m_textFormat->SetTextAlignment(DWRITE_TEXT_ALIGNMENT_CENTER)
       //);
 
       //// Center the text vertically.
-      //::universal_windows::throw_hresult_if_failed(
+      //::universal_windows::defer_throw_hresult(
       //m_textFormat->SetParagraphAlignment(DWRITE_PARAGRAPH_ALIGNMENT_CENTER)
       //);
 
@@ -844,7 +844,7 @@ namespace windowing_universal_windows
       //      if (FAILED(hr))
       //      {
       //         
-      //         throw_hresult_if_failed(hr);
+      //         defer_throw_hresult(hr);
 
       //      }
 
@@ -886,19 +886,19 @@ namespace windowing_universal_windows
 
          hr = directx::directx()->m_pdevice.as(dxgiDevice);
 
-         ::throw_hresult_if_failed(hr);
+         ::defer_throw_hresult(hr);
 
          comptr<IDXGIAdapter> dxgiAdapter;
 
          hr = dxgiDevice->GetAdapter(&dxgiAdapter);
 
-         throw_hresult_if_failed(hr);
+         defer_throw_hresult(hr);
 
          comptr<IDXGIFactory2> dxgiFactory;
 
          hr = dxgiAdapter->GetParent(IID_PPV_ARGS(&dxgiFactory));
 
-         throw_hresult_if_failed(hr);
+         defer_throw_hresult(hr);
 
          auto punknown = m_pwindow->m_window.as<IUnknown>();
 
@@ -910,13 +910,13 @@ namespace windowing_universal_windows
             &m_pswapchain
          );
 
-         throw_hresult_if_failed(hr);
+         defer_throw_hresult(hr);
 
          // Ensure that DXGI does not queue more than one frame at a time. This both reduces latency and
          // ensures that the application will only render after each VSync, minimizing power consumption.
          hr = dxgiDevice->SetMaximumFrameLatency(1);
 
-         throw_hresult_if_failed(hr);
+         defer_throw_hresult(hr);
 
          bBufferUpdated = true;
 
@@ -998,7 +998,7 @@ namespace windowing_universal_windows
             if (FAILED(hr))
             {
 
-               throw_hresult_if_failed(hr);
+               defer_throw_hresult(hr);
 
             }
 
@@ -1027,7 +1027,7 @@ namespace windowing_universal_windows
 
             HRESULT hr = m_pswapchain->GetBuffer(0, IID_PPV_ARGS(&backBuffer));
 
-            throw_hresult_if_failed(hr);
+            defer_throw_hresult(hr);
 
             hr = directx::directx()->m_pdevice->CreateRenderTargetView(
                backBuffer,
@@ -1035,7 +1035,7 @@ namespace windowing_universal_windows
                &m_prendertargetview
             );
 
-            throw_hresult_if_failed(hr);
+            defer_throw_hresult(hr);
 
             // Cache the rendertarget dimensions in our helper class for convenient use.
             D3D11_TEXTURE2D_DESC backBufferDesc = { 0 };
@@ -1061,7 +1061,7 @@ namespace windowing_universal_windows
                &depthStencil
             );
 
-            throw_hresult_if_failed(hr);
+            defer_throw_hresult(hr);
 
             auto viewDesc = CD3D11_DEPTH_STENCIL_VIEW_DESC(D3D11_DSV_DIMENSION_TEXTURE2D);
 
@@ -1071,7 +1071,7 @@ namespace windowing_universal_windows
                &m_pstencilview
             );
 
-            throw_hresult_if_failed(hr);
+            defer_throw_hresult(hr);
 
             // Set the 3D rendering viewport to target the entire window.
             CD3D11_VIEWPORT viewport(
@@ -1101,20 +1101,20 @@ namespace windowing_universal_windows
             &m_pdevicecontext
          );
 
-         ::throw_hresult_if_failed(hr);
+         ::defer_throw_hresult(hr);
 
          comptr<IDXGISurface> dxgiBackBuffer;
 
          hr = m_pswapchain->GetBuffer(0, IID_PPV_ARGS(&dxgiBackBuffer));
 
-         ::throw_hresult_if_failed(hr);
+         ::defer_throw_hresult(hr);
 
          hr = m_pdevicecontext->CreateBitmapFromDxgiSurface(
             dxgiBackBuffer,
             &bitmapProperties,
             &m_pbitmap);
 
-         ::throw_hresult_if_failed(hr);
+         ::defer_throw_hresult(hr);
 
          m_pdevicecontext->SetTarget(m_pbitmap);
 
@@ -1293,7 +1293,7 @@ namespace windowing_universal_windows
                if (FAILED(hr))
                {
 
-                  throw_hresult_if_failed(hr);
+                  defer_throw_hresult(hr);
 
                }
 
@@ -1324,18 +1324,18 @@ namespace windowing_universal_windows
       comptr<IDXGIDevice1> dxgiDevice;
       comptr<IDXGIAdapter> deviceAdapter;
       DXGI_ADAPTER_DESC deviceDesc;
-      throw_hresult_if_failed(directx::directx()->m_pdevice.as(dxgiDevice));
-      throw_hresult_if_failed(dxgiDevice->GetAdapter(&deviceAdapter));
-      throw_hresult_if_failed(deviceAdapter->GetDesc(&deviceDesc));
+      defer_throw_hresult(directx::directx()->m_pdevice.as(dxgiDevice));
+      defer_throw_hresult(dxgiDevice->GetAdapter(&deviceAdapter));
+      defer_throw_hresult(deviceAdapter->GetDesc(&deviceDesc));
 
       // Next, get the information for the default adapter.
 
       comptr<IDXGIFactory2> dxgiFactory;
       comptr<IDXGIAdapter1> currentAdapter;
       DXGI_ADAPTER_DESC currentDesc;
-      throw_hresult_if_failed(CreateDXGIFactory1(IID_PPV_ARGS(&dxgiFactory)));
-      throw_hresult_if_failed(dxgiFactory->EnumAdapters1(0, &currentAdapter));
-      throw_hresult_if_failed(currentAdapter->GetDesc(&currentDesc));
+      defer_throw_hresult(CreateDXGIFactory1(IID_PPV_ARGS(&dxgiFactory)));
+      defer_throw_hresult(dxgiFactory->EnumAdapters1(0, &currentAdapter));
+      defer_throw_hresult(currentAdapter->GetDesc(&currentDesc));
 
       // If the adapter LUIDs don't match, or if the device reports that it has been erased,
       // a new D3D device must be created.

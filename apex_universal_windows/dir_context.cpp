@@ -6,6 +6,7 @@
 //#include <Shlobj.h>
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/listing.h"
+#include "acme/parallelization/task_flag.h"
 #include "apex/platform/system.h"
 #include "acme_universal_windows/acme_directory.h"
 
@@ -545,7 +546,7 @@ namespace apex_universal_windows
 
       //            string strName = item.Name().begin();
 
-      //            if (strName.begins_ci("resident_"))
+      //            if (strName.case_insensitive_begins("resident_"))
       //            {
 
       //               TRACE("resident_*");
@@ -727,7 +728,7 @@ namespace apex_universal_windows
 
    //      //         ::file::path pathName = file_find.GetFileName();
 
-   //      //         //if (strFile.begins_ci("resident_"))
+   //      //         //if (strFile.case_insensitive_begins("resident_"))
    //      //         //{
 
    //      //         //   TRACE("resident_*");
@@ -785,17 +786,17 @@ namespace apex_universal_windows
    bool dir_context::name_is(const ::file::path & str)
    {
 
-      strsize iLast = str.get_length() - 1;
+      strsize iLast = str.length() - 1;
 
       while (iLast >= 0)
       {
-         if (str.m_pdata[iLast] != '\\' && str.m_pdata[iLast] != '/' && str.m_pdata[iLast] != ':')
+         if (str.m_begin[iLast] != '\\' && str.m_begin[iLast] != '/' && str.m_begin[iLast] != ':')
             break;
          iLast--;
       }
       while (iLast >= 0)
       {
-         if (str.m_pdata[iLast] == '\\' || str.m_pdata[iLast] == '/' || str.m_pdata[iLast] == ':')
+         if (str.m_begin[iLast] == '\\' || str.m_begin[iLast] == '/' || str.m_begin[iLast] == ':')
             break;
          iLast--;
       }
@@ -803,7 +804,7 @@ namespace apex_universal_windows
       {
          while (iLast >= 0)
          {
-            if (str.m_pdata[iLast] != '\\' && str.m_pdata[iLast] != '/' && str.m_pdata[iLast] != ':')
+            if (str.m_begin[iLast] != '\\' && str.m_begin[iLast] != '/' && str.m_begin[iLast] != ':')
             {
                iLast++;
                break;
@@ -872,14 +873,14 @@ namespace apex_universal_windows
    }
 
 
-   ::file::path dir_context::module()
-   {
+   //::file::path dir_context::module()
+   //{
 
-      ::pointer<::apex::system>psystem = acmesystem();
+   //   ::pointer<::apex::system>psystem = acmesystem();
 
-      return psystem->m_pdirsystem->m_pathModule;
+   //   return psystem->m_pacmedirectory->module->m_pathModule;
 
-   }
+   //}
 
 
    //::file::path dir_context::ca2module()
@@ -1102,17 +1103,17 @@ namespace apex_universal_windows
    ::file::path dir_context::name(const ::file::path & str)
    {
 
-      strsize iLast = str.get_length() - 1;
+      strsize iLast = str.length() - 1;
 
       while (iLast >= 0)
       {
-         if (str.m_pdata[iLast] != '\\' && str.m_pdata[iLast] != '/' && str.m_pdata[iLast] != ':')
+         if (str.m_begin[iLast] != '\\' && str.m_begin[iLast] != '/' && str.m_begin[iLast] != ':')
             break;
          iLast--;
       }
       while (iLast >= 0)
       {
-         if (str.m_pdata[iLast] == '\\' || str.m_pdata[iLast] == '/' || str.m_pdata[iLast] == ':')
+         if (str.m_begin[iLast] == '\\' || str.m_begin[iLast] == '/' || str.m_begin[iLast] == ':')
             break;
          iLast--;
       }
@@ -1120,7 +1121,7 @@ namespace apex_universal_windows
       {
          while (iLast >= 0)
          {
-            if (str.m_pdata[iLast] != '\\' && str.m_pdata[iLast] != '/' && str.m_pdata[iLast] != ':')
+            if (str.m_begin[iLast] != '\\' && str.m_begin[iLast] != '/' && str.m_begin[iLast] != ':')
                break;
             iLast--;
          }
@@ -1150,7 +1151,7 @@ namespace apex_universal_windows
          time = ::earth::time::now();
          strFormat.format("%04d-%02d-%02d %02d-%02d-%02d\\", time.year(), time.month(), time.day(), time.hour(), time.minute(), time.second());
          str += strFormat;
-         if (strDir.m_pdata[2] == '\\')
+         if (strDir.m_begin[2] == '\\')
          {
             str += strDir.substr(3);
          }
@@ -1216,7 +1217,7 @@ namespace apex_universal_windows
    bool dir_context::is_inside(const ::file::path & pszDir, const ::file::path & pszPath)
    {
 
-      return pszDir.begins_ci(pszPath);
+      return pszDir.case_insensitive_begins(pszPath);
 
    }
 

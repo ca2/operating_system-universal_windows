@@ -2,6 +2,7 @@
 #pragma once
 
 
+#include "acme/filesystem/file/file.h"
 #include "acme/primitive/primitive/memory.h"
 #undef new
 #include <winrt/Windows.Storage.h>
@@ -52,9 +53,9 @@ namespace acme_universal_windows
 
       //void put_byte_back(::byte byte) override;
 
-      filesize translate(filesize lOff, ::enum_seek eseek) override;
+      void translate(filesize lOff, ::enum_seek eseek) override;
       void set_size(filesize dwNewLen) override;
-      filesize get_size() const override;
+      filesize size() const override;
 
       memsize read(void * lpBuf, memsize nCount) override;
       void write(const void * lpBuf, memsize nCount) override;

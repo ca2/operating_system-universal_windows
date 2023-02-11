@@ -93,7 +93,7 @@ CLASS_DECL_EXPORT void main_branch(::matter * pobjectTask, enum_priority epriori
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::particle * pparticle, string & strRelative, string & strPrefix)
 {
 
-   if (strRelative.begins_eat_ci("image://"))
+   if (strRelative.case_insensitive_begins_eat("image://"))
    {
 
       strPrefix = "image://";
@@ -101,7 +101,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::PicturesLibrary();
 
    }
-   else if (strRelative.begins_eat_ci("music://"))
+   else if (strRelative.case_insensitive_begins_eat("music://"))
    {
 
       strPrefix = "music://";
@@ -109,7 +109,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::MusicLibrary();
 
    }
-   else if (strRelative.begins_eat_ci("video://"))
+   else if (strRelative.case_insensitive_begins_eat("video://"))
    {
 
       strPrefix = "video://";
@@ -117,7 +117,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::VideosLibrary();
 
    }
-   else if (strRelative.begins_eat_ci("document://"))
+   else if (strRelative.case_insensitive_begins_eat("document://"))
    {
 
       strPrefix = "document://";
@@ -125,7 +125,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::DocumentsLibrary();
 
    }
-   else if (strRelative.begins_eat_ci("localfolder://"))
+   else if (strRelative.case_insensitive_begins_eat("localfolder://"))
    {
 
       strPrefix = "localfolder://";
@@ -133,7 +133,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder();
 
    }
-   else if (strRelative.begins_eat_ci("dropbox://"))
+   else if (strRelative.case_insensitive_begins_eat("dropbox://"))
    {
 
       string strHome = getenv("USERPROFILE");
@@ -143,7 +143,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
       return ::winrt::Windows::Storage::KnownFolders::DocumentsLibrary();
 
    }
-   //else if (str::begins_eat_ci(strRelative, ::dir::sys_temp()))
+   //else if (str::case_insensitive_begins_eat(strRelative, ::dir::sys_temp()))
    //{
 
    //   strPrefix = ::dir::sys_temp();
@@ -151,7 +151,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
    //   return ::winrt::Windows::Storage::ApplicationData::Current.TemporaryFolder();
 
    //}
-   else if (strRelative.begins_eat_ci(string(::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin())))
+   else if (strRelative.case_insensitive_begins_eat(string(::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin())))
    {
 
       strPrefix = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
@@ -554,7 +554,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //   strRelative.trim_right("/\\");
 //
-//   strRelative.begins_eat_ci(strPrefix);
+//   strRelative.case_insensitive_begins_eat(strPrefix);
 //
 //   strRelative.trim_left("/\\");
 //
@@ -584,7 +584,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //         strPrefix.replace("/", "\\");
 //
-//         strRelative.begins_eat_ci(strPrefix);
+//         strRelative.case_insensitive_begins_eat(strPrefix);
 //
 //         strRelative.trim("/\\");
 //
@@ -711,7 +711,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //      else
 //      {
 //
-//         if (str.begins_eat_ci("image://"))
+//         if (str.case_insensitive_begins_eat("image://"))
 //         {
 //
 //            strPrefix = "image://";
@@ -731,7 +731,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //         }
 //
-//         if (str.begins_eat_ci("music://"))
+//         if (str.case_insensitive_begins_eat("music://"))
 //         {
 //
 //            strPrefix = "music://";
@@ -751,7 +751,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //         }
 //
-//         if (str.begins_eat_ci("video://"))
+//         if (str.case_insensitive_begins_eat("video://"))
 //         {
 //
 //            strPrefix = "video://";
@@ -771,7 +771,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //
 //         }
 //
-//         if (str.begins_eat_ci("document://"))
+//         if (str.case_insensitive_begins_eat("document://"))
 //         {
 //
 //            strPrefix = "document://";
@@ -916,7 +916,7 @@ memory windows_runtime_buffer_memory(::winrt::Windows::Storage::Streams::IBuffer
 
    reader.ReadBytes(bytes);
 
-   return ::move(memory);
+   return ::transfer(memory);
 
 }
 

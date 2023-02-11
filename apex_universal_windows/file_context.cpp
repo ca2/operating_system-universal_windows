@@ -98,7 +98,7 @@ namespace apex_universal_windows
 
    //   // return true;
 
-   //   if (pszFileIn.begins_ci("http://"))
+   //   if (pszFileIn.case_insensitive_begins("http://"))
 
    //   {
 
@@ -108,7 +108,7 @@ namespace apex_universal_windows
    //      return true;
 
    //   }
-   //   else if (pszFileIn.begins_ci("https://"))
+   //   else if (pszFileIn.case_insensitive_begins("https://"))
 
    //   {
 
@@ -136,12 +136,12 @@ namespace apex_universal_windows
    //   /*      if(::apex::file_context::FullPath(wstrFullPath, wstrPath))
    //   return true;*/
 
-   //   if (wstrPath.begins_ci(L"http://"))
+   //   if (wstrPath.case_insensitive_begins(L"http://"))
    //   {
    //      wstrFullPath = wstrPath;
    //      return true;
    //   }
-   //   else if (wstrPath.begins_ci(L"https://"))
+   //   else if (wstrPath.case_insensitive_begins(L"https://"))
    //   {
    //      wstrFullPath = wstrPath;
    //      return true;
@@ -270,7 +270,7 @@ namespace apex_universal_windows
    }
 
 
-   void file_context::move(const ::file::path & pszNew, const ::file::path & psz)
+   void file_context::transfer(const ::file::path & pszNew, const ::file::path & psz)
    {
 
       auto file = windows_runtime_file(this, psz, 0, 0, OPEN_EXISTING, 0);
@@ -469,15 +469,15 @@ namespace apex_universal_windows
 
       }
 
-      VERIFY(FindClose(hFind));
+      FindClose(hFind);
 
       rStatus.m_attribute = (byte)(findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
 
       rStatus.m_filesize = make64_from32(findFileData.nFileSizeLow, findFileData.nFileSizeHigh);
 
-      file_time_to_time(&rStatus.m_ctime.m_i, (file_time_t *)&findFileData.ftCreationTime);
-      file_time_to_time(&rStatus.m_atime.m_i, (file_time_t *)&findFileData.ftLastAccessTime);
-      file_time_to_time(&rStatus.m_mtime.m_i, (file_time_t *)&findFileData.ftLastWriteTime);
+      file_time_to_time(&rStatus.m_ctime.m_time, (file_time_t *)&findFileData.ftCreationTime);
+      file_time_to_time(&rStatus.m_atime.m_time, (file_time_t *)&findFileData.ftLastAccessTime);
+      file_time_to_time(&rStatus.m_mtime.m_time, (file_time_t *)&findFileData.ftLastWriteTime);
 
       if (rStatus.m_ctime.get_time() == 0)
       {
@@ -706,7 +706,7 @@ namespace apex_universal_windows
       if (status.m_mtime.get_time() != 0)
       {
          
-         time_to_file_time((file_time_t *) &lastWriteTime, &status.m_mtime.m_i);
+         time_to_file_time((file_time_t *) &lastWriteTime, &status.m_mtime.m_time);
 
          pLastWriteTime = &lastWriteTime;
 
@@ -714,7 +714,7 @@ namespace apex_universal_windows
          if (status.m_atime.get_time() != 0)
          {
 
-            time_to_file_time((file_time_t *)&lastAccessTime, &status.m_atime.m_i);
+            time_to_file_time((file_time_t *)&lastAccessTime, &status.m_atime.m_time);
 
             pLastAccessTime = &lastAccessTime;
 
@@ -724,7 +724,7 @@ namespace apex_universal_windows
          if (status.m_ctime.get_time() != 0)
          {
 
-            time_to_file_time((file_time_t *)&creationTime, &status.m_ctime.m_i);
+            time_to_file_time((file_time_t *)&creationTime, &status.m_ctime.m_time);
 
             pCreationTime = &creationTime;
 

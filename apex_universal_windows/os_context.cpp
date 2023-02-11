@@ -255,30 +255,6 @@ namespace apex_universal_windows
    }
 
 
-   //::file::path os_context::get_module_path(HMODULE hmodule)
-   //{
-   //   
-   //   wstring wstrPath;
-   //   
-   //   u32 dwSize = 1;
-
-   //   while(natural(wstrPath.get_length() + 1) == dwSize)
-   //   {
-
-   //      dwSize = ::GetModuleFileNameW(
-   //               hmodule,
-   //               wstrPath.get_string_buffer(dwSize + 1024),
-   //               (dwSize + 1024));
-
-   //      wstrPath.release_string_buffer();
-
-   //   }
-
-   //   return unicode_to_utf8(wstrPath);
-
-   //}
-
-
    ::payload os_context::connection_settings_get_auto_detect()
    {
 
@@ -1738,7 +1714,7 @@ throw ::exception(error_not_supported);
    }
 
 
-   bool os_context::is_alias(const scoped_string & str)
+   bool os_context::is_alias(const ::file::path & path)
    {
 
       return false;
@@ -1953,31 +1929,31 @@ return false;
       //      strId = "edge";
 
       //   }
-      //   if (strProgId.begins_ci("IE."))
+      //   if (strProgId.case_insensitive_begins("IE."))
       //   {
 
       //      strId = "ie";
 
       //   }
-      //   else if (strProgId.begins_ci("ChromeHTML"))
+      //   else if (strProgId.case_insensitive_begins("ChromeHTML"))
       //   {
 
       //      strId = "chrome";
 
       //   }
-      //   else if (strProgId.begins_ci("FirefoxHTML"))
+      //   else if (strProgId.case_insensitive_begins("FirefoxHTML"))
       //   {
 
       //      strId = "firefox";
 
       //   }
-      //   else if (strProgId.begins_ci("Opera"))
+      //   else if (strProgId.case_insensitive_begins("Opera"))
       //   {
 
       //      strId = "opera";
 
       //   }
-      //   else if (strProgId.begins_ci("VivaldiHTM."))
+      //   else if (strProgId.case_insensitive_begins("VivaldiHTM."))
       //   {
 
       //      strId = "vivaldi";
@@ -2009,7 +1985,7 @@ return false;
 
       //   }
 
-      //   bool bQuote = strDefault.begins_eat_ci("\"");
+      //   bool bQuote = strDefault.case_insensitive_begins_eat("\"");
 
       //   strsize iFind = strDefault.case_insensitive_find(".exe");
 
@@ -2031,7 +2007,7 @@ return false;
       //   if (bQuote)
       //   {
 
-      //      strParam.begins_eat_ci("\"");
+      //      strParam.case_insensitive_begins_eat("\"");
 
       //   }
 
@@ -2272,44 +2248,44 @@ return false;
    ::file::path os_context::get_app_path(const ::string & strApp)
    {
 
-//      string str(strApp);
-//
-//      registry::key key;
-//
-//      string strDefault;
-//
-//repeat:
-//
-//      if (key._open(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\" + str, false))
-//      {
-//
-//         if (key._get("", strDefault))
-//         {
-//
-//            if (strDefault.has_char())
-//            {
-//
-//               return strDefault;
-//
-//            }
-//
-//         }
-//
-//      }
-//
-//      if (!str.ends_ci(".exe"))
-//      {
-//
-//         str += ".exe";
-//
-//         goto repeat;
-//
-//      }
-//
-//      return ::os_context::get_app_path(str);
+      //      string str(strApp);
+      //
+      //      registry::key key;
+      //
+      //      string strDefault;
+      //
+      //repeat:
+      //
+      //      if (key._open(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\" + str, false))
+      //      {
+      //
+      //         if (key._get("", strDefault))
+      //         {
+      //
+      //            if (strDefault.has_char())
+      //            {
+      //
+      //               return strDefault;
+      //
+      //            }
+      //
+      //         }
+      //
+      //      }
+      //
+      //      if (!str.ends_ci(".exe"))
+      //      {
+      //
+      //         str += ".exe";
+      //
+      //         goto repeat;
+      //
+      //      }
+      //
+      //      return ::os_context::get_app_path(str);
       throw ::exception(error_not_supported);
 
-      return false;
+      return {};
 
    }
 

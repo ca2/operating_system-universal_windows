@@ -1117,7 +1117,7 @@ namespace windowing_universal_windows
 
       getfileimage.m_iImage = 0x80000000;
 
-      if (getfileimage.m_imagekey.m_strPath.begins_ci("uifs:"))
+      if (getfileimage.m_imagekey.m_strPath.case_insensitive_begins("uifs:"))
       {
 
          if (reserve_image(getfileimage))
@@ -1133,7 +1133,7 @@ namespace windowing_universal_windows
          return true;
 
       }
-      else if (getfileimage.m_imagekey.m_strPath.begins_ci("fs:"))
+      else if (getfileimage.m_imagekey.m_strPath.case_insensitive_begins("fs:"))
       {
 
          if (reserve_image(getfileimage))
@@ -1150,7 +1150,7 @@ namespace windowing_universal_windows
          return true;
 
       }
-      else if (getfileimage.m_imagekey.m_strPath.begins_ci("ftp:"))
+      else if (getfileimage.m_imagekey.m_strPath.case_insensitive_begins("ftp:"))
       {
 
          if (reserve_image(getfileimage))
@@ -1173,7 +1173,7 @@ namespace windowing_universal_windows
 
          string str = file()->as_string(getfileimage.m_imagekey.m_strPath);
 
-         if (str.begins_eat_ci("ca2prompt\r\n"))
+         if (str.case_insensitive_begins_eat("ca2prompt\r\n"))
          {
 
             str.trim();

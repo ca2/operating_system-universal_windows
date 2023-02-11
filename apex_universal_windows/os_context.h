@@ -25,7 +25,6 @@ namespace apex_universal_windows
       void shutdown(bool bPowerOff) override;
 
       void terminate_processes_by_title(const ::string & lpszName) override;
-      //virtual ::file::path get_module_path(HMODULE hmodule) override;
       bool path_pid(u32 & dwPid, const ::string & lpszName) override;
       bool title_pid(u32 & dwPid, const ::string & lpszName) override;
       void get_all_processes(u32_array & dwa) override;
@@ -92,7 +91,7 @@ namespace apex_universal_windows
 
       void set_file_status(const ::string & pszFileName, const ::file::file_status& status) override;
 
-      bool is_alias(const scoped_string & str) override;
+      bool is_alias(const ::file::path & path) override;
 
       void initialize_wallpaper_fileset(::file::set* pset, bool bAddSearch) override;
       

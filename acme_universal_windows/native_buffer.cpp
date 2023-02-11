@@ -135,7 +135,7 @@ namespace acme_universal_windows
 
       string strRelative = pathFolder;
 
-      strRelative.begins_eat_ci(strPrefix);
+      strRelative.case_insensitive_begins_eat(strPrefix);
 
       strRelative.trim("\\/");
 
@@ -464,7 +464,7 @@ namespace acme_universal_windows
    }
 
 
-   filesize native_buffer::translate(filesize offset, ::enum_seek eseek)
+   void native_buffer::translate(filesize offset, ::enum_seek eseek)
    {
 
       if (eseek == ::e_seek_set)
@@ -486,7 +486,7 @@ namespace acme_universal_windows
 
       }
 
-      return m_stream.Position();
+      //return m_stream.Position();
 
    }
 
@@ -584,7 +584,7 @@ namespace acme_universal_windows
    }
 
 
-   filesize native_buffer::get_size() const
+   filesize native_buffer::size() const
    {
 
       ASSERT_VALID(this);
@@ -594,11 +594,13 @@ namespace acme_universal_windows
       // seek is a non const operation
       native_buffer * pnative_buffer = (native_buffer *)this;
 
-      dwCur = pnative_buffer->translate(0L, ::e_seek_current);
+      dwCur = pnative_buffer->get_position();
 
-      dwLen = pnative_buffer->seek_to_end();
+      pnative_buffer->seek_to_end();
 
-      VERIFY(dwCur == (u64)pnative_buffer->translate((filesize)dwCur, ::e_seek_set));
+      dwLen = pnative_buffer->get_position();
+
+      pnative_buffer->translate((filesize)dwCur, ::e_seek_set);
 
       return (filesize)dwLen;
 

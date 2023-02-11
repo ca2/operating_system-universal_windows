@@ -203,7 +203,7 @@ namespace music
 
             string strDevice(strDeviceParam);
 
-            if (strDevice.begins_eat_ci("winrt:"))
+            if (strDevice.case_insensitive_begins_eat("winrt:"))
             {
 
                auto & pmessageout = m_mapMessageOut[strDevice];

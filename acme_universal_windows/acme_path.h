@@ -1,4 +1,4 @@
-// Create on 2021-03-22 09:12 <3ThomasBS_
+﻿// Create on 2021-03-22 09:12 <3ThomasBS_
 // Copied by camilo from operating-system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #pragma once
 
@@ -20,10 +20,10 @@ namespace acme_universal_windows
       ~acme_path() override;
 
 
-      ::file::path _final(const char * path) override;
+      ::file::path _final(const ::file::path & path) override;
 
 
-      ::file::enum_type get_type(const scoped_string & strPath) override;
+      ::file::enum_type get_type(const ::file::path & path) override;
 
 
    };

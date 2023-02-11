@@ -31,7 +31,7 @@ namespace acme_universal_windows
    }
 
 
-   ::file::path acme_path::_final(const char* path)
+   ::file::path acme_path::_final(const ::file::path & path)
    {
 
       wstring wstr(path);
@@ -108,10 +108,10 @@ namespace acme_universal_windows
    }
 
 
-   ::file::enum_type acme_path::get_type(const scoped_string & strPath)
+   ::file::enum_type acme_path::get_type(const ::file::path & path)
    {
 
-      string strRelative = pszPath;
+      string strRelative = path;
 
       string strPrefix;
 
