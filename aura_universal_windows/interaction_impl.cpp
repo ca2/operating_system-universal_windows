@@ -102,7 +102,7 @@ namespace aura_universal_windows
       MESSAGE_LINK(MESSAGE_CREATE, pchannel, this,&interaction_impl::on_message_create);
       //MESSAGE_LINK(e_message_set_cursor, pchannel, this,&interaction_impl::on_message_set_cursor);
       //MESSAGE_LINK(e_message_erase_background, pchannel, this,&interaction_impl::_001OnEraseBkgnd);
-      MESSAGE_LINK(e_message_move, pchannel, this,&interaction_impl::on_message_move);
+      MESSAGE_LINK(e_message_reposition, pchannel, this,&interaction_impl::on_message_move);
       MESSAGE_LINK(e_message_size, pchannel, this,&interaction_impl::on_message_size);
       MESSAGE_LINK(e_message_set_focus, pchannel, this, &interaction_impl::on_message_set_focus);
       MESSAGE_LINK(e_message_kill_focus, pchannel, this, &interaction_impl::on_message_kill_focus);
@@ -804,7 +804,7 @@ namespace aura_universal_windows
                   return;
             }
          }
-         pmessage->set_lresult(DefWindowProc((::u32)pmessage->m_atom.i64(), pmessage->m_wparam, pmessage->m_lparam));
+         pmessage->set_lresult(DefWindowProc((::u32)pmessage->m_atom.as_i64(), pmessage->m_wparam, pmessage->m_lparam));
          return;
       }
       //if(pmessage->m_atom == e_message_event)
@@ -838,7 +838,7 @@ namespace aura_universal_windows
       return;
       }
       */
-      pmessage->set_lresult(DefWindowProc((::u32)pmessage->m_atom.i64(), pmessage->m_wparam, pmessage->m_lparam));
+      pmessage->set_lresult(DefWindowProc((::u32)pmessage->m_atom.as_i64(), pmessage->m_wparam, pmessage->m_lparam));
    }
 
    /*
@@ -1714,15 +1714,15 @@ return true;
       }
    }
 
-   LRESULT interaction_impl::OnActivateTopLevel(WPARAM wParam,LPARAM)
-   {
-      if(LOWORD(wParam) == WA_INACTIVE)
-      {
-         //         __MODULE_THREAD_STATE* pModuleThreadState = __get_module_thread_state();
-      }
+   //LRESULT interaction_impl::OnActivateTopLevel(WPARAM wParam,LPARAM)
+   //{
+   //   if(LOWORD(wParam) == WA_INACTIVE)
+   //   {
+   //      //         __MODULE_THREAD_STATE* pModuleThreadState = __get_module_thread_state();
+   //   }
 
-      return 0;
-   }
+   //   return 0;
+   //}
 
    void interaction_impl::OnSysColorChange()
    {
@@ -3932,20 +3932,20 @@ return true;
    //}
 
 
-   void interaction_impl::OnActivateApp(bool,u32)
-   {
+   //void interaction_impl::OnActivateApp(bool,u32)
+   //{
 
-      Default();
+   //   Default();
 
-   }
+   //}
 
 
-   void interaction_impl::OnActivate(::u32,::user::interaction_impl *,bool)
-   {
-      
-      Default();
+   //void interaction_impl::OnActivate(::u32,::user::interaction_impl *,bool)
+   //{
+   //   
+   //   Default();
 
-   }
+   //}
 
 
    void interaction_impl::OnCancelMode()
@@ -5166,7 +5166,7 @@ namespace aura_universal_windows
 
       pinteraction->_001GetText(strText);
 
-      strsize sizeLen = strText.get_length();
+      strsize sizeLen = strText.length();
 
       //m_pframeworkview.get().SetText(strText, 0, sizeLen);
 
