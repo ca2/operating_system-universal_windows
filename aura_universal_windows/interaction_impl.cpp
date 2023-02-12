@@ -2909,7 +2909,7 @@ return true;
 
    //   get_window_text(str);
 
-   //   return str.get_length();
+   //   return str.length();
 
    //   //throw ::exception(todo);
 

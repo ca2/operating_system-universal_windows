@@ -886,11 +886,13 @@ namespace apex_universal_windows
    ::file::path file_context::dropbox_info_network_payload()
    {
 
-      ::file::path pathJson;
+      //::file::path pathJson;
 
-      pathJson = acmedirectory()->user_appdata_local() / "Dropbox/info.json";
+      //pathJson = acmedirectory()->user_appdata_local() / "Dropbox/info.json";
 
-      return pathJson;
+      //return pathJson;
+
+      return {};
 
    }
 

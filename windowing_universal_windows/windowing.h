@@ -1,4 +1,4 @@
-// Created by camilo on 2021-01-30 <3ThomasBS_!!
+﻿// Created by camilo on 2021-01-30 <3ThomasBS_!!
 #pragma once
 
 
@@ -161,8 +161,8 @@ namespace windowing_universal_windows
       //static BOOL CALLBACK GetAppsEnumWindowsProc(HWND hwnd, LPARAM lParam);
 
 
-      void set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam) override;
-      void set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam) override;
+      //void set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam) override;
+      //void set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam) override;
 
 
       void initialize_keyboard(::windowing::keyboard * pkeyboard) override;

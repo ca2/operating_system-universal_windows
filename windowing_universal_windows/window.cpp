@@ -3077,9 +3077,9 @@ namespace windowing_universal_windows
 
       get_window_text(str);
 
-      ansi_count_copy(pszString, str, (size_t)minimum(nMaxCount, str.get_length()));
+      ansi_count_copy(pszString, str, (size_t)minimum(nMaxCount, str.length()));
 
-      return str.get_length();
+      return str.length();
 
    }
 
@@ -6347,9 +6347,9 @@ namespace windowing_universal_windows
 
       //}
 
-      //acmesystem()->get_session()->m_papexapplication = this;
+      //acmesession()->m_papexapplication = this;
 
-      //acmesystem()->get_session()->m_puserprimitiveHost = m_pdxi;
+      //acmesession()->m_papexsession->m_puserprimitiveHost = m_pdxi;
 
       //::user::os_calc_dark_mode();
 
@@ -6357,7 +6357,7 @@ namespace windowing_universal_windows
 
       auto pusersystem = m_puserinteractionimpl->m_puserinteraction->m_pusersystem;
 
-      auto puserinteraction = acmesystem()->get_session()->m_puserprimitiveHost;
+      auto puserinteraction = acmesession()->m_papexsession->m_puserprimitiveHost;
 
       auto routine = [this]()
       {
@@ -6377,7 +6377,7 @@ namespace windowing_universal_windows
 
             } });
 
-         auto puserinteraction = acmesystem()->get_session()->m_puserprimitiveHost;
+         auto puserinteraction = acmesession()->m_papexsession->m_puserprimitiveHost;
 
          //auto puserinteraction = m_pdxi;
 
@@ -6910,9 +6910,9 @@ namespace windowing_universal_windows
 
             sel.StartCaretPosition = iBeg;
 
-            sel.EndCaretPosition = iEnd < 0 ? (::i32) (wstrText.get_length() + iEnd + 1) : iEnd;
+            sel.EndCaretPosition = iEnd < 0 ? (::i32) (wstrText.length() + iEnd + 1) : iEnd;
 
-            m_editcontext.NotifyTextChanged(m_selection, (::i32) wstrText.get_length(),  sel);
+            m_editcontext.NotifyTextChanged(m_selection, (::i32) wstrText.length(),  sel);
 
          });
 
@@ -7536,20 +7536,20 @@ namespace windowing_universal_windows
 
       //   //}
 
-      //   //acmesystem()->get_session()->m_papexapplication = this;
+      //   //acmesession()->m_papexapplication = this;
 
-      //   //acmesystem()->get_session()->m_puserprimitiveHost = m_pdxi;
+      //   //acmesession()->m_papexsession->m_puserprimitiveHost = m_pdxi;
 
       //   //::user::os_calc_dark_mode();
 
       //   auto pcs = __new(::user::system);
 
-      //   auto puserinteraction = acmesystem()->get_session()->m_puserprimitiveHost;
+      //   auto puserinteraction = acmesession()->m_papexsession->m_puserprimitiveHost;
 
       //   auto routine = [this]()
       //   {
 
-      //      acmesystem()->get_session()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
+      //      acmesession()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
       //         {
 
       //            //pbuffer->m_windowBounds = m_window->Bounds;
@@ -7564,7 +7564,7 @@ namespace windowing_universal_windows
 
       //         }));
 
-      //      auto puserinteraction = acmesystem()->get_session()->m_puserprimitiveHost;
+      //      auto puserinteraction = acmesession()->m_papexsession->m_puserprimitiveHost;
 
       //      //auto puserinteraction = m_pdxi;
 
@@ -7754,7 +7754,7 @@ namespace windowing_universal_windows
                //if (papp == nullptr)
                //{
 
-               //   papp = acmesystem()->get_session()->m_papplicationCurrent;
+               //   papp = acmesession()->m_papplicationCurrent;
 
                //}
 
@@ -7872,12 +7872,12 @@ namespace windowing_universal_windows
 
          ::user::enum_key ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 
-         //if (bSpecialKey s || acmesystem()->get_session()->is_key_pressed(::user::e_key_control)
-         //   || acmesystem()->get_session()->is_key_pressed(::user::e_key_alt))
+         //if (bSpecialKey s || acmesession()->is_key_pressed(::user::e_key_control)
+         //   || acmesession()->is_key_pressed(::user::e_key_alt))
          //{
 
          pkey->m_atom = e_message_key_down;
-         //pkey->m_playeredUserPrimitive       = acmesystem()->get_session()->m_puserinteractionHost;
+         //pkey->m_playeredUserPrimitive       = acmesession()->m_puserinteractionHost;
          pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
          pkey->m_ekey = ekey;
          pkey->m_wparam = pkey->m_nChar;
@@ -7936,7 +7936,7 @@ namespace windowing_universal_windows
          //{
 
             pkey->m_atom = e_message_key_up;
-            //pkey->m_playeredUserPrimitive = acmesystem()->get_session()->m_puserinteractionHost;
+            //pkey->m_playeredUserPrimitive = acmesession()->m_puserinteractionHost;
             pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
             pkey->m_ekey = ekey;
             pkey->m_wparam = pkey->m_nChar;
@@ -8081,7 +8081,7 @@ namespace windowing_universal_windows
          pmouse->m_point.y = (::i32)pointerPoint.RawPosition().Y;
 
          pmouse->m_atom = e_message_mouse_move;
-         //pmouse->m_playeredUserPrimitive  = acmesystem()->get_session()->m_puserinteractionHost;
+         //pmouse->m_playeredUserPrimitive  = acmesession()->m_puserinteractionHost;
 
          m_pointLastCursor = pointerPoint.RawPosition();
 

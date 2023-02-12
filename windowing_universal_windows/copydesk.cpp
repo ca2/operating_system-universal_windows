@@ -703,9 +703,9 @@ namespace windowing_universal_windows
 
       m.set_size(s);
 
-      windows_runtime_read_buffer(m.get_data(), s, buffer);
+      windows_runtime_read_buffer(m.data(), s, buffer);
 
-      BITMAPINFO * pbitmapinfo = (BITMAPINFO *)m.get_data();
+      BITMAPINFO * pbitmapinfo = (BITMAPINFO *)m.data();
 
       pimage->create({ pbitmapinfo->bmiHeader.biWidth,  pbitmapinfo->bmiHeader.biHeight });
 
@@ -716,7 +716,7 @@ namespace windowing_universal_windows
          pimage->width(),
          pimage->height(),
          pimage->scan_size(),
-         (::color32_t *)&m.get_data()[pbitmapinfo->bmiHeader.biSize],
+         (::color32_t *)&m.data()[pbitmapinfo->bmiHeader.biSize],
          pbitmapinfo->bmiHeader.biSizeImage / pbitmapinfo->bmiHeader.biHeight);
 
       //auto decoder = ::winrt::Windows::Graphics::Imaging::BitmapDecoder::CreateAsync(stream2).get();

@@ -579,45 +579,45 @@ namespace windowing_universal_windows
 
       }
 
-      pusermessage->set(pmsg->oswindow, pwindow, pmsg->m_atom, pmsg->wParam, pmsg->lParam);
+      // pusermessage->set(pmsg->oswindow, pwindow, pmsg->m_atom, pmsg->wParam, pmsg->lParam);
 
       return pusermessage;
 
    }
 
 
-   void windowing::set(message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
-   {
+   //void windowing::set(message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
+   //{
 
-      pkey->m_nChar = static_cast<::u32>(wparam);
+   //   pkey->m_nChar = static_cast<::u32>(wparam);
 
-      pkey->m_nRepCnt = LOWORD(lparam);
+   //   pkey->m_nRepCnt = LOWORD(lparam);
 
-      pkey->m_nFlags = HIWORD(lparam);
+   //   pkey->m_nFlags = HIWORD(lparam);
 
-      pkey->m_nScanCode = ((lparam >> 16) & 0xff);
+   //   pkey->m_nScanCode = ((lparam >> 16) & 0xff);
 
-      pkey->m_bExt = (lparam & (1 << 24)) != 0;
+   //   pkey->m_bExt = (lparam & (1 << 24)) != 0;
 
-      //pkey->m_iVirtualKey = (int)MapLeftRightKeys(wparam, lparam);
+   //   //pkey->m_iVirtualKey = (int)MapLeftRightKeys(wparam, lparam);
 
-      ::windowing::windowing::set(pkey, oswindow, pwindow, atom, wparam, lparam);
+   //   ::windowing::windowing::set(pkey, oswindow, pwindow, atom, wparam, lparam);
 
-   }
+   //}
 
 
-   void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
-   {
+   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
+   //{
 
-      pmouse->m_nFlags = wparam;
+   //   pmouse->m_nFlags = wparam;
 
-      pmouse->m_point = ::point_i32(lparam);
+   //   pmouse->m_point = ::point_i32(lparam);
 
-      pmouse->m_bTranslated = true; // not in root coordinates
+   //   pmouse->m_bTranslated = true; // not in root coordinates
 
-      //::ClientToScreen((HWND) pmouse->m_oswindow, (POINT *) &pmouse->m_point);
+   //   //::ClientToScreen((HWND) pmouse->m_oswindow, (POINT *) &pmouse->m_point);
 
-   }
+   //}
 
 
    //void windowing::set_focus(::windowing::window * pwindow)

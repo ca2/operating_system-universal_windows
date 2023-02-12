@@ -33,36 +33,36 @@ namespace apex_universal_windows
 
 
       //bool  is_impl(const ::file::path & path) override;
-      virtual bool  is_inside(const ::file::path & pathFolder, const ::file::path & path);
-      virtual bool  is_inside_time(const ::file::path & path);
-      virtual bool  name_is(const ::file::path & path);
-      virtual bool  has_subdir(const ::file::path & path);
+      bool is_inside(const ::file::path & pathFolder, const ::file::path & path);
+      bool is_inside_time(const ::file::path & path);
+      bool name_is(const ::file::path & path);
+      bool has_subdir(const ::file::path & path);
 
-      virtual ::file::listing & root_ones(::file::listing & listing);
+      ::file::listing & root_ones(::file::listing & listing);
       //virtual bool mk(const ::file::path & path);
       //virtual bool rm(const ::file::path & path, bool bRecursive = true);
 
 
-      virtual ::file::path name(const ::file::path & path);
+      ::file::path name(const ::file::path & path);
 
-      virtual ::file::path time() override;
-      virtual ::file::path stage() override;
-      virtual ::file::path stageapp() override;
-      virtual ::file::path netseed() override;
+      ::file::path time() override;
+      ::file::path stage() override;
+      ::file::path stageapp() override;
+      ::file::path netseed() override;
       //virtual ::file::path matter();
 
       //virtual ::file::path module() override;
       //virtual ::file::path ca2module();
-      virtual ::file::path time_square() override;
-      virtual ::file::path time_log(const ::string & strId) override;
+      ::file::path time_square() override;
+      ::file::path time_log(const ::string & strId) override;
 
 
-      virtual ::file::path trash_that_is_not_trash(const ::file::path & path) override;
+      ::file::path trash_that_is_not_trash(const ::file::path & path) override;
 
 
 
-      virtual ::file::path appdata(const ::string & strAppId = "") override;
-      virtual ::file::path commonappdata_root() override;
+      ::file::path appdata(const ::string & strAppId = "") override;
+      ::file::path commonappdata_root() override;
 
       //virtual ::file::path usersystemappdata(const ::string & pcszPrefix);
 
@@ -76,25 +76,26 @@ namespace apex_universal_windows
 
       //virtual ::file::path default_userfolder(const string & pcszPrefix,const string & lpcszLogin);
 
-      virtual ::file::path userquicklaunch() override;
-      virtual ::file::path userprograms() override;
+      ::file::path userquicklaunch() override;
+      ::file::path userprograms() override;
 
-      virtual ::file::path commonprograms() override;
-
-
+      ::file::path commonprograms() override;
 
 
-      virtual ::file::path document() override;
-      virtual ::file::path desktop() override;
-      virtual ::file::path download() override;
 
 
-      virtual ::file::path music() override;
-      virtual ::file::path video() override;
-      virtual ::file::path image() override;
+      ::file::path document() override;
+      ::file::path desktop() override;
+      ::file::path download() override;
 
 
-      virtual ::file::path onedrive() override;
+      ::file::path music() override;
+      ::file::path video() override;
+      ::file::path image() override;
+
+
+      ::file::path dropbox() override;
+      ::file::path onedrive() override;
 
 
    };

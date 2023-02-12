@@ -167,7 +167,7 @@ namespace windowing_universal_windows
 
          m_pwindow->acmesystem()->node()->m_bHasNodePostedSystemInitialRequest = true;
 
-         m_pwindow->acmesystem()->post_initial_request();
+         m_pwindow->acmesystem()->defer_post_initial_request();
 
       }
 

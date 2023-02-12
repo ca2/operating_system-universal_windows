@@ -394,7 +394,7 @@ namespace windowing_universal_windows
 
       //wstring wstrPath(strPath);
 
-      //if (getfileimage.m_imagekey.m_strPath.ends_ci(".sln"))
+      //if (getfileimage.m_imagekey.m_strPath.case_insensitive_ends(".sln"))
       //{
 
       //   output_debug_string(".sln");
@@ -685,7 +685,7 @@ namespace windowing_universal_windows
       //if (((FAILED(hrIconLocation) && FAILED(hrGetLocation))
       //   || getfileimage.m_imagekey.m_iIcon == 0x80000000
       //   || !m_pcontext->m_papexcontext->file().exists(strIconLocation))
-      //   && strFileParam.ends_ci(".lnk"))
+      //   && strFileParam.case_insensitive_ends(".lnk"))
       //{
 
       //   m_pcontext->m_papexcontext->file().resolve_link(pathTarget, strFileParam);
@@ -693,7 +693,7 @@ namespace windowing_universal_windows
       //   if (!m_pcontext->m_papexcontext->file().exists(pathTarget) && !m_pcontext->m_papexcontext->dir().is(pathTarget))
       //   {
 
-      //      if (pathTarget.ends_ci(".exe"))
+      //      if (pathTarget.case_insensitive_ends(".exe"))
       //      {
 
       //         getfileimage.m_imagekey.set_path(pathTarget);
@@ -862,7 +862,7 @@ namespace windowing_universal_windows
       //else if (strIconLocation.has_char())
       //{
 
-      //   if (strIconLocation.ends_ci(".ico"))
+      //   if (strIconLocation.case_insensitive_ends(".ico"))
       //   {
 
       //      set_image_ico(strIconLocation, getfileimage);
@@ -1168,7 +1168,7 @@ namespace windowing_universal_windows
 
       }
 
-      if (getfileimage.m_imagekey.m_strPath.ends_ci(".aura"))
+      if (getfileimage.m_imagekey.m_strPath.case_insensitive_ends(".aura"))
       {
 
          string str = file()->as_string(getfileimage.m_imagekey.m_strPath);
@@ -1319,7 +1319,7 @@ namespace windowing_universal_windows
 
       string strExtension;
 
-      if (getfileimage.m_imagekey.m_strPath.ends_ci(".sln"))
+      if (getfileimage.m_imagekey.m_strPath.case_insensitive_ends(".sln"))
       {
 
          //output_debug_string("test .sln");
@@ -1531,7 +1531,7 @@ namespace windowing_universal_windows
 
       auto & getfileimage = (_get_file_image_ &)getfileimageParam;
 
-      //if (pathIconParam.ends_ci(".ico"))
+      //if (pathIconParam.case_insensitive_ends(".ico"))
       //{
 
       //   synchronous_lock synchronouslock(synchronization());
@@ -1678,7 +1678,7 @@ namespace windowing_universal_windows
    void shell::set_image_ico(string strIconLocation, _get_file_image_ & getfileimage)
    {
 
-      ASSERT(strIconLocation.ends_ci(".ico"));
+      ASSERT(strIconLocation.case_insensitive_ends(".ico"));
 
       image_key imagekeyIco;
 
@@ -1699,7 +1699,7 @@ namespace windowing_universal_windows
    void shell::set_image_resource(string strIconLocation, _get_file_image_ & getfileimage)
    {
 
-      ASSERT(!strIconLocation.ends_ci(".ico"));
+      ASSERT(!strIconLocation.case_insensitive_ends(".ico"));
 
       //image_key imagekeyIco;
 

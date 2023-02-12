@@ -259,9 +259,9 @@ namespace windowing_universal_windows
 //
 //         sel.StartCaretPosition = iBeg;
 //
-//         sel.EndCaretPosition = iEnd < 0 ? wstrText.get_length() + iEnd + 1 : iEnd;
+//         sel.EndCaretPosition = iEnd < 0 ? wstrText.length() + iEnd + 1 : iEnd;
 //
-//         m_editcontext.NotifyTextChanged(m_selection, wstrText.get_length(), sel);
+//         m_editcontext.NotifyTextChanged(m_selection, wstrText.length(), sel);
 //
 //      }));
 //
@@ -423,7 +423,7 @@ namespace windowing_universal_windows
 //            pkey->m_lparam = pkey->m_nFlags << 16;
 //            pkey->m_strText = m_strNewText;
 //
-//            auto puserinteractionHost = acmesystem()->get_session()->m_puserprimitiveHost;
+//            auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost;
 //
 //            puserinteractionHost->message_handler(spbase);
 //

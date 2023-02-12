@@ -151,7 +151,7 @@ namespace windowing_universal_windows
       //impact();
 
 
-      //inline ::user::interaction* host() { return Sess(acmesystem()->get_session())->host(); }
+      //inline ::user::interaction* host() { return Sess(acmesession())->host(); }
       //inline ::user::interaction * host() { return m_puserinteraction->get_host_window(); }
       //inline ::user::interaction * host() { return m_puserinteraction; }
 

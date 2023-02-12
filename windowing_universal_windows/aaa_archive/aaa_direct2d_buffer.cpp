@@ -931,7 +931,7 @@
 //
 //   //   dc->attach((ID2D1DeviceContext *) m_pd2d1devicecontext.Get());
 //
-//   //   auto pimpl = acmesystem()->get_session()->m_puserinteractionHost->m_pimpl;
+//   //   auto pimpl = acmesession()->m_puserinteractionHost->m_pimpl;
 //
 //   //   //throw_todo();
 //
