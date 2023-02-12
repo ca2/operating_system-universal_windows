@@ -133,7 +133,7 @@
     <PackageCertificateKeyFile>winmetro_app.pfx</PackageCertificateKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
-    <OutDir>$(SolutionDir)..\..\..\stage\x86\</OutDir>
+    <OutDir>$(SolutionDir)..\..\..\Release\x86\</OutDir>
     <IntDir>$(SolutionDir)..\..\..\time\intermediate\x86\$(ProjectName)\</IntDir>
     <ReferencePath>$(VCInstallDir)lib</ReferencePath>
     <LibraryPath>$(VCInstallDir)lib;$(WindowsSDK_LibraryPath_x86);</LibraryPath>
@@ -195,9 +195,9 @@
     </FxCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="..\..\stage\matter\msvc++\msvcp110d.dll" />
-    <None Include="..\..\stage\matter\msvc++\msvcr110d.dll" />
-    <None Include="..\..\stage\matter\msvc++\vccorlib110d.dll" />
+    <None Include="..\..\Release\matter\msvc++\msvcp110d.dll" />
+    <None Include="..\..\Release\matter\msvc++\msvcr110d.dll" />
+    <None Include="..\..\Release\matter\msvc++\vccorlib110d.dll" />
     <None Include="..\..\thirdparty\binary\m_freetype.dll" />
     <None Include="winmetro_app.pfx" />
   </ItemGroup>
