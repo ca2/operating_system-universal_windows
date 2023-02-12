@@ -1,4 +1,4 @@
-// Created by camilo on 2021-08-30 21:51 BRT <3ThomasBS_!!
+﻿// Created by camilo on 2021-08-30 21:51 BRT <3ThomasBS_!!
 #pragma once
 
 
@@ -21,7 +21,7 @@ namespace aura_universal_windows
       ~node() override;
 
 
-      void on_request(::request * prequest) override;
+      //void on_request(::request * prequest) override;
 
 
       void dpi_os_initialize() override;

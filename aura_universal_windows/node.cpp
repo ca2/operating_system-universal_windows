@@ -1,4 +1,4 @@
-// Created by camilo on 2021-08-30 21:54 BRT <3ThomasBS_!!
+﻿// Created by camilo on 2021-08-30 21:54 BRT <3ThomasBS_!!
 #include "framework.h"
 #include "node.h"
 #include "aura/platform/system.h"
@@ -33,25 +33,25 @@ namespace aura_universal_windows
    }
 
 
-   void node::main()
-   {
+   //void node::main()
+   //{
 
-      //auto psystem = acmesystem();
+   //   //auto psystem = acmesystem();
 
-      //auto estatus = psystem->main();
+   //   //auto estatus = psystem->main();
 
-      //if (!estatus)
-      //{
+   //   //if (!estatus)
+   //   //{
 
-      //   return estatus;
+   //   //   return estatus;
 
-      //}
+   //   //}
 
-      //return estatus;
+   //   //return estatus;
 
-      //return ::success;
+   //   //return ::success;
 
-   }
+   //}
 
 
    void node::dpi_os_initialize()
