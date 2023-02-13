@@ -2,10 +2,14 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ImportGroup Label="PropertySheets" />
   <PropertyGroup Label="UserMacros">
+    <OperatingSystemTag>universal_windows</OperatingSystemTag>
     <BaseDir>$(SolutionDir)..\..\..\</BaseDir>
     <TimeDir>$(BaseDir)time-universal_windows\</TimeDir>
     <__toolsbin>$(__operating_system)tool-windows\bin\</__toolsbin>
     <__operating_system>$(BaseDir)operating-system\</__operating_system>
+    <RootParentDir>$(SolutionDir)..\..\..\..\</RootParentDir>
+    <RootParentDirOperatingSystem>$(RootParentDir)operating-system\</RootParentDirOperatingSystem>
+    <RootParentDirStorage>$(RootParentDirOperatingSystem)storage-$(OperatingSystemTag)\</RootParentDirStorage>
   </PropertyGroup>
   <PropertyGroup>
     <IntDir>$(TimeDir)intermediate\$(PlatformName)\$(Configuration)\$(RootNamespace)\$(ProjectName)\</IntDir>
@@ -31,6 +35,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <BuildMacro Include="OperatingSystemTag">
+      <Value>$(OperatingSystemTag)</Value>
+    </BuildMacro>
     <BuildMacro Include="BaseDir">
       <Value>$(BaseDir)</Value>
     </BuildMacro>
@@ -42,6 +49,15 @@
     </BuildMacro>
     <BuildMacro Include="__operating_system">
       <Value>$(__operating_system)</Value>
+    </BuildMacro>
+    <BuildMacro Include="RootParentDir">
+      <Value>$(RootParentDir)</Value>
+    </BuildMacro>
+    <BuildMacro Include="RootParentDirOperatingSystem">
+      <Value>$(RootParentDirOperatingSystem)</Value>
+    </BuildMacro>
+    <BuildMacro Include="RootParentDirStorage">
+      <Value>$(RootParentDirStorage)</Value>
     </BuildMacro>
   </ItemGroup>
 </Project>
