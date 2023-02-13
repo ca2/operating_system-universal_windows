@@ -4,7 +4,6 @@
 #include "acme/filesystem/file/exception.h"
 #include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
-#include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme/platform/node.h"
 #include "_winrt_storage.h"
 #include "_winrt_stream.h"
