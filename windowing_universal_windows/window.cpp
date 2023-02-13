@@ -7717,12 +7717,38 @@ namespace windowing_universal_windows
          if (args != nullptr)
          {
 
-            if (args.Kind() == ::winrt::Windows::ApplicationModel::Activation::ActivationKind::Protocol)
+            //preempt(20_s);
+
+            auto kind = args.Kind();
+
+            if (args.Kind() == ::winrt::Windows::ApplicationModel::Activation::ActivationKind::Launch)
+            {
+
+               auto launchActivatedEventArgs = args.as<::winrt::Windows::ApplicationModel::Activation::LaunchActivatedEventArgs>();
+
+               string str = launchActivatedEventArgs.Arguments().begin();
+
+               if (str.has_char())
+               {
+
+                  if (acmesystem()->_handle_uri(str))
+                  {
+
+                     return;
+
+                  }
+
+               }
+
+            }
+            else if (args.Kind() == ::winrt::Windows::ApplicationModel::Activation::ActivationKind::Protocol)
             {
 
                auto protocolActivatedEventArgs =  args.as<::winrt:: Windows::ApplicationModel::Activation::ProtocolActivatedEventArgs>();
 
                string str = protocolActivatedEventArgs.Uri().AbsoluteUri().begin();
+
+               acmeapplication()->payload("activation") = str;
 
                if (acmesystem()->_handle_uri(str))
                {
