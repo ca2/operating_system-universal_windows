@@ -218,7 +218,7 @@ namespace acme_universal_windows
 
       strsize iFind = strAppId.find('/');
 
-      if (strPlatform.compare_ci("win32") == 0 || strPlatform.compare_ci("x86") == 0)
+      if (strPlatform.case_insensitive_order("win32") == 0 || strPlatform.case_insensitive_order("x86") == 0)
       {
 
          path = program_files_x86();

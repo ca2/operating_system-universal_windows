@@ -632,7 +632,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //   try
 //   {
 //
-//      if (string(psz).compare_ci("image://") == 0)
+//      if (string(psz).case_insensitive_order("image://") == 0)
 //      {
 //
 //         strPrefix = "image://";
@@ -651,7 +651,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //         }
 //
 //      }
-//      else if (string(psz).compare_ci("music://") == 0)
+//      else if (string(psz).case_insensitive_order("music://") == 0)
 //      {
 //
 //         strPrefix = "music://";
@@ -670,7 +670,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //         }
 //
 //      }
-//      else if (string(psz).compare_ci("video://") == 0)
+//      else if (string(psz).case_insensitive_order("video://") == 0)
 //      {
 //
 //         strPrefix = "video://";
@@ -689,7 +689,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder window
 //         }
 //
 //      }
-//      else if (string(psz).compare_ci("document://") == 0)
+//      else if (string(psz).case_insensitive_order("document://") == 0)
 //      {
 //
 //         strPrefix = "document://";

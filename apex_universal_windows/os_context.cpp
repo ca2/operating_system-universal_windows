@@ -1210,7 +1210,7 @@ return false;
       //::application * papp = get_application();
 
       //if(get_application()->m_strAppName.is_empty()
-      //      || get_application()->m_strAppName.compare_ci("bergedge") == 0
+      //      || get_application()->m_strAppName.case_insensitive_order("bergedge") == 0
       //      || !get_application()->is_service())
       //   return "";
 
