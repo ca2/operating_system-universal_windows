@@ -1,4 +1,4 @@
-#include "framework.h"
+﻿#include "framework.h"
 #include "out.h"
 #include "midi.h"
 #include "acme_universal_windows/_winrt_stream.h"
@@ -80,7 +80,7 @@ namespace music
          bool out::step()
          {
 
-            auto IBuffer = windows_runtime_buffer(m_memoryBuffer.get_data(), m_memoryBuffer.get_size());
+            auto IBuffer = windows_runtime_buffer(m_memoryBuffer.data(), m_memoryBuffer.size());
 
             m_midiOutPort.get().SendBuffer(IBuffer);
 
@@ -179,7 +179,7 @@ namespace music
 
             string strEngine = device_engine(strDevice);
 
-            if (strEngine.compare_ci(m_strName) == 0)
+            if (strEngine.case_insensitive_equals(m_strName))
             {
 
                return __new(sequencer(psequence, get_message_out(strDevice)));
