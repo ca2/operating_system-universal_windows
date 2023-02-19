@@ -7,7 +7,7 @@
 #include "acme/_operating_system.h"
 
 
-#if defined(_APEX_UNIVERSAL_WINDOWS_LIBRARY)
+#if defined(_apex_universal_windows_project)
 #define CLASS_DECL_APEX_UNIVERSAL_WINDOWS  CLASS_DECL_EXPORT
 #else
 #define CLASS_DECL_APEX_UNIVERSAL_WINDOWS  CLASS_DECL_IMPORT

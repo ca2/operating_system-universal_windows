@@ -8,7 +8,7 @@
 //#include "direct2d/_.h"
 
 
-#if defined(_AURA_UNIVERSAL_WINDOWS_LIBRARY)
+#if defined(_aura_universal_windows_project)
 #define CLASS_DECL_AURA_UNIVERSAL_WINDOWS  CLASS_DECL_EXPORT
 #else
 #define CLASS_DECL_AURA_UNIVERSAL_WINDOWS  CLASS_DECL_IMPORT

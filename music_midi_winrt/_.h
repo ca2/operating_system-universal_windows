@@ -5,7 +5,7 @@
 #include "aura_universal_windows/_.h"
 
 
-#if defined(_VERIWELL_MULTIMEDIA_MUSIC_MIDI_WINRT_LIBRARY)
+#if defined(_veriwell_multimedia_music_midi_winrt_project)
    #define CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_WINRT  CLASS_DECL_EXPORT
 #else
    #define CLASS_DECL_VERIWELL_MULTIMEDIA_MUSIC_MIDI_WINRT  CLASS_DECL_IMPORT

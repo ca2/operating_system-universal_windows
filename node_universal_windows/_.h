@@ -5,7 +5,7 @@
 #include "windowing_universal_windows/_.h"
 
 
-#if defined(_NODE_UNIVERSAL_WINDOWS_LIBRARY)
+#if defined(_node_universal_windows_project)
 #define CLASS_DECL_NODE_UNIVERSAL_WINDOWS CLASS_DECL_EXPORT
 #else
 #define CLASS_DECL_NODE_UNIVERSAL_WINDOWS CLASS_DECL_IMPORT

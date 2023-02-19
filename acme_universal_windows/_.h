@@ -5,7 +5,7 @@
 #include "acme_windows_common/_.h"
 
 
-#if defined(_ACME_UNIVERSAL_WINDOWS_LIBRARY)
+#if defined(_acme_universal_windows_project)
 #define CLASS_DECL_ACME_UNIVERSAL_WINDOWS  CLASS_DECL_EXPORT
 #else
 #define CLASS_DECL_ACME_UNIVERSAL_WINDOWS  CLASS_DECL_IMPORT
