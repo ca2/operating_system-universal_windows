@@ -94,7 +94,7 @@ namespace acme_universal_windows
       }
 
       ASSERT_VALID(this);
-      ASSERT(__is_valid_string(path));
+      ASSERT(is_string_ok(path));
       ASSERT(!(eopen & ::file::e_open_text));   // text mode not supported
 
       // file objects are always binary and CreateFile does not need flag
@@ -310,7 +310,7 @@ namespace acme_universal_windows
          return 0;   // avoid Win32 "nullptr-read"
 
       ASSERT(lpBuf != nullptr);
-      ASSERT(__is_valid_address(lpBuf, nCount));
+      ASSERT(is_memory_segment_ok(lpBuf, nCount));
 
       DWORD dwRead;
 
@@ -341,7 +341,7 @@ namespace acme_universal_windows
          return;     // avoid Win32 "nullptr-write" option
 
       ASSERT(lpBuf != nullptr);
-      ASSERT(__is_valid_address(lpBuf, nCount, false));
+      ASSERT(is_memory_segment_ok(lpBuf, nCount, false));
 
       DWORD nWritten;
 
@@ -644,7 +644,7 @@ namespace acme_universal_windows
    //// (both in ANSI character set)
    //{
 
-   //   ASSERT(__is_valid_address(lpszPathOut, _MAX_PATH));
+   //   ASSERT(is_memory_segment_ok(lpszPathOut, _MAX_PATH));
 
    //   wcscpy(lpszPathOut, lpszFileIn);
 
@@ -744,8 +744,8 @@ namespace acme_universal_windows
    //::u32 CLASS_DECL_ACME vfxGetFileName(const unichar * lpszPathName, unichar * lpszTitle, ::u32 nMax)
    //{
    //   ASSERT(lpszTitle == nullptr ||
-   //          __is_valid_address(lpszTitle, _MAX_FNAME));
-   //   ASSERT(__is_valid_string(lpszPathName));
+   //          is_memory_segment_ok(lpszTitle, _MAX_FNAME));
+   //   ASSERT(is_string_ok(lpszPathName));
 
    //   // always capture the complete file name including extension (if present)
    //   unichar * lpszTemp = (unichar *)lpszPathName;
@@ -1072,7 +1072,7 @@ namespace acme_universal_windows
 
       ASSERT_VALID(this);
 
-      ASSERT(__is_valid_string(lpszNewName));
+      ASSERT(is_string_ok(lpszNewName));
 
       m_path = lpszNewName;
 

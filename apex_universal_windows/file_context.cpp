@@ -461,9 +461,9 @@ namespace apex_universal_windows
       if (hFind == INVALID_HANDLE_VALUE)
       {
        
-         DWORD lastError = ::GetLastError();
+         DWORD lasterror = ::GetLastError();
 
-         auto estatus = ::windows::last_error_status(lastError);
+         auto estatus = ::windows::last_error_status(lasterror);
 
          throw ::exception(estatus);
 

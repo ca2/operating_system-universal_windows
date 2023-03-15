@@ -274,9 +274,9 @@ namespace windowing_universal_windows
 
       //m_strDebug += ::str().demangle(puserinteraction->type_name()) + ";";
 
-      //ASSERT(pusersystem->m_createstruct.lpszClass == nullptr || __is_valid_string(pusersystem->m_createstruct.lpszClass) || __is_valid_atom(pusersystem->m_createstruct.lpszClass));
+      //ASSERT(pusersystem->m_createstruct.lpszClass == nullptr || is_string_ok(pusersystem->m_createstruct.lpszClass) || __is_valid_atom(pusersystem->m_createstruct.lpszClass));
 
-      //ENSURE_ARG(pusersystem->m_createstruct.lpszName == nullptr || __is_valid_string(pusersystem->m_createstruct.lpszName));
+      //ENSURE_ARG(pusersystem->m_createstruct.lpszName == nullptr || is_string_ok(pusersystem->m_createstruct.lpszName));
 
       //wstring wstrClassName(pusersystem->m_createstruct.lpszClass);
       wstring wstrClassName;
