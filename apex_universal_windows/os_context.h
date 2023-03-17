@@ -59,10 +59,10 @@ namespace apex_universal_windows
       void file_open(const ::file::path& path, const ::string& strParams = "", const ::file::path& pathFolder = "") override;
 
       
-      void browse_file_open(property_set & set) override;
-      void browse_file_save(property_set & set) override;
-      void browse_folder(property_set & set) override;
-      void browse_file_or_folder(property_set & set) override;
+      //void browse_file_open(property_set & set) override;
+      //void browse_file_save(property_set & set) override;
+      //void browse_folder(property_set & set) override;
+      //void browse_file_or_folder(property_set & set) override;
 
       void enable_service() override;
       void disable_service() override;
@@ -81,15 +81,19 @@ namespace apex_universal_windows
       string calc_service_name();
 
 
-      bool resolve_link(::file::path & path, const ::string & strSource, string * pstrDirectory = nullptr, string * pstrParams = nullptr, string * pstrIconLocation = nullptr, int * piIcon = nullptr) override;
+      //::pointer < ::file::link > resolve_link(::file::path & path, const ::string & strSource, string * pstrDirectory = nullptr, string * pstrParams = nullptr, string * pstrIconLocation = nullptr, int * piIcon = nullptr) override;
 
-      bool resolve_lnk_link(::file::path & path, const ::string & strSource, string * pstrDirectory = nullptr, string * pstrParams = nullptr);
+      ::pointer < ::file::link > resolve_link(const ::file::path & path, ::file::e_link elink = ::file::e_link_all) override;
+
+      //bool resolve_lnk_link(::file::path & path, const ::string & strSource, string * pstrDirectory = nullptr, string * pstrParams = nullptr);
+
+      virtual ::pointer < ::file::link > resolve_lnk_link(const ::file::path & path, ::file::e_link elink = ::file::e_link_all);
 
       void raise_exception(u32 dwExceptionCode, u32 dwExceptionFlags);
 
       bool is_remote_session() override;
 
-      void set_file_status(const ::string & pszFileName, const ::file::file_status& status) override;
+      // void set_file_status(const ::file::path & path, const ::file::file_status & status) override;
 
       bool is_alias(const ::file::path & path) override;
 

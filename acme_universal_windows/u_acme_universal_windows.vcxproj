@@ -693,7 +693,6 @@
     <ClCompile Include="acme_file.cpp" />
     <ClCompile Include="acme_path.cpp" />
     <ClCompile Include="_factory.cpp" />
-    <ClCompile Include="file.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='StaticDebug|x64'">Create</PrecompiledHeader>
@@ -721,7 +720,6 @@
     <ClInclude Include="acme_directory.h" />
     <ClInclude Include="acme_file.h" />
     <ClInclude Include="acme_path.h" />
-    <ClInclude Include="file.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="native_buffer.h" />
     <ClInclude Include="node.h" />

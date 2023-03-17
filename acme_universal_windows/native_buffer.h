@@ -28,21 +28,21 @@ namespace acme_universal_windows
       memory                                                               m_memoryBuffer;
 
 
-      native_buffer(::winrt::Windows::Storage::StorageFile file, const ::file::e_open & efileopen);
+      native_buffer(::winrt::Windows::Storage::StorageFile file, ::file::e_open eopen);
       ~native_buffer() override;
 
       //void assert_ok() const override;
       //void dump(dump_context & dumpcontext) const override;
 
       filesize get_position() const override;
-      bool get_status(::file::file_status & rStatus) const override;
+      ::file::file_status get_status() const override;
       //virtual string GetFileName() const;
       //virtual string GetFileTitle() const;
       ::file::path get_file_path() const override;
       //void set_file_path(const ::file::path & pathNewName) override;
-      void open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, const ::file::e_open & efileopenParam);
-      void open(const ::file::path & lpszfileName, const ::file::e_open & eopen) override;
-      void open(::winrt::Windows::Storage::StorageFile file, const ::file::e_open & eopen);
+      void open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, ::file::e_open eopen);
+      void open(const ::file::path & lpszfileName, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception = nullptr) override;
+      void open(::winrt::Windows::Storage::StorageFile file, ::file::e_open eopen);
 
       //virtual bool GetStatus(const ::file::path & lpszfileName,::file::file_status& rStatus);
 

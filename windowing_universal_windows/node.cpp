@@ -51,7 +51,7 @@
 //
 //      auto pwindow = new window;
 //
-//      auto pwindowMain = ::move_transfer(pwindow);
+//      auto pwindowMain = ::pointer_transfer(pwindow);
 //
 //      pwindowMain->initialize(this);
 //

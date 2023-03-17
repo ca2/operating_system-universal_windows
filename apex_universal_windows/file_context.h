@@ -1,7 +1,7 @@
 ﻿#pragma once
 
 
-#include "apex/filesystem/filesystem/file_context.h"
+#include "apex_windows_common/file_context.h"
 
 
 namespace apex_universal_windows
@@ -9,7 +9,7 @@ namespace apex_universal_windows
 
 
    class CLASS_DECL_APEX_UNIVERSAL_WINDOWS file_context :
-      virtual public ::file_context
+      virtual public ::apex_windows_common::file_context
    {
    public:
 
@@ -31,8 +31,8 @@ namespace apex_universal_windows
       void calculate_main_resource_memory() override;
 
 
-      void get_status(::file::file_status & status, const ::file::path & path) override;
-      void set_status(const ::file::path & path, const ::file::file_status & status) override;
+      //void get_status(::file::file_status & status, const ::file::path & path) override;
+      //void set_status(const ::file::path & path, const ::file::file_status & status) override;
 
 
 
@@ -62,9 +62,9 @@ namespace apex_universal_windows
 
       //::e_status update_module_path() override;
 
-      ::file_pointer get_file(const ::payload & payloadFile, const ::file::e_open & nOpenFlags) override;
+      ::file_pointer get_file(const ::payload & payloadFile, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception = nullptr) override;
 
-      ::file_pointer create_native_file(const ::file::path & path, const ::file::e_open & eopen) override;
+      ::file_pointer create_native_file(const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception = nullptr) override;
 
       virtual ::file::path dropbox_info_network_payload() override;
 

@@ -14,7 +14,7 @@ namespace acme_universal_windows
 {
 
 
-   native_buffer::native_buffer(::winrt::Windows::Storage::StorageFile file, const ::file::e_open & eopen)
+   native_buffer::native_buffer(::winrt::Windows::Storage::StorageFile file, ::file::e_open eopen)
    {
 
       m_bCloseOnDelete = true;
@@ -32,10 +32,8 @@ namespace acme_universal_windows
    }
 
 
-   void native_buffer::open(const ::file::path & path, const ::file::e_open & eopenParam)
+   void native_buffer::open(const ::file::path & path, ::file::e_open eopen, ::pointer <::file::exception > * ppfilexception)
    {
-
-      ::file::e_open eopen(eopenParam);
 
       m_eopen = eopen;
       m_file = nullptr;
@@ -81,7 +79,7 @@ namespace acme_universal_windows
 
          auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-         throw ::file::exception(estatus, errorcode, m_path, "!windows_runtime_folder", m_eopen);
+         throw ::file::exception(estatus, errorcode, m_path, m_eopen, "!windows_runtime_folder");
 
       }
 
@@ -98,14 +96,12 @@ namespace acme_universal_windows
    //}
 
 
-   void native_buffer::open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, const ::file::e_open & efileopenParam)
+   void native_buffer::open(::winrt::Windows::Storage::StorageFolder folder, const ::file::path & pathFileArgument, ::file::e_open eopen)
    {
 
       set_nok();
 
       m_estatus = error_failed;
-
-      ::file::e_open eopen(efileopenParam);
 
       ::file::path pathFile(pathFileArgument);
 
@@ -173,7 +169,7 @@ namespace acme_universal_windows
 
                set_nok();
 
-               if (efileopenParam & ::file::e_open_no_exception_on_open)
+               if (eopen & ::file::e_open_no_exception_on_open)
                {
 
                   return;
@@ -191,7 +187,7 @@ namespace acme_universal_windows
 
                set_nok();
 
-               if (efileopenParam & ::file::e_open_no_exception_on_open)
+               if (eopen & ::file::e_open_no_exception_on_open)
                {
 
                   return;
@@ -217,7 +213,7 @@ namespace acme_universal_windows
 
          set_nok();
 
-         if (efileopenParam & ::file::e_open_no_exception_on_open)
+         if (eopen & ::file::e_open_no_exception_on_open)
          {
 
             return;
@@ -346,7 +342,7 @@ namespace acme_universal_windows
 
          auto errorcode = hresult_error_code(hresult);
 
-         throw ::file::exception(estatus, errorcode, m_path, "!::SetEndOfFile", m_eopen);
+         throw ::file::exception(estatus, errorcode, m_path, m_eopen, "!::SetEndOfFile");
 
       }
 
@@ -366,8 +362,7 @@ namespace acme_universal_windows
 
          }
 
-         throw ::file::exception(m_estatus, {e_error_code_type_unknown
-      ,-1}, m_path, "!::SetEndOfFile", m_eopen);
+         throw ::file::exception(m_estatus, {e_error_code_type_unknown, -1}, m_path, m_eopen, "!::SetEndOfFile");
 
       }
 
@@ -376,7 +371,7 @@ namespace acme_universal_windows
    }
 
 
-   void native_buffer::open(::winrt::Windows::Storage::StorageFile file, const ::file::e_open & eopen)
+   void native_buffer::open(::winrt::Windows::Storage::StorageFile file, ::file::e_open eopen)
    {
 
       m_file = file;
@@ -406,7 +401,7 @@ namespace acme_universal_windows
 
          m_folder = nullptr;
 
-         throw ::file::exception(m_estatus, { e_error_code_type_unknown, -1 }, m_path, "null", m_eopen);
+         throw ::file::exception(m_estatus, { e_error_code_type_unknown, -1 }, m_path, m_eopen, "null");
 
       }
 
@@ -695,14 +690,14 @@ namespace acme_universal_windows
    }
 
 
-   bool native_buffer::get_status(::file::file_status & rStatus) const
+   ::file::file_status native_buffer::get_status() const
    {
 
-      ASSERT_VALID(this);
+      ::file::file_status status;
 
-      rStatus.m_strFullName = get_file_path();
+      status.m_pathFullName = get_file_path();
 
-      return true;
+      return status;
 
    }
 

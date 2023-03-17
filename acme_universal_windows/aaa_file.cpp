@@ -81,10 +81,8 @@ namespace acme_universal_windows
    //}
 
 
-   void file::open(const ::file::path & path, const ::file::e_open & efileopenParam)
+   void file::open(const ::file::path & path,  ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception)
    {
-
-      ::file::e_open eopen(efileopenParam);
 
       if (m_hfile != INVALID_HANDLE_VALUE)
       {
@@ -230,7 +228,7 @@ namespace acme_universal_windows
 
             }
 
-            throw ::file::exception(m_estatus, ::windows::last_error_error_code(dwLastError), m_path, "!hfile_create", m_eopen);
+            throw ::file::exception(m_estatus, ::windows::last_error_error_code(dwLastError), m_path, m_eopen, "!hfile_create");
 
 
             //return ::windows::last_error_status(dwLastError);
@@ -282,7 +280,7 @@ namespace acme_universal_windows
 
             }
 
-            throw ::file::exception(m_estatus, ::windows::last_error_error_code(dwLastError), m_path, "!hfile_create", m_eopen);
+            throw ::file::exception(m_estatus, ::windows::last_error_error_code(dwLastError), m_path, m_eopen, "!hfile_create");
 
 
 
@@ -323,7 +321,7 @@ namespace acme_universal_windows
 
          auto errorcode = ::windows::last_error_error_code(dwLastError);
        
-         throw ::file::exception(estatus, errorcode, m_path, "!::ReadFile", m_eopen);
+         throw ::file::exception(estatus, errorcode, m_path, m_eopen, "!::ReadFile");
 
       }
 
@@ -341,7 +339,7 @@ namespace acme_universal_windows
          return;     // avoid Win32 "nullptr-write" option
 
       ASSERT(lpBuf != nullptr);
-      ASSERT(is_memory_segment_ok(lpBuf, nCount, false));
+      ASSERT(is_memory_segment_ok(lpBuf, nCount));
 
       DWORD nWritten;
 
@@ -354,7 +352,7 @@ namespace acme_universal_windows
 
          auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-         throw ::file::exception(estatus, errorcode, m_path, "!::WriteFile", m_eopen);
+         throw ::file::exception(estatus, errorcode, m_path, m_eopen, "!::WriteFile");
 
       }
 

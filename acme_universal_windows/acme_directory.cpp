@@ -1912,22 +1912,22 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //      }
 
 
-   string acme_directory::get_current()
-   {
+   //::file::path acme_directory::get_current()
+   //{
 
-      auto size = GetCurrentDirectoryW(0, nullptr);
+   //   auto size = GetCurrentDirectoryW(0, nullptr);
 
-      wstring wstr;
+   //   wstring wstr;
 
-      auto buffer = wstr.get_string_buffer(size);
+   //   auto buffer = wstr.get_string_buffer(size);
 
-      GetCurrentDirectoryW(size + 1, buffer);
+   //   GetCurrentDirectoryW(size + 1, buffer);
 
-      wstr.release_string_buffer(size);
+   //   wstr.release_string_buffer(size);
 
-      return wstr;
+   //   return wstr;
 
-   }
+   //}
 
 
 

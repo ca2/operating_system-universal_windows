@@ -58,7 +58,7 @@ namespace node_universal_windows
 
       pwindow->m_pwindowing = windowing();
 
-      auto pwindowMain = ::move_transfer(pwindow);
+      auto pwindowMain = ::pointer_transfer(pwindow);
 
       pwindowMain->initialize(this);
 

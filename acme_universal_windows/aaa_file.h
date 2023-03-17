@@ -2,6 +2,7 @@
 
 
 #include "acme/filesystem/file/file.h"
+#include "acme/filesystem/file/status.h"
 #include "acme/_operating_system.h"
 
 
@@ -44,13 +45,13 @@ namespace acme_universal_windows
       operator HANDLE() const;
 
       filesize get_position() const override;
-      bool get_status(::file::file_status & rStatus) const override;
+      ::file::file_status get_status() const override;
       //virtual string GetFileName() const override;
       //virtual string GetFileTitle() const override;
       ::file::path get_file_path() const override;
       void set_file_path(const ::file::path & path) override;
 
-      void open(const ::file::path & lpszFileName, const ::file::e_open & eopen) override;
+      void open(const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception= nullptr) override;
 
       //virtual bool GetStatus(const ::file::path & lpszFileName,::file::file_status& rStatus);
 

@@ -447,53 +447,53 @@ namespace apex_universal_windows
    }
 
 
-   void file_context::get_status(::file::file_status & rStatus, const ::file::path & path)
-   {
+   //void file_context::get_status(::file::file_status & rStatus, const ::file::path & path)
+   //{
 
-      auto pathFull = acmepath()->_final(path);
+   //   auto pathFull = acmepath()->_final(path);
 
-      wstring wstrFullName(pathFull);
+   //   wstring wstrFullName(pathFull);
 
-      WIN32_FIND_DATAW findFileData;
-      
-      HANDLE hFind = FindFirstFileW((LPWSTR)(const ::wide_character *)wstrFullName, &findFileData);
-      
-      if (hFind == INVALID_HANDLE_VALUE)
-      {
-       
-         DWORD lasterror = ::GetLastError();
+   //   WIN32_FIND_DATAW findFileData;
+   //   
+   //   HANDLE hFind = FindFirstFileW((LPWSTR)(const ::wide_character *)wstrFullName, &findFileData);
+   //   
+   //   if (hFind == INVALID_HANDLE_VALUE)
+   //   {
+   //    
+   //      DWORD lasterror = ::GetLastError();
 
-         auto estatus = ::windows::last_error_status(lasterror);
+   //      auto estatus = ::windows::last_error_status(lasterror);
 
-         throw ::exception(estatus);
+   //      throw ::exception(estatus);
 
-      }
+   //   }
 
-      FindClose(hFind);
+   //   FindClose(hFind);
 
-      rStatus.m_attribute = (byte)(findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
+   //   rStatus.m_attribute = (byte)(findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
 
-      rStatus.m_filesize = make64_from32(findFileData.nFileSizeLow, findFileData.nFileSizeHigh);
+   //   rStatus.m_filesize = make64_from32(findFileData.nFileSizeLow, findFileData.nFileSizeHigh);
 
-      file_time_to_time(&rStatus.m_ctime.m_time, (file_time_t *)&findFileData.ftCreationTime);
-      file_time_to_time(&rStatus.m_atime.m_time, (file_time_t *)&findFileData.ftLastAccessTime);
-      file_time_to_time(&rStatus.m_mtime.m_time, (file_time_t *)&findFileData.ftLastWriteTime);
+   //   file_time_to_time(&rStatus.m_ctime.m_time, (file_time_t *)&findFileData.ftCreationTime);
+   //   file_time_to_time(&rStatus.m_atime.m_time, (file_time_t *)&findFileData.ftLastAccessTime);
+   //   file_time_to_time(&rStatus.m_mtime.m_time, (file_time_t *)&findFileData.ftLastWriteTime);
 
-      if (rStatus.m_ctime.get_time() == 0)
-      {
+   //   if (rStatus.m_ctime.get_time() == 0)
+   //   {
 
-         rStatus.m_ctime = rStatus.m_mtime;
+   //      rStatus.m_ctime = rStatus.m_mtime;
 
-      }
+   //   }
 
-      if (rStatus.m_atime.get_time() == 0)
-      {
+   //   if (rStatus.m_atime.get_time() == 0)
+   //   {
 
-         rStatus.m_atime = rStatus.m_mtime;
+   //      rStatus.m_atime = rStatus.m_mtime;
 
-      }
+   //   }
 
-   }
+   //}
 
    //void file_context::set_status(const ::file::path & path,const ::file::file_status& status)
    //{
@@ -651,152 +651,152 @@ namespace apex_universal_windows
    //}
 
    
-   void file_context::set_status(const ::file::path & path, const ::file::file_status & status)
-   {
+   //void file_context::set_status(const ::file::path & path, const ::file::file_status & status)
+   //{
 
-      wstring pszFileName(path);
-
-
-      ::u32 wAttr;
-      FILETIME creationTime;
-      FILETIME lastAccessTime;
-      FILETIME lastWriteTime;
-      LPFILETIME pCreationTime = nullptr;
-
-      LPFILETIME pLastAccessTime = nullptr;
-
-      LPFILETIME pLastWriteTime = nullptr;
+   //   wstring pszFileName(path);
 
 
-      if ((wAttr = ::windows::get_file_attributes(path)) == (::u32)INVALID_FILE_ATTRIBUTES)
-      {
+   //   ::u32 wAttr;
+   //   FILETIME creationTime;
+   //   FILETIME lastAccessTime;
+   //   FILETIME lastWriteTime;
+   //   LPFILETIME pCreationTime = nullptr;
 
-         auto dwLastError = ::GetLastError();
+   //   LPFILETIME pLastAccessTime = nullptr;
 
-         auto estatus = ::windows::last_error_status(dwLastError);
+   //   LPFILETIME pLastWriteTime = nullptr;
 
-         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-         throw ::file::exception(estatus, errorcode, path, "!::windows_get_file_attributes");
+   //   if ((wAttr = ::windows::get_file_attributes(path)) == (::u32)INVALID_FILE_ATTRIBUTES)
+   //   {
 
-      }
+   //      auto dwLastError = ::GetLastError();
 
-      if ((::u32)status.m_attribute != wAttr && (wAttr & FILE_ATTRIBUTE_READONLY))
-      {
-         // set file attribute, only if currently readonly.
-         // This way we will be able to modify the time assuming the
-         // caller changed the file from readonly.
+   //      auto estatus = ::windows::last_error_status(dwLastError);
 
-         if (!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName, (::u32)status.m_attribute))
-         {
+   //      auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-            auto dwLastError = ::GetLastError();
+   //      throw ::file::exception(estatus, errorcode, path, "!::windows_get_file_attributes");
 
-            auto estatus = ::windows::last_error_status(dwLastError);
+   //   }
 
-            auto errorcode = ::windows::last_error_error_code(dwLastError);
+   //   if ((::u32)status.m_attribute != wAttr && (wAttr & FILE_ATTRIBUTE_READONLY))
+   //   {
+   //      // set file attribute, only if currently readonly.
+   //      // This way we will be able to modify the time assuming the
+   //      // caller changed the file from readonly.
 
-            throw ::file::exception(estatus, errorcode, pszFileName, "!::SetFileAttributes");
+   //      if (!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName, (::u32)status.m_attribute))
+   //      {
 
-         }
+   //         auto dwLastError = ::GetLastError();
 
-      }
+   //         auto estatus = ::windows::last_error_status(dwLastError);
 
-      // last modification time
-      if (status.m_mtime.get_time() != 0)
-      {
-         
-         time_to_file_time((file_time_t *) &lastWriteTime, &status.m_mtime.m_time);
+   //         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-         pLastWriteTime = &lastWriteTime;
+   //         throw ::file::exception(estatus, errorcode, pszFileName, "!::SetFileAttributes");
 
-         // last access time
-         if (status.m_atime.get_time() != 0)
-         {
+   //      }
 
-            time_to_file_time((file_time_t *)&lastAccessTime, &status.m_atime.m_time);
+   //   }
 
-            pLastAccessTime = &lastAccessTime;
+   //   // last modification time
+   //   if (status.m_mtime.get_time() != 0)
+   //   {
+   //      
+   //      time_to_file_time((file_time_t *) &lastWriteTime, &status.m_mtime.m_time);
 
-         }
+   //      pLastWriteTime = &lastWriteTime;
 
-         // create time
-         if (status.m_ctime.get_time() != 0)
-         {
+   //      // last access time
+   //      if (status.m_atime.get_time() != 0)
+   //      {
 
-            time_to_file_time((file_time_t *)&creationTime, &status.m_ctime.m_time);
+   //         time_to_file_time((file_time_t *)&lastAccessTime, &status.m_atime.m_time);
 
-            pCreationTime = &creationTime;
+   //         pLastAccessTime = &lastAccessTime;
 
-         }
+   //      }
 
-         HANDLE hFile = hfile_create(path, GENERIC_READ | GENERIC_WRITE,
+   //      // create time
+   //      if (status.m_ctime.get_time() != 0)
+   //      {
 
-            FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,
-            nullptr);
+   //         time_to_file_time((file_time_t *)&creationTime, &status.m_ctime.m_time);
 
-         if (hFile == INVALID_HANDLE_VALUE)
-         {
+   //         pCreationTime = &creationTime;
 
-            auto dwLastError = ::GetLastError();
+   //      }
 
-            auto estatus = ::windows::last_error_status(dwLastError);
+   //      HANDLE hFile = hfile_create(path, GENERIC_READ | GENERIC_WRITE,
 
-            auto errorcode = ::windows::last_error_error_code(dwLastError);
+   //         FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL,
+   //         nullptr);
 
-            throw ::file::exception(estatus, errorcode, path, "hfile_create == INVALID_HANDLE_VALUE");
+   //      if (hFile == INVALID_HANDLE_VALUE)
+   //      {
 
-         }
+   //         auto dwLastError = ::GetLastError();
 
-         if (!SetFileTime((HANDLE)hFile, pCreationTime, pLastAccessTime, pLastWriteTime))
-         {
+   //         auto estatus = ::windows::last_error_status(dwLastError);
 
-            auto dwLastError = ::GetLastError();
+   //         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-            auto estatus = ::windows::last_error_status(dwLastError);
+   //         throw ::file::exception(estatus, errorcode, path, "hfile_create == INVALID_HANDLE_VALUE");
 
-            auto errorcode = ::windows::last_error_error_code(dwLastError);
+   //      }
 
-            throw ::file::exception(estatus, errorcode, path, "!::SetFileTime");
+   //      if (!SetFileTime((HANDLE)hFile, pCreationTime, pLastAccessTime, pLastWriteTime))
+   //      {
 
-         }
+   //         auto dwLastError = ::GetLastError();
 
-         if (!::CloseHandle(hFile))
-         {
+   //         auto estatus = ::windows::last_error_status(dwLastError);
 
-            auto dwLastError = ::GetLastError();
+   //         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-            auto estatus = ::windows::last_error_status(dwLastError);
+   //         throw ::file::exception(estatus, errorcode, path, "!::SetFileTime");
 
-            auto errorcode = ::windows::last_error_error_code(dwLastError);
+   //      }
 
-            throw ::file::exception(estatus, errorcode, path, "!::CloseHandle");
+   //      if (!::CloseHandle(hFile))
+   //      {
 
-         }
+   //         auto dwLastError = ::GetLastError();
 
-      }
+   //         auto estatus = ::windows::last_error_status(dwLastError);
 
-      if ((::u32)status.m_attribute != wAttr && !(wAttr & FILE_ATTRIBUTE_READONLY))
-      {
+   //         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-         if (!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName, (::u32)status.m_attribute))
-         {
+   //         throw ::file::exception(estatus, errorcode, path, "!::CloseHandle");
 
-            auto dwLastError = ::GetLastError();
+   //      }
 
-            auto estatus = ::windows::last_error_status(dwLastError);
+   //   }
 
-            auto errorcode = ::windows::last_error_error_code(dwLastError);
+   //   if ((::u32)status.m_attribute != wAttr && !(wAttr & FILE_ATTRIBUTE_READONLY))
+   //   {
 
-            throw ::file::exception(estatus, errorcode, pszFileName, "!::SetFileAttributesW");
+   //      if (!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName, (::u32)status.m_attribute))
+   //      {
 
-         }
+   //         auto dwLastError = ::GetLastError();
 
-      }
+   //         auto estatus = ::windows::last_error_status(dwLastError);
 
-      //return ::success;
+   //         auto errorcode = ::windows::last_error_error_code(dwLastError);
 
-   }
+   //         throw ::file::exception(estatus, errorcode, pszFileName, "!::SetFileAttributesW");
+
+   //      }
+
+   //   }
+
+   //   //return ::success;
+
+   //}
 
 
    //::e_status file_context::update_module_path()
@@ -818,15 +818,15 @@ namespace apex_universal_windows
    
 
 
-   file_pointer file_context::get_file(const ::payload & payloadFile, const ::file::e_open & eopenFlags)
+   file_pointer file_context::get_file(const ::payload & payloadFile, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception)
    {
 
-      return ::file_context::get_file(payloadFile, eopenFlags);
+      return ::apex_windows_common::file_context::get_file(payloadFile, eopen, ppfileexception);
 
    }
 
 
-   ::file_pointer file_context::create_native_file(const ::file::path & path, const ::file::e_open & eopen)
+   ::file_pointer file_context::create_native_file(const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception)
    {
 
       string strRelative = path;
