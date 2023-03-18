@@ -406,7 +406,7 @@ namespace windowing_universal_windows
 
       //auto & createstruct = pusersystem->m_createstruct;
 
-      wstrWindowName = puserinteraction->m_strWindowText;
+      wstrWindowName = puserinteraction->m_strWindowText2;
 
       //if (pusersystem->m_createstruct.lpszName)
       //{

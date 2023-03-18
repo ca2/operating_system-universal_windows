@@ -233,7 +233,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS::winrt::Windows::Storage::StorageFolder _windo
 
    //}
 
-   auto hstrRelative = __hstring(pathFolder);
+   auto hstrRelative = __hstring(pathFolder.windows_path());
 
    try
    {

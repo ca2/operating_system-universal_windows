@@ -524,7 +524,7 @@ namespace windowing_universal_windows
 
          auto pmonitor = get_monitor(iMonitor);
 
-         pmonitor->get_monitor_rectangle(rectangleMonitor);
+         rectangleMonitor = pmonitor->monitor_rectangle();
 
          if (rectangleIntersect.top_left_null_intersect(rectangleParam, rectangleMonitor))
          {
@@ -867,7 +867,7 @@ namespace windowing_universal_windows
          {
 
             //if (pmonitor->get_monitor_rectangle(rectangleMonitor))
-            pmonitor->get_monitor_rectangle(rectangleMonitor);
+            rectangleMonitor = pmonitor->monitor_rectangle();
             //{
 
                if (rectangleIntersect.top_left_null_intersect(rectangle, rectangleMonitor))
@@ -946,16 +946,16 @@ namespace windowing_universal_windows
 
          ::rectangle_i32 rectangleIntersect;
 
-         ::rectangle_i32 rectangleMonitor;
+         ::rectangle_i32 rectangleWorkspace;
 
          auto pmonitor = get_monitor(iWorkspace);
 
-         pmonitor->get_workspace_rectangle(rectangleMonitor);
+         rectangleWorkspace = pmonitor->workspace_rectangle();
 
          //if (pmonitor->get_workspace_rectangle(rectangleMonitor))
          //{
 
-            if (rectangleIntersect.top_left_null_intersect(rectangle, rectangleMonitor))
+            if (rectangleIntersect.top_left_null_intersect(rectangle, rectangleWorkspace))
             {
 
                if (rectangleIntersect.area() > iBestArea)
@@ -965,17 +965,17 @@ namespace windowing_universal_windows
 
                   iBestArea = rectangleIntersect.area();
 
-                  rectangleMatch = rectangleMonitor;
+                  rectangleMatch = rectangleWorkspace;
 
                }
 
             }
-            else if (rectangleMonitor.contains(rectangle))
+            else if (rectangleWorkspace.contains(rectangle))
             {
 
                iMatchingWkspace = iWorkspace;
 
-               rectangleMatch = rectangleMonitor;
+               rectangleMatch = rectangleWorkspace;
 
             }
 

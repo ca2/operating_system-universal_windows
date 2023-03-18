@@ -829,6 +829,13 @@ namespace apex_universal_windows
    ::file_pointer file_context::create_native_file(const ::file::path & path, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception)
    {
 
+      if (::windows::is_win32_accessible(path))
+      {
+
+         return ::apex_windows_common::file_context::create_native_file(path, eopen, ppfileexception);
+
+      }
+
       string strRelative = path;
 
       string strPrefix;

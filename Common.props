@@ -17,7 +17,7 @@
   </PropertyGroup>
   <ItemDefinitionGroup>
     <ClCompile>
-      <AdditionalIncludeDirectories>include;$(__sensitive)/sensitive/include;$(SolutionDir)../source/include;$(SolutionDir)../operating_system/operating_system-universal_windows/include;$(SolutionDir)../operating_system/operating_system-universal_windows;$(SolutionDir)../operating_system/operating_system-windows_common;$(SolutionDir)../source/app/include;$(SolutionDir)../port/_;$(SolutionDir)../port/include;.;$(SolutionDir)../../;$(SolutionDir)../source;$(SolutionDir)../source/app;$(ProjectDir)../..;$(ProjectDir)..;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>include;$(__sensitive)/sensitive/include;$(SolutionDir)../source/include;$(SolutionDir)../operating_system/operating_system-universal_windows/configuration;$(SolutionDir)../operating_system/operating_system-universal_windows/include;$(SolutionDir)../operating_system/operating_system-universal_windows;$(SolutionDir)../operating_system/operating_system-windows_common;$(SolutionDir)../source/app/include;$(SolutionDir)../port/include;.;$(SolutionDir)../../;$(SolutionDir)../source;$(SolutionDir)../source/app;$(ProjectDir)../..;$(ProjectDir)..;$(ProjectDir);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
       <AssemblerListingLocation>$(IntDir)%(RelativeDir)</AssemblerListingLocation>
       <ObjectFileName>$(IntDir)%(RelativeDir)</ObjectFileName>
       <ExceptionHandling>Async</ExceptionHandling>
@@ -31,7 +31,7 @@
       <SupportJustMyCode>false</SupportJustMyCode>
     </ClCompile>
     <Link>
-      <AdditionalLibraryDirectories>$(SolutionDir)..\..\..\..\operating-system\storage-universal_windows\$(PlatformName)\$(Configuration)\third\library\;$(SolutionDir)..\..\..\..\operating-system\storage-universal_windows\$(PlatformName)\$(Configuration)\library\;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)..\..\operating_system\storage-universal_windows\$(PlatformName)\$(Configuration)\third\library\;$(SolutionDir)..\..\operating_system\storage-universal_windows\$(PlatformName)\$(Configuration)\library\;$(OutDir);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>

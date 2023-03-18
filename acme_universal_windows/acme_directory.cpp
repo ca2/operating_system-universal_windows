@@ -608,10 +608,57 @@ namespace acme_universal_windows
    bool acme_directory::_is(bool & bDir, const ::file::path & path)
    {
 
-      u32 dwFileAttributes = ::windows::get_file_attributes(path);
+      u32 dwFileAttributes = ::windows::_get_file_attributes(path);
 
       if (dwFileAttributes == INVALID_FILE_ATTRIBUTES)
       {
+
+         auto lasterror = ::GetLastError();
+
+         if (lasterror == ERROR_PATH_NOT_FOUND)
+         {
+
+            // Path would be accessible...
+
+            // Parent Folder is not folder...
+
+            bDir = false;
+
+            return true;
+
+         }
+         else if (lasterror == ERROR_FILE_NOT_FOUND)
+         {
+
+            // Path would be accessible...
+
+            // Parent folder exists...
+
+            bDir = false;
+
+            return true;
+
+         }
+         else if (lasterror == ERROR_INVALID_NAME)
+         {
+
+            throw_last_error_exception(path, ::file::e_open_none, lasterror, "ERROR_INVALID_NAME");
+
+            return false;
+
+         }
+
+         //::file::path pathCamilo = "C:\\Users\\camilo";
+
+         //::file::path pathThomasBS_ = "C:\\Users\\thoma";
+
+         //u32 dwFileAttributesCamilo = ::windows::_get_file_attributes(pathCamilo);
+
+         //auto lasterror2 = ::GetLastError();
+
+         //u32 dwFileAttributesThomasBS_ = ::windows::_get_file_attributes(pathThomasBS_);
+
+         //auto lasterror5 = ::GetLastError();
 
          return false;
 
