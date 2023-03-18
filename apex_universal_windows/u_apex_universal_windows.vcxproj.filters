@@ -42,9 +42,6 @@
     <ClCompile Include="file_os_watcher.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="interprocess_communication.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="interprocess_target.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
