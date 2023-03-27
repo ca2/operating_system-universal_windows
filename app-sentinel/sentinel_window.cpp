@@ -38,7 +38,7 @@ LRESULT CALLBACK spa_install_window_proc(HWND hWnd, UINT message, WPARAM wParam,
          if(pcds->dwData == 15111984)
          {
             char * psz = (char *) malloc(pcds->cbData + 1);
-            memcpy_dup(psz, pcds->lpData, pcds->cbData);
+            memory_copy(psz, pcds->lpData, pcds->cbData);
             strlist::add(&g_pstrlistRestartCommandLine, psz);
          }
          else if(pcds->dwData == 0)

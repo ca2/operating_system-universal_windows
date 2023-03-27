@@ -317,9 +317,9 @@ namespace windowing_universal_windows
 
    //   pimage->map();
 
-   //   ::memcpy_dup(p, &bi, sizeof(bi));
+   //   ::memory_copy(p, &bi, sizeof(bi));
 
-   //   ::memcpy_dup(p + sizeof(bi), pimage->get_data(), pimage->scan_size() * pimage->height());
+   //   ::memory_copy(p + sizeof(bi), pimage->get_data(), pimage->scan_size() * pimage->height());
 
    //   GlobalUnlock(hglb);
 

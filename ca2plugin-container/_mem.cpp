@@ -45,7 +45,7 @@ void * calloc(  size_t sz, size_t sz2 )
 #pragma function(memcpy)
 void * memcpy(void * dst, const void * src, size_t iSize)
 {
-   return memcpy_dup(dst, src, iSize);
+   return memory_copy(dst, src, iSize);
 }
 
 #endif
