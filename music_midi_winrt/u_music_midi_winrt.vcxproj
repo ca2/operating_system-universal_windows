@@ -139,7 +139,7 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <SDKReference Include="Microsoft.Midi.GmDls, Version=10.0.18362.0" />
+    <SDKReference Include="Microsoft.Midi.GmDls, Version=10.0.22000.0" />
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{C1B4AA3F-5E8A-4AB1-977D-423C5785C666}</ProjectGuid>
