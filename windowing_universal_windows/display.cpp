@@ -143,7 +143,7 @@ namespace windowing_universal_windows
 //   bool display::get_monitor_rectangle(index iMonitor, RECTANGLE_I32 * prectangle)
 //   {
 //
-//#ifdef _UWP
+//#ifdef UNIVERSAL_WINDOWS
 //
 //      return false;
 //
@@ -177,7 +177,7 @@ namespace windowing_universal_windows
 //      __copy(prectangle, m_monitorinfoa[iMonitor].rcMonitor);
 //
 //
-//#elif defined(_UWP)
+//#elif defined(UNIVERSAL_WINDOWS)
 //
 //
 //      return false;
@@ -319,7 +319,7 @@ namespace windowing_universal_windows
 //      __copy(prectangle, m_monitorinfoa[iWkspace].rcWork);
 //
 //
-//#elif defined(_UWP)
+//#elif defined(UNIVERSAL_WINDOWS)
 //
 //      return get_monitor_rect(iWkspace, prectangle);
 //

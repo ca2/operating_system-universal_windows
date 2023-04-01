@@ -364,7 +364,7 @@ namespace apex_universal_windows
 
       return false;
 
-#elif defined(_UWP)
+#elif defined(UNIVERSAL_WINDOWS)
 
       //throw ::exception(todo);
 

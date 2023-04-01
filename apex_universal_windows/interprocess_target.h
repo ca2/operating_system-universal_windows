@@ -53,7 +53,7 @@ namespace apex_universal_windows
    //      virtual ~interprocess_handler();
    //
    //
-   //#if defined(_UWP)
+   //#if defined(UNIVERSAL_WINDOWS)
    //      bool open_ab(const ::string & pszChannel, const ::string & pszModule);
    //      bool open_ba(const ::string & pszChannel, const ::string & pszModule);
    //#elif defined(WINDOWS)

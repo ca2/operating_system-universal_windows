@@ -68,6 +68,12 @@ namespace acme_universal_windows
    }
 
 
+   //Read the file stream
+   Stream a = await file.OpenStreamForReadAsync();
+
+   //unzip
+   ZipArchive archive = new ZipArchive(a);
+   archive.ExtractToDirectory(folder.Path);
 } // namespace acme_universal_windows
 
 

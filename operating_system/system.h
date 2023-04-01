@@ -34,8 +34,8 @@
 #endif
 
 
-#ifndef _UWP
-#define _UWP
+#ifndef UNIVERSAL_WINDOWS
+#define UNIVERSAL_WINDOWS
 #endif
 
 

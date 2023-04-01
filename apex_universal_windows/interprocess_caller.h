@@ -22,7 +22,7 @@ namespace apex_universal_windows
 
 
 
-      //#if defined(_UWP)
+      //#if defined(UNIVERSAL_WINDOWS)
       //      bool open(const ::string & pszChannel) override;
       //#else
       void open(const ::string & strChannel, ::launcher * plauncher = nullptr) override;

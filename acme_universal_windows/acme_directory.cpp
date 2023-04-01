@@ -151,7 +151,7 @@ namespace acme_universal_windows
    string acme_directory::system_short_name()
    {
 
-#ifdef _UWP
+#ifdef UNIVERSAL_WINDOWS
 
       return "metro";
 
@@ -177,7 +177,7 @@ namespace acme_universal_windows
 
    }
 
-#ifdef _UWP
+#ifdef UNIVERSAL_WINDOWS
 
 
    ::file::path acme_directory::app_relative()
@@ -460,7 +460,7 @@ namespace acme_universal_windows
 #endif
 
 
-#if defined(_UWP) || defined(__APPLE__) || defined(LINUX) || defined(ANDROID)
+#if defined(UNIVERSAL_WINDOWS) || defined(__APPLE__) || defined(LINUX) || defined(ANDROID)
 
    ::file::path acme_directory::bookmark()
    {
@@ -723,7 +723,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 }
 
 
-//#if defined(_UWP)
+//#if defined(UNIVERSAL_WINDOWS)
 //
 //#pragma push_macro("acmesystem()")
 //
@@ -780,7 +780,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //      return acmepath()->app_module().folder();
    //
-   //   #elif defined(_UWP)
+   //   #elif defined(UNIVERSAL_WINDOWS)
    //
    //      wstring wstrModuleFilePath;
    //
@@ -985,7 +985,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //      ::file::path acme_directory::module_folder()
 //      {
 //
-//#if defined(_UWP)
+//#if defined(UNIVERSAL_WINDOWS)
 //
 //         wstring wstrModuleFolder(get_buffer, MAX_PATH * 8);
 //
@@ -1176,7 +1176,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //
       //      str = strCa2ModuleFolder;
       //
-      //   #elif defined(_UWP)
+      //   #elif defined(UNIVERSAL_WINDOWS)
       //
       //      str = "";
       //
@@ -1279,7 +1279,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         strsize iLastPos;
 //
-//#ifdef _UWP
+//#ifdef UNIVERSAL_WINDOWS
 //
 //         {
 //
@@ -1620,7 +1620,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         closedir(dirp);
 //
-//#elif defined(_UWP)
+//#elif defined(UNIVERSAL_WINDOWS)
 //
 //         string strRelative(psz);
 //
@@ -1707,7 +1707,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         closedir(dirp);
 //
-//#elif defined(_UWP)
+//#elif defined(UNIVERSAL_WINDOWS)
 //
 //         string strRelative(psz);
 //
