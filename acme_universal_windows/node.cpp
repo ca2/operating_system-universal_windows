@@ -68,12 +68,23 @@ namespace acme_universal_windows
    }
 
 
-   //Read the file stream
-   Stream a = await file.OpenStreamForReadAsync();
+   void node::unzip_to_folder(const ::file::path & pathFolder, const ::file::path & pathZip)
+   {
 
-   //unzip
-   ZipArchive archive = new ZipArchive(a);
-   archive.ExtractToDirectory(folder.Path);
+
+      auto pfile = __new(::acme_universal_windows::native_buffer(pathZip, ::file::e_open_read | ::file::e_open_binary));
+
+      pfile->initialize(this);
+
+      ::winrt::Windows::Compression::
+
+      //unzip
+      ZipArchive archive = new ZipArchive(a);
+      archive.ExtractToDirectory(folder.Path);
+
+   }
+
+
 } // namespace acme_universal_windows
 
 
