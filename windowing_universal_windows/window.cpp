@@ -790,7 +790,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool window::has_focus() const
+   bool window::has_keyboard_focus() const
    {
 
       //return ::GetFocus() == get_hwnd();

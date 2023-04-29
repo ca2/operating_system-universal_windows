@@ -5113,7 +5113,7 @@ namespace aura_universal_windows
    }
 
 
-   bool interaction_impl::has_focus()
+   bool interaction_impl::has_keyboard_focus()
    {
 
       //return get_handle() == ::get_focus();
