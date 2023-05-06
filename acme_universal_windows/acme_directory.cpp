@@ -90,7 +90,7 @@ namespace acme_universal_windows
    ::file::path acme_directory::appdata()
    {
 
-      return ca2roaming() / "appdata" / app_relative();
+      return roaming() / appid();
 
    }
 
@@ -176,35 +176,6 @@ namespace acme_universal_windows
       return path;
 
    }
-
-#ifdef UNIVERSAL_WINDOWS
-
-
-   ::file::path acme_directory::app_relative()
-   {
-
-      return "";
-
-   }
-
-
-#else
-
-
-   ::file::path acme_directory::app_relative()
-   {
-
-      ::file::path path = acmefile()->executable();
-
-      path = relative(path);
-
-      return path;
-
-   }
-
-
-#endif
-
 
 
    ::file::path acme_directory::inplace_install(string strAppId, string strPlatform, string strConfiguration)

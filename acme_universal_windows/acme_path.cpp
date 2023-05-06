@@ -31,7 +31,7 @@ namespace acme_universal_windows
    }
 
 
-   ::file::path acme_path::_final(const ::file::path & path)
+   ::file::path acme_path::_real_path(const ::file::path & path)
    {
 
       wstring wstr(path);
