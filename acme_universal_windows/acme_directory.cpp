@@ -613,7 +613,7 @@ namespace acme_universal_windows
          else if (lasterror == ERROR_INVALID_NAME)
          {
 
-            throw_last_error_exception(path, ::file::e_open_none, lasterror, "ERROR_INVALID_NAME");
+            //throw_last_error_exception(path, ::file::e_open_none, lasterror, "ERROR_INVALID_NAME");
 
             return false;
 
@@ -1444,9 +1444,11 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
 #ifdef WINDOWS
 
-         wstring path(e_get_buffer, MAX_PATH * 8);
+         wstring path;
+         
+         auto p = path.get_string_buffer(MAX_PATH * 8);
 
-         if (!GetModuleFileNameW(nullptr, path, (::u32)path.size()))
+         if (!GetModuleFileNameW(nullptr, p, MAX_PATH * 8))
          {
 
             return "";
@@ -1454,6 +1456,8 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
          }
          else
          {
+
+            path.release_string_buffer();
 
             auto pathFolder = file_path_folder(string(path));
 
@@ -1517,12 +1521,12 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          }
 
-         if (!is(listing.m_pathFinal))
-         {
+         //if (!is(listing.m_pathFinal))
+         //{
 
-            return false;
+         //   return false;
 
-         }
+         //}
 
          if (!listing.on_start_enumerating(this))
          {

@@ -41,7 +41,13 @@ namespace acme_universal_windows
       try
       {
 
-         if (acmedirectory()->is(path))
+         if (path.case_insensitive_ends("://"))
+         {
+
+            return path;
+
+         }
+         else if (acmedirectory()->is(path))
          {
 
             hfile = hfile_create(path,
