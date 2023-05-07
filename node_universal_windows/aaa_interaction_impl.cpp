@@ -2020,74 +2020,9 @@ namespace windows
    void interaction_impl::on_visual_applied()
    {
 
-      //rects_from_os();
-
       ::user::interaction_impl::on_visual_applied();
 
    }
-
-
-   // void interaction_impl::window_apply_visual(const ::user::window_state & windowstate)
-   // {
-
-   //    return ::user::interaction_impl::window_apply_visual(windowstate);
-
-   // }
-
-
-   //bool interaction_impl::_is_window_visible()
-   //{
-
-   //   try
-   //   {
-
-   //      if (!::IsWindowVisible(get_handle()))
-   //      {
-
-   //         return false;
-
-   //      }
-
-   //      return true;
-
-   //   }
-   //   catch (...)
-   //   {
-
-   //      return false;
-
-   //   }
-
-   //}
-
-
-   //void interaction_impl::ShowOwnedPopups(bool bShow)
-   //{
-
-   //   ASSERT(_is_window());
-
-   //   ::ShowOwnedPopups(get_handle(), bShow);
-
-   //}
-
-
-
-
-   //::pointer<::draw2d::graphics>interaction_impl::GetDCEx(::draw2d::region* prgnClip, u32 flags)
-   //{
-
-   //   ASSERT(_is_window());
-
-   //   auto pgraphics = __create < ::draw2d::graphics > ();
-
-   //   throw ::exception(todo);
-
-   //   //pgraphics->attach(::GetDCEx(get_handle(), (HRGN)prgnClip->get_os_data(), flags));
-
-   //   return pgraphics;
-
-
-   //}
 
 
    bool interaction_impl::LockWindowUpdate()
