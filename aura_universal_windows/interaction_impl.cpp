@@ -1673,7 +1673,7 @@ return true;
       // walk from the target interaction_impl up to the hWndStop interaction_impl checking
       //  if any interaction_impl wants to translate this message
 
-      for(::user::interaction * pinteraction = pusermessage->userinteraction(); pinteraction != nullptr; pinteraction->get_parent())
+      for(::user::interaction * pinteraction = ::user::message_user_interaction(pusermessage); pinteraction != nullptr; pinteraction->get_parent())
       {
 
          pinteraction->pre_translate_message(pmessage);
@@ -5113,7 +5113,7 @@ namespace aura_universal_windows
    }
 
 
-   bool interaction_impl::has_focus()
+   bool interaction_impl::has_keyboard_focus()
    {
 
       //return get_handle() == ::get_focus();

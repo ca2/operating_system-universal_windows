@@ -31,7 +31,7 @@ namespace acme_universal_windows
    }
 
 
-   ::file::path acme_path::_final(const ::file::path & path)
+   ::file::path acme_path::_real_path(const ::file::path & path)
    {
 
       wstring wstr(path);
@@ -41,7 +41,13 @@ namespace acme_universal_windows
       try
       {
 
-         if (acmedirectory()->is(path))
+         if (path.case_insensitive_ends("://"))
+         {
+
+            return path;
+
+         }
+         else if (acmedirectory()->is(path))
          {
 
             hfile = hfile_create(path,

@@ -845,33 +845,30 @@ namespace apex_universal_windows
       if (folder)
       {
 
-         if (folder)
+         auto hstrName = __hstring(strRelative);
+
+         auto item = folder.TryGetItemAsync(hstrName).get();
+
+         if (!item)
          {
 
-            auto hstrName = __hstring(strRelative);
+            item = folder.CreateFileAsync(hstrName).get();
 
-            auto item = folder.TryGetItemAsync(hstrName).get();
+         }
 
-            if (item)
+         if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
+         {
+
+            ::winrt::Windows::Storage::StorageFile file = nullptr;
+
+            item.as(file);
+
+            if (file)
             {
 
-               if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
-               {
+               auto pfile = __new(::acme_universal_windows::native_buffer(file, eopen));
 
-                  ::winrt::Windows::Storage::StorageFile file = nullptr;
-
-                  item.as(file);
-
-                  if (file)
-                  {
-
-                     auto pfile = __new(::acme_universal_windows::native_buffer(file, eopen));
-
-                     return pfile;
-
-                  }
-
-               }
+               return pfile;
 
             }
 

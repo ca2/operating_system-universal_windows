@@ -181,27 +181,27 @@ namespace apex_universal_windows
    }
 
    
-   bool os_context::path_pid(u32 & dwPid, const ::string & lpszName)
-   {
-   
-      throw ::exception(error_not_supported);
-
-      return false;
-
-   }
-
-
-   bool os_context::title_pid(u32 & dwPid, const ::string & lpszName)
+   ::process_identifier_array os_context::module_path_processes_identifiers(const ::scoped_string & scopedstrName)
    {
 
       throw ::exception(error_not_supported);
 
-      return false;
+      return {};
 
    }
 
 
-   int os_context::get_pid()
+   ::process_identifier_array os_context::title_processes_identifiers(const ::scoped_string & scopedstrName)
+   {
+
+      throw ::exception(error_not_supported);
+
+      return {};
+
+   }
+
+
+   ::process_identifier os_context::current_process_identifier()
    {
 
       //return (int) ::get_current_process_id();
@@ -215,7 +215,7 @@ namespace apex_universal_windows
 
 
 
-   ::file::path os_context::get_process_path(u32 dwPid)
+   ::file::path os_context::process_identifier_module_path(::process_identifier processidentifier)
    {
       throw ::exception(error_not_supported);
 
@@ -224,7 +224,7 @@ namespace apex_universal_windows
    }
 
 
-   void os_context::get_all_processes(u32_array & ua)
+   ::process_identifier_array os_context::processes_identifiers()
    {
 
       //ASSERT(sizeof(::u32) == sizeof(u32));
@@ -3689,7 +3689,7 @@ return false;
    //}
 
 
-   void os_context::list_process(::file::path_array & patha, u32_array & uaPid)
+   void os_context::list_process(::file::path_array & patha, ::process_identifier_array & uaPid)
    {
 
       //ASSERT(sizeof(::u32) == sizeof(u32));

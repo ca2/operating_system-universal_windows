@@ -655,7 +655,7 @@ namespace aura_universal_windows
 
 
       // void _001UpdateWindow();
-      virtual bool has_focus() ;
+      virtual bool has_keyboard_focus() ;
       virtual bool is_active() ;
 
 

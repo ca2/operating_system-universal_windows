@@ -42,18 +42,18 @@ namespace acme_universal_windows
    }
 
 
-   string node::audio_get_default_library_name()
+   string node::audio_get_default_implementation_name()
    {
 
-      return "audio_xaudio";
+      return acmesystem()->implementation_name("audio", "xaudio");
 
    }
 
 
-   string node::veriwell_multimedia_music_midi_get_default_library_name()
+   string node::veriwell_multimedia_music_midi_get_default_implementation_name()
    {
 
-      return "music_midi_winrt";
+      return acmesystem()->implementation_name("music_midi", "winrt");
 
    }
 

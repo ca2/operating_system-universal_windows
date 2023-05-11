@@ -347,7 +347,7 @@ namespace windowing_universal_windows
       DECLARE_MESSAGE_HANDLER(_001OnMessage);
 
       virtual bool has_capture() const;
-      virtual bool has_focus() const;
+      virtual bool has_keyboard_focus() const;
 
 
       bool is_full_screen() const override;

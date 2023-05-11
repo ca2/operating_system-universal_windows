@@ -22,9 +22,9 @@ namespace acme_universal_windows
       void implement(::pointer<::acme::node>& pnode, ::pointer<::acme::system> & psystem) override;
 
 
-      string audio_get_default_library_name() override;
+      string audio_get_default_implementation_name() override;
 
-      string veriwell_multimedia_music_midi_get_default_library_name() override;
+      string veriwell_multimedia_music_midi_get_default_implementation_name() override;
 
 
       bool set_process_priority(::enum_priority epriority);
