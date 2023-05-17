@@ -579,7 +579,7 @@ wstring windowing::_windows_register_window_class(::u32 nClassStyle, hcursor hCu
 
    {
 
-      LPWSTR lpwsz = wstrClassName.get_string_buffer(iLen);
+      LPWSTR lpwsz = wstrClassName.get_buffer(iLen);
 
       if (hCursor == nullptr && hbrBackground == nullptr && hIcon == nullptr)
       {
@@ -594,7 +594,7 @@ wstring windowing::_windows_register_window_class(::u32 nClassStyle, hcursor hCu
 
       }
 
-      wstrClassName.release_string_buffer();
+      wstrClassName.release_buffer();
 
    }
 

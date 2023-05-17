@@ -1261,7 +1261,7 @@ namespace windowing_universal_windows
 
    //   wstring wstr;
 
-   //   auto pwsz = wstr.get_string_buffer(dw);
+   //   auto pwsz = wstr.get_buffer(dw);
 
    //   //if (!SendMessageTimeoutW((HWND)oswindow, WM_GETTEXT, dw + 1, (LPARAM)pwsz, SMTO_ABORTIFHUNG, __os(timeSendMessageMax), &dw))
    //   //{
@@ -1270,7 +1270,7 @@ namespace windowing_universal_windows
 
    //   //}
 
-   //   wstr.release_string_buffer();
+   //   wstr.release_buffer();
 
    //   return wstr;
 

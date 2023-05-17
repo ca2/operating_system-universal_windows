@@ -1161,7 +1161,7 @@ namespace windowing_universal_windows
 
       //wstring  wstr;
 
-      //wstr.get_string_buffer(MAX_PATH * 8);
+      //wstr.get_buffer(MAX_PATH * 8);
       ////::u32 uLen = pwsz.memsize();
 
       //if (!SystemParametersInfoW(SPI_GETDESKWALLPAPER, (::u32)wstr.get_storage_length(), wstr.m_pdata, 0))
@@ -1169,7 +1169,7 @@ namespace windowing_universal_windows
       //   return "";
 
       //}
-      //wstr.release_string_buffer();
+      //wstr.release_buffer();
 
       wstring wstr;
 

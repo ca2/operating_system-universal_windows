@@ -463,7 +463,7 @@ namespace windowing_universal_windows
 
       //   ::DragQueryFileW(hdrop, (::u32) i, wstr, (::u32) wstr.length() + 1);
 
-      //   wstr.release_string_buffer();
+      //   wstr.release_buffer();
 
       //   patha.add(::file::path(wstr));
 

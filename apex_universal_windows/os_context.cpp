@@ -1835,14 +1835,14 @@ return false;
 
       //      wstring wstr;
 
-      //      auto pwsz = wstr.get_string_buffer(MAX_PATH * 8);
+      //      auto pwsz = wstr.get_buffer(MAX_PATH * 8);
 
       //      if (SUCCEEDED(pshelllink->GetPath(pwsz, MAX_PATH * 8, nullptr, 0)))
       //      {
 
       //         bOk = true;
 
-      //         wstr.release_string_buffer();
+      //         wstr.release_buffer();
 
       //         string strLink = unicode_to_utf8((const ::wide_character *)wstr);
 
@@ -1864,12 +1864,12 @@ return false;
       //      if (::is_set(pstrDirectory))
       //      {
 
-      //         auto pwsz = wstr.get_string_buffer(MAX_PATH * 8);
+      //         auto pwsz = wstr.get_buffer(MAX_PATH * 8);
 
       //         if (SUCCEEDED(pshelllink->GetWorkingDirectory(pwsz, MAX_PATH * 8)))
       //         {
 
-      //            wstr.release_string_buffer();
+      //            wstr.release_buffer();
 
       //            *pstrDirectory = unicode_to_utf8((const ::wide_character *)wstr);
 
@@ -1880,12 +1880,12 @@ return false;
       //      if (::is_set(pstrParams))
       //      {
 
-      //         auto pwsz = wstr.get_string_buffer(MAX_PATH * 8);
+      //         auto pwsz = wstr.get_buffer(MAX_PATH * 8);
 
       //         if (SUCCEEDED(pshelllink->GetArguments(pwsz, MAX_PATH * 8)))
       //         {
 
-      //            wstr.release_string_buffer();
+      //            wstr.release_buffer();
 
       //            *pstrParams = unicode_to_utf8((const ::wide_character *)wstr);
 

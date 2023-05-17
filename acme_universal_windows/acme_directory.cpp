@@ -755,7 +755,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //      wstring wstrModuleFilePath;
    //
-   //      auto pwszModuleFilePath = wstrModuleFilePath.get_string_buffer(MAX_PATH * 8);
+   //      auto pwszModuleFilePath = wstrModuleFilePath.get_buffer(MAX_PATH * 8);
    //
    //      if (!GetModuleFileNameW(nullptr, pwszModuleFilePath, MAX_PATH * 8))
    //      {
@@ -764,13 +764,13 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //         
    //      }
    //
-   //      wstrModuleFilePath.release_string_buffer();
+   //      wstrModuleFilePath.release_buffer();
    //
    //      LPWSTR pszModuleFileName;
    //
    //      wstring wstrModuleFolder;
    //
-   //      auto pwszModuleFolder = wstrModuleFolder.get_string_buffer(MAX_PATH * 8);
+   //      auto pwszModuleFolder = wstrModuleFolder.get_buffer(MAX_PATH * 8);
    //
    //      if (!GetFullPathNameW(wstrModuleFilePath, MAX_PATH * 8, pwszModuleFolder, &pszModuleFileName))
    //      {
@@ -779,7 +779,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //         
    //      }
    //
-   //      wstrModuleFolder.release_string_buffer();
+   //      wstrModuleFolder.release_buffer();
    //
    //      wstrModuleFolder.ends_eat_ci("\\");
    //      wstrModuleFolder.ends_eat_ci("/");
@@ -837,7 +837,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //         wcscpy(wstrModuleFolder, wstrModuleFilePath);
    //
-   //         wstrModuleFilePath.release_string_buffer();
+   //         wstrModuleFilePath.release_buffer();
    //
    //         return string(wstrModuleFolder);
    //
@@ -851,7 +851,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //      }
    //
-   //      wstrModuleFilePath.release_string_buffer();
+   //      wstrModuleFilePath.release_buffer();
    //
    //      LPWSTR pszModuleFileName;
    //
@@ -862,7 +862,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //      }
    //
-   //      wstrModuleFolder.release_string_buffer();
+   //      wstrModuleFolder.release_buffer();
    //
    //      if(wstrModuleFolder.has_char())
    //      {
@@ -918,7 +918,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //      string strModuleFolder;
    //
-   //      auto wstrModuleFolder = strModuleFolder.get_string_buffer(MAX_PATH * 8);
+   //      auto wstrModuleFolder = strModuleFolder.get_buffer(MAX_PATH * 8);
    //
    //      void * handle = dlopen("libacme.so", RTLD_NOW);
    //
@@ -978,7 +978,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         }
 //
-//         wstrModuleFolder.release_string_buffer();
+//         wstrModuleFolder.release_buffer();
 //
 //         wstrModuleFolder.trim_right(L"\\/");
 //
@@ -1047,7 +1047,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         }
 //
-//         wstrModuleFolder.release_string_buffer();
+//         wstrModuleFolder.release_buffer();
 //
 //         wstrModuleFolder.trim_right(L"\\/");
 //
@@ -1057,7 +1057,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         string strModuleFolder;
 //
-//         auto wstrModuleFolder = strModuleFolder.get_string_buffer(MAX_PATH * 8);
+//         auto wstrModuleFolder = strModuleFolder.get_buffer(MAX_PATH * 8);
 //
 //         throw ::exception(todo);
 //
@@ -1446,7 +1446,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          wstring path;
          
-         auto p = path.get_string_buffer(MAX_PATH * 8);
+         auto p = path.get_buffer(MAX_PATH * 8);
 
          if (!GetModuleFileNameW(nullptr, p, MAX_PATH * 8))
          {
@@ -1457,7 +1457,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
          else
          {
 
-            path.release_string_buffer();
+            path.release_buffer();
 
             auto pathFolder = file_path_folder(string(path));
 
@@ -1941,11 +1941,11 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
    //   wstring wstr;
 
-   //   auto buffer = wstr.get_string_buffer(size);
+   //   auto buffer = wstr.get_buffer(size);
 
    //   GetCurrentDirectoryW(size + 1, buffer);
 
-   //   wstr.release_string_buffer(size);
+   //   wstr.release_buffer(size);
 
    //   return wstr;
 

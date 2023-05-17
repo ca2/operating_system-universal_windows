@@ -53,7 +53,7 @@ namespace acme_universal_windows
 
          }
 
-         path = wstrPath.release_string_buffer();
+         path = wstrPath.release_buffer();
 
       }
 

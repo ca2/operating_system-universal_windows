@@ -94,7 +94,7 @@
 //
 //   //      str = pwsz;
 //
-//   //      //str.release_string_buffer(dwSize);
+//   //      //str.release_buffer(dwSize);
 //
 //   //      return lResult;
 //

@@ -86,14 +86,14 @@ namespace acme_universal_windows
 
             wstring wstr2;
 
-            auto* pwsz = wstr2.get_string_buffer(dw + 1);
+            auto* pwsz = wstr2.get_buffer(dw + 1);
 
             dw = GetFinalPathNameByHandleW(hfile, pwsz, dw + 1, VOLUME_NAME_DOS);
 
             if (dw > 0)
             {
 
-               wstr2.release_string_buffer();
+               wstr2.release_buffer();
 
                wstr = wstr2;
 

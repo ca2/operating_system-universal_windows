@@ -183,7 +183,7 @@ namespace apex_universal_windows
 
    //   if(bEmptyRelative || bEmpty2)
    //   {
-   //      psz = strPath.get_string_buffer(iLenFolder + 1 + iLenRelative);
+   //      psz = strPath.get_buffer(iLenFolder + 1 + iLenRelative);
 
    //      ansi_count_copy(psz, pszFolder, iLenFolder);
 
@@ -232,7 +232,7 @@ namespace apex_universal_windows
    //      iLen2--;
    //   }
 
-   //   psz = strPath.get_string_buffer(iLenFolder + 1 + iLenRelative + 1 + iLen2);
+   //   psz = strPath.get_buffer(iLenFolder + 1 + iLenRelative + 1 + iLen2);
 
    //   ansi_count_copy(psz, pszFolder, iLenFolder);
 
