@@ -37,29 +37,31 @@ namespace acme_universal_windows
    }
 
 
-   ::file::path acme_file::module()
-   {
+   //::file::path acme_file::module()
+   //{
 
-      ::file::path path;
+   //   ::file::path path;
 
-      {
+   //   {
 
-         wstring wstrPath(e_get_buffer, MAX_PATH * 16);
+   //      wstring wstrPath;
+   //      
+   //      auto wstrPath.get_bufer((e_get_buffer, MAX_PATH * 16);
 
-         if (!GetModuleFileNameW(nullptr, wstrPath, (DWORD)wstrPath.length()))
-         {
+   //      if (!GetModuleFileNameW(nullptr, wstrPath, (DWORD)wstrPath.length()))
+   //      {
 
-            return "";
+   //         return "";
 
-         }
+   //      }
 
-         path = wstrPath.release_buffer();
+   //      path = wstrPath.release_buffer();
 
-      }
+   //   }
 
-      return path;
+   //   return path;
 
-   }
+   //}
 
 
    void acme_file::clear_application_data()

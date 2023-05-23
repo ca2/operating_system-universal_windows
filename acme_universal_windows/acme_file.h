@@ -20,7 +20,7 @@ namespace acme_universal_windows
       ~acme_file() override;
 
 
-      ::file::path module() override;
+      //::file::path module() override;
 
       
       void clear_application_data() override;
