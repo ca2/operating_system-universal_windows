@@ -65,7 +65,7 @@ namespace windowing_universal_windows
 
 
 
-   index display::get_main_monitor(RECTANGLE_I32 & rectangle)
+   index display::get_main_monitor(::rectangle_i32 & rectangle)
    {
 
       //index iMainMonitor = 0;
@@ -140,7 +140,7 @@ namespace windowing_universal_windows
    }
 
 
-//   bool display::get_monitor_rectangle(index iMonitor, RECTANGLE_I32 * prectangle)
+//   bool display::get_monitor_rectangle(index iMonitor, ::rectangle_i32 * prectangle)
 //   {
 //
 //#ifdef UNIVERSAL_WINDOWS
@@ -235,7 +235,7 @@ namespace windowing_universal_windows
    }
 
 
-   //bool display::get_desk_monitor_rect(index iMonitor, RECTANGLE_I32 * prectangle)
+   //bool display::get_desk_monitor_rect(index iMonitor, ::rectangle_i32 * prectangle)
 
    //{
 
@@ -245,7 +245,7 @@ namespace windowing_universal_windows
    //}
 
 
-   index display::get_main_workspace(RECTANGLE_I32 & rectangle)
+   index display::get_main_workspace(::rectangle_i32 & rectangle)
 
    {
 
@@ -308,7 +308,7 @@ namespace windowing_universal_windows
    }
 
 
-//   bool display::get_wkspace_rect(index iWkspace, RECTANGLE_I32 * prectangle)
+//   bool display::get_wkspace_rect(index iWkspace, ::rectangle_i32 * prectangle)
 //   {
 //
 //#ifdef WINDOWS_DESKTOP
@@ -385,7 +385,7 @@ namespace windowing_universal_windows
    }
 
 
-   //bool display::get_desk_wkspace_rect(index iWkspace, RECTANGLE_I32 * prectangle)
+   //bool display::get_desk_wkspace_rect(index iWkspace, ::rectangle_i32 * prectangle)
 
    //{
 
@@ -424,7 +424,7 @@ namespace windowing_universal_windows
    }
 
 
-   //bool display::wkspace_to_monitor(RECTANGLE_I32 * prectangle, index iMonitor, index iWkspace)
+   //bool display::wkspace_to_monitor(::rectangle_i32 * prectangle, index iMonitor, index iWkspace)
    //{
 
    //   ::rectangle_i32 rectangle(*prectangle);
@@ -458,7 +458,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //bool display::wkspace_to_monitor(RECTANGLE_I32 * prectangle)
+   //bool display::wkspace_to_monitor(::rectangle_i32 * prectangle)
    //{
 
    //   index iWkspace = get_best_wkspace(nullptr, rectangle_i32(prectangle));
@@ -468,7 +468,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //bool display::monitor_to_wkspace(RECTANGLE_I32 * prectangle)
+   //bool display::monitor_to_wkspace(::rectangle_i32 * prectangle)
    //{
 
    //   index iMonitor = get_best_monitor(nullptr, rectangle_i32(prectangle));
@@ -478,7 +478,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //bool display::monitor_to_wkspace(RECTANGLE_I32 * prectangle, index iWkspace, index iMonitor)
+   //bool display::monitor_to_wkspace(::rectangle_i32 * prectangle, index iWkspace, index iMonitor)
    //{
 
    //   ::rectangle_i32 rectangle(prectangle);
@@ -834,7 +834,7 @@ namespace windowing_universal_windows
    }
 
 
-   index display::get_best_monitor(RECTANGLE_I32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation, ::windowing::window* pwindowGetCursorPosition)
+   index display::get_best_monitor(::rectangle_i32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation, ::windowing::window* pwindowGetCursorPosition)
    {
 
       index iMatchingMonitor = -1;
@@ -1004,7 +1004,7 @@ namespace windowing_universal_windows
    }
 
 
-   index display::get_good_iconify(RECTANGLE_I32 * prectangle, const rectangle_i32 & rectangleParam)
+   index display::get_good_iconify(::rectangle_i32 * prectangle, const rectangle_i32 & rectangleParam)
    {
 
       ::rectangle_i32 rectangleMonitor;
@@ -1125,7 +1125,7 @@ namespace windowing_universal_windows
    }
 
 
-   //::index display::get_main_monitor(RECTANGLE_I32 * prectangle)
+   //::index display::get_main_monitor(::rectangle_i32 * prectangle)
    //{
 
    //   const POINT pointZero = { 0, 0 };

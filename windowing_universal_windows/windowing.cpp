@@ -714,7 +714,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //void windowing::get_cursor_pos(POINT_I32 * ppoint)
+   //void windowing::get_cursor_pos(::point_i32 * ppoint)
    //{
 
 
@@ -823,7 +823,7 @@ namespace windowing_universal_windows
 //   }
 
    
-   int_bool windowing::point_is_window_origin(POINT_I32 ptHitTest, oswindow oswindowExclude, int iMargin)
+   int_bool windowing::point_is_window_origin(::point_i32 ptHitTest, oswindow oswindowExclude, int iMargin)
    {
 
       //HWND hwndExclude = __hwnd(oswindowExclude);
@@ -1136,7 +1136,7 @@ namespace windowing_universal_windows
    }
 
 
-   //void windowing::get_cursor_position(POINT_I32* ppoint)
+   //void windowing::get_cursor_position(::point_i32* ppoint)
    //{
 
    //   ppoint = m_pointCursor;

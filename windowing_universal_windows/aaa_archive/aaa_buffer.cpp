@@ -438,7 +438,7 @@ namespace windowing_universal_windows
 //            //else
 //            //{
 //
-//            POINT_I32 pointSrc = { 0 };
+//            ::point_i32 pointSrc = { 0 };
 //
 //            //BLENDFUNCTION blendPixelFunction = { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA };
 //
@@ -714,11 +714,11 @@ namespace windowing_universal_windows
 //            //
 //            //               }
 //
-//                           //RECTANGLE_I32 r3;
+//                           //::rectangle_i32 r3;
 //
 //                           //GetWindowRect(m_oswindow, &r3);
 //
-//                           //RECTANGLE_I32 r4;
+//                           //::rectangle_i32 r4;
 //
 //                           //GetClientRect(m_oswindow, &r4);
 //
