@@ -236,7 +236,7 @@ namespace aura_universal_windows
       //virtual void InvalidateRgn(::draw2d::region* pRgn, bool bErase = true);
       //virtual void ValidateRect(const ::rectangle_i32 * lpRect);
       //virtual void ValidateRgn(::draw2d::region* pRgn);
-      virtual bool ShowWindow(int nCmdShow);
+      virtual bool show_window(int nCmdShow);
       virtual void _001WindowMaximize();
       virtual void _001WindowRestore();
       virtual bool is_window_visible();
@@ -278,20 +278,20 @@ namespace aura_universal_windows
       virtual bool EnableWindow(bool bEnable = true);
 
       // the active ::user::interaction_impl applies only to top-level (frame windows)
-      //virtual ::user::interaction *  GetActiveWindow();
-      //virtual ::user::interaction *  SetActiveWindow();
+      //virtual ::user::interaction * get_active_window();
+      //virtual ::user::interaction * set_active_window();
 
       // the foreground ::user::interaction_impl applies only to top-level windows (frame windows)
-      //virtual bool SetForegroundWindow();
-      //static ::pointer<::user::interaction_impl>GetForegroundWindow();
+      //virtual bool set_foreground_window();
+      //static ::pointer<::user::interaction_impl>get_foreground_window();
 
       virtual atom SetDlgCtrlId(atom atom);
       virtual atom GetDlgCtrlId();
 
 
 
-      //virtual ::user::interaction *  GetFocus();
-      //virtual bool  SetFocus() ;
+      //virtual ::user::interaction *  XXXGetFocus();
+      //virtual bool  XXXSetFocus() ;
 
       //static ::user::interaction *  get_desktop_window();
 

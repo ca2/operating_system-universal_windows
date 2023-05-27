@@ -641,7 +641,7 @@ namespace windowing_universal_windows
    //   if (pinteraction->get_wnd() != nullptr)
    //   {
 
-   //      pinteraction->SetFocus();
+   //      pinteraction->XXXSetFocus();
 
    //   }
 

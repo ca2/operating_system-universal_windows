@@ -686,7 +686,7 @@ namespace windowing_universal_windows
 
          m_pwindow->m_puserinteractionimpl->m_puserinteraction->order_top();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->display(e_display_restored);
+         m_pwindow->m_puserinteractionimpl->m_puserinteraction->display(e_display_normal);
 
          //defer_resize_top_level_windows();
 

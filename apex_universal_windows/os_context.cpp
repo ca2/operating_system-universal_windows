@@ -3247,7 +3247,7 @@ return false;
 
    //   ////      pinteraction->order_top();
 
-   //   ////      pinteraction->display(e_display_normal, e_activation_set_foreground);
+   //   ////      pinteraction->display(e_display_normal, XXXe_activation_set_foreground);
 
    //   ////      pinteraction->set_need_redraw();
 
@@ -3425,7 +3425,7 @@ return false;
 
    //   ////   pinteraction->order_top();
 
-   //   ////   pinteraction->display(e_display_normal, e_activation_set_foreground);
+   //   ////   pinteraction->display(e_display_normal, XXXe_activation_set_foreground);
 
    //   ////   pinteraction->set_need_redraw();
 
@@ -3545,7 +3545,7 @@ return false;
 
    //   ////   pinteraction->order_top();
 
-   //   ////   pinteraction->display(e_display_normal, e_activation_set_foreground);
+   //   ////   pinteraction->display(e_display_normal, XXXe_activation_set_foreground);
 
    //   ////   pinteraction->set_need_redraw();
 
@@ -3667,7 +3667,7 @@ return false;
 
    //   ////   pinteraction->order_top();
 
-   //   ////   pinteraction->display(e_display_normal, e_activation_set_foreground);
+   //   ////   pinteraction->display(e_display_normal, XXXe_activation_set_foreground);
 
    //   ////   pinteraction->set_need_redraw();
 

@@ -747,7 +747,7 @@ namespace windowing_universal_windows
       if (edisplay == e_display_none)
       {
 
-         edisplay = e_display_restored;
+         edisplay = e_display_normal;
 
       }
 

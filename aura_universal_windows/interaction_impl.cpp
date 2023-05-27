@@ -228,7 +228,7 @@ namespace aura_universal_windows
       //if((get_handle() == nullptr))
         // return false;
 
-      ShowWindow(SW_HIDE);
+      XXXShowWindow(SW_HIDE);
 
       return bResult;
 
@@ -1422,7 +1422,7 @@ return true;
       //{
       //   // clicking on floating frame when it does not have
       //   // focus itself -- activate the toplevel frame instead.
-      //   EnsureTopLevelParent()->SetForegroundWindow();
+      //   EnsureTopLevelParent()->set_foreground_window();
       //}
    }
 
@@ -1627,7 +1627,7 @@ return true;
    //   //case SC_NEXTWINDOW:
    //   //   if (LOWORD(lParam) == VK_F6 && pParent != nullptr)
    //   //   {
-   //   //      pParent->SetFocus();
+   //   //      pParent->XXXSetFocus();
    //   //      return true;
    //   //   }
    //   //   break;
@@ -1648,14 +1648,14 @@ return true;
    //   //         // and focus after sending it.
    //   //         oswindow hWndSave = get_handle();
    //   //         oswindow hWndFocus = ::GetFocus();
-   //   //         pParent->SetActiveWindow();
+   //   //         pParent->XXXSetActiveWindow();
    //   //         pParent->send_message(WM_SYSCOMMAND, nID, lParam);
 
    //   //         // be very careful here...
    //   //         if (::is_window(hWndSave))
-   //   //            ::SetActiveWindow(hWndSave);
+   //   //            ::XXXSetActiveWindow(hWndSave);
    //   //         if (::is_window(hWndFocus))
-   //   //            ::SetFocus(hWndFocus);
+   //   //            ::XXXSetFocus(hWndFocus);
    //   //      }
    //   //   }
    //   //   return true;
@@ -2662,11 +2662,11 @@ return true;
       /*      m_edisplay = e_display_normal;
             if(m_puserinteraction != nullptr)
             m_puserinteraction->m_edisplay = e_display_normal;
-            ::ShowWindow(get_handle(), SW_RESTORE);*/
+            ::XXXShowWindow(get_handle(), SW_RESTORE);*/
    }
 
 
-   bool interaction_impl::ShowWindow(int nCmdShow)
+   bool interaction_impl::show_window(int nCmdShow)
    {
 
       return m_puserinteraction->is_window_visible();
@@ -3378,7 +3378,7 @@ return true;
    //}
 
 
-   //::user::interaction *  interaction_impl::SetActiveWindow()
+   //::user::interaction *  interaction_impl::set_active_window()
    //{
 
    //   oswindow window = ::set_active_window(get_handle());
@@ -3396,7 +3396,7 @@ return true;
    //}
 
 
-   //bool interaction_impl::SetFocus()
+   //bool interaction_impl::XXXSetFocus()
    //{
 
    //   ::set_focus(m_puserinteraction->get_handle());
@@ -3836,12 +3836,12 @@ return true;
    //}
 
 
-   //bool interaction_impl::SetForegroundWindow()
+   //bool interaction_impl::set_foreground_window()
    //{
 
    //   throw ::exception(todo);
 
-   //   //return ::SetForegroundWindow(get_handle()) != false;
+   //   //return ::XXXSetForegroundWindow(get_handle()) != false;
 
    //}
 

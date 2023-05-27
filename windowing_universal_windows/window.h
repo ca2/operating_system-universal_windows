@@ -711,11 +711,11 @@ namespace windowing_universal_windows
       virtual bool enable_window(bool bEnable = true);
 
       // the active interaction_impl applies only to top-level (frame windows)
-      //virtual ::user::interaction * GetActiveWindow();
-      //virtual ::user::interaction * SetActiveWindow();
+      //virtual ::user::interaction * get_active_window();
+      //virtual ::user::interaction * set_active_window();
 
       // the foreground interaction_impl applies only to top-level windows (frame windows)
-      //virtual bool SetForegroundWindow();
+      //virtual bool set_foreground_window();
       //virtual ::user::interaction * GetForegroundWindow();
 
 

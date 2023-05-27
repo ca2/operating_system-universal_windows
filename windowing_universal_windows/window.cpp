@@ -631,7 +631,7 @@ namespace windowing_universal_windows
 //      //HWND hwnd = CreateWindowW(wstrClassName, wstrWindowName, WS_OVERLAPPED,
 //      //   CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, pusersystem->m_createstruct.hInstance, nullptr);
 //
-//      //::ShowWindow(hwnd,SW_SHOWNORMAL);
+//      //::XXXShowWindow(hwnd,SW_SHOWNORMAL);
 //      //::UpdateWindow(hwnd);
 //
 //      //bool bUnicode = IsWindowUnicode(hwnd);
@@ -1512,7 +1512,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //if (!::ShowWindow(hwnd, iShowWindow))
+      //if (!::XXXShowWindow(hwnd, iShowWindow))
       //{
 
       //   return ::error_failed;
@@ -1771,7 +1771,7 @@ namespace windowing_universal_windows
 
       //HWND hwnd = get_hwnd();
 
-      //if (!::SetActiveWindow(hwnd))
+      //if (!::XXXSetActiveWindow(hwnd))
       //{
 
       //   return ::error_failed;
@@ -2548,7 +2548,7 @@ namespace windowing_universal_windows
       //   if (puserinteractionTopLevel)
       //   {
 
-      //      puserinteractionTopLevel->SetForegroundWindow();
+      //      puserinteractionTopLevel->set_foreground_window();
 
       //   }
 
@@ -3517,7 +3517,7 @@ namespace windowing_universal_windows
 
    //   HWND hwnd = get_hwnd();
 
-   //   if (!::SetFocus(hwnd))
+   //   if (!::XXXSetFocus(hwnd))
    //   {
 
    //      return ::error_failed;
@@ -3531,7 +3531,7 @@ namespace windowing_universal_windows
 
 
 
-   //bool window::SetFocus()
+   //bool window::XXXSetFocus()
    //{
 
    //   if (!::IsWindow(get_hwnd()))
@@ -3551,9 +3551,9 @@ namespace windowing_universal_windows
    //   puserinteraction->post_procedure(__routine([this]()
    //      {
 
-   //         HWND hwnd = ::SetFocus(get_hwnd());
+   //         HWND hwnd = ::XXXSetFocus(get_hwnd());
 
-   //         ::output_debug_string("::windowing_universal_windows::window::SetFocus ::SetFocus(" + ::hex::lower_from((iptr)hwnd) + ")");
+   //         ::output_debug_string("::windowing_universal_windows::window::XXXSetFocus ::XXXSetFocus(" + ::hex::lower_from((iptr)hwnd) + ")");
 
    //         return ::success;
 
