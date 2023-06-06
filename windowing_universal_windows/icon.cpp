@@ -181,7 +181,7 @@ namespace windowing_universal_windows
    }
 
 
-   void icon::get_sizes(array < concrete < ::size_i32 > > & a)
+   void icon::get_sizes(::size_i32_i32 > > & a)
    {
 
       a.erase_all();

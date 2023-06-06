@@ -582,10 +582,10 @@ namespace windowing_universal_windows
 
       //puserinteraction->layout().sketch().set_modified();
 
-      int x = puserinteraction->const_layout().sketch().origin().x;
-      int y = puserinteraction->const_layout().sketch().origin().y;
-      int cx = puserinteraction->const_layout().sketch().size().cx;
-      int cy = puserinteraction->const_layout().sketch().size().cy;
+      int x = puserinteraction->const_layout().sketch().origin().x();
+      int y = puserinteraction->const_layout().sketch().origin().y();
+      int cx = puserinteraction->const_layout().sketch().size().cx();
+      int cy = puserinteraction->const_layout().sketch().size().cy();
 
       HWND hwndParent = nullptr;
 

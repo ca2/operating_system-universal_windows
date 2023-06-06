@@ -60,9 +60,9 @@ namespace aura_universal_windows
    bool interaction_impl::_native_create_window_ex(::pointer<::user::system>pusersystem)
    {
 
-      auto x = m_puserinteraction->const_layout().design().origin().x;
+      auto x = m_puserinteraction->const_layout().design().origin().x();
 
-      auto y = m_puserinteraction->const_layout().design().origin().y;
+      auto y = m_puserinteraction->const_layout().design().origin().y();
 
       auto cx = m_puserinteraction->width();
 
@@ -228,7 +228,7 @@ namespace aura_universal_windows
       //if((get_handle() == nullptr))
         // return false;
 
-      XXXShowWindow(SW_HIDE);
+      //XXXShowWindow(SW_HIDE);
 
       return bResult;
 
