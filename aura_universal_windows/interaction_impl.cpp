@@ -1,4 +1,4 @@
-﻿#include "framework.h"
+#include "framework.h"
 #include "interaction_impl.h"
 #include "acme/constant/message.h"
 #include "acme/exception/not_implemented.h"

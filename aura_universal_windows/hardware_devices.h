@@ -1,4 +1,4 @@
-﻿// From windowing_win32/devices by camilo on 2023-02-12 18:20 <3ThomasBorregaardS�rensen!!
+// From windowing_win32/devices by camilo on 2023-02-12 18:20 <3ThomasBorregaardSorensen!!
 #pragma once
 
 

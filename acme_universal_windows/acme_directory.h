@@ -1,4 +1,4 @@
-﻿// Create on 2021-03-21 20:00 <3ThomasBS_
+// Create on 2021-03-21 20:00 <3ThomasBS_
 // Copied by camilo from operating_system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #pragma once
 
@@ -86,7 +86,7 @@ namespace acme_universal_windows
 // From acme/filesystem/file/dir.cpp by camilo 
 // From acme_posix/acme_directory.h
 // on 2021-08-09 03:20 BRT
-// <3ThomasBorregaardSørensen!!
+// <3ThomasBorregaardSorensen!!
 
 
 // namespace posix

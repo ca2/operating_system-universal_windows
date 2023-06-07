@@ -1,4 +1,4 @@
-﻿#include "framework.h"
+#include "framework.h"
 #include "system_interaction.h"
 ////#include "aura/message.h"
 ////#include "aura/procedure.h"

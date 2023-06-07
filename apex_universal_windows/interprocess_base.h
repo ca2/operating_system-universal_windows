@@ -1,4 +1,4 @@
-﻿// From interprocess_communication.h by Camilo 2022-10-11 11:32 BRT <3ThomasBorregaardSoerensen
+// From interprocess_communication.h by Camilo 2022-10-11 11:32 BRT <3ThomasBorregaardSoerensen
 #pragma once
 
 

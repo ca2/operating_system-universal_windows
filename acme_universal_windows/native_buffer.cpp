@@ -1,4 +1,4 @@
-﻿// Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
+// Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
 #include "framework.h"
 #include "native_buffer.h"
 #include "acme/filesystem/file/exception.h"

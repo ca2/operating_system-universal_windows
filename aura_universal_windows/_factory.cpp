@@ -1,4 +1,4 @@
-﻿#include "framework.h"
+#include "framework.h"
 #include "node.h"
 #include "interaction_impl.h"
 #include "hardware_devices.h"

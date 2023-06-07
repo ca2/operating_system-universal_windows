@@ -1,4 +1,4 @@
-﻿// Created by camilo on 2021-08-31 11:56 BRT <3ThomasBS__!!
+// Created by camilo on 2021-08-31 11:56 BRT <3ThomasBS__!!
 #include "framework.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"

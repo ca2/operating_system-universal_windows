@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 
 #include "apex_windows_common/file_context.h"

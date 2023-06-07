@@ -1,4 +1,4 @@
-﻿#pragma once
+#pragma once
 
 
 #include "aura/graphics/graphics/bitmap_source_buffer.h"
