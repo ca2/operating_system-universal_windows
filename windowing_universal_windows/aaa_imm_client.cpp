@@ -372,7 +372,7 @@ void imm_client::_001OnIme(::message::message * pmessage)
 
          //      }
 
-         //      ::output_debug_string("\nWM_IME_COMPOSITION Compositè String Length = " + __string(strComposition.get_length()));
+         //      ::output_debug_string("\nWM_IME_COMPOSITION Compositeh String Length = " + __string(strComposition.get_length()));
 
          //      on_text_composition(strComposition);
 

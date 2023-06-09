@@ -17,7 +17,7 @@ extern "C" int WinMainCRTStartup()
    if(!installer_install_register_window_class(::GetModuleHandle(NULL)))
       return -1;
 
-   g_hwndMessage = ::CreateWindowExA(0, "TeDigoS�", "ca2::fontopus::installer_install:callback_window", 0, 0, 0, 0, 0, HWND_MESSAGE, NULL, NULL, NULL);
+   g_hwndMessage = ::CreateWindowExA(0, "ca2InstallerWindowClass", "ca2::fontopus::installer_install:callback_window", 0, 0, 0, 0, 0, HWND_MESSAGE, NULL, NULL, NULL);
 
    DWORD dw = GetLastError();
    if(g_hwndMessage == NULL)

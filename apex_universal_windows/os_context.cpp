@@ -1441,7 +1441,7 @@ return false;
       //{
       //   u32 Ret = ::GetLastError();
       //   CloseServiceHandle(hdlSCM);
-      //   if(Ret == 1060) // O serviço já não existe. Service already doesn't exist.
+      //   if(Ret == 1060) // Service already doesn't exist.
       //      return true; // do self-healing
       //   return false;
       //}

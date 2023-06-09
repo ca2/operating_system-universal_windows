@@ -18,7 +18,7 @@ ATOM spa_install_register_window_class(HINSTANCE hInstance)
 	wcex.hCursor		   = LoadCursor(NULL, IDC_ARROW);
 	wcex.hbrBackground	= (HBRUSH)(COLOR_WINDOW+1);
    wcex.lpszMenuName	   = NULL;
-	wcex.lpszClassName	= "TeDigoS�";
+	wcex.lpszClassName	= "ca2InstallerWindowClass";
 	//wcex.hIcon			   = LoadIcon(hInstance, MAKEINTRESOURCE(IDI_STORE_CA2_SPA));
 	//wcex.hIconSm		   = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_SMALL));
 	wcex.hIcon			   = NULL;

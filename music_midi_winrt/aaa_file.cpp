@@ -956,7 +956,7 @@ namespace music
 //            else // Meta
 //            {
 //               // se o meta event possuir tkDelta > 0,
-//               // insere o evento no stream para que não haja perda de sincronismo
+//               // It inserts the event in the stream so that it doesn't loose syncing
 //               if(tkDelta > 0)
 //               {
 //                  InsertPadEvent(tkDelta, lpmh);
