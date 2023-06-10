@@ -98,7 +98,7 @@
 //CLASS_DECL_APEX void defer_dock_application(int_bool bDock)
 //{
 //
-//   __UNREFERENCED_PARAMETER(bDock);
+//   UNREFERENCED_PARAMETER(bDock);
 //
 //}
 //

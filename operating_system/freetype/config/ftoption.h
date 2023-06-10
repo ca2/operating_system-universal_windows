@@ -470,9 +470,9 @@ FT_BEGIN_HEADER
   /*                                                                       */
   /* Module errors                                                         */
   /*                                                                       */
-  /*   If this macro is set (which is _not_ the default), the higher byte  */
+  /*   If this macro is set (which is _not_ the default), the higher ::u8  */
   /*   of an error code gives the module in which the error has occurred,  */
-  /*   while the lower byte is the real error code.                        */
+  /*   while the lower ::u8 is the real error code.                        */
   /*                                                                       */
   /*   Setting this macro makes sense for debugging purposes only, since   */
   /*   it would break source compatibility of certain programs that use    */

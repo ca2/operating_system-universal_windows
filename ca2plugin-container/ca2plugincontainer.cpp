@@ -14,7 +14,7 @@ int __win_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, i
 
    //debug_box("ca2 plugin container win_main", "ca2 plugin container", 0);
 	
-   __UNREFERENCED_PARAMETER(lpCmdLine);
+   UNREFERENCED_PARAMETER(lpCmdLine);
 
 
    ::CoInitialize(NULL);

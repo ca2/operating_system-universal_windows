@@ -471,7 +471,7 @@ namespace apex_universal_windows
 
    //   FindClose(hFind);
 
-   //   rStatus.m_attribute = (byte)(findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
+   //   rStatus.m_attribute = (::u8)(findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
 
    //   rStatus.m_filesize = make64_from32(findFileData.nFileSizeLow, findFileData.nFileSizeHigh);
 

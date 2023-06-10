@@ -618,7 +618,7 @@ namespace acme_universal_windows
 //               ::u32 dwSize = _MAX_PATH * sizeof(char);
 //               ::u32 dwType;
 //               ::i32 lRes = ::RegQueryValueEx(hKeyInProc, "",
-//                                             nullptr, &dwType, (byte*)lpsz, &dwSize);
+//                                             nullptr, &dwType, (::u8*)lpsz, &dwSize);
 //               str.ReleaseBuffer();
 //               b = (lRes == ERROR_SUCCESS);
 //               RegCloseKey(hKeyInProc);
@@ -1036,7 +1036,7 @@ namespace acme_universal_windows
 //      VERIFY(FindClose(hFind));
 //
 //      // strip attribute of NORMAL bit, our API doesn't have a "normal" bit.
-//      rStatus.m_attribute = (byte) (findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
+//      rStatus.m_attribute = (::u8) (findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
 //
 //      // get just the low ::u32 of the file size_i32
 //      ASSERT(findFileData.nFileSizeHigh == 0);

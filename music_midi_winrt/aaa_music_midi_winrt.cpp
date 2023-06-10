@@ -13,14 +13,14 @@ namespace music
 
       const uint32_t grbChanMsgLen[] =
       {
-         0,                      /* 0x   not a status byte   */
-         0,                      /* 1x   not a status byte   */
-         0,                      /* 2x   not a status byte   */
-         0,                      /* 3x   not a status byte   */
-         0,                      /* 4x   not a status byte   */
-         0,                      /* 5x   not a status byte   */
-         0,                      /* 6x   not a status byte   */
-         0,                      /* 7x   not a status byte   */
+         0,                      /* 0x   not a status ::u8   */
+         0,                      /* 1x   not a status ::u8   */
+         0,                      /* 2x   not a status ::u8   */
+         0,                      /* 3x   not a status ::u8   */
+         0,                      /* 4x   not a status ::u8   */
+         0,                      /* 5x   not a status ::u8   */
+         0,                      /* 6x   not a status ::u8   */
+         0,                      /* 7x   not a status ::u8   */
          3,                      /* 8x   Note off            */
          3,                      /* 9x   Note on             */
          3,                      /* Ax   Poly pressure       */
@@ -320,7 +320,7 @@ namespace music
 
       //::music::e_result FillTypeCombo(sp(simple_combo_box)lpcombo)
       //{
-      //   __UNREFERENCED_PARAMETER(lpcombo);
+      //   UNREFERENCED_PARAMETER(lpcombo);
       //   /*   lpcombo->reset_content();
 
       //   string str;
@@ -349,7 +349,7 @@ namespace music
 
       //e_result FillPitchCombo(sp(simple_combo_box)lpcombo)
       //{
-      //   __UNREFERENCED_PARAMETER(lpcombo);
+      //   UNREFERENCED_PARAMETER(lpcombo);
       //   /*    lpcombo->reset_content();
 
       //   for(int32_t i = 0; i < 128; i++)
@@ -368,12 +368,12 @@ namespace music
       }
 
       // returns the midi stream var dword
-      uint32_t GetVDWord(byte * &hpbMidiStream, uint32_t dwLeft, uint32_t &dwValueParam)
+      uint32_t GetVDWord(::u8 * &hpbMidiStream, uint32_t dwLeft, uint32_t &dwValueParam)
       {
 
          BYTE                    b;
          uint32_t                   dwUsed  = 0;
-         byte * &            hpbImage = hpbMidiStream;
+         ::u8 * &            hpbImage = hpbMidiStream;
          uint32_t               dwValue;
 
          ASSERT(hpbImage != NULL);

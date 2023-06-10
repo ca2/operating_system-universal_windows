@@ -312,7 +312,7 @@ namespace windowing_universal_windows
 
    //   }
 
-   //   byte * p = (byte *) ::GlobalLock(hglb);
+   //   ::u8 * p = (::u8 *) ::GlobalLock(hglb);
 
 
    //   pimage->map();
@@ -711,7 +711,7 @@ namespace windowing_universal_windows
 
       pimage->map();
 
-      vertical_swap_copy_colorref(
+      vertical_swap_copy_image32(
          pimage->get_data(),
          pimage->width(),
          pimage->height(),
@@ -756,7 +756,7 @@ namespace windowing_universal_windows
 
       ////auto byteaccess = bitmapbuffer_ref.as<IMemoryBufferByteAccess>();
 
-      //::byte * pdataSrc = data.data();
+      //::u8 * pdataSrc = data.data();
       //
       //::u32 sizeSrc = data.size();
 
@@ -768,7 +768,7 @@ namespace windowing_universal_windows
 
       //::color::color colorFirstPixel(((::color32_t *)pdataSrc)[0]);
 
-      //copy_colorref(
+      //copy_image32(
       //   pimage->get_data(), 
       //   cx, cy, pimage->m_iScan, 
       //   (::color32_t *) pdataSrc, iSourceStride);

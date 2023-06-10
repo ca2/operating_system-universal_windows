@@ -256,13 +256,13 @@ namespace windowing_universal_windows
          //info.bmiHeader.biCompression = BI_RGB;
          //info.bmiHeader.biSizeImage = size.cy * iScan;
 
-         //::color32_t * pcolorref = nullptr;
+         //::color32_t * pimage32 = nullptr;
 
-         //hbitmap = ::CreateDIBSection(nullptr, &info, DIB_RGB_COLORS, (void **)&pcolorref, nullptr, 0);
+         //hbitmap = ::CreateDIBSection(nullptr, &info, DIB_RGB_COLORS, (void **)&pimage32, nullptr, 0);
 
          //::pixmap pixmap;
 
-         //pixmap.init(size, pcolorref, iScan);
+         //pixmap.init(size, pimage32, iScan);
 
          //hdc = ::CreateCompatibleDC(nullptr);
 
@@ -285,7 +285,7 @@ namespace windowing_universal_windows
          ////int area = size.area();
 
          ////auto pc = pixmap.colorref();
-         ////byte * pA = &((byte *)pc)[3];
+         ////::u8 * pA = &((::u8 *)pc)[3];
 
          ////for (int i = 0; i < area; i++)
          ////{
@@ -306,7 +306,7 @@ namespace windowing_universal_windows
          ////{
 
          ////   pc = pixmap.colorref();
-         ////   pA = &((byte *)pc)[3];
+         ////   pA = &((::u8 *)pc)[3];
 
          ////   for (int i = 0; i < area; i++)
          ////   {
@@ -324,7 +324,7 @@ namespace windowing_universal_windows
 
          //   pimage->map();
 
-         //   ::copy_colorref(pimage, pixmap);
+         //   ::copy_image32(pimage, pixmap);
 
          ////}
 

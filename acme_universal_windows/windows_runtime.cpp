@@ -907,7 +907,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS memsize windows_runtime_read_buffer(void * p, 
 
    auto reader = ::winrt::Windows::Storage::Streams::DataReader::FromBuffer(ibuffer);
 
-   winrt::array_view < byte > bytes((unsigned char *)p, ((unsigned char *)p) + s);
+   winrt::array_view < ::u8 > bytes((unsigned char *)p, ((unsigned char *)p) + s);
 
    reader.ReadBytes(bytes);
 
@@ -924,7 +924,7 @@ memory windows_runtime_buffer_memory(::winrt::Windows::Storage::Streams::IBuffer
 
    memory memory(ibuffer.Capacity());
 
-   ::winrt::array_view < byte > bytes(memory.begin(), memory.end());
+   ::winrt::array_view < ::u8 > bytes(memory.begin(), memory.end());
 
    reader.ReadBytes(bytes);
 
@@ -933,10 +933,10 @@ memory windows_runtime_buffer_memory(::winrt::Windows::Storage::Streams::IBuffer
 }
 
 
-::winrt::array_view <byte > windows_runtime_bytes(const void * p, memsize s)
+::winrt::array_view <::u8 > windows_runtime_bytes(const void * p, memsize s)
 {
 
-   return { (byte *)p, ((byte *)p) + s };
+   return { (::u8 *)p, ((::u8 *)p) + s };
 
 
 }
@@ -947,7 +947,7 @@ memory windows_runtime_buffer_memory(::winrt::Windows::Storage::Streams::IBuffer
 
    ::winrt::Windows::Storage::Streams::DataWriter writer;
 
-   ::winrt::array_view < const byte > bytes((byte *)p, ((byte *)p) + s);
+   ::winrt::array_view < const ::u8 > bytes((::u8 *)p, ((::u8 *)p) + s);
 
    writer.WriteBytes(bytes);
 

@@ -51,7 +51,7 @@ namespace acme_universal_windows
 
       //virtual ::pointer<::file::file>Duplicate() const;
 
-      //void put_byte_back(::byte byte) override;
+      //void put_byte_back(::u8 u8) override;
 
       void translate(filesize lOff, ::enum_seek eseek) override;
       void set_size(filesize dwNewLen) override;

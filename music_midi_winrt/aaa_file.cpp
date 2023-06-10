@@ -711,8 +711,8 @@ namespace music
 //            uint32_t cbPrerollNomimalMax
 //            )
 //         {
-//            __UNREFERENCED_PARAMETER(tkMax);
-//            __UNREFERENCED_PARAMETER(cbPrerollNomimalMax);
+//            UNREFERENCED_PARAMETER(tkMax);
+//            UNREFERENCED_PARAMETER(cbPrerollNomimalMax);
 //            e_result               smfrc;
 //
 //            if(eventptra.get_size() <= 0)
@@ -776,8 +776,8 @@ namespace music
 //            imedia_position                   tkMax,
 //            uint32_t                   cbPrerollNominalMax)
 //         {
-//            __UNREFERENCED_PARAMETER(tkMax);
-//            __UNREFERENCED_PARAMETER(cbPrerollNominalMax);
+//            UNREFERENCED_PARAMETER(tkMax);
+//            UNREFERENCED_PARAMETER(cbPrerollNominalMax);
 //            //   TRACE("buffer::StreamEvent tkDelta %d\n", tkDelta);
 //
 //            uint32_t                   dwTempo;
@@ -795,7 +795,7 @@ namespace music
 //               {
 //                  int32_t iTrack = pEvent->GetTrack();
 //                  int32_t iProgramChange = pEvent->GetChB1();
-//                  m_keyframe.rbProgram[iTrack] = (byte) iProgramChange;
+//                  m_keyframe.rbProgram[iTrack] = (::u8) iProgramChange;
 //                  //if(iProgramChange == 54)
 //                  //{
 //                  // pEvent->SetChB1(62);
@@ -823,7 +823,7 @@ namespace music
 //                  {
 //                     iNotePitch += 12;
 //                  }
-//                  pEvent->SetNotePitch((byte) iNotePitch);
+//                  pEvent->SetNotePitch((::u8) iNotePitch);
 //               }
 //
 //               *lpdw++ = (uint32_t)tkDelta;
@@ -1286,8 +1286,8 @@ namespace music
 //            ::ikaraoke::lyric_event_v1 *      pLyricEvent,
 //            LPMIDIHDR         lpmh)
 //         {
-//            __UNREFERENCED_PARAMETER(pLyricEvent);
-//            __UNREFERENCED_PARAMETER(lpmh);
+//            UNREFERENCED_PARAMETER(pLyricEvent);
+//            UNREFERENCED_PARAMETER(lpmh);
 //            /*    LPDWORD                 lpdw;
 //            uint32_t                   dwRounded;
 //            uint32_t               dwLength;
@@ -1670,7 +1670,7 @@ namespace music
 //                     if (ptopic->GetDataSize() != sizeof(m_keyframe.rbTempo))
 //                        return EInvalidFile;
 //
-//                     memcpy((byte *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
+//                     memcpy((::u8 *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
 //                  }
 //               }
 //               if((bEvent & 0xF0) == ::music::midi::ProgramChange)
@@ -1939,7 +1939,7 @@ namespace music
 //         {
 //
 //            uint32_t                len;
-//            byte *                  hpbImage;
+//            ::u8 *                  hpbImage;
 //            uint32_t                index;
 //
 //            ASSERT(pSmf != NULL);
@@ -1949,7 +1949,7 @@ namespace music
 //
 //            *pData = (uchar *) LocalAlloc(LPTR,len);
 //
-//            hpbImage = (byte *) pEvent->GetData();
+//            hpbImage = (::u8 *) pEvent->GetData();
 //
 //            for(index = 0; len; index++)
 //            {
@@ -1986,7 +1986,7 @@ namespace music
 //               return ENoMemory;
 //            }
 //
-//            byte * hpbDest, * hpbSrc;
+//            ::u8 * hpbDest, * hpbSrc;
 //
 //            hpbDest = GetImage();
 //
@@ -2147,7 +2147,7 @@ namespace music
 //            ::music::midi::event  * pPreviousEvent,
 //            ::music::midi::event  * pEvent)
 //         {
-//            __UNREFERENCED_PARAMETER(pPreviousEvent);
+//            UNREFERENCED_PARAMETER(pPreviousEvent);
 //
 //            e_result               smfrc;
 //            ::music::midi::event *           pevent;
@@ -2204,8 +2204,8 @@ namespace music
 //         track * pTrack = m_ptracks->GetEventTrack(pEventOld);
 //         if(pTrack == NULL)
 //         return TrackNotFound;
-//         byte * hpbImage = pEventOld->GetImage();
-//         byte * hpbFileImage = m_hpbImage;
+//         ::u8 * hpbImage = pEventOld->GetImage();
+//         ::u8 * hpbFileImage = m_hpbImage;
 //         if(pEventOld->GetImageSize() != pEventNew->m_cbImage)
 //         {
 //         int32_t iAddUp = pEventNew->m_cbImage - pEventOld->GetImageSize();
@@ -2231,8 +2231,8 @@ namespace music
 //         track * pTrack = m_ptracks->GetEventTrack(pEventOld);
 //         if(pTrack == NULL)
 //         return TrackNotFound;
-//         byte * hpbImage = pEventOld->GetImage();
-//         byte * hpbFileImage = m_hpbImage;
+//         ::u8 * hpbImage = pEventOld->GetImage();
+//         ::u8 * hpbFileImage = m_hpbImage;
 //         if(pEventOld->GetImageSize() != pEventNew->m_cbImage)
 //         {
 //         int32_t iAddUp = pEventNew->m_cbImage - pEventOld->GetImageSize();
@@ -2268,7 +2268,7 @@ namespace music
 //         imedia_position tkOldDelta;
 //         uint32_t dwGetUsed = ::music::midi::event::GetVDWord(pEvent->GetImage(), 256, &tkOldDelta);
 //         ASSERT(tkOldDelta == pEvent->_GetDelta());
-//         byte * hpbImage = pEvent->GetImage();
+//         ::u8 * hpbImage = pEvent->GetImage();
 //         if(dwSetUsed != dwGetUsed)
 //         {
 //         int32_t iAddUp = dwSetUsed - dwGetUsed;
@@ -2853,7 +2853,7 @@ namespace music
 //                     if (ptopic->GetDataSize() != sizeof(m_keyframe.rbTempo))
 //                        return EInvalidFile;
 //
-//                     memcpy((byte *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
+//                     memcpy((::u8 *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
 //                  }
 //               }
 //               if((bEvent & 0xF0) == ::music::midi::ProgramChange)

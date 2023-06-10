@@ -209,14 +209,14 @@ namespace windowing_universal_windows
 
       }
 
-      ::color32_t * pcolorref = nullptr;
+      ::color32_t * pimage32 = nullptr;
 
       int iScan = -1;
 
-      //HBITMAP hbitmap = create_windows_dib(size, &iScan, &pcolorref);
+      //HBITMAP hbitmap = create_windows_dib(size, &iScan, &pimage32);
 
       //if (hbitmap == nullptr 
-      //   || pcolorref == nullptr
+      //   || pimage32 == nullptr
       //   || iScan == 0)
       //{
 
@@ -231,7 +231,7 @@ namespace windowing_universal_windows
 
       //}
 
-      buffer.m_pixmap.init(size, pcolorref, iScan);
+      buffer.m_pixmap.init(size, pimage32, iScan);
 
       if (buffer.m_hbitmap != nullptr)
       {
@@ -349,7 +349,7 @@ namespace windowing_universal_windows
 
       auto size = buffer.m_pixmap.size();
 
-      if (m_bDibIsHostingBuffer && buffer.m_pixmap.colorref() == pimage->colorref())
+      if (m_bDibIsHostingBuffer && buffer.m_pixmap.colorref() == pimage->image32())
       {
 
       }
@@ -365,7 +365,7 @@ namespace windowing_universal_windows
 
          pimage->map();
 
-         ::copy_colorref(buffer.m_pixmap, size, pimage);
+         ::copy_image32(buffer.m_pixmap, size, pimage);
 
       }
 
@@ -412,7 +412,7 @@ namespace windowing_universal_windows
 //
 //         //      pimage->map();
 //
-//         //      ::copy_colorref(cx, cy, m_pcolorref, m_iScan, pimage->get_data(), pimage->scan_size());
+//         //      ::copy_image32(cx, cy, m_pcolorref, m_iScan, pimage->get_data(), pimage->scan_size());
 //
 //         //   }
 //         //   catch (...)

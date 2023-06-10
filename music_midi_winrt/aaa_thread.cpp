@@ -188,7 +188,7 @@ namespace music
 
                         clip(0, 127, m_pseq->m_iaRefVolume[iTrack]);
 
-                        byte bVolume = (byte)(m_pseq->m_iaRefVolume[iTrack] * maximum(0.0, minimum(1.0, dVolume)));
+                        ::u8 bVolume = (::u8)(m_pseq->m_iaRefVolume[iTrack] * maximum(0.0, minimum(1.0, dVolume)));
 
                         m_pseq->m_io->control_change(ptopic->GetTrack(), 7, bVolume);
                      }

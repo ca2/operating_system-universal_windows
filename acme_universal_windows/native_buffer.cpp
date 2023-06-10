@@ -88,7 +88,7 @@ namespace acme_universal_windows
    }
    
    
-   //void native_buffer::put_byte_back(::byte byte)
+   //void native_buffer::put_byte_back(::u8 u8)
    //{
 
    //   m_memoryBuffer.write(strUtf8.c_str(), strUtf8.get_length());
@@ -542,7 +542,7 @@ namespace acme_universal_windows
       //ASSERT_VALID(this);
       //ASSERT(m_hnative_buffer != (::u32)hnative_bufferNull);
 
-      ////      if (!::Locknative_buffer((HANDLE)m_hnative_buffer, LODWORD(dwPos), HIDWORD(dwPos), LODWORD(dwCount), HIDWORD(dwCount)))
+      ////      if (!::Locknative_buffer((HANDLE)m_hnative_buffer, lower_u32(dwPos), upper_u32(dwPos), lower_u32(dwCount), upper_u32(dwCount)))
       ////       WinFileException::ThrowOsError(get_application(), (::i32)::get_last_error());
    }
 
@@ -551,7 +551,7 @@ namespace acme_universal_windows
       //ASSERT_VALID(this);
       //ASSERT(m_hnative_buffer != (::u32)hnative_bufferNull);
 
-      ////  if (!::Unlocknative_buffer((HANDLE)m_hnative_buffer,  LODWORD(dwPos), HIDWORD(dwPos), LODWORD(dwCount), HIDWORD(dwCount)))
+      ////  if (!::Unlocknative_buffer((HANDLE)m_hnative_buffer,  lower_u32(dwPos), upper_u32(dwPos), lower_u32(dwCount), upper_u32(dwCount)))
       ////   WinFileException::ThrowOsError(get_application(), (::i32)::get_last_error());
    }
 
