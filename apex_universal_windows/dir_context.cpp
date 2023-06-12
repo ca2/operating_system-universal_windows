@@ -58,7 +58,7 @@ namespace apex_universal_windows
 
       string strPath = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
 
-      INFORMATION("ApplicationData::Current().LocalFolder()=" << strPath);
+      information() << "ApplicationData::Current().LocalFolder()=" << strPath;
 
       m_pathLocalFolder = strPath;
 

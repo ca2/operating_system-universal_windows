@@ -2170,7 +2170,7 @@ namespace windowing_universal_windows
 //
 //#ifdef SET_WINDOW_POS_LOG
 //
-//            INFORMATION("XMoveResizeWindow (%d, %d) - (%d, %d)", x, y, cx, cy);
+//            information() << "XMoveResizeWindow (%d, %d) - (%d, %d)", x, y, cx, cy;
 //
 //#endif
 //
@@ -2183,7 +2183,7 @@ namespace windowing_universal_windows
 //
 //#ifdef SET_WINDOW_POS_LOG
 //
-//               INFORMATION("Changing parameters... (%d, %d) - (%d, %d)", x, y, cx, cy);
+//               information() << "Changing parameters... (%d, %d) - (%d, %d)", x, y, cx, cy;
 //
 //#endif
 //
@@ -2227,7 +2227,7 @@ namespace windowing_universal_windows
 //      //            if(!XChangeWindowAttributes(display(), window(), CWOverrideRedirect, &set))
 //      //            {
 //      //
-//      //               INFORMATION("linux::window::_native_create_window_ex failed to clear override_redirect");
+//      //               information() << "linux::window::_native_create_window_ex failed to clear override_redirect";
 //      //
 //      //            }
 //      //
@@ -4300,7 +4300,7 @@ namespace windowing_universal_windows
       //   if (puserinteraction->layout().is_moving())
       //   {
 
-      //      INFORMATION("Window is Moving :: on_message_move");
+      //      information() << "Window is Moving :: on_message_move";
 
       //   }
 
@@ -5800,7 +5800,7 @@ namespace windowing_universal_windows
 //            // handler has set it to another one.
 //            pmouse->m_ecursor = cursor_default;
 //
-//            //INFORMATION("windows::e_message_mouse_move(%d,%d)", pmouse->m_point.x, pmouse->m_point.y);
+//            //information() << "windows::e_message_mouse_move(%d,%d)", pmouse->m_point.x, pmouse->m_point.y;
 //
 //            string strType;
 //

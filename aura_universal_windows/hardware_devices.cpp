@@ -124,7 +124,7 @@ namespace aura_universal_windows
 
    //      auto lasterror = ::GetLastError();
 
-   //      ERROR("RegisterDeviceNotification");
+   //      error() <<"RegisterDeviceNotification";
 
    //      throw exception(::windows::last_error_status(lasterror));
 

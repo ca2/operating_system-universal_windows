@@ -79,7 +79,7 @@ namespace windowing_universal_windows
       //if (!bCreateSessionWindow)
       //{
 
-      //   WARNING("Could not create session window");
+      //   warning() <<"Could not create session window";
 
       //}
 
