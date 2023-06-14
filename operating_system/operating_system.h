@@ -5,6 +5,9 @@
 #define boolean windows_boolean
 
 
+#undef UNREFERENCED_PARAMETER
+
+
 #ifdef _WINDOWS_
 #error WINDOWS.H already included.  ca2 apps must not #include <windows.h>
 #endif
