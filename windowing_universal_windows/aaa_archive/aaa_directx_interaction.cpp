@@ -63,7 +63,7 @@ namespace windowing_universal_windows
    //         catch (...)
    //         {
 
-   //            TRACE("Exception: interaction::_000OnDraw _001DrawChildren %s", typeid(*this).name());
+   //            information("Exception: interaction::_000OnDraw _001DrawChildren %s", typeid(*this).name());
 
    //         }
 
@@ -110,7 +110,7 @@ namespace windowing_universal_windows
    //      catch (...)
    //      {
 
-   //         TRACE("\n\nException thrown while drawing user::interaction\n\n");
+   //         information("\n\nException thrown while drawing user::interaction\n\n");
 
    //      }
 

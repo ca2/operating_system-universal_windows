@@ -2889,7 +2889,7 @@ return false;
       //      if(!estatusRegistry)
       //      {
 
-      //         TRACE("Failure to set ." + strExtension + "\\OpenWithProgids");
+      //         information("Failure to set ." + strExtension + "\\OpenWithProgids");
 
       //         estatus = estatusRegistry;
 
@@ -2974,7 +2974,7 @@ return false;
       ////   if(!regkey.set(strTargetProgId, ""))
       ////   {
 
-      ////      TRACE("Failure to set .htm/OpenWithProgids");
+      ////      information("Failure to set .htm/OpenWithProgids");
 
       ////   }
 

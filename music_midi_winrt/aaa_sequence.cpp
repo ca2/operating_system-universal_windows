@@ -524,7 +524,7 @@ Seq_Open_File_Cleanup:
             if (::music::midi::sequence::status_pre_rolled != get_status())
             {
 
-               TRACE( "seqStart(): State is wrong! [%u]", get_status());
+               information( "seqStart(): State is wrong! [%u]", get_status());
 
                return ::multimedia::result_unsupported_function;
 
@@ -681,7 +681,7 @@ Seq_Open_File_Cleanup:
             //   if(::success != m_mmrcLastErr)
             //   {
 
-            //      TRACE( "::music::midi::sequence::Stop() -> midiOutStop() returned %lu in seqStop()!\n", (uint32_t)m_mmrcLastErr);
+            //      information( "::music::midi::sequence::Stop() -> midiOutStop() returned %lu in seqStop()!\n", (uint32_t)m_mmrcLastErr);
 
             //      m_flags.unsignalize(e_flag_waiting);
 
@@ -873,7 +873,7 @@ Seq_Open_File_Cleanup:
          //      if(bSpecialModeV001End)
          //      {
          //         m_flags.unsignalize(FlagSpecialModeV001End);
-         //         TRACE("void CALLBACK ::music::midi::sequence::MidiOutProc m_flags.is_signalized(FlagSpecialModeV001End\n");
+         //         information("void CALLBACK ::music::midi::sequence::MidiOutProc m_flags.is_signalized(FlagSpecialModeV001End\n");
          //         pthread->PostMidiSequenceEvent(
          //            this,
          //            ::music::midi::sequence::EventSpecialModeV001End,
@@ -883,7 +883,7 @@ Seq_Open_File_Cleanup:
          //      {
          //         if(m_uBuffersInMMSYSTEM == 0)
          //         {
-         //            TRACE("void CALLBACK ::music::midi::sequence::MidiOutProc status_stopping == pSeq->get_status()\n");
+         //            information("void CALLBACK ::music::midi::sequence::MidiOutProc status_stopping == pSeq->get_status()\n");
          //            pthread->PostMidiSequenceEvent(
          //               this,
          //               ::music::midi::sequence::EventStopped,
@@ -894,7 +894,7 @@ Seq_Open_File_Cleanup:
          //      {
          //         if(m_flags.is_signalized(e_flag_end_of_file))
          //         {
-         //            TRACE("void CALLBACK ::music::midi::sequence::MidiOutProc m_flags.is_signalized(e_flag_end_of_file\n");
+         //            information("void CALLBACK ::music::midi::sequence::MidiOutProc m_flags.is_signalized(e_flag_end_of_file\n");
          //         }
          //         if(m_uBuffersInMMSYSTEM <= 0)
          //         {
@@ -1276,7 +1276,7 @@ Seq_Open_File_Cleanup:
 
                //if(IsInSpecialModeV001())
                //{
-               //   TRACE("::music::midi::sequence::OnEvent e_event_midi_stream_out IsInSpecialModeV001");
+               //   information("::music::midi::sequence::OnEvent e_event_midi_stream_out IsInSpecialModeV001");
                //}
                //else
                //{
@@ -1300,7 +1300,7 @@ Seq_Open_File_Cleanup:
                //default:
 
 
-               //   TRACE( "smfReadEvents returned %lu in callback!", (uint32_t) smfrc);
+               //   information( "smfReadEvents returned %lu in callback!", (uint32_t) smfrc);
 
                //   set_status(status_stopping);
 
@@ -1333,7 +1333,7 @@ Seq_Open_File_Cleanup:
                //   else
                //   {
 
-               //      TRACE("seqBufferDone(): midiStreamOut() returned %lu!", (uint32_t)mmrc);
+               //      information("seqBufferDone(): midiStreamOut() returned %lu!", (uint32_t)mmrc);
 
                //      set_status(::music::midi::sequence::status_stopping);
 

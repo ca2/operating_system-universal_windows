@@ -836,7 +836,7 @@ namespace windowing_universal_windows
       //   {
       //      // i1;
       //      //  return;
-      //      TRACE("buffer::CreateWindowSizeDependentResources(1) DXGI_ERROR_INVALID_CALL");
+      //      information("buffer::CreateWindowSizeDependentResources(1) DXGI_ERROR_INVALID_CALL");
       //   }
       //   else
       //   {
@@ -990,7 +990,7 @@ namespace windowing_universal_windows
          {
             // i1;
             //  return;
-            TRACE("buffer::CreateWindowSizeDependentResources(1) DXGI_ERROR_INVALID_CALL");
+            information("buffer::CreateWindowSizeDependentResources(1) DXGI_ERROR_INVALID_CALL");
          }
          else
          {

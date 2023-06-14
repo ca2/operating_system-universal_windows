@@ -647,7 +647,7 @@ namespace windowing_universal_windows
 //               //else
 //               //{
 //
-//               //   TRACE("Update discarded");
+//               //   information("Update discarded");
 //
 //               //}
 //
@@ -673,7 +673,7 @@ namespace windowing_universal_windows
 //               }
 //               else
 //               {
-//                  TRACE("Update discarded");
+//                  information("Update discarded");
 //
 //               }
 //
@@ -682,13 +682,13 @@ namespace windowing_universal_windows
 //               if (g_pointLastBottomRight != pointBottomRight)
 //               {
 //
-//                  TRACE("UpdateLayeredWindow Changed");
+//                  information("UpdateLayeredWindow Changed");
 //
 //                  g_pointLastBottomRight = pointBottomRight;
 //
 //               }
 //
-//               //TRACE("UpdateLayeredWindow Bottom Right (%d, %d)", pointBottomRight.x, pointBottomRight.y);
+//               //information("UpdateLayeredWindow Bottom Right (%d, %d)", pointBottomRight.x, pointBottomRight.y);
 //
 //
 //            }

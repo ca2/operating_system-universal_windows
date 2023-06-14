@@ -1116,10 +1116,10 @@ namespace windowing_universal_windows
 
       //MONITORINFO mi = m_monitorinfoa.last();
 
-      //TRACE("display::monitor_enum\n");
-      //TRACE("upper_bound %d\n", m_monitorinfoa.get_upper_bound());
-      //TRACE("rcMonitor(left, top, right, bottom) %d, %d, %d, %d\n", mi.rcMonitor.left, mi.rcMonitor.top, mi.rcMonitor.right, mi.rcMonitor.bottom);
-      //TRACE("rcWork(left, top, right, bottom) %d, %d, %d, %d\n", mi.rcWork.left, mi.rcWork.top, mi.rcWork.right, mi.rcWork.bottom);
+      //information("display::monitor_enum\n");
+      //information("upper_bound %d\n", m_monitorinfoa.get_upper_bound());
+      //information("rcMonitor(left, top, right, bottom) %d, %d, %d, %d\n", mi.rcMonitor.left, mi.rcMonitor.top, mi.rcMonitor.right, mi.rcMonitor.bottom);
+      //information("rcWork(left, top, right, bottom) %d, %d, %d, %d\n", mi.rcWork.left, mi.rcWork.top, mi.rcWork.right, mi.rcWork.bottom);
 
 
    }

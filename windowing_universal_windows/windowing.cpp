@@ -530,7 +530,7 @@ namespace windowing_universal_windows
       //   if (pmsg->message == 126)
       //   {
 
-      //      TRACE("e_message_display_change");
+      //      information("e_message_display_change");
 
       //   }
 

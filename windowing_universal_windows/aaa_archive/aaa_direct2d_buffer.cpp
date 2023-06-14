@@ -522,7 +522,7 @@
 //         {
 //            // i1;
 //            //  return;
-//            TRACE("direct2d_buffer::CreateWindowSizeDependentResources(1) DXGI_ERROR_INVALID_CALL");
+//            information("direct2d_buffer::CreateWindowSizeDependentResources(1) DXGI_ERROR_INVALID_CALL");
 //         }
 //         else
 //         {

@@ -299,7 +299,7 @@ namespace music
 
                      ((BYTE*)&uiBend2)[1] = b1;
 
-                     TRACE("pitch_bend ch=%02d bend1=%05d bend2=%05d", iChannel, uiBend, uiBend2);
+                     information("pitch_bend ch=%02d bend1=%05d bend2=%05d", iChannel, uiBend, uiBend2);
 
                      tkLastBend = tkPosition;
 

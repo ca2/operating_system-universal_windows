@@ -36,7 +36,7 @@ namespace music
 
                ///m_psequencethread->ResumeThread();
 
-               TRACE("player::initialize_instance %X\n", get_os_int());
+               information("player::initialize_instance %X\n", get_os_int());
                //SetMainWnd(NULL);
                //ASSERT(GetMainWnd() == NULL);
 
