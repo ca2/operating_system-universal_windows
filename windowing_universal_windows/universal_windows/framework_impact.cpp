@@ -32,10 +32,7 @@ namespace windowing_universal_windows
 
       ::color::color colorBackground;
 
-      colorBackground.alpha = 255;
-      colorBackground.red = uicolorBackground.R;
-      colorBackground.green = uicolorBackground.G;
-      colorBackground.blue = uicolorBackground.B;
+      colorBackground = argb(255, uicolorBackground.R, uicolorBackground.G, uicolorBackground.B);
 
       m_pwindow->acmesystem()->m_pnode->background_color(colorBackground);
 

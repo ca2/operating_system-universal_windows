@@ -716,7 +716,7 @@ namespace windowing_universal_windows
          pimage->width(),
          pimage->height(),
          pimage->scan_size(),
-         (::color32_t *)&m.data()[pbitmapinfo->bmiHeader.biSize],
+         (::image32_t *)&m.data()[pbitmapinfo->bmiHeader.biSize],
          pbitmapinfo->bmiHeader.biSizeImage / pbitmapinfo->bmiHeader.biHeight);
 
       //auto decoder = ::winrt::Windows::Graphics::Imaging::BitmapDecoder::CreateAsync(stream2).get();

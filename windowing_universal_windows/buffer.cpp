@@ -121,8 +121,10 @@ namespace windowing_universal_windows
    }
 
 
-   ::draw2d::graphics * buffer::on_begin_draw()
+   ::graphics::buffer_item * buffer::on_begin_draw()
    {
+
+      __defer_construct_new(m_pbufferitem);
 
       //auto pframeworkview = m_pframeworkview;
 
@@ -150,6 +152,8 @@ namespace windowing_universal_windows
          return nullptr;
 
       }
+
+      buffer_size_and_position(m_pbufferitem);
 
       __defer_construct(m_pdraw2dgraphics);
 
@@ -182,7 +186,9 @@ namespace windowing_universal_windows
 
       m_pdevicecontext->SetTransform(D2D1::Matrix3x2F::Identity());
 
-      return m_pdraw2dgraphics;
+      m_pbufferitem->m_pgraphics = m_pdraw2dgraphics;
+
+      return m_pbufferitem;
 
    }
 
@@ -267,7 +273,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool buffer::update_screen(::image * pimage)
+   bool buffer::on_update_screen(::graphics::buffer_item * pbufferitem)
    {
 
       if (m_bNewBuffer)
@@ -656,7 +662,7 @@ namespace windowing_universal_windows
    void buffer::OnWindowSizeChange()
    {
 
-      if (m_size.cx != m_windowBounds.Width || m_size.cy != m_windowBounds.Height)
+      if (m_size.cx() != m_windowBounds.Width || m_size.cy() != m_windowBounds.Height)
       {
 
          ::draw2d::lock lock(this);
@@ -682,7 +688,7 @@ namespace windowing_universal_windows
 
          //m_pwindow->m_puserinteraction->start_layout();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_placement(0, 0, m_size.cx, m_size.cy);
+         m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_placement(0, 0, m_size.cx(), m_size.cy());
 
          m_pwindow->m_puserinteractionimpl->m_puserinteraction->order_top();
 
@@ -752,17 +758,17 @@ namespace windowing_universal_windows
    //}
 
 
-   bool buffer::update_buffer(const ::size_i32 & size, int iStrideParam)
+   bool buffer::update_buffer(::graphics::buffer_item * pbufferitem)
    {
 
-      if (!::graphics::bitmap_source_buffer::update_buffer(size, iStrideParam))
+      if (!::graphics::bitmap_source_buffer::update_buffer(pbufferitem))
       {
 
          return false;
 
       }
 
-      m_size = size;
+      m_size = pbufferitem->m_size;
 
       CreateWindowSizeDependentResources();
 
@@ -783,8 +789,8 @@ namespace windowing_universal_windows
 
       // Store the window bounds so the next time we get a SizeChanged event we can
       // avoid rebuilding everything if the size_i32 is identical.
-      m_windowBounds.Width = (float)m_size.cx;
-      m_windowBounds.Height = (float)m_size.cy;
+      m_windowBounds.Width = (float)m_size.cx();
+      m_windowBounds.Height = (float)m_size.cy();
 
       //if (m_pswapchain != nullptr)
       //{
@@ -857,9 +863,9 @@ namespace windowing_universal_windows
 
       int cyScreen = displayInformation.ScreenHeightInRawPixels();
 
-      m_sizeBuffer.cx = maximum(cxScreen, m_size.cx);
+      m_sizeBuffer.cx() = maximum(cxScreen, m_size.cx());
 
-      m_sizeBuffer.cy = maximum(cyScreen, m_size.cy);
+      m_sizeBuffer.cy() = maximum(cyScreen, m_size.cy());
 
       bool bBufferUpdated = false;
 
@@ -869,8 +875,8 @@ namespace windowing_universal_windows
 
          // Otherwise, create a new one using the same adapter as the existing Direct3D device.
          DXGI_SWAP_CHAIN_DESC1 swapChainDesc = { 0 };
-         swapChainDesc.Width = m_sizeBuffer.cx;                                     // Use automatic sizing.
-         swapChainDesc.Height = m_sizeBuffer.cy;
+         swapChainDesc.Width = m_sizeBuffer.cx();                                     // Use automatic sizing.
+         swapChainDesc.Height = m_sizeBuffer.cy();
          swapChainDesc.Format = DXGI_FORMAT_B8G8R8A8_UNORM;           // This is the most common __swap chain format.
          swapChainDesc.Stereo = false;
          swapChainDesc.SampleDesc.Count = 1;                          // Don't use multi-sampling.
@@ -921,7 +927,7 @@ namespace windowing_universal_windows
          bBufferUpdated = true;
 
       }
-      else if(m_size.cx > m_sizeBuffer.cx || m_size.cy > m_sizeBuffer.cy)
+      else if(m_size.cx() > m_sizeBuffer.cx() || m_size.cy() > m_sizeBuffer.cy())
       {
 
          //synchronous_lock synchronouslockObjects(acmesystem()->m_paurasystem->draw2d()->get_object_list_mutex());
@@ -973,8 +979,8 @@ namespace windowing_universal_windows
          //       If the __swap chain already exists, resize it.
          hr = m_pswapchain->ResizeBuffers(
             0,
-            m_size.cx, // If you specify zero, DXGI will use the width of the client area of the target window.
-            m_size.cy, // If you specify zero, DXGI will use the height of the client area of the target window.
+            m_size.cx(), // If you specify zero, DXGI will use the width of the client area of the target window.
+            m_size.cy(), // If you specify zero, DXGI will use the height of the client area of the target window.
             DXGI_FORMAT_UNKNOWN, // Set this value to DXGI_FORMAT_UNKNOWN to preserve the existing format of the back buffer.
             DXGI_SWAP_CHAIN_FLAG_FOREGROUND_LAYER);
 
@@ -1015,9 +1021,9 @@ namespace windowing_universal_windows
 
          m_pswapchain->GetDesc1(&desc1);
 
-         m_sizeBuffer.cx = desc1.Width;
+         m_sizeBuffer.cx() = desc1.Width;
 
-         m_sizeBuffer.cy = desc1.Height;
+         m_sizeBuffer.cy() = desc1.Height;
 
          if (m_b3D)
          {
@@ -1155,9 +1161,9 @@ namespace windowing_universal_windows
 
       // Store the window bounds so the next time we get a SizeChanged event we can
       // avoid rebuilding everything if the size_i32 is identical.
-      m_windowBounds.Width = (float)m_size.cx;
+      m_windowBounds.Width = (float)m_size.cx();
 
-      m_windowBounds.Height = (float)m_size.cy;
+      m_windowBounds.Height = (float)m_size.cy();
 
       m_sizeBuffer = { 0,0 };
 

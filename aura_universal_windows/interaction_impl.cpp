@@ -5230,7 +5230,7 @@ namespace aura_universal_windows
 
       rectangle_i32 rectangleClient;
 
-      m_puserinteraction->client_rectangle(rectangleClient);
+      rectangleClient = m_puserinteraction->client_rectangle();
 
       if (rectangleClient.is_empty())
       {

@@ -57,10 +57,11 @@ namespace windowing_universal_windows
       ::pointer < ::particle >                              m_pparticleMutexDc;
       size_i32                                              m_size;
       ::size_i32                                            m_sizeBuffer;
-      ::pointer<window>                                    m_pwindow;
+      ::pointer < window >                                  m_pwindow;
+      ::pointer < ::graphics::buffer_item >                 m_pbufferitem;
       bool                                                  m_bInitialized;
       bool                                                  m_bInit;
-      ::image_pointer                                       m_pimage;
+      //::image_pointer                                       m_pimage;
       bool                                                  m_bCreated;
       ::winrt::Windows::Foundation::Rect                    m_windowBounds;
 
@@ -153,10 +154,10 @@ namespace windowing_universal_windows
       ID2D1DeviceContext * get_device_context();
 
 
-      bool update_screen(::image* pimage) override;
+      bool on_update_screen(::graphics::buffer_item * pimage) override;
 
 
-      ::draw2d::graphics* on_begin_draw() override;
+      ::graphics::buffer_item * on_begin_draw() override;
 
       void on_end_draw() override;
 
@@ -165,7 +166,7 @@ namespace windowing_universal_windows
       virtual void destroy_os_buffer();
 
 
-      bool update_buffer(const ::size_i32 & size, int iStrideParam = -1) override;
+      bool update_buffer(::graphics::buffer_item * pbufferitem) override;
 
 
       bool buffer_lock_round_swap_key_buffers() override;

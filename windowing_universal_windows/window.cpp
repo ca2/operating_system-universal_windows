@@ -417,13 +417,13 @@ namespace windowing_universal_windows
 
       ::winrt::Windows::Foundation::Rect rectangleWindow;
 
-      rectangleWindow.X = (float) puserinteraction->const_layout().design().m_point.x;
+      rectangleWindow.X = (float) puserinteraction->const_layout().design().origin().x();
 
-      rectangleWindow.Y = (float)puserinteraction->const_layout().design().m_point.y;
+      rectangleWindow.Y = (float)puserinteraction->const_layout().design().origin().y();
 
-      rectangleWindow.Width = (float)puserinteraction->const_layout().design().m_size.cx;
+      rectangleWindow.Width = (float)puserinteraction->const_layout().design().size().cx();
 
-      rectangleWindow.Height = (float)puserinteraction->const_layout().design().m_size.cy;
+      rectangleWindow.Height = (float)puserinteraction->const_layout().design().size().cy();
 
       if (!m_window)
       {
@@ -491,7 +491,7 @@ namespace windowing_universal_windows
 
          ::rectangle_i32 rectangle;
 
-         get_rect_normal(rectangle);
+         get_rect_normal(&rectangle);
 
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
@@ -3041,85 +3041,85 @@ namespace windowing_universal_windows
    //}
 
 
-   void window::set_window_text(const ::string & pszString)
-   {
+   //void window::set_window_text(const ::string & pszString)
+   //{
 
-      
+   //   
 
-      //DWORD_PTR lresult = 0;
+   //   //DWORD_PTR lresult = 0;
 
-      //auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+   //   //auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
-      //puserinteraction->m_strWindowText = pszString;
+   //   //puserinteraction->m_strWindowText = pszString;
 
-      //wstring wstrText(puserinteraction->m_strWindowText);
+   //   //wstring wstrText(puserinteraction->m_strWindowText);
 
-      //const unichar * pwszText = wstrText;
+   //   //const unichar * pwszText = wstrText;
 
-      //if (!::SendMessageTimeoutW(get_hwnd(), WM_SETTEXT, 0, (LONG_PTR)pwszText, SMTO_ABORTIFHUNG, 500, &lresult))
-      //{
+   //   //if (!::SendMessageTimeoutW(get_hwnd(), WM_SETTEXT, 0, (LONG_PTR)pwszText, SMTO_ABORTIFHUNG, 500, &lresult))
+   //   //{
 
-      //   return;
+   //   //   return;
 
-      //}
+   //   //}
 
-      //string str;
+   //   //string str;
 
-      //get_window_text(str);
+   //   //get_window_text(str);
 
-   }
-
-
-   strsize window::get_window_text(char * pszString, strsize nMaxCount)
-   {
-
-      string str;
-
-      get_window_text(str);
-
-      ansi_count_copy(pszString, str, (size_t)minimum(nMaxCount, str.length()));
-
-      return str.length();
-
-   }
+   //}
 
 
-   void window::get_window_text(string & str)
-   {
+   //strsize window::get_window_text(char * pszString, strsize nMaxCount)
+   //{
 
-      //DWORD_PTR lresult = 0;
+   //   string str;
 
-      //if (!::SendMessageTimeoutW(get_hwnd(), WM_GETTEXTLENGTH, 0, 0, SMTO_ABORTIFHUNG, 90, &lresult))
-      //   return;
+   //   get_window_text(str);
 
-      //wstring wstr;
+   //   ansi_count_copy(pszString, str, (size_t)minimum(nMaxCount, str.length()));
 
-      //if (!::SendMessageTimeoutW(get_hwnd(), WM_GETTEXT, (lparam)wstr.get_buffer(lresult + 1), lresult + 1, SMTO_ABORTIFHUNG, 90, &lresult))
-      //   return;
+   //   return str.length();
 
-      //str = wstr;
-      m_pwindowing->windowing_send({ e_timeout, 15_s, [&str]()
-         {
-
-            auto  applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
-
-            str = applicationview.Title().begin();
-
-         } });
-
-   }
+   //}
 
 
-   strsize window::get_window_text_length()
-   {
+   //void window::get_window_text(string & str)
+   //{
 
-      //ASSERT(::IsWindow(get_hwnd()));
+   //   //DWORD_PTR lresult = 0;
 
-      //return ::GetWindowTextLength(get_hwnd());
+   //   //if (!::SendMessageTimeoutW(get_hwnd(), WM_GETTEXTLENGTH, 0, 0, SMTO_ABORTIFHUNG, 90, &lresult))
+   //   //   return;
 
-      return 0;
+   //   //wstring wstr;
 
-   }
+   //   //if (!::SendMessageTimeoutW(get_hwnd(), WM_GETTEXT, (lparam)wstr.get_buffer(lresult + 1), lresult + 1, SMTO_ABORTIFHUNG, 90, &lresult))
+   //   //   return;
+
+   //   //str = wstr;
+   //   m_pwindowing->windowing_send({ e_timeout, 15_s, [&str]()
+   //      {
+
+   //         auto  applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
+
+   //         str = applicationview.Title().begin();
+
+   //      } });
+
+   //}
+
+
+   //strsize window::get_window_text_length()
+   //{
+
+   //   //ASSERT(::IsWindow(get_hwnd()));
+
+   //   //return ::GetWindowTextLength(get_hwnd());
+
+   //   return 0;
+
+   //}
 
 
    //void window::DragAcceptFiles(bool bAccept)
@@ -3962,7 +3962,7 @@ namespace windowing_universal_windows
 
       //return point;
 
-      return nullptr;
+      return {};
 
    }
 
@@ -7623,7 +7623,11 @@ namespace windowing_universal_windows
          if (::is_set(pbuffer))
          {
 
-            pbuffer->update_buffer(size);
+            auto pbufferitem = pbuffer->get_buffer_item();
+
+            pbufferitem->m_size = size;
+
+            pbuffer->update_buffer(pbufferitem);
 
          }
 
@@ -8059,9 +8063,9 @@ namespace windowing_universal_windows
 
          pusermessage = pmouse;
 
-         pmouse->m_point.x = (::i32)pointerPoint.RawPosition().X;
+         pmouse->m_point.x() = (::i32)pointerPoint.RawPosition().X;
 
-         pmouse->m_point.y = (::i32)pointerPoint.RawPosition().Y;
+         pmouse->m_point.y() = (::i32)pointerPoint.RawPosition().Y;
 
          pmouse->m_atom = e_message_mouse_move;
          //pmouse->m_playeredUserPrimitive  = acmesession()->m_puserinteractionHost;
@@ -8109,9 +8113,9 @@ namespace windowing_universal_windows
 
          auto pmouse = __new(::message::mouse);
 
-         pmouse->m_point.x = (::i32)pointerPoint.RawPosition().X;
+         pmouse->m_point.x() = (::i32)pointerPoint.RawPosition().X;
 
-         pmouse->m_point.y = (::i32)pointerPoint.RawPosition().Y;
+         pmouse->m_point.y() = (::i32)pointerPoint.RawPosition().Y;
 
          if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
          {
@@ -8185,9 +8189,9 @@ namespace windowing_universal_windows
 
          auto pmouse = __new(::message::mouse);
 
-         pmouse->m_point.x = (::i32)pointerPoint.RawPosition().X;
+         pmouse->m_point.x() = (::i32)pointerPoint.RawPosition().X;
 
-         pmouse->m_point.y = (::i32)pointerPoint.RawPosition().Y;
+         pmouse->m_point.y() = (::i32)pointerPoint.RawPosition().Y;
 
          if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
          {

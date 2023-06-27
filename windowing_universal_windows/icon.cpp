@@ -181,22 +181,22 @@ namespace windowing_universal_windows
    }
 
 
-   void icon::get_sizes(::size_i32_i32 > > & a)
+   void icon::get_sizes(::size_i32_array & a)
    {
 
       a.erase_all();
 
-      //for (auto & size : m_iconmap.keys())
-      //{
+      for (auto & size : m_imagemap.items())
+      {
 
-      //   a.add(size);
+         a.add(size);
 
-      //}
+      }
 
    }
 
 
-   image_pointer icon::get_image(const concrete < ::size_i32 > & size)
+   image_pointer icon::get_image(const ::size_i32 & size)
    {
 
       auto& pimage  = m_imagemap[size];
@@ -215,7 +215,7 @@ namespace windowing_universal_windows
    }
 
 
-   image_pointer icon::_create_image(const concrete < ::size_i32 > & size)
+   image_pointer icon::_create_image(const ::size_i32 & size)
    {
 
       HICON hicon = (HICON) get_os_data(size);

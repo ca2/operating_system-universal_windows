@@ -45,7 +45,7 @@ namespace windowing_universal_windows
       if (m_pimage)
       {
 
-         _create_from_image(m_pimage, m_szHotspotOffset.cx, m_szHotspotOffset.cy);
+         _create_from_image(m_pimage, m_szHotspotOffset.cx(), m_szHotspotOffset.cy());
 
          if(m_pimage.ok())
          {
