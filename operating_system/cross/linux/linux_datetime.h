@@ -1,4 +1,4 @@
 #pragma once
 
 
-#define __time_t time_t
+#define __time_t posix_time
