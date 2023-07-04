@@ -733,7 +733,7 @@ namespace windowing_win32
       if (!::IsWindow((HWND) hwnd))
       {
 
-         return 0x7fffffff;
+         return I32_MAXIMUM;
 
       }
 
@@ -742,7 +742,7 @@ namespace windowing_win32
       if (::GetParent(hwnd) == MESSAGE_WINDOW_PARENT)
       {
 
-         return 0x7fffffff;
+         return I32_MAXIMUM;
 
       }
 
@@ -757,7 +757,7 @@ namespace windowing_win32
       catch (...)
       {
 
-         return 0x7fffffff;
+         return I32_MAXIMUM;
 
       }
 
@@ -775,7 +775,7 @@ namespace windowing_win32
 
       }
 
-      return 0x7fffffff;
+      return I32_MAXIMUM;
 
 #endif
 
@@ -805,7 +805,7 @@ namespace windowing_win32
          }
 
          iOrder = GetZOrder(hwnd);
-         if (iOrder == 0x7fffffff)
+         if (iOrder == I32_MAXIMUM)
             break;
          ia.insert_at(0, iOrder);
 
