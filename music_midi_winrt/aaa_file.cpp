@@ -2125,7 +2125,7 @@ namespace music
 //         pTrack->m_smti.m_cbLength -= pEvent->GetImageSize();
 //         pTrack->WriteHeaderLength();
 //         m_cbImage -= pEvent->GetImageSize();
-//         memmove(
+//         memory_transfer(
 //         pEvent->GetImage(),
 //         pEvent->GetImage() + pEvent->GetImageSize(),
 //         m_cbImage - (pEvent->GetImage() - m_hpbImage) - pEvent->GetImageSize());
@@ -2214,7 +2214,7 @@ namespace music
 //         hpbImage += hpbFileImage - m_hpbImage;
 //         pTrack->m_smti.m_cbLength += iAddUp;
 //         pTrack->WriteHeaderLength();
-//         memmove(
+//         memory_transfer(
 //         hpbImage + iAddUp,
 //         hpbImage,
 //         m_cbImage - (hpbImage - m_hpbImage));
@@ -2241,7 +2241,7 @@ namespace music
 //         hpbImage += hpbFileImage - m_hpbImage;
 //         pTrack->m_smti.m_cbLength += iAddUp;
 //         pTrack->WriteHeaderLength();
-//         memmove(
+//         memory_transfer(
 //         hpbImage + iAddUp,
 //         hpbImage,
 //         m_cbImage - (hpbImage - m_hpbImage));
@@ -2282,7 +2282,7 @@ namespace music
 //         }
 //         pTrack->m_smti.m_cbLength += iAddUp;
 //         pTrack->WriteHeaderLength();
-//         memmove(
+//         memory_transfer(
 //         hpbImage + iAddUp,
 //         hpbImage,
 //         m_cbImage - (hpbImage - m_hpbImage));
