@@ -688,7 +688,7 @@ namespace windowing_universal_windows
 
          //m_pwindow->m_puserinteraction->start_layout();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_placement(0, 0, m_size.cx(), m_size.cy());
+         m_pwindow->m_puserinteractionimpl->m_puserinteraction->place(0, 0, m_size.cx(), m_size.cy());
 
          m_pwindow->m_puserinteractionimpl->m_puserinteraction->order_top();
 

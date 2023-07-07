@@ -2579,7 +2579,7 @@ namespace windowing_universal_windows
 
       auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
-      rectangleWindow = puserinteraction->screen_rect();
+      rectangleWindow = puserinteraction->screen_rectangle();
 
       //PAINTSTRUCT paint;
 
