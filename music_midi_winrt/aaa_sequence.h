@@ -112,7 +112,7 @@ namespace music
             //void Prepare(::ikaraoke::data & data);
             //void Prepare(int32_t iTrack, ::ikaraoke::data & data);
             //void Prepare(
-            //   string2a & str2a,
+            //   string_array_array & straa,
             //   imedia::position_2darray & tka2DTokensTicks,
             //   int32_t iMelodyTrack,
             //   int2a & ia2TokenLine,

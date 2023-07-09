@@ -2041,7 +2041,7 @@ namespace music
 //         /*int32_t buffer::WorkCalcMelodyTrack(
 //            ::music::midi::events ** ppEvents,
 //            imedia::position_array & positiona,
-//            int_array & iaTokenLine)
+//            ::i32_array & iaTokenLine)
 //         {
 //            return m_ptracks->WorkCalcMelodyTrack(
 //               ppEvents,

@@ -692,8 +692,8 @@ namespace windowing_win32
       if (hwnda.get_size() <= 0)
          return;
 
-      int_array ia1;
-      int_array ia2;
+      ::i32_array ia1;
+      ::i32_array ia2;
       HWND hwndSwap;
 
       for (i32 i = 0; i < hwnda.get_size(); i++)
@@ -782,7 +782,7 @@ namespace windowing_win32
    }
 
 
-   void window_util::GetZOrder(HWND hwnd, int_array & ia)
+   void window_util::GetZOrder(HWND hwnd, ::i32_array & ia)
    {
 
       if (!IsWindow(hwnd))
