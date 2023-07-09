@@ -69,9 +69,9 @@ namespace music
 
             ::music::midi::event * pevent = NULL;
 
-            imedia_position tkMax = ::numeric_info <imedia_position>::get_maximum_value();
+            imedia_position tickMax = ::numeric_info <imedia_position>::get_maximum_value();
 
-            imedia_position tkPosition;
+            imedia_position tickPosition;
 
             bool bGotEvent = false;
 
@@ -100,7 +100,7 @@ namespace music
 
             }
 
-            imedia_position tkLastBend = 0;
+            imedia_position tickLastBend = 0;
 
             m_tkPosition = 0;
 
@@ -154,7 +154,7 @@ namespace music
                if (!bGotEvent)
                {
 
-                  smfrc = m_pseq->file()->WorkGetNextEvent(pevent, tkMax, true);
+                  smfrc = m_pseq->file()->WorkGetNextEvent(pevent, tickMax, true);
 
                   if (::music::success != smfrc)
                   {
@@ -167,7 +167,7 @@ namespace music
 
                }
 
-               tkPosition = m_pseq->file()->GetPosition();
+               tickPosition = m_pseq->file()->GetPosition();
 
                uiNow = ::get_micro() - m_uiStart;
 
@@ -181,7 +181,7 @@ namespace music
                   if (m_pseq->m_eeffect == sequence::effect_fade_in || m_pseq->m_eeffect == sequence::effect_fade_out)
                   {
 
-                     dVolume = m_pseq->get_fade_volume(m_pseq->TicksToMillisecs(tkPosition));
+                     dVolume = m_pseq->get_fade_volume(m_pseq->TicksToMillisecs(tickPosition));
 
                      for (int iTrack = 0; iTrack < 16; iTrack++)
                      {
@@ -197,7 +197,7 @@ namespace music
 
                }
 
-               uiFile = m_pseq->TickToMicro(tkPosition);
+               uiFile = m_pseq->TickToMicro(tickPosition);
 
                if (uiNow < uiFile)
                {
@@ -236,7 +236,7 @@ namespace music
 
                   }
 
-                  m_tkPosition = tkPosition;
+                  m_tkPosition = tickPosition;
 
                   if (ptopic->GetType() == ::music::midi::NoteOn)
                   {
@@ -301,7 +301,7 @@ namespace music
 
                      information("pitch_bend ch=%02d bend1=%05d bend2=%05d", iChannel, uiBend, uiBend2);
 
-                     tkLastBend = tkPosition;
+                     tickLastBend = tickPosition;
 
                      m_pseq->m_io->pitch_bend(iChannel, minimum(16383, uiBend));
 

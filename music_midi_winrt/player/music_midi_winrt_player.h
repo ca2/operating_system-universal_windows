@@ -42,7 +42,7 @@ namespace music
                //void SendMmsgDone(::music::midi::sequence *pSeq, ::music::midi::LPMIDIDONEDATA lpmdd);
                void SetCallbackWindow(sp(::user::interaction) puie);
                bool PlayRate(double dRate = 0.0, uint32_t dwEllapse = 584);
-               bool Play(imedia_position tkStart, uint32_t dwEllapse = 584);
+               bool Play(imedia_position tickStart, uint32_t dwEllapse = 584);
 
 
                virtual bool init_thread() override;

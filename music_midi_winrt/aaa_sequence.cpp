@@ -197,7 +197,7 @@ namespace music
             file()->GetFileInfo(&sfi);
 
             m_dwTimeDivision = sfi.dwTimeDivision;
-            m_tkLength       = sfi.tkLength;
+            m_tkLength       = sfi.tickLength;
             if(m_iOpenMode == file::OpenForPlaying)
             {
                m_msLength      = TicksToMillisecs(m_tkLength);
@@ -266,7 +266,7 @@ Seq_Open_File_Cleanup:
                file()->GetFileInfo(&sfi);
 
                m_dwTimeDivision = sfi.dwTimeDivision;
-               m_tkLength       = sfi.tkLength;
+               m_tkLength       = sfi.tickLength;
                if(m_iOpenMode == file::OpenForPlaying)
                {
                   m_msLength      = TicksToMillisecs(m_tkLength);
@@ -327,7 +327,7 @@ Seq_Open_File_Cleanup:
                file()->GetFileInfo(&sfi);
 
                m_dwTimeDivision = sfi.dwTimeDivision;
-               m_tkLength       = sfi.tkLength;
+               m_tkLength       = sfi.tickLength;
                if(m_iOpenMode == file::OpenForPlaying)
                {
                   m_msLength      = TicksToMillisecs(m_tkLength);
@@ -472,8 +472,8 @@ Seq_Open_File_Cleanup:
                   !IsInSpecialModeV001())
                return ::multimedia::result_unsupported_function;
 
-            m_tkBase = lpPreroll->tkBase;
-            m_tkEnd = lpPreroll->tkEnd;
+            m_tkBase = lpPreroll->tickBase;
+            m_tkEnd = lpPreroll->tickEnd;
 
             set_status(::music::midi::sequence::status_pre_rolling);
 
@@ -707,7 +707,7 @@ Seq_Open_File_Cleanup:
          *
          * pSeq                      - The sequencer instance.
          *
-         * pTicks                    - A pointer to a uint32_t where the current position
+         & ticka                    - A pointer to a uint32_t where the current position
          *                             in ticks will be returned.
          *
          * Returns
@@ -812,18 +812,18 @@ Seq_Open_File_Cleanup:
          *
          * pSeq                      - The sequencer instance.
          *
-         * tkOffset                  - The tick offset into the stream.
+         * tickOffset                  - The tick offset into the stream.
          *
          * Returns the number of ::durations into the stream.
          *
          ***************************************************************************/
-         imedia_time sequence::TicksToMillisecs(imedia_position tkOffset)
+         imedia_time sequence::TicksToMillisecs(imedia_position tickOffset)
          {
-            return file()->TicksToMillisecs(tkOffset);
+            return file()->TicksToMillisecs(tickOffset);
          }
-         uint64_t sequence::TickToMicro(imedia_position tkOffset)
+         uint64_t sequence::TickToMicro(imedia_position tickOffset)
          {
-            return file()->TickToMicro(tkOffset);
+            return file()->TickToMicro(tickOffset);
          }
 
          //void sequence::OnDone(HMIDISTRM hmidistream, LPMIDIHDR lpmidihdr)
@@ -1391,9 +1391,9 @@ Seq_Open_File_Cleanup:
             return imedia_position(MillisecsToTicks((int_ptr) ::duration));
          }
 
-         imedia_time sequence::PositionToTime(imedia_position tk)
+         imedia_time sequence::PositionToTime(imedia_position tick)
          {
-            return imedia_time(TicksToMillisecs((imedia_position) (int_ptr) tk));
+            return imedia_time(TicksToMillisecs((imedia_position) (int_ptr) tick));
          }
 
 
@@ -1424,7 +1424,7 @@ Seq_Open_File_Cleanup:
          }
          //void sequence::Prepare(
          //   string_array_array & straa,
-         //   imedia::position_2darray & tka2DTokensTicks,
+         //   imedia::position_2darray & tickaaTokensTicks,
          //   int32_t iMelodyTrack,
          //   int2a & ia2TokenLine,
          //   ::ikaraoke::data & data)
@@ -1438,8 +1438,8 @@ Seq_Open_File_Cleanup:
 
          //   ASSERT(!file.IsNull());
          //   file.GetTracks().seek_begin();
-         //   imedia_position               tkMax = file.m_tkLength;
-         //   imedia_position               tkLastPosition = 0;
+         //   imedia_position               tickMax = file.m_tkLength;
+         //   imedia_position               tickLastPosition = 0;
 
 
          //   ::ikaraoke::static_data & staticdata = data.GetStaticData();
@@ -1454,15 +1454,15 @@ Seq_Open_File_Cleanup:
          //   }
          //   staticdata.m_LyricsDisplay = 30;
 
-         //   imedia::position_2darray tk2DNoteOnPositions(m_pobject);
-         //   imedia::position_2darray tk2DNoteOffPositions(m_pobject);
-         //   imedia::position_2darray tk2DBegPositions(m_pobject);
-         //   imedia::position_2darray tk2DEndPositions(m_pobject);
-         //   imedia::time_2darray ms2DTokensMillis(m_pobject);
-         //   imedia::time_2darray ms2DNoteOnMillis(m_pobject);
-         //   imedia::time_2darray ms2DNoteOffMillis(m_pobject);
-         //   imedia::time_2darray ms2DBegMillis(m_pobject);
-         //   imedia::time_2darray ms2DEndMillis(m_pobject);
+         //   imedia::position_2darray tickaaNoteOnPositions(m_pobject);
+         //   imedia::position_2darray tickaaNoteOffPositions(m_pobject);
+         //   imedia::position_2darray tickaaBegPositions(m_pobject);
+         //   imedia::position_2darray tickaaEndPositions(m_pobject);
+         //   imedia::time_array_array ms2DTokensMillis(m_pobject);
+         //   imedia::time_array_array ms2DNoteOnMillis(m_pobject);
+         //   imedia::time_array_array ms2DNoteOffMillis(m_pobject);
+         //   imedia::time_array_array ms2DBegMillis(m_pobject);
+         //   imedia::time_array_array ms2DEndMillis(m_pobject);
          //   ::music::midi::events midiEvents;
 
 
@@ -1491,7 +1491,7 @@ Seq_Open_File_Cleanup:
 
          //   file.PositionToTime(
          //      ms2DTokensMillis,
-         //      tka2DTokensTicks,
+         //      tickaaTokensTicks,
          //      0);
 
          //   ::ikaraoke::lyric_events_v2 *pLyricEventsV2;
@@ -1500,12 +1500,12 @@ Seq_Open_File_Cleanup:
          //   ::ikaraoke::lyric_events_v2 *pLyricEventsV2C;
          //   ::music::midi::events *pMidiEventsV1;
 
-         //   tk2DNoteOnPositions.set_size_create(tka2DTokensTicks.get_size());
-         //   tk2DNoteOffPositions.set_size_create(tka2DTokensTicks.get_size());
-         //   tk2DBegPositions.set_size_create(tka2DTokensTicks.get_size());
-         //   tk2DEndPositions.set_size_create(tka2DTokensTicks.get_size());
+         //   tickaaNoteOnPositions.set_size_create(tickaaTokensTicks.get_size());
+         //   tickaaNoteOffPositions.set_size_create(tickaaTokensTicks.get_size());
+         //   tickaaBegPositions.set_size_create(tickaaTokensTicks.get_size());
+         //   tickaaEndPositions.set_size_create(tickaaTokensTicks.get_size());
          //   int32_t i;
-         //   for(i = 0; i < tka2DTokensTicks.get_size(); i++)
+         //   for(i = 0; i < tickaaTokensTicks.get_size(); i++)
          //   {
          //      pLyricEventsV2 = new ::ikaraoke::lyric_events_v2();
          //      pLyricEventsV2B = new ::ikaraoke::lyric_events_v2();
@@ -1533,7 +1533,7 @@ Seq_Open_File_Cleanup:
          //         //pLyricEventsV2->m_iTrack =
          //         //   file.WorkCalcMelodyTrack(
          //         //   &pMidiEventsV1,
-         //         //   tka2DTokensTicks.operator[](i),
+         //         //   tickaaTokensTicks.operator[](i),
          //         //   ia2TokenLine[i]);
          //      }
          //      else
@@ -1589,7 +1589,7 @@ Seq_Open_File_Cleanup:
          //         (int32_t) pLyricEventsV2->m_iTrack,
          //         file.GetFormat(),
          //         &midiEvents,
-         //         tka2DTokensTicks.operator()(i));
+         //         tickaaTokensTicks.operator()(i));
 
          //      miditutil.PrepareLevel2Events(
          //         &eventsLevel2Beg,
@@ -1597,13 +1597,13 @@ Seq_Open_File_Cleanup:
          //         (int32_t) pLyricEventsV2->m_iTrack,
          //         file.GetFormat(),
          //         &midiEventsLevel2,
-         //         tka2DTokensTicks.operator()(i));
+         //         tickaaTokensTicks.operator()(i));
 
 
-         //      tk2DNoteOnPositions(i)     = noteOnEvents.m_tkaEventsPosition;
-         //      tk2DNoteOffPositions(i)    = noteOffEvents.m_tkaEventsPosition;
-         //      tk2DBegPositions(i)        = eventsLevel2Beg.m_tkaEventsPosition;
-         //      tk2DEndPositions(i)        = eventsLevel2End.m_tkaEventsPosition;
+         //      tickaaNoteOnPositions(i)     = noteOnEvents.m_tickaEventsPosition;
+         //      tickaaNoteOffPositions(i)    = noteOffEvents.m_tickaEventsPosition;
+         //      tickaaBegPositions(i)        = eventsLevel2Beg.m_tickaEventsPosition;
+         //      tickaaEndPositions(i)        = eventsLevel2End.m_tickaEventsPosition;
          //      pLyricEventsV2->m_dwaNotesData.copy(noteOnEvents.m_dwaEventsData);
          //      pLyricEventsV2B->m_dwaNotesData.copy(eventsLevel2Beg.m_dwaEventsData);
          //      pLyricEventsV2C->m_dwaNotesData.copy(eventsLevel2Beg.m_dwaEventsData);
@@ -1619,78 +1619,78 @@ Seq_Open_File_Cleanup:
 
          //   file.PositionToTime(
          //      ms2DNoteOnMillis,
-         //      tk2DNoteOnPositions,
+         //      tickaaNoteOnPositions,
          //      0);
 
          //   file.PositionToTime(
          //      ms2DNoteOffMillis,
-         //      tk2DNoteOffPositions,
+         //      tickaaNoteOffPositions,
          //      0);
 
          //   file.PositionToTime(
          //      ms2DBegMillis,
-         //      tk2DBegPositions,
+         //      tickaaBegPositions,
          //      0);
 
          //   file.PositionToTime(
          //      ms2DEndMillis,
-         //      tk2DEndPositions,
+         //      tickaaEndPositions,
          //      0);
 
 
          //   ::ikaraoke::lyric_events_v1 *pLyricEventsV1;
 
 
-         //   for(i = 0; i < tka2DTokensTicks.get_size(); i++)
+         //   for(i = 0; i < tickaaTokensTicks.get_size(); i++)
          //   {
          //      pLyricEventsV2 = (::ikaraoke::lyric_events_v2 *) lyricEvents.get_at(i);
          //      staticdata.m_eventstracks.add(pLyricEventsV2);
          //      file.TimeToPosition(
-         //         pLyricEventsV2->m_tkaTokensPosition,
+         //         pLyricEventsV2->m_tickaTokensPosition,
          //         ms2DTokensMillis(i),
          //         0);
          //      file.TimeToPosition(
-         //         pLyricEventsV2->m_tkaNotesPosition,
+         //         pLyricEventsV2->m_tickaNotesPosition,
          //         ms2DNoteOnMillis(i),
          //         0);
 
          //      imedia_time time1(0);
          //      imedia_time time2(0);
 
-         //      pLyricEventsV2->m_msaTokensPosition.CopySorted(
+         //      pLyricEventsV2->m_timeaTokensPosition.CopySorted(
          //         ms2DTokensMillis(i),
          //         time1,
          //         time2);
 
-         //      pLyricEventsV2->m_msaNotesDuration.Diff(
+         //      pLyricEventsV2->m_timeaNotesDuration.Diff(
          //         ms2DNoteOffMillis(i),
          //         ms2DNoteOnMillis(i));
 
          //      imedia_time time3(0);
          //      imedia_time time4(0);
 
-         //      pLyricEventsV2->m_msaNotesPosition.CopySorted(
+         //      pLyricEventsV2->m_timeaNotesPosition.CopySorted(
          //         ms2DNoteOnMillis(i),
          //         time3,
          //         time4);
 
          //      imedia_time time5(I32_MAXIMUM);
 
-         //      pLyricEventsV2->m_msaTokensDuration.ElementDiff(
+         //      pLyricEventsV2->m_timeaTokensDuration.ElementDiff(
          //         ms2DTokensMillis(i),
          //         time5);
 
          //   }
 
 
-         //   for(i = 0; i < tka2DTokensTicks.get_size(); i++)
+         //   for(i = 0; i < tickaaTokensTicks.get_size(); i++)
          //   {
          //      pLyricEventsV1 = new ::ikaraoke::lyric_events_v1();
          //      pLyricEventsV1->m_iType = ikaraoke::EventAdvanceShow;
          //      pLyricEventsV1->m_iOrder = i;
          //      //staticdata.m_eventsTracksForPositionCB.add(pLyricEventsV1);
          //      file.TimeToPosition(
-         //         pLyricEventsV1->m_tkaTokensPosition,
+         //         pLyricEventsV1->m_tickaTokensPosition,
          //         ms2DTokensMillis(i),
          //         -1000);
          //      //lyric_track * pLyricTrk = file.GetTracks().CreateLyricTrack();
@@ -1698,42 +1698,42 @@ Seq_Open_File_Cleanup:
          //   }
 
 
-         //   for(i = 0; i < tka2DTokensTicks.get_size(); i++)
+         //   for(i = 0; i < tickaaTokensTicks.get_size(); i++)
          //   {
          //      pLyricEventsV2 = (::ikaraoke::lyric_events_v2 *) lyricEventsForScoring.get_at(i);
          //      staticdata.m_eventsTracksForScoring.add(pLyricEventsV2);
          //      file.TimeToPosition(
-         //         pLyricEventsV2->m_tkaTokensPosition,
+         //         pLyricEventsV2->m_tickaTokensPosition,
          //         ms2DTokensMillis(i),
          //         0);
          //      file.TimeToPosition(
-         //         pLyricEventsV2->m_tkaNotesPosition,
+         //         pLyricEventsV2->m_tickaNotesPosition,
          //         ms2DNoteOnMillis(i),
          //         0);
 
          //      imedia_time time1(-100);
          //      imedia_time time2(0);
 
-         //      pLyricEventsV2->m_msaTokensPosition.CopySorted(
+         //      pLyricEventsV2->m_timeaTokensPosition.CopySorted(
          //         ms2DTokensMillis(i),
          //         time1,
          //         time2);
 
-         //      pLyricEventsV2->m_msaNotesDuration.Diff(
+         //      pLyricEventsV2->m_timeaNotesDuration.Diff(
          //         ms2DNoteOffMillis(i),
          //         ms2DNoteOnMillis(i));
 
          //      imedia_time time3(-100);
          //      imedia_time time4(0);
 
-         //      pLyricEventsV2->m_msaNotesPosition.CopySorted(
+         //      pLyricEventsV2->m_timeaNotesPosition.CopySorted(
          //         ms2DNoteOnMillis(i),
          //         time3,
          //         time4);
 
          //      imedia_time time5(I32_MAXIMUM);
 
-         //      pLyricEventsV2->m_msaTokensDuration.ElementDiff(
+         //      pLyricEventsV2->m_timeaTokensDuration.ElementDiff(
          //         ms2DTokensMillis(i),
          //         time5);
 
@@ -1746,7 +1746,7 @@ Seq_Open_File_Cleanup:
 
 
 
-         //   for(i = 0; i < tka2DTokensTicks.get_size(); i++)
+         //   for(i = 0; i < tickaaTokensTicks.get_size(); i++)
          //   {
          //      pLyricEventsV2 = (::ikaraoke::lyric_events_v2 *) lyricEventsForPositionCB.get_at(i);
          //      staticdata.m_eventsTracksForPositionCB.add(pLyricEventsV2);
@@ -1754,29 +1754,29 @@ Seq_Open_File_Cleanup:
          //      staticdata.m_eventstracksV002.add(pLyricEventsV2);
 
          //      file.TimeToPosition(
-         //         pLyricEventsV2->m_tkaTokensPosition,
+         //         pLyricEventsV2->m_tickaTokensPosition,
          //         ms2DTokensMillis(i),
          //         -100);
 
          //      file.TimeToPosition(
-         //         pLyricEventsV2->m_tkaNotesPosition,
+         //         pLyricEventsV2->m_tickaNotesPosition,
          //         ms2DNoteOnMillis(i),
          //         -100);
 
          //      imedia_time time1(-100);
          //      imedia_time time2(0);
 
-         //      pLyricEventsV2->m_msaTokensPosition.CopySorted(
+         //      pLyricEventsV2->m_timeaTokensPosition.CopySorted(
          //         ms2DTokensMillis(i),
          //         time1,
          //         time2);
 
-         //      pLyricEventsV2->m_msaNotesDuration.Diff(
+         //      pLyricEventsV2->m_timeaNotesDuration.Diff(
          //         ms2DNoteOffMillis(i),
          //         ms2DNoteOnMillis(i));
 
          //      /*
-         //      pLyricEventsV2->m_msaNotesDuration.Diff(
+         //      pLyricEventsV2->m_timeaNotesDuration.Diff(
          //      ms2DNoteOffMillis[i],
          //      ms2DNoteOnMillis(i));
          //      */
@@ -1785,14 +1785,14 @@ Seq_Open_File_Cleanup:
          //      imedia_time time3(-100);
          //      imedia_time time4(0);
 
-         //      pLyricEventsV2->m_msaNotesPosition.CopySorted(
+         //      pLyricEventsV2->m_timeaNotesPosition.CopySorted(
          //         ms2DNoteOnMillis(i),
          //         time3,
          //         time4);
 
          //      imedia_time time5(I32_MAXIMUM);
 
-         //      pLyricEventsV2->m_msaTokensDuration.ElementDiff(
+         //      pLyricEventsV2->m_timeaTokensDuration.ElementDiff(
          //         ms2DTokensMillis(i),
          //         time5);
 
@@ -1810,35 +1810,35 @@ Seq_Open_File_Cleanup:
 
 
 
-         //   for(i = 0; i < tka2DTokensTicks.get_size(); i++)
+         //   for(i = 0; i < tickaaTokensTicks.get_size(); i++)
          //   {
          //      pLyricEventsV2 = (::ikaraoke::lyric_events_v2 *) lyricEventsForBouncingBall.get_at(i);
          //      staticdata.m_eventsTracksForBouncingBall.add(pLyricEventsV2);
 
          //      file.TimeToPosition(
-         //         pLyricEventsV2->m_tkaTokensPosition,
+         //         pLyricEventsV2->m_tickaTokensPosition,
          //         ms2DTokensMillis(i),
          //         -100);
 
          //      file.TimeToPosition(
-         //         pLyricEventsV2->m_tkaNotesPosition,
+         //         pLyricEventsV2->m_tickaNotesPosition,
          //         ms2DNoteOnMillis(i),
          //         -100);
 
          //      imedia_time time1(-100);
          //      imedia_time time2(0);
 
-         //      pLyricEventsV2->m_msaTokensPosition.CopySorted(
+         //      pLyricEventsV2->m_timeaTokensPosition.CopySorted(
          //         ms2DTokensMillis(i),
          //         time1,
          //         time2);
 
-         //      pLyricEventsV2->m_msaNotesDuration.Diff(
+         //      pLyricEventsV2->m_timeaNotesDuration.Diff(
          //         ms2DEndMillis(i),
          //         ms2DBegMillis(i));
 
          //      /*
-         //      pLyricEventsV2->m_msaNotesDuration.Diff(
+         //      pLyricEventsV2->m_timeaNotesDuration.Diff(
          //      ms2DNoteOffMillis[i],
          //      ms2DNoteOnMillis(i));
          //      */
@@ -1846,14 +1846,14 @@ Seq_Open_File_Cleanup:
          //      imedia_time time3(-100);
          //      imedia_time time4(0);
 
-         //      pLyricEventsV2->m_msaNotesPosition.CopySorted(
+         //      pLyricEventsV2->m_timeaNotesPosition.CopySorted(
          //         ms2DNoteOnMillis(i),
          //         time3,
          //         time4);
 
          //      imedia_time time5(I32_MAXIMUM);
 
-         //      pLyricEventsV2->m_msaTokensDuration.ElementDiff(
+         //      pLyricEventsV2->m_timeaTokensDuration.ElementDiff(
          //         ms2DTokensMillis(i),
          //         time5);
 

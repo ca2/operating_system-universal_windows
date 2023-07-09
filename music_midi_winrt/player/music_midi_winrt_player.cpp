@@ -73,7 +73,7 @@ namespace music
                //IGUI_WIN_MSG_LINK(MM_MOM_POSITIONCB, pinterface, this, &player::OnMultimediaMidiOutputMessagePositionCB);
             }
 
-            bool player::Play(imedia_position tkStart, uint32_t dwEllapse)
+            bool player::Play(imedia_position tickStart, uint32_t dwEllapse)
             {
 
                ::music::midi::player::command * pcommand = new ::music::midi::player::command(m_pobject);
@@ -81,7 +81,7 @@ namespace music
                pcommand->m_ecommand = ::music::midi::player::command_play;
                pcommand->m_dwEllapse = dwEllapse;
                pcommand->m_flags.signalize(::music::midi::player::command::flag_ticks);
-               pcommand->m_ticks = tkStart;
+               pcommand->m_ticks = tickStart;
 
                m_psequencethread->ExecuteCommand(pcommand);
 
@@ -361,9 +361,9 @@ namespace music
                   link.ModifyFlag(
                   ::music::midi::sequence::e_flag_tempo_change,
                   ::music::midi::sequence::FlagNull);
-                  imedia_position tk = get_sequence()->GetPositionTicks();
+                  imedia_position tick = get_sequence()->GetPositionTicks();
                   get_sequence()->m_evMmsgDone.ResetEvent();
-                  link.m_tkRestart = tk + get_sequence()->m_tkBase;
+                  link.m_tkRestart = tick + get_sequence()->m_tkBase;
                   //m_bChangingTempo = true;
                   get_sequence()->Stop();
                   //get_sequence()->m_evMmsgDone.lock();
@@ -450,15 +450,15 @@ namespace music
                if(get_sequence()->IsPlaying())
                {
 
-                  imedia_position tkPosition = 0;
+                  imedia_position tickPosition = 0;
 
-                  get_sequence()->get_position(tkPosition);
+                  get_sequence()->get_position(tickPosition);
 
                   ::music::midi::sequence::PlayerLink & link = get_sequence()->GetPlayerLink();
 
                   link() |= ::music::midi::sequence::e_flag_tempo_change;
 
-                  link.m_tkRestart = tkPosition;
+                  link.m_tkRestart = tickPosition;
 
                   get_sequence()->Stop();
 
