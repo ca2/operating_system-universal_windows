@@ -51,7 +51,7 @@ namespace windowing_universal_windows
 
       enum_phase                                            m_ephase;
 
-      ::tristate                                            m_tristateCoreWindowVisible;
+      ::boolean                                            m_tristateCoreWindowVisible;
       bool                                                  m_bWindowSizeChangeInProgress;
       bool                                                  m_b3D;
       ::pointer < ::particle >                              m_pparticleMutexDc;
