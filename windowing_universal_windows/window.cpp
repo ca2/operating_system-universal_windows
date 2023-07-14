@@ -7988,13 +7988,13 @@ namespace windowing_universal_windows
             if (pbuffer)
             {
 
-               if (pbuffer->m_tristateCoreWindowVisible.is_empty())
+               if (pbuffer->m_tristateCoreWindowVisible.undefined())
                {
 
                   pbuffer->m_tristateCoreWindowVisible = true;
 
                }
-               else if (pbuffer->m_tristateCoreWindowVisible.isFalse())
+               else if (pbuffer->m_tristateCoreWindowVisible.is_set_false())
                {
 
                   pbuffer->m_tristateCoreWindowVisible = true;
