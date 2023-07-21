@@ -322,7 +322,7 @@ namespace apex_universal_windows
    }
 
 
-   void os_context::local_machine_set_run(const ::string & pszKey, const ::string & pszCommand, const ::string & strArguments, bool bSet)
+   void os_context::local_machine_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
    {
 
       //try
@@ -361,7 +361,7 @@ namespace apex_universal_windows
    }
 
 
-   void os_context::local_machine_set_run_once(const ::string & pszKey, const ::string & pszCommand, const ::string & strArguments, bool bSet)
+   void os_context::local_machine_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
    {
 
       //try
@@ -398,7 +398,7 @@ namespace apex_universal_windows
    }
 
 
-   void os_context::current_user_set_run(const ::string & pszKey, const ::string & pszCommand, const ::string & strArguments, bool bSet)
+   void os_context::current_user_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
    {
 
       //try
@@ -437,7 +437,7 @@ namespace apex_universal_windows
    }
 
 
-   void os_context::current_user_set_run_once(const ::string & pszKey, const ::string & pszCommand, const ::string & strArguments, bool bSet)
+   void os_context::current_user_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
    {
 
       //try

@@ -365,7 +365,7 @@ namespace windowing_universal_windows
 
       void exit_iconify() override;
       
-      void full_screen(const::rectangle_i32 & rectangle = nullptr) override;
+      void full_screen(const::rectangle_i32 & rectangle = {}) override;
       
       void exit_full_screen() override;
       
@@ -662,7 +662,7 @@ namespace windowing_universal_windows
       virtual bool LockWindowUpdate();
       virtual void UnlockWindowUpdate();
 
-      virtual bool RedrawWindow(const ::rectangle_i32 & rectangleUpdate = nullptr,
+      virtual bool RedrawWindow(const ::rectangle_i32 & rectangleUpdate = {},
          ::draw2d::region * prgnUpdate = nullptr,
          ::u32 flags = RDW_INVALIDATE | RDW_ERASE);
 
