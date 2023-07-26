@@ -659,7 +659,7 @@ namespace aura_universal_windows
       virtual bool is_active() ;
 
 
-      virtual void _001UpdateScreen() ;
+      //virtual void _001UpdateScreen() ;
 
       void _001OnTriggerMouseInside();
 

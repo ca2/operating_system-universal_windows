@@ -5131,12 +5131,12 @@ namespace aura_universal_windows
    }
 
 
-   void interaction_impl::_001UpdateScreen()
-   {
+   //void interaction_impl::_001UpdateScreen()
+   //{
 
-      ::user::interaction_impl::_001UpdateScreen();
+   //   ::user::interaction_impl::_001UpdateScreen();
 
-   }
+   //}
 
 
    bool interaction_impl::_is_window() const

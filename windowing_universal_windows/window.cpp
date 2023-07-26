@@ -4989,7 +4989,7 @@ namespace windowing_universal_windows
     //}
     //
 
-    void window::window_show_change_visibility(::e_display edisplay, ::e_activation eactivation)
+    void window::_window_show_change_visibility(::e_display edisplay, ::e_activation eactivation)
     {
 
        throw ::interface_only();
@@ -6550,22 +6550,24 @@ namespace windowing_universal_windows
    }
 
 
-   void window::window_show()
+   void window::_window_request_presentation()
    {
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      ::windowing::window::_window_request_presentation();
 
-      auto pprodevian = m_puserinteractionimpl->m_pprodevian;
+      //auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
-      puserinteraction->post_procedure(pprodevian->m_procedureWindowShow);
+      //auto pprodevian = m_puserinteractionimpl->m_pprodevian;
+
+      //puserinteraction->post_procedure(pprodevian->m_procedureWindowShow);
 
    }
 
 
-   void window::update_screen()
+   void window::window_update_screen_buffer()
    {
 
-      auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+      /*auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
       if (!puserinteraction)
       {
@@ -6583,7 +6585,7 @@ namespace windowing_universal_windows
 
       }
 
-      puserinteraction->post_procedure(pprodevian->m_procedureUpdateScreen);
+      puserinteraction->post_procedure(pprodevian->m_procedureUpdateScreen);*/
 
    }
 
