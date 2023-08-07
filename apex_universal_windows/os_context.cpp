@@ -1722,33 +1722,33 @@ return false;
    }
 
 
-   ::pointer <::file::link > os_context::resolve_link(const ::file::path & path, ::file::e_link elink)
-   {
+   //::pointer <::file::link > os_context::resolve_link(const ::file::path & path, ::file::e_link elink)
+   //{
 
-      //if (::os_context::resolve_link(path, strSource, pstrDirectory, pstrParams))
-      //{
+   //   //if (::os_context::resolve_link(path, strSource, pstrDirectory, pstrParams))
+   //   //{
 
-      //   return true;
+   //   //   return true;
 
-      //}
+   //   //}
 
-      //if (strSource.case_insensitive_ends(".lnk"))
-      //{
+   //   //if (strSource.case_insensitive_ends(".lnk"))
+   //   //{
 
-      //   if (resolve_lnk_link(path, strSource, pstrDirectory, pstrParams))
-      //   {
+   //   //   if (resolve_lnk_link(path, strSource, pstrDirectory, pstrParams))
+   //   //   {
 
-      //      return true;
+   //   //      return true;
 
-      //   }
+   //   //   }
 
-      //}
+   //   //}
 
-      throw ::exception(error_not_supported);
+   //   throw ::exception(error_not_supported);
 
-      return nullptr;
+   //   return nullptr;
 
-   }
+   //}
 
 
    ::pointer < ::file::link > os_context::resolve_lnk_link(const ::file::path & path, ::file::e_link elink)
