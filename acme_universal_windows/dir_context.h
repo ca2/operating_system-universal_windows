@@ -4,11 +4,11 @@
 #include "acme/filesystem/filesystem/dir_context.h"
 
 
-namespace apex_universal_windows
+namespace acme_universal_windows
 {
 
 
-   class CLASS_DECL_APEX_UNIVERSAL_WINDOWS dir_context :
+   class CLASS_DECL_ACME_UNIVERSAL_WINDOWS dir_context :
       virtual public ::dir_context
    {
    public:
@@ -101,7 +101,7 @@ namespace apex_universal_windows
    };
 
 
-} // namespace apex_universal_windows
+} // namespace acme_universal_windows
 
 
 

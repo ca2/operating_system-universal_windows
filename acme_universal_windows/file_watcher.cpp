@@ -1,22 +1,25 @@
 #include "framework.h"
-#include "file_os_watcher.h"
-#include "apex/filesystem/file/action.h"
+#include "file_watcher.h"
+#include "acme/filesystem/watcher/action.h"
+#include "acme/platform/context.h"
+#include "acme/_operating_system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
-#include "apex/platform/context.h"
+#include "windows_runtime.h"
+#include "_winrt_storage.h"
 
 
-namespace apex_universal_windows
+namespace acme_universal_windows
 {
 
 
-   os_watch::os_watch()
+   watch::watch()
    {
 
 
    }
 
 
-   os_watch::~os_watch()
+   watch::~watch()
    {
 
 
@@ -86,13 +89,13 @@ namespace apex_universal_windows
    //   }
    //}
 /// Starts monitoring a directory.
-   bool os_watch::open(const ::file::path & pathFolderParam, bool bRecursive)
+   bool watch::open(const ::file::path & pathFolderParam, bool bRecursive)
    {
 
       try
       {
 
-         ::file::path pathFolder = m_pcontext->m_papexcontext->defer_process_path(pathFolderParam);
+         ::file::path pathFolder = m_pcontext->defer_process_path(pathFolderParam);
 
          ::winrt::Windows::Storage::Search::QueryOptions options;
 
@@ -136,7 +139,7 @@ namespace apex_universal_windows
          }
 
          m_evtoken = m_queryresult.ContentsChanged(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Storage::Search::IStorageQueryResultBase,
-                 ::winrt::Windows::Foundation::IInspectable >(this, &os_watch::ContentsChanged));
+                 ::winrt::Windows::Foundation::IInspectable >(this, &watch::ContentsChanged));
 
          return true;
 
@@ -151,7 +154,7 @@ namespace apex_universal_windows
    }
 
 
-   os_watcher::os_watcher()
+   watcher::watcher()
    {
 
       m_bCreateWatchThread = false;
@@ -159,7 +162,7 @@ namespace apex_universal_windows
    }
 
 
-   os_watcher::~os_watcher()
+   watcher::~watcher()
    {
 
       //watch_map::pair * ppair = m_watchmap.get_start();
@@ -172,7 +175,7 @@ namespace apex_universal_windows
    }
 
 
-   //bool os_watch::open(const ::file::path& pathFolderParam, bool bRecursive)
+   //bool watch::open(const ::file::path& pathFolderParam, bool bRecursive)
    //{
 
    //   ::file::path pathFolder = get_context()->defer_process_path(pathFolderParam);
@@ -201,7 +204,7 @@ namespace apex_universal_windows
    //}
 
 
-   void os_watch::ContentsChanged(::winrt::Windows::Storage::Search::IStorageQueryResultBase const & r, ::winrt::Windows::Foundation::IInspectable const & object)
+   void watch::ContentsChanged(::winrt::Windows::Storage::Search::IStorageQueryResultBase const & r, ::winrt::Windows::Foundation::IInspectable const & object)
    {
 
       //::winrt::Windows::Storage::Search::StorageItemQueryResult^ results = (::winrt::Windows::Storage::Search::StorageItemQueryResult^) r;
@@ -237,7 +240,7 @@ namespace apex_universal_windows
    }
 
 
-} // namespace apex_universal_windows
+} // namespace acme_universal_windows
 
 
 

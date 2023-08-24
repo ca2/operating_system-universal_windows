@@ -67,15 +67,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="dir_context.cpp" />
-    <ClCompile Include="dir_system.cpp" />
     <ClCompile Include="interprocess_base.cpp" />
     <ClCompile Include="interprocess_caller.cpp" />
     <ClCompile Include="interprocess_target.cpp" />
     <ClCompile Include="_factory.cpp" />
-    <ClCompile Include="file_context.cpp" />
-    <ClCompile Include="file_system.cpp" />
-    <ClCompile Include="file_os_watcher.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='StaticDebug|Win32'">Create</PrecompiledHeader>
@@ -96,25 +91,18 @@
     </ClCompile>
     <ClCompile Include="node.cpp" />
     <ClCompile Include="os_context.cpp" />
-    <ClCompile Include="windows_runtime.cpp" />
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="dir_context.h" />
-    <ClInclude Include="dir_system.h" />
-    <ClInclude Include="file_context.h" />
-    <ClInclude Include="file_system.h" />
-    <ClInclude Include="file_os_watcher.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="interprocess_base.h" />
     <ClInclude Include="interprocess_caller.h" />
     <ClInclude Include="interprocess_target.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="os_context.h" />
-    <ClInclude Include="windows_runtime.h" />
     <ClInclude Include="_.h" />
     <ClInclude Include="aaa_apex_universal_windows.h" />
-    <ClInclude Include="_winrt_storage.h" />
+    <ClInclude Include="aaa_winrt_storage.h" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\source\app\acme\u_acme.vcxproj">

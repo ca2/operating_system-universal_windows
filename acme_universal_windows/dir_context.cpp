@@ -7,7 +7,7 @@
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/parallelization/task_flag.h"
-#include "apex/platform/system.h"
+#include "acme/platform/system.h"
 #include "acme_universal_windows/acme_directory.h"
 
 
@@ -19,7 +19,7 @@
 //#include "_windows_runtime.h"
 
 
-namespace apex_universal_windows
+namespace acme_universal_windows
 {
 
 
@@ -50,7 +50,7 @@ namespace apex_universal_windows
 
       //}
 
-      ::pointer<::apex::system>psystem = acmesystem();
+      auto psystem = acmesystem();
 
       m_pfilesystem = psystem->m_pfilesystem;
 
@@ -1434,7 +1434,7 @@ namespace apex_universal_windows
    }
 
 
-} // namespace apex_universal_windows
+} // namespace acme_universal_windows
 
 
 

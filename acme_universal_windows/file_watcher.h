@@ -1,17 +1,17 @@
 #pragma once
 
 
-#include "apex/filesystem/file/watch.h"
-#include "apex/filesystem/file/watcher.h"
+#include "acme/filesystem/watcher/watch.h"
+#include "acme/filesystem/watcher/watcher.h"
 #include "_winrt_storage.h"
 #include <winrt/Windows.Storage.Search.h>
 
 
-namespace apex_universal_windows
+namespace acme_universal_windows
 {
 
 
-   class CLASS_DECL_APEX_UNIVERSAL_WINDOWS os_watch :
+   class CLASS_DECL_ACME_UNIVERSAL_WINDOWS watch :
       virtual public ::file::watch
    {
    public:
@@ -29,8 +29,8 @@ namespace apex_universal_windows
 
          ///static watch_ref ^ create_watch(String ^ strDirectory, bool bRecursive);
 
-      os_watch();
-      ~os_watch() override;
+      watch();
+      ~watch() override;
 
 
       bool open(const ::file::path& pathFolder, bool bRecursive) override;
@@ -43,14 +43,14 @@ namespace apex_universal_windows
 
 
 
-   class CLASS_DECL_APEX_UNIVERSAL_WINDOWS os_watcher :
+   class CLASS_DECL_ACME_UNIVERSAL_WINDOWS watcher :
       virtual public ::file::watcher
    {
    public:
 
 
-      os_watcher();
-      ~os_watcher() override;
+      watcher();
+      ~watcher() override;
 
 
    };

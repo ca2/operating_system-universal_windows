@@ -15,4 +15,17 @@
 CLASS_DECL_ACME_UNIVERSAL_WINDOWS uptr keycode_to_char(uptr n);
 
 
-//#include "_windows_runtime.h"
+namespace acme_universal_windows
+{
+
+
+   class file_system;
+   class file_context;
+
+   class dir_system;
+   class dir_context;
+
+   class node;
+
+
+} // namespace acme_universal_windows

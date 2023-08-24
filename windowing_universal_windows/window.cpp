@@ -10,7 +10,7 @@
 #include "acme/parallelization/synchronous_lock.h"
 #include "acme/platform/node.h"
 #include "aura_universal_windows/interaction_impl.h"
-#include "aura/user/user/interaction_prodevian.h"
+#include "aura/user/user/interaction_graphics_thread.h"
 #include "aura/user/user/system.h"
 #include "aura/message/user.h"
 #include "aura/graphics/draw2d/graphics.h"

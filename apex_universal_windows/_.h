@@ -18,11 +18,11 @@ namespace apex_universal_windows
 {
 
 
-   class file_system;
-   class file_context;
+   //class file_system;
+   //class file_context;
 
-   class dir_system;
-   class dir_context;
+   //class dir_system;
+   //class dir_context;
 
    class node;
 

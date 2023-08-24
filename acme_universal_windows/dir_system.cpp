@@ -10,7 +10,7 @@
 #include <Shlobj.h>
 
 
-namespace apex_universal_windows
+namespace acme_universal_windows
 {
 
 
@@ -166,7 +166,7 @@ namespace apex_universal_windows
    }
 
 
-} // namespace apex_universal_windows
+} // namespace acme_universal_windows
 
 
 

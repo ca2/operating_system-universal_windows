@@ -8,7 +8,7 @@
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "acme/filesystem/filesystem/acme_path.h"
 #include "acme/include/_c_swap.h"
-#include "apex/platform/system.h"
+#include "acme/platform/system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme_universal_windows/native_buffer.h"
 
@@ -22,7 +22,7 @@
 #include <winrt/Windows.Storage.FileProperties.h>
 //#include "_windows_runtime.h"
 
-namespace apex_universal_windows
+namespace acme_universal_windows
 {
 
 
@@ -52,7 +52,7 @@ namespace apex_universal_windows
 
       //}
 
-      ::pointer<::apex::system>psystem = acmesystem();
+      auto psystem = acmesystem();
 
       m_pfilesystem = psystem->m_pfilesystem;
 
@@ -406,7 +406,7 @@ namespace apex_universal_windows
 
       }
 
-      ::pointer<::apex::system>psystem = acmesystem();
+      auto psystem = acmesystem();
 
       if (read_resource_as_memory(*pfile->get_primitive_memory(), (HINSTANCE) psystem->m_hinstance, iId, psz))
       {
@@ -821,7 +821,7 @@ namespace apex_universal_windows
    file_pointer file_context::get_file(const ::payload & payloadFile, ::file::e_open eopen, ::pointer < ::file::exception > * ppfileexception)
    {
 
-      return ::apex_windows_common::file_context::get_file(payloadFile, eopen, ppfileexception);
+      return ::acme_windows_common::file_context::get_file(payloadFile, eopen, ppfileexception);
 
    }
 
@@ -832,7 +832,7 @@ namespace apex_universal_windows
       if (::windows::is_win32_accessible(path))
       {
 
-         return ::apex_windows_common::file_context::create_native_file(path, eopen, ppfileexception);
+         return ::acme_windows_common::file_context::create_native_file(path, eopen, ppfileexception);
 
       }
 
@@ -901,6 +901,6 @@ namespace apex_universal_windows
    }
 
 
-} // namespace apex_universal_windows
+} // namespace acme_universal_windows
 
 

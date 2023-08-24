@@ -3,6 +3,7 @@
 
 
 #undef new
+#include <windows.h>
 #include <winrt/Windows.Storage.Streams.h>
 
 
