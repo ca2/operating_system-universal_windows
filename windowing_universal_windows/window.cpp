@@ -5568,8 +5568,8 @@ namespace windowing_universal_windows
 //      }
 //      else if (message == e_message_left_button_down)
 //      {
-//         ::rectangle_i32 rectangleClient;
-//         ::GetClientRect(get_hwnd(), rectangleClient);
+//         ::rectangle_i32 rectangleX;
+//         ::GetClientRect(get_hwnd(), rectangleX);
 //         ::rectangle_i32 rectangleWindow;
 //         ::GetWindowRect(get_hwnd(), rectangleWindow);
 //         ::rectangle_i32 rectangleRegion;
@@ -6055,7 +6055,7 @@ namespace windowing_universal_windows
    //}
 
 
-   bool window::client_rectangle(::rectangle_i32 * prectangle)
+   bool window::this->rectangle(::rectangle_i32 * prectangle)
    {
 
       //RECT rectangle;
@@ -6178,7 +6178,7 @@ namespace windowing_universal_windows
 
       //lparam lparam;
 
-      //::rectangle_i32 rectangleClient;
+      //::rectangle_i32 rectangleX;
 
       //while (ptask->task_get_run())
       //{
@@ -6225,9 +6225,9 @@ namespace windowing_universal_windows
 
       //   }
 
-      //   ::GetClientRect(hwnd, (RECT *)&rectangleClient);
+      //   ::GetClientRect(hwnd, (RECT *)&rectangleX);
 
-      //   if (!rectangleClient.contains(pointMouseMove))
+      //   if (!rectangleX.contains(pointMouseMove))
       //   {
 
       //      if (m_bTrackMouseLeave)
