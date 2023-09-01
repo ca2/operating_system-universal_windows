@@ -163,10 +163,10 @@
 //
 //      ::rectangle_f64 rectangle;
 //
-//      rectangle.left = (LONG) m_window.Bounds().X;
-//      rectangle.top = (LONG) m_window.Bounds().Y;
-//      rectangle.right = (LONG) (m_window.Bounds().X + m_window.Bounds().Width);
-//      rectangle.top = (LONG) (m_window.Bounds().Y + m_window.Bounds().Height);
+//      rectangle.left() = (LONG) m_window.Bounds().X;
+//      rectangle.top() = (LONG) m_window.Bounds().Y;
+//      rectangle.right() = (LONG) (m_window.Bounds().X + m_window.Bounds().Width);
+//      rectangle.top() = (LONG) (m_window.Bounds().Y + m_window.Bounds().Height);
 //
 //      //puserinteractionHost->m_puiThis->place(rectangle);
 //
@@ -870,8 +870,8 @@
 //
 //         ::rectangle_i32 r = puserinteraction->window_rectangle();
 //
-//         m_rectangleInputContentRect.X = (float) r.left;
-//         m_rectangleInputContentRect.Y = (float)r.top;
+//         m_rectangleInputContentRect.X = (float) r.left();
+//         m_rectangleInputContentRect.Y = (float)r.top();
 //         m_rectangleInputContentRect.Width = (float)r.width();
 //         m_rectangleInputContentRect.Height = (float)r.height();
 //

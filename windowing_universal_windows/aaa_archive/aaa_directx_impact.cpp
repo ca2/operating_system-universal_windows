@@ -275,7 +275,7 @@ namespace windowing_universal_windows
 //      wstring wstrText = get_input_text();
 //
 //      // Modify the internal text store.
-//      wstrText = wstrText.left(modifiedRange.StartCaretPosition) +
+//      wstrText = wstrText.left()(modifiedRange.StartCaretPosition) +
 //         text +
 //         wstrText.substr(modifiedRange.EndCaretPosition);
 //
@@ -371,7 +371,7 @@ namespace windowing_universal_windows
 //
 //      wide_string wstrText = get_input_text();
 //
-//      string strText = wstrText.left( range.StartCaretPosition) + newText + wstrText.substr(range.EndCaretPosition);
+//      string strText = wstrText.left()( range.StartCaretPosition) + newText + wstrText.substr(range.EndCaretPosition);
 //
 //      m_strNewText = newText;
 //

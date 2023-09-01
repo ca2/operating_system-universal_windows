@@ -23,10 +23,10 @@ namespace ca2plugin_container
       m_phost           = NULL;
       m_bInitialized    = false;
       m_bOk             = false;
-      m_rectangle.left       = 0;
-      m_rectangle.top        = 0;
-      m_rectangle.bottom     = 0;
-      m_rectangle.right      = 0;
+      m_rectangle.left()       = 0;
+      m_rectangle.top()        = 0;
+      m_rectangle.bottom()     = 0;
+      m_rectangle.right()      = 0;
 
       m_bRunningSpaAdmin = false;
 
@@ -67,10 +67,10 @@ namespace ca2plugin_container
       if(aWindow == NULL)
          return false;
 
-      m_rectangle.left = aWindow->x;
-      m_rectangle.top = aWindow->y;
-      m_rectangle.right = m_rectangle.left + aWindow->width;
-      m_rectangle.bottom = m_rectangle.top + aWindow->height;
+      m_rectangle.left() = aWindow->x;
+      m_rectangle.top() = aWindow->y;
+      m_rectangle.right() = m_rectangle.left() + aWindow->width;
+      m_rectangle.bottom() = m_rectangle.top() + aWindow->height;
 
       m_hwnd = (HWND)aWindow->window;
 
@@ -209,10 +209,10 @@ namespace ca2plugin_container
             case 19841977:
                {
                   NPRect invalidRect;
-                  invalidRect.left     = (uint16_t) m_rectangle.left;
-                  invalidRect.top      = (uint16_t) m_rectangle.top;
-                  invalidRect.right    = (uint16_t) m_rectangle.right;
-                  invalidRect.bottom   = (uint16_t) m_rectangle.bottom;
+                  invalidRect.left()     = (uint16_t) m_rectangle.left();
+                  invalidRect.top()      = (uint16_t) m_rectangle.top();
+                  invalidRect.right()    = (uint16_t) m_rectangle.right();
+                  invalidRect.bottom()   = (uint16_t) m_rectangle.bottom();
 //                  NPN_InvalidateRect(m_instance, &invalidRect);
                   NPN_ForceRedraw(m_instance);
                }

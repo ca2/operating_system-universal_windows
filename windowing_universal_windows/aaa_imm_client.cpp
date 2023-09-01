@@ -695,14 +695,14 @@ int imm_client::on_text_composition_message(int iMessage)
       // ::point_i32 point(x, y);
       //::rectangle_i32 r;
       //this->rectangle(rectangle);
-      //rectangle.left = x;
-      //rectangle.top = y;
-      //rectangle.bottom = y2;
+      //rectangle.left() = x;
+      //rectangle.top() = y;
+      //rectangle.bottom() = y2;
       //_001ClientToScreen(rectangle);
       //get_wnd()->_001ScreenToClient(rectangle);
 
 
-      //SetCaretPos(rectangle.left, rectangle.top);
+      //SetCaretPos(rectangle.left(), rectangle.top());
       //ShowCaret(get_handle());
    }
    else if (iMessage == TEXT_COMPOSITION_MESSAGE_UPDATE_CANDIDATE_WINDOW_POSITION)

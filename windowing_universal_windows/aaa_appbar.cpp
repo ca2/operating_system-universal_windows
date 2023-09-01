@@ -43,7 +43,7 @@ bool has_autohide_appbar(::u32 edge, const rectangle_i32 & mon)
 
    /* Before Windows 8.1, it was not possible to specify a monitor when
     checking for hidden appbars, so check only on the primary monitor */
-   if (mon.left != 0 || mon.top != 0)
+   if (mon.left() != 0 || mon.top() != 0)
       return false;
    APPBARDATA data = {};
    data.cbSize = sizeof(APPBARDATA);
