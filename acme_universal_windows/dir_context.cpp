@@ -1125,7 +1125,7 @@ namespace acme_universal_windows
                break;
             iLast--;
          }
-         return str.left()(iLast + 1);
+         return str.left(iLast + 1);
       }
       else
       {
