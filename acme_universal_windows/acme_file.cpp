@@ -67,7 +67,7 @@ namespace acme_universal_windows
    void acme_file::clear_application_data()
    {
 
-      acmenode()->node_post([]()
+      user_post([]()
          {
 
             auto data = ::winrt::Windows::Storage::ApplicationData::Current();

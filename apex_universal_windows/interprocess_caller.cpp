@@ -107,7 +107,7 @@ namespace apex_universal_windows
 
       auto hstrUri = __hstring(strUri);
 
-      acmenode()->node_post([this, hstrUri]()
+      user_post([this, hstrUri]()
          {
 
             ::winrt::Windows::Foundation::Uri uri(hstrUri);

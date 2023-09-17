@@ -3714,10 +3714,7 @@ return false;
    void os_context::link_open(const string & strUrl, const string & strProfile)
    {
 
-      auto pnode = acmesystem()->node();
-
-      pnode->node_post([strUrl]()
-
+      user_post([strUrl]()
          {
 
             auto hstrUri = __hstring(strUrl);
