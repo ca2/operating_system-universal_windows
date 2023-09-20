@@ -1,9 +1,10 @@
 // Created by camilo on 2021-08-31 11:56 BRT <3ThomasBS__!!
 #include "framework.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
-#include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme/platform/context.h"
 #include "acme/primitive/primitive/memory.h"
+#include "acme/_operating_system.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "_winrt_core.h"
 #include "_winrt_stream.h"
 #include "_winrt_system.h"
@@ -1223,9 +1224,9 @@ uptr virtualkey_to_char(::winrt::Windows::System::VirtualKey e)
    case (::winrt::Windows::System::VirtualKey)190:
       return ::user::e_key_dot;
    case (::winrt::Windows::System::VirtualKey)191:
-      return ::user::e_key_semicolon2;
+      return ::user::e_key_semicolon;
    case (::winrt::Windows::System::VirtualKey)193:
-      return ::user::e_key_slash2;
+      return ::user::e_key_slash;
    case ::winrt::Windows::System::VirtualKey::Space:
       return ::user::e_key_space;
    default:
