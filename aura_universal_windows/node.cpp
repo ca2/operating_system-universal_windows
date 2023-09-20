@@ -57,7 +57,7 @@ namespace aura_universal_windows
    void node::dpi_os_initialize()
    {
 
-      acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->windowing_post([this]()
+      user_post([this]()
          {
             //::wait(::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler([]()
               // {

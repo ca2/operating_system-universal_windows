@@ -579,7 +579,7 @@ namespace windowing_universal_windows
 
       // Only handle window size_i32 changed if there is no pending DPI change.
 
-      acmesession()->m_paurasession->m_puser->m_pwindowing->windowing_post([this, dpi]()
+      user_post([this, dpi]()
          {
 
             OnChangeDpi(dpi);
@@ -645,7 +645,7 @@ namespace windowing_universal_windows
    void buffer::UpdateForWindowSizeChange()
    {
 
-      acmesession()->m_paurasession->m_puser->m_pwindowing->windowing_post([this]()
+      user_post([this]()
          {
             //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
             //{
@@ -1132,7 +1132,7 @@ namespace windowing_universal_windows
 
          m_bWindowSizeChangeInProgress = false;
 
-         m_pwindow->m_pwindowing->windowing_post([this]()
+         user_post([this]()
             {
 
                //A window size_i32 change has been initiated and the app has just completed presenting

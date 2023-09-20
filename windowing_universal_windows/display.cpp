@@ -4,6 +4,7 @@
 #include "display.h"
 #include "aura/graphics/draw2d/graphics.h"
 #include "aura/platform/system.h"
+#include "aura/user/user/interaction_impl.h"
 #include "aura/windowing/monitor.h"
 #include "aura/windowing/window.h"
 #include "aura/windowing/windowing.h"
@@ -848,7 +849,7 @@ namespace windowing_universal_windows
       if (eactivation & e_activation_under_mouse_cursor || rectangle.is_null())
       {
 
-         ::point_i32 pointCursor = pwindowGetCursorPosition->get_cursor_position();
+         ::point_i32 pointCursor = pwindowGetCursorPosition->m_puserinteractionimpl->m_puserinteraction->host_mouse_cursor_position();
 
          rectangle.set(pointCursor - ::size_i32(5, 5), ::size_i32(10, 10));
 
@@ -935,7 +936,7 @@ namespace windowing_universal_windows
       if (::is_set(pwindowGetCursorPosition) && ((eactivation & e_activation_under_mouse_cursor) || rectangle.is_null()))
       {
 
-         ::point_i32 pointCursor = pwindowGetCursorPosition->get_cursor_position();
+         ::point_i32 pointCursor = pwindowGetCursorPosition->m_puserinteractionimpl->m_puserinteraction->host_mouse_cursor_position();
 
          rectangle.set(pointCursor - ::size_i32(5, 5), ::size_i32(10, 10));
 

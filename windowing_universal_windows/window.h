@@ -136,7 +136,7 @@ namespace windowing_universal_windows
 
       virtual ::winrt::Windows::Foundation::Rect window_rectangle();
       virtual ::winrt::Windows::Foundation::Point get_cursor_position();
-      ::point_i32 get_mouse_cursor_position() override;
+      //::point_i32 get_mouse_cursor_position() override;
 
 
       virtual ::winrt::Windows::Foundation::Rect get_input_content_rect();
@@ -394,7 +394,9 @@ namespace windowing_universal_windows
 
       void destroy_window() override;
 
-      void show_window(const ::e_display & edisplay, const ::e_activation & eactivation) override;
+      //void show_window(const ::e_display & edisplay, const ::e_activation & eactivation) override;
+
+      bool _configure_window_unlocked(const class ::zorder & zorder, const ::e_activation & eactivation, bool bNoZorder, ::e_display edisplay) override;
 
       //virtual void set_user_interaction(::layered * pinteraction) override;
 
@@ -420,9 +422,11 @@ namespace windowing_universal_windows
 
       virtual bool screen_to_client(::point_i32 * ppoint) override;
 
-      virtual bool on_set_window_position(const class ::zorder& zorder, i32 x, i32 y, i32 cx, i32 cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
+      //virtual bool on_set_window_position(const class ::zorder& zorder, i32 x, i32 y, i32 cx, i32 cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
 
-      virtual bool set_window_position(const class ::zorder& zorder, i32 x, i32 y, i32 cx, i32 cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
+      bool _strict_set_window_position_unlocked(i32 x, i32 y, i32 cx, i32 cy, bool bNoMove, bool bNoSize) override;
+
+      // virtual bool set_window_position(const class ::zorder & zorder, i32 x, i32 y, i32 cx, i32 cy, const ::e_activation & eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
 
       //virtual bool _set_window_pos(class::zorder zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags) override;
 
@@ -1161,7 +1165,7 @@ namespace windowing_universal_windows
       virtual float dpiy(float y) override;
       virtual float dpix(float x) override;
 
-      virtual void _window_request_presentation() override;
+      //virtual void _window_request_presentation() override;
       virtual void window_update_screen_buffer() override;
 
  

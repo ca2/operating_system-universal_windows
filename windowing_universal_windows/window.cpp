@@ -1493,7 +1493,8 @@ namespace windowing_universal_windows
    }
 
 
-   void window::show_window(const ::e_display & edisplay, const ::e_activation & eactivation)
+   //void window::show_window(const ::e_display & edisplay, const ::e_activation & eactivation)
+   bool window::_configure_window_unlocked(const class ::zorder & zorder, const ::e_activation & eactivation, bool bNoZorder, ::e_display edisplay) 
    {
 
       //auto iShowWindow = windows_show_window(edisplay, eactivation);
@@ -2063,15 +2064,16 @@ namespace windowing_universal_windows
    }
 
 
-   bool window::on_set_window_position(const class ::zorder& zorder, i32 x, i32 y, i32 cx, i32 cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide)
+   //bool window::on_set_window_position(const class ::zorder& zorder, i32 x, i32 y, i32 cx, i32 cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide)
+   bool window::_strict_set_window_position_unlocked(i32 x, i32 y, i32 cx, i32 cy, bool bNoMove, bool bNoSize)
    {
 
       //if (!(_get_ex_style() & WS_EX_LAYERED))
-      {
+      //{
 
-         ::windowing::window::on_set_window_position(zorder, x, y, cx, cy, eactivation, bNoZorder, bNoMove, bNoSize, bShow, bHide);
+      //   ::windowing::window::on_set_window_position(zorder, x, y, cx, cy, eactivation, bNoZorder, bNoMove, bNoSize, bShow, bHide);
 
-      }
+      //}
 
       return false;
 

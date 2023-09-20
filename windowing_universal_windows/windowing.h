@@ -155,7 +155,7 @@ namespace windowing_universal_windows
       //::pointer<::windowing::window>window_from_point(::aura::application * papp, const ::point_i32 & point);
 
       
-      void windowing_post(const ::procedure & procedure) override;
+      //void windowing_post(const ::procedure & procedure) override;
 
 
       //static BOOL CALLBACK GetAppsEnumWindowsProc(HWND hwnd, LPARAM lParam);

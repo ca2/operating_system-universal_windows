@@ -965,12 +965,12 @@ namespace windowing_universal_windows
    }*/
 
    
-   void windowing::windowing_post(const ::procedure & procedure)
-   {
+   //void windowing::windowing_post(const ::procedure & procedure)
+   //{
 
-      acmesystem()->m_paurasystem->m_pwindowMain->window_post(procedure);
+   //   acmesystem()->m_paurasystem->m_pwindowMain->window_post(procedure);
 
-   }
+   //}
 
 
    bool windowing::_is_window(HWND hwnd)
@@ -1061,8 +1061,8 @@ namespace windowing_universal_windows
        pkeyboard->m_mapKey[VK_SPACE] = ::user::e_key_space;
        pkeyboard->m_mapKey[VK_HOME] = ::user::e_key_home;
        pkeyboard->m_mapKey[VK_END] = ::user::e_key_end;
-       pkeyboard->m_mapKey[VK_PRIOR] = ::user::e_key_prior;
-       pkeyboard->m_mapKey[VK_NEXT] = ::user::e_key_next;
+       pkeyboard->m_mapKey[VK_PRIOR] = ::user::e_key_page_up;
+       pkeyboard->m_mapKey[VK_NEXT] = ::user::e_key_page_down;
        pkeyboard->m_mapKey[VK_TAB] = ::user::e_key_tab;
        pkeyboard->m_mapKey[VK_ESCAPE] = ::user::e_key_escape;
        pkeyboard->m_mapKey[VK_TAB] = ::user::e_key_tab;
