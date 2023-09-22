@@ -835,7 +835,7 @@ namespace windowing_universal_windows
    }
 
 
-   index display::get_best_monitor(::rectangle_i32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation, ::windowing::window* pwindowGetCursorPosition)
+   index display::get_best_monitor(::rectangle_i32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation, ::user::interaction * puserinteractionGetCursorPosition)
    {
 
       index iMatchingMonitor = -1;
@@ -849,7 +849,7 @@ namespace windowing_universal_windows
       if (eactivation & e_activation_under_mouse_cursor || rectangle.is_null())
       {
 
-         ::point_i32 pointCursor = pwindowGetCursorPosition->m_puserinteractionimpl->m_puserinteraction->host_mouse_cursor_position();
+         ::point_i32 pointCursor = puserinteractionGetCursorPosition->host_mouse_cursor_position();
 
          rectangle.set(pointCursor - ::size_i32(5, 5), ::size_i32(10, 10));
 
@@ -922,7 +922,7 @@ namespace windowing_universal_windows
    }
 
 
-   index display::get_best_workspace(::rectangle_i32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation, ::windowing::window* pwindowGetCursorPosition)
+   index display::get_best_workspace(::rectangle_i32 * prectangle, const rectangle_i32 & rectangleParam, ::e_activation eactivation, ::user::interaction * puserinteractionGetCursorPosition)
    {
 
       index iMatchingWkspace = -1;
