@@ -5020,7 +5020,10 @@ namespace aura_universal_windows
    void interaction_impl::update_graphics_resources()
    {
 
-      return ::user::interaction_impl::update_graphics_resources();
+      ::user::interaction_impl::update_graphics_resources();
+
+
+
 
    }
 

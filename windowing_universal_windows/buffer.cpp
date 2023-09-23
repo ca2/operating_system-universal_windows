@@ -262,6 +262,14 @@ namespace windowing_universal_windows
       //if (m_bNewBuffer)
       //{
 
+      auto & d = m_pwindow->m_puserinteractionimpl->m_puserinteraction->layout().m_statea[::user::e_layout_design];
+
+      auto & w = m_pwindow->m_puserinteractionimpl->m_puserinteraction->layout().m_statea[::user::e_layout_window];
+
+      w.m_point2 = d.m_point2;
+
+      w.m_size = get_buffer_item()->m_size;
+
       Present();
 
       //m_bNewBuffer = false;
@@ -1468,13 +1476,31 @@ namespace windowing_universal_windows
 
 
 
+::graphics::buffer_item * buffer::get_buffer_item()
+{
+
+   __defer_construct_new(m_pbufferitem);
+
+   return m_pbufferitem;
+
+   }
+
+::graphics::buffer_item * buffer::get_screen_item()
+{
+
+   __defer_construct_new(m_pbufferitem);
+
+   return m_pbufferitem;
+
+}
+
 
 
 
    CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS buffer * __buffer(::graphics::graphics * pgraphics)
    {
 
-      return pgraphics->m_pWindowingUniversalWindowsBuffer;
+      return ::is_null(pgraphics) ? nullptr : pgraphics->m_pWindowingUniversalWindowsBuffer;
 
    }
 

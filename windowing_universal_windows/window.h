@@ -21,7 +21,7 @@ namespace windowing_universal_windows
 
 
 
-
+      
       //::pointer<window>            m_pwindowNode;
       ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource         m_frameworkviewsource;
 
@@ -146,7 +146,7 @@ namespace windowing_universal_windows
       virtual wide_string get_input_text();
       virtual bool set_input_text(const wide_string & wstr);
 
-
+      virtual void __on_window_visible();
 
       //impact();
 

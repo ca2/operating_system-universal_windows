@@ -533,6 +533,17 @@ namespace windowing_universal_windows
 
       puserinteraction->send_message(e_message_create, 0, 0);
 
+      user_send([this]()
+
+         {
+
+            if (m_window.Visible())
+            {
+
+               __on_window_visible();
+
+            }
+});
 
       //on_window_size_changed()
 
@@ -6401,6 +6412,13 @@ namespace windowing_universal_windows
 
             //m_pwindow = acmesystem()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
 
+            //if (window.Visible())
+            //{
+
+            //   __on_window_visible();
+
+            //}
+
             m_window = m_window;
 
          } } );
@@ -6591,6 +6609,10 @@ namespace windowing_universal_windows
 
       puserinteraction->post_procedure(pprodevian->m_procedureUpdateScreen);*/
 
+      ::pointer<::windowing_universal_windows::buffer>pbuffer = m_puserinteractionimpl->m_pgraphics;
+
+      pbuffer->update_screen();
+
    }
 
 
@@ -6735,9 +6757,6 @@ namespace windowing_universal_windows
 
    }
 
-
-
-   
 
    void window::CoreWindow_PointerPressed(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
    {
@@ -7982,6 +8001,43 @@ namespace windowing_universal_windows
 
       }
 
+      void window::__on_window_visible()
+      {
+
+
+         auto pbuffer = __buffer(m_puserinteractionimpl->get_window_graphics());
+
+         if (pbuffer)
+         {
+
+            if (pbuffer->m_tristateCoreWindowVisible.undefined())
+            {
+
+               pbuffer->m_tristateCoreWindowVisible = true;
+
+            }
+            else if (pbuffer->m_tristateCoreWindowVisible.is_set_false())
+            {
+
+               pbuffer->m_tristateCoreWindowVisible = true;
+
+               winrt::Windows::UI::Core::CoreWindow window = m_window;
+
+               if (window)
+               {
+
+                  //pbuffer->HandleDeviceLost();
+                  pbuffer->CreateWindowSizeDependentResources();
+
+
+               }
+
+            }
+
+         }
+
+      }
+
 
       void window::OnWindowVisibilityChanged(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args)
       {
@@ -7989,36 +8045,7 @@ namespace windowing_universal_windows
          if (args.Visible())
          {
 
-            auto pbuffer = __buffer(m_puserinteractionimpl->get_window_graphics());
-
-            if (pbuffer)
-            {
-
-               if (pbuffer->m_tristateCoreWindowVisible.undefined())
-               {
-
-                  pbuffer->m_tristateCoreWindowVisible = true;
-
-               }
-               else if (pbuffer->m_tristateCoreWindowVisible.is_set_false())
-               {
-
-                  pbuffer->m_tristateCoreWindowVisible = true;
-
-                  winrt::Windows::UI::Core::CoreWindow window = m_window;
-
-                  if (window)
-                  {
-
-                     //pbuffer->HandleDeviceLost();
-                     pbuffer->CreateWindowSizeDependentResources();
-
-
-                  }
-
-               }
-
-            }
+            __on_window_visible();
 
          }
          else

@@ -8,6 +8,12 @@
 #include "aura/windowing/monitor.h"
 #include "aura/windowing/window.h"
 #include "aura/windowing/windowing.h"
+#include "acme/_operating_system.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme_universal_windows/_winrt_system.h"
+#include <winrt/windows.foundation.collections.h>
+#include <winrt/windows.devices.input.h>
+#include <winrt/windows.ui.input.h>
 
 
 namespace windowing_universal_windows
@@ -17,10 +23,11 @@ namespace windowing_universal_windows
    display::display()
    {
 
+      m_iMouseDevice = -1;
 
    }
-   
-   
+
+
    display::~display()
    {
 
@@ -31,36 +38,36 @@ namespace windowing_universal_windows
    void display::enum_display_monitors()
    {
 
-//#ifdef WINDOWS_DESKTOP
-//
-//      m_monitorinfoa.erase_all();
-//
-//      ::EnumDisplayMonitors(nullptr, nullptr, &display::monitor_enum_proc, (LPARAM)this);
-//
-//      synchronous_lock synchronouslock(synchronization());
-//
-//      m_monitora.erase_all();
-//
-//      for (index iMonitor = 0; iMonitor < m_monitorinfoa.get_count(); iMonitor++)
-//      {
-//
-//         auto pmonitor = __new(monitor(m_hmonitora[iMonitor]));
-//
-//         pmonitor->m_iIndex = iMonitor;
-//
-//         m_monitora.add(pmonitor);
-//
-//         __copy(pmonitor->m_rectangle, m_monitorinfoa[iMonitor].rcMonitor);
-//
-//         __copy(pmonitor->m_rectangleWorkspace, m_monitorinfoa[iMonitor].rcWork);
-//
-//      }
-//
-//#elif defined(LINUX)
-//
-//      ::enum_display_monitors(this);
-//
-//#endif
+      //#ifdef WINDOWS_DESKTOP
+      //
+      //      m_monitorinfoa.erase_all();
+      //
+      //      ::EnumDisplayMonitors(nullptr, nullptr, &display::monitor_enum_proc, (LPARAM)this);
+      //
+      //      synchronous_lock synchronouslock(synchronization());
+      //
+      //      m_monitora.erase_all();
+      //
+      //      for (index iMonitor = 0; iMonitor < m_monitorinfoa.get_count(); iMonitor++)
+      //      {
+      //
+      //         auto pmonitor = __new(monitor(m_hmonitora[iMonitor]));
+      //
+      //         pmonitor->m_iIndex = iMonitor;
+      //
+      //         m_monitora.add(pmonitor);
+      //
+      //         __copy(pmonitor->m_rectangle, m_monitorinfoa[iMonitor].rcMonitor);
+      //
+      //         __copy(pmonitor->m_rectangleWorkspace, m_monitorinfoa[iMonitor].rcWork);
+      //
+      //      }
+      //
+      //#elif defined(LINUX)
+      //
+      //      ::enum_display_monitors(this);
+      //
+      //#endif
 
    }
 
@@ -118,115 +125,115 @@ namespace windowing_universal_windows
    ::count display::get_monitor_count()
    {
 
-//#ifdef WINDOWS_DESKTOP
-//
-//      return m_monitorinfoa.get_count();
-//
-//#elif defined(MACOS)
-//
-//      return GetScreenCount();
-//
-//#elif defined(LINUX)
-//
-//      synchronous_lock synchronouslock(synchronization());
-//
-//      return m_rectangleaMonitor.get_count();
-//
-//#else
+      //#ifdef WINDOWS_DESKTOP
+      //
+      //      return m_monitorinfoa.get_count();
+      //
+      //#elif defined(MACOS)
+      //
+      //      return GetScreenCount();
+      //
+      //#elif defined(LINUX)
+      //
+      //      synchronous_lock synchronouslock(synchronization());
+      //
+      //      return m_rectangleaMonitor.get_count();
+      //
+      //#else
 
       return 1;
-//
-//#endif
+      //
+      //#endif
 
    }
 
 
-//   bool display::get_monitor_rectangle(index iMonitor, ::rectangle_i32 * prectangle)
-//   {
-//
-//#ifdef UNIVERSAL_WINDOWS
-//
-//      return false;
-//
-//      //prectangle->left() = 0;
-//
-//      //prectangle->top() = 0;
-//
-//      //auto puserinteraction = __user_interaction(m_puserinteractionHost);
-//
-//      //prectangle->right() = puserinteraction->layout().sketch().width();
-//
-//      //prectangle->bottom() = puserinteraction->layout().sketch().height();
-//
-//      //return true;
-//
-//#elif MOBILE_PLATFORM
-//
-//      GetMainScreenRect(prectangle);
-//
-//      return true;
-//
-//#elif defined(WINDOWS_DESKTOP)
-//
-//      if (iMonitor < 0 || iMonitor >= get_monitor_count())
-//      {
-//
-//         return false;
-//
-//      }
-//
-//      __copy(prectangle, m_monitorinfoa[iMonitor].rcMonitor);
-//
-//
-//#elif defined(UNIVERSAL_WINDOWS)
-//
-//
-//      return false;
-//
-//
-//#elif defined(LINUX)
-//
-//      synchronous_lock synchronouslock(synchronization());
-//
-//      if (iMonitor < 0 || iMonitor >= get_monitor_count())
-//      {
-//
-//         return false;
-//
-//      }
-//
-//      *prectangle = m_rectangleaMonitor[iMonitor];
-//
-//
-//#elif defined(__APPLE__)
-//
-//      if (iMonitor < 0 || iMonitor >= get_monitor_count())
-//      {
-//
-//         return false;
-//
-//      }
-//
-//      GetScreenRect(prectangle, (int)iMonitor);
-//
-//
-//#else
-//
-//      prectangle->left() = 0;
-//
-//      prectangle->top() = 0;
-//
-//      prectangle->right() = operating_system_driver::get().m_iScreenWidth;
-//
-//      prectangle->bottom() = operating_system_driver::get().m_iScreenHeight;
-//
-//
-//#endif
-//
-//      return true;
-//
-//   }
-//
+   //   bool display::get_monitor_rectangle(index iMonitor, ::rectangle_i32 * prectangle)
+   //   {
+   //
+   //#ifdef UNIVERSAL_WINDOWS
+   //
+   //      return false;
+   //
+   //      //prectangle->left() = 0;
+   //
+   //      //prectangle->top() = 0;
+   //
+   //      //auto puserinteraction = __user_interaction(m_puserinteractionHost);
+   //
+   //      //prectangle->right() = puserinteraction->layout().sketch().width();
+   //
+   //      //prectangle->bottom() = puserinteraction->layout().sketch().height();
+   //
+   //      //return true;
+   //
+   //#elif MOBILE_PLATFORM
+   //
+   //      GetMainScreenRect(prectangle);
+   //
+   //      return true;
+   //
+   //#elif defined(WINDOWS_DESKTOP)
+   //
+   //      if (iMonitor < 0 || iMonitor >= get_monitor_count())
+   //      {
+   //
+   //         return false;
+   //
+   //      }
+   //
+   //      __copy(prectangle, m_monitorinfoa[iMonitor].rcMonitor);
+   //
+   //
+   //#elif defined(UNIVERSAL_WINDOWS)
+   //
+   //
+   //      return false;
+   //
+   //
+   //#elif defined(LINUX)
+   //
+   //      synchronous_lock synchronouslock(synchronization());
+   //
+   //      if (iMonitor < 0 || iMonitor >= get_monitor_count())
+   //      {
+   //
+   //         return false;
+   //
+   //      }
+   //
+   //      *prectangle = m_rectangleaMonitor[iMonitor];
+   //
+   //
+   //#elif defined(__APPLE__)
+   //
+   //      if (iMonitor < 0 || iMonitor >= get_monitor_count())
+   //      {
+   //
+   //         return false;
+   //
+   //      }
+   //
+   //      GetScreenRect(prectangle, (int)iMonitor);
+   //
+   //
+   //#else
+   //
+   //      prectangle->left() = 0;
+   //
+   //      prectangle->top() = 0;
+   //
+   //      prectangle->right() = operating_system_driver::get().m_iScreenWidth;
+   //
+   //      prectangle->bottom() = operating_system_driver::get().m_iScreenHeight;
+   //
+   //
+   //#endif
+   //
+   //      return true;
+   //
+   //   }
+   //
 
    ::count display::get_desk_monitor_count()
    {
@@ -295,87 +302,87 @@ namespace windowing_universal_windows
    ::count display::get_workspace_count()
    {
 
-//#ifdef WINDOWS_DESKTOP
-//
-//      return m_monitorinfoa.get_count();
-//
-//#else
-//
-//      return get_monitor_count();
-//
-//#endif
+      //#ifdef WINDOWS_DESKTOP
+      //
+      //      return m_monitorinfoa.get_count();
+      //
+      //#else
+      //
+      //      return get_monitor_count();
+      //
+      //#endif
       return 1;
 
    }
 
 
-//   bool display::get_wkspace_rect(index iWkspace, ::rectangle_i32 * prectangle)
-//   {
-//
-//#ifdef WINDOWS_DESKTOP
-//
-//      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
-//         return false;
-//
-//      __copy(prectangle, m_monitorinfoa[iWkspace].rcWork);
-//
-//
-//#elif defined(UNIVERSAL_WINDOWS)
-//
-//      return get_monitor_rect(iWkspace, prectangle);
-//
-//
-//      //#elif defined(LINUX)
-//      //
-//      //return false;
-//      //
-//#elif defined(__APPLE__)
-//
-//      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
-//      {
-//
-//         return false;
-//
-//      }
-//
-//      GetWkspaceRect(prectangle, (int)iWkspace);
-//
-//
-//      //      prectangle->top() += ::mac::get_system_main_menu_bar_height();
-//
-//      //    prectangle->bottom() -= ::mac::get_system_dock_height();
-//
-//#elif defined(LINUX)
-//
-//      synchronous_lock synchronouslock(synchronization());
-//
-//      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
-//      {
-//
-//         return false;
-//
-//      }
-//
-//      *prectangle = m_rectangleaWkspace[iWkspace];
-//
-//
-//      return true;
-//
-//#else
-//
-//      //throw ::exception(todo);
-//
-//      //::window_rectangle(::get_desktop_window(),prectangle);
-//
-//
-//      get_monitor_rect(iWkspace, prectangle);
-//
-//
-//#endif
-//
-//      return true;
-//
-//   }
+   //   bool display::get_wkspace_rect(index iWkspace, ::rectangle_i32 * prectangle)
+   //   {
+   //
+   //#ifdef WINDOWS_DESKTOP
+   //
+   //      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
+   //         return false;
+   //
+   //      __copy(prectangle, m_monitorinfoa[iWkspace].rcWork);
+   //
+   //
+   //#elif defined(UNIVERSAL_WINDOWS)
+   //
+   //      return get_monitor_rect(iWkspace, prectangle);
+   //
+   //
+   //      //#elif defined(LINUX)
+   //      //
+   //      //return false;
+   //      //
+   //#elif defined(__APPLE__)
+   //
+   //      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
+   //      {
+   //
+   //         return false;
+   //
+   //      }
+   //
+   //      GetWkspaceRect(prectangle, (int)iWkspace);
+   //
+   //
+   //      //      prectangle->top() += ::mac::get_system_main_menu_bar_height();
+   //
+   //      //    prectangle->bottom() -= ::mac::get_system_dock_height();
+   //
+   //#elif defined(LINUX)
+   //
+   //      synchronous_lock synchronouslock(synchronization());
+   //
+   //      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
+   //      {
+   //
+   //         return false;
+   //
+   //      }
+   //
+   //      *prectangle = m_rectangleaWkspace[iWkspace];
+   //
+   //
+   //      return true;
+   //
+   //#else
+   //
+   //      //throw ::exception(todo);
+   //
+   //      //::window_rectangle(::get_desktop_window(),prectangle);
+   //
+   //
+   //      get_monitor_rect(iWkspace, prectangle);
+   //
+   //
+   //#endif
+   //
+   //      return true;
+   //
+   //   }
 
 
    ::count display::get_desk_workspace_count()
@@ -552,11 +559,11 @@ namespace windowing_universal_windows
 
 
 
-   #define ZONEING_COMPARE ::comparison
+#define ZONEING_COMPARE ::comparison
 
    i64 g_i_get_best_zoneing = 0;
 
-   
+
    index display::_get_best_zoneing(::e_display * pedisplay, ::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangleRequest, bool bPreserveSize)
    {
 
@@ -871,29 +878,29 @@ namespace windowing_universal_windows
             rectangleMonitor = pmonitor->monitor_rectangle();
             //{
 
-               if (rectangleIntersect.top_left_null_intersect(rectangle, rectangleMonitor))
-               {
+            if (rectangleIntersect.top_left_null_intersect(rectangle, rectangleMonitor))
+            {
 
-                  if (rectangleIntersect.area() > iBestArea)
-                  {
-
-                     iMatchingMonitor = iMonitor;
-
-                     iBestArea = rectangleIntersect.area();
-
-                     rectangleMatch = rectangleMonitor;
-
-                  }
-
-               }
-               else if (rectangleMonitor.contains(rectangle))
+               if (rectangleIntersect.area() > iBestArea)
                {
 
                   iMatchingMonitor = iMonitor;
 
+                  iBestArea = rectangleIntersect.area();
+
                   rectangleMatch = rectangleMonitor;
 
                }
+
+            }
+            else if (rectangleMonitor.contains(rectangle))
+            {
+
+               iMatchingMonitor = iMonitor;
+
+               rectangleMatch = rectangleMonitor;
+
+            }
 
             //}
 
@@ -951,34 +958,41 @@ namespace windowing_universal_windows
 
          auto pmonitor = get_monitor(iWorkspace);
 
+         if (::is_null(pmonitor))
+         {
+
+            continue;
+
+         }
+
          rectangleWorkspace = pmonitor->workspace_rectangle();
 
          //if (pmonitor->get_workspace_rectangle(rectangleMonitor))
          //{
 
-            if (rectangleIntersect.top_left_null_intersect(rectangle, rectangleWorkspace))
-            {
+         if (rectangleIntersect.top_left_null_intersect(rectangle, rectangleWorkspace))
+         {
 
-               if (rectangleIntersect.area() > iBestArea)
-               {
-
-                  iMatchingWkspace = iWorkspace;
-
-                  iBestArea = rectangleIntersect.area();
-
-                  rectangleMatch = rectangleWorkspace;
-
-               }
-
-            }
-            else if (rectangleWorkspace.contains(rectangle))
+            if (rectangleIntersect.area() > iBestArea)
             {
 
                iMatchingWkspace = iWorkspace;
 
+               iBestArea = rectangleIntersect.area();
+
                rectangleMatch = rectangleWorkspace;
 
             }
+
+         }
+         else if (rectangleWorkspace.contains(rectangle))
+         {
+
+            iMatchingWkspace = iWorkspace;
+
+            rectangleMatch = rectangleWorkspace;
+
+         }
 
          //}
 
@@ -1029,7 +1043,7 @@ namespace windowing_universal_windows
    {
 
       //auto estatus = 
-      
+
       ::windowing::display::initialize_display(pwindowing);
 
       //if (!estatus)
@@ -1043,7 +1057,7 @@ namespace windowing_universal_windows
 
       if (!m_pwindowing)
       {
-         
+
          //return error_no_interface;
 
          throw ::exception(error_no_interface);
@@ -1195,6 +1209,48 @@ namespace windowing_universal_windows
    //   return true;
 
    //}
+
+
+   ::point_i32 display::_get_mouse_cursor_position()
+   {
+
+      ::point_i32 pointCursor;
+
+      if (m_iMouseDevice < 0)
+      {
+
+         return pointCursor;
+
+      }
+
+      user_send([&pointCursor, this]()
+      {
+
+         //auto devicea = ::winrt::Windows::Devices::Input::PointerDevice::GetPointerDevices();
+
+         //for (unsigned int u = 0; u < devicea.Size(); u++)
+         //{
+
+         //   auto device = devicea.GetAt(u);
+
+         //   if (device.PointerDeviceType() == ::winrt::Windows::Devices::Input::PointerDeviceType::Mouse)
+         //   {
+
+               auto pointerPoint = ::winrt::Windows::UI::Input::PointerPoint::GetCurrentPoint(m_iMouseDevice);
+
+               pointCursor.x() = (::i32)pointerPoint.RawPosition().X;
+
+               pointCursor.y() = (::i32)pointerPoint.RawPosition().Y;
+
+            //}
+
+         //}
+
+      });
+
+      return pointCursor;
+
+   }
 
 
 } // namespace windowing_universal_windows

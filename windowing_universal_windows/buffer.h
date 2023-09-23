@@ -196,6 +196,11 @@ namespace windowing_universal_windows
 
       virtual void OnWindowSizeChange();
 
+
+      virtual ::graphics::buffer_item * get_buffer_item();
+      virtual ::graphics::buffer_item * get_screen_item();
+
+
    };
 
 

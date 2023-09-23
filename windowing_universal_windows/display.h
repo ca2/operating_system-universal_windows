@@ -16,7 +16,7 @@ namespace windowing_universal_windows
    {
    public:
 
-
+      int m_iMouseDevice;
 
 #ifdef WINDOWS_DESKTOP
 
@@ -107,6 +107,9 @@ namespace windowing_universal_windows
 
       bool impl_set_wallpaper(index iScreen, string strLocalImagePath) override;
       string impl_get_wallpaper(index iScreen) override;
+
+
+      ::point_i32 _get_mouse_cursor_position() override;
 
 
    };
