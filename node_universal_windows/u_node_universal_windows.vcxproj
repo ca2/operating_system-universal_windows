@@ -130,6 +130,9 @@
       <Project>{320713e0-cea7-4ef5-a154-ab3a96d41a52}</Project>
     </ProjectReference>
   </ItemGroup>
+  <ItemGroup>
+    <None Include="u_node_universal_windows.def" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <ProjectGuid>{6a3e3812-82b9-4423-bb63-c9687c967c67}</ProjectGuid>
     <Keyword>DynamicLibrary</Keyword>

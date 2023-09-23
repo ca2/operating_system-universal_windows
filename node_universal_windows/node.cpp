@@ -200,13 +200,13 @@ namespace node_universal_windows
 
    }
 
+   //void node::windowing_post(const ::procedure & procedure)
+   //{
 
-   void node::windowing_post(const ::procedure & procedure)
-   {
+   //   node_post(procedure);
 
-      node_post(procedure);
+   //}
 
-   }
 
 
 } // namespace node_universal_windows

@@ -1522,6 +1522,8 @@ namespace windowing_universal_windows
 
       //return ::success;
 
+      return true;
+
    }
 
 
@@ -6023,57 +6025,57 @@ namespace windowing_universal_windows
 //   }
 
 
-   bool window::window_rectangle(::rectangle_i32 * prectangle)
-   {
-
-      //RECT rectangle;
-
-      //if (!::GetWindowRect(get_hwnd(), &rectangle))
-      //{
-
-      //   return false;
-
-      //}
-
-      //__copy(prectangle, rectangle);
-
-      return true;
-
-   }
-
-
-   //WNDPROC* window::GetSuperWndProcAddr()
+   //bool window::window_rectangle(::rectangle_i32 * prectangle)
    //{
 
-   //   // Note: it is no longer necessary to override GetSuperWndProcAddr
-   //   //  for each control class with a different WNDCLASS.
-   //   //  This implementation now uses instance data, such that the previous
-   //   //  WNDPROC can be anything.
+   //   //RECT rectangle;
 
-   //   //return &m_pfnSuper;
+   //   //if (!::GetWindowRect(get_hwnd(), &rectangle))
+   //   //{
 
-   //   return nullptr;
+   //   //   return false;
+
+   //   //}
+
+   //   //__copy(prectangle, rectangle);
+
+   //   return true;
 
    //}
 
 
-   bool window::client_rectangle(::rectangle_i32 * prectangle)
-   {
+   ////WNDPROC* window::GetSuperWndProcAddr()
+   ////{
 
-      //RECT rectangle;
+   ////   // Note: it is no longer necessary to override GetSuperWndProcAddr
+   ////   //  for each control class with a different WNDCLASS.
+   ////   //  This implementation now uses instance data, such that the previous
+   ////   //  WNDPROC can be anything.
 
-      //if (!::GetClientRect(get_hwnd(), &rectangle))/*
-      //{
+   ////   //return &m_pfnSuper;
 
-      //   return false;
+   ////   return nullptr;
 
-      //}
+   ////}
 
-      //__copy(prectangle, rectangle);*/
 
-      return true;
+   //bool window::client_rectangle(::rectangle_i32 * prectangle)
+   //{
 
-   }
+   //   //RECT rectangle;
+
+   //   //if (!::GetClientRect(get_hwnd(), &rectangle))/*
+   //   //{
+
+   //   //   return false;
+
+   //   //}
+
+   //   //__copy(prectangle, rectangle);*/
+
+   //   return true;
+
+   //}
 
 
 
@@ -6552,18 +6554,18 @@ namespace windowing_universal_windows
    }
 
 
-   void window::_window_request_presentation()
-   {
+   //void window::_window_request_presentation()
+   //{
 
-      ::windowing::window::_window_request_presentation();
+   //   ::windowing::window::_window_request_presentation();
 
-      //auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
+   //   //auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
 
-      //auto pprodevian = m_puserinteractionimpl->m_pprodevian;
+   //   //auto pprodevian = m_puserinteractionimpl->m_pprodevian;
 
-      //puserinteraction->post_procedure(pprodevian->m_procedureWindowShow);
+   //   //puserinteraction->post_procedure(pprodevian->m_procedureWindowShow);
 
-   }
+   //}
 
 
    void window::window_update_screen_buffer()
@@ -6862,7 +6864,7 @@ namespace windowing_universal_windows
 
       set_input_text(wstrText);
 
-      m_pwindowing->windowing_post([this, iBeg, iEnd]()
+      user_post([this, iBeg, iEnd]()
          {
 
             wide_string wstrText = get_input_text();
@@ -6887,7 +6889,7 @@ namespace windowing_universal_windows
       wstring wstrText = get_input_text();
 
       // Modify the internal text store.
-      wstrText = wstrText.left()(modifiedRange.StartCaretPosition) +
+      wstrText = wstrText.left(modifiedRange.StartCaretPosition) +
          text +
          wstrText.substr(modifiedRange.EndCaretPosition);
 
@@ -6983,7 +6985,7 @@ namespace windowing_universal_windows
 
       wide_string wstrText = get_input_text();
 
-      string strText = wstrText.left()(range.StartCaretPosition) + newText + wstrText.substr(range.EndCaretPosition);
+      string strText = wstrText.left(range.StartCaretPosition) + newText + wstrText.substr(range.EndCaretPosition);
 
       m_strNewText = newText;
 
@@ -8067,16 +8069,24 @@ namespace windowing_universal_windows
 
          pusermessage = pmouse;
 
-         pmouse->m_point.x() = (::i32)pointerPoint.RawPosition().X;
+         pmouse->m_pointHost.x() = (::i32)pointerPoint.Position().X;
 
-         pmouse->m_point.y() = (::i32)pointerPoint.RawPosition().Y;
+         pmouse->m_pointHost.y() = (::i32)pointerPoint.Position().Y;
+
+         pmouse->m_pointAbsolute.x() = (::i32)pointerPoint.RawPosition().X;
+
+         pmouse->m_pointAbsolute.y() = (::i32)pointerPoint.RawPosition().Y;
 
          pmouse->m_atom = e_message_mouse_move;
          //pmouse->m_playeredUserPrimitive  = acmesession()->m_puserinteractionHost;
 
          m_pointLastCursor = pointerPoint.RawPosition();
 
-         set_cursor_position({ (int) m_pointLastCursor.X, (int) m_pointLastCursor.Y});
+         //set_cursor_position({ (int) m_pointLastCursor.X, (int) m_pointLastCursor.Y});
+
+         m_pointCursor2.x() = (::i32)pointerPoint.RawPosition().X;
+
+         m_pointCursor2.y() = (::i32)pointerPoint.RawPosition().Y;
 
          puserinteraction->m_pinteractionimpl->queue_message_handler(pusermessage);
 
@@ -8117,9 +8127,13 @@ namespace windowing_universal_windows
 
          auto pmouse = __new(::message::mouse);
 
-         pmouse->m_point.x() = (::i32)pointerPoint.RawPosition().X;
+         pmouse->m_pointHost.x() = (::i32)pointerPoint.Position().X;
 
-         pmouse->m_point.y() = (::i32)pointerPoint.RawPosition().Y;
+         pmouse->m_pointHost.y() = (::i32)pointerPoint.Position().Y;
+
+         pmouse->m_pointAbsolute.x() = (::i32)pointerPoint.RawPosition().X;
+
+         pmouse->m_pointAbsolute.y() = (::i32)pointerPoint.RawPosition().Y;
 
          if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
          {
@@ -8154,7 +8168,9 @@ namespace windowing_universal_windows
 
          m_pointLastCursor = pointerPoint.RawPosition();
 
-         set_cursor_position({ (int)m_pointLastCursor.X, (int)m_pointLastCursor.Y });
+         m_pointCursor2.x() = (::i32)pointerPoint.RawPosition().X;
+
+         m_pointCursor2.y() = (::i32)pointerPoint.RawPosition().Y;
 
          puserinteraction->m_pinteractionimpl->queue_message_handler(pmouse);
 
@@ -8193,9 +8209,13 @@ namespace windowing_universal_windows
 
          auto pmouse = __new(::message::mouse);
 
-         pmouse->m_point.x() = (::i32)pointerPoint.RawPosition().X;
+         pmouse->m_pointHost.x() = (::i32)pointerPoint.Position().X;
 
-         pmouse->m_point.y() = (::i32)pointerPoint.RawPosition().Y;
+         pmouse->m_pointHost.y() = (::i32)pointerPoint.Position().Y;
+
+         pmouse->m_pointAbsolute.x() = (::i32)pointerPoint.RawPosition().X;
+
+         pmouse->m_pointAbsolute.y() = (::i32)pointerPoint.RawPosition().Y;
 
          if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
          {
@@ -8224,7 +8244,9 @@ namespace windowing_universal_windows
 
          m_pointLastCursor = pointerPoint.RawPosition();
 
-         set_cursor_position({ (int)m_pointLastCursor.X, (int)m_pointLastCursor.Y });
+         m_pointCursor2.x() = (::i32)pointerPoint.RawPosition().X;
+
+         m_pointCursor2.y() = (::i32)pointerPoint.RawPosition().Y;
 
          puserinteraction->m_pinteractionimpl->queue_message_handler(pmouse);
 
@@ -8416,15 +8438,15 @@ namespace windowing_universal_windows
       }
 
 
-      ::point_i32 window::get_mouse_cursor_position()
-      {
+      //::point_i32 window::get_mouse_cursor_position()
+      //{
 
-         auto p = get_cursor_position();
+      //   auto p = get_cursor_position();
 
-         return { (int) p.X, (int) p.Y };
+      //   return { (int) p.X, (int) p.Y };
 
 
-      }
+      //}
 
 
       void window::on_message_size(::message::message * pmessage)
