@@ -2080,36 +2080,36 @@ namespace windowing_universal_windows
    }
 
 
-#undef SET_WINDOW_POS_LOG
-
-   bool window::_strict_set_window_position_unlocked(i32 x, i32 y, i32 cx, i32 cy, bool bNoMove, bool bNoSize)
-   {
-
-      //HWND hwnd = get_hwnd();
-
-      //auto pwindowing = windowing();
-
-      //HWND hwndInsertAfter = pwindowing->zorder_to_hwnd(zorder);
-
-      //bool bNoZorder = nFlags & SWP_NOZORDER;
-
-      //if (::GetWindowLong(hwnd, GWL_EXSTYLE) & WS_EX_LAYERED)
-      //{
-
-      //   nFlags |= SWP_NOMOVE;
-
-      //   nFlags |= SWP_NOSIZE;
-
-      //}
-
-      //auto bSetWindowPos = ::SetWindowPos(hwnd, hwndInsertAfter, x, y, cx, cy, nFlags);
-
-      //return bSetWindowPos != FALSE;
-
-      return false;
-
-   }
-
+//#undef SET_WINDOW_POS_LOG
+//
+//   bool window::_strict_set_window_position_unlocked(i32 x, i32 y, i32 cx, i32 cy, bool bNoMove, bool bNoSize)
+//   {
+//
+//      //HWND hwnd = get_hwnd();
+//
+//      //auto pwindowing = windowing();
+//
+//      //HWND hwndInsertAfter = pwindowing->zorder_to_hwnd(zorder);
+//
+//      //bool bNoZorder = nFlags & SWP_NOZORDER;
+//
+//      //if (::GetWindowLong(hwnd, GWL_EXSTYLE) & WS_EX_LAYERED)
+//      //{
+//
+//      //   nFlags |= SWP_NOMOVE;
+//
+//      //   nFlags |= SWP_NOSIZE;
+//
+//      //}
+//
+//      //auto bSetWindowPos = ::SetWindowPos(hwnd, hwndInsertAfter, x, y, cx, cy, nFlags);
+//
+//      //return bSetWindowPos != FALSE;
+//
+//      return false;
+//
+//   }
+//
 
 //   bool window::_set_window_pos(class ::zorder zorder, i32 x, i32 y, i32 cx, i32 cy, ::u32 nFlags)
 //   {
@@ -6057,7 +6057,7 @@ namespace windowing_universal_windows
    //}
 
 
-   bool window::this->rectangle(::rectangle_i32 * prectangle)
+   bool window::client_rectangle(::rectangle_i32 * prectangle)
    {
 
       //RECT rectangle;

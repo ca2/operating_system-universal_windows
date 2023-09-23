@@ -55,7 +55,7 @@ namespace node_universal_windows
       void user_post(const ::procedure & procedure) override;
 
 
-      void windowing_post(const ::procedure& procedure) override;
+      //void windowing_post(const ::procedure& procedure) override;
 
 
    };

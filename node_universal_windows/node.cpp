@@ -44,7 +44,7 @@ namespace node_universal_windows
    {
 
       //auto estatus = 
-      
+
       acmesystem()->m_paurasystem->branch_synchronously();
 
       //if (!estatus)
@@ -93,7 +93,7 @@ namespace node_universal_windows
       //}
 
       //auto estatus = 
-      
+
       aura_universal_windows::node::call_member(i);
 
       //if (!estatus)
@@ -183,25 +183,25 @@ namespace node_universal_windows
    ////}
 
 
-   void node::node_post(const ::procedure & procedure)
+   void node::user_post(const ::procedure & procedure)
    {
 
       auto window = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow();
 
       auto dispatcher = window.Dispatcher();
-      
+
       dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
          [procedure]()
       {
-         
-            procedure();
+
+         procedure();
 
       });
 
    }
 
 
-   void node::windowing_post(const ::procedure& procedure)
+   void node::windowing_post(const ::procedure & procedure)
    {
 
       node_post(procedure);

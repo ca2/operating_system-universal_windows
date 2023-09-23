@@ -613,8 +613,8 @@ namespace windowing_universal_windows
 
 
       //virtual void rects_from_os();
-      virtual bool window_rectangle(::rectangle_i32 * prectangle);
-      virtual bool client_rectangle(::rectangle_i32 * prectangle);
+      //virtual bool window_rectangle(::rectangle_i32 * prectangle);
+      //virtual bool client_rectangle(::rectangle_i32 * prectangle);
 
 
 
