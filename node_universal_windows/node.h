@@ -52,7 +52,7 @@ namespace node_universal_windows
 
       //pointer< ::extended::future < ::conversation > > _message_box(::particle * pparticle, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
 
-      void node_post(const ::procedure & procedure) override;
+      void user_post(const ::procedure & procedure) override;
 
 
       void windowing_post(const ::procedure& procedure) override;

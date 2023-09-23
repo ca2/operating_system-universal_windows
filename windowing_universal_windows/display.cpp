@@ -933,10 +933,10 @@ namespace windowing_universal_windows
 
       ::rectangle_i32 rectangle(rectangleParam);
 
-      if (::is_set(pwindowGetCursorPosition) && ((eactivation & e_activation_under_mouse_cursor) || rectangle.is_null()))
+      if (::is_set(puserinteractionGetCursorPosition) && ((eactivation & e_activation_under_mouse_cursor) || rectangle.is_null()))
       {
 
-         ::point_i32 pointCursor = pwindowGetCursorPosition->m_puserinteractionimpl->m_puserinteraction->host_mouse_cursor_position();
+         ::point_i32 pointCursor = puserinteractionGetCursorPosition->host_mouse_cursor_position();
 
          rectangle.set(pointCursor - ::size_i32(5, 5), ::size_i32(10, 10));
 

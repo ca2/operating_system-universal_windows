@@ -2082,7 +2082,7 @@ namespace windowing_universal_windows
 
 #undef SET_WINDOW_POS_LOG
 
-   bool window::set_window_position(const class ::zorder& zorder, i32 x, i32 y, i32 cx, i32 cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide)
+   bool window::_strict_set_window_position_unlocked(i32 x, i32 y, i32 cx, i32 cy, bool bNoMove, bool bNoSize)
    {
 
       //HWND hwnd = get_hwnd();
