@@ -153,6 +153,8 @@ namespace windowing_universal_windows
 
       ID2D1DeviceContext * get_device_context();
 
+      bool is_single_buffer_mode() const override;
+
 
       bool on_update_screen(::graphics::buffer_item * pimage) override;
 

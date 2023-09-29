@@ -182,7 +182,12 @@ namespace windowing_universal_windows
 
       }
 
-      m_pdevicecontext->Clear(m_d2d1colorfBackground);
+      if (!is_single_buffer_mode())
+      {
+
+         m_pdevicecontext->Clear(m_d2d1colorfBackground);
+
+      }
 
       m_pdevicecontext->SetTransform(D2D1::Matrix3x2F::Identity());
 
@@ -722,6 +727,14 @@ namespace windowing_universal_windows
    {
 
       return m_pdevicecontext;
+
+   }
+
+
+   bool buffer::is_single_buffer_mode() const
+   {
+
+      return true;
 
    }
 

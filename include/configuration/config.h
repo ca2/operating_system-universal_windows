@@ -9,7 +9,7 @@
 #define HAVE_STRING_H 1
 #define HAVE_LIMITS_H 1
 #define HAVE_STDLIB_H 1
-#define HAVE_WINCRYPT_H 1
+//#define HAVE_WINCRYPT_H 1
 #define HAVE_STDARG_H 1
 
 #include <BaseTsd.h>

@@ -10,7 +10,7 @@
     <RootParentDirOperatingSystem>$(RootParentDir)operating_system\</RootParentDirOperatingSystem>
   </PropertyGroup>
   <PropertyGroup>
-    <OutDir>$(RootParentDirOperatingSystem)storage-windows\$(PlatformName)\$(Configuration)\third\binary\</OutDir>
+    <OutDir>$(RootParentDirOperatingSystem)storage-universal_windows\$(PlatformName)\$(Configuration)\third\binary\</OutDir>
     <IntDir>$(TimeDir)intermediate\$(PlatformName)\$(Configuration)\$(RootNamespace)\$(ProjectName)\</IntDir>
   </PropertyGroup>
   <ItemDefinitionGroup>

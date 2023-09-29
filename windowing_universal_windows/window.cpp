@@ -7048,6 +7048,9 @@ namespace windowing_universal_windows
             bool bTextFocus = puserinteraction != nullptr;
 
             bool bSpecialKey = false;
+            pkey->m_pwindow = this;
+
+            pkey->m_oswindow = this;
 
             pkey->m_atom = e_message_key_down;
             //pkey->m_playeredUserPrimitive = psession->get_user_interaction_host();
@@ -7831,6 +7834,9 @@ namespace windowing_universal_windows
          }
 
          auto pkey = __new(::message::key);
+         pkey->m_pwindow = this;
+
+         pkey->m_oswindow = this;
 
          pkey->m_atom = e_message_char;
 
@@ -7887,6 +7893,9 @@ namespace windowing_universal_windows
          //if (bSpecialKey s || acmesession()->is_key_pressed(::user::e_key_control)
          //   || acmesession()->is_key_pressed(::user::e_key_alt))
          //{
+         pkey->m_pwindow = this;
+
+         pkey->m_oswindow = this;
 
          pkey->m_atom = e_message_key_down;
          //pkey->m_playeredUserPrimitive       = acmesession()->m_puserinteractionHost;
@@ -7946,6 +7955,9 @@ namespace windowing_universal_windows
 
          //if (bSpecialKey || !bTextFocus)
          //{
+         pkey->m_pwindow = this;
+
+         pkey->m_oswindow = this;
 
             pkey->m_atom = e_message_key_up;
             //pkey->m_playeredUserPrimitive = acmesession()->m_puserinteractionHost;
@@ -8096,6 +8108,10 @@ namespace windowing_universal_windows
 
          pusermessage = pmouse;
 
+         pmouse->m_pwindow = this;
+
+         pmouse->m_oswindow = this;
+
          pmouse->m_pointHost.x() = (::i32)pointerPoint.Position().X;
 
          pmouse->m_pointHost.y() = (::i32)pointerPoint.Position().Y;
@@ -8153,6 +8169,10 @@ namespace windowing_universal_windows
          m_iMouse = pointerPoint.PointerId();
 
          auto pmouse = __new(::message::mouse);
+
+         pmouse->m_pwindow = this;
+
+         pmouse->m_oswindow = this;
 
          pmouse->m_pointHost.x() = (::i32)pointerPoint.Position().X;
 
@@ -8235,6 +8255,10 @@ namespace windowing_universal_windows
          }
 
          auto pmouse = __new(::message::mouse);
+
+         pmouse->m_pwindow = this;
+
+         pmouse->m_oswindow = this;
 
          pmouse->m_pointHost.x() = (::i32)pointerPoint.Position().X;
 
