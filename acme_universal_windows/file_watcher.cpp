@@ -1,5 +1,6 @@
 #include "framework.h"
 #include "file_watcher.h"
+#include "node.h"
 #include "acme/filesystem/watcher/action.h"
 #include "acme/platform/context.h"
 #include "acme/_operating_system.h"
@@ -120,7 +121,9 @@ namespace acme_universal_windows
 
          string strDirectory = pathFolder;
 
-         m_folder = windows_runtime_folder(this, strDirectory);
+         ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+
+         m_folder = pnode->windows_runtime_folder(m_pcontext, strDirectory);
 
          if (m_folder == nullptr)
          {

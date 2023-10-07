@@ -3,6 +3,7 @@
 #include "framework.h"
 #include "acme_directory.h"
 #include "acme_file.h"
+#include "node.h"
 #include "acme/filesystem/filesystem/listing.h"
 #include "acme/platform/node.h"
 
@@ -12,6 +13,8 @@
 
 #include "_winrt_storage.h"
 
+#undef new
+#include <winrt/Windows.Storage.h>
 #include <winrt/Windows.Foundation.Collections.h>
 
 
@@ -562,7 +565,9 @@ namespace acme_universal_windows
 
       }
 
-      auto folder = windows_runtime_folder(this, path);
+      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+
+      auto folder = pnode->windows_runtime_folder(this, path);
 
       if (!folder)
       {
@@ -1539,7 +1544,9 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          string strPrefix;
 
-         auto folder = windows_runtime_folder(this, strRelative, strPrefix);
+         ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+
+         auto folder = pnode->windows_runtime_folder(this, strRelative, strPrefix);
 
          auto items = folder.GetItemsAsync().get();
 

@@ -2,6 +2,7 @@
 // Copied by camilo from operating_system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #include "framework.h"
 #include "acme_path.h"
+#include "node.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/platform/application.h"
 #include "acme/platform/system.h"
@@ -141,7 +142,9 @@ namespace acme_universal_windows
          pobject = acmesystem();
       }
 
-      auto folder = windows_runtime_folder(pobject, strRelative, strPrefix);
+      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+
+      auto folder = pnode->_windows_runtime_folder(this, strRelative, strPrefix);
 
       if (folder)
       {

@@ -1,9 +1,11 @@
 // Adapted for composition by camilo on 2021-09-01 22:17 <3ThomasBS__!
 #include "framework.h"
 #include "native_buffer.h"
+#include "node.h"
 #include "acme/filesystem/file/exception.h"
 #include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/platform/context.h"
 #include "acme/platform/node.h"
 #include "acme/_operating_system.h"
 #include "_winrt_storage.h"
@@ -58,7 +60,9 @@ namespace acme_universal_windows
 
       string strPrefix;
 
-      auto folder = windows_runtime_folder(this, strPath, strPrefix);
+      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+
+      auto folder = pnode->_windows_runtime_folder(m_pcontext, strPath, strPrefix);
 
       if (folder == nullptr)
       {

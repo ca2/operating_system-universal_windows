@@ -2,6 +2,7 @@
 #include "file_context.h"
 #include "file_system.h"
 #include "dir_system.h"
+#include "node.h"
 #include "acme/filesystem/file/exception.h"
 #include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
@@ -206,7 +207,9 @@ namespace acme_universal_windows
 
       string strPrefix;
 
-      auto folder = windows_runtime_folder(this, strRelative, strPrefix);
+      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+
+      auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix);
 
       if (folder)
       {
@@ -273,7 +276,9 @@ namespace acme_universal_windows
    void file_context::transfer(const ::file::path & pszNew, const ::file::path & psz)
    {
 
-      auto file = windows_runtime_file(this, psz, 0, 0, OPEN_EXISTING, 0);
+      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+
+      auto file = pnode->windows_runtime_file(m_pcontext, psz, 0, 0, OPEN_EXISTING, 0);
 
       if (file == nullptr)
       {
@@ -311,7 +316,9 @@ namespace acme_universal_windows
 
          string strPrefix;
 
-         ::winrt::Windows::Storage::StorageFolder folder = windows_runtime_folder(this, strDirNew, strPrefix);
+         ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+
+         ::winrt::Windows::Storage::StorageFolder folder = pnode->_windows_runtime_folder(m_pcontext, strDirNew, strPrefix);
 
          if (strNameOld == strNameNew)
          {
@@ -840,7 +847,9 @@ namespace acme_universal_windows
 
       string strPrefix;
 
-      auto folder = windows_runtime_folder(m_pcontext, strRelative, strPrefix);
+      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+
+      auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix);
 
       if (folder)
       {

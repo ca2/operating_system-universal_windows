@@ -5,6 +5,10 @@
 #include "acme_windows_common/node.h"
 
 
+#undef new
+#include <winrt/Windows.Storage.h>
+
+
 namespace acme_universal_windows
 {
 
@@ -29,6 +33,23 @@ namespace acme_universal_windows
 
       bool set_process_priority(::enum_priority epriority);
 
+      
+      virtual ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix);
+      
+      
+      virtual ::winrt::Windows::Storage::StorageFolder _windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix);
+      
+      
+      virtual ::winrt::Windows::Storage::StorageFolder windows_runtime_known_folder(::particle * pparticle, string & strRelative, string & strPrefix);
+      
+      
+      virtual ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::particle * pparticle, const ::file::path & path);
+
+
+      virtual ::winrt::Windows::Storage::StorageFile windows_runtime_file(::particle * pparticle, const char * lpcszFileName, ::u32 dwDesiredAcces, ::u32 dwShareMode, ::u32 dwCreationDisposition, ::u32 dwFlagsAndAttributes);
+
+
+      virtual bool windows_runtime_filetime(::particle * pparticle, ::winrt::Windows::Storage::StorageFile file, file_time * lpCreationTime, file_time * lpItemTime, file_time * lpLastWriteTime);
 
 
    };
