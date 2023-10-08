@@ -45,6 +45,10 @@ namespace node_universal_windows
 
       //auto estatus = 
 
+      acmesystem()->m_itask = 0;
+
+      acmesystem()->m_htask = nullptr;
+
       acmesystem()->m_paurasystem->branch_synchronously();
 
       //if (!estatus)
