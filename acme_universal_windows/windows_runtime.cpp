@@ -178,7 +178,7 @@ namespace acme_universal_windows
                if (acmedirectory()->is(strPath))
                {
 
-                  return windows_runtime_folder(pparticle, strPath);
+                  return windows_runtime_folder(pparticle, strPath, false);
 
                }
 
@@ -320,7 +320,7 @@ namespace acme_universal_windows
    }
 
 
-   ::winrt::Windows::Storage::StorageFolder node::windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix)
+   ::winrt::Windows::Storage::StorageFolder node::windows_runtime_folder(::particle * pparticle, string & strRelative, string & strPrefix, bool bDeferCreateFolder)
    {
 
       auto folder = _windows_runtime_folder(pparticle, strRelative, strPrefix);
@@ -367,7 +367,25 @@ namespace acme_universal_windows
                if (!item)
                {
 
-                  break;
+                  if (bDeferCreateFolder)
+                  {
+
+                     item = folder.CreateFolderAsync(hstrName).get();
+
+                     if (!item)
+                     {
+
+                        break;
+
+                     }
+
+                  }
+                  else
+                  {
+
+                     break;
+
+                  }
 
                }
 
@@ -414,7 +432,7 @@ namespace acme_universal_windows
    }
 
 
-   ::winrt::Windows::Storage::StorageFolder node::windows_runtime_folder(::particle * pparticle, const ::file::path & path)
+   ::winrt::Windows::Storage::StorageFolder node::windows_runtime_folder(::particle * pparticle, const ::file::path & path, bool bDeferCreateFolder)
    {
 
       try
@@ -424,7 +442,7 @@ namespace acme_universal_windows
 
          string strPrefix;
 
-         auto folder = windows_runtime_folder(pparticle, strRelative, strPrefix);
+         auto folder = windows_runtime_folder(pparticle, strRelative, strPrefix, bDeferCreateFolder);
 
          if (folder == nullptr)
          {

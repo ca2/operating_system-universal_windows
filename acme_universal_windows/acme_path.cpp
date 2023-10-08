@@ -156,6 +156,10 @@ namespace acme_universal_windows
 
          }
 
+         strRelative.find_replace("/", "\\");
+
+         strRelative.trim_left("\\");
+
          auto hstrName = __hstring(strRelative);
 
          auto item = folder.TryGetItemAsync(hstrName).get();
@@ -183,6 +187,28 @@ namespace acme_universal_windows
       return ::file::e_type_unknown;
 
    }
+
+
+   ::file::enum_type acme_path::safe_get_type(const ::file::path & path)
+   {
+
+      try
+      {
+
+         return get_type(path);
+
+      }
+      catch (...)
+      {
+
+
+      }
+
+      return ::file::e_type_unknown;
+
+   }
+
+
 
 } // namespace acme_universal_windows
 

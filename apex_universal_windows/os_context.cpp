@@ -4,6 +4,8 @@
 //#include <wtsapi32.h>
 //#include <ShellApi.h>
 //#include <Security.h>
+#include "acme_universal_windows/file_context.h"
+#include "acme_universal_windows/native_buffer.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/filesystem/filesystem/acme_path.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
@@ -2076,6 +2078,49 @@ return false;
    void os_context::file_open(const ::file::path & path, const string & strParams, const ::file::path & pathFolder)
    {
 
+      ::pointer < ::acme_universal_windows::file_context > pfilecontext = file();
+
+      if (pfilecontext)
+      {
+
+         auto pfile = pfilecontext->create_native_file(path, ::file::e_open_read);
+
+         if (pfile)
+         {
+
+            ::pointer < ::acme_universal_windows::native_buffer > pnativebuffer = pfile;
+
+            if (pnativebuffer)
+            {
+
+               auto file = pnativebuffer->m_file;
+
+               if (file)
+               {
+
+
+
+
+      user_post([file]()
+   {
+
+
+                        ::winrt::Windows::System::Launcher::LaunchFileAsync(file);
+
+                                                });
+
+               }
+
+            }
+
+         }
+
+      }
+
+
+
+      //auto pfile = file_
+
       //path = m_pcontext->m_papexcontext->defer_process_path(path);
 
       //fork([=]()
@@ -2195,7 +2240,7 @@ return false;
       //});
 
       //return true;
-      throw ::exception(error_not_supported);
+// throw ::exception(error_not_supported);
 
       //return false;
 
@@ -2208,7 +2253,7 @@ return false;
       //current_user_set_run(strId, strCommand, bRegister);
 
       //return true;
-      throw ::exception(error_not_supported);
+      //throw ::exception(error_not_supported);
 
       //return false;
 

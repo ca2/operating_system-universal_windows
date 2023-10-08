@@ -1,6 +1,7 @@
 #include "framework.h"
 #include "file_context.h"
 #include "file_system.h"
+#include "dir_context.h"
 #include "dir_system.h"
 #include "node.h"
 #include "acme/filesystem/file/exception.h"
@@ -209,7 +210,7 @@ namespace acme_universal_windows
 
       ::pointer < ::acme_universal_windows::node > pnode = acmenode();
 
-      auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix);
+      auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix, false);
 
       if (folder)
       {
@@ -843,18 +844,24 @@ namespace acme_universal_windows
 
       }
 
-      string strRelative = path;
+      bool bDeferCreateFolder = eopen & ::file::e_open_write && eopen & ::file::e_open_defer_create_directory;
+
+      string strRelative = path.folder();
 
       string strPrefix;
 
       ::pointer < ::acme_universal_windows::node > pnode = acmenode();
 
-      auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix);
+      auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix, bDeferCreateFolder);
 
       if (folder)
       {
 
-         auto hstrName = __hstring(strRelative);
+         ::file::path pathName = strRelative;
+
+         pathName /= path.name();
+
+         auto hstrName = __hstring(pathName);
 
          auto item = folder.TryGetItemAsync(hstrName).get();
 

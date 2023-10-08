@@ -567,7 +567,7 @@ namespace acme_universal_windows
 
       ::pointer < ::acme_universal_windows::node > pnode = acmenode();
 
-      auto folder = pnode->windows_runtime_folder(this, path);
+      auto folder = pnode->windows_runtime_folder(this, path, false);
 
       if (!folder)
       {
@@ -1546,7 +1546,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          ::pointer < ::acme_universal_windows::node > pnode = acmenode();
 
-         auto folder = pnode->windows_runtime_folder(this, strRelative, strPrefix);
+         auto folder = pnode->windows_runtime_folder(this, strRelative, strPrefix, false);
 
          auto items = folder.GetItemsAsync().get();
 

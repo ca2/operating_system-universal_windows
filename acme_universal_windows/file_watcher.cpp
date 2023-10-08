@@ -123,7 +123,7 @@ namespace acme_universal_windows
 
          ::pointer < ::acme_universal_windows::node > pnode = acmenode();
 
-         m_folder = pnode->windows_runtime_folder(m_pcontext, strDirectory);
+         m_folder = pnode->windows_runtime_folder(m_pcontext, strDirectory, false);
 
          if (m_folder == nullptr)
          {

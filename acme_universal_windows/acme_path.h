@@ -26,6 +26,9 @@ namespace acme_universal_windows
       ::file::enum_type get_type(const ::file::path & path) override;
 
 
+      ::file::enum_type safe_get_type(const ::file::path & path) override;
+
+
    };
 
 
