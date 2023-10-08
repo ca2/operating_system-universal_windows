@@ -51,6 +51,9 @@
     <ClCompile Include="file_system.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="virtualkey.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="_.h">

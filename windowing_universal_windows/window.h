@@ -471,7 +471,7 @@ namespace windowing_universal_windows
 
       void set_icon(::windowing::icon * pwindow) override;
 
-      virtual void on_visual_applied() override;
+      virtual void _on_configure_notify_unlocked(const ::rectangle_i32 & rectangle) override;
 
 
 

@@ -3340,7 +3340,7 @@ namespace windowing_universal_windows
    }
 
 
-   void window::on_visual_applied()
+   void window::_on_configure_notify_unlocked(const ::rectangle_i32 & rectangle)
    {
 
    }
@@ -7888,7 +7888,7 @@ namespace windowing_universal_windows
 
          bool bSpecialKey = false;
 
-         ::user::enum_key ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
+         ::user::enum_key ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 
          //if (bSpecialKey s || acmesession()->is_key_pressed(::user::e_key_control)
          //   || acmesession()->is_key_pressed(::user::e_key_alt))
@@ -7899,10 +7899,10 @@ namespace windowing_universal_windows
 
          pkey->m_atom = e_message_key_down;
          //pkey->m_playeredUserPrimitive       = acmesession()->m_puserinteractionHost;
-         pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
+         pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
          pkey->m_ekey = ekey;
          pkey->m_wparam = pkey->m_nChar;
-         pkey->m_nFlags = (::u32)virtualkey_to_code(args.VirtualKey());
+         pkey->m_nFlags = (::u32)::universal_windows::virtualkey_to_code(args.VirtualKey());
          pkey->m_lparam = pkey->m_nFlags << 16;
          //pkey->m_strText            = m_strNewText;
          //if (pkey->m_strText.has_char())
@@ -7951,7 +7951,7 @@ namespace windowing_universal_windows
 
          bool bSpecialKey = false;
 
-         ::user::enum_key ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
+         ::user::enum_key ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 
          //if (bSpecialKey || !bTextFocus)
          //{
@@ -7961,7 +7961,7 @@ namespace windowing_universal_windows
 
             pkey->m_atom = e_message_key_up;
             //pkey->m_playeredUserPrimitive = acmesession()->m_puserinteractionHost;
-            pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
+            pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
             pkey->m_ekey = ekey;
             pkey->m_wparam = pkey->m_nChar;
 

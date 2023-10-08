@@ -463,6 +463,7 @@
     <ClCompile Include="file_context.cpp" />
     <ClCompile Include="file_watcher.cpp" />
     <ClCompile Include="file_system.cpp" />
+    <ClCompile Include="virtualkey.cpp" />
     <ClCompile Include="_factory.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>

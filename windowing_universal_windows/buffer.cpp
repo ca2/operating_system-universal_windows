@@ -121,10 +121,10 @@ namespace windowing_universal_windows
    }
 
 
-   ::graphics::buffer_item * buffer::on_begin_draw()
+   bool buffer::_on_begin_draw(::graphics::buffer_item * pbufferitem)
    {
 
-      __defer_construct_new(m_pbufferitem);
+      //__defer_construct_new(m_pbufferitem);
 
       //auto pframeworkview = m_pframeworkview;
 
@@ -140,7 +140,7 @@ namespace windowing_universal_windows
       if (!m_tristateCoreWindowVisible || m_ephase != e_phase_draw)
       {
 
-         return nullptr;
+         return false;
 
       }
 
@@ -149,11 +149,11 @@ namespace windowing_universal_windows
       if (pdevicecontext == nullptr)
       {
 
-         return nullptr;
+         return false;
 
       }
 
-      buffer_size_and_position(m_pbufferitem);
+      //buffer_size_and_position(m_pbufferitem);
 
       __defer_construct(m_pdraw2dgraphics);
 
@@ -169,7 +169,7 @@ namespace windowing_universal_windows
       if (!m_pdevicecontext)
       {
 
-         return nullptr;
+         return false;
 
       }
 
@@ -193,7 +193,9 @@ namespace windowing_universal_windows
 
       m_pbufferitem->m_pgraphics = m_pdraw2dgraphics;
 
-      return m_pbufferitem;
+      //return m_pbufferitem;
+
+      return true;
 
    }
 

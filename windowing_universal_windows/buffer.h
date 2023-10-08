@@ -159,7 +159,7 @@ namespace windowing_universal_windows
       bool on_update_screen(::graphics::buffer_item * pimage) override;
 
 
-      ::graphics::buffer_item * on_begin_draw() override;
+      bool _on_begin_draw(::graphics::buffer_item * pbufferitem) override;
 
       void on_end_draw() override;
 
