@@ -736,7 +736,7 @@ namespace windowing_universal_windows
    bool buffer::is_single_buffer_mode() const
    {
 
-      return true;
+      return false;
 
    }
 
@@ -906,8 +906,10 @@ namespace windowing_universal_windows
          swapChainDesc.SampleDesc.Quality = 0;
          swapChainDesc.BufferUsage = DXGI_USAGE_RENDER_TARGET_OUTPUT;
          swapChainDesc.BufferCount = 2;                               // Use double-buffering to minimize latency.
+         //swapChainDesc.BufferCount = 1;                               // Use double-buffering to minimize latency.
          swapChainDesc.Scaling = DXGI_SCALING_NONE;
          swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_FLIP_SEQUENTIAL; // All Metro style apps must use this SwapEffect.
+         //swapChainDesc.SwapEffect = DXGI_SWAP_EFFECT_DISCARD;
          swapChainDesc.AlphaMode = DXGI_ALPHA_MODE_PREMULTIPLIED;
          swapChainDesc.Flags = DXGI_SWAP_CHAIN_FLAG_FOREGROUND_LAYER;
 
