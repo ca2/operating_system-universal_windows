@@ -4911,23 +4911,27 @@ namespace aura_universal_windows
 
       }
 
-      synchronous_lock synchronouslock(m_puserinteraction->synchronization());
-
-      auto puserinteractionpointeraChild = m_puserinteraction->m_puserinteractionpointeraChild;
-
-      if (puserinteractionpointeraChild)
       {
 
-         for (auto p : puserinteractionpointeraChild->m_interactiona)
+         synchronous_lock synchronouslock(m_puserinteraction->synchronization());
+
+         auto puserinteractionpointeraChild = m_puserinteraction->m_puserinteractionpointeraChild;
+
+         if (puserinteractionpointeraChild)
          {
 
-            if (p != nullptr)
+            for (auto p : puserinteractionpointeraChild->m_interactiona)
             {
 
-               if (p->has_pending_graphical_update())
+               if (p != nullptr)
                {
 
-                  return true;
+                  if (p->has_pending_graphical_update())
+                  {
+
+                     return true;
+
+                  }
 
                }
 
@@ -4947,14 +4951,11 @@ namespace aura_universal_windows
 
       //m_puserinteraction->on_after_graphical_update();
 
-      //synchronous_lock synchronouslock(m_puserinteraction->synchronization());
-
-      auto puserinteractionpointeraChild = m_puserinteraction->m_puserinteractionpointeraChild;
-
-      if (puserinteractionpointeraChild)
       {
 
-         for (auto p : puserinteractionpointeraChild->m_interactiona)
+         auto children = synchronized_get_children();
+
+         for (auto p : children)
          {
 
             p->on_after_graphical_update();
@@ -4964,8 +4965,6 @@ namespace aura_universal_windows
       }
 
       m_pgraphics->on_after_graphical_update();
-
-
 
 
       if (m_bNotifyLayoutCompletedPending)
