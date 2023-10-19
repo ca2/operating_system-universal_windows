@@ -67,12 +67,11 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="application.cpp" />
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="copydesk.cpp" />
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="display.cpp" />
-    <ClCompile Include="universal_windows\framework_impact.cpp" />
-    <ClCompile Include="universal_windows\framework_impact_source.cpp" />
     <ClCompile Include="_factory.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -102,6 +101,7 @@
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="application.h" />
     <ClInclude Include="buffer.h" />
     <ClInclude Include="copydesk.h" />
     <ClInclude Include="cursor.h" />
@@ -112,8 +112,6 @@
     <ClInclude Include="node.h" />
     <ClInclude Include="shell.h" />
     <ClInclude Include="system_interaction.h" />
-    <ClInclude Include="universal_windows\framework_impact.h" />
-    <ClInclude Include="universal_windows\framework_impact_source.h" />
     <ClInclude Include="window.h" />
     <ClInclude Include="windowing.h" />
     <ClInclude Include="_.h" />

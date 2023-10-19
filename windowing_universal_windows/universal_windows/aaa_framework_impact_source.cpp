@@ -9,8 +9,7 @@ namespace windowing_universal_windows
 {
 
 
-   framework_impact_source::framework_impact_source(window * pwindow) :
-      m_pwindow(pwindow)
+   framework_impact_source::framework_impact_source()
    {
 
    }
@@ -19,7 +18,7 @@ namespace windowing_universal_windows
    ::winrt::Windows::ApplicationModel::Core::IFrameworkView framework_impact_source::CreateView()
    {
 
-      return m_pwindow->m_frameworkview;
+      return *this;
 
    }
 

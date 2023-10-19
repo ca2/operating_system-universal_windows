@@ -6,6 +6,7 @@
 #include "acme/constant/id.h"
 #include "acme/constant/message.h"
 #include "acme/constant/timer.h"
+#include "acme/constant/user_key.h"
 #include "acme/exception/interface_only.h"
 #include "acme/parallelization/synchronous_lock.h"
 #include "acme/platform/node.h"
@@ -14,8 +15,8 @@
 #include "aura/user/user/system.h"
 #include "aura/message/user.h"
 #include "aura/graphics/draw2d/graphics.h"
-#include "universal_windows/framework_impact_source.h"
-#include "universal_windows/framework_impact.h"
+//#include "universal_windows/framework_impact_source.h"
+//#include "universal_windows/framework_impact.h"
 #include "direct2d/direct2d.h"
 #include "aura/platform/system.h"
 #include "cursor.h"
@@ -65,9 +66,8 @@ namespace windowing_universal_windows
 
 
 
-   window::window() :
-      m_frameworkviewsource{ {::winrt::make<framework_impact_source >(this)} },
-      m_frameworkview{ {::winrt::make<framework_impact >(this)} }
+   window::window() //:
+      //m_frameworkview{ {::winrt::make<framework_impact >(this)} }
    {
 
       //m_straActivationMessage.add("app-core-flag://send/?message=");
@@ -432,7 +432,13 @@ namespace windowing_universal_windows
 
          //fork([this, &ev]()
            // {
-               auto coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(m_frameworkviewsource);
+         auto coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(pwindowing->m_frameworkviewsource);
+
+         Initialize(coreapplicationview);
+
+         SetWindow(coreapplicationview.CoreWindow());
+
+         // m_window = m_coreapplicationview.CoreWindow();
 
            //    topic.set_event();
              //  coreapplicationview.Dispatcher().ProcessEvents(
@@ -441,7 +447,7 @@ namespace windowing_universal_windows
             //});
 
             //topic.wait();
-               window_send({ e_timeout , 15_s, [this, &rectangleWindow]()
+               user_post([this]()
                   {
 
                      //   m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
@@ -477,17 +483,16 @@ namespace windowing_universal_windows
 
 
 
-                  } });
+                  } );
 
 
       }
       //else
       //{
 
-      window_send({ e_timeout, 15_s, [this, pusersystem, puserinteraction, &rectangleWindow]()
+      user_post([this, pusersystem, puserinteraction, &rectangleWindow]()
       {
 
-         m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
 
          ::rectangle_i32 rectangle;
 
@@ -502,7 +507,7 @@ namespace windowing_universal_windows
          puserinteraction->place(rectangle, ::user::e_layout_design);
 
 
-      } });
+      } );
 
       //}
 
@@ -533,7 +538,7 @@ namespace windowing_universal_windows
 
       puserinteraction->send_message(e_message_create, 0, 0);
 
-      user_send([this]()
+      user_post([this]()
 
          {
 
@@ -813,7 +818,25 @@ namespace windowing_universal_windows
    bool window::is_full_screen() const 
    {
 
-      return m_applicationview.IsFullScreenMode();
+      auto pwindowing = windowing();
+
+      if (!pwindowing)
+      {
+
+         return false;
+
+      }
+
+      auto applicationview = pwindowing->m_applicationview;
+
+      if (!applicationview)
+      {
+
+         return false;
+
+      }
+
+      return applicationview.IsFullScreenMode();
 
    }
 
@@ -6334,7 +6357,7 @@ namespace windowing_universal_windows
       auto routine = [this]()
       {
 
-         window_send({ e_timeout, 15_s, [this]()
+         user_send({ e_timeout, 15_s, [this]()
             {
 
                //pbuffer->m_windowBounds = m_window->Bounds;
@@ -6368,7 +6391,7 @@ namespace windowing_universal_windows
 
       //m_puserinteractionimpl = __create < ::user::interaction_impl >();
 
-      window_send({ e_timeout, 15_s, [this]()
+      user_send({ e_timeout, 15_s, [this]()
          {
 
             auto window = m_window;
@@ -6728,34 +6751,12 @@ namespace windowing_universal_windows
    }
 
 
-   void window::main_post(const ::procedure & procedure)
-   {
-
-      ::winrt::Windows::UI::Core::CoreDispatcher dispatcher = nullptr;
-
-      if (m_coreapplicationview)
-      {
-
-         dispatcher = m_coreapplicationview.Dispatcher();
-
-      }
-      else
-      {
-
-         dispatcher = m_window.Dispatcher();
-
-      }
-
-      dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
-         ::winrt::Windows::UI::Core::DispatchedHandler([procedure]()
-            {
-
-               procedure();
-
-            }));
+   //void window::main_post(const ::procedure & procedure)
+   //{
 
 
-   }
+
+   //}
 
 
    void window::CoreWindow_PointerPressed(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
@@ -7703,6 +7704,20 @@ namespace windowing_universal_windows
       void window::OnActivated(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & applicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs const & args)
       {
 
+         auto pwindowing = windowing();
+
+         if (pwindowing)
+         {
+
+            if (!pwindowing->m_applicationview)
+            {
+
+               pwindowing->m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
+
+            }
+
+         }
+
          if (args != nullptr)
          {
 
@@ -8506,39 +8521,258 @@ namespace windowing_universal_windows
       }
 
 
-      void window::window_post(const ::procedure & procedure)
-      {
+      //void window::user_post(const ::procedure & procedure)
+      //{
 
-         auto dispatcher = m_window.Dispatcher();
+      //   auto dispatcher = m_window.Dispatcher();
 
-         if (dispatcher)
-         {
+      //   if (dispatcher)
+      //   {
 
-            auto handler = ::winrt::Windows::UI::Core::DispatchedHandler([procedure]()
-               {
+      //      auto handler = ::winrt::Windows::UI::Core::DispatchedHandler([procedure]()
+      //         {
 
-                  procedure();
+      //            procedure();
 
-               });
+      //         });
 
-            dispatcher.RunAsync(
-               ::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
-               handler);
+      //      dispatcher.RunAsync(
+      //         ::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
+      //         handler);
 
-         }
+      //   }
 
 
-         //return ::success;
+      //   //return ::success;
 
-      }
+      //}
 
 
       bool window::is_branch_current() const
       {
 
-         auto dispatcher = m_window.Dispatcher();
+         auto dispatcher = ((window *)this)->_get_dispatcher();
 
          return dispatcher.HasThreadAccess();
+
+      }
+
+
+      ::winrt::Windows::UI::Core::CoreDispatcher window::_get_dispatcher()
+      {
+
+         ::winrt::Windows::UI::Core::CoreDispatcher dispatcher = nullptr;
+
+         if (m_coreapplicationview)
+         {
+
+            dispatcher = m_coreapplicationview.Dispatcher();
+
+         }
+         else if (m_window)
+         {
+
+            dispatcher = m_window.Dispatcher();
+
+         }
+         else
+         {
+
+            dispatcher = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow().Dispatcher();
+
+         }
+
+         return dispatcher;
+
+      }
+
+
+      void window::user_post(const ::procedure & procedure)
+      {
+
+         ::winrt::Windows::UI::Core::CoreDispatcher dispatcher = _get_dispatcher();
+
+         if (dispatcher.HasThreadAccess())
+         {
+
+            procedure();
+
+         }
+         else
+         {
+
+            dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
+               ::winrt::Windows::UI::Core::DispatchedHandler([procedure]()
+                  {
+
+                     procedure();
+
+                  }));
+
+         }
+
+      }
+
+
+      void window::Initialize(CoreApplicationView const & coreapplicationview)
+      {
+
+         m_coreapplicationview = coreapplicationview;
+
+         ::winrt::Windows::ApplicationModel::Core::CoreApplication::Suspending(::winrt::Windows::Foundation::EventHandler<::winrt::Windows::ApplicationModel::SuspendingEventArgs>(this, &window::OnSuspending));
+
+         ::winrt::Windows::ApplicationModel::Core::CoreApplication::Resuming(::winrt::Windows::Foundation::EventHandler<::winrt::Windows::Foundation::IInspectable >(this, &window::OnResuming));
+
+         m_coreapplicationview.Activated({ this, &window::OnActivated });
+
+         ::winrt::Windows::UI::ViewManagement::UISettings uisettings;
+
+         auto uicolorBackground = uisettings.GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
+
+         ::color::color colorBackground;
+
+         colorBackground = argb(255, uicolorBackground.R, uicolorBackground.G, uicolorBackground.B);
+
+         acmesystem()->m_pnode->background_color(colorBackground);
+
+         //m_coreapplicationview.Activated(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::ApplicationModel::Core::CoreApplicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs>(this, &window::OnActivated));
+
+         //Initialize(coreapplicationview);
+
+      }
+
+
+
+      void window::SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window)
+      {
+
+         m_window = window;
+         // Specify the cursor type as the standard arrow cursor.
+         m_window.PointerCursor(CoreCursor{ CoreCursorType::Arrow, 0 });
+
+         // Allow the application to respond when the window size changes.
+         //window.SizeChanged({ this, &App::OnWindowSizeChanged });
+
+
+
+         m_window = window;
+
+         m_resizemanager = ::winrt::Windows::UI::Core::CoreWindowResizeManager::GetForCurrentView();
+
+         m_resizemanager.ShouldWaitForLayoutCompletion(true);
+
+         //auto coreTitleBar = ::winrt::Windows::ApplicationModel::Core::CoreApplication::GetCurrentView()->TitleBar;
+
+         //coreTitleBar->ExtendViewIntoTitleBar = true;
+
+         m_tokenActivated = m_window.Activated(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowActivatedEventArgs>(this, &window::CoreWindow_WindowActivated));
+
+         m_tokenClosed = m_window.Closed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CoreWindowEventArgs>(this, &window::CoreWindow_CoreWindowClosed));
+
+         m_tokenKeyDown = m_window.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::CoreWindow_KeyDown));
+
+         m_tokenPointerPressed = m_window.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::CoreWindow_PointerPressed));
+
+         auto manager = ::winrt::Windows::UI::Text::Core::CoreTextServicesManager::GetForCurrentView();
+
+         m_editcontext = manager.CreateEditContext();
+
+         // Get the Input Pane so we can programmatically hide and show it.
+         m_inputpane = ::winrt::Windows::UI::ViewManagement::InputPane::GetForCurrentView();
+
+         // For demonstration purposes, this sample sets the Input Pane display policy to Manual
+         // so that it can manually show the software keyboard when the control gains focus and
+         // dismiss it when the control loses focus. If you leave the policy as Automatic, then
+         // the system will hide and show the Input Pane for you. Note that on Desktop, you will
+         // need to implement the UIA text pattern to get expected automatic behavior.
+         m_editcontext.InputPaneDisplayPolicy(::winrt::Windows::UI::Text::Core::CoreTextInputPaneDisplayPolicy::Automatic);
+
+         // Set the input scope to Text because this text box is for any text.
+         // This also informs software keyboards to show their regular
+         // text entry layout.  There are many other input scopes and each will
+         // inform a keyboard layout and text behavior.
+         m_editcontext.InputScope(::winrt::Windows::UI::Text::Core::CoreTextInputScope::Text);
+
+         // The system raises this event to request a specific range of text.
+         m_editcontext.TextRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextTextRequestedEventArgs>(this, &window::EditContext_TextRequested));
+
+         // The system raises this event to request the current selection.
+         m_editcontext.SelectionRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextSelectionRequestedEventArgs>(this, &window::EditContext_SelectionRequested));
+
+         // The system raises this event when it wants the edit control to erase focus.
+         m_editcontext.FocusRemoved(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::Foundation::IInspectable>(this, &window::EditContext_FocusRemoved));
+
+         // The system raises this event to update text in the edit control.
+         m_editcontext.TextUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextTextUpdatingEventArgs>(this, &window::EditContext_TextUpdating));
+
+         // The system raises this event to change the selection in the edit control.
+         m_editcontext.SelectionUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextSelectionUpdatingEventArgs>(this, &window::EditContext_SelectionUpdating));
+
+         // The system raises this event when it wants the edit control
+         // to apply formatting on a r::winrt::Windows::Foundation::Tange of text.
+         m_editcontext.FormatUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextFormatUpdatingEventArgs>(this, &window::EditContext_FormatUpdating));
+
+         // The system raises this event to request layout information.
+         // This is used to help choose a position for the IME candidate window.
+         m_editcontext.LayoutRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextLayoutRequestedEventArgs>(this, &window::EditContext_LayoutRequested));
+
+         // The system raises this event to notify the edit control
+         // that the string composition has started.
+         m_editcontext.CompositionStarted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextCompositionStartedEventArgs>(this, &window::EditContext_CompositionStarted));
+
+         // The system raises this event to notify the edit control
+         // that the string composition is finished.
+         m_editcontext.CompositionCompleted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextCompositionCompletedEventArgs>(this, &window::EditContext_CompositionCompleted));
+
+         // The system raises this event when the NotifyFocusLeave operation has
+         // completed. Our sample does not use this event.
+         m_editcontext.NotifyFocusLeaveCompleted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::Foundation::IInspectable>(this, &window::EditContext_NotifyFocusLeaveCompleted));
+
+         // Set our initial UI.
+         UpdateTextUI();
+
+         UpdateFocusUI();
+
+         //window::SetWindow(window);
+
+         //pbuffer = __new(directx_base);
+
+         //pbuffer->acmesystem() = acmesystem();
+
+         auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
+
+         //pbuffer->Initialize(window, displayinformation.LogicalDpi());
+
+         //pbuffer->initialize(acmesystem()->m_papplicationStartup);
+
+         //install_directx_application_message_routing();
+
+         //initialize_directx_application();
+
+         //m_bXXXFirst = true;
+
+         //acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = this;
+
+         //acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
+
+         auto pwindowing = windowing();
+
+         if (!pwindowing->m_bAppInit)
+         {
+
+            pwindowing->app_init();
+
+         }
+
+         if (!acmesystem()->node()->m_bHasNodePostedSystemInitialRequest)
+         {
+
+            acmesystem()->node()->m_bHasNodePostedSystemInitialRequest = true;
+
+            acmesystem()->defer_post_initial_request();
+
+         }
+
 
       }
 

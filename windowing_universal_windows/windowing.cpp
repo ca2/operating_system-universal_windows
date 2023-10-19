@@ -5,6 +5,7 @@
 #include "keyboard.h"
 #include "window.h"
 #include "icon.h"
+#include "acme/constant/user_key.h"
 #include "acme/platform/node.h"
 #include "aura/user/user/zorder.h"
 #include "aura/user/user/interaction.h"
@@ -12,6 +13,7 @@
 #include "aura/platform/system.h"
 #include "aura/windowing/window.h"
 #include "direct2d/direct2d.h"
+//#include "universal_windows/framework_impact_source.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include <winrt/Windows.UI.ViewManagement.h>
 
@@ -20,8 +22,11 @@ namespace windowing_universal_windows
 {
 
 
-   windowing::windowing()
+   windowing::windowing() :
+      m_frameworkviewsource{  winrt::make<::windowing_universal_windows::application>(this) }
    {
+
+      
 
       m_pWindowing4 = this;
 
@@ -82,6 +87,7 @@ namespace windowing_universal_windows
       //   warning() <<"Could not create session window";
 
       //}
+
 
 
       //return estatus;

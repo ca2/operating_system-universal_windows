@@ -23,9 +23,8 @@ namespace windowing_universal_windows
 
       
       //::pointer<window>            m_pwindowNode;
-      ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource         m_frameworkviewsource;
 
-      ::winrt::Windows::ApplicationModel::Core::IFrameworkView               m_frameworkview;
+      //::winrt::Windows::ApplicationModel::Core::IFrameworkView               m_frameworkview;
 
 
       int   m_iMouse;
@@ -33,9 +32,8 @@ namespace windowing_universal_windows
 
 
       //comptr < ::windowing_universal_windows::application > 
-      ::winrt::Windows::ApplicationModel::Core::CoreApplicationView     m_coreapplicationview = nullptr;
-      ::winrt::Windows::UI::ViewManagement::ApplicationView             m_applicationview = nullptr;
-      ::winrt::Windows::UI::Core::CoreWindow                            m_window = nullptr;
+      ::winrt::Windows::ApplicationModel::Core::CoreApplicationView m_coreapplicationview = nullptr;
+      ::winrt::Windows::UI::Core::CoreWindow  m_window = nullptr;
 
 
       //HICON                                     m_hiconSmall;
@@ -123,7 +121,7 @@ namespace windowing_universal_windows
       void on_initialize_particle() override;
 
 
-      void main_post(const ::procedure & procedure);
+      //void main_post(const ::procedure & procedure);
 
       void defer_process_activation_message();
       // IFrameworkView Methods
@@ -1201,8 +1199,9 @@ namespace windowing_universal_windows
       void graphics_lock() override;
       void graphics_unlock() override;
 
+      virtual ::winrt::Windows::UI::Core::CoreDispatcher _get_dispatcher();
       
-      void window_post(const ::procedure & procedure) override;
+      void user_post(const ::procedure & procedure) override;
 
       bool is_branch_current() const override;
 
@@ -1210,6 +1209,10 @@ namespace windowing_universal_windows
       ::pointer<::windowing::icon>load_icon(const ::payload& payloadFile) override;
 
 
+      //void user_post(const ::procedure & procedure) override;
+
+      void Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & coreapplicationview);
+      void SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window);
 
 
    };

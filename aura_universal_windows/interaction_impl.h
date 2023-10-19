@@ -689,6 +689,11 @@ namespace aura_universal_windows
       virtual rectangle_i32 get_input_selection_rect();
 
 
+      void _create_window(::enum_parallelization eparrallelization) override;
+
+      void user_post(const ::procedure & procedure) override;
+
+
    };
 
 

@@ -64,11 +64,15 @@ namespace node_universal_windows
 
       auto pwindowMain = ::pointer_transfer(pwindow);
 
+      pwindow->windowing()->m_pwindowMain = pwindowMain;
+
       pwindowMain->initialize(this);
 
       acmesystem()->m_paurasystem->m_pwindowMain = pwindowMain;
 
-      ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(pwindowMain->m_frameworkviewsource);
+      auto frameworkviewsource = ((::windowing_universal_windows::windowing *)pwindow->m_pwindowing->m_pWindowing4)->m_frameworkviewsource;
+
+      ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(frameworkviewsource);
 
       //estatus = call_member(SOUL_ID);
 

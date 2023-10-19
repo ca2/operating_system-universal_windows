@@ -3,9 +3,10 @@
 
 
 #include "aura/windowing/sandbox/windowing.h"
-//#include "_windows_runtime.h"
+#include "application.h"
 #undef new
 #include <winrt/Windows.UI.ViewManagement.h>
+#include <winrt/Windows.ApplicationModel.Core.h>
 
 
 namespace windowing_universal_windows
@@ -14,15 +15,23 @@ namespace windowing_universal_windows
 
    class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS windowing :
       virtual public ::sandbox_windowing::windowing
+      
    {
    public:
 
 
+      ::pointer < ::windowing_universal_windows::window >    m_pwindowMain;
       // From node
       ::pointer<::aura_universal_windows::interaction_impl>m_pimplMain;
 
       bool                          m_bAppInit;
 
+      ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource    m_frameworkviewsource = nullptr;
+      ::winrt::Windows::UI::ViewManagement::ApplicationView             m_applicationview = nullptr;
+
+      //winrt::agile_ref< application>    m_application;
+
+      ::windowing_universal_windows::application * m_papplication;
       //auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
 
       ::winrt::Windows::UI::ViewManagement::UISettings m_uisettings;

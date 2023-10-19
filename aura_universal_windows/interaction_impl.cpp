@@ -7,7 +7,9 @@
 #include "acme/parallelization/synchronous_lock.h"
 #include "aura/platform/session.h"
 #include "aura/message/user.h"
+#include "aura/user/user/user.h"
 #include "aura/windowing/window.h"
+#include "aura/windowing/windowing.h"
 
 
 namespace aura_universal_windows
@@ -4953,7 +4955,7 @@ namespace aura_universal_windows
 
       {
 
-         auto children = synchronized_get_children();
+         auto children = m_puserinteraction->synchronized_get_children();
 
          for (auto p : children)
          {
@@ -5242,6 +5244,50 @@ namespace aura_universal_windows
       }
 
       m_bNotifyLayoutCompletedPending = true;
+
+   }
+
+   
+   void interaction_impl::_create_window(::enum_parallelization eparrallelization)
+   {
+
+      auto psession = get_session();
+
+      auto puser = psession->user();
+
+      auto pwindowing = puser->windowing();
+
+      pwindowing->new_window(this);
+
+      if (m_pwindow)
+      {
+
+         information() << "operating_system_create_host window created";
+
+      }
+      else
+      {
+
+         information("operating_system_create_host window not created");
+
+      }
+
+   }
+
+
+   void interaction_impl::user_post(const ::procedure & procedure)
+   {
+
+      if (!m_pwindow)
+      {
+
+         ::channel::user_post(procedure);
+
+         return;
+
+      }
+
+      m_pwindow->user_post(procedure);
 
    }
 
