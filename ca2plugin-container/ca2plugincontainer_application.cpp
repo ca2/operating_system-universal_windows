@@ -5,6 +5,9 @@ namespace ca2plugin_container
 {
 
 
+   __IMPLEMENT_APPLICATION_RELEASE_TIME();
+
+
    application::application()
    {
 

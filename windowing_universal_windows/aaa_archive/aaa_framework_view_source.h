@@ -80,6 +80,9 @@ namespace windowing_universal_windows
 
 
    //   ~application() override;
+      
+      __DECLARE_APPLICATION_RELEASE_TIME();
+
 
    //
    //   void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);

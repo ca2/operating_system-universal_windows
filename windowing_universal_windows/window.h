@@ -262,6 +262,9 @@ namespace windowing_universal_windows
 
 
       //~application() override;
+      
+      __DECLARE_APPLICATION_RELEASE_TIME();
+
 
 
 

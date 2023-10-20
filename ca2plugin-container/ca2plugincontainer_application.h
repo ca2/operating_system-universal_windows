@@ -17,6 +17,9 @@ namespace ca2plugin_container
 
       application();
       ~application() override;
+      
+      __DECLARE_APPLICATION_RELEASE_TIME();
+
 
 
       virtual void on_receive(small_ipc_rx_channel * prxchannel, const ::string & pszMessage);

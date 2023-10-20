@@ -1902,7 +1902,7 @@ return true;
    //      begin_thread(&print_window::s_print_window,(LPVOID) this,::e_priority_above_normal);
    //      if(m_event.wait(::time(tickTimeout)).timeout())
    //      {
-   //         information("print_window::time_out");
+   //         informationf("print_window::time_out");
    //      }
    //   }
 
@@ -5268,7 +5268,7 @@ namespace aura_universal_windows
       else
       {
 
-         information("operating_system_create_host window not created");
+         informationf("operating_system_create_host window not created");
 
       }
 

@@ -63,7 +63,7 @@ namespace windowing_universal_windows
    //         catch (...)
    //         {
 
-   //            information("Exception: interaction::_000OnDraw _001DrawChildren %s", typeid(*this).name());
+   //            informationf("Exception: interaction::_000OnDraw _001DrawChildren %s", typeid(*this).name());
 
    //         }
 
@@ -110,7 +110,7 @@ namespace windowing_universal_windows
    //      catch (...)
    //      {
 
-   //         information("\n\nException thrown while drawing user::interaction\n\n");
+   //         informationf("\n\nException thrown while drawing user::interaction\n\n");
 
    //      }
 
