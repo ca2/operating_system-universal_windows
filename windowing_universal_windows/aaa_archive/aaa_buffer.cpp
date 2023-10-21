@@ -562,7 +562,7 @@ namespace windowing_universal_windows
 ////
 ////               int i = m_pimpl->prop("iSquaryHint");
 ////               string str;
-////               str.format("%d", i);
+////               str.formatf("%d", i);
 ////               //iSquaryHint++;
 ////               wstr = str;
 ////               m_pimpl->prop("iSquaryHint") = i + 1;

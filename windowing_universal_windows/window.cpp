@@ -682,7 +682,7 @@ namespace windowing_universal_windows
 
       //   string strMessage;
 
-      //   strMessage.format("%s\n\nSystem Error Code: %d", strLastError, dwLastError);
+      //   strMessage.formatf("%s\n\nSystem Error Code: %d", strLastError, dwLastError);
 
       //   information(trace_category_appmsg, e_trace_level_warning, "Warning: Window creation failed: get_last_error returned:\n");
 
