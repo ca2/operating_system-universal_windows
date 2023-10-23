@@ -1175,9 +1175,9 @@ break;
 case ::ca2::Sig_SCROLL:
 case ::ca2::Sig_SCROLL_REFLECT:
 {
-// special case for e_message_vscroll and e_message_hscroll
-ASSERT(message == e_message_vscroll || message == e_message_hscroll ||
-message == e_message_vscroll+WM_REFLECT_BASE || message == e_message_hscroll+WM_REFLECT_BASE);
+// special case for e_message_scroll_y and e_message_scroll_x
+ASSERT(message == e_message_scroll_y || message == e_message_scroll_x ||
+message == e_message_scroll_y+WM_REFLECT_BASE || message == e_message_scroll_x+WM_REFLECT_BASE);
 int nScrollCode = (short)LOWORD(wParam);
 int nPos = (short)HIWORD(wParam);
 if (lpEntry->nSig == ::ca2::Sig_SCROLL)
