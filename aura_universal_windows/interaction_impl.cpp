@@ -793,7 +793,7 @@ namespace aura_universal_windows
                && puserinteractionFocus->is_window()
                && puserinteractionFocus->top_level() != nullptr)
          {
-            puserinteractionFocus->send(pkey);
+            puserinteractionFocus->send_message(pkey);
             if(pmessage->m_bRet)
                return;
          }
