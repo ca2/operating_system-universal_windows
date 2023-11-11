@@ -70,7 +70,7 @@
 //
 //      }
 //
-//      acmesystem() = psystem;
+//      system() = psystem;
 //
 //      //      psystem->get_session()->m_frameworkview = this;
 //
@@ -96,10 +96,10 @@
 //
 //      int nReturnCode = 0;
 //
-//      if (!acmesystem()->m_htask)
+//      if (!system()->m_htask)
 //      {
 //
-//         if (!acmesystem()->begin_synch())
+//         if (!system()->begin_synch())
 //         {
 //
 //            throw ::exception(error_failed, "failed to begin_synch the system");
@@ -108,7 +108,7 @@
 //
 //      }
 //
-//      //auto estatus = m_pdxi->initialize(acmesystem());
+//      //auto estatus = m_pdxi->initialize(system());
 //
 //      //if (!estatus)
 //      //{
@@ -117,20 +117,20 @@
 //
 //      //}
 //
-//      //acmesession()->m_papexapplication = this;
+//      //session()->m_papexapplication = this;
 //
-//      //acmesession()->m_papexsession->m_puserprimitiveHost = m_pdxi;
+//      //session()->m_papexsession->m_puserprimitiveHost = m_pdxi;
 //
 //      //::user::os_calc_dark_mode();
 //
 //      auto pcs = __new(::user::system);
 //
-//      auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost;
+//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost;
 //
 //      auto routine = [this]()
 //      {
 //
-//         acmesession()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
+//         session()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
 //            {
 //
 //               //m_pdirectxbase->m_windowBounds = m_window->Bounds;
@@ -145,7 +145,7 @@
 //
 //            }));
 //
-//         auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost;
+//         auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost;
 //
 //         //auto puserinteraction = m_pdxi;
 //
@@ -173,11 +173,11 @@
 //
 //      //puserinteractionHost->m_puiThis->place(rectangle);
 //
-//      m_pwindow = acmesystem()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
+//      m_pwindow = system()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
 //
-//      acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = m_pwindow;
+//      system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = m_pwindow;
 //
-//      acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
+//      system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
 //
 //      m_pwindow->m_window = m_window;
 //
@@ -189,7 +189,7 @@
 //
 //      pcs->m_pimpl = m_pwindow->m_pimpl;
 //
-//      acmesystem()->m_paurasystem->__refer(acmesystem()->m_paurasystem->m_pimplMain, m_pwindow->m_pimpl);
+//      system()->m_paurasystem->__refer(system()->m_paurasystem->m_pimplMain, m_pwindow->m_pimpl);
 //
 //      //m_pwindow->m_bNotifyLayoutCompletedPending = true;
 //
@@ -260,13 +260,13 @@
 //
 //      m_pdirectxbase = __new(directx_base);
 //
-//      m_pdirectxbase->acmesystem() = acmesystem();
+//      m_pdirectxbase->system() = system();
 //
 //      auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
 //
 //      //m_pdirectxbase->Initialize(window, displayinformation.LogicalDpi());
 //
-//      m_pdirectxbase->initialize(acmesystem()->m_papplicationStartup);
+//      m_pdirectxbase->initialize(system()->m_papplicationStartup);
 //
 //      install_directx_application_message_routing();
 //
@@ -364,24 +364,24 @@
 //
 //            string str = eventArgs.Uri().AbsoluteUri().begin();
 //
-//            auto pcreate = acmesystem()->__create_new < ::create >();
+//            auto pcreate = system()->__create_new < ::create >();
 //
 //            pcreate->m_ecommand = ::command_protocol;
 //
 //            pcreate->m_payloadFile = str;
 //
-//            //acmesystem()->add_create(pcreate);
+//            //system()->add_create(pcreate);
 //
-//            //auto papp = acmesystem()->m_papplicationStartup;
+//            //auto papp = system()->m_papplicationStartup;
 //
 //            //if (papp == nullptr)
 //            //{
 //
-//            //   papp = acmesession()->m_papplicationCurrent;
+//            //   papp = session()->m_papplicationCurrent;
 //
 //            //}
 //
-//            acmesystem()->post_object(e_message_system, e_system_message_create, pcreate);
+//            system()->post_object(e_message_system, e_system_message_create, pcreate);
 //
 //         }
 //
@@ -406,10 +406,10 @@
 //   void application::OnCharacterReceived(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args)
 //   {
 //
-//      if(acmesession() == nullptr)
+//      if(session() == nullptr)
 //         return;
 //
-//      auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;
@@ -442,14 +442,14 @@
 //
 //      }
 //
-//      if (acmesystem() == nullptr)
+//      if (system() == nullptr)
 //      {
 //
 //         return;
 //
 //      }
 //
-//      auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;
@@ -469,12 +469,12 @@
 //
 //      ::user::enum_key ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 //
-//      if(bSpecialKey || !bTextFocus || acmesession()->is_key_pressed(::user::e_key_control)
-//         || acmesession()->is_key_pressed(::user::e_key_alt))
+//      if(bSpecialKey || !bTextFocus || session()->is_key_pressed(::user::e_key_control)
+//         || session()->is_key_pressed(::user::e_key_alt))
 //      {
 //
 //         pkey->m_atom                 = e_message_key_down;
-//         //pkey->m_playeredUserPrimitive       = acmesession()->m_puserinteractionHost;
+//         //pkey->m_playeredUserPrimitive       = session()->m_puserinteractionHost;
 //         pkey->m_nChar              = virtualkey_to_char(args.VirtualKey());
 //         pkey->m_ekey               = ekey;
 //         pkey->m_wparam             = pkey->m_nChar;
@@ -499,10 +499,10 @@
 //   void application::OnKeyUp(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
 //   {
 //
-//      if(acmesystem() == nullptr)
+//      if(system() == nullptr)
 //         return;
 //
-//      auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;
@@ -534,7 +534,7 @@
 //      {
 //
 //         pkey->m_atom = e_message_key_up;
-//         //pkey->m_playeredUserPrimitive = acmesession()->m_puserinteractionHost;
+//         //pkey->m_playeredUserPrimitive = session()->m_puserinteractionHost;
 //         pkey->m_nChar = virtualkey_to_char(args.VirtualKey());
 //         pkey->m_ekey = ekey;
 //         pkey->m_wparam = pkey->m_nChar;
@@ -542,7 +542,7 @@
 //
 //         //      pkey->m_key = args;
 //
-//               //if (acmesystem()->m_psimpleui != nullptr && acmesystem()->m_psimpleui->is_window_visible())
+//               //if (system()->m_psimpleui != nullptr && system()->m_psimpleui->is_window_visible())
 //               //{
 //               //   string str;
 //               //   str = (char)pkey->m_nChar;
@@ -568,7 +568,7 @@
 //               //         str = ".";
 //               //      }
 //               //   }
-//               //   acmesystem()->m_psimpleui->on_char(virtualkey_to_userkey(args.VirtualKey), str);
+//               //   system()->m_psimpleui->on_char(virtualkey_to_userkey(args.VirtualKey), str);
 //               //}
 //               //else
 //               //{
@@ -643,10 +643,10 @@
 //
 //      //}
 //
-//      if(acmesystem() == nullptr)
+//      if(system() == nullptr)
 //         return;
 //
-//      auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;
@@ -667,7 +667,7 @@
 //      pmouse->m_point.x       = (::i32) pointerPoint.RawPosition().X;
 //      pmouse->m_point.y       = (::i32) pointerPoint.RawPosition().Y;
 //      pmouse->m_atom            = e_message_mouse_move;
-//      //pmouse->m_playeredUserPrimitive  = acmesession()->m_puserinteractionHost;
+//      //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
 //
 //      m_pointLastCursor = pointerPoint.RawPosition();
 //
@@ -687,14 +687,14 @@
 //   void application::OnPointerPressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
 //   {
 //
-//      if (acmesystem() == nullptr)
+//      if (system() == nullptr)
 //      {
 //
 //         return;
 //
 //      }
 //
-//      auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //      {
@@ -755,7 +755,7 @@
 //
 //      }
 //
-//      //pmouse->m_playeredUserPrimitive = acmesession()->m_puserinteractionHost;
+//      //pmouse->m_playeredUserPrimitive = session()->m_puserinteractionHost;
 //
 //      m_pointLastCursor = pointerPoint.RawPosition();
 //
@@ -767,7 +767,7 @@
 //   void application::OnPointerReleased(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
 //   {
 //
-//      if (acmesystem() == nullptr)
+//      if (system() == nullptr)
 //      {
 //
 //         return;
@@ -778,7 +778,7 @@
 //
 //      ::g_iMouse = pointerPoint.PointerId();
 //
-//      auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;
@@ -818,7 +818,7 @@
 //
 //      }
 //
-//      //pmouse->m_playeredUserPrimitive = acmesession()->m_puserinteractionHost;
+//      //pmouse->m_playeredUserPrimitive = session()->m_puserinteractionHost;
 //
 //      m_pointLastCursor = pointerPoint.RawPosition();
 //
@@ -830,7 +830,7 @@
 //   //directx_application_source::directx_application_source(::aura::system * paxissystem, const ::string & strId)
 //   //{
 //
-//   //   acmesystem()     = paxissystem;
+//   //   system()     = paxissystem;
 //
 //   //   m_strId           = strId;
 //

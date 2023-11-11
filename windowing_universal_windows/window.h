@@ -50,7 +50,7 @@ namespace windowing_universal_windows
       bool                                                     m_bTextCompositionActive;
       //wide_string                                             m_strText;
       wide_string                                               m_strNewText;
-      //::aura::system * acmesystem();
+      //::aura::system * system();
 
       ::winrt::Windows::UI::Core::CoreWindowResizeManager      m_resizemanager = nullptr;
 
@@ -149,7 +149,7 @@ namespace windowing_universal_windows
       //impact();
 
 
-      //inline ::user::interaction* host() { return Sess(acmesession())->host(); }
+      //inline ::user::interaction* host() { return Sess(session())->host(); }
       //inline ::user::interaction * host() { return m_puserinteraction->get_host_window(); }
       //inline ::user::interaction * host() { return m_puserinteraction; }
 
@@ -1167,11 +1167,9 @@ namespace windowing_universal_windows
       virtual float dpix(float x) override;
 
       //virtual void _window_request_presentation() override;
-      virtual void window_update_screen_buffer() override;
+      virtual void __update_graphics_buffer() override;
 
  
-      
-
       //// IUnknown
       //virtual HRESULT STDMETHODCALLTYPE QueryInterface(REFIID riid, void ** ppvObject);
 

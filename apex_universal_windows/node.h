@@ -24,7 +24,9 @@ namespace apex_universal_windows
       ~node() override;
 
 
-      void implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem) override;
+      //void implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem) override;
+
+      void node_main() override;
 
 
       string system_options_main_body() override;

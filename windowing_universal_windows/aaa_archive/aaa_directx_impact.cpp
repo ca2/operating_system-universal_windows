@@ -423,7 +423,7 @@ namespace windowing_universal_windows
 //            pkey->m_lparam = pkey->m_nFlags << 16;
 //            pkey->m_strText = m_strNewText;
 //
-//            auto puserinteractionHost = acmesession()->m_papexsession->m_puserprimitiveHost;
+//            auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost;
 //
 //            puserinteractionHost->message_handler(spbase);
 //
@@ -587,7 +587,7 @@ namespace windowing_universal_windows
 //
 //         ::output_debug_string("Deactivated");
 //
-//         //auto puserinteractionHost = Sess(acmesystem()).host();
+//         //auto puserinteractionHost = Sess(system()).host();
 //
 //         //puserinteractionHost->set_need_layout();
 //

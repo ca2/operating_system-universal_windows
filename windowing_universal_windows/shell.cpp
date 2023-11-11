@@ -378,7 +378,7 @@ namespace windowing_universal_windows
 
       //auto puser = psession->user();
 
-      //auto psystem = acmesystem()->m_paurasystem;
+      //auto psystem = system()->m_paurasystem;
 
       //auto pnode = psystem->node();
 
@@ -401,7 +401,7 @@ namespace windowing_universal_windows
 
       //}
 
-      ////auto psystem = acmesystem()->m_paurasystem;
+      ////auto psystem = system()->m_paurasystem;
 
 
       //comptr < IShellIcon > pshellicon;
@@ -531,7 +531,7 @@ namespace windowing_universal_windows
       //   //      else
       //   //      {
 
-      //   //         auto psystem = acmesystem();
+      //   //         auto psystem = system();
 
       //   //         auto pnode = psystem->node();
 
@@ -595,7 +595,7 @@ namespace windowing_universal_windows
       //            else
       //            {
 
-      //               auto psystem = acmesystem();
+      //               auto psystem = system();
 
       //               auto pnode = psystem->node();
 
@@ -1085,7 +1085,7 @@ namespace windowing_universal_windows
       else
       {
 
-         if (acmesystem()->fast_is_decompressable_folder(strPath))
+         if (system()->fast_is_decompressable_folder(strPath))
          {
 
             return e_folder_zip;
@@ -1710,7 +1710,7 @@ namespace windowing_universal_windows
       if (reserve_image(getfileimage))
       {
 
-         //auto psystem = acmesystem()->m_paurasystem;
+         //auto psystem = system()->m_paurasystem;
 
          //auto pnode = psystem->node()->m_pAuraPlatform;
 

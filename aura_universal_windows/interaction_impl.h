@@ -40,7 +40,7 @@ namespace aura_universal_windows
       //void dump(dump_context & dumpcontext) const override;
 
 
-      virtual bool has_pending_graphical_update();
+      //virtual bool has_pending_graphical_update();
       virtual void on_after_graphical_update();
 
       //virtual void on_delete(matter * poc);
@@ -689,7 +689,8 @@ namespace aura_universal_windows
       virtual rectangle_i32 get_input_selection_rect();
 
 
-      void _create_window(::enum_parallelization eparrallelization) override;
+      //void _create_window(::enum_parallelization eparrallelization) override;
+      void _create_window() override;
 
       void user_post(const ::procedure & procedure) override;
 

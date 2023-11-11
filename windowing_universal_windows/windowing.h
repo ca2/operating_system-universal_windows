@@ -50,7 +50,7 @@ namespace windowing_universal_windows
 //#ifdef WINDOWS_DESKTOP
 
       //#pragma message("at macos??")
-      //::pointer<system_interaction>   acmesystem()interaction;
+      //::pointer<system_interaction>   system()interaction;
 
 //#endif
 
@@ -82,7 +82,7 @@ namespace windowing_universal_windows
       // END From Node
 
 
-      //inline system_interaction * system_window() { return acmesystem()interaction; }
+      //inline system_interaction * system_window() { return system()interaction; }
 
       //virtual HICON _load_icon(string_array& straMatter, string strIcon, int cx, int cy);
 

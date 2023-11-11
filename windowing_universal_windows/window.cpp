@@ -290,7 +290,7 @@ namespace windowing_universal_windows
 
       wstrClassName = pwindowing->_windows_get_user_interaction_window_class(puserinteraction);
 
-      //->initialize(acmesystem()->m_papplicationStartup);
+      //->initialize(system()->m_papplicationStartup);
 
       //}
 
@@ -863,7 +863,7 @@ namespace windowing_universal_windows
          if (pmessage->m_atom == WM_FONTCHANGE)
          {
 
-            auto psystem = acmesystem()->m_paurasystem;
+            auto psystem = system()->m_paurasystem;
 
             psystem->signal(id_operating_system_font_list_change);
 
@@ -6321,10 +6321,10 @@ namespace windowing_universal_windows
 
       
 
-      //if (!acmesystem()->m_htask)
+      //if (!system()->m_htask)
       //{
 
-      //   if (!acmesystem()->m_paurasystem->begin_synch())
+      //   if (!system()->m_paurasystem->begin_synch())
       //   {
 
       //      throw ::exception(error_failed, "failed to begin_synch the system");
@@ -6333,7 +6333,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //auto estatus = m_pdxi->initialize(acmesystem());
+      //auto estatus = m_pdxi->initialize(system());
 
       //if (!estatus)
       //{
@@ -6342,9 +6342,9 @@ namespace windowing_universal_windows
 
       //}
 
-      //acmesession()->m_papexapplication = this;
+      //session()->m_papexapplication = this;
 
-      //acmesession()->m_papexsession->m_puserprimitiveHost = m_pdxi;
+      //session()->m_papexsession->m_puserprimitiveHost = m_pdxi;
 
       //::user::os_calc_dark_mode();
 
@@ -6352,7 +6352,7 @@ namespace windowing_universal_windows
 
       auto pusersystem = m_puserinteractionimpl->m_puserinteraction->m_pusersystem;
 
-      auto puserinteraction = acmesession()->m_papexsession->m_puserprimitiveHost;
+      auto puserinteraction = session()->m_papexsession->m_puserprimitiveHost;
 
       auto routine = [this]()
       {
@@ -6372,7 +6372,7 @@ namespace windowing_universal_windows
 
             } });
 
-         auto puserinteraction = acmesession()->m_papexsession->m_puserprimitiveHost;
+         auto puserinteraction = session()->m_papexsession->m_puserprimitiveHost;
 
          //auto puserinteraction = m_pdxi;
 
@@ -6416,7 +6416,7 @@ namespace windowing_universal_windows
 
             auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
 
-            acmesystem()->m_paurasystem->m_dDpi = displayinformation.LogicalDpi();
+            system()->m_paurasystem->m_dDpi = displayinformation.LogicalDpi();
 
             displayinformation.DpiChanged(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DpiChanged));
 
@@ -6433,7 +6433,7 @@ namespace windowing_universal_windows
 
             //puserinteraction->m_puiThis->place(rectangle);
 
-            //m_pwindow = acmesystem()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
+            //m_pwindow = system()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
 
             //if (window.Visible())
             //{
@@ -6448,7 +6448,7 @@ namespace windowing_universal_windows
 
       pusersystem->m_puserinteractionimpl = m_puserinteractionimpl;
 
-      acmesystem()->m_paurasystem->m_puserprimitiveMain = m_puserinteractionimpl;
+      system()->m_paurasystem->m_puserprimitiveMain = m_puserinteractionimpl;
 
       //m_bNotifyLayoutCompletedPending = true;
 
@@ -6487,7 +6487,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //acmesystem() = psystem;
+      //system() = psystem;
 
       //      psystem->get_session()->m_frameworkview = this;
 
@@ -6609,7 +6609,7 @@ namespace windowing_universal_windows
    //}
 
 
-   void window::window_update_screen_buffer()
+   void window::__update_graphics_buffer()
    {
 
       /*auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
@@ -6737,12 +6737,12 @@ namespace windowing_universal_windows
 
       //}
 
-      //m_pwindowing = acmesystem()->m_paurasystem->m_paurasession->m_puser->m_pwindowing;
+      //m_pwindowing = system()->m_paurasystem->m_paurasession->m_puser->m_pwindowing;
 
       //if (!m_pwindowing->m_pwindowSoul)
       //{
 
-      //   acmesystem()->m_pnode->call_member(SOUL_ID);
+      //   system()->m_pnode->call_member(SOUL_ID);
 
       //}
 
@@ -7226,7 +7226,7 @@ namespace windowing_universal_windows
 
          ::output_debug_string("Deactivated");
 
-         //auto puserinteraction = Sess(acmesystem()).host();
+         //auto puserinteraction = Sess(system()).host();
 
          //puserinteraction->set_need_layout();
 
@@ -7501,10 +7501,10 @@ namespace windowing_universal_windows
 
       //   int nReturnCode = 0;
 
-      //   if (!acmesystem()->m_htask)
+      //   if (!system()->m_htask)
       //   {
 
-      //      if (!acmesystem()->begin_synch())
+      //      if (!system()->begin_synch())
       //      {
 
       //         throw ::exception(error_failed, "failed to begin_synch the system");
@@ -7513,7 +7513,7 @@ namespace windowing_universal_windows
 
       //   }
 
-      //   //auto estatus = m_pdxi->initialize(acmesystem());
+      //   //auto estatus = m_pdxi->initialize(system());
 
       //   //if (!estatus)
       //   //{
@@ -7522,20 +7522,20 @@ namespace windowing_universal_windows
 
       //   //}
 
-      //   //acmesession()->m_papexapplication = this;
+      //   //session()->m_papexapplication = this;
 
-      //   //acmesession()->m_papexsession->m_puserprimitiveHost = m_pdxi;
+      //   //session()->m_papexsession->m_puserprimitiveHost = m_pdxi;
 
       //   //::user::os_calc_dark_mode();
 
       //   auto pcs = __new(::user::system);
 
-      //   auto puserinteraction = acmesession()->m_papexsession->m_puserprimitiveHost;
+      //   auto puserinteraction = session()->m_papexsession->m_puserprimitiveHost;
 
       //   auto routine = [this]()
       //   {
 
-      //      acmesession()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
+      //      session()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
       //         {
 
       //            //pbuffer->m_windowBounds = m_window->Bounds;
@@ -7550,7 +7550,7 @@ namespace windowing_universal_windows
 
       //         }));
 
-      //      auto puserinteraction = acmesession()->m_papexsession->m_puserprimitiveHost;
+      //      auto puserinteraction = session()->m_papexsession->m_puserprimitiveHost;
 
       //      //auto puserinteraction = m_pdxi;
 
@@ -7578,11 +7578,11 @@ namespace windowing_universal_windows
 
       //   //puserinteraction->m_puiThis->place(rectangle);
 
-      //   m_pwindow = acmesystem()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
+      //   m_pwindow = system()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
 
-      //   acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = m_pwindow;
+      //   system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = m_pwindow;
 
-      //   acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
+      //   system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
 
       //   m_window = m_window;
 
@@ -7594,7 +7594,7 @@ namespace windowing_universal_windows
 
       //   pcs->m_puserinteractionimpl = m_puserinteractionimpl;
 
-      //   acmesystem()->m_paurasystem->__refer(acmesystem()->m_paurasystem->m_puserinteractionimplMain, m_puserinteractionimpl);
+      //   system()->m_paurasystem->__refer(system()->m_paurasystem->m_puserinteractionimplMain, m_puserinteractionimpl);
 
       //   //m_bNotifyLayoutCompletedPending = true;
 
@@ -7735,7 +7735,7 @@ namespace windowing_universal_windows
                if (str.has_char())
                {
 
-                  if (acmesystem()->_handle_uri(str))
+                  if (system()->_handle_uri(str))
                   {
 
                      return;
@@ -7752,43 +7752,43 @@ namespace windowing_universal_windows
 
                string str = protocolActivatedEventArgs.Uri().AbsoluteUri().begin();
 
-               acmeapplication()->payload("activation") = str;
+               application()->payload("activation") = str;
 
-               if (acmesystem()->_handle_uri(str))
+               if (system()->_handle_uri(str))
                {
 
                   return;
 
                }
 
-               //string strServer = acmesystem()->url()->get_server(str);
+               //string strServer = system()->url()->get_server(str);
 
                //if (strServer == "send")
                //{
 
-               //   string strMessage = acmesystem()->url()->get_param(str, "message");
+               //   string strMessage = system()->url()->get_param(str, "message");
 
                //   if (strMessage.has_char())
                //   {
 
-               //      acmesystem()->acmeapplication()->m_papexapplication->add_activation_message(strMessage);
+               //      system()->application()->m_papexapplication->add_activation_message(strMessage);
 
                //   }
 
                //}
 
-               //acmesystem()->add_create(pcreate);
+               //system()->add_create(pcreate);
 
-               //auto papp = acmesystem()->m_papplicationStartup;
+               //auto papp = system()->m_papplicationStartup;
 
                //if (papp == nullptr)
                //{
 
-               //   papp = acmesession()->m_papplicationCurrent;
+               //   papp = session()->m_papplicationCurrent;
 
                //}
 
-               //acmesystem()->m_paurasystem->post_object(e_message_system, e_system_message_create, pcreate);
+               //system()->m_paurasystem->post_object(e_message_system, e_system_message_create, pcreate);
 
             }
 
@@ -7878,7 +7878,7 @@ namespace windowing_universal_windows
 
          }
 
-         if (acmesystem() == nullptr)
+         if (system() == nullptr)
          {
 
             return;
@@ -7905,15 +7905,15 @@ namespace windowing_universal_windows
 
          ::user::enum_key ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 
-         //if (bSpecialKey s || acmesession()->is_key_pressed(::user::e_key_control)
-         //   || acmesession()->is_key_pressed(::user::e_key_alt))
+         //if (bSpecialKey s || session()->is_key_pressed(::user::e_key_control)
+         //   || session()->is_key_pressed(::user::e_key_alt))
          //{
          pkey->m_pwindow = this;
 
          pkey->m_oswindow = this;
 
          pkey->m_atom = e_message_key_down;
-         //pkey->m_playeredUserPrimitive       = acmesession()->m_puserinteractionHost;
+         //pkey->m_playeredUserPrimitive       = session()->m_puserinteractionHost;
          pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
          pkey->m_ekey = ekey;
          pkey->m_wparam = pkey->m_nChar;
@@ -7937,7 +7937,7 @@ namespace windowing_universal_windows
       void window::OnKeyUp(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
       {
 
-         if (acmesystem() == nullptr)
+         if (system() == nullptr)
             return;
 
          auto puserinteraction = m_puserinteractionimpl->m_puserinteraction;
@@ -7975,7 +7975,7 @@ namespace windowing_universal_windows
          pkey->m_oswindow = this;
 
             pkey->m_atom = e_message_key_up;
-            //pkey->m_playeredUserPrimitive = acmesession()->m_puserinteractionHost;
+            //pkey->m_playeredUserPrimitive = session()->m_puserinteractionHost;
             pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
             pkey->m_ekey = ekey;
             pkey->m_wparam = pkey->m_nChar;
@@ -7983,7 +7983,7 @@ namespace windowing_universal_windows
 
             //      pkey->m_key = args;
 
-                  //if (acmesystem()->m_psimpleui != nullptr && acmesystem()->m_psimpleui->is_window_visible())
+                  //if (system()->m_psimpleui != nullptr && system()->m_psimpleui->is_window_visible())
                   //{
                   //   string str;
                   //   str = (char)pkey->m_nChar;
@@ -8009,7 +8009,7 @@ namespace windowing_universal_windows
                   //         str = ".";
                   //      }
                   //   }
-                  //   acmesystem()->m_psimpleui->on_char(virtualkey_to_userkey(args.VirtualKey), str);
+                  //   system()->m_psimpleui->on_char(virtualkey_to_userkey(args.VirtualKey), str);
                   //}
                   //else
                   //{
@@ -8136,7 +8136,7 @@ namespace windowing_universal_windows
          pmouse->m_pointAbsolute.y() = (::i32)pointerPoint.RawPosition().Y;
 
          pmouse->m_atom = e_message_mouse_move;
-         //pmouse->m_playeredUserPrimitive  = acmesession()->m_puserinteractionHost;
+         //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
 
          m_pointLastCursor = pointerPoint.RawPosition();
 
@@ -8156,7 +8156,7 @@ namespace windowing_universal_windows
       void window::OnPointerPressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
       {
 
-         if (acmesystem() == nullptr)
+         if (system() == nullptr)
          {
 
             return;
@@ -8242,7 +8242,7 @@ namespace windowing_universal_windows
       void window::OnPointerReleased(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
       {
 
-         if (acmesystem() == nullptr)
+         if (system() == nullptr)
          {
 
             return;
@@ -8633,7 +8633,7 @@ namespace windowing_universal_windows
 
          colorBackground = argb(255, uicolorBackground.R, uicolorBackground.G, uicolorBackground.B);
 
-         acmesystem()->m_pnode->background_color(colorBackground);
+         system()->m_pnode->background_color(colorBackground);
 
          //m_coreapplicationview.Activated(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::ApplicationModel::Core::CoreApplicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs>(this, &window::OnActivated));
 
@@ -8737,13 +8737,13 @@ namespace windowing_universal_windows
 
          //pbuffer = __new(directx_base);
 
-         //pbuffer->acmesystem() = acmesystem();
+         //pbuffer->system() = system();
 
          auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
 
          //pbuffer->Initialize(window, displayinformation.LogicalDpi());
 
-         //pbuffer->initialize(acmesystem()->m_papplicationStartup);
+         //pbuffer->initialize(system()->m_papplicationStartup);
 
          //install_directx_application_message_routing();
 
@@ -8751,9 +8751,9 @@ namespace windowing_universal_windows
 
          //m_bXXXFirst = true;
 
-         //acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = this;
+         //system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = this;
 
-         //acmesystem()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
+         //system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
 
          auto pwindowing = windowing();
 
@@ -8764,12 +8764,12 @@ namespace windowing_universal_windows
 
          }
 
-         if (!acmesystem()->node()->m_bHasNodePostedSystemInitialRequest)
+         if (!system()->node()->m_bHasNodePostedSystemInitialRequest)
          {
 
-            acmesystem()->node()->m_bHasNodePostedSystemInitialRequest = true;
+            system()->node()->m_bHasNodePostedSystemInitialRequest = true;
 
-            acmesystem()->defer_post_initial_request();
+            system()->defer_post_initial_request();
 
          }
 

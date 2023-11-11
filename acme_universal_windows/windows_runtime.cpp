@@ -163,7 +163,7 @@ namespace acme_universal_windows
 
          string strHome = getenv("USERPROFILE");
 
-         if (acmeapplication()->m_bConsole)
+         if (platform()->m_bConsole)
          {
 
             ::file::path path(strHome);
@@ -975,7 +975,7 @@ namespace acme_universal_windows
    //      //if(psystem->is_system())
    //      //{
    //
-   //      //   acmesystem()->set_finish();
+   //      //   system()->set_finish();
    //
    //      //}
    //
@@ -996,7 +996,7 @@ namespace acme_universal_windows
    //   catch(::exit_exception &)
    //   {
    //
-   //      //acmesystem()->set_finish();
+   //      //system()->set_finish();
    //
    //   }
    //

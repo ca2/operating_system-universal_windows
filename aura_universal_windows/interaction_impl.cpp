@@ -4903,49 +4903,49 @@ namespace aura_universal_windows
    }
 
 
-   bool interaction_impl::has_pending_graphical_update()
-   {
+   //bool interaction_impl::has_pending_graphical_update()
+   //{
 
-      if (::user::interaction_impl::has_pending_graphical_update())
-      {
+   //   if (::user::interaction_impl::has_pending_graphical_update())
+   //   {
 
-         return true;
+   //      return true;
 
-      }
+   //   }
 
-      {
+   //   {
 
-         synchronous_lock synchronouslock(m_puserinteraction->synchronization());
+   //      synchronous_lock synchronouslock(m_puserinteraction->synchronization());
 
-         auto puserinteractionpointeraChild = m_puserinteraction->m_puserinteractionpointeraChild;
+   //      auto puserinteractionpointeraChild = m_puserinteraction->m_puserinteractionpointeraChild;
 
-         if (puserinteractionpointeraChild)
-         {
+   //      if (puserinteractionpointeraChild)
+   //      {
 
-            for (auto p : puserinteractionpointeraChild->m_interactiona)
-            {
+   //         for (auto p : puserinteractionpointeraChild->m_interactiona)
+   //         {
 
-               if (p != nullptr)
-               {
+   //            if (p != nullptr)
+   //            {
 
-                  if (p->has_pending_graphical_update())
-                  {
+   //               if (p->has_pending_graphical_update())
+   //               {
 
-                     return true;
+   //                  return true;
 
-                  }
+   //               }
 
-               }
+   //            }
 
-            }
+   //         }
 
-         }
+   //      }
 
-      }
+   //   }
 
-      return false;
+   //   return false;
 
-   }
+   //}
 
 
    void interaction_impl::on_after_graphical_update()
@@ -5248,7 +5248,7 @@ namespace aura_universal_windows
    }
 
    
-   void interaction_impl::_create_window(::enum_parallelization eparrallelization)
+   void interaction_impl::_create_window()
    {
 
       auto psession = get_session();

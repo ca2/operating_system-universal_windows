@@ -55,7 +55,7 @@ namespace ca2plugin_container
       int message_handler(XEvent * pevent);
 #endif
 
-      virtual void * acmesystem();
+      virtual void * system();
       virtual void set_system(void * pvoidPluginSystem);
 
       virtual void on_receive(small_ipc_rx_channel * prxchannel, int message, void * pdata, int len);

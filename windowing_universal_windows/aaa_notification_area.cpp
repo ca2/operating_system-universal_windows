@@ -117,7 +117,7 @@ namespace windowing_win32
 
          GetWindowThreadProcessId(tray.hwnd, &dwProcessId);
 
-         auto psystem = acmesystem();
+         auto psystem = system();
 
          auto pnode = psystem->node();
 

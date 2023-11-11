@@ -40,16 +40,17 @@ namespace node_universal_windows
    //}
 
 
-   void node::implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem)
+   //void node::implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem)
+   void node::node_main()
    {
 
       //auto estatus = 
 
-      acmesystem()->m_itask = 0;
+      system()->m_itask = 0;
 
-      acmesystem()->m_htask = nullptr;
+      system()->m_htask = nullptr;
 
-      acmesystem()->m_paurasystem->branch_synchronously();
+      system()->m_paurasystem->branch_synchronously();
 
       //if (!estatus)
       //{
@@ -68,7 +69,7 @@ namespace node_universal_windows
 
       pwindowMain->initialize(this);
 
-      acmesystem()->m_paurasystem->m_pwindowMain = pwindowMain;
+      system()->m_paurasystem->m_pwindowMain = pwindowMain;
 
       auto frameworkviewsource = ((::windowing_universal_windows::windowing *)pwindow->m_pwindowing->m_pWindowing4)->m_frameworkviewsource;
 
@@ -152,7 +153,7 @@ namespace node_universal_windows
    //   //return luminance < 0.5;
 
 
-   //   //acmesystem()->m_papexsystem->signal(id_user_color);
+   //   //system()->m_papexsystem->signal(id_user_color);
 
    //}
 
@@ -168,7 +169,7 @@ namespace node_universal_windows
 
    //   auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
 
-   //   acmesystem()->m_pnode->background_color(colorBackground);
+   //   system()->m_pnode->background_color(colorBackground);
 
    //}
 

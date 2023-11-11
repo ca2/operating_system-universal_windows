@@ -21,14 +21,15 @@ namespace acme_universal_windows
    }
 
 
-   void node::implement(::pointer<::acme::node>& pnode, ::pointer<::acme::system>& psystem)
+   //void node::implement(::pointer<::acme::node>& pnode, ::pointer<::acme::system>& psystem)
+   void node::node_main()
    {
 
-      //auto psystem = acmesystem();
+      //auto psystem = system();
 
       //auto estatus = 
 
-      psystem->main();
+      system()->main();
 
       //if (!estatus)
       //{
@@ -45,7 +46,7 @@ namespace acme_universal_windows
    string node::audio_get_default_implementation_name()
    {
 
-      return acmesystem()->implementation_name("audio", "xaudio");
+      return system()->implementation_name("audio", "xaudio");
 
    }
 
@@ -53,7 +54,7 @@ namespace acme_universal_windows
    string node::veriwell_multimedia_music_midi_get_default_implementation_name()
    {
 
-      return acmesystem()->implementation_name("music_midi", "winrt");
+      return system()->implementation_name("music_midi", "winrt");
 
    }
 

@@ -187,12 +187,12 @@ namespace aura
 
    //string application::veriwell_multimedia_music_midi_get_default_implementation_name()
    //{
-   //   return acmesystem()->implementation_name("music_midi", "mmsystem");
+   //   return system()->implementation_name("music_midi", "mmsystem");
    //}
 
    //string application::multimedia_audio_mixer_get_default_implementation_name()
    //{
-   //   return acmesystem()->implementation_name("audio_mixer", "mmsystem");
+   //   return system()->implementation_name("audio_mixer", "mmsystem");
    //}
 
    //string application::multimedia_audio_get_default_implementation_name()
@@ -200,14 +200,14 @@ namespace aura
 
    //   string str;
 
-   //   if (acmefile()->exists(         auto psystem = acmesystem();
+   //   if (acmefile()->exists(         auto psystem = system();
 
          auto pacmedir = psystem->m_pacmedirectory;
 
 pacmedir->system() / "config\\system\\audio.txt"))
    //   {
 
-   //      str = acmefile()->as_string(         auto psystem = acmesystem();
+   //      str = acmefile()->as_string(         auto psystem = system();
 
          auto pacmedir = psystem->m_pacmedirectory;
 

@@ -40,7 +40,7 @@
 //
 //      //auto estatus = 
 //      
-//      acmesystem()->m_paurasystem->branch_synchronously();
+//      system()->m_paurasystem->branch_synchronously();
 //
 //      //if (!estatus)
 //      //{
@@ -55,7 +55,7 @@
 //
 //      pwindowMain->initialize(this);
 //
-//      acmesystem()->m_paurasystem->m_pwindowMain = pwindowMain;
+//      system()->m_paurasystem->m_pwindowMain = pwindowMain;
 //
 //      ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(pwindowMain->m_frameworkviewsource);
 //
@@ -137,7 +137,7 @@
 //      //return luminance < 0.5;
 //
 //
-//      //acmesystem()->m_papexsystem->signal(id_user_color);
+//      //system()->m_papexsystem->signal(id_user_color);
 //
 //   }
 //
@@ -153,7 +153,7 @@
 //
 //      auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
 //
-//      acmesystem()->m_pnode->background_color(colorBackground);
+//      system()->m_pnode->background_color(colorBackground);
 //
 //   }
 //

@@ -1636,7 +1636,7 @@ return false;
 //      //if (status.m_mtime.get_time() != 0)
 //      //{
 //
-//      //   acmesystem()->m_pnode->datetime_to_filetime((file_time_t *) &lastWriteTime, status.m_mtime);
+//      //   system()->m_pnode->datetime_to_filetime((file_time_t *) &lastWriteTime, status.m_mtime);
 //
 //      //   pLastWriteTime = &lastWriteTime;
 //
@@ -1647,7 +1647,7 @@ return false;
 //      //if (status.m_atime.get_time() != 0)
 //      //{
 //
-//      //   //auto pnode = acmesystem()->m_papexsystem->node();
+//      //   //auto pnode = system()->m_papexsystem->node();
 //
 //      //   ::time_to_file_time((file_time_t*)&lastAccessTime, &status.m_atime.m_time);
 //

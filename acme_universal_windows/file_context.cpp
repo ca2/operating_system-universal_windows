@@ -54,7 +54,7 @@ namespace acme_universal_windows
 
       //}
 
-      auto psystem = acmesystem();
+      auto psystem = system();
 
       m_pfilesystem = psystem->m_pfilesystem;
 
@@ -414,7 +414,7 @@ namespace acme_universal_windows
 
       }
 
-      auto psystem = acmesystem();
+      auto psystem = system();
 
       if (read_resource_as_memory(*pfile->get_primitive_memory(), (HINSTANCE) psystem->m_hinstance, iId, psz))
       {

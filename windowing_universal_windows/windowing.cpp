@@ -98,16 +98,16 @@ namespace windowing_universal_windows
    //bool windowing::defer_create_system_window()
    //{
 
-   //   //if (acmesystem()interaction)
+   //   //if (system()interaction)
    //   //{
 
    //   //   return true;
 
    //   //}
 
-   //   //acmesystem()interaction = create_system_window();
+   //   //system()interaction = create_system_window();
 
-   //   //if (!acmesystem()interaction)
+   //   //if (!system()interaction)
    //   //{
 
    //   //   return false;
@@ -129,7 +129,7 @@ namespace windowing_universal_windows
       //return luminance < 0.5;
    
    
-      //acmesystem()->m_papexsystem->signal(id_user_color);
+      //system()->m_papexsystem->signal(id_user_color);
    
    }
    
@@ -190,10 +190,10 @@ namespace windowing_universal_windows
    void windowing::defer_term_ui()
    {
 
-      //if (acmesystem()interaction)
+      //if (system()interaction)
       //{
 
-      //   acmesystem()interaction->start_destroying_window();
+      //   system()interaction->start_destroying_window();
 
       //}
 
@@ -206,7 +206,7 @@ namespace windowing_universal_windows
 
       ::windowing::windowing::finalize_windowing();
 
-      //acmesystem()interaction.release();
+      //system()interaction.release();
 
    }
 
@@ -214,10 +214,10 @@ namespace windowing_universal_windows
    void windowing::destroy()
    {
 
-      //if (acmesystem()interaction)
+      //if (system()interaction)
       //{
 
-      //   acmesystem()interaction->start_destroying_window();
+      //   system()interaction->start_destroying_window();
 
       //}
 
@@ -548,7 +548,7 @@ namespace windowing_universal_windows
       //      try
       //      {
 
-      //         pinteraction = pimpl->acmesystem()interaction;
+      //         pinteraction = pimpl->system()interaction;
 
       //      }
       //      catch (...)
@@ -957,7 +957,7 @@ namespace windowing_universal_windows
   /* ::e_status windowing::windowing_branch(const ::procedure & procedure)
    {
 
-      auto estatus = acmesystem()->m_papexsystem->post(routine);
+      auto estatus = system()->m_papexsystem->post(routine);
 
       if (!estatus)
       {
@@ -974,7 +974,7 @@ namespace windowing_universal_windows
    //void windowing::windowing_post(const ::procedure & procedure)
    //{
 
-   //   acmesystem()->m_paurasystem->m_pwindowMain->window_post(procedure);
+   //   system()->m_paurasystem->m_pwindowMain->window_post(procedure);
 
    //}
 

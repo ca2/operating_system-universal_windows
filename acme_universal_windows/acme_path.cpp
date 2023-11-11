@@ -124,22 +124,22 @@ namespace acme_universal_windows
 
       ::object* pobject = nullptr;
 
-      if (acmesystem()->acmeapplication())
+      if (system()->application())
       {
 
-         pobject = acmesystem()->acmeapplication();
+         pobject = system()->application();
 
       }
-      else if (acmesystem()->acmeapplication())
+      else if (system()->application())
       {
 
-         pobject = acmesystem()->acmeapplication();
+         pobject = system()->application();
 
       }
       else
       {
 
-         pobject = acmesystem();
+         pobject = system();
       }
 
       ::pointer < ::acme_universal_windows::node > pnode = acmenode();

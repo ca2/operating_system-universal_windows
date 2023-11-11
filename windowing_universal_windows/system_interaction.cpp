@@ -91,7 +91,7 @@ namespace windowing_win32
          if (pmessage->m_atom == WM_FONTCHANGE)
          {
 
-            auto psystem = acmesystem()->m_paurasystem;
+            auto psystem = system()->m_paurasystem;
 
             psystem->signal(id_operating_system_font_list_change);
 
@@ -109,7 +109,7 @@ namespace windowing_win32
             strLparamString == "ImmersiveColorSet")
          {
 
-            auto pnode = acmesystem()->m_pnode;
+            auto pnode = system()->m_pnode;
 
             pnode->fetch_user_color();
 

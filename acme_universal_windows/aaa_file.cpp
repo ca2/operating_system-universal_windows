@@ -239,7 +239,7 @@ namespace acme_universal_windows
 
 //         try
 //         {
-////            acmesystem()->m_spfilesystem.m_p->FullPath(m_path, m_path);
+////            system()->m_spfilesystem.m_p->FullPath(m_path, m_path);
 //         }
 //         catch(...)
 //         {

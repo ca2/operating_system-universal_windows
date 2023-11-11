@@ -23,7 +23,10 @@ namespace acme_universal_windows
       ~node() override;
 
 
-      void implement(::pointer<::acme::node>& pnode, ::pointer<::acme::system> & psystem) override;
+      //void implement(::pointer<::acme::node>& pnode, ::pointer<::acme::system> & psystem) override;
+
+
+      void node_main() override;
 
 
       string audio_get_default_implementation_name() override;

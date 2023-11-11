@@ -138,7 +138,7 @@ LRESULT CALLBACK __window_procedure(HWND hwnd, UINT message, WPARAM wparam, LPAR
 
    //return ::DefWindowProcW(hwnd, message, wparam, lparam);
 
-   //auto psystem = pimpl->acmesystem();
+   //auto psystem = pimpl->system();
 
    pimpl->m_uiMessage = message;
 
@@ -481,7 +481,7 @@ wstring windowing::_windows_calc_icon_window_class(::user::interaction * puserin
    if (hIcon != nullptr)
    {
 
-      auto psystem = acmesystem()->m_paurasystem;
+      auto psystem = system()->m_paurasystem;
       // will fill pszClassName with default WNDCLASS name
 
       // ignore instance handle from pre_create_window.

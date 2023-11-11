@@ -91,9 +91,9 @@ namespace windowing_universal_windows
 
       m_pwindow = (class window *)pimpl->m_pwindow->m_pWindow4;
 
-      m_dDpiIni = (float) acmesystem()->m_paurasystem->m_dDpi;
+      m_dDpiIni = (float) system()->m_paurasystem->m_dDpi;
 
-      m_dDpi = (float) acmesystem()->m_paurasystem->m_dDpi;
+      m_dDpi = (float) system()->m_paurasystem->m_dDpi;
 
       CreateDeviceIndependentResources();
 
@@ -392,11 +392,11 @@ namespace windowing_universal_windows
 
       m_dDpi = m_dDpiIni;
 
-      acmesystem()->m_paurasystem->m_dDpi = m_dDpiIni;
+      system()->m_paurasystem->m_dDpi = m_dDpiIni;
 
       m_bInitialized = true;
 
-      acmesystem()->m_pnode->m_pauranode->dpi_os_initialize();
+      system()->m_pnode->m_pauranode->dpi_os_initialize();
 
       //m_pimage->alloc(get_application()->create_new, this);
       //m_pimage = create_image({1000,  1000});
@@ -603,7 +603,7 @@ namespace windowing_universal_windows
             //{
               // OnChangeDpi(dpi);
 
-               //         acmesystem()->acmesystem()->m_possystemwindow->m_bWindowSizeChange = true;
+               //         system()->system()->m_possystemwindow->m_bWindowSizeChange = true;
 
             //}));
 
@@ -622,7 +622,7 @@ namespace windowing_universal_windows
 
          m_dDpi = dpi;
 
-         acmesystem()->m_paurasystem->m_dDpi = dpi;
+         system()->m_paurasystem->m_dDpi = dpi;
 
          if (m_bCreated)
          {
@@ -687,10 +687,10 @@ namespace windowing_universal_windows
          if (m_size.area() > 0)
          {
 
-            acmesystem()->fork([this]()
+            system()->fork([this]()
                {
 
-                  acmesystem()->m_paurasystem->on_graphics_ready();
+                  system()->m_paurasystem->on_graphics_ready();
 
                });
 
@@ -744,7 +744,7 @@ namespace windowing_universal_windows
    //void buffer::defer_resize_top_level_windows()
    //{
 
-   //   if (acmesystem()->m_bExperienceMainFrame)
+   //   if (system()->m_bExperienceMainFrame)
    //   {
 
    //      auto puserinteractionpointeraChild = m_pwindow->m_puserinteraction->m_puserinteractionpointeraChild;
@@ -955,11 +955,11 @@ namespace windowing_universal_windows
       else if(m_size.cx() > m_sizeBuffer.cx() || m_size.cy() > m_sizeBuffer.cy())
       {
 
-         //synchronous_lock synchronouslockObjects(acmesystem()->m_paurasystem->draw2d()->get_object_list_mutex());
-         //synchronous_lock synchronouslockImages(acmesystem()->m_paurasystem->draw2d()->get_image_list_mutex());
-         //synchronous_lock synchronouslockGraphicsContext(acmesystem()->m_paurasystem->draw2d()->get_graphics_context_list_mutex());
+         //synchronous_lock synchronouslockObjects(system()->m_paurasystem->draw2d()->get_object_list_mutex());
+         //synchronous_lock synchronouslockImages(system()->m_paurasystem->draw2d()->get_image_list_mutex());
+         //synchronous_lock synchronouslockGraphicsContext(system()->m_paurasystem->draw2d()->get_graphics_context_list_mutex());
 
-         acmesystem()->m_paurasystem->draw2d()->clear_all_objects_os_data();
+         system()->m_paurasystem->draw2d()->clear_all_objects_os_data();
          //
          //            //if (m_pswapchain != nullptr)
          ////{
@@ -1418,7 +1418,7 @@ namespace windowing_universal_windows
 
    //   dc->attach((ID2D1DeviceContext *) m_pdevicecontext);
 
-   //   auto pimpl = acmesession()->m_puserinteractionHost->m_pimpl;
+   //   auto pimpl = session()->m_puserinteractionHost->m_pimpl;
 
    //   //throw_todo();
 
