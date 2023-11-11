@@ -67,7 +67,8 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="hardware_devices.cpp" />
+    <ClCompile Include="hardware\devices.cpp" />
+    <ClCompile Include="hardware\device_group.cpp" />
     <ClCompile Include="_factory.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -93,7 +94,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
-    <ClInclude Include="hardware_devices.h" />
+    <ClInclude Include="hardware\devices.h" />
+    <ClInclude Include="hardware\device_group.h" />
     <ClInclude Include="interaction_impl.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="_.h" />

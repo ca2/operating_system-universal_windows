@@ -7,6 +7,12 @@
     <Filter Include="Source Files">
       <UniqueIdentifier>{9bbb73a0-40d0-4f09-b55c-524201fce82b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\hardware">
+      <UniqueIdentifier>{48220c5d-b0d1-46c3-a943-4b13d0d25b26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\hardware">
+      <UniqueIdentifier>{39cde0c6-ce15-49ef-883f-753b201ab606}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="_.cpp">
@@ -24,8 +30,11 @@
     <ClCompile Include="node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="hardware_devices.cpp">
-      <Filter>Source Files</Filter>
+    <ClCompile Include="hardware\devices.cpp">
+      <Filter>Source Files\hardware</Filter>
+    </ClCompile>
+    <ClCompile Include="hardware\device_group.cpp">
+      <Filter>Source Files\hardware</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -47,8 +56,11 @@
     <ClInclude Include="node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="hardware_devices.h">
-      <Filter>Header Files</Filter>
+    <ClInclude Include="hardware\device_group.h">
+      <Filter>Header Files\hardware</Filter>
+    </ClInclude>
+    <ClInclude Include="hardware\devices.h">
+      <Filter>Header Files\hardware</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
