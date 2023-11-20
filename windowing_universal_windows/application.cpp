@@ -1,5 +1,6 @@
 // Created by camilo on 2021-01-30 <3ThomasBS_!!
 #include "framework.h"
+#include "acme/platform/system.h"
 #include "aura/windowing/sandbox/windowing.h"
 #include "application.h"
 #include "window.h"
@@ -32,7 +33,6 @@ namespace windowing_universal_windows
    void application::Initialize(CoreApplicationView const & coreapplicationview)
    {
 
-
       m_pwindowing->m_pwindowMain->Initialize(coreapplicationview);
 
    }
@@ -52,11 +52,11 @@ namespace windowing_universal_windows
    void application::Run()
    {
 
-      auto window = m_pwindowing->m_pwindowMain->m_window;
+      auto windowscorewindow = m_pwindowing->m_pwindowMain->m_windowscorewindow;
 
-      window.Activate();
+      windowscorewindow.Activate();
 
-      window.Dispatcher().ProcessEvents(::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
+      windowscorewindow.Dispatcher().ProcessEvents(::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
 
 //      // First, create the Direct3D device.
 //

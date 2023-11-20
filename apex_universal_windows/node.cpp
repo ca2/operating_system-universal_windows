@@ -28,11 +28,13 @@ namespace apex_universal_windows
    void node::node_main()
    {
 
+      ::acme_universal_windows::node::node_main();
+
       //auto psystem = system();
 
       //auto estatus = 
 
-      system()->main();
+      //system()->main();
 
       //if (!estatus)
       //{

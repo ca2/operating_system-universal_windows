@@ -2,7 +2,9 @@
 // Created by camilo on 2021-09-04 22:55 BRT <3ThomasBS_!!
 #include "framework.h"
 #include "node.h"
+#include "aura/platform/session.h"
 #include "aura/platform/system.h"
+#include "aura/user/user/user.h"
 #include "windowing_universal_windows/window.h"
 #include "windowing_universal_windows/windowing.h"
 #include <winrt/Windows.UI.Core.h>
@@ -44,20 +46,35 @@ namespace node_universal_windows
    void node::node_main()
    {
 
-      //auto estatus = 
+      ::aura_universal_windows::node::node_main();
 
-      system()->m_itask = 0;
+   }
 
-      system()->m_htask = nullptr;
 
-      system()->m_paurasystem->branch_synchronously();
+   void node::on_system_main()
+   {
 
-      //if (!estatus)
-      //{
+      ////auto estatus = 
 
-      //   return estatus;
+      //system()->m_itask = 0;
 
-      //}
+      //system()->m_htask = nullptr;
+
+      //system()->m_paurasystem->branch_synchronously();
+
+      ////if (!estatus)
+      ////{
+
+      ////   return estatus;
+
+      ////}
+
+      if (!windowing())
+      {
+
+         session()->m_paurasession->user()->create_windowing();
+
+      }
 
       auto pwindow = new ::windowing_universal_windows::window;
 

@@ -55,6 +55,9 @@ namespace acme_universal_windows
       virtual bool windows_runtime_filetime(::particle * pparticle, ::winrt::Windows::Storage::StorageFile file, file_time * lpCreationTime, file_time * lpItemTime, file_time * lpLastWriteTime);
 
 
+      void on_start_system() override;
+
+
    };
 
 

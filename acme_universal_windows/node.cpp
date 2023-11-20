@@ -29,7 +29,9 @@ namespace acme_universal_windows
 
       //auto estatus = 
 
-      system()->main();
+      //system()->main();
+
+      ::acme::node::node_main();
 
       //if (!estatus)
       //{
@@ -39,6 +41,14 @@ namespace acme_universal_windows
       //}
 
       //return estatus;
+
+   }
+
+
+   void node::on_start_system()
+   {
+
+      system()->on_branch_system_from_main_thread_startup();
 
    }
 

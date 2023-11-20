@@ -931,7 +931,7 @@ namespace windowing_universal_windows
 
          defer_throw_hresult(hr);
 
-         auto punknown = m_pwindow->m_window.as<IUnknown>();
+         auto punknown = m_pwindow->m_windowscorewindow.as<IUnknown>();
 
          hr = dxgiFactory->CreateSwapChainForCoreWindow(
             directx::directx()->m_pdevice,

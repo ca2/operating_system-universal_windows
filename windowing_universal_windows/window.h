@@ -33,9 +33,9 @@ namespace windowing_universal_windows
 
       //comptr < ::windowing_universal_windows::application > 
       ::winrt::Windows::ApplicationModel::Core::CoreApplicationView m_coreapplicationview = nullptr;
-      ::winrt::Windows::UI::Core::CoreWindow  m_window = nullptr;
+      ::winrt::Windows::UI::Core::CoreWindow  m_windowscorewindow = nullptr;
 
-
+      //bool                                      m_bMainWindow;
       //HICON                                     m_hiconSmall;
       //HICON                                     m_hiconBig;
       bool                                      m_bTrackMouseLeave : 1;

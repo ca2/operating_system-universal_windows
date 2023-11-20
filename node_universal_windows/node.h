@@ -38,6 +38,9 @@ namespace node_universal_windows
       void node_main() override;
 
 
+      void on_system_main() override;
+
+
       void call_member(::i64 i) override;
       
 

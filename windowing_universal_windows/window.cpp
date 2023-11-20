@@ -76,7 +76,7 @@ namespace windowing_universal_windows
       m_bInternalFocus = false;
       m_bExtendingLeft = false;
       m_bTextCompositionActive = false;
-
+      //m_bMainWindow = false;
       m_pWindow4 = this;
 
       //set_layer(LAYERED_IMPL, this);
@@ -97,7 +97,7 @@ namespace windowing_universal_windows
 //
 //      m_htask = 0;
 //
-//      m_window = None;
+//      m_windowscorewindow = None;
 
       m_bTrackMouseLeave = false;
 
@@ -425,7 +425,7 @@ namespace windowing_universal_windows
 
       rectangleWindow.Height = (float)puserinteraction->const_layout().design().size().cy();
 
-      if (!m_window)
+      if (!m_windowscorewindow)
       {
 
          //manual_reset_event ev;
@@ -438,7 +438,7 @@ namespace windowing_universal_windows
 
          SetWindow(coreapplicationview.CoreWindow());
 
-         // m_window = m_coreapplicationview.CoreWindow();
+         // m_windowscorewindow = m_coreapplicationview.CoreWindow();
 
            //    topic.set_event();
              //  coreapplicationview.Dispatcher().ProcessEvents(
@@ -459,7 +459,7 @@ namespace windowing_universal_windows
 
                      //   }
 
-                     m_window.Activate();
+                     m_windowscorewindow.Activate();
 
 
 
@@ -471,7 +471,7 @@ namespace windowing_universal_windows
                      //   //Id1,
                      //   //::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
 
-                     //   //rectangleWindow = m_window.Bounds();
+                     //   //rectangleWindow = m_windowscorewindow.Bounds();
                      //
                      //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
                      //   {
@@ -542,7 +542,7 @@ namespace windowing_universal_windows
 
          {
 
-            if (m_window.Visible())
+            if (m_windowscorewindow.Visible())
             {
 
                __on_window_visible();
@@ -784,7 +784,7 @@ namespace windowing_universal_windows
    bool window::get_rect_normal(::rectangle_i32 * prectangle)
    {
 
-      auto bounds = m_window.Bounds();
+      auto bounds = m_windowscorewindow.Bounds();
 
       prectangle->left() = (::i32) bounds.X;
       prectangle->top() = (::i32)bounds.Y;
@@ -1037,7 +1037,7 @@ namespace windowing_universal_windows
    //   {
    //      if (!::window::s_pdataptra->element_at(i)->m_bMessageOnlyWindow
    //         && ::window::s_pdataptra->element_at(i)->m_osdisplay->display() == pdisplay
-   //         && ::window::s_pdataptra->element_at(i)->m_window == window)
+   //         && ::window::s_pdataptra->element_at(i)->m_windowscorewindow == window)
    //      {
    //         return i;
    //      }
@@ -1055,7 +1055,7 @@ namespace windowing_universal_windows
    //   for (i32 i = 0; i < ::window::s_pdataptra->get_count(); i++)
    //   {
    //      if (!::window::s_pdataptra->element_at(i)->m_bMessageOnlyWindow
-   //         && ::window::s_pdataptra->element_at(i)->m_window == window)
+   //         && ::window::s_pdataptra->element_at(i)->m_windowscorewindow == window)
    //      {
    //         return i;
    //      }
@@ -1090,7 +1090,7 @@ namespace windowing_universal_windows
    //   ::window * pdata = new window;
 
    //   pdata->m_bMessageOnlyWindow = true;
-   //   pdata->m_window = None;
+   //   pdata->m_windowscorewindow = None;
    //   pdata->m_puserinteractionimpl = puserinteraction;
    //   pdata->m_osdisplay = nullptr;
    //   pdata->m_parent = 0;
@@ -1141,7 +1141,7 @@ namespace windowing_universal_windows
 
    //   pdata->m_bMessageOnlyWindow = false;
    //   pdata->m_osdisplay = osdisplay_get(pdisplay);
-   //   pdata->m_window = window;
+   //   pdata->m_windowscorewindow = window;
 
    //   if (pvisual != nullptr)
    //   {
@@ -1606,7 +1606,7 @@ namespace windowing_universal_windows
 
       //   puserinteraction->place(rBest);
 
-      //   XMoveResizeWindow(d, m_window, rBest.left(), rBest.top(), rBest.width(), rBest.height());
+      //   XMoveResizeWindow(d, m_windowscorewindow, rBest.left(), rBest.top(), rBest.width(), rBest.height());
 
       //}
 
@@ -1999,7 +1999,7 @@ namespace windowing_universal_windows
 
    //   atomWmState = d.m_pdata->m_atomWmState;
 
-   //   status = XGetWindowProperty(d, m_window, atomWmState, 0L, WM_STATE_ELEMENTS, False, AnyPropertyType, &actual_type,
+   //   status = XGetWindowProperty(d, m_windowscorewindow, atomWmState, 0L, WM_STATE_ELEMENTS, False, AnyPropertyType, &actual_type,
    //      &actual_format, &nitems, &leftover, &point);
 
    //   if (status == 0)
@@ -6360,15 +6360,15 @@ namespace windowing_universal_windows
          user_send({ e_timeout, 15_s, [this]()
             {
 
-               //pbuffer->m_windowBounds = m_window->Bounds;
+               //pbuffer->m_windowscorewindowBounds = m_windowscorewindow->Bounds;
 
                //auto pchanged = ref new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
 
-               ::size_i32 size((LONG)m_window.Bounds().Width, (LONG)m_window.Bounds().Height);
+               ::size_i32 size((LONG)m_windowscorewindow.Bounds().Width, (LONG)m_windowscorewindow.Bounds().Height);
 
-               //pchanged->Size.Height = m_window.Bounds().Height;
+               //pchanged->Size.Height = m_windowscorewindow.Bounds().Height;
 
-               on_window_size_changed(m_window, size);
+               on_window_size_changed(m_windowscorewindow, size);
 
             } });
 
@@ -6394,7 +6394,7 @@ namespace windowing_universal_windows
       user_send({ e_timeout, 15_s, [this]()
          {
 
-            auto window = m_window;
+            auto window = m_windowscorewindow;
 
             window.VisibilityChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs>(this, &window::OnWindowVisibilityChanged));
 
@@ -6426,10 +6426,10 @@ namespace windowing_universal_windows
 
             ::rectangle_f64 rectangle;
 
-            rectangle.left() = (LONG)m_window.Bounds().X;
-            rectangle.top() = (LONG)m_window.Bounds().Y;
-            rectangle.right() = (LONG)(m_window.Bounds().X + m_window.Bounds().Width);
-            rectangle.top() = (LONG)(m_window.Bounds().Y + m_window.Bounds().Height);
+            rectangle.left() = (LONG)m_windowscorewindow.Bounds().X;
+            rectangle.top() = (LONG)m_windowscorewindow.Bounds().Y;
+            rectangle.right() = (LONG)(m_windowscorewindow.Bounds().X + m_windowscorewindow.Bounds().Width);
+            rectangle.top() = (LONG)(m_windowscorewindow.Bounds().Y + m_windowscorewindow.Bounds().Height);
 
             //puserinteraction->m_puiThis->place(rectangle);
 
@@ -6442,7 +6442,7 @@ namespace windowing_universal_windows
 
             //}
 
-            m_window = m_window;
+            //m_windowscorewindow = m_windowscorewindow;
 
          } } );
 
@@ -6868,9 +6868,9 @@ namespace windowing_universal_windows
    //void window::Element_Unloaded(winrt::Windows::Foundation::IInspectable  sender, ::winrt::Windows::UI::Xaml::RoutedEventArgs  e)
    //{
 
-   //   m_window->KeyDown -= m_tokenKeyDown;
+   //   m_windowscorewindow->KeyDown -= m_tokenKeyDown;
 
-   //   m_window->PointerPressed -= m_tokenPointerPressed;
+   //   m_windowscorewindow->PointerPressed -= m_tokenPointerPressed;
 
    //}
 
@@ -7156,7 +7156,7 @@ namespace windowing_universal_windows
       auto selectionRect = get_input_selection_rect();
 
       // Next, convert to screen coordinates in window pixels.
-      auto windowBounds = m_window.Bounds();
+      auto windowBounds = m_windowscorewindow.Bounds();
       contentRect.X += windowBounds.X;
       contentRect.Y += windowBounds.Y;
       selectionRect.X += windowBounds.X;
@@ -7295,7 +7295,7 @@ namespace windowing_universal_windows
          // Left arrow
       case ::winrt::Windows::System::VirtualKey::Left:
          // If the shift key is down, then adjust the size_i32 of the selection.
-         //if ((int)m_window->GetKeyState(VirtualKey::Shift) & (int) CoreVirtualKeyStates::Down)
+         //if ((int)m_windowscorewindow->GetKeyState(VirtualKey::Shift) & (int) CoreVirtualKeyStates::Down)
          //{
          //   // If this is the start of a selection, then remember which edge we are adjusting.
          //   if (!HasSelection())
@@ -7329,7 +7329,7 @@ namespace windowing_universal_windows
          // Right arrow
       case ::winrt::Windows::System::VirtualKey::Right:
          // If the shift key is down, then adjust the size_i32 of the selection.
-         //if ((int)m_window->GetKeyState(VirtualKey::Shift) & (int) CoreVirtualKeyStates::Down)
+         //if ((int)m_windowscorewindow->GetKeyState(VirtualKey::Shift) & (int) CoreVirtualKeyStates::Down)
          //{
          //   // If this is the start of a selection, then remember which edge we are adjusting.
          //   if (!HasSelection())
@@ -7538,15 +7538,15 @@ namespace windowing_universal_windows
       //      session()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
       //         {
 
-      //            //pbuffer->m_windowBounds = m_window->Bounds;
+      //            //pbuffer->m_windowscorewindowBounds = m_windowscorewindow->Bounds;
 
       //            //auto pchanged = ref new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
 
-      //            ::size_i32 size((LONG)m_window.Bounds().Width, (LONG)m_window.Bounds().Height);
+      //            ::size_i32 size((LONG)m_windowscorewindow.Bounds().Width, (LONG)m_windowscorewindow.Bounds().Height);
 
-      //            //pchanged->Size.Height = m_window.Bounds().Height;
+      //            //pchanged->Size.Height = m_windowscorewindow.Bounds().Height;
 
-      //            on_window_size_changed(m_window, size);
+      //            on_window_size_changed(m_windowscorewindow, size);
 
       //         }));
 
@@ -7571,10 +7571,10 @@ namespace windowing_universal_windows
 
       //   ::rectangle_f64 rectangle;
 
-      //   rectangle.left() = (LONG)m_window.Bounds().X;
-      //   rectangle.top() = (LONG)m_window.Bounds().Y;
-      //   rectangle.right() = (LONG)(m_window.Bounds().X + m_window.Bounds().Width);
-      //   rectangle.top() = (LONG)(m_window.Bounds().Y + m_window.Bounds().Height);
+      //   rectangle.left() = (LONG)m_windowscorewindow.Bounds().X;
+      //   rectangle.top() = (LONG)m_windowscorewindow.Bounds().Y;
+      //   rectangle.right() = (LONG)(m_windowscorewindow.Bounds().X + m_windowscorewindow.Bounds().Width);
+      //   rectangle.top() = (LONG)(m_windowscorewindow.Bounds().Y + m_windowscorewindow.Bounds().Height);
 
       //   //puserinteraction->m_puiThis->place(rectangle);
 
@@ -7584,7 +7584,7 @@ namespace windowing_universal_windows
 
       //   system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
 
-      //   m_window = m_window;
+      //   m_windowscorewindow = m_windowscorewindow;
 
       //   pbuffer->m_pwindow = m_pwindow;
 
@@ -7680,7 +7680,7 @@ namespace windowing_universal_windows
       void window::DpiChanged(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable)
       {
 
-         m_rectangleLastWindowRect = m_window.Bounds();
+         m_rectangleLastWindowRect = m_windowscorewindow.Bounds();
 
          auto pbuffer = __buffer(m_puserinteractionimpl->get_window_graphics());
 
@@ -7794,7 +7794,7 @@ namespace windowing_universal_windows
 
          }
 
-         m_window.Activate();
+         m_windowscorewindow.Activate();
 
       }
 
@@ -8048,7 +8048,7 @@ namespace windowing_universal_windows
 
                pbuffer->m_tristateCoreWindowVisible = true;
 
-               winrt::Windows::UI::Core::CoreWindow window = m_window;
+               winrt::Windows::UI::Core::CoreWindow window = m_windowscorewindow;
 
                if (window)
                {
@@ -8434,14 +8434,14 @@ namespace windowing_universal_windows
                rectangle.Width = 600;
                rectangle.Height = 480;
 
-               if(m_window == nullptr)
+               if(m_windowscorewindow == nullptr)
                   return rectangle;
 
-               ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &rectangle]()
+               ::wait(m_windowscorewindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &rectangle]()
                {
                   try
                   {
-                     rectangle = m_window->Bounds;
+                     rectangle = m_windowscorewindow->Bounds;
                   }
                   catch(...)
                   {
@@ -8460,13 +8460,13 @@ namespace windowing_universal_windows
 
          ::winrt::Windows::Foundation::Point p = m_pointLastCursor;
 
-         /*      if(m_window == nullptr)
+         /*      if(m_windowscorewindow == nullptr)
                   return p;
 
                if(g_iMouse < 0)
                   return p;
 
-               ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &p]()
+               ::wait(m_windowscorewindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &p]()
                {
                   try
                   {
@@ -8524,7 +8524,7 @@ namespace windowing_universal_windows
       //void window::user_post(const ::procedure & procedure)
       //{
 
-      //   auto dispatcher = m_window.Dispatcher();
+      //   auto dispatcher = m_windowscorewindow.Dispatcher();
 
       //   if (dispatcher)
       //   {
@@ -8569,10 +8569,10 @@ namespace windowing_universal_windows
             dispatcher = m_coreapplicationview.Dispatcher();
 
          }
-         else if (m_window)
+         else if (m_windowscorewindow)
          {
 
-            dispatcher = m_window.Dispatcher();
+            dispatcher = m_windowscorewindow.Dispatcher();
 
          }
          else
@@ -8646,16 +8646,16 @@ namespace windowing_universal_windows
       void window::SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window)
       {
 
-         m_window = window;
+         m_windowscorewindow = window;
          // Specify the cursor type as the standard arrow cursor.
-         m_window.PointerCursor(CoreCursor{ CoreCursorType::Arrow, 0 });
+         m_windowscorewindow.PointerCursor(CoreCursor{ CoreCursorType::Arrow, 0 });
 
          // Allow the application to respond when the window size changes.
          //window.SizeChanged({ this, &App::OnWindowSizeChanged });
 
 
 
-         m_window = window;
+         m_windowscorewindow = window;
 
          m_resizemanager = ::winrt::Windows::UI::Core::CoreWindowResizeManager::GetForCurrentView();
 
@@ -8665,13 +8665,13 @@ namespace windowing_universal_windows
 
          //coreTitleBar->ExtendViewIntoTitleBar = true;
 
-         m_tokenActivated = m_window.Activated(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowActivatedEventArgs>(this, &window::CoreWindow_WindowActivated));
+         m_tokenActivated = m_windowscorewindow.Activated(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowActivatedEventArgs>(this, &window::CoreWindow_WindowActivated));
 
-         m_tokenClosed = m_window.Closed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CoreWindowEventArgs>(this, &window::CoreWindow_CoreWindowClosed));
+         m_tokenClosed = m_windowscorewindow.Closed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CoreWindowEventArgs>(this, &window::CoreWindow_CoreWindowClosed));
 
-         m_tokenKeyDown = m_window.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::CoreWindow_KeyDown));
+         m_tokenKeyDown = m_windowscorewindow.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::CoreWindow_KeyDown));
 
-         m_tokenPointerPressed = m_window.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::CoreWindow_PointerPressed));
+         m_tokenPointerPressed = m_windowscorewindow.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::CoreWindow_PointerPressed));
 
          auto manager = ::winrt::Windows::UI::Text::Core::CoreTextServicesManager::GetForCurrentView();
 
