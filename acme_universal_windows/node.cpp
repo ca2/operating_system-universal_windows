@@ -83,7 +83,7 @@ namespace acme_universal_windows
    //{
 
 
-   //   auto pfile = __new(::acme_universal_windows::native_buffer(pathZip, ::file::e_open_read | ::file::e_open_binary));
+   //   auto pfile = __allocate< ::acme_universal_windows::native_buffer >(pathZip, ::file::e_open_read | ::file::e_open_binary);
 
    //   pfile->initialize(this);
 

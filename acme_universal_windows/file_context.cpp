@@ -882,7 +882,7 @@ namespace acme_universal_windows
             if (file)
             {
 
-               auto pfile = __new(::acme_universal_windows::native_buffer(file, eopen));
+               auto pfile = __allocate< ::acme_universal_windows::native_buffer >(file, eopen);
 
                return pfile;
 

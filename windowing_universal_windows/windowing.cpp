@@ -271,7 +271,7 @@ namespace windowing_universal_windows
    //   if (!pwindow)
    //   {
 
-   //      pwindow = __new(::windowing_universal_windows::window());
+   //      pwindow = __allocate< ::windowing_universal_windows::window >();
 
    //   }
 
@@ -576,7 +576,7 @@ namespace windowing_universal_windows
 
       //}
 
-      auto pusermessage = __new(::user::message);
+      auto pusermessage = __allocate< ::user::message >();
 
       if (!pusermessage)
       {

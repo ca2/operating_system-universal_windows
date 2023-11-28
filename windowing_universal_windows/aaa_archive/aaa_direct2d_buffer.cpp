@@ -272,7 +272,7 @@
 //
 //      ::draw2d::lock draw2dlock;
 //
-//      //direct2d::direct2d() = __new(::draw2d_direct2d::plugin);
+//      //direct2d::direct2d() = __allocate< ::draw2d_direct2d::plugin >();
 //
 //      //direct2d::direct2d()->initialize();
 //
