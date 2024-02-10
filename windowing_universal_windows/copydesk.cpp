@@ -678,7 +678,7 @@ namespace windowing_universal_windows
 
          }});
 
-      acmenode()->defer_co_initialize_ex(true);
+      node()->defer_co_initialize_ex(true);
 
       string str = ::winrt::Windows::ApplicationModel::DataTransfer::StandardDataFormats::Bitmap().begin();
 

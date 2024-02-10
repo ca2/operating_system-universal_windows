@@ -145,7 +145,7 @@ namespace windowing_universal_windows
    
       auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
    
-      acmenode()->background_color(colorBackground);
+      node()->background_color(colorBackground);
    
    }
    

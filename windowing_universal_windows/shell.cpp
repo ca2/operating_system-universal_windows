@@ -83,7 +83,7 @@ namespace windowing_universal_windows
 
       ::user::shell::initialize(pparticle);
     
-      acmenode()->defer_co_initialize_ex(true);
+      node()->defer_co_initialize_ex(true);
 
    }
 
@@ -1484,7 +1484,7 @@ namespace windowing_universal_windows
    {
 
 
-      acmenode()->defer_co_initialize_ex(true);
+      node()->defer_co_initialize_ex(true);
 
       //m_thumbnailhandlerfactory.CoCreateInstance(CLSID_ThumbnailHandlerFactory);
 

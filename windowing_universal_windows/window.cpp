@@ -5130,7 +5130,7 @@ namespace windowing_universal_windows
 
       //}
 
-      acmenode()->defer_co_initialize_ex(false);
+      node()->defer_co_initialize_ex(false);
 
       //comptr < ITaskbarList>                     tasklist;
 

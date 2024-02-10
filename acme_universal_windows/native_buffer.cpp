@@ -148,7 +148,7 @@ namespace acme_universal_windows
       else
       {
 
-         acmenode()->defer_co_initialize_ex(true);
+         node()->defer_co_initialize_ex(true);
 
          string_array straItems;
 
