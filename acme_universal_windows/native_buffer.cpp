@@ -60,7 +60,7 @@ namespace acme_universal_windows
 
       string strPrefix;
 
-      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+      ::pointer < ::acme_universal_windows::node > pnode = node();
 
       auto folder = pnode->_windows_runtime_folder(m_pcontext, strPath, strPrefix);
 

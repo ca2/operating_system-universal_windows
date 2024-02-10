@@ -142,7 +142,7 @@ namespace acme_universal_windows
          pobject = system();
       }
 
-      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+      ::pointer < ::acme_universal_windows::node > pnode = node();
 
       auto folder = pnode->_windows_runtime_folder(this, strRelative, strPrefix);
 

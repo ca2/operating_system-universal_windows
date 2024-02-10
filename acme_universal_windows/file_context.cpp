@@ -208,7 +208,7 @@ namespace acme_universal_windows
 
       string strPrefix;
 
-      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+      ::pointer < ::acme_universal_windows::node > pnode = node();
 
       auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix, false);
 
@@ -277,7 +277,7 @@ namespace acme_universal_windows
    void file_context::transfer(const ::file::path & pszNew, const ::file::path & psz)
    {
 
-      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+      ::pointer < ::acme_universal_windows::node > pnode = node();
 
       auto file = pnode->windows_runtime_file(m_pcontext, psz, 0, 0, OPEN_EXISTING, 0);
 
@@ -317,7 +317,7 @@ namespace acme_universal_windows
 
          string strPrefix;
 
-         ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+         ::pointer < ::acme_universal_windows::node > pnode = node();
 
          ::winrt::Windows::Storage::StorageFolder folder = pnode->_windows_runtime_folder(m_pcontext, strDirNew, strPrefix);
 
@@ -850,7 +850,7 @@ namespace acme_universal_windows
 
       string strPrefix;
 
-      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+      ::pointer < ::acme_universal_windows::node > pnode = node();
 
       auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix, bDeferCreateFolder);
 

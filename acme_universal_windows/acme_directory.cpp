@@ -565,7 +565,7 @@ namespace acme_universal_windows
 
       }
 
-      ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+      ::pointer < ::acme_universal_windows::node > pnode = node();
 
       auto folder = pnode->windows_runtime_folder(this, path, false);
 
@@ -1544,7 +1544,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          string strPrefix;
 
-         ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+         ::pointer < ::acme_universal_windows::node > pnode = node();
 
          auto folder = pnode->windows_runtime_folder(this, strRelative, strPrefix, false);
 

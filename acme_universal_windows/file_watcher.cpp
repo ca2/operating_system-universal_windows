@@ -121,7 +121,7 @@ namespace acme_universal_windows
 
          string strDirectory = pathFolder;
 
-         ::pointer < ::acme_universal_windows::node > pnode = acmenode();
+         ::pointer < ::acme_universal_windows::node > pnode = node();
 
          m_folder = pnode->windows_runtime_folder(m_pcontext, strDirectory, false);
 
