@@ -317,7 +317,9 @@ namespace windowing_universal_windows
 
 
       
-      void create_window(::user::interaction_impl * pimpl) override;
+      //void create_window(::user::interaction_impl * pimpl) override;
+
+      void create_window() override;
 
 
       //inline HWND get_hwnd() const { return (HWND) get_oswindow(); }

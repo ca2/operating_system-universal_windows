@@ -4,5 +4,7 @@
 
 #define NDEBUG
 
+#define MEMDLEAK_DEFAULT 0
+
 
 

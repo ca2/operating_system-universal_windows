@@ -4966,7 +4966,7 @@ namespace aura_universal_windows
 
       }
 
-      m_pgraphics->on_after_graphical_update();
+      m_pgraphicsgraphics->on_after_graphical_update();
 
 
       if (m_bNotifyLayoutCompletedPending)

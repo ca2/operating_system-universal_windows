@@ -257,7 +257,8 @@ namespace windowing_universal_windows
    }
 
 
-   void window::create_window(::user::interaction_impl * pimpl)
+   //void window::create_window(::user::interaction_impl * pimpl)
+   void window::create_window()
    {
 
       auto pwindowing = windowing();
@@ -283,6 +284,8 @@ namespace windowing_universal_windows
 
       //if (wstrClassName.is_empty())
       //{
+
+      auto pimpl = m_puserinteractionimpl;
 
       auto puserinteraction = pimpl->m_puserinteraction;
 
@@ -6632,7 +6635,7 @@ namespace windowing_universal_windows
 
       puserinteraction->post_procedure(pprodevian->m_procedureUpdateScreen);*/
 
-      ::pointer<::windowing_universal_windows::buffer>pbuffer = m_puserinteractionimpl->m_pgraphics;
+      ::pointer<::windowing_universal_windows::buffer>pbuffer = m_puserinteractionimpl->m_pgraphicsgraphics;
 
       pbuffer->update_screen();
 
