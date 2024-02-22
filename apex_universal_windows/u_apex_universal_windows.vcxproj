@@ -90,7 +90,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='StaticRelease|x64'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="node.cpp" />
-    <ClCompile Include="os_context.cpp" />
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -99,7 +98,7 @@
     <ClInclude Include="interprocess_caller.h" />
     <ClInclude Include="interprocess_target.h" />
     <ClInclude Include="node.h" />
-    <ClInclude Include="os_context.h" />
+    <ClInclude Include="aaa_os_context.h" />
     <ClInclude Include="_.h" />
     <ClInclude Include="aaa_apex_universal_windows.h" />
     <ClInclude Include="aaa_winrt_storage.h" />

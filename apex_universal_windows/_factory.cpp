@@ -3,7 +3,7 @@
 //#include "file_system.h"
 //#include "dir_context.h"
 //#include "dir_system.h"
-#include "os_context.h"
+//#include "os_context.h"
 #include "interprocess_caller.h"
 #include "interprocess_target.h"
 //#include "file_os_watcher.h"
@@ -33,7 +33,7 @@ __FACTORY_EXPORT void apex_universal_windows_factory(::factory::factory * pfacto
    //pfactory->add_factory_item < ::apex_universal_windows::dir_context, ::dir_context >();
    //pfactory->add_factory_item < ::apex_universal_windows::dir_system, ::dir_system >();
 
-   pfactory->add_factory_item < ::apex_universal_windows::os_context, ::os_context >();
+   //pfactory->add_factory_item < ::apex_universal_windows::os_context, ::os_context >();
 
    //pfactory->add_factory_item < ::universal_windows::inteprocess_channel, ::inteprocess_channel::inteprocess_channel >();
    pfactory->add_factory_item < ::apex_universal_windows::interprocess_caller, ::interprocess::caller >();

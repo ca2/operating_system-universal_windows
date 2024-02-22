@@ -21,9 +21,6 @@
     <ClCompile Include="node.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="os_context.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="interprocess_target.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
@@ -53,7 +50,7 @@
     <ClInclude Include="node.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="os_context.h">
+    <ClInclude Include="aaa_os_context.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="interprocess_caller.h">

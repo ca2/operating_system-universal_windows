@@ -3,6 +3,38 @@
 #include "node.h"
 #include "acme/filesystem/filesystem/acme_file.h"
 #include "apex/platform/system.h"
+//#include "node.h"
+//#include <wincred.h>
+//#include <wtsapi32.h>
+//#include <ShellApi.h>
+//#include <Security.h>
+#include "acme_universal_windows/file_context.h"
+#include "acme_universal_windows/native_buffer.h"
+#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/acme_path.h"
+#include "acme/operating_system/universal_windows/_winrt_foundation.h"
+#include "acme/platform/node.h"
+#include "acme/platform/system.h"
+#include <winrt/Windows.System.h>
+
+
+::e_status hresult_to_estatus(HRESULT hresult)
+{
+
+   if (SUCCEEDED(hresult))
+   {
+
+      return ::success;
+
+   }
+   else
+   {
+
+      return ::error_failed;
+
+   }
+
+}
 
 
 namespace apex_universal_windows
@@ -89,6 +121,3743 @@ namespace apex_universal_windows
    //   }
 
    //}
+
+
+
+   //node::node()
+   //{
+
+
+
+   //}
+
+
+   //node::~node()
+   //{
+   //}
+
+
+   string node::get_command_line()
+   {
+
+      return GetCommandLineW();
+
+   }
+
+
+   void node::shutdown(bool bIfPowerOff)
+   {
+
+
+      throw ::exception(error_not_supported);
+
+      //return false;
+      //bool retval = true;
+      //HANDLE hToken;
+      //TOKEN_PRIVILEGES tokenprivileges;
+      //if (!OpenProcessToken(GetCurrentProcess(),
+      //                      TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &hToken))
+      //   return false;
+      //LookupPrivilegeValue(nullptr, SE_SHUTDOWN_NAME, &tokenprivileges.Privileges[0].Luid);
+      //tokenprivileges.PrivilegeCount = 1;
+      //tokenprivileges.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+      //AdjustTokenPrivileges(hToken, false, &tokenprivileges, 0, (PTOKEN_PRIVILEGES) nullptr, 0);
+      //if (bIfPowerOff)
+      //   retval = ExitWindowsEx(EWX_POWEROFF, 0) != false;
+      //else
+      //   retval = ExitWindowsEx(EWX_SHUTDOWN, 0) != false;
+
+      ////reset the previlages
+      //tokenprivileges.Privileges[0].Attributes = 0;
+      //AdjustTokenPrivileges(hToken, false, &tokenprivileges, 0, (PTOKEN_PRIVILEGES) nullptr, 0);
+      //return retval;
+   }
+
+
+   void node::reboot()
+   {
+      //      HANDLE hToken;
+      //      TOKEN_PRIVILEGES tokenprivileges;
+      //      if (!OpenProcessToken(GetCurrentProcess(),
+      //                            TOKEN_ADJUST_PRIVILEGES | TOKEN_QUERY, &hToken))
+      //         return false;
+      //      if(!LookupPrivilegeValue(nullptr, SE_SHUTDOWN_NAME, &tokenprivileges.Privileges[0].Luid))
+      //      {
+      //         TRACELASTERROR();
+      //         return false;
+      //      }
+      //      tokenprivileges.PrivilegeCount = 1;
+      //      tokenprivileges.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+      //      if(!AdjustTokenPrivileges(hToken, false, &tokenprivileges, 0, (PTOKEN_PRIVILEGES) nullptr, 0))
+      //      {
+      //         TRACELASTERROR();
+      //         return false;
+      //      }
+      //      if (GetLastError() == ERROR_NOT_ALL_ASSIGNED)
+      //      {
+      //         return false;
+      //      }
+      //      ////if(!LookupPrivilegeValue(nullptr, SE_REMOTE_SHUTDOWN_NAME, &tokenprivileges.Privileges[0].Luid))
+      //      ////{
+      //      ////   TRACELASTERROR();
+      //      ////   return false;
+      //      ////}
+      //      ////tokenprivileges.PrivilegeCount = 1;
+      //      ////tokenprivileges.Privileges[0].Attributes = SE_PRIVILEGE_ENABLED;
+      //      ////if(!AdjustTokenPrivileges(hToken, false, &tokenprivileges, 0, (PTOKEN_PRIVILEGES) nullptr, 0))
+      //      ////{
+      //      ////   TRACELASTERROR();
+      //      ////   return false;
+      //      ////}
+      //      ////if (GetLastError() == ERROR_NOT_ALL_ASSIGNED)
+      //      ////{
+      //      ////   return false;
+      //      ////}
+      //
+      //      //if(!WTSShutdownSystem(WTS_CURRENT_SERVER_HANDLE,WTS_WSD_REBOOT))
+      //      //{
+      //      //   TRACELASTERROR();
+      //      //   return false;
+      //      //}
+      //      //if (!ExitWindowsEx(EWX_REBOOT | EWX_FORCE,
+      //      if (!ExitWindowsEx(EWX_REBOOT,
+      //      SHTDN_REASON_MAJOR_SOFTWARE | SHTDN_REASON_MINOR_INSTALLATION))
+      //      {
+      //         TRACELASTERROR();
+      //      return false;
+      //      }
+      //      //reset the previlages
+      ////      tokenprivileges.Privileges[0].Attributes = 0;
+      // //     AdjustTokenPrivileges(hToken, false, &tokenprivileges, 0, (PTOKEN_PRIVILEGES) nullptr, 0);
+      //      return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+   }
+
+
+   void node::terminate_processes_by_title(const ::string & lpszName)
+   {
+
+      //u32 uPid;
+
+      //while(get_pid_by_title(lpszName, uPid))
+      //{
+
+      //   HANDLE hProcess = ::OpenProcess( PROCESS_QUERY_INFORMATION |
+      //                                    PROCESS_VM_READ,
+      //                                    false, uPid);
+      //   TerminateProcess(hProcess, (::u32) -1);
+      //   CloseHandle(hProcess);
+      //   /*::EnumWindows((WNDENUMPROC)
+      //   CKillProcessHelper::TerminateAppEnum,
+      //   (LPARAM) dwId);
+      //   // Wait on the handle. If it signals, great.
+
+      //   //If it times out, then you kill it.
+
+      //   if(WaitForSingleObject(hProcess, 5000)
+      //   !=WAIT_OBJECT_0)
+      //   bResult = TerminateProcess(hProcess,0);
+      //   else
+      //   bResult = true;
+      //   CloseHandle(hProcess);
+      //   return bResult == true;*/
+
+      //}
+      throw ::exception(error_not_supported);
+
+   }
+
+
+   ::process_identifier_array node::module_path_processes_identifiers(const ::scoped_string & scopedstrName)
+   {
+
+      throw ::exception(error_not_supported);
+
+      return {};
+
+   }
+
+
+   ::process_identifier_array node::title_processes_identifiers(const ::scoped_string & scopedstrName)
+   {
+
+      throw ::exception(error_not_supported);
+
+      return {};
+
+   }
+
+
+   ::process_identifier node::current_process_identifier()
+   {
+
+      //return (int) ::get_current_process_id();
+      //throw ::exception(error_not_supported);
+
+      return -1;
+
+
+   }
+
+
+
+
+   ::file::path node::process_identifier_module_path(::process_identifier processidentifier)
+   {
+      throw ::exception(error_not_supported);
+
+      return "";
+
+   }
+
+
+   ::process_identifier_array node::processes_identifiers()
+   {
+
+      //ASSERT(sizeof(::u32) == sizeof(u32));
+
+      //ua.allocate(0);
+
+      //DWORD cbNeeded = 0;
+
+      //while(cbNeeded == natural(ua.get_count()))
+      //{
+
+      //   ua.allocate(ua.get_count() + 1024);
+
+      //   if(!EnumProcesses((DWORD *) ua.get_data(), (DWORD) (ua.get_count() * sizeof(::u32)), &cbNeeded))
+      //   {
+
+      //      return;
+
+      //   }
+
+      //   ua.allocate(cbNeeded / sizeof(u32));
+
+      //}
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   ::payload node::connection_settings_get_auto_detect()
+   {
+
+      //try
+      //{
+
+      //   registry::key key1(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings\\Connections", false);
+
+      //   memory mem;
+
+      //   key1.get("DefaultConnectionSettings", mem);
+
+      //   bool bAutoDetect = (((::u8*)mem.get_data())[8] & 0x08) != 0;
+
+      //   if (!bAutoDetect)
+      //   {
+
+      //      return ::error_false;
+
+      //   }
+
+      //}
+      //catch (const ::e_status & estatus)
+      //{
+
+      //   return estatus;
+
+      //}
+
+      //return ::success;
+
+      throw ::exception(error_not_supported);
+
+      return false;
+
+   }
+
+
+   ::payload node::connection_settings_get_auto_config_url()
+   {
+
+      //string strUrl;
+      //
+      //try
+      //{
+
+      //   registry::key key(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Internet Settings", false);
+
+      //   key.get("AutoConfigURL", strUrl);
+
+      //}
+      //catch (const ::e_status & estatus)
+      //{
+
+      //   return estatus;
+
+      //}
+
+      //return ::success;
+
+      throw ::exception(error_not_supported);
+
+      return false;
+
+   }
+
+
+   void node::local_machine_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
+   {
+
+      //try
+      //{
+
+      //   registry::key keyKar(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+      //   
+      //   if (bSet)
+      //   {
+
+      //      keyKar.set(pszKey, string(pszCommand));
+
+      //   }
+      //   else
+      //   {
+
+      //      keyKar.delete_value(pszKey);
+
+      //   }
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::local_machine_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
+   {
+
+      //try
+      //{
+
+      //registry::key keyKar(HKEY_LOCAL_MACHINE, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", true);
+
+      //if (bSet)
+      //{
+
+      //   keyKar.set(pszKey, string(pszCommand));
+
+      //}
+      //else
+      //{
+
+      //   keyKar.delete_value(pszKey);
+
+      //}
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::current_user_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
+   {
+
+      //try
+      //{
+
+      //      registry::key keyKar(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+
+
+      //      if (bSet)
+      //      {
+
+      //         keyKar.set(pszKey, string(pszCommand));
+
+      //      }
+      //      else
+      //      {
+
+      //         keyKar.delete_value(pszKey);
+
+      //      }
+
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::current_user_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
+   {
+
+      //try
+      //{
+
+      //registry::key keyKar(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\RunOnce", true);
+
+      //if (bSet)
+      //{
+
+      //   keyKar.set(pszKey, string(pszCommand));
+
+      //}
+      //else
+      //{
+
+      //   keyKar.delete_value(pszKey);
+
+      //}
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::defer_register_ca2_plugin_for_mozilla()
+   {
+
+      //try
+      //{
+
+      //   registry::key key;
+
+      //   key.open(HKEY_LOCAL_MACHINE, "SOFTWARE\\MozillaPlugins", true);
+
+      //   key.open(key, "@ca2.cc/npca2", true);
+
+      //   key.set("Description", "ca2 plugin for NPAPI");
+      //   key.set("Path", m_pcontext->m_papexcontext->dir().ca2module() /"npca2.dll");
+      //   key.set("ProductName", "ca2 plugin for NPAPI");
+      //   key.set("Vendor", "ca2 Desenvolvimento de Software Ltda.");
+      //   key.set("Version", m_pcontext->m_papexcontext->file().as_string(m_pcontext->m_papexcontext->dir().install()/"appdata/x86/ca2_build.txt"));
+
+      //   key.open(key, "application/apex", true);
+
+      //   key.set("Description", "apex Document");
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::file_extension_get_open_with_list_keys(string_array & straKey, const ::string & pszExtension)
+   {
+
+      //try
+      //{
+
+      //   string strExt;
+
+      //   strExt = ".";
+      //   strExt += pszExtension;
+
+      //   string strOpenWithKey;
+      //   strOpenWithKey = strExt + "\\OpenWithList";
+
+      //   registry::key key(HKEY_CLASSES_ROOT, strOpenWithKey, false);
+
+      //   key.ls_key(straKey);
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::file_extension_get_open_with_list_commands(string_array & straCommand, const ::string & pszExtension)
+   {
+
+      //string_array straKey;
+
+      //if (!file_extension_get_open_with_list_keys(straKey, pszExtension))
+      //{
+
+      //   return false;
+
+      //}
+
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::file_association_set_default_icon(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & pszIconPath)
+   {
+
+      //try
+      //{
+
+      //string strExtensionNamingClass(pszExtensionNamingClass);
+
+      //registry::key keyLink3(HKEY_CLASSES_ROOT, strExtensionNamingClass, true);
+
+      //keyLink3.set("DefaultIcon", pszIconPath);
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+
+   }
+
+
+   void node::file_association_set_shell_open_command(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & pszCommand, const ::string & pszParam)
+   {
+
+      //::e_status estatus = ::success;
+
+      //try
+      //{
+
+      //   string strExt;
+
+      //   strExt += pszExtension;
+
+      //   string strExtensionNamingClass(pszExtensionNamingClass);
+
+      //   registry::key key(HKEY_CLASSES_ROOT, strExt, true);
+
+      //   auto estatusRegistry = key._set(nullptr, strExtensionNamingClass);
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //   registry::key keyLink3(HKEY_CLASSES_ROOT, strExtensionNamingClass + "\\shell", true);
+
+      //   estatusRegistry = keyLink3._set("", "open");
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //   registry::key keyLink2(keyLink3, "open", true);
+
+      //   estatusRegistry = keyLink2._set("", "");
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //   registry::key keyLink1(keyLink2, "command", true);
+
+      //   string strCommand(pszCommand);
+
+      //   strCommand = solve_relative(strCommand);
+
+      //   string strFormat;
+
+      //   strFormat.Format("\"%s\" %s", strCommand.c_str(), pszParam);
+
+      //   estatusRegistry = keyLink1._set("", strFormat);
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //if (!estatus)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+
+   }
+
+
+   void node::file_association_get_shell_open_command(const ::string & pszExtension, string & strExtensionNamingClass, string & strCommand, string & strParam)
+   {
+
+      //try
+      //{
+      //string strExt;
+
+      //strExt = ".";
+      //strExt += pszExtension;
+
+      //registry::key key(HKEY_CLASSES_ROOT, strExt, false);
+      //key.get(nullptr, strExtensionNamingClass);
+
+      //registry::key keyLink(HKEY_CLASSES_ROOT, strExtensionNamingClass + "\\shell\\open\\command", false);
+
+      //string strFormat;
+      //keyLink.get(nullptr, strFormat);
+      //{
+
+      //   const scoped_string & str = strFormat;
+
+      //   try
+      //   {
+
+      //      strCommand = ::str().consume_quoted_value(psz);
+      //      ::str().consume_spaces(psz);
+      //      ::str().consume(psz, "\"%L\"");
+      //      strParam = psz;
+
+      //   }
+      //   catch(...)
+      //   {
+      //   }
+
+
+      //}
+
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   bool node::open_in_ie(const ::string & pcsz)
+   {
+
+      //try
+      //{
+
+      //   registry reg;
+
+      //   string str;
+
+      //   string str2;
+
+      //   string strCommand;
+
+      //   registry::key key(HKEY_CLASSES_ROOT, ".html", false);
+      //   
+      //   if(key._open(HKEY_CLASSES_ROOT, ".html\\shell\\opennew\\command", false))
+      //   {
+
+      //      if(key._get("", str2))
+      //      {
+      //         
+      //         string strCommand(str2);
+
+      //         strCommand.replace("%1", pcsz);
+
+      //         WinExec(strCommand,e_display_normal);
+
+      //      }
+
+      //   }
+      //   else if(key._open(HKEY_CLASSES_ROOT, str, false))
+      //   {
+      //         
+      //      str += "\\shell\\opennew\\command";
+
+      //      if(key._get("", str2))
+      //      {
+      //               
+      //         string strCommand(str2);
+      //               
+      //         strCommand.replace("%1", pcsz);
+
+      //         WinExec(strCommand,e_display_normal);
+
+      //      }
+
+      //   }
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      return false;
+
+   }
+
+
+   ////------------------------------------------------------------------------
+   //// The following function retrieves the identity of the current user.
+   //// This is a helper function and is not part of the Windows Biometric
+   //// Framework API.
+   ////
+   //struct TOKEN_INFO
+   //{
+   //   TOKEN_USER tokenUser;
+   //   ::u8 buffer[SECURITY_MAX_SID_SIZE];
+   //};
+
+
+   //HRESULT GetCurrentUserIdentity(TOKEN_INFO & tokenInfo)
+   //{
+
+   //   // Declare variables.
+   //   bool bOk = true;
+
+   //   HANDLE tokenHandle = nullptr;
+
+   //   DWORD bytesReturned = 0;
+
+   //   // Open the access token associated with the
+   //   // current process
+   //   if(!OpenProcessToken(
+   //         GetCurrentProcess(),            // Process handle
+   //         TOKEN_READ,                     // Read access only
+   //         &tokenHandle))                  // Access token handle
+   //   {
+   //      u32 win32Status = GetLastError();
+   //      debug_print("Cannot open token handle: %d\n",win32Status);
+   //      bOk = false;
+   //   }
+
+   //   // Zero the tokenInfoBuffer structure.
+   //   ZeroMemory(&tokenInfo,sizeof(tokenInfo));
+
+   //   // Retrieve information about the access token. In this case,
+   //   // retrieve a SID.
+   //   if(!GetTokenInformation(
+   //         tokenHandle,                    // Access token handle
+   //         TokenUser,                      // User for the token
+   //         &tokenInfo.tokenUser,     // Buffer to fill
+   //         sizeof(tokenInfo),        // Size of the buffer
+   //         &bytesReturned))                // Size needed
+   //   {
+   //      u32 win32Status = GetLastError();
+   //      debug_print("Cannot query token information: %d\n",win32Status);
+   //      bOk = false;
+   //   }
+
+   //   if(tokenHandle != nullptr)
+   //   {
+   //      CloseHandle(tokenHandle);
+   //   }
+
+   //   return bOk;
+   //}
+   //BOOL
+   //GetAccountSid(
+   //TCHAR * SystemName,
+   //TCHAR * AccountName,
+   //PSID *Sid
+   //)
+   //{
+   //   LPTSTR ReferencedDomain=nullptr;
+   //   DWORD cbSid=128;    // initial allocation attempt
+   //   DWORD cchReferencedDomain=16; // initial allocation size_i32
+   //   SID_NAME_USE peUse;
+   //   BOOL bSuccess=false; // assume this function will fail
+
+   //   __try
+   //   {
+
+   //      //
+   //      // initial memory allocations
+   //      //
+   //      if((*Sid=HeapAlloc(
+   //               GetProcessHeap(),
+   //               0,
+   //               cbSid
+   //               )) == nullptr) __leave;
+
+   //      if((ReferencedDomain=(TCHAR *)HeapAlloc(
+   //                           GetProcessHeap(),
+   //                           0,
+   //                           cchReferencedDomain * sizeof(TCHAR)
+   //                           )) == nullptr) __leave;
+
+   //      //
+   //      // Obtain the SID of the specified account on the specified system.
+   //      //
+   //      while(!LookupAccountName(
+   //            SystemName,         // machine to lookup account on
+   //            AccountName,        // account to lookup
+   //            *Sid,               // SID of interest
+   //            &cbSid,             // size_i32 of SID
+   //            ReferencedDomain,   // domain account was found on
+   //            &cchReferencedDomain,
+   //            &peUse
+   //            ))
+   //      {
+   //         if(GetLastError() == ERROR_INSUFFICIENT_BUFFER)
+   //         {
+   //            //
+   //            // reallocate memory
+   //            //
+   //            if((*Sid=HeapReAlloc(
+   //                     GetProcessHeap(),
+   //                     0,
+   //                     *Sid,
+   //                     cbSid
+   //                     )) == nullptr) __leave;
+
+   //            if((ReferencedDomain=(TCHAR *)HeapReAlloc(
+   //                                 GetProcessHeap(),
+   //                                 0,
+   //                                 ReferencedDomain,
+   //                                 cchReferencedDomain * sizeof(TCHAR)
+   //                                 )) == nullptr) __leave;
+   //         }
+   //         else __leave;
+   //      }
+
+   //      //
+   //      // Indicate success.
+   //      //
+   //      bSuccess=true;
+
+   //   } // finally
+   //   __finally
+   //   {
+
+   //      //
+   //      // Cleanup and indicate failure, if appropriate.
+   //      //
+
+   //      HeapFree(GetProcessHeap(),0,ReferencedDomain);
+
+   //      if(!bSuccess)
+   //      {
+   //         if(*Sid != nullptr)
+   //         {
+   //            HeapFree(GetProcessHeap(),0,*Sid);
+   //            *Sid = nullptr;
+   //         }
+   //      }
+
+   //   } // finally
+
+   //   return bSuccess;
+   //}
+
+
+   bool node::_getCredentialsForService(const ::string & strService, WCHAR * szUsername, WCHAR * szPassword)
+   {
+
+      //      HRESULT hr = S_OK;
+      //      u32   dwResult;
+      //      sec_cotaskptr < PVOID > pvInAuthBlob;
+      //      sec_cotaskptr < PVOID > pvAuthBlob;
+      //      CREDUI_INFOW u;
+      //      ULONG   ulAuthPackage = 0;
+      //      BOOL    fSave = false;
+      //      WCHAR szDomainAndUser[CREDUI_MAX_USERNAME_LENGTH + CREDUI_MAX_DOMAIN_TARGET_LENGTH + 1];
+      //      WCHAR szDomain[CREDUI_MAX_DOMAIN_TARGET_LENGTH + 1];
+      ////      TOKEN_INFO ti;
+      //
+      //      u32 maxLenName = CREDUI_MAX_USERNAME_LENGTH + 1;
+      //      u32 maxLenPass = CREDUI_MAX_PASSWORD_LENGTH + 1;
+      //      u32 maxLenDomain = CREDUI_MAX_DOMAIN_TARGET_LENGTH + 1;
+      //
+      //      HICON hicon = nullptr;
+      //
+      //      // Display a dialog box to request credentials.
+      //      zero(u);
+      //      u.cbSize = sizeof(u);
+      //      u.hwndParent = nullptr;
+      //
+      //      // Retrieve the user name and domain name.
+      //      // SID_NAME_USE    SidUse;
+      //      u32           cchTmpUsername = CREDUI_MAX_USERNAME_LENGTH +1;
+      //      u32           cchTmpDomain = CREDUI_MAX_DOMAIN_TARGET_LENGTH + 1;
+      //      u32           cchDomainAndUser = CREDUI_MAX_USERNAME_LENGTH + CREDUI_MAX_DOMAIN_TARGET_LENGTH + 1;
+      //
+      //      wstring wstrCaption("\"ca2 : " + strService + "\" Authentication");
+      //      wstring wstrMessage("The Service \"ca2 : " + strService + "\" requires current user password for installing Windows Service.");
+      //
+      //      u32 lenUserName = CREDUI_MAX_USERNAME_LENGTH + 1;
+      //
+      //      //::GetUserNameW(szUsername,&lenUserName);
+      //
+      //      u32 dwLastError = 0;
+      //
+      //      bool bOk;
+      //
+      //      //if(!GetCurrentUserIdentity(ti))
+      //      //   return false;
+      //      ////szDomain[0] ='.';
+      //      ////         szDomain[1] ='\0';
+      //      //if(!LookupAccountSidW(
+      //      //   nullptr,             // Local computer
+      //      //   ti.tokenUser.puser->Sid,             // Security identifier for user
+      //      //   szUsername,       // User name
+      //      //   &cchTmpUsername,  // Size of user name
+      //      //   szDomain,         // Domain name
+      //      //   &cchTmpDomain,    // Size of domain name
+      //      //   &SidUse))         // Account type
+      //      //{
+      //      //   dwResult = GetLastError();
+      //      //   debug_print("\n getCredentialsForService LookupAccountSidLocalW failed: win32 error = 0x%x\n",dwResult);
+      //      //   return false;
+      //      //}
+      //
+      //      ULONG l = sizeof(szDomainAndUser) / sizeof(WCHAR);
+      //
+      //      ::GetUserNameExW(NameSamCompatible,szDomainAndUser,&l);
+      //
+      //      // Combine the domain and user names.
+      //      /*swprintf_s(
+      //         szDomainAndUser,
+      //         cchDomainAndUser,
+      //         L"%s\\%s",
+      //         szDomain,
+      //         szUsername);*/
+      //      ::zero(szPassword,CREDUI_MAX_PASSWORD_LENGTH);
+      //
+      //      // Call CredPackAuthenticationBufferW once to determine the size,
+      //      // in bytes, of the authentication buffer.
+      //
+      //      if(!CredPackAuthenticationBufferW(
+      //            0,                // Reserved
+      //            szDomainAndUser,  // Domain\User name
+      //            szPassword,       // User Password
+      //            nullptr,             // Packed credentials
+      //            &pvInAuthBlob.m_size)    // Size, in bytes, of credentials
+      //            && GetLastError() != ERROR_INSUFFICIENT_BUFFER)
+      //      {
+      //         dwResult = GetLastError();
+      //         debug_print("\n getCredentialsForService CredPackAuthenticationBufferW (1) failed: win32 error = 0x%x\n",dwResult);
+      //         return false;
+      //      }
+      //
+      //      // Allocate memory for the input buffer.
+      //      pvInAuthBlob.alloc();
+      //
+      //      if(pvInAuthBlob.is_null())
+      //      {
+      //
+      //         debug_print("\n getCredentialsForService CoTaskMemAlloc() Out of memory.\n");
+      //
+      //         return false;
+      //
+      //      }
+      //
+      //      // Call CredPackAuthenticationBufferW again to retrieve the
+      //      // authentication buffer.
+      //      if(!CredPackAuthenticationBufferW(
+      //            0,
+      //            szDomainAndUser,
+      //            szPassword,
+      //            (PBYTE)pvInAuthBlob.m_p,
+      //            &pvInAuthBlob.m_size))
+      //      {
+      //         dwResult = GetLastError();
+      //         debug_print("\n CredPackAuthenticationBufferW (2) failed: win32 error = 0x%x\n",dwResult);
+      //      }
+      //
+      //
+      //      u.pszCaptionText = wstrCaption;
+      //      u.pszMessageText = wstrMessage;
+      //      hicon = (HICON) ::LoadImageW(::GetModuleHandle(nullptr),MAKEINTRESOURCEW(1),IMAGE_ICON,48,48,LR_DEFAULTCOLOR);
+      //
+      //
+      //      if(hicon != nullptr)
+      //      {
+      //
+      //         u.hbmBanner = get_icon_hbitmap(hicon);
+      //
+      //         ::DeleteObject(hicon);
+      //
+      //      }
+      //
+      //retry:
+      //
+      //      dwResult = CredUIPromptForWindowsCredentialsW(
+      //                 &u,             // Customizing information
+      //                 dwLastError,               // Error code to display
+      //                 &ulAuthPackage,  // Authorization package
+      //                 pvInAuthBlob,    // Credential ::u8 array
+      //                 pvInAuthBlob.m_size,    // Size of credential input buffer
+      //                 &pvAuthBlob,     // Output credential ::u8 array
+      //                 &pvAuthBlob.m_size,     // Size of credential ::u8 array
+      //                 &fSave,          // Select the save check box.
+      //                 //CREDUIWIN_SECURE_PROMPT |
+      //                 CREDUIWIN_IN_CRED_ONLY |
+      //                 CREDUIWIN_ENUMERATE_CURRENT_USER
+      //                 );
+      //
+      //
+      //      if(dwResult == NO_ERROR)
+      //      {
+      //
+      //         DWORD lenName = maxLenName;
+      //         DWORD lenDomain = maxLenDomain;
+      //         DWORD lenPass = maxLenPass;
+      //
+      //         bOk = CredUnPackAuthenticationBufferW(CRED_PACK_PROTECTED_CREDENTIALS,
+      //               pvAuthBlob,
+      //               pvAuthBlob.m_size,
+      //               szUsername,
+      //               &lenName,
+      //               szDomain,
+      //               &lenDomain,
+      //               szPassword,
+      //               &lenPass) != false;
+      //
+      //
+      //         if(!bOk)
+      //         {
+      //            dwLastError = ::GetLastError();
+      //            goto retry;
+      //         }
+      //
+      //         //wcscpy(szDomainAndUser,szUsername);
+      //
+      //         ::GetUserNameExW(NameSamCompatible,szDomainAndUser,&l);
+      //
+      //         bOk = CredUIParseUserNameW(
+      //               szDomainAndUser,
+      //               szUsername,
+      //               CREDUI_MAX_USERNAME_LENGTH,
+      //               szDomain,
+      //               CREDUI_MAX_DOMAIN_TARGET_LENGTH
+      //               ) == NO_ERROR ;
+      //
+      //         if(!bOk)
+      //         {
+      //            dwLastError = ::GetLastError();
+      //            goto retry;
+      //         }
+      //
+      //         HANDLE h;
+      //
+      //         if(::LogonUserW(
+      //               szUsername,
+      //               szDomain,
+      //               szPassword,
+      //               LOGON32_LOGON_SERVICE,
+      //               LOGON32_PROVIDER_DEFAULT,
+      //               &h))
+      //         {
+      //
+      //            ::CloseHandle(h);
+      //
+      //         }
+      //         else
+      //         {
+      //
+      //            dwLastError = ::GetLastError();
+      //
+      //            goto retry;
+      //
+      //         }
+      //
+      //         wcscpy(szUsername,szDomainAndUser);
+      //
+      //      }
+      //      else
+      //      {
+      //
+      //         if (dwResult != ERROR_CANCELLED)
+      //         {
+      //
+      //            goto retry;
+      //
+      //         }
+      //
+      //         hr = HRESULT_FROM_WIN32(dwResult);
+      //         
+      //         bOk = false;
+      //
+      //      }
+      //
+      //      if(u.hbmBanner != nullptr)
+      //      {
+      //
+      //         ::DeleteObject(u.hbmBanner);
+      //
+      //      }
+      //
+      //      return bOk;
+      throw ::exception(error_not_supported);
+
+      return false;
+
+   }
+
+
+   string node::calc_service_name()
+   {
+
+      //::application * papp = get_application();
+
+      //if(get_application()->m_strAppName.is_empty()
+      //      || get_application()->m_strAppName.case_insensitive_order("bergedge") == 0
+      //      || !get_application()->is_service())
+      //   return "";
+
+      //string strServiceName = get_application()->m_strAppId;
+
+      //strServiceName.replace("/","-");
+
+      //strServiceName.replace("\\","-");
+
+      //return strServiceName;
+      throw ::exception(error_not_supported);
+
+      return "";
+
+   }
+
+
+   void node::enable_service()
+   {
+
+      //string strServiceName = calc_service_name();
+
+      //if (strServiceName.is_empty())
+      //{
+
+      //   return false;
+
+      //}
+
+      //SC_HANDLE hdlSCM = OpenSCManagerW(0, 0, SC_MANAGER_CREATE_SERVICE);
+
+      //if(hdlSCM == 0)
+      //{
+
+      //   u32 dwLastError = ::GetLastError();
+
+      //   return false;
+
+      //}
+
+      //string strDisplayName(strServiceName);
+
+      //strDisplayName.replace("-"," ");
+
+      //string strExe(strServiceName);
+
+      //strExe.replace("-","_");
+
+      //strExe += ".exe";
+
+      //string strCalling = m_pcontext->m_papexcontext->dir().module() / strExe + " : service";
+
+      //if(is_true("no_remote_simpledb"))
+      //{
+
+      //   strCalling += " no_remote_simpledb";
+
+      //}
+
+      //WCHAR * pname = nullptr;
+      //WCHAR * ppass = nullptr;
+
+      //WCHAR lpszName[CREDUI_MAX_USERNAME_LENGTH + CREDUI_MAX_DOMAIN_TARGET_LENGTH + 1];
+      //WCHAR pszPass[CREDUI_MAX_PASSWORD_LENGTH + 1];
+
+      //::application * papp = get_application();
+
+      //if(get_application()->is_user_service())
+      //{
+
+      //   if(_getCredentialsForService(get_application()->m_strAppId,lpszName,pszPass))
+      //   {
+
+      //      pname = lpszName;
+      //      ppass = pszPass;
+
+      //   }
+      //   else
+      //   {
+
+      //      return false;
+
+      //   }
+
+      //}
+
+      //return enable_service(strServiceName,strDisplayName,strCalling,pname,ppass);
+      throw ::exception(error_not_supported);
+
+      //      return false;
+      //
+   }
+
+
+   void node::disable_service()
+   {
+
+      //string strServiceName = calc_service_name();
+
+      //if (strServiceName.is_empty())
+      //{
+
+      //   return false;
+
+      //}
+
+      //return disable_service(strServiceName);
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::start_service()
+   {
+
+      //string strServiceName = calc_service_name();
+
+      //if (strServiceName.is_empty())
+      //{
+
+      //   return false;
+
+      //}
+
+      //return start_service(strServiceName);
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::enable_service(const ::string & strServiceName, const ::string & strDisplayName, const ::string & strCommand, const ::string & strUser, const ::string & strPass)
+   {
+
+      //if (strServiceName.is_empty())
+      //{
+
+      //   return false;
+
+      //}
+
+      //SC_HANDLE hdlSCM = OpenSCManagerW(0,0,SC_MANAGER_CREATE_SERVICE);
+
+      //if(hdlSCM == 0)
+      //{
+      //   //::GetLastError()
+      //   return false;
+
+      //}
+
+      //WCHAR lpszName[CREDUI_MAX_USERNAME_LENGTH + CREDUI_MAX_DOMAIN_TARGET_LENGTH + 1];
+      //WCHAR pszPass[CREDUI_MAX_PASSWORD_LENGTH + 1];
+
+      //wcscpy(lpszName,wstring(strUser));
+      //wcscpy(pszPass,wstring(strPass));
+
+      //SC_HANDLE hdlServ = ::CreateServiceW(
+      //                    hdlSCM,                    // SCManager database
+      //                    wstring(strServiceName),
+      //                    wstring(strDisplayName),        // service name to display
+      //                    STANDARD_RIGHTS_REQUIRED,  // desired access
+      //                    SERVICE_WIN32_OWN_PROCESS, // service type
+      //                    SERVICE_AUTO_START,      // start type
+      //                    SERVICE_ERROR_NORMAL,      // error control type
+      //                    wstring(strCommand),                   // service's binary Path name
+      //                    0,                      // no load ordering group
+      //                    0,                      // no tag identifier
+      //                    0,                      // no dependencies
+      //                    strUser.has_char() ? lpszName : nullptr,                      // LocalSystem account
+      //                    strPass.has_char() ? pszPass : nullptr);                     // no password
+
+
+      //if(!hdlServ)
+      //{
+
+      //   u32 Ret = ::GetLastError();
+
+      //   TRACELASTERROR();
+
+      //   CloseServiceHandle(hdlSCM);
+
+      //   return false;
+
+      //}
+
+      //SecureZeroMemory(lpszName,sizeof(lpszName));
+      //SecureZeroMemory(pszPass,sizeof(pszPass));
+
+
+      //CloseServiceHandle(hdlServ);
+      //CloseServiceHandle(hdlSCM);
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::disable_service(const ::string & strServiceName)
+   {
+
+      //if (strServiceName.is_empty())
+      //{
+
+      //   return false;
+
+      //}
+
+      //SC_HANDLE hdlSCM = OpenSCManagerW(0,0,SC_MANAGER_ALL_ACCESS);
+
+      //if(hdlSCM == 0)
+      //{
+      //   //::GetLastError();
+      //   return false;
+      //}
+
+      //SC_HANDLE hdlServ = ::OpenServiceW(
+      //                    hdlSCM,                    // SCManager database
+      //                    wstring(strServiceName),
+      //                    DELETE);
+
+      //if(!hdlServ)
+      //{
+      //   u32 Ret = ::GetLastError();
+      //   CloseServiceHandle(hdlSCM);
+      //   if(Ret == 1060) // Service already doesn't exist.
+      //      return true; // do self-healing
+      //   return false;
+      //}
+
+      //if(!::DeleteService(hdlServ))
+      //{
+      //   u32 Ret = ::GetLastError();
+      //   CloseServiceHandle(hdlServ);
+      //   CloseServiceHandle(hdlSCM);
+      //   return false;
+      //}
+
+      //CloseServiceHandle(hdlServ);
+
+      //CloseServiceHandle(hdlSCM);
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::stop_service()
+   {
+
+      //string strServiceName = calc_service_name();
+
+      //if(strServiceName.is_empty())
+      //   return false;
+
+      //return stop_service(strServiceName);
+      throw ::exception(error_not_supported);
+
+      //return error_not_supported;
+
+   }
+
+
+   void node::start_service(const ::string & strServiceName)
+   {
+
+      //if(strServiceName.is_empty())
+      //   return false;
+
+      //SC_HANDLE hdlSCM = OpenSCManagerW(0,0,SC_MANAGER_ALL_ACCESS);
+
+      //if(hdlSCM == 0)
+      //{
+      //   //::GetLastError();
+      //   return false;
+      //}
+
+      //SC_HANDLE hdlServ = ::OpenServiceW(
+      //                    hdlSCM,                    // SCManager database
+      //                    wstring(strServiceName),
+      //                    SERVICE_START);                     // no password
+
+
+      //if(!hdlServ)
+      //{
+      //   CloseServiceHandle(hdlSCM);
+      //   //Ret = ::GetLastError();
+      //   return false;
+      //}
+
+      //bool bOk = StartService(hdlServ,0,nullptr) != false;
+
+      //CloseServiceHandle(hdlServ);
+      //CloseServiceHandle(hdlSCM);
+
+      //return bOk != false;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::stop_service(const ::string & strServiceName)
+   {
+
+      //if(strServiceName.is_empty())
+      //   return false;
+
+      //SC_HANDLE hdlSCM = OpenSCManagerW(0,0,SC_MANAGER_ALL_ACCESS);
+
+      //if(hdlSCM == 0)
+      //{
+      //   //::GetLastError();
+      //   return false;
+      //}
+
+      //SC_HANDLE hdlServ = ::OpenServiceW(
+      //                    hdlSCM,                    // SCManager database
+      //                    wstring(strServiceName),
+      //                    SERVICE_STOP);                     // no password
+
+      //if(!hdlServ)
+      //{
+      //   // Ret = ::GetLastError();
+      //   CloseServiceHandle(hdlSCM);
+      //   return false;
+      //}
+
+      //SERVICE_STATUS ss;
+
+      //memory_set(&ss,0,sizeof(ss));
+
+      //bool bOk = ::ControlService(hdlServ,SERVICE_CONTROL_STOP,&ss) != false;
+
+      //::DeleteService(hdlServ);
+
+      //CloseServiceHandle(hdlServ);
+
+      //CloseServiceHandle(hdlSCM);
+
+      //return bOk != false;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::raise_exception(u32 dwExceptionCode, u32 dwExceptionFlags)
+   {
+
+      RaiseException(dwExceptionCode, dwExceptionFlags, 0, nullptr);
+
+   }
+
+
+   bool node::is_remote_session()
+   {
+
+      //return GetSystemMetrics(SM_REMOTESESSION) != false;
+      throw ::exception(error_not_supported);
+
+      return false;
+
+
+   }
+
+
+   //   void node::set_file_status(const ::file::path & pszFileName, const ::file::file_status& status)
+   //   {
+   //
+   //      //u32 wAttr;
+   //      //FILETIME creationTime;
+   //      //FILETIME lastAccessTime;
+   //      //FILETIME lastWriteTime;
+   //      //LPFILETIME pCreationTime = nullptr;
+   //
+   //      //LPFILETIME pLastAccessTime = nullptr;
+   //
+   //      //LPFILETIME pLastWriteTime = nullptr;
+   //
+   //      //wstring wstr(pszFileName);
+   //
+   //      //if((wAttr = windows_get_file_attributes(pszFileName)) == (u32)-1L)
+   //      //{
+   //
+   //      //   DWORD dwLastError = ::GetLastError();
+   //
+   //      //   throw windows_file_exception(::error_io, dwLastError, pszFileName);
+   //
+   //      //}
+   //
+   //      ////if ((u32)status.m_attribute != wAttr && (wAttr & ::file::readOnly))
+   //      //{
+   //
+   //      //   // set file attribute, only if currently readonly.
+   //      //   // This way we will be able to modify the time assuming the
+   //      //   // caller changed the file from readonly.
+   //
+   //      //   if (!SetFileAttributesW(wstr, (u32)status.m_attribute))
+   //      //   {
+   //
+   //      //      DWORD dwLastError = ::GetLastError();
+   //
+   //      //      throw windows_file_exception(::error_io, dwLastError, wstr);
+   //
+   //      //   }
+   //
+   //      //}
+   //
+   //      //// last modification time
+   //      //if (status.m_mtime.get_time() != 0)
+   //      //{
+   //
+   //      //   system()->m_pnode->datetime_to_filetime((file_time_t *) &lastWriteTime, status.m_mtime);
+   //
+   //      //   pLastWriteTime = &lastWriteTime;
+   //
+   //
+   //      //}
+   //
+   //      //// last access time
+   //      //if (status.m_atime.get_time() != 0)
+   //      //{
+   //
+   //      //   //auto pnode = system()->m_papexsystem->node();
+   //
+   //      //   ::time_to_file_time((file_time_t*)&lastAccessTime, &status.m_atime.m_time);
+   //
+   //      //   pLastAccessTime = &lastAccessTime;
+   //
+   //
+   //      //}
+   //
+   //      //// create time
+   //      //if (status.m_ctime.get_time() != 0)
+   //      //{
+   //
+   //      //   time_to_file_time((file_time_t *)&creationTime, &status.m_ctime.m_time);
+   //
+   //      //   pCreationTime = &creationTime;
+   //
+   //
+   //      //}
+   //
+   //      //HANDLE hFile = ::CreateFileW(wstr, GENERIC_READ | GENERIC_WRITE, FILE_SHARE_READ, nullptr, OPEN_EXISTING, FILE_ATTRIBUTE_NORMAL, nullptr);
+   //
+   //      //if(hFile == INVALID_HANDLE_VALUE)
+   //      //{
+   //
+   //      //   DWORD dwLastError = ::GetLastError();
+   //
+   //      //   throw windows_file_exception(::error_io, dwLastError, wstr);
+   //
+   //      //}
+   //
+   //      //if(!SetFileTime((HANDLE)hFile, pCreationTime, pLastAccessTime, pLastWriteTime))
+   //      //{
+   //
+   //      //   DWORD dwLastError = ::GetLastError();
+   //
+   //      //   throw windows_file_exception(::error_io, dwLastError, wstr);
+   //
+   //      //}
+   //
+   //      //if(!::CloseHandle(hFile))
+   //      //{
+   //
+   //      //   DWORD dwLastError = ::GetLastError();
+   //
+   //      //   throw windows_file_exception(::error_io, dwLastError, wstr);
+   //
+   //      //}
+   //
+   //      ////if ((u32)status.m_attribute != wAttr && !(wAttr & ::windows::file::readOnly))
+   //      //{
+   //
+   //      //   if (!::SetFileAttributesW(wstr, (u32)status.m_attribute))
+   //      //   {
+   //
+   //      //      DWORD dwLastError = ::GetLastError();
+   //
+   //      //      throw windows_file_exception(::error_io, dwLastError, wstr);
+   //
+   //      //   }
+   //
+   //      //}
+   //throw ::exception(error_not_supported);
+   //
+   ////return false;
+   //
+   //   }
+
+
+   bool node::is_alias(const ::file::path & path)
+   {
+
+      return false;
+
+   }
+
+
+   //::pointer <::file::link > node::resolve_link(const ::file::path & path, ::file::e_link elink)
+   //{
+
+   //   //if (::node::resolve_link(path, strSource, pstrDirectory, pstrParams))
+   //   //{
+
+   //   //   return true;
+
+   //   //}
+
+   //   //if (strSource.case_insensitive_ends(".lnk"))
+   //   //{
+
+   //   //   if (resolve_lnk_link(path, strSource, pstrDirectory, pstrParams))
+   //   //   {
+
+   //   //      return true;
+
+   //   //   }
+
+   //   //}
+
+   //   throw ::exception(error_not_supported);
+
+   //   return nullptr;
+
+   //}
+
+
+   ::pointer < ::file::link > node::resolve_lnk_link(const ::file::path & path, ::file::e_link elink)
+   {
+
+      //ASSERT(strSource.case_insensitive_ends(".lnk"));
+
+      //if (strSource.contains("0318") && strSource.contains("removal"))
+      //{
+
+      //   output_debug_string("app.removal.tool link?!");
+
+      //}
+
+      //wstring wstrFileIn = utf8_to_unicode(strSource);
+
+      ////bool bNativeUnicode = is_windows_native_unicode() != false;
+
+      //SHFILEINFOW info;
+
+      //zero(info);
+
+      //defer_co_initialize_ex(false);
+
+      //DWORD_PTR dw = 0;
+
+      //auto pitemidlist = path.m_pmatterOsPath.cast < ::itemidlist>();
+
+      //if (pitemidlist)
+      //{
+
+      //   dw = SHGetFileInfoW((const wchar_t *)pitemidlist->m_pidl, 0, &info, sizeof(info), SHGFI_ATTRIBUTES | SHGFI_PIDL);
+
+      //}
+      //else
+      //{
+
+      //   dw = SHGetFileInfoW(wstrFileIn, 0, &info, sizeof(info), SHGFI_ATTRIBUTES);
+
+      //}
+
+      //if (dw == 0 || !(info.dwAttributes & SFGAO_LINK))
+      //{
+
+      //   return false;
+
+      //}
+
+      //HRESULT hr;
+
+      //comptr < IShellLinkW > pshelllink;
+
+      //if (FAILED(hr = pshelllink.CoCreateInstance(CLSID_ShellLink, nullptr, CLSCTX_INPROC_SERVER)))
+      //{
+
+      //   return false;
+
+      //}
+
+      //bool bOk = false;
+
+      //comptr < IPersistFile > ppersistfile;
+
+      //if (SUCCEEDED(hr = pshelllink.As(ppersistfile)))
+      //{
+
+      //   if (SUCCEEDED(hr = ppersistfile->Load(wstrFileIn, STGM_READ)))
+      //   {
+
+      //      //HWND hwnd = pinteraction == nullptr ? nullptr : pinteraction->get_handle();
+
+      //      HWND hwnd = nullptr;
+
+      //      u32 fFlags = 0;
+
+      //      //fFlags |= pinteraction == nullptr ? (SLR_NO_UI | (10 << 16)) : 0;
+      //      fFlags |= SLR_NO_UI;
+
+      //      fFlags |= SLR_NOUPDATE;
+
+      //      fFlags |= SLR_NOSEARCH;
+
+      //      fFlags |= SLR_NOTRACK;
+
+      //      wstring wstr;
+
+      //      auto pwsz = wstr.get_buffer(MAX_PATH * 8);
+
+      //      if (SUCCEEDED(pshelllink->GetPath(pwsz, MAX_PATH * 8, nullptr, 0)))
+      //      {
+
+      //         bOk = true;
+
+      //         wstr.release_buffer();
+
+      //         string strLink = unicode_to_utf8((const ::wide_character *)wstr);
+
+      //         if (strLink.is_empty() && pitemidlist)
+      //         {
+
+      //            pshelllink->GetIDList(&pitemidlist->m_pidl);
+
+      //         }
+      //         else
+      //         {
+
+      //            path = strLink;
+
+      //         }
+
+      //      }
+
+      //      if (::is_set(pstrDirectory))
+      //      {
+
+      //         auto pwsz = wstr.get_buffer(MAX_PATH * 8);
+
+      //         if (SUCCEEDED(pshelllink->GetWorkingDirectory(pwsz, MAX_PATH * 8)))
+      //         {
+
+      //            wstr.release_buffer();
+
+      //            *pstrDirectory = unicode_to_utf8((const ::wide_character *)wstr);
+
+      //         }
+
+      //      }
+
+      //      if (::is_set(pstrParams))
+      //      {
+
+      //         auto pwsz = wstr.get_buffer(MAX_PATH * 8);
+
+      //         if (SUCCEEDED(pshelllink->GetArguments(pwsz, MAX_PATH * 8)))
+      //         {
+
+      //            wstr.release_buffer();
+
+      //            *pstrParams = unicode_to_utf8((const ::wide_character *)wstr);
+
+      //         }
+
+      //      }
+
+      //   }
+
+      //}
+
+      //return bOk;
+
+      throw ::exception(error_not_supported);
+
+      return nullptr;
+
+   }
+
+
+   void node::get_default_browser(string & strId, ::file::path & path, string & strParam)
+   {
+
+      //try
+      //{
+
+      //   registry::key key;
+
+      //   key.open(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.html\\UserChoice", false);
+
+      //   string strProgId;
+
+      //   string strHash;
+
+      //   key._get("Hash", strHash);
+
+      //   key._get("ProgId", strProgId);
+
+      //   if (strProgId.begins("App") && strHash.has_char())
+      //   {
+
+      //      strId = "edge";
+
+      //   }
+      //   if (strProgId.case_insensitive_begins("IE."))
+      //   {
+
+      //      strId = "ie";
+
+      //   }
+      //   else if (strProgId.case_insensitive_begins("ChromeHTML"))
+      //   {
+
+      //      strId = "chrome";
+
+      //   }
+      //   else if (strProgId.case_insensitive_begins("FirefoxHTML"))
+      //   {
+
+      //      strId = "firefox";
+
+      //   }
+      //   else if (strProgId.case_insensitive_begins("Opera"))
+      //   {
+
+      //      strId = "opera";
+
+      //   }
+      //   else if (strProgId.case_insensitive_begins("VivaldiHTM."))
+      //   {
+
+      //      strId = "vivaldi";
+
+      //   }
+      //   else if (strProgId.case_insensitive_ends("app_core_commander"))
+      //   {
+
+      //      strId = "commander";
+
+      //   }
+      //   else
+      //   {
+
+      //      strId = "commander";
+
+      //   }
+
+      //   string strDefault;
+
+      //   key._open(HKEY_CLASSES_ROOT, strProgId + "\\shell\\open\\command", false);
+
+      //   key._get("", strDefault);
+
+      //   if (strDefault.is_empty())
+      //   {
+
+      //      return false;
+
+      //   }
+
+      //   bool bQuote = strDefault.case_insensitive_begins_eat("\"");
+
+      //   strsize iFind = strDefault.case_insensitive_find(".exe");
+
+      //   if (iFind <= 0)
+      //   {
+
+      //      return false;
+
+      //   }
+
+      //   path = strDefault.left()(iFind);
+
+      //   path += ".exe";
+
+      //   //MessageBox(nullptr, path, "pathProgram", e_message_box_ok);
+
+      //   strParam = strDefault.substr(iFind + 5);
+
+      //   if (bQuote)
+      //   {
+
+      //      strParam.case_insensitive_begins_eat("\"");
+
+      //   }
+
+      //   return true;
+
+      //}
+      //catch (...)
+      //{
+
+      //   return false;
+
+      //}
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::initialize_wallpaper_fileset(::file::set * pfileset, bool bAddSearch)
+   {
+
+      //if (bAddSearch)
+      //{
+
+      //   ::file::path pathFolder;
+
+      //   acmedirectory()->m_pplatformdir->_shell_get_special_folder_path(nullptr, pathFolder, CSIDL_WINDOWS, false);
+
+      //   pathFolder /= "Web/Wallpaper";
+
+      //   pfileset->add_search(pathFolder, true);
+
+      //}
+
+      //return true;
+      //throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   //#elif defined(LINUX)
+   //   //string strDir;
+   //   //strDir = m_pcontext->m_papexcontext->dir().path(getenv("HOME"), "Pictures");
+   //   //imagefileset.add_search(strDir);
+   //   string strDir;
+   //   strDir = "/usr/share/backgrounds";
+   //   imagefileset.add_search(strDir, true);
+   //            }
+   //
+   //#elif defined(MACOS)
+   //   //string strDir;
+   //   //strDir = m_pcontext->m_papexcontext->dir().path(getenv("HOME"), "Pictures");
+   //   //imagefileset.add_search(strDir);
+   //   string strDir;
+   //   strDir = "/Library/Desktop Pictures";
+   //   imagefileset.add_search(strDir, true);
+   //            }
+   //
+   //#else
+
+
+   void node::file_open(const ::file::path & path, const string & strParams, const ::file::path & pathFolder)
+   {
+
+      ::pointer < ::acme_universal_windows::file_context > pfilecontext = file();
+
+      if (pfilecontext)
+      {
+
+         auto pfile = pfilecontext->create_native_file(path, ::file::e_open_read);
+
+         if (pfile)
+         {
+
+            ::pointer < ::acme_universal_windows::native_buffer > pnativebuffer = pfile;
+
+            if (pnativebuffer)
+            {
+
+               auto file = pnativebuffer->m_file;
+
+               if (file)
+               {
+
+
+
+
+                  user_post([file]()
+               {
+
+
+                              ::winrt::Windows::System::Launcher::LaunchFileAsync(file);
+
+                                                            });
+
+               }
+
+            }
+
+         }
+
+      }
+
+
+
+      //auto pfile = file_
+
+      //path = m_pcontext->m_papexcontext->defer_process_path(path);
+
+      //fork([=]()
+      //{
+
+      //   ::CoInitializeEx(nullptr, COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE);
+
+      //   SHELLEXECUTEINFOW si;
+
+      //   zero(si);
+
+      //   PeekMessage(nullptr, nullptr, 0, 0, 0);
+
+      //   wstring wstrTarget(path);
+
+      //   wstring wstrFolder(strFolder);
+
+      //   wstring wstrParams(strParams);
+
+      //   const wchar_t * pwszParams = wstrParams.c_str();
+
+      //   const wchar_t * pwszFolder = wstrFolder.c_str();
+
+      //   si.cbSize = sizeof(si);
+
+      //   si.fMask = SEE_MASK_ASYNCOK;
+
+      //   si.hwnd = nullptr;
+
+      //   si.lpVerb = L"open";
+
+      //   auto pitemidlist = path.m_pmatterOsPath.cast < ::itemidlist >();
+
+      //   if (wstrTarget.is_empty() && pitemidlist)
+      //   {
+
+      //      si.fMask |= SEE_MASK_IDLIST;
+
+      //      si.lpIDList = pitemidlist->m_pidl;
+
+
+      //   }
+      //   else
+      //   {
+
+      //      si.lpFile = wstrTarget;
+
+
+      //   }
+
+      //   si.lpParameters = pwszParams;
+
+
+      //   si.lpDirectory = pwszFolder;
+
+
+      //   si.nShow = SW_SHOWDEFAULT;
+
+      //   si.hInstApp = nullptr;
+
+      //   ShellExecuteExW(&si);
+
+      //   //u32 dwLastError = ::GetLastError();
+
+      //   //int iResult = (int) si.hInstApp;
+
+      //   //string str;
+
+      //   //str.formatf("ShellExecuteExW %d GetLastError = %d", iResult, dwLastError);
+
+      //   //output_debug_string(str);
+
+
+      //   //thread_pump_sleep(60 * 1000);
+
+
+      //   //int iRet = (int) (iptr) ::ShellExecuteW(nullptr, L"open", wstring(path), pwszParams, pwszFolder, SW_RESTORE);
+
+      //   //if (iRet < 32)
+      //   //{
+
+      //   //   /*0
+      //   //      The operating system is out of memory or resources.
+      //   //      ERROR_FILE_NOT_FOUND
+      //   //      The specified file was not found.
+      //   //      ERROR_PATH_NOT_FOUND
+      //   //      The specified path was not found.
+      //   //      ERROR_BAD_FORMAT
+      //   //      The.exe file is invalid(non - Win32.exe or error in.exe image).
+      //   //      SE_ERR_ACCESSDENIED
+      //   //      The operating system denied access to the specified file.
+      //   //      SE_ERR_ASSOCINCOMPLETE
+      //   //      The file name association is incomplete or invalid.
+      //   //      SE_ERR_DDEBUSY
+      //   //      The DDE transaction could not be completed because other DDE transactions were being processed.
+      //   //      SE_ERR_DDEFAIL
+      //   //      The DDE transaction failed.
+      //   //      SE_ERR_DDETIMEOUT
+      //   //      The DDE transaction could not be completed because the request timed out.
+      //   //      SE_ERR_DLLNOTFOUND
+      //   //      The specified DLL was not found.
+      //   //      SE_ERR_FNF
+      //   //      The specified file was not found.
+      //   //      SE_ERR_NOASSOC
+      //   //      There is no application associated with the given file name extension.This error will also be returned if you attempt to print a file that is not printable.
+      //   //      SE_ERR_OOM
+      //   //      There was not enough memory to complete the operation.
+      //   //      SE_ERR_PNF
+      //   //      The specified path was not found.
+      //   //      SE_ERR_SHARE
+      //   //      A sharing violation occurred.*/
+
+      //   //   message_box(nullptr, "Error opening file \"" + path + "\"", "Could not open file", e_message_box_icon_exclamation);
+
+      //   //}
+
+      //});
+
+      //return true;
+// throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::register_user_auto_start(const string & strId, const string & strCommand, const string & strArguments, bool bRegister)
+   {
+
+      //current_user_set_run(strId, strCommand, bRegister);
+
+      //return true;
+      //throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   bool node::is_user_auto_start(string strId)
+   {
+
+      //registry::key keyKar;
+
+      //if (keyKar._open(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", false))
+      //{
+
+      //   string strValue;
+
+      //   if (keyKar._get(strId, strValue))
+      //   {
+
+      //      if (strValue.has_char())
+      //      {
+
+      //         return true;
+
+      //      }
+
+      //   }
+
+      //}
+
+      //return false;
+
+      throw ::exception(error_not_supported);
+
+      return false;
+   }
+
+   ::file::path node::get_app_path(const ::string & strApp)
+   {
+
+      //      string str(strApp);
+      //
+      //      registry::key key;
+      //
+      //      string strDefault;
+      //
+      //repeat:
+      //
+      //      if (key._open(HKEY_LOCAL_MACHINE, "Software\\Microsoft\\Windows\\CurrentVersion\\App Paths\\" + str, false))
+      //      {
+      //
+      //         if (key._get("", strDefault))
+      //         {
+      //
+      //            if (strDefault.has_char())
+      //            {
+      //
+      //               return strDefault;
+      //
+      //            }
+      //
+      //         }
+      //
+      //      }
+      //
+      //      if (!str.case_insensitive_ends(".exe"))
+      //      {
+      //
+      //         str += ".exe";
+      //
+      //         goto repeat;
+      //
+      //      }
+      //
+      //      return ::node::get_app_path(str);
+      throw ::exception(error_not_supported);
+
+      return {};
+
+   }
+
+
+   void node::set_default_browser()
+   {
+
+
+      //::application * papp = get_application();
+
+      //string strTargetProgId;
+      //string strModule = solve_relative(acmefile()->executable());
+
+      //strTargetProgId = get_application()->m_strAppName;
+
+      //strTargetProgId.replace("-", "_");
+      //strTargetProgId.replace("\\", "_");
+      //strTargetProgId.replace("/", "_");
+
+      //__prevent_bad_status_exception;
+      //
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "SOFTWARE\\RegisteredApplications", true);
+
+      //   string strValue;
+
+      //   regkey.set(strTargetProgId, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities");
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId, true);
+
+      //   string strValue;
+
+      //   regkey.set("", get_application()->find_string("ApplicationName"));
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities", true);
+
+      //   string strValue;
+
+      //   regkey.set("ApplicationDescription", get_application()->find_string("ApplicationDescription"));
+      //   regkey.set("ApplicationIcon", get_application()->find_string("ApplicationIcon"));
+      //   regkey.set("ApplicationName", get_application()->find_string("ApplicationName"));
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\FileAssociations", true);
+
+      //   string strValue;
+
+      //   regkey.set(".htm", strTargetProgId);
+      //   regkey.set(".html", strTargetProgId);
+      //   regkey.set(".pdf", strTargetProgId);
+      //   regkey.set(".shtml", strTargetProgId);
+      //   regkey.set(".svg", strTargetProgId);
+      //   regkey.set(".webp", strTargetProgId);
+      //   regkey.set(".xht", strTargetProgId);
+      //   regkey.set(".xhtml", strTargetProgId);
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\Startmenu", true);
+
+      //   string strValue;
+
+      //   regkey.set("StartMen::u32ernet", strTargetProgId);
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\URLAssociations", true);
+
+      //   string strValue;
+
+      //   regkey.set("ftp", strTargetProgId);
+      //   regkey.set("http", strTargetProgId);
+      //   regkey.set("https", strTargetProgId);
+      //   regkey.set("irc", strTargetProgId);
+      //   regkey.set("mailto", strTargetProgId);
+      //   regkey.set("mms", strTargetProgId);
+      //   regkey.set("news", strTargetProgId);
+      //   regkey.set("nntp", strTargetProgId);
+      //   regkey.set("sms", strTargetProgId);
+      //   regkey.set("smsto", strTargetProgId);
+      //   regkey.set("tel", strTargetProgId);
+      //   regkey.set("urn", strTargetProgId);
+      //   regkey.set("webcal", strTargetProgId);
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\DefaultIcon", true);
+
+      //   string strValue;
+
+      //   regkey.set("", strModule + ",0");
+
+      //}
+
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\InstallInfo", true);
+
+      //   string strValue;
+
+      //   regkey.set("HideIconsCommand", "\""+strModule + "\" : hide_icons");
+      //   regkey.set("IconsVisible", 1);
+      //   regkey.set("ReinstallCommand", "\""+strModule + "\" : install");
+      //   regkey.set("ShowIconsCommand", "\""+strModule + "\" : show_icons");
+
+      //}
+
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\shell\\open\\command", true);
+
+      //   string strValue;
+
+      //   regkey.set("", "\""+strModule + "\" : browser_weather=default");
+
+      //}
+
+
+      //{
+
+      //   registry::key regkey(HKEY_CLASSES_ROOT, strTargetProgId, true);
+
+      //   regkey.set("", strTargetProgId + " HTML Document");
+      //   regkey.set("AppUserModelId", get_application()->find_string("AppUserModelId"));
+
+      //}
+      //{
+
+      //   registry::key regkey(HKEY_CLASSES_ROOT, strTargetProgId + "\\papplication", true);
+
+      //   regkey.set("ApplicationCompany", get_application()->find_string("ApplicationCompany"));
+      //   regkey.set("ApplicationDescription", get_application()->find_string("ApplicationDescription"));
+      //   regkey.set("ApplicationIcon", get_application()->find_string("ApplicationIcon"));
+      //   regkey.set("ApplicationName", get_application()->find_string("ApplicationName"));
+      //   regkey.set("AppUserModelId", get_application()->find_string("AppUserModelId"));
+
+      //}
+      //{
+
+      //   registry::key regkey(HKEY_CLASSES_ROOT, strTargetProgId + "\\DefaultIcon", true);
+
+      //   regkey.set("", get_application()->find_string("DefaultIcon"));
+
+      //}
+
+      //file_association_set_shell_open_command(strTargetProgId, strTargetProgId, strModule, "\"%1\"");
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\http\\UserChoice", true);
+
+      //   string strProgId;
+
+      //   regkey.get("ProgId", strProgId);
+
+      //   if (strProgId != strTargetProgId)
+      //   {
+
+      //      regkey.delete_value("Hash");
+
+      //      regkey.set("ProgId", strTargetProgId);
+
+      //   }
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key key(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\https\\UserChoice", true);
+
+      //   string strProgId;
+
+      //   key.get("ProgId", strProgId);
+
+      //   if (strProgId != strTargetProgId)
+      //   {
+
+      //      string strHash;
+
+      //      key.delete_value("Hash");
+
+      //      key.set("ProgId", strTargetProgId);
+
+      //   }
+
+      //}
+
+      //{
+
+      //   registry::key key(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.html\\UserChoice", true);
+
+      //   string strProgId;
+
+      //   key.get("ProgId", strProgId);
+
+      //   if (strProgId != strTargetProgId)
+      //   {
+
+      //      key.delete_value("Hash");
+
+      //      key.set("ProgId", strTargetProgId);
+
+      //   }
+
+      //}
+
+      //{
+
+      //   registry::key key(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.htm\\UserChoice", true);
+
+      //   string strProgId;
+
+      //   key._get("ProgId", strProgId);
+
+      //   if (strProgId != strTargetProgId)
+      //   {
+
+      //      key.delete_value("Hash");
+
+      //      key.set("ProgId", strTargetProgId);
+
+      //   }
+
+      //}
+
+      //{
+
+      //   registry::key key(HKEY_CLASSES_ROOT, ".html\\OpenWithProgids", true);
+
+      //   key._set(strTargetProgId, "");
+
+      //}
+
+      //{
+
+      //   registry::key key(HKEY_CLASSES_ROOT, ".htm\\OpenWithProgids", true);
+
+      //   key._set(strTargetProgId, "");
+
+      //}
+
+      //SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_DWORD | SHCNF_FLUSH, nullptr, nullptr);
+
+      //sleep(1_s);
+
+      //return true;
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::set_file_extension_mime_type(string_array & straExtension, string_array & straMimeType)
+   {
+
+      //string strTargetProgId;
+
+      //string strModule = solve_relative(acmefile()->executable());
+
+      //string strApplicationRegistryPath = find_string("ApplicationRegistryPath");
+
+      //::file::path pathApplication;
+
+      //pathApplication = "Software";
+
+      //pathApplication /= strApplicationRegistryPath;
+
+      //pathApplication /= strTargetProgId;
+
+      //strTargetProgId = get_application()->m_strAppName;
+
+      //strTargetProgId.replace("-", "_");
+      //strTargetProgId.replace("\\", "_");
+      //strTargetProgId.replace("/", "_");
+
+      //::e_status estatus = ::success;
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication, true);
+
+      //   string strValue;
+
+      //   auto estatusRegistry = regkey._set("", get_application()->find_string("ApplicationName"));
+
+      //   if(!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //}
+
+      //
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication / "DefaultIcon", true);
+
+      //   string strValue;
+
+      //   auto estatusRegistry = regkey._set("", strModule + ",0");
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+
+      //}
+
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication / "InstallInfo", true);
+
+      //   string strValue;
+
+      //   auto estatusRegistry = regkey._set("HideIconsCommand", "\"" + strModule + "\" : hide_icons");
+
+      //   if(estatusRegistry.succeeded())
+      //   {
+
+      //      estatusRegistry = regkey._set("IconsVisible", 1);
+
+      //   }
+
+      //   if(estatusRegistry.succeeded())
+      //   {
+      //    
+      //      estatusRegistry = regkey._set("ReinstallCommand", "\"" + strModule + "\" : install");
+
+      //   }
+
+      //   if(estatusRegistry.succeeded())
+      //   {
+
+      //      estatusRegistry = regkey._set("ShowIconsCommand", "\"" + strModule + "\" : show_icons");
+
+      //   }
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplication / "shell/open/command", true);
+
+      //   string strValue;
+
+      //   auto estatusRegistry = regkey._set("", "\"" + strModule + "\" \"%1\"");
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //}
+
+
+      //::file::path pathApplicationCapabilities;
+
+      //pathApplicationCapabilities = pathApplication / "Capabilities";
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "SOFTWARE\\RegisteredApplications", true);
+
+      //   string strValue;
+
+      //   auto estatusRegistry = regkey._set(strTargetProgId, pathApplicationCapabilities);
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities, true);
+
+      //   string strValue;
+
+      //   auto estatusRegistry = regkey._set("ApplicationDescription", get_application()->find_string("ApplicationDescription"));
+
+      //   if(estatusRegistry.succeeded())
+      //   {
+
+      //      estatusRegistry = regkey._set("ApplicationIcon", get_application()->find_string("ApplicationIcon"));
+
+      //   }
+
+      //   if(estatusRegistry.succeeded())
+      //   {
+
+      //      estatusRegistry = regkey._set("ApplicationName", get_application()->find_string("ApplicationName"));
+
+      //   }
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "FileAssociations", true);
+
+      //   string strValue;
+
+      //   auto estatusRegistry = regkey._set(".mp4", strTargetProgId);
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //}
+
+      ////{
+
+      ////   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, "Software\\Clients\\StartMen::u32ernet\\" + strTargetProgId + "\\Capabilities\\Startmenu", true);
+
+      ////   string strValue;
+
+      ////   regkey.set("StartMen::u32ernet", strTargetProgId);
+
+      ////}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "FileAssociations", true);
+
+      //   for (index i = 0; i < straMimeType.get_count(); i++)
+      //   {
+
+      //      string strExtension = straExtension[i];
+
+      //      auto estatusRegistry = regkey._set("." + strExtension, strTargetProgId + "." + strExtension);
+
+      //      if (!estatusRegistry)
+      //      {
+
+      //         estatus = estatusRegistry;
+
+      //      }
+
+      //   }
+
+      //}
+
+      //{
+
+      //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "MimeAssociations", true);
+
+      //   for (index i = 0; i < straMimeType.get_count(); i++)
+      //   {
+
+      //      string strMimeType = straMimeType[i];
+
+      //      string strExtension = straExtension[i];
+
+      //      auto estatusRegistry = regkey._set(strMimeType, strTargetProgId + "." + strExtension);
+
+      //      if (!estatusRegistry)
+      //      {
+
+      //         estatus = estatusRegistry;
+
+      //      }
+
+      //   }
+
+      //}
+
+      ////{
+
+      ////   registry::key regkey(HKEY_CLASSES_ROOT, strTargetProgId, true);
+
+      ////   regkey.set("", strTargetProgId + " HTML Document");
+      ////   regkey.set("AppUserModelId", get_application()->prop("AppUserModelId"));
+
+      ////}
+      //{
+
+      //   registry::key regkey(HKEY_CLASSES_ROOT, strTargetProgId + "\\papplication", true);
+
+      //   auto estatusRegistry = regkey._set("ApplicationCompany", get_application()->find_string("ApplicationCompany"));
+
+      //   if(estatusRegistry.succeeded())
+      //   {
+
+      //      estatusRegistry = regkey._set("ApplicationDescription", get_application()->find_string("ApplicationDescription"));
+
+      //   }
+
+      //   if(estatusRegistry.succeeded())
+      //   {
+
+      //      estatusRegistry = regkey._set("ApplicationIcon", get_application()->find_string("ApplicationIcon"));
+
+      //   }
+      //   
+      //   if(estatusRegistry.succeeded())
+      //   {
+
+      //      estatusRegistry = regkey._set("ApplicationName", get_application()->find_string("ApplicationName"));
+
+      //   }
+      //   
+      //   if(estatusRegistry.succeeded())
+      //   {
+
+      //      estatusRegistry = regkey._set("AppUserModelId", get_application()->find_string("AppUserModelId"));
+
+      //   }
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //}
+      //{
+
+      //   registry::key regkey(HKEY_CLASSES_ROOT, strTargetProgId + "\\DefaultIcon", true);
+
+      //   auto estatusRegistry = regkey._set("", get_application()->find_string("DefaultIcon"));
+
+      //   if (!estatusRegistry)
+      //   {
+
+      //      estatus = estatusRegistry;
+
+      //   }
+
+      //}
+
+      //for (index i = 0; i < straExtension.get_count(); i++)
+      //{
+
+      //   string strExtension = straExtension[i];
+
+      //   if (!file_association_set_shell_open_command(strExtension, strTargetProgId + "." + strExtension, strModule, "\"%1\""))
+      //   {
+
+      //      estatus = ::error_failed;
+
+      //   }
+
+      //   {
+
+      //      registry::key regkey(HKEY_CLASSES_ROOT, "." + strExtension + "\\OpenWithProgids", true);
+
+      //      auto estatusRegistry = regkey._set(strTargetProgId, "");
+
+      //      if(!estatusRegistry)
+      //      {
+
+      //         informationf("Failure to set ." + strExtension + "\\OpenWithProgids");
+
+      //         estatus = estatusRegistry;
+
+      //      }
+
+      //   }
+
+      //}
+
+      ////{
+
+      ////   ::acme_windows::registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\http\\UserChoice", true);
+
+      ////   string strProgId;
+
+      ////   regkey.QueryValue("ProgId", strProgId);
+
+      ////   if (strProgId != strTargetProgId)
+      ////   {
+
+      ////      regkey.DeleteValue("Hash");
+      ////      regkey.set("ProgId", strTargetProgId);
+
+      ////   }
+
+      ////}
+
+      ////{
+
+      ////   ::acme_windows::registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\shell\\Associations\\UrlAssociations\\https\\UserChoice", true);
+
+      ////   string strProgId;
+
+      ////   regkey.QueryValue("ProgId", strProgId);
+
+      ////   if (strProgId != strTargetProgId)
+      ////   {
+
+      ////      regkey.DeleteValue("Hash");
+      ////      regkey.set("ProgId", strTargetProgId);
+
+      ////   }
+
+      ////}
+
+      ////{
+
+      ////   registry::key regkey(HKEY_CURRENT_USER, "SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.html\\UserChoice", true);
+      ////   string strProgId;
+
+      ////   regkey.QueryValue("ProgId", strProgId);
+
+      ////   if (strProgId != strTargetProgId)
+      ////   {
+
+      ////      regkey.DeleteValue("Hash");
+      ////      regkey.set("ProgId", strTargetProgId);
+
+      ////   }
+
+      ////}
+      ////{
+
+      ////   registry::key regkey(HKEY_CURRENT_USER, "Software\\Microsoft\\Windows\\CurrentVersion\\Explorer\\FileExts\\.htm\\UserChoice", true);
+      ////   string strProgId;
+
+      ////   regkey.QueryValue("ProgId", strProgId);
+
+      ////   if (strProgId != strTargetProgId)
+      ////   {
+
+      ////      regkey.DeleteValue("Hash");
+      ////      regkey.set("ProgId", strTargetProgId);
+
+      ////   }
+
+      ////}
+      ////{
+
+      ////   registry::key regkey(HKEY_CLASSES_ROOT, ".htm\\OpenWithProgids", true);
+
+      ////   if(!regkey.set(strTargetProgId, ""))
+      ////   {
+
+      ////      informationf("Failure to set .htm/OpenWithProgids");
+
+      ////   }
+
+      ////}
+      ////file_association_set_shell_open_command(".htm", strTargetProgId, strModule, "\"%1\"");
+      ////file_association_set_shell_open_command(".html", strTargetProgId, strModule, "\"%1\"");
+      ////file_association_set_shell_open_command("http", strTargetProgId, strModule, "\"%1\"");
+      ////file_association_set_shell_open_command("https", strTargetProgId, strModule, "\"%1\"");
+
+      //fork([this]()
+      //   {
+
+      //      if (defer_co_initialize_ex(false))
+      //      {
+
+      //         SHChangeNotify(SHCNE_ASSOCCHANGED, SHCNF_DWORD | SHCNF_FLUSH, nullptr, nullptr);
+
+      //         sleep(3_s);
+
+      //      }
+
+      //   });
+
+
+      //if (!estatus)
+      //{
+
+      //   return false;
+
+      //}
+
+      //return true;
+
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   //void node::browse_file_open(property_set & set)
+   //{
+
+   //   ////::user::interaction* pinteraction = nullptr;
+   //   ////
+   //   ////if (::is_set(puiOwner))
+   //   ////{
+
+   //   ////   pinteraction = puiOwner->get_wnd();
+
+   //   ////}
+
+   //   //bool bOk = false;
+
+   //   ////try
+   //   ////{
+
+   //   ////   if (::is_set(pinteraction))
+   //   ////   {
+
+   //   ////      pinteraction->enable_window(false);
+
+   //   ////   }
+
+   //   ////}
+   //   ////catch (...)
+   //   ////{
+
+
+   //   ////}
+
+   //   //try
+   //   //{
+
+   //   //   bool bDisableOleDDE = true;
+
+   //   //   defer_co_initialize_ex(false, bDisableOleDDE);
+
+   //   //   comptr < IFileOpenDialog > pfileopen;
+
+   //   //   HRESULT hr = pfileopen.CoCreateInstance(CLSID_FileOpenDialog, nullptr, CLSCTX_ALL);
+
+   //   //   if (SUCCEEDED(hr))
+   //   //   {
+
+   //   //      FILEOPENDIALOGOPTIONS options = 0;
+
+   //   //      hr = pfileopen->GetOptions(&options);
+
+   //   //      array < COMDLG_FILTERSPEC > rgSpec;
+
+   //   //      array < wstring > wstraSpecs;
+
+   //   //      ::acme::container::copy(wstraSpecs, set["file_filter_specs"].stra());
+
+   //   //      array < wstring > wstraNames;
+
+   //   //      ::acme::container::copy(wstraNames, set["file_filter_names"].stra());
+
+   //   //      rgSpec.set_size(minimum(wstraSpecs.get_size(), wstraNames.get_size()));
+
+   //   //      for (index i = 0; i < rgSpec.get_size(); i++)
+   //   //      {
+
+   //   //         rgSpec[i].pszName = wstraNames[i];
+
+   //   //         rgSpec[i].pszSpec = wstraSpecs[i];
+
+   //   //         //{ L"CSV files", L"*.csv" },
+   //   //         //{ L"Text files", L"*.txt" },
+   //   //         //{ L"All files", L"*.*" },
+
+   //   //      }
+
+   //   //      if (rgSpec.get_size() > 0)
+   //   //      {
+
+   //   //         pfileopen->SetFileTypes(::u32(rgSpec.get_size()), rgSpec.get_data());
+
+   //   //      }
+
+   //   //      if (set["allow_multi_select"].is_true())
+   //   //      {
+
+   //   //         options |= FOS_ALLOWMULTISELECT;
+
+   //   //      }
+
+   //   //      hr = pfileopen->SetOptions(options);
+
+   //   //      if (set["default_file_extension"].get_length() > 0)
+   //   //      {
+
+   //   //         pfileopen->SetDefaultExtension(wstring(set["default_file_extension"]));
+
+   //   //      }
+
+   //   //      if (set["file_name"].get_length() > 0)
+   //   //      {
+
+   //   //         pfileopen->SetFileName(wstring(set["file_name"]));
+
+   //   //      }
+
+   //   //      if (set["folder"].get_length() > 0)
+   //   //      {
+
+   //   //         wstring wstr(set["folder"]);
+
+   //   //         comptr < IShellItem > psi;
+
+   //   //         hr = SHCreateItemFromParsingName(wstr, nullptr, IID_IShellItem, (void **)&psi);
+
+   //   //         if (SUCCEEDED(hr))
+   //   //         {
+
+   //   //            pfileopen->SetFolder(psi);
+
+   //   //         }
+
+   //   //      }
+
+   //   //      //HWND hwndOwner = nullptr;
+
+   //   //      //if (::is_set(pinteraction))
+   //   //      //{
+
+   //   //      //   hwndOwner = pinteraction->get_handle();
+
+   //   //      //}
+
+   //   //      // Show the Save dialog box.
+   //   //      //hr = pfileopen->Show(hwndOwner);
+   //   //      hr = pfileopen->Show(nullptr);
+
+   //   //      if (SUCCEEDED(hr))
+   //   //      {
+
+   //   //         if (options & FOS_ALLOWMULTISELECT)
+   //   //         {
+
+   //   //            comptr < IShellItemArray > pitema;
+
+   //   //            hr = pfileopen->GetResults(&pitema);
+
+   //   //            if (SUCCEEDED(hr))
+   //   //            {
+
+   //   //               DWORD dwNumItems = 0; // number of items in multiple selection
+
+   //   //               hr = pitema->GetCount(&dwNumItems);  // get number of selected items
+
+   //   //               // Loop through IShellItemArray and construct string for display
+   //   //               for (u32 i = 0; i < dwNumItems; i++)
+   //   //               {
+   //   //                  comptr < IShellItem > pitem;
+
+   //   //                  hr = pitema->GetItemAt(i, &pitem); // get a selected item from the IShellItemArray
+
+   //   //                  if (SUCCEEDED(hr))
+   //   //                  {
+
+   //   //                     cotaskp(PWSTR) pwszFilePath;
+
+   //   //                     hr = pitem->GetDisplayName(SIGDN_FILESYSPATH, &pwszFilePath);
+
+   //   //                     // Display the file name to the user.
+   //   //                     if (SUCCEEDED(hr))
+   //   //                     {
+
+   //   //                        set["file_name"].stra().add(string((PWSTR)pwszFilePath));
+
+   //   //                        bOk = true;
+
+   //   //                     }
+
+   //   //                  }
+
+   //   //               }
+
+   //   //            }
+
+   //   //         }
+   //   //         else
+   //   //         {
+
+   //   //            // Get the file name from the dialog box.
+   //   //            comptr < IShellItem > pitem;
+
+   //   //            hr = pfileopen->GetResult(&pitem);
+
+   //   //            if (SUCCEEDED(hr))
+   //   //            {
+
+   //   //               cotaskp(PWSTR) pwszFilePath;
+
+   //   //               hr = pitem->GetDisplayName(SIGDN_FILESYSPATH, &pwszFilePath);
+
+   //   //               // Display the file name to the user.
+   //   //               if (SUCCEEDED(hr))
+   //   //               {
+
+   //   //                  set["file_name"] = string((PWSTR)pwszFilePath);
+
+   //   //                  bOk = true;
+
+   //   //               }
+
+   //   //            }
+
+   //   //         }
+
+   //   //      }
+
+   //   //   }
+
+   //   //}
+   //   //catch (...)
+   //   //{
+
+   //   //}
+
+   //   ////try
+   //   ////{
+
+   //   ////   if (::is_set(pinteraction))
+   //   ////   {
+
+   //   ////      pinteraction->enable_window();
+
+   //   ////      pinteraction->order_top();
+
+   //   ////      pinteraction->display(e_display_normal, XXXe_activation_set_foreground);
+
+   //   ////      pinteraction->set_need_redraw();
+
+   //   ////      pinteraction->post_redraw();
+
+   //   ////   }
+
+   //   ////}
+   //   ////catch (...)
+   //   ////{
+
+   //   ////}
+
+   //   //return bOk;
+   //
+   //   throw ::exception(error_not_supported);
+
+   //   //return false;
+
+   //}
+
+
+   //void node::browse_file_save(property_set & set)
+   //{
+
+   //   ////::user::interaction* pinteraction = puiOwner->get_wnd();
+
+   //   //bool bOk = false;
+
+   //   ////try
+   //   ////{
+
+   //   ////   pinteraction->enable_window(false);
+
+   //   ////}
+   //   ////catch (...)
+   //   ////{
+
+   //   ////}
+
+   //   //try
+   //   //{
+
+   //   //   defer_co_initialize_ex(false);
+
+   //   //   comptr < IFileSaveDialog > pfilesave;
+
+   //   //   // Create the FileSaveDialog object.
+   //   //   HRESULT hr = pfilesave.CoCreateInstance(CLSID_FileSaveDialog, nullptr, CLSCTX_ALL);
+
+   //   //   if (SUCCEEDED(hr))
+   //   //   {
+
+   //   //      //COMDLG_FILTERSPEC rgSpec[] =
+   //   //      //{
+   //   //      // { L"CSV files", L"*.csv" },
+   //   //      // { L"Text files", L"*.txt" },
+   //   //      // { L"All files", L"*.*" },
+   //   //      //};
+
+   //   //      //pFileSave->SetFileTypes(3, rgSpec);
+
+
+
+   //   //      //pFileSave->SetFileName(L"Twitter Automator Export");
+
+   //   //      array < COMDLG_FILTERSPEC > rgSpec;
+
+   //   //      array < wstring > wstraSpecs;
+
+   //   //      ::acme::container::copy(wstraSpecs, set["file_filter_specs"].stra());
+
+   //   //      array < wstring > wstraNames;
+
+   //   //      ::acme::container::copy(wstraNames, set["file_filter_names"].stra());
+
+   //   //      rgSpec.set_size(minimum(wstraSpecs.get_size(), wstraNames.get_size()));
+
+   //   //      for (index i = 0; i < rgSpec.get_size(); i++)
+   //   //      {
+
+   //   //         rgSpec[i].pszName = wstraNames[i];
+
+   //   //         rgSpec[i].pszSpec = wstraSpecs[i];
+
+   //   //         //{ L"CSV files", L"*.csv" },
+   //   //         //{ L"Text files", L"*.txt" },
+   //   //         //{ L"All files", L"*.*" },
+
+   //   //      }
+
+   //   //      if (rgSpec.get_size() > 0)
+   //   //      {
+
+   //   //         pfilesave->SetFileTypes(::u32 (rgSpec.get_size()), rgSpec.get_data());
+
+   //   //      }
+
+   //   //      if (set["default_file_extension"].get_length() > 0)
+   //   //      {
+
+   //   //         pfilesave->SetDefaultExtension(wstring(set["default_file_extension"]));
+
+   //   //      }
+
+   //   //      if (set["file_name"].get_length() > 0)
+   //   //      {
+
+   //   //         pfilesave->SetFileName(wstring(set["file_name"]));
+
+   //   //      }
+
+   //   //      if (set["folder"].get_length() > 0)
+   //   //      {
+
+   //   //         wstring wstr(set["folder"]);
+
+   //   //         comptr < IShellItem > psi;
+
+   //   //         hr = SHCreateItemFromParsingName(wstr, nullptr, IID_IShellItem, (void **)&psi);
+
+   //   //         if (SUCCEEDED(hr))
+   //   //         {
+
+   //   //            pfilesave->SetFolder(psi);
+
+   //   //         }
+
+   //   //      }
+
+   //   //      // Show the Save dialog box.
+   //   //      hr = pfilesave->Show(nullptr);
+
+   //   //      if (SUCCEEDED(hr))
+   //   //      {
+
+   //   //         // Get the file name from the dialog box.
+   //   //         comptr < IShellItem > pitem;
+
+   //   //         hr = pfilesave->GetResult(&pitem);
+
+   //   //         if (SUCCEEDED(hr))
+   //   //         {
+
+   //   //            cotaskp(PWSTR) pwszFilePath;
+
+   //   //            hr = pitem->GetDisplayName(SIGDN_FILESYSPATH, &pwszFilePath);
+
+   //   //            // Display the file name to the user.
+   //   //            if (SUCCEEDED(hr))
+   //   //            {
+
+   //   //               set["file_name"] = string(pwszFilePath.m_p);
+
+   //   //                bOk = true;
+
+   //   //            }
+
+   //   //         }
+
+   //   //      }
+
+   //   //   }
+
+   //   //}
+   //   //catch (...)
+   //   //{
+
+   //   //}
+
+   //   ////try
+   //   ////{
+
+   //   ////   pinteraction->enable_window();
+
+   //   ////   pinteraction->order_top();
+
+   //   ////   pinteraction->display(e_display_normal, XXXe_activation_set_foreground);
+
+   //   ////   pinteraction->set_need_redraw();
+
+   //   ////   pinteraction->post_redraw();
+
+   //   ////}
+   //   ////catch (...)
+   //   ////{
+
+   //   ////}
+
+   //   //return bOk;
+
+   //   throw ::exception(error_not_supported);
+
+   //   //return false;
+
+   //}
+
+
+   //void node::browse_folder( property_set & set)
+   //{
+
+   //   ////::user::interaction* pinteraction = puiOwner->get_wnd();
+
+   //   //bool bOk = false;
+
+   //   ////try
+   //   ////{
+
+   //   ////   pinteraction->enable_window(false);
+
+   //   ////}
+   //   ////catch (...)
+   //   ////{
+
+
+   //   ////}
+
+   //   //try
+   //   //{
+
+   //   //   defer_co_initialize_ex(false);
+
+   //   //   comptr < IFileOpenDialog > pfileopen;
+
+   //   //   // Create the FileOpenDialog object.
+   //   //   HRESULT hr = pfileopen.CoCreateInstance(CLSID_FileOpenDialog, nullptr, CLSCTX_ALL);
+
+   //   //   if (SUCCEEDED(hr))
+   //   //   {
+
+   //   //      if (set["folder"].get_length() > 0)
+   //   //      {
+
+   //   //         wstring wstr(set["folder"]);
+
+   //   //         comptr < IShellItem > psi;
+
+   //   //         hr = SHCreateItemFromParsingName(wstr, nullptr, IID_IShellItem, (void **)&psi);
+
+   //   //         if (SUCCEEDED(hr))
+   //   //         {
+
+   //   //            pfileopen->SetFolder(psi);
+
+   //   //         }
+
+   //   //      }
+
+   //   //      pfileopen->SetOptions(FOS_PICKFOLDERS);
+
+   //   //      // Show the Open dialog box.
+   //   //      hr = pfileopen->Show(nullptr);
+
+   //   //      if (SUCCEEDED(hr))
+   //   //      {
+
+   //   //         // Get the file name from the dialog box.
+   //   //         comptr < IShellItem > pitem;
+
+   //   //         hr = pfileopen->GetResult(&pitem);
+
+   //   //         if (SUCCEEDED(hr))
+   //   //         {
+
+   //   //            cotaskp(PWSTR) pwszFilePath;
+
+   //   //            hr = pitem->GetDisplayName(SIGDN_FILESYSPATH, &pwszFilePath);
+
+   //   //            // Display the file name to the user.
+   //   //            if (SUCCEEDED(hr))
+   //   //            {
+
+   //   //               set["folder"] = string((PWSTR) pwszFilePath);
+
+   //   //               bOk = true;
+
+   //   //            }
+
+   //   //         }
+
+   //   //      }
+
+   //   //   }
+
+   //   //}
+   //   //catch (...)
+   //   //{
+
+   //   //}
+
+   //   ////try
+   //   ////{
+
+   //   ////   pinteraction->enable_window();
+
+   //   ////   pinteraction->order_top();
+
+   //   ////   pinteraction->display(e_display_normal, XXXe_activation_set_foreground);
+
+   //   ////   pinteraction->set_need_redraw();
+
+   //   ////   pinteraction->post_redraw();
+
+
+   //   ////}
+   //   ////catch (...)
+   //   ////{
+
+
+   //   ////}
+
+   //   //return bOk;
+
+   //   throw ::exception(error_not_supported);
+
+   //   //return false;
+
+   //}
+
+
+   //void node::browse_file_or_folder(property_set & set)
+   //{
+
+   //   ////::user::interaction* pinteraction = puiOwner->get_wnd();
+
+   //   //bool bOk = false;
+
+   //   ////try
+   //   ////{
+
+   //   ////   pinteraction->enable_window(false);
+
+   //   ////}
+   //   ////catch (...)
+   //   ////{
+
+
+   //   ////}
+
+   //   //try
+   //   //{
+
+   //   //   defer_co_initialize_ex(false);
+
+   //   //   comptr < IFileOpenDialog > pfileopen;
+
+   //   //   // Create the FileOpenDialog object.
+   //   //   HRESULT hr = pfileopen.CoCreateInstance(CLSID_FileOpenDialog, nullptr, CLSCTX_ALL);
+
+   //   //   if (SUCCEEDED(hr))
+   //   //   {
+
+   //   //      if (set["folder"].get_length() > 0)
+   //   //      {
+
+   //   //         wstring wstr(set["folder"]);
+
+   //   //         comptr < IShellItem > psi;
+
+   //   //         hr = SHCreateItemFromParsingName(wstr, nullptr, IID_IShellItem, (void **)&psi);
+
+   //   //         if (SUCCEEDED(hr))
+   //   //         {
+
+   //   //            pfileopen->SetFolder(psi);
+
+   //   //         }
+
+   //   //      }
+
+   //   //      pfileopen->SetOptions(FOS_PATHMUSTEXIST | FOS_PICKFOLDERS);
+
+   //   //      // Show the Open dialog box.
+   //   //      hr = pfileopen->Show(nullptr);
+
+   //   //      if (SUCCEEDED(hr))
+   //   //      {
+
+   //   //         // Get the file name from the dialog box.
+   //   //         comptr < IShellItem > pitem;
+
+   //   //         hr = pfileopen->GetResult(&pitem);
+
+   //   //         if (SUCCEEDED(hr))
+   //   //         {
+
+   //   //            cotaskp(PWSTR) pwszFilePath;
+
+   //   //            hr = pitem->GetDisplayName(SIGDN_FILESYSPATH, &pwszFilePath);
+
+   //   //            // Display the file name to the user.
+   //   //            if (SUCCEEDED(hr))
+   //   //            {
+
+   //   //               set["path"] = string((PWSTR)pwszFilePath);
+
+   //   //               bOk = true;
+
+   //   //            }
+
+   //   //         }
+
+   //   //      }
+
+   //   //   }
+
+   //   //}
+   //   //catch (...)
+   //   //{
+
+   //   //}
+
+   //   ////try
+   //   ////{
+
+   //   ////   pinteraction->enable_window();
+
+   //   ////   pinteraction->order_top();
+
+   //   ////   pinteraction->display(e_display_normal, XXXe_activation_set_foreground);
+
+   //   ////   pinteraction->set_need_redraw();
+
+   //   ////   pinteraction->post_redraw();
+
+   //   ////}
+   //   ////catch (...)
+   //   ////{
+
+
+   //   ////}
+
+   //   //return bOk;
+
+   //   throw ::exception(error_not_supported);
+
+   //   //return false;
+
+   //}
+
+
+   void node::list_process(::file::path_array & patha, ::process_identifier_array & uaPid)
+   {
+
+      //ASSERT(sizeof(::u32) == sizeof(u32));
+
+      //get_all_processes(uaPid);
+
+      //patha.set_size(uaPid.get_count());
+
+      //for(index i = 0; i < uaPid.get_count(); i++)
+      //{
+
+      //   patha[i] = get_process_path(uaPid[i]);
+
+      //}
+      throw ::exception(error_not_supported);
+
+      //return false;
+
+   }
+
+
+   void node::open_url_link_at_system_browser(const string & strUrl, const string & strProfile)
+   {
+
+      user_post([strUrl]()
+         {
+
+            auto hstrUri = __hstring(strUrl);
+
+            ::winrt::Windows::Foundation::Uri uri(hstrUri);
+
+            ::winrt::Windows::System::Launcher::LaunchUriAsync(uri);
+
+         });
+
+   }
 
 
 } // namespace apex_universal_windows
