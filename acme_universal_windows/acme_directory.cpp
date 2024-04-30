@@ -1281,7 +1281,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         path.ascendants_path(stra);
 //
-//         index i = stra.get_upper_bound();
+//         ::raw::index i = stra.get_upper_bound();
 //
 //         for (; i >= 0; i--)
 //         {
@@ -1481,10 +1481,10 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
       //void acme_directory::rls(::file::path_array & stra, const scoped_string & str)
       //{
-      //   ::count start = stra.get_count();
+      //   ::raw::count start = stra.get_count();
       //   ls(stra, psz);
-      //   ::count end = stra.get_count();
-      //   for (::index i = start; i < end; i++)
+      //   ::raw::count end = stra.get_count();
+      //   for (::raw::index i = start; i < end; i++)
       //   {
       //      if (is(stra[i]))
       //      {
@@ -1498,13 +1498,13 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //void acme_directory::rls_dir(::file::path_array & stra, const scoped_string & str)
       //{
 
-      //   ::count start = stra.get_count();
+      //   ::raw::count start = stra.get_count();
 
       //   ls_dir(stra, psz);
 
-      //   ::count end = stra.get_count();
+      //   ::raw::count end = stra.get_count();
 
-      //   for (::index i = start; i < end; i++)
+      //   for (::raw::index i = start; i < end; i++)
       //   {
 
       //      ::file::path path = stra[i];
@@ -1831,7 +1831,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         path.ascendants_path(stra);
 //
-//         index i = stra.get_upper_bound();
+//         ::raw::index i = stra.get_upper_bound();
 //
 //         for (; i >= 0; i--)
 //         {

@@ -2806,7 +2806,7 @@ return false;
 
       //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "FileAssociations", true);
 
-      //   for (index i = 0; i < straMimeType.get_count(); i++)
+      //   for (::raw::index i = 0; i < straMimeType.get_count(); i++)
       //   {
 
       //      string strExtension = straExtension[i];
@@ -2828,7 +2828,7 @@ return false;
 
       //   ::acme_windows::registry::key regkey(HKEY_LOCAL_MACHINE, pathApplicationCapabilities / "MimeAssociations", true);
 
-      //   for (index i = 0; i < straMimeType.get_count(); i++)
+      //   for (::raw::index i = 0; i < straMimeType.get_count(); i++)
       //   {
 
       //      string strMimeType = straMimeType[i];
@@ -2913,7 +2913,7 @@ return false;
 
       //}
 
-      //for (index i = 0; i < straExtension.get_count(); i++)
+      //for (::raw::index i = 0; i < straExtension.get_count(); i++)
       //{
 
       //   string strExtension = straExtension[i];
@@ -3121,7 +3121,7 @@ return false;
 
    //   //      rgSpec.set_size(minimum(wstraSpecs.get_size(), wstraNames.get_size()));
 
-   //   //      for (index i = 0; i < rgSpec.get_size(); i++)
+   //   //      for (::raw::index i = 0; i < rgSpec.get_size(); i++)
    //   //      {
 
    //   //         rgSpec[i].pszName = wstraNames[i];
@@ -3371,7 +3371,7 @@ return false;
 
    //   //      rgSpec.set_size(minimum(wstraSpecs.get_size(), wstraNames.get_size()));
 
-   //   //      for (index i = 0; i < rgSpec.get_size(); i++)
+   //   //      for (::raw::index i = 0; i < rgSpec.get_size(); i++)
    //   //      {
 
    //   //         rgSpec[i].pszName = wstraNames[i];
@@ -3743,7 +3743,7 @@ return false;
 
       //patha.set_size(uaPid.get_count());
 
-      //for(index i = 0; i < uaPid.get_count(); i++)
+      //for(::raw::index i = 0; i < uaPid.get_count(); i++)
       //{
 
       //   patha[i] = get_process_path(uaPid[i]);

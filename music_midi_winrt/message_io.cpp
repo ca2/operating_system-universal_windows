@@ -262,7 +262,7 @@ namespace music
          //   DeviceInformation retValue = nullptr;
          //   DeviceInformationCollection inputCollection = m_pmidiInDeviceWatcher->GetDeviceInformationCollection();
 
-         //   for (index i = 0; i < inputCollection.Size(); i++)
+         //   for (::raw::index i = 0; i < inputCollection.Size(); i++)
          //   {
          //      
          //      DeviceInformation devInfo = inputCollection.GetAt(i);
@@ -286,7 +286,7 @@ namespace music
          //   DeviceInformation retValue = nullptr;
          //   DeviceInformationCollection inputCollection = m_pmidiOutDeviceWatcher->GetDeviceInformationCollection();
 
-         //   for (index i = 0; i < inputCollection.Size(); i++)
+         //   for (::raw::index i = 0; i < inputCollection.Size(); i++)
          //   {
 
          //      DeviceInformation devInfo = inputCollection.GetAt(i);
@@ -385,7 +385,7 @@ namespace music
 
          //      _devInfoCollection = deviceInfoCollection;
 
-         //      for (index i = 0; i < deviceInfoCollection.Size(); i++)
+         //      for (::raw::index i = 0; i < deviceInfoCollection.Size(); i++)
          //      {
 
          //         DeviceInformation devInfo = deviceInfoCollection.GetAt(i);

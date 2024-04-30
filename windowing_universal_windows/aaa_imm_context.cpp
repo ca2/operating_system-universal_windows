@@ -40,7 +40,7 @@ bool imm_context::is_opened() const
 }
 
 
-bool imm_context::close_candidate(index iIndex)
+bool imm_context::close_candidate(::raw::index iIndex)
 {
 
    return ImmNotifyIME(m_himc, NI_CLOSECANDIDATE, 0, (::u32)iIndex) != false;
@@ -111,7 +111,7 @@ string imm_context::_get_candidate(int iList)
 string imm_context::get_candidate()
 {
 
-   for (index i = 3; i >= 0; i--)
+   for (::raw::index i = 3; i >= 0; i--)
    {
 
       string str = _get_candidate((int)i);

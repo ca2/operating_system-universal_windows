@@ -49,24 +49,24 @@ namespace windowing_universal_windows
 
       void enum_display_monitors() override;
 
-      ::index get_main_monitor(::rectangle_i32 & rectangle) override;
+      ::raw::index get_main_monitor(::rectangle_i32 & rectangle) override;
 
-      ::count get_monitor_count() override;
-      //virtual bool  get_monitor_rect(index iMonitor, ::rectangle_i32 * prectangle) override;
+      ::raw::count get_monitor_count() override;
+      //virtual bool  get_monitor_rect(::raw::index iMonitor, ::rectangle_i32 * prectangle) override;
 
-      ::count get_desk_monitor_count() override;
-      //virtual bool  get_desk_monitor_rect(index iMonitor, ::rectangle_i32 * prectangle) override;
+      ::raw::count get_desk_monitor_count() override;
+      //virtual bool  get_desk_monitor_rect(::raw::index iMonitor, ::rectangle_i32 * prectangle) override;
 
 
-      index get_main_workspace(::rectangle_i32 & rectangle) override;
+      ::raw::index get_main_workspace(::rectangle_i32 & rectangle) override;
 
-      ::count get_workspace_count() override;
-      //virtual bool  get_wkspace_rect(index iWkspace, ::rectangle_i32 * prectangle) override;
+      ::raw::count get_workspace_count() override;
+      //virtual bool  get_wkspace_rect(::raw::index iWkspace, ::rectangle_i32 * prectangle) override;
 
-      ::count get_desk_workspace_count() override;
-      //virtual bool  get_desk_wkspace_rect(index iWkspace, ::rectangle_i32 * prectangle) override;
+      ::raw::count get_desk_workspace_count() override;
+      //virtual bool  get_desk_wkspace_rect(::raw::index iWkspace, ::rectangle_i32 * prectangle) override;
 
-      //virtual index get_ui_wkspace(::user::interaction * pinteraction) override;
+      //virtual ::raw::index get_ui_wkspace(::user::interaction * pinteraction) override;
 
 
       static BOOL CALLBACK monitor_enum_proc(HMONITOR hmonitor, HDC hdcMonitor, LPRECT prcMonitor, LPARAM dwData);
@@ -75,12 +75,12 @@ namespace windowing_universal_windows
       virtual void monitor_enum(HMONITOR hmonitor, HDC hdcMonitor, LPRECT prcMonitor);
 
 
-      virtual bool set_main_monitor(index iMonitor);
+      virtual bool set_main_monitor(::raw::index iMonitor);
 
 
-      //virtual bool wkspace_to_monitor(::rectangle_i32 * prectangle, index iMonitor, index iWkspace) override;
+      //virtual bool wkspace_to_monitor(::rectangle_i32 * prectangle, ::raw::index iMonitor, ::raw::index iWkspace) override;
 
-      //virtual bool monitor_to_wkspace(::rectangle_i32 * prectangle, index iWkspace, index iMonitor) override;
+      //virtual bool monitor_to_wkspace(::rectangle_i32 * prectangle, ::raw::index iWkspace, ::raw::index iMonitor) override;
 
       //virtual bool wkspace_to_monitor(::rectangle_i32 * prectangle) override;
 
@@ -90,23 +90,23 @@ namespace windowing_universal_windows
       virtual void _get_monitor(rectangle_i32_array & rectaMonitor, rectangle_i32_array& rectaIntersect, const rectangle_i32 & rectangleParam);
 
 
-      virtual index _get_best_zoneing(::e_display * pedisplay, ::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, bool bPreserveSize = false);
+      virtual ::raw::index _get_best_zoneing(::e_display * pedisplay, ::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, bool bPreserveSize = false);
 
-      index get_best_monitor(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::e_activation eactivation = e_activation_default, ::user::interaction* puserinteractionGetCursorPosition = nullptr) override;
+      ::raw::index get_best_monitor(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::e_activation eactivation = e_activation_default, ::user::interaction* puserinteractionGetCursorPosition = nullptr) override;
 
-      index get_best_workspace(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::e_activation eactivation = e_activation_default, ::user::interaction * puserinteractionGetCursorPosition = nullptr) override;
+      ::raw::index get_best_workspace(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::e_activation eactivation = e_activation_default, ::user::interaction * puserinteractionGetCursorPosition = nullptr) override;
 
-      index get_good_iconify(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle) override;
+      ::raw::index get_good_iconify(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle) override;
       
-      //virtual index get_window_restore_1(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::user::interaction * pinteraction, edisplay edisplayRestore);
+      //virtual ::raw::index get_window_restore_1(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::user::interaction * pinteraction, edisplay edisplayRestore);
 
-      //virtual index get_window_restore_2(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::user::interaction * pinteraction, edisplay edisplayRestore);
+      //virtual ::raw::index get_window_restore_2(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::user::interaction * pinteraction, edisplay edisplayRestore);
 
-      //virtual index get_good_move(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::user::interaction * pinteraction);
+      //virtual ::raw::index get_good_move(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::user::interaction * pinteraction);
 
 
-      bool impl_set_wallpaper(index iScreen, string strLocalImagePath) override;
-      string impl_get_wallpaper(index iScreen) override;
+      bool impl_set_wallpaper(::raw::index iScreen, string strLocalImagePath) override;
+      string impl_get_wallpaper(::raw::index iScreen) override;
 
 
       ::point_i32 _get_mouse_cursor_position() override;
