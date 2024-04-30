@@ -169,7 +169,7 @@ namespace aura_universal_windows
    void interaction_impl::on_message_destroy(::message::message * pmessage)
    {
       
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
       
       Default();
 
@@ -270,7 +270,7 @@ namespace aura_universal_windows
 
    void interaction_impl::pre_translate_message(::message::message * pmessage)
    {
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
       // no default processing
    }
 
@@ -374,8 +374,8 @@ namespace aura_universal_windows
 
    bool interaction_impl::_EnableToolTips(bool bEnable,::u32 nFlag)
    {
-      UNREFERENCED_PARAMETER(bEnable);
-      UNREFERENCED_PARAMETER(nFlag);
+      __UNREFERENCED_PARAMETER(bEnable);
+      __UNREFERENCED_PARAMETER(nFlag);
       return false;
    }
 
@@ -494,8 +494,8 @@ namespace aura_universal_windows
 #ifdef WINDOWS_DESKTOP
    void interaction_impl::WinHelpInternal(dword_ptr dwData, ::u32 nCmd)
    {
-      UNREFERENCED_PARAMETER(dwData);
-      UNREFERENCED_PARAMETER(nCmd);
+      __UNREFERENCED_PARAMETER(dwData);
+      __UNREFERENCED_PARAMETER(nCmd);
       throw ::not_implemented();
    }
 
@@ -519,9 +519,9 @@ namespace aura_universal_windows
    void interaction_impl::handle(::topic * ptopic, ::context * pcontext)
    {
 
-      UNREFERENCED_PARAMETER(ptopic);
+      __UNREFERENCED_PARAMETER(ptopic);
 
-      UNREFERENCED_PARAMETER(pcontext);
+      __UNREFERENCED_PARAMETER(pcontext);
 
 //      return false;
 
@@ -1276,8 +1276,8 @@ return true;
    //bool interaction_impl::OnCommand(WPARAM wParam,LPARAM lParam)
    //{
    //   
-   //   UNREFERENCED_PARAMETER(wParam);
-   //   UNREFERENCED_PARAMETER(lParam);
+   //   __UNREFERENCED_PARAMETER(wParam);
+   //   __UNREFERENCED_PARAMETER(lParam);
 
    //   return false;
 
@@ -1532,7 +1532,7 @@ return true;
 
    bool interaction_impl::GetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, ::u32 nMask)
    {
-      UNREFERENCED_PARAMETER(nMask);
+      __UNREFERENCED_PARAMETER(nMask);
       ASSERT(lpScrollInfo != nullptr);
 
       oswindow hWnd = get_handle();
@@ -1748,7 +1748,7 @@ return true;
 
    void interaction_impl::OnDevModeChange(char * lpDeviceName)
    {
-      UNREFERENCED_PARAMETER(lpDeviceName);
+      __UNREFERENCED_PARAMETER(lpDeviceName);
       throw ::not_implemented();
       /*application* pApp = ::auraacmesystem();
       if (pApp != nullptr && pApp->GetMainWnd() == this)
@@ -1834,7 +1834,7 @@ return true;
       //m_pframeworkview.get().on_size(m_rectangle.size());
 
 
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
 
       Default();
 
@@ -1852,13 +1852,13 @@ return true;
 
    //void interaction_impl::OnHScroll(::u32,::u32,CScrollBar* pScrollBar)
    //{
-   //   UNREFERENCED_PARAMETER(pScrollBar);
+   //   __UNREFERENCED_PARAMETER(pScrollBar);
    //   Default();
    //}
 
    //void interaction_impl::OnVScroll(::u32,::u32,CScrollBar* pScrollBar)
    //{
-   //   UNREFERENCED_PARAMETER(pScrollBar);
+   //   __UNREFERENCED_PARAMETER(pScrollBar);
    //   Default();
    //}
 
@@ -1932,7 +1932,7 @@ return true;
 
    void interaction_impl::_001OnProdevianSynch(::message::message * pmessage)
    {
-      UNREFERENCED_PARAMETER(pmessage);
+      __UNREFERENCED_PARAMETER(pmessage);
       //      ::auraacmesystem()->get_event(m_pthread)->SetEvent();
       //    ::auraacmesystem()->get_event(::auraacmesystem()->get_twf())->wait(::time(8400));
    }
@@ -2923,7 +2923,7 @@ return true;
 
    //void interaction_impl::SetFont(::write_text::font* pfont,bool bRedraw)
    //{
-   //   UNREFERENCED_PARAMETER(bRedraw);
+   //   __UNREFERENCED_PARAMETER(bRedraw);
    //   ASSERT(::is_window(get_handle()));
    //   m_pfont = new ::write_text::font(*pfont);
    //}

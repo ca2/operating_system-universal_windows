@@ -5,7 +5,7 @@
 #define boolean windows_boolean
 
 
-#undef UNREFERENCED_PARAMETER
+#undef __UNREFERENCED_PARAMETER
 
 
 #ifdef _WINDOWS_

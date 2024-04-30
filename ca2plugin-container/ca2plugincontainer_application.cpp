@@ -52,7 +52,7 @@ namespace ca2plugin_container
    void application::on_receive(small_ipc_rx_channel * prxchannel, const ::string & pszMessage)
    {
 
-      UNREFERENCED_PARAMETER(pszMessage);
+      __UNREFERENCED_PARAMETER(pszMessage);
 
    }
 

@@ -34,7 +34,7 @@ namespace apex_universal_windows
    //bool tx::open(const scoped_string & strChannel, launcher * plauncher)
    //{
 
-   //   UNREFERENCED_PARAMETER(plauncher);
+   //   __UNREFERENCED_PARAMETER(plauncher);
 
    //   if (m_strBaseChannel.has_char())
    //      close();
