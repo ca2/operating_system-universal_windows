@@ -1564,7 +1564,7 @@ namespace sockets_bsd
 
       ansi_cpy(request + 8,GetSocks4Userid());
 
-      ::raw::count length = GetSocks4Userid().length() + 8 + 1;
+      ::collection::count length = GetSocks4Userid().length() + 8 + 1;
 
       write({ request,length });
 
@@ -2170,7 +2170,7 @@ namespace sockets_bsd
       //   ia.add(2048);
       //   ia.add(4096);
 
-      //   for (::raw::index i = 0; i < ia.get_count(); i++)
+      //   for (::collection::index i = 0; i < ia.get_count(); i++)
       //   {
 
       //      int keylength = ia[i];

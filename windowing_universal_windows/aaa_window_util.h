@@ -32,7 +32,7 @@ namespace windowing_win32
 
 
          bool erase(HWND hwnd);
-         ::raw::index find(HWND hwnd);
+         ::collection::index find(HWND hwnd);
          void EnumDescendants();
          Array & operator = (hwnd_array & hwnda);
 

@@ -1042,7 +1042,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //index shell::GetCSIDLSort(::raw::index iCsidl)
+   //index shell::GetCSIDLSort(::collection::index iCsidl)
    //{
    //   switch (iCsidl)
    //   {

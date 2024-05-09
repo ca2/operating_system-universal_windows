@@ -22,7 +22,7 @@ public:
 
    void clear_composition();
 
-   bool close_candidate(::raw::index iIndex = 0);
+   bool close_candidate(::collection::index iIndex = 0);
 
    string get_string(int iStr = GCS_COMPSTR);
 

@@ -19,7 +19,7 @@ namespace windowing_universal_windows
       //::pointer<::user::interaction>     m_puserinteraction;
 
       /// negative value undefined
-      ::raw::count  m_cFileCount;
+      ::collection::count  m_cFileCount;
       /// -2 value undefined
       int   m_iPriorityTextFormat;
       /// negative value undefined
@@ -50,7 +50,7 @@ namespace windowing_universal_windows
 
       virtual void OnClipboardUpdate();
 
-      virtual ::raw::count _get_file_count();
+      virtual ::collection::count _get_file_count();
       virtual int _get_priority_text_format();
 
       //virtual HGLOBAL hglobal_get_filea(const ::file::path_array & stra);

@@ -161,8 +161,8 @@ namespace sockets
 
    bool net::isipv6(const ::string & str)
    {
-      ::raw::index qc = 0;
-      ::raw::index qd = 0;
+      ::collection::index qc = 0;
+      ::collection::index qd = 0;
       for (int i = 0; i < str.length(); i++)
       {
          qc += (str[i] == ':') ? 1 : 0;
@@ -537,7 +537,7 @@ namespace sockets
                unsigned short addr16[8];
                struct sockaddr_in6 *sa_in6 = (struct sockaddr_in6 *)sa;
                ::memory_copy(addr16, &sa_in6 -> sin6_addr, sizeof(addr16));
-               for (::raw::index i = 0; i < 8; i++)
+               for (::collection::index i = 0; i < 8; i++)
                {
                   unsigned short x = ntohs(addr16[i]);
                   if (*slask && (x || !ok_to_skip || prev))
@@ -627,7 +627,7 @@ namespace sockets
                unsigned short addr16[8];
                struct sockaddr_in6 *sa_in6 = (struct sockaddr_in6 *)sa;
                ::memory_copy(addr16, &sa_in6 -> sin6_addr, sizeof(addr16));
-               for (::raw::index i = 0; i < 8; i++)
+               for (::collection::index i = 0; i < 8; i++)
                {
                   unsigned short x = ntohs(addr16[i]);
                   if (*slask && (x || !ok_to_skip || prev))
