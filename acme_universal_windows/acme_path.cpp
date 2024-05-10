@@ -48,28 +48,35 @@ namespace acme_universal_windows
             return path;
 
          }
-         else if (acmedirectory()->is(path))
-         {
-
-            hfile = hfile_create(path,
-               GENERIC_READ,          // open for reading
-               FILE_SHARE_READ,       // share for reading
-               nullptr,                  // default security
-               OPEN_EXISTING,         // existing file only
-               FILE_ATTRIBUTE_NORMAL, // normal file
-               nullptr);                 // no attr. template
-
-         }
          else
          {
 
-            hfile = hfile_create(path,
-               FILE_LIST_DIRECTORY,          // open for reading
-               FILE_SHARE_READ,       // share for reading
-               nullptr,                  // default security
-               OPEN_EXISTING,         // existing file only
-               FILE_ATTRIBUTE_NORMAL, // normal file
-               nullptr);                 // no attr. template
+            auto etype = safe_file_type(path);
+
+            if (is_existent_folder(etype))
+            {
+
+               hfile = hfile_create(path,
+                  GENERIC_READ,          // open for reading
+                  FILE_SHARE_READ,       // share for reading
+                  nullptr,                  // default security
+                  OPEN_EXISTING,         // existing file only
+                  FILE_ATTRIBUTE_NORMAL, // normal file
+                  nullptr);                 // no attr. template
+
+            }
+            else if (is_existent_file(etype))
+            {
+
+               hfile = hfile_create(path,
+                  FILE_LIST_DIRECTORY,          // open for reading
+                  FILE_SHARE_READ,       // share for reading
+                  nullptr,                  // default security
+                  OPEN_EXISTING,         // existing file only
+                  FILE_ATTRIBUTE_NORMAL, // normal file
+                  nullptr);                 // no attr. template
+
+            }
 
          }
 

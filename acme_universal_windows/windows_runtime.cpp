@@ -248,7 +248,7 @@ namespace acme_universal_windows
 
       bool bDir = false;
 
-      if (pparticle->acmedirectory()->_file_type(path) == ::file::e_type_existent_folder)
+      if (pparticle->acmedirectory()->::acme_directory::_file_type(path) == ::file::e_type_existent_folder)
       {
 
          pathFolder = path;

@@ -8636,7 +8636,7 @@ namespace windowing_universal_windows
 
          colorBackground = argb(255, uicolorBackground.R, uicolorBackground.G, uicolorBackground.B);
 
-         system()->m_pnode->background_color(colorBackground);
+         system()->background_color(colorBackground);
 
          //m_coreapplicationview.Activated(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::ApplicationModel::Core::CoreApplicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs>(this, &window::OnActivated));
 
