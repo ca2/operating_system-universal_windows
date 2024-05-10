@@ -60,7 +60,7 @@
 
    }
 
-   auto hstrRelative = __hstring(strRelative);
+   auto hstrRelative = as_hstring(strRelative);
 
    if (dwCreationDisposition == CREATE_ALWAYS)
    {

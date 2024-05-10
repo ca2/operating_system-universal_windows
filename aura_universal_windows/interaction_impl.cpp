@@ -4459,7 +4459,7 @@ return true;
       Default();
    }
 
-   bool interaction_impl::OnDeviceChange(::u32,dword_ptr)
+   bool interaction_impl::OnDeviceChange(::u32,::uptr)
    {
 
       return Default() != false;

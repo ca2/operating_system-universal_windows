@@ -553,109 +553,111 @@ namespace acme_universal_windows
    }
 
 
-   bool acme_directory::is(const ::file::path & path)
+   ::file::e_type acme_directory::_file_type(const ::file::path & path)
    {
-
-      bool bDir = false;
-
-      if(_is(bDir, path))
-      {
-
-         return bDir;
-
-      }
 
       ::pointer < ::acme_universal_windows::node > pnode = node();
 
       auto folder = pnode->windows_runtime_folder(this, path, false);
 
-      if (!folder)
+      if (folder)
       {
 
-         return false;
-
-      }
-
-      return true;
-
-   }
-
-
-   bool acme_directory::_is(bool & bDir, const ::file::path & path)
-   {
-
-      u32 dwFileAttributes = ::windows::_get_file_attributes(path);
-
-      if (dwFileAttributes == INVALID_FILE_ATTRIBUTES)
-      {
-
-         auto lasterror = ::GetLastError();
-
-         if (lasterror == ERROR_PATH_NOT_FOUND)
-         {
-
-            // Path would be accessible...
-
-            // Parent Folder is not folder...
-
-            bDir = false;
-
-            return true;
-
-         }
-         else if (lasterror == ERROR_FILE_NOT_FOUND)
-         {
-
-            // Path would be accessible...
-
-            // Parent folder exists...
-
-            bDir = false;
-
-            return true;
-
-         }
-         else if (lasterror == ERROR_INVALID_NAME)
-         {
-
-            //throw_last_error_exception(path, ::file::e_open_none, lasterror, "ERROR_INVALID_NAME");
-
-            return false;
-
-         }
-
-         //::file::path pathCamilo = "C:\\Users\\camilo";
-
-         //::file::path pathThomasBS_ = "C:\\Users\\thoma";
-
-         //u32 dwFileAttributesCamilo = ::windows::_get_file_attributes(pathCamilo);
-
-         //auto lasterror2 = ::GetLastError();
-
-         //u32 dwFileAttributesThomasBS_ = ::windows::_get_file_attributes(pathThomasBS_);
-
-         //auto lasterror5 = ::GetLastError();
-
-         return false;
-
-      }
-
-      if(!(dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
-      {
-
-         bDir = false;
+         return ::file::e_type_existent_folder;
 
       }
       else
       {
 
-         bDir = true;
+         if (acmefile()->exists(path))
+         {
+
+            return ::file::e_type_existent_file;
+
+         }
 
       }
 
-      return true;
+      return ::file::e_type_doesnt_exist;
 
    }
+
+
+   //bool acme_directory::_is(bool & bDir, const ::file::path & path)
+   //{
+
+   //   u32 dwFileAttributes = ::windows::_get_file_attributes(path);
+
+   //   if (dwFileAttributes == INVALID_FILE_ATTRIBUTES)
+   //   {
+
+   //      auto lasterror = ::GetLastError();
+
+   //      if (lasterror == ERROR_PATH_NOT_FOUND)
+   //      {
+
+   //         // Path would be accessible...
+
+   //         // Parent Folder is not folder...
+
+   //         bDir = false;
+
+   //         return true;
+
+   //      }
+   //      else if (lasterror == ERROR_FILE_NOT_FOUND)
+   //      {
+
+   //         // Path would be accessible...
+
+   //         // Parent folder exists...
+
+   //         bDir = false;
+
+   //         return true;
+
+   //      }
+   //      else if (lasterror == ERROR_INVALID_NAME)
+   //      {
+
+   //         //throw_last_error_exception(path, ::file::e_open_none, lasterror, "ERROR_INVALID_NAME");
+
+   //         return false;
+
+   //      }
+
+   //      //::file::path pathCamilo = "C:\\Users\\camilo";
+
+   //      //::file::path pathThomasBS_ = "C:\\Users\\thoma";
+
+   //      //u32 dwFileAttributesCamilo = ::windows::_get_file_attributes(pathCamilo);
+
+   //      //auto lasterror2 = ::GetLastError();
+
+   //      //u32 dwFileAttributesThomasBS_ = ::windows::_get_file_attributes(pathThomasBS_);
+
+   //      //auto lasterror5 = ::GetLastError();
+
+   //      return false;
+
+   //   }
+
+   //   if(!(dwFileAttributes & FILE_ATTRIBUTE_DIRECTORY))
+   //   {
+
+   //      bDir = false;
+
+   //   }
+   //   else
+   //   {
+
+   //      bDir = true;
+
+   //   }
+
+   //   return true;
+
+   //}
 
 
    void TranslateLastError()
@@ -1557,7 +1559,18 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
             ::file::path path(item.Path().begin());
 
-            path.m_iDir = items.GetAt(u).IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder) ? 1 : 0;
+            if (items.GetAt(u).IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder))
+            {
+
+               path.m_etype = ::file::e_type_existent_folder;
+
+            }
+            else
+            {
+
+               path.m_etype = ::file::e_type_existent_file;
+
+            }
 
             listing.defer_add(path);
 

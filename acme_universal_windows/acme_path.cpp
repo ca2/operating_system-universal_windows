@@ -152,7 +152,7 @@ namespace acme_universal_windows
          if (strRelative.is_empty())
          {
 
-            return ::file::e_type_folder;
+            return ::file::e_type_existent_folder;
 
          }
 
@@ -160,7 +160,7 @@ namespace acme_universal_windows
 
          strRelative.trim_left("\\");
 
-         auto hstrName = __hstring(strRelative);
+         auto hstrName = as_hstring(strRelative);
 
          auto item = folder.TryGetItemAsync(hstrName).get();
 
@@ -170,13 +170,13 @@ namespace acme_universal_windows
             if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::Folder))
             {
 
-               return ::file::e_type_folder;
+               return ::file::e_type_existent_folder;
 
             }
             else if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
             {
 
-               return ::file::e_type_file;
+               return ::file::e_type_existent_file;
 
             }
 

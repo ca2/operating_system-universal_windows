@@ -163,7 +163,7 @@ namespace acme_universal_windows
          for (auto & strItem : straItems)
          {
 
-            auto hstrItem = __hstring(strItem);
+            auto hstrItem = as_hstring(strItem);
 
             auto item = folder.TryGetItemAsync(hstrItem).get();
 
@@ -301,13 +301,13 @@ namespace acme_universal_windows
             if (eopen & ::file::e_open_no_truncate)
             {
 
-               file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::OpenIfExists).get();
+               file = folder.CreateFileAsync(as_hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::OpenIfExists).get();
 
             }
             else
             {
 
-               file = folder.CreateFileAsync(__hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::ReplaceExisting).get();
+               file = folder.CreateFileAsync(as_hstring(strName), ::winrt::Windows::Storage::CreationCollisionOption::ReplaceExisting).get();
 
             }
 
@@ -318,7 +318,7 @@ namespace acme_universal_windows
             try
             {
 
-               auto item = folder.TryGetItemAsync(__hstring(strName)).get();
+               auto item = folder.TryGetItemAsync(as_hstring(strName)).get();
 
                if (item && item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
                {

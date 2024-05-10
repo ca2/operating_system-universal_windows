@@ -36,7 +36,7 @@ namespace music
             m_bEnumCompleted(false)
          {
 
-            m_devicewatcher = ::winrt::Windows::Devices::Enumeration::DeviceInformation::CreateWatcher(__hstring(strMidiSelector));
+            m_devicewatcher = ::winrt::Windows::Devices::Enumeration::DeviceInformation::CreateWatcher(as_hstring(strMidiSelector));
 
             m_tokenPortAdded = m_devicewatcher.Added({ this, &device_watcher::OnPortAdded });
 
@@ -90,7 +90,7 @@ namespace music
          void device_watcher::update_ports()
          {
 
-            ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection deviceinformationcollection = ::winrt::Windows::Devices::Enumeration::DeviceInformation::FindAllAsync(__hstring(m_strMidiSelector)).get();
+            ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection deviceinformationcollection = ::winrt::Windows::Devices::Enumeration::DeviceInformation::FindAllAsync(as_hstring(m_strMidiSelector)).get();
 
             //m_pmidi->clear_out_ports();
 

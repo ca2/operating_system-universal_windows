@@ -215,7 +215,7 @@ namespace acme_universal_windows
       if (folder)
       {
 
-         auto hstrName = __hstring(strRelative);
+         auto hstrName = as_hstring(strRelative);
 
          auto item = folder.TryGetItemAsync(hstrName).get();
 
@@ -305,7 +305,7 @@ namespace acme_universal_windows
          else
          {
 
-            auto hstrNameNew = __hstring(strNameNew);
+            auto hstrNameNew = as_hstring(strNameNew);
 
             file.RenameAsync(hstrNameNew).get();
 
@@ -330,7 +330,7 @@ namespace acme_universal_windows
          else
          {
             
-            auto hstrNameNew = __hstring(strNameNew);
+            auto hstrNameNew = as_hstring(strNameNew);
             
             file.MoveAsync(folder, hstrNameNew).get();
 
@@ -861,7 +861,7 @@ namespace acme_universal_windows
 
          pathName /= path.name();
 
-         auto hstrName = __hstring(pathName);
+         auto hstrName = as_hstring(pathName);
 
          auto item = folder.TryGetItemAsync(hstrName).get();
 

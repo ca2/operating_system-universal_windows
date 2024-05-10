@@ -564,7 +564,7 @@ namespace aura_universal_windows
       void OnSizing(::u32 nSide, ::rectangle_i32 * lpRect);
       void OnMoving(::u32 nSide, ::rectangle_i32 * lpRect);
       void OnCaptureChanged(::user::interaction_impl * pWnd);
-      bool OnDeviceChange(::u32 nEventType, dword_ptr dwData);
+      bool OnDeviceChange(::u32 nEventType, ::uptr dwData);
 
       // Overridables and other helpers (for implementation of derived classes)
       // for deriving from a standard control

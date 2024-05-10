@@ -6975,7 +6975,7 @@ namespace windowing_universal_windows
          request.Range().StartCaretPosition,
          minimum(request.Range().EndCaretPosition, wstrText.length()) - request.Range().StartCaretPosition);
 
-      auto hstrText = __hstring(string(wstrText));
+      auto hstrText = as_hstring(string(wstrText));
 
       request.Text(hstrText);
 

@@ -122,7 +122,7 @@ namespace apex_universal_windows
       pnode->node_post([this, anotherappUri]()
          {
 
-            auto hstrUri = __hstring(anotherappUri);
+            auto hstrUri = as_hstring(anotherappUri);
 
             ::winrt::Windows::Foundation::Uri uri(hstrUri);
 
@@ -184,7 +184,7 @@ namespace apex_universal_windows
       pnode->node_post([anotherappUri]()
          {
 
-            auto hstrUri = __hstring(anotherappUri);
+            auto hstrUri = as_hstring(anotherappUri);
 
             ::winrt::Windows::Foundation::Uri uri(hstrUri);
 

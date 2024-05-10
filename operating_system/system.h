@@ -42,13 +42,13 @@
 #define DEBUG_BREAK __debugbreak()
 
 
-#include <stdio.h>
-#include <memory.h>
-#include <string.h>
-#include <wchar.h>
-#include <ctype.h>
-#include <stdarg.h>
-#include <tchar.h>
+//#include <stdio.h>
+//#include <memory.h>
+//#include <string.h>
+//#include <wchar.h>
+//#include <ctype.h>
+//#include <stdarg.h>
+//#include <tchar.h>
 
 
 #ifdef __cplusplus
@@ -77,14 +77,14 @@ using platform_char = char;
 #include "cross/cross.h"
 
 
-#define __EVALUATE(xxx) xxx
-#define __CONCAT(xxx, yyy) xxx ## yyy
-//#define __STRING(xxx) # xxx
+// #define __EVALUATE(xxx) xxx
+// #define __CONCAT(xxx, yyy) xxx ## yyy
+// //#define __STRING(xxx) # xxx
 
-#define __CONCAT3(xxx, yyy, zzz) xxx ## yyy ## zzz
+// #define __CONCAT3(xxx, yyy, zzz) xxx ## yyy ## zzz
 
 
-#include <stdio.h>
+//#include <stdio.h>
 //#include <mmsystem.h>
 
 
@@ -112,4 +112,68 @@ typedef wchar_t unichar;
 typedef unsigned int unichar32;
 
 
+
+#include <stdarg.h>
+//
+
+#include <concepts>
+
+
+#include <tuple>
+
+
+#include <intrin.h>
+
+
+#define DEBUG_BREAK __debugbreak()
+
+
+
+#include "cross/cross.h"
+
+
+
+
+
+
+
+
+
+
+
+
+#include <stddef.h>
+#include <limits.h>
+#include <new.h>
+#include <eh.h>
+
+#undef __window_procedure
+
+
+#define IMPLEMENT_VISTA_TOOLS
+#ifndef WIN32
+#define WIN32
+#endif
+#define DRAWDIB_INCLUDE_STRETCHDIB
+
+#ifdef __cplusplus
+
+#include <typeinfo>
+
+typedef std::type_info std_type_info;
+
+#endif
+
+
+typedef wchar_t unichar;
+
+#ifdef UNICODE
+
+using platform_char = wchar_t;
+
+#else
+
+using platform_char = char;
+
+#endif
 

@@ -149,7 +149,7 @@ namespace music
          //::winrt::hstring midi::get_out_port_name(int i)
          //{
 
-         //   return __hstring(m_straOut[i]);
+         //   return as_hstring(m_straOut[i]);
 
          //}
 
@@ -213,7 +213,7 @@ namespace music
 
                   auto pout = __allocate< out >();
 
-                  ::winrt::Windows::Devices::Enumeration::DeviceInformation deviceinformation = GetDeviceInformationForOutPort(__hstring(strDevice));
+                  ::winrt::Windows::Devices::Enumeration::DeviceInformation deviceinformation = GetDeviceInformationForOutPort(as_hstring(strDevice));
 
                   if (deviceinformation)
                   {

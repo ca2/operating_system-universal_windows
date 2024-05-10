@@ -336,7 +336,7 @@ namespace music
          //   _devInfoCollection(nullptr),
          //   _enumCompleted(false)
          //{
-         //   _deviceWatcher = DeviceInformation::CreateWatcher(__hstring(strMidiSelector));
+         //   _deviceWatcher = DeviceInformation::CreateWatcher(as_hstring(strMidiSelector));
 
          //   _portAddedToken = _deviceWatcher.Added({ this, &MidiDeviceWatcher::OnPortAdded });
          //   _portRemovedToken = _deviceWatcher.Removed({ this, &MidiDeviceWatcher::OnPortRemoved });
@@ -371,7 +371,7 @@ namespace music
          //void message_io::MidiDeviceWatcher::UpdatePorts()
          //{
 
-         //   DeviceInformationCollection deviceInfoCollection = DeviceInformation::FindAllAsync(__hstring(m_strMidiSelector)).get();
+         //   DeviceInformationCollection deviceInfoCollection = DeviceInformation::FindAllAsync(as_hstring(m_strMidiSelector)).get();
 
          //   m_pio->clear_out_ports();
 
@@ -457,7 +457,7 @@ namespace music
          //::winrt::hstring message_io::get_out_port_name(int i)
          //{
 
-         //   return __hstring(m_straOut[i]);
+         //   return as_hstring(m_straOut[i]);
 
          //}
 

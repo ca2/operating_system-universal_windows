@@ -30,6 +30,9 @@
     <ClCompile Include="interprocess_base.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="connectivity.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="_.h">

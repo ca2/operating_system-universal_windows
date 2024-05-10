@@ -179,7 +179,7 @@ namespace windowing_universal_windows
 
       };
 
-      ::winrt::Windows::UI::Popups::UICommand command(__hstring(strTitle), predicate);
+      ::winrt::Windows::UI::Popups::UICommand command(as_hstring(strTitle), predicate);
 
       m_messagedialog.Commands().Append(command);
 
@@ -193,7 +193,7 @@ namespace windowing_universal_windows
 
       auto pfuture = this->sequence();
 
-      m_messagedialog = ::winrt::Windows::UI::Popups::MessageDialog(__hstring(strMessage), __hstring(strTitle));
+      m_messagedialog = ::winrt::Windows::UI::Popups::MessageDialog(as_hstring(strMessage), as_hstring(strTitle));
 
       ::user::message_box::show(puserinteraction, strMessage, strMessage, emessagebox);
 

@@ -3762,7 +3762,7 @@ return false;
       user_post([strUrl]()
          {
 
-            auto hstrUri = __hstring(strUrl);
+            auto hstrUri = as_hstring(strUrl);
 
             ::winrt::Windows::Foundation::Uri uri(hstrUri);
 

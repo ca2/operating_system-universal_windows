@@ -19,6 +19,12 @@ namespace apex_universal_windows
 
       ::pointer < ::particle >           m_pClearApplicationDataHandler;
 
+      class ::time m_timeLastConnectivityCheck;
+      class ::time m_timeLastInternetCheck;
+      bool m_bIp4Connectivity;
+      bool m_bIp6Connectivity;
+      bool m_bHasInternetIp4;
+      bool m_bHasInternetIp6;
 
       node();
       ~node() override;
@@ -133,6 +139,33 @@ namespace apex_universal_windows
       //virtual icon_pointer load_icon(const ::payload & payloadFile) override;
 
       void open_url_link_at_system_browser(const string & strUrl, const string & strProfile) override;
+
+      virtual void _has_ip_connectivity(bool & bIp4, bool & bIp6);
+
+      virtual void _defer_has_ip_connectivity(bool & bIp4, bool & bIp6);
+
+      virtual bool _has_ip4_connectivity();
+
+      virtual bool _has_ip6_connectivity();
+
+      virtual void _can_connect_to_host(const ::scoped_string & scopedstr, bool & bUsingIp4, bool & bUsingIp6);
+
+      virtual bool _can_connect_to_host_using_ip4(const ::scoped_string & scopedstr);
+
+      virtual bool _can_connect_to_host_using_ip6(const ::scoped_string & scopedstr);
+
+      virtual void _has_internet(bool & bIp4, bool & bIp6);
+
+      virtual void _defer_has_internet(bool & bIp4, bool & bIp6);
+
+      virtual bool _has_ip4_internet();
+
+      virtual bool _has_ip6_internet();
+
+
+      bool has_ip4_internet() override;
+
+      bool has_ip6_internet() override;
 
 
 

@@ -105,7 +105,7 @@ namespace apex_universal_windows
 
       //windows_runtime_launch_uri_synchronously(anotherappUri, timeTimeout);
 
-      auto hstrUri = __hstring(strUri);
+      auto hstrUri = as_hstring(strUri);
 
       user_post([this, hstrUri]()
          {
@@ -169,7 +169,7 @@ namespace apex_universal_windows
    //   pnode->node_post([anotherappUri]()
    //      {
 
-   //         auto hstrUri = __hstring(anotherappUri);
+   //         auto hstrUri = as_hstring(anotherappUri);
 
    //         ::winrt::Windows::Foundation::Uri uri(hstrUri);
 

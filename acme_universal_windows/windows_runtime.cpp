@@ -248,7 +248,7 @@ namespace acme_universal_windows
 
       bool bDir = false;
 
-      if (pparticle->acmedirectory()->_is(bDir, path) && bDir)
+      if (pparticle->acmedirectory()->_file_type(path) == ::file::e_type_existent_folder)
       {
 
          pathFolder = path;
@@ -281,7 +281,7 @@ namespace acme_universal_windows
 
       //}
 
-      auto hstrRelative = __hstring(pathFolder.windows_path());
+      auto hstrRelative = as_hstring(pathFolder.windows_path());
 
       try
       {
@@ -360,7 +360,7 @@ namespace acme_universal_windows
 
                }
 
-               auto hstrName = __hstring(strCurrentFolder);
+               auto hstrName = as_hstring(strCurrentFolder);
 
                auto item = folder.TryGetItemAsync(hstrName).get();
 
@@ -471,7 +471,7 @@ namespace acme_universal_windows
          //for (auto & strItem : straItems)
          //{
 
-         //   auto hstrItem = __hstring(strItem);
+         //   auto hstrItem = as_hstring(strItem);
 
          //   auto item = folder.TryGetItemAsync(hstrItem).get();
 
@@ -1158,7 +1158,7 @@ namespace acme_universal_windows
 
       }
 
-      auto hstrRelative = __hstring(strRelative);
+      auto hstrRelative = as_hstring(strRelative);
 
       if (dwCreationDisposition == CREATE_ALWAYS)
       {

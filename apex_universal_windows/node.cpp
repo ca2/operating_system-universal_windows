@@ -41,7 +41,14 @@ namespace apex_universal_windows
 {
 
 
-   node::node()
+   node::node() :
+      m_timeLastConnectivityCheck(zero_t{}),
+      m_timeLastInternetCheck(zero_t{}),
+       m_bIp4Connectivity(false),
+      m_bIp6Connectivity(false),
+      m_bHasInternetIp4(false),
+      m_bHasInternetIp6(false)
+
    {
 
 
@@ -3849,7 +3856,7 @@ namespace apex_universal_windows
       user_post([strUrl]()
          {
 
-            auto hstrUri = __hstring(strUrl);
+            auto hstrUri = as_hstring(strUrl);
 
             ::winrt::Windows::Foundation::Uri uri(hstrUri);
 

@@ -558,7 +558,7 @@ namespace windowing_universal_windows
 
             ::winrt::Windows::ApplicationModel::DataTransfer::DataPackage package;
 
-            auto hstr = __hstring(str);
+            auto hstr = as_hstring(str);
 
             package.SetText(hstr);
 

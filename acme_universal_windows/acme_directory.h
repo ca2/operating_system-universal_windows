@@ -78,10 +78,10 @@ namespace acme_universal_windows
 
       ::file::path user_appdata_local() override;
 
-      bool is(const ::file::path & path) override;
-      bool _is(bool & bDir, const ::file::path & path) override;
+      //bool is(const ::file::path & path) override;
+      //bool _is(bool & bDir, const ::file::path & path) override;
 
-
+      ::file::e_type _file_type(const ::file::path & path) override;
 
 // From acme/filesystem/file/dir.cpp by camilo 
 // From acme_posix/acme_directory.h
