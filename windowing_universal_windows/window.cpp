@@ -8383,7 +8383,7 @@ namespace windowing_universal_windows
 
             string strText;
 
-            puserinteractionFocus->_001GetText(strText);
+            puserinteractionFocus->get_text(strText);
 
             wstrText = strText;
 
@@ -8410,7 +8410,7 @@ namespace windowing_universal_windows
 
             strText = wstr;
 
-            puserinteractionFocus->_001SetText(strText, e_source_user);
+            puserinteractionFocus->set_text(strText, e_source_user);
 
          }
 

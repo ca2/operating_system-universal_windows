@@ -911,7 +911,7 @@
 //
 //         string strText;
 //
-//         puserinteraction->_001GetText(strText);
+//         puserinteraction->get_text(strText);
 //
 //         wstrText = strText;
 //
@@ -936,7 +936,7 @@
 //
 //         strText = wstr;
 //
-//         puserinteraction->_001SetText(strText, e_source_user);
+//         puserinteraction->set_text(strText, e_source_user);
 //
 //      }
 //

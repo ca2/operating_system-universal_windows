@@ -5168,7 +5168,7 @@ namespace aura_universal_windows
 
       string strText;
 
-      pinteraction->_001GetText(strText);
+      pinteraction->get_text(strText);
 
       strsize sizeLen = strText.length();
 
