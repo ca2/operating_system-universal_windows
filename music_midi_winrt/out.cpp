@@ -77,7 +77,7 @@ namespace music
          }
 
 
-         bool out::step()
+         bool out::midi_message_step()
          {
 
             auto IBuffer = windows_runtime_buffer(m_memoryBuffer.data(), m_memoryBuffer.size());
@@ -109,11 +109,11 @@ namespace music
          void out::note_on(int iChannel, unsigned char uchNote, unsigned char uchVelocity)
          {
 
-            iChannel = clip(0, 15, iChannel);
+            iChannel = minimum_maximum(iChannel, 0, 15);
 
-            uchNote = clip(0, 127, uchNote);
+            uchNote = minimum_maximum(uchNote, 0, 127);
 
-            uchVelocity = clip(0, 127, uchVelocity);
+            uchVelocity = minimum_maximum(uchVelocity, 0, 127);
 
             ::winrt::Windows::Devices::Midi::MidiNoteOnMessage message(iChannel, uchNote, uchVelocity);
 
@@ -127,11 +127,11 @@ namespace music
          void out::note_off(int iChannel, unsigned char uchNote, unsigned char uchVelocity)
          {
 
-            iChannel = clip(0, 15, iChannel);
+            iChannel = minimum_maximum(iChannel, 0, 15);
 
-            uchNote = clip(0, 127, uchNote);
+            uchNote = minimum_maximum(uchNote, 0, 127);
 
-            uchVelocity = clip(0, 127, uchVelocity);
+            uchVelocity = minimum_maximum(uchVelocity, 0, 127);
 
             ::winrt::Windows::Devices::Midi::MidiNoteOffMessage message(iChannel, uchNote, uchVelocity);
 
@@ -195,8 +195,7 @@ namespace music
 
             }
 
-            return __allocate < sequencer >(psequence, get_message_out(strDevice)
-            ));
+            return __allocate < sequencer >(psequence, get_message_out(strDevice));
 
          }
 

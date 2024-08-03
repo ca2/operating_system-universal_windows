@@ -49,7 +49,7 @@ namespace music
 
             void send_short_message(::music::midi::enum_midi_message emessage, int iChannel, int iData1, int iData2);
 
-            bool step() override;
+            bool midi_message_step() override;
 
          };
 
