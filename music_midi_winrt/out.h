@@ -39,6 +39,9 @@ namespace music
             void close() override;
 
 
+            bool sends_on_message() const override;
+
+
             void note_on(int iChannel, unsigned char uchNote, unsigned char uchVelocity) override;
             void note_off(int iChannel, unsigned char uchNote, unsigned char uchVelocity) override;
             void program_change(int iChannel, unsigned char uchProgram) override;

@@ -77,6 +77,14 @@ namespace music
          }
 
 
+         bool out::sends_on_message() const
+         {
+
+            return true;
+
+         }
+
+
          bool out::midi_message_step()
          {
 

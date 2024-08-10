@@ -302,7 +302,7 @@ namespace windowing_universal_windows
       if (!puserinteraction->m_pusersystem)
       {
 
-         puserinteraction->m_pusersystem = __allocate< ::user::system >();
+         puserinteraction->m_pusersystem = __create_new< ::user::system >();
 
       }
 
@@ -757,9 +757,9 @@ namespace windowing_universal_windows
       ////if (wstrClassName.get_length() > 0 && GetClassInfoExW(psystem->m_hinstance, wstrClassName, &wndcls) && wndcls.hIcon != nullptr)
       //{
 
-      //   //papplication->set_icon(puserinteraction, __allocate< ::draw2d::icon >(get_application(), wndcls.hIcon), false);
+      //   //papplication->set_icon(puserinteraction, __create_new< ::draw2d::icon >(get_application(), wndcls.hIcon), false);
 
-      //   //papplication->set_icon(puserinteraction, __allocate< ::draw2d::icon >(get_application(), wndcls.hIcon), true);
+      //   //papplication->set_icon(puserinteraction, __create_new< ::draw2d::icon >(get_application(), wndcls.hIcon), true);
 
       //}
 
@@ -6351,7 +6351,7 @@ namespace windowing_universal_windows
 
       //::user::os_calc_dark_mode();
 
-      //auto pcs = __allocate< ::user::system >();
+      //auto pcs = __create_new< ::user::system >();
 
       auto pusersystem = m_puserinteractionimpl->m_puserinteraction->m_pusersystem;
 
@@ -7041,7 +7041,7 @@ namespace windowing_universal_windows
 
             ::pointer<::user::message>spbase;
 
-            auto pkey = __allocate< ::message::key >();
+            auto pkey = __create_new< ::message::key >();
 
             spbase = pkey;
 
@@ -7531,7 +7531,7 @@ namespace windowing_universal_windows
 
       //   //::user::os_calc_dark_mode();
 
-      //   auto pcs = __allocate< ::user::system >();
+      //   auto pcs = __create_new< ::user::system >();
 
       //   auto puserinteraction = session()->m_papexsession->m_puserprimitiveHost;
 
@@ -7851,7 +7851,7 @@ namespace windowing_universal_windows
 
          }
 
-         auto pkey = __allocate< ::message::key >();
+         auto pkey = __create_new< ::message::key >();
          pkey->m_pwindow = this;
 
          pkey->m_oswindow = this;
@@ -7900,7 +7900,7 @@ namespace windowing_universal_windows
          //if (puserinteraction->m_pinteractionimpl == nullptr)
            // return;
 
-         auto pkey = __allocate< ::message::key >();
+         auto pkey = __create_new< ::message::key >();
 
          bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
 
@@ -7953,7 +7953,7 @@ namespace windowing_universal_windows
 
          ::pointer<::user::message>pusermessage;
 
-         auto pkey = __allocate< ::message::key >();
+         auto pkey = __create_new< ::message::key >();
 
          pusermessage = pkey;
 
@@ -8122,7 +8122,7 @@ namespace windowing_universal_windows
 
          m_iMouse = pointerPoint.PointerId();
 
-         auto pmouse = __allocate< ::message::mouse >();
+         auto pmouse = __create_new< ::message::mouse >();
 
          pusermessage = pmouse;
 
@@ -8186,7 +8186,7 @@ namespace windowing_universal_windows
 
          m_iMouse = pointerPoint.PointerId();
 
-         auto pmouse = __allocate< ::message::mouse >();
+         auto pmouse = __create_new< ::message::mouse >();
 
          pmouse->m_pwindow = this;
 
@@ -8272,7 +8272,7 @@ namespace windowing_universal_windows
 
          }
 
-         auto pmouse = __allocate< ::message::mouse >();
+         auto pmouse = __create_new< ::message::mouse >();
 
          pmouse->m_pwindow = this;
 
@@ -8738,7 +8738,7 @@ namespace windowing_universal_windows
 
          //window::SetWindow(window);
 
-         //pbuffer = __allocate< directx_base >();
+         //pbuffer = __create_new< directx_base >();
 
          //pbuffer->system() = system();
 
