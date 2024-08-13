@@ -435,7 +435,14 @@ namespace acme_universal_windows
 
       ::winrt::Windows::Storage::Streams::Buffer buffer((::u32)  nCount);
 
-      auto buffer2 = m_stream.ReadAsync(buffer, (::u32) nCount, ::winrt::Windows::Storage::Streams::InputStreamOptions::None).get();
+      ::winrt::Windows::Storage::Streams::IBuffer buffer2{};
+
+      m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this,&buffer2, buffer, nCount]()
+         {
+
+            buffer2 = m_stream.ReadAsync(buffer, (::u32)nCount, ::winrt::Windows::Storage::Streams::InputStreamOptions::None).get();
+
+      });
 
       auto read = buffer2.Length();
 

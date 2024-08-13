@@ -133,7 +133,10 @@ namespace apex_universal_windows
       auto hstrPort = as_hstring("0");
 
       // resolves domain name to IP addresses (may contain several)
-      auto endPointPairs = ::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(hostname, hstrPort).get();
+      decltype(::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(hostname, hstrPort).get())
+         endPointPairs{};
+
+      endPointPairs = ::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(hostname, hstrPort).get();
 
       if (endPointPairs == nullptr)
       {

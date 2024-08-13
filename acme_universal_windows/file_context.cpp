@@ -844,6 +844,8 @@ namespace acme_universal_windows
 
       }
 
+      ::file_pointer pfile;
+
       bool bDeferCreateFolder = eopen & ::file::e_open_write && eopen & ::file::e_open_defer_create_directory;
 
       string strRelative = path.folder();
@@ -852,7 +854,14 @@ namespace acme_universal_windows
 
       ::pointer < ::acme_universal_windows::node > pnode = node();
 
-      auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix, bDeferCreateFolder);
+      ::winrt::Windows::Storage::StorageFolder folder(nullptr);
+
+      m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &folder, pnode, &strRelative, &strPrefix, bDeferCreateFolder]()
+         {
+
+            folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix, bDeferCreateFolder);
+
+      });
 
       if (folder)
       {
@@ -863,14 +872,22 @@ namespace acme_universal_windows
 
          auto hstrName = as_hstring(pathName);
 
-         auto item = folder.TryGetItemAsync(hstrName).get();
+         winrt::Windows::Storage::IStorageItem item{};
 
-         if (!item)
+         m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &item, &folder, &hstrName]()
          {
 
-            item = folder.CreateFileAsync(hstrName).get();
+            item = folder.TryGetItemAsync(hstrName).get();
 
-         }
+            if (!item)
+            {
+
+               item = folder.CreateFileAsync(hstrName).get();
+
+            }
+
+         });
+
 
          if (item.IsOfType(::winrt::Windows::Storage::StorageItemTypes::File))
          {
@@ -882,7 +899,14 @@ namespace acme_universal_windows
             if (file)
             {
 
-               auto pfile = __allocate< ::acme_universal_windows::native_buffer >(file, eopen);
+               m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &pfile, &file, &eopen]()
+               {
+
+                  pfile = __allocate< ::acme_universal_windows::native_buffer >(file, eopen);
+
+                  pfile->initialize(this);
+
+               });
 
                return pfile;
 
@@ -892,7 +916,7 @@ namespace acme_universal_windows
 
       }
 
-      ::file_pointer pfile;
+//      ::file_pointer pfile;
 
       m_pcontext->__construct(pfile);
 

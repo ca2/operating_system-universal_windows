@@ -7757,12 +7757,17 @@ namespace windowing_universal_windows
 
                application()->payload("activation") = str;
 
-               if (system()->_handle_uri(str))
-               {
+               system()->post_procedure([this, str]()
+                  {
 
-                  return;
+                     if (system()->_handle_uri(str))
+                     {
 
-               }
+                        return;
+
+                     }
+
+               });
 
                //string strServer = system()->url()->get_server(str);
 
