@@ -78,10 +78,10 @@ using platform_char = char;
 
 
 // #define __EVALUATE(xxx) xxx
-// #define __CONCAT(xxx, yyy) xxx ## yyy
+// #define __CONCATENATE(xxx, yyy) xxx ## yyy
 // //#define __STRING(xxx) # xxx
 
-// #define __CONCAT3(xxx, yyy, zzz) xxx ## yyy ## zzz
+// #define __CONCATENATE3(xxx, yyy, zzz) xxx ## yyy ## zzz
 
 
 //#include <stdio.h>
