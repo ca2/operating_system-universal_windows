@@ -480,7 +480,7 @@ namespace ca2plugin_container
 
                m_puchMemory = (uint8_t *) ca2_alloc(len);
 
-               memcpy(m_puchMemory, pdata, len);
+               memory_copy(m_puchMemory, pdata, len);
 
                if(m_puchMemory != NULL)
                   m_bStream = true;

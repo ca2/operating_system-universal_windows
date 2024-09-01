@@ -921,7 +921,7 @@ Seq_Open_File_Cleanup:
          //               0xf0, 0x7e, 0x7f, 0x09,
          //               0x01, 0xf7, 0x00, 0x00};
          //            lpmidihdr->dwBytesRecorded = sizeof(gmModeOn);
-         //            memcpy(lpmidihdr->lpData, gmModeOn, sizeof(gmModeOn));
+         //            memory_copy(lpmidihdr->lpData, gmModeOn, sizeof(gmModeOn));
          //         }
          //         else if(m_uiSpecialModeV001Operation == SPMV001TempoChange)
          //         {
@@ -929,7 +929,7 @@ Seq_Open_File_Cleanup:
          //            file()->GetTempoEvent(event);
          //            file()->StreamEvent(event.GetDelta(), &event, lpmidihdr, I32_MAXIMUM, 256);
          //            // lpmidihdr->dwBytesRecorded = sizeof(gmModeOn);
-         //            // memcpy(lpmidihdr->lpData, gmModeOn, sizeof(gmModeOn));
+         //            // memory_copy(lpmidihdr->lpData, gmModeOn, sizeof(gmModeOn));
          //         }
          //         else
          //         {
