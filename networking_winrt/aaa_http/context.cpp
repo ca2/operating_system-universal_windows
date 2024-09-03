@@ -1676,7 +1676,7 @@ namespace http
             else
             {
 
-               set["get_memory"] = __allocate< memory >(psession->GetDataPtr(), psession->GetContentLength());
+               set["get_memory"] = ::place(new memory(psession->GetDataPtr(), psession->GetContentLength()));
 
             }
 
@@ -2535,7 +2535,7 @@ namespace http
          else
          {
 
-            set["get_memory"] = __allocate< memory >(psocket->GetDataPtr(), psocket->GetContentLength());
+            set["get_memory"] = ::place(new memory(psocket->GetDataPtr(), psocket->GetContentLength()));
 
          }
 

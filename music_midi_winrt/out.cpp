@@ -190,7 +190,7 @@ namespace music
             if (strEngine.case_insensitive_equals(m_strName))
             {
 
-               return __allocate< sequencer >(psequence, get_message_out(strDevice));
+               return ::place(new sequencer(psequence, get_message_out(strDevice)));
 
             }
 
@@ -203,7 +203,7 @@ namespace music
 
             }
 
-            return __allocate < sequencer >(psequence, get_message_out(strDevice));
+            return ::place(new sequencer(psequence, get_message_out(strDevice)));
 
          }
 

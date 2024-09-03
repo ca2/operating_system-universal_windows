@@ -458,7 +458,7 @@ namespace sockets
       //if(inputstream->UnconsumedBufferLength > 0)
       //{
 
-      //   Array < unsigned char, 1U > ^ ucha = ref __new< Array < unsigned char, 1U > >(reader->UnconsumedBufferLength);
+      //   Array < unsigned char, 1U > ^ ucha = ref new Array < unsigned char, 1U >(reader->UnconsumedBufferLength);
 
       //   reader->ReadBytes(ucha);
 
@@ -516,7 +516,7 @@ namespace sockets
       //   else if(asyncStatus == ::winrt::Windows::Foundation::AsyncStatus::Completed)
       //   {
       //      //int n = reader->UnconsumedBufferLength;
-      //      Array < unsigned char, 1U > ^ ucha = ref __new< Array < unsigned char, 1U > >(reader->UnconsumedBufferLength);
+      //      Array < unsigned char, 1U > ^ ucha = ref new Array < unsigned char, 1U >(reader->UnconsumedBufferLength);
       //      reader->ReadBytes(ucha);
       //      memory mem;
       //      mem.assign(ucha->Data, ucha->Length);

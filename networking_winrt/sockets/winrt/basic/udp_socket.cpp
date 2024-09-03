@@ -45,7 +45,7 @@ namespace sockets
       ([this](::winrt::Windows::Networking::Sockets::DatagramSocket ^ socket, ::winrt::Windows::Networking::Sockets::DatagramSocketMessageReceivedEventArgs ^ args)
       {
 
-         Array < unsigned char, 1U > ^ ucha = ref __new< Array < unsigned char, 1U >(args->GetDataReader >()->UnconsumedBufferLength);
+         Array < unsigned char, 1U > ^ ucha = ref new Array < unsigned char, 1U(args->GetDataReader >()->UnconsumedBufferLength);
 
          args->GetDataReader()->ReadBytes(ucha);
 
@@ -279,9 +279,9 @@ namespace sockets
 
       }
 
-      ::winrt::Windows::Storage::Streams::DataWriter ^ writer = ref __new< ::winrt::Windows::Storage::Streams::DataWriter >(m_datagramsocket->OutputStream);
+      ::winrt::Windows::Storage::Streams::DataWriter ^ writer = ref new ::winrt::Windows::Storage::Streams::DataWriter(m_datagramsocket->OutputStream);
 
-      writer->WriteBytes(ref __new< Array < unsigned char, 1U >( >(unsigned char *) data, len));
+      writer->WriteBytes(ref new Array < unsigned char, 1U( >(unsigned char *) data, len));
 
       /*writer->FlushAsync()->Completed = ref __new< ::winrt::Windows::Foundation::AsyncOperationCompletedHandler < bool >([this] >(::winrt::Windows::Foundation::IAsyncOperation<bool> asyncInfo, ::winrt::Windows::Foundation::AsyncStatus asyncStatus)
       {
@@ -482,7 +482,7 @@ namespace sockets
       __error("recvfrom", Errno, bsd_socket_error(Errno));
       }
       */
-      /*::winrt::Windows::Storage::Streams::DataReader ^ reader = ref __new< ::winrt::Windows::Storage::Streams::DataReader >(m_datagramsocket->OutputStream);
+      /*::winrt::Windows::Storage::Streams::DataReader ^ reader = ref new ::winrt::Windows::Storage::Streams::DataReader(m_datagramsocket->OutputStream);
       //int n = reader->UnconsumedBufferLength;
       Array < unsigned char, 1U > ^ ucha = nullptr;
       reader->ReadBytes(ucha);
