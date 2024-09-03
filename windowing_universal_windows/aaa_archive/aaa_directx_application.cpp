@@ -123,7 +123,7 @@
 //
 //      //::user::os_calc_dark_mode();
 //
-//      auto pcs = __allocate< ::user::system >();
+//      auto pcs = ::place(new ::user::system());
 //
 //      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost;
 //
@@ -258,7 +258,7 @@
 //
 //      impact::SetWindow(window);
 //
-//      m_pdirectxbase = __allocate< directx_base >();
+//      m_pdirectxbase = ::place(new directx_base());
 //
 //      m_pdirectxbase->system() = system();
 //
@@ -419,7 +419,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      auto pkey  = __allocate< ::message::key >();
+//      auto pkey  = ::place(new ::message::key());
 //
 //      pusermessage = pkey;
 //
@@ -459,7 +459,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      auto pkey  = __allocate< ::message::key >();
+//      auto pkey  = ::place(new ::message::key());
 //
 //      pusermessage = pkey;
 //

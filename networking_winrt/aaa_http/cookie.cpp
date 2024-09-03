@@ -140,7 +140,7 @@ namespace http
       if(::is_null(pFind))
       {
 
-         auto pcookie = __allocate< class cookie >();
+         auto pcookie = ::place(new class cookie());
 
          pcookie->m_strName = name;
 

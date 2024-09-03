@@ -65,7 +65,7 @@ namespace acme_universal_windows
    //   ASSERT_VALID(this);
    //   ASSERT(m_hfile != (::u32)INVALID_HANDLE_VALUE);
 
-   //   ::pointer<file>pFile = __allocate< file >();
+   //   ::pointer<file>pFile = ::place(new file());
    //   HANDLE hFile;
    //   if (!::DuplicateHandle(::GetCurrentProcess(), (HANDLE)m_hfile,
    //                          ::GetCurrentProcess(), &hFile, 0, false, DUPLICATE_SAME_ACCESS))

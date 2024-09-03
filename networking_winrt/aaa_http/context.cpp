@@ -1134,7 +1134,7 @@ namespace http
 
       string strSessId;
 
-      psession = __allocate< ::sockets::http_session >(strProtocol, strHost);
+      psession = ::place(new ::sockets::http_session(strProtocol, strHost));
 
       /*::pointer<::account::user>puser;
 
@@ -1904,7 +1904,7 @@ namespace http
 
          bPut = true;
 
-         psocket = __allocate< ::sockets::http_put_socket >(strUrl);
+         psocket = ::place(new ::sockets::http_put_socket(strUrl));
 
          dynamic_cast <::sockets::http_put_socket *> (psocket.m_p)->m_file = set["put"].cast < ::file::file >();
 
@@ -1918,7 +1918,7 @@ namespace http
 
          bPut = false;
 
-         psocket = __allocate< ::sockets::http_post_socket >(strUrl);
+         psocket = ::place(new ::sockets::http_post_socket(strUrl));
 
          dynamic_cast <::sockets::http_post_socket *> (psocket.m_p)->m_fields = set["post"].propset();
 
@@ -1939,7 +1939,7 @@ namespace http
 
          bPut = false;
 
-         psocket = __allocate< ::http::get_socket >(strUrl);
+         psocket = ::place(new ::http::get_socket(strUrl));
 
          psocket->m_emethod = ::sockets::string_http_method(set(__id(http_method), "GET"));
 

@@ -1712,7 +1712,7 @@ namespace crypto
    ::pointer<::crypto::rsa>crypto::generate_rsa_key()
    {
 
-      auto popensslrsa = __allocate< ::openssl::rsa >();
+      auto popensslrsa = ::place(new ::openssl::rsa());
 
       RSA*& prsa = popensslrsa->m_prsa;
 
@@ -1811,7 +1811,7 @@ namespace crypto
 
       }
 
-      auto popensslrsa = __allocate< ::openssl::rsa >();
+      auto popensslrsa = ::place(new ::openssl::rsa());
 
       RSA*& prsa = popensslrsa->m_prsa;
 
@@ -1838,7 +1838,7 @@ namespace crypto
 
       }
 
-      auto popensslrsa = __allocate< ::openssl::rsa >();
+      auto popensslrsa = ::place(new ::openssl::rsa());
 
       RSA*& prsa = popensslrsa->m_prsa;
 

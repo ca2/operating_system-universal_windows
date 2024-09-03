@@ -211,7 +211,7 @@ namespace music
                if (!pmessageout)
                {
 
-                  auto pout = __allocate< out >();
+                  auto pout = ::place(new out());
 
                   ::winrt::Windows::Devices::Enumeration::DeviceInformation deviceinformation = GetDeviceInformationForOutPort(as_hstring(strDevice));
 
