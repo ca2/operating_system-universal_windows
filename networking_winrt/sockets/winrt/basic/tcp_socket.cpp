@@ -142,7 +142,7 @@ namespace sockets
 
       m_bConnecting = true;
 
-      m_streamsocket = ref __new< ::winrt::Windows::Networking::Sockets::StreamSocket >();
+      m_streamsocket = ref new ::winrt::Windows::Networking::Sockets::StreamSocket();
 
       //attach(data);
 
@@ -211,7 +211,7 @@ namespace sockets
             }*/
 
 
-      m_streamsocket = ref __new< ::winrt::Windows::Networking::Sockets::StreamSocket >();
+      m_streamsocket = ref new ::winrt::Windows::Networking::Sockets::StreamSocket();
 
       ::winrt::Windows::Networking::EndpointPair ^ pair = ref __new< ::winrt::Windows::Networking::EndpointPair(bind_ad.m_hostname,  ansi_string_from_i64(bind_ad.get_service_number()), ad.m_hostname, ansi_string_from_i64(ad.get_service_number >()));
       //::sockets::socket::os_data data;
@@ -233,7 +233,7 @@ namespace sockets
       });
 
 
-      m_streamsocket = ref __new< ::winrt::Windows::Networking::Sockets::StreamSocket >();
+      m_streamsocket = ref new ::winrt::Windows::Networking::Sockets::StreamSocket();
 
       //data.o = m_posdata->m_streamsocket;
       
@@ -760,7 +760,7 @@ namespace sockets
          }
          else
          {
-            m_obuf_top = __new< OUTPUT >();
+            m_obuf_top = new OUTPUT();
             m_obuf.add_tail( m_obuf_top );
          }
       }

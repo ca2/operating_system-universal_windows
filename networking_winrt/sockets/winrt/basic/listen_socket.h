@@ -207,13 +207,13 @@ namespace sockets
          m_bDetach(false)
       {
             
-         m_bridge = ref __new< bridge >(this);
+         m_bridge = ref new bridge(this);
             
-         //m_posdata = __new< os_data >();
+         //m_posdata = new os_data();
 
          if (use_creator)
          {
-            m_creator = __new< SOCKET_IMPL >(h);
+            m_creator = new SOCKET_IMPL(h);
             base_socket *tmp = m_creator ->new_listen_socket();
             if (tmp && dynamic_cast<SOCKET_IMPL *>(tmp))
             {
@@ -292,7 +292,7 @@ namespace sockets
       int Bind(port_t port, const string & protocol, int depth = 20)
       {
 
-         m_listener = ref __new< ::winrt::Windows::Networking::Sockets::StreamSocketListener >();
+         m_listener = ref new ::winrt::Windows::Networking::Sockets::StreamSocketListener();
 
          m_listener->BindServiceNameAsync(as_string(port));
 
@@ -328,7 +328,7 @@ namespace sockets
 
          create_socket();
 
-         m_listener = ref __new< ::winrt::Windows::Networking::Sockets::StreamSocketListener >();
+         m_listener = ref new ::winrt::Windows::Networking::Sockets::StreamSocketListener();
 
          m_tokenConnectionReceived = m_listener->ConnectionReceived += ref __new< ::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Networking::Sockets::StreamSocketListener^, ::winrt::Windows::Networking::Sockets::StreamSocketListenerConnectionReceivedEventArgs^> >(m_bridge, &bridge::StreamSocketListener_ConnectionReceived);
 

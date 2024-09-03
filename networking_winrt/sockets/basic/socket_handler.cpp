@@ -58,9 +58,9 @@ namespace sockets_bsd
       m_p2 = this;
       defer_create_synchronization();
       zero(m_socks4_host);
-      //m_prfds = __new< fd_set >();
-      //m_pwfds = __new< fd_set >();
-      //m_pefds = __new< fd_set >();
+      //m_prfds = new fd_set();
+      //m_pwfds = new fd_set();
+      //m_pefds = new fd_set();
       FD_ZERO(&m_rfds);
       FD_ZERO(&m_wfds);
       FD_ZERO(&m_efds);

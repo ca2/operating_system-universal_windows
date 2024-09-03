@@ -18,7 +18,7 @@ namespace sockets
       , m_iConnectionRetryCount(retries)
       , m_b_read_ts(false)
    {
-      //m_posdata = __new< os_data >();
+      //m_posdata = new os_data();
       SetIpv6(ipv6);
    }
 
@@ -34,7 +34,7 @@ namespace sockets
    int udp_socket::Bind(port_t port, int range)
    {
 
-      m_datagramsocket = ref __new< ::winrt::Windows::Networking::Sockets::DatagramSocket >();
+      m_datagramsocket = ref new ::winrt::Windows::Networking::Sockets::DatagramSocket();
       //::sockets::socket::os_data data;
       //data.o = m_datagramsocket;
       //attach(data);
@@ -85,7 +85,7 @@ namespace sockets
 
       //         attach(CreateSocket(ad.GetFamily(), SOCK_DGRAM, "udp"));
 
-      m_datagramsocket = ref __new< ::winrt::Windows::Networking::Sockets::DatagramSocket >();
+      m_datagramsocket = ref new ::winrt::Windows::Networking::Sockets::DatagramSocket();
 
       //::sockets::socket::os_data data;
       //data.o = m_datagramsocket;
@@ -140,7 +140,7 @@ namespace sockets
    bool udp_socket::open(::networking::address & ad)
    {
 
-      m_datagramsocket = ref __new< ::winrt::Windows::Networking::Sockets::DatagramSocket >();
+      m_datagramsocket = ref new ::winrt::Windows::Networking::Sockets::DatagramSocket();
 
       //::sockets::socket::os_data data;
       //data.o = m_datagramsocket;
