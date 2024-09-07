@@ -174,9 +174,9 @@ namespace windowing_universal_windows
    //         if (getfileimage.m_iImage >= 0)
    //         {
 
-   //            ::image_pointer pimageFirst;
+   //            ::image::image_pointer pimageFirst;
 
-   //            ::image_pointer pimage;
+   //            ::image::image_pointer pimage;
 
    //            for (int i = m_iaSize.get_upper_bound(); i >= 0; i--)
    //            {
@@ -221,9 +221,9 @@ namespace windowing_universal_windows
 
    //               }
 
-   //               image_source imagesource(pimage);
+   //               ::image::image_source imagesource(pimage);
 
-   //               image_drawing_options imagedrawingoptions(::rectangle_f64(), e_placement_aspect_fit);
+   //               ::image::image_drawing_options imagedrawingoptions(::rectangle_f64(), e_placement_aspect_fit);
 
    //               set_image(getfileimage.m_iImage, iSize, { imagedrawingoptions, imagesource });
 
@@ -1540,7 +1540,7 @@ namespace windowing_universal_windows
 
       //   synchronouslock.unlock();
 
-      //   ::file::path path = m_pcontext->m_papexcontext->defer_process_path(pathIconParam);
+      //   ::file::path path = m_pcontext->defer_process_matter_path(pathIconParam);
 
       //   for (auto iSize : m_iaSize)
       //   {
@@ -1586,13 +1586,13 @@ namespace windowing_universal_windows
 
       pwindowingicon->add_icon(hicon);
 
-      auto pdrawicon = __create < ::draw2d::icon >();
+      auto pdrawicon = __create < ::image::icon >();
      
       pdrawicon->initialize_with_windowing_icon(pwindowingicon);
 
       {
 
-         image_source imagesource(pdrawicon);
+         ::image::image_source imagesource(pdrawicon);
 
          //   m_pimagelist[iSize]->set(getfileimage.m_iImage, imagesource);
 

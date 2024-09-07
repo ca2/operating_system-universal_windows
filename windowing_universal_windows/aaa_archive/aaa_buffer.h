@@ -54,7 +54,7 @@ namespace windowing_universal_windows
       virtual bool update_window() override;
 
 
-      virtual bool update_window(::image * pimage) override;
+      virtual bool update_window(::image::image * pimage) override;
 
 
       virtual ::draw2d::graphics * on_begin_draw() override;

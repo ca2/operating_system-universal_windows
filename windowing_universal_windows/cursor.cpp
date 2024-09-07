@@ -70,7 +70,7 @@ namespace windowing_universal_windows
    }
 
 
-   void cursor::_create_from_image(const ::image * pimage, ::i32 xHotspot, ::i32 yHotspot)
+   void cursor::_create_from_image(const ::image::image * pimage, ::i32 xHotspot, ::i32 yHotspot)
    {
 
       //HCURSOR hcursor = (HCURSOR) create_alpha_cursor(pimage, xHotspot, yHotspot);

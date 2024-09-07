@@ -558,7 +558,7 @@ namespace aura_universal_windows
    //}
 
 
-   void interaction_impl::_002OnDraw(::image * pimage)
+   void interaction_impl::_002OnDraw(::image::image * pimage)
    {
       throw ::exception(todo);
       //::CallWindowProc(*GetSuperWndProcAddr(), get_handle(), WM_PRINT, (WPARAM)((dynamic_cast<::universal_windows::graphics * >(pgraphics))->get_os_data()), (LPARAM)(PRF_CHILDREN | PRF_CLIENT));
@@ -1877,7 +1877,7 @@ return true;
    //   //      EnumWindows(GetAppsEnumWindowsProc, (LPARAM) &wnda);
    //}
 
-  /*   void interaction_impl::_001OnDeferPaintLayeredWindowBackground(::image * pimage)
+  /*   void interaction_impl::_001OnDeferPaintLayeredWindowBackground(::image::image * pimage)
    {
    _001DeferPaintLayeredWindowBackground(pgraphics);
    }*/
@@ -1971,7 +1971,7 @@ return true;
       //   ::rectangle_i32 rectangleWindow;
       //   window_rectangle(rectangleWindow);
 
-      //   ::image_pointer pimage(this);
+      //   ::image::image_pointer pimage(this);
       //   if(!pimage = create_image(rectangleWindow.bottom_right()))
       //      return;
 
@@ -3034,7 +3034,7 @@ return true;
       return nullptr;
    }
 
-  bool interaction_impl::ReleaseDC(::image * pimage)
+  bool interaction_impl::ReleaseDC(::image::image * pimage)
    {
 
       throw ::exception(todo);
@@ -4884,7 +4884,7 @@ namespace aura_universal_windows
    //}
 
 
-   void interaction_impl::set_impact_port_org(::image * pimage)
+   void interaction_impl::set_impact_port_org(::image::image * pimage)
    {
       // graphics will be already set its impact port to the interaction_impl for linux - cairo with xlib
 

@@ -80,7 +80,7 @@ namespace aura_universal_windows
 
       //virtual ::e_status main_async(const ::procedure & procedure, enum_priority epriority = e_priority_normal);
 
-      void _002OnDraw(::image * pimage);
+      void _002OnDraw(::image::image * pimage);
 
       void on_layout(::draw2d::graphics_pointer & pgraphics);
 
@@ -223,7 +223,7 @@ namespace aura_universal_windows
       // Update/Painting Functions
       virtual ::draw2d::graphics * GetDC();
       virtual ::draw2d::graphics * GetWindowDC();
-      virtual bool ReleaseDC(::image * pimage);
+      virtual bool ReleaseDC(::image::image * pimage);
       virtual void Print(::draw2d::graphics_pointer & pgraphics, u32 dwFlags) const;
       virtual void PrintClient(::draw2d::graphics_pointer & pgraphics, u32 dwFlags) const;
 
@@ -666,7 +666,7 @@ namespace aura_universal_windows
 
       //winrt::agile_ref < ::winrt::Windows::UI::Core::CoreWindow > get_os_window();
 
-      void set_impact_port_org(::image * pimage);
+      void set_impact_port_org(::image::image * pimage);
 
       void offset_impact_port_org(::rectangle_i32 * lprectScreen);
 

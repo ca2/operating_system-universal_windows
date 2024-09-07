@@ -150,7 +150,7 @@ namespace app_net
 
             auto papplication = get_application();
 
-            string strGet = papplication->http().get(m_strUrl, set);
+            string strGet = papplication->http()->get(m_strUrl, set);
 
             {
 

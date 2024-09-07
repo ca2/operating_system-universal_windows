@@ -121,7 +121,7 @@ namespace windowing_universal_windows
    void icon::load_file(const ::string & strPath)
    {
 
-      //m_ppathProcessed = m_pcontext->m_papexcontext->defer_process_matter_path(strPath);
+      //m_ppathProcessed = m_pcontext->defer_process_matter_path(strPath);
 
       m_path = strPath;
 
@@ -196,7 +196,7 @@ namespace windowing_universal_windows
    }
 
 
-   image_pointer icon::get_image(const ::size_i32 & size)
+   ::image::image_pointer icon::get_image(const ::size_i32 & size)
    {
 
       auto& pimage  = m_imagemap[size];
@@ -215,7 +215,7 @@ namespace windowing_universal_windows
    }
 
 
-   image_pointer icon::_create_image(const ::size_i32 & size)
+   ::image::image_pointer icon::_create_image(const ::size_i32 & size)
    {
 
       HICON hicon = (HICON) get_os_data(size);
