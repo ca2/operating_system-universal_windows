@@ -130,7 +130,7 @@ if (WIN32 OR UWP)
 endif ()
 
 
-if (${LINUX} OR ${FREEBSD} OR ${OPENBSD} OR ${NETBSD})
+if (${LINUX} OR ${__BSD__})
 
    list(APPEND library_source
       bsd/_.cpp
@@ -176,7 +176,7 @@ if (MSVC)
    target_link_options(${PROJECT_NAME} PRIVATE "/IMPLIB:${LIBRARY_OUTPUT_PATH}/${PROJECT_NAME}.lib")
    target_link_options(${PROJECT_NAME} PRIVATE "/DEF:${CMAKE_CURRENT_SOURCE_DIR}/${PROJECT_NAME}.def")
    target_link_libraries(${PROJECT_NAME} PRIVATE ${library_references})
-elseif(${LINUX} OR ${FREEBSD} OR ${OPENBSD} OR ${NETBSD})
+elseif(${LINUX} OR ${__BSD__})
 
    target_compile_features(${PROJECT_NAME} PRIVATE cxx_std_20)
 
