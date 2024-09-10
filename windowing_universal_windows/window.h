@@ -437,7 +437,7 @@ namespace windowing_universal_windows
 
       //virtual bool bamf_set_icon() override;
 
-      //virtual bool set_icon(::image * pimage) override;
+      //virtual bool set_icon(::image::image * pimage) override;
 
       //int x_change_property(Atom property, Atom type, int format, int mode, const unsigned char * data, int nelements);
 
@@ -466,7 +466,7 @@ namespace windowing_universal_windows
 
       // void route_command(::message::command * pcommand, bool bRouteToKeyDescendant = false) override;
 
-      //void _002OnDraw(::image * pimage);
+      //void _002OnDraw(::image::image * pimage);
 
       //virtual void present();
 

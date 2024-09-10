@@ -316,7 +316,7 @@ namespace windowing_universal_windows
 
    ::point_i32 g_pointLastBottomRight;
 
-   bool buffer::update_window(::image * pimage)
+   bool buffer::update_window(::image::image * pimage)
    {
 
       ::user::interaction * pinteraction = m_pimpl->m_puserinteraction;

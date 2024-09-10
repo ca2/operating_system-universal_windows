@@ -61,7 +61,7 @@ namespace windowing_universal_windows
       ::pointer < ::graphics::buffer_item >                 m_pbufferitem;
       bool                                                  m_bInitialized;
       bool                                                  m_bInit;
-      //::image_pointer                                       m_pimage;
+      //::image::image_pointer                                       m_pimage;
       bool                                                  m_bCreated;
       ::winrt::Windows::Foundation::Rect                    m_windowBounds;
 

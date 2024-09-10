@@ -757,9 +757,9 @@ namespace windowing_universal_windows
       ////if (wstrClassName.get_length() > 0 && GetClassInfoExW(psystem->m_hinstance, wstrClassName, &wndcls) && wndcls.hIcon != nullptr)
       //{
 
-      //   //papplication->set_icon(puserinteraction, __create_new< ::draw2d::icon >(get_application(), wndcls.hIcon), false);
+      //   //papplication->set_icon(puserinteraction, __create_new< ::image::icon >(get_application(), wndcls.hIcon), false);
 
-      //   //papplication->set_icon(puserinteraction, __create_new< ::draw2d::icon >(get_application(), wndcls.hIcon), true);
+      //   //papplication->set_icon(puserinteraction, __create_new< ::image::icon >(get_application(), wndcls.hIcon), true);
 
       //}
 
@@ -1235,7 +1235,7 @@ namespace windowing_universal_windows
    //}
 
 //
-//   bool window::set_icon(::image * pimage)
+//   bool window::set_icon(::image::image * pimage)
 //   {
 //
 //      // http://stackoverflow.com/questions/10699927/xlib-argb-window-icon
@@ -5041,7 +5041,7 @@ namespace windowing_universal_windows
 
    /*
 
-/*   void window::_001DeferPaintLayeredWindowBackground(::image * pimage)
+/*   void window::_001DeferPaintLayeredWindowBackground(::image::image * pimage)
    {
 
 
