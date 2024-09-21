@@ -857,7 +857,7 @@ namespace acme_universal_windows
       ::winrt::Windows::Storage::StorageFolder folder(nullptr);
 
       m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &folder, pnode, &strRelative, &strPrefix, bDeferCreateFolder]()
-         {
+      {
 
             folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix, bDeferCreateFolder);
 

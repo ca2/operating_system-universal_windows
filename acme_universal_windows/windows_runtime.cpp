@@ -281,6 +281,13 @@ namespace acme_universal_windows
 
       //}
 
+      if (!is_directory(pathFolder))
+      {
+
+         return nullptr;
+
+      }
+
       auto hstrRelative = as_hstring(pathFolder.windows_path());
 
       try
