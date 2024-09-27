@@ -6,7 +6,7 @@
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/platform/application.h"
 #include "acme/platform/context.h"
-#include "acme/primitive/primitive/memory.h"
+#include "acme/prototype/prototype/memory.h"
 #include "acme/_operating_system.h"
 #include "acme/operating_system/universal_windows/parallelization_winrt.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"

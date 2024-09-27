@@ -4,7 +4,7 @@
 #include "interprocess_target.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme/platform/node.h"
-#include "acme/primitive/string/base64.h"
+#include "acme/prototype/string/base64.h"
 #include <winrt/Windows.System.h>
 
 
