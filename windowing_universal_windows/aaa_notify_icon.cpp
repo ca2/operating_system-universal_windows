@@ -300,7 +300,7 @@ namespace windowing_win32
 
       auto pevent = __create_new < ::user::control_event >();
 
-      ptopic->m_puserelement->m_atom = m_atom;
+      ptopic->user_interaction_id() = m_atom;
 
       ptopic->user_interaction() = this;
 

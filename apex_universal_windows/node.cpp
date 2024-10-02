@@ -120,7 +120,7 @@ namespace apex_universal_windows
    //void node::handle(::topic * ptopic, ::context * pcontext)
    //{
 
-   //   if (ptopic->m_puserelement->m_atom == "clear_application_data")
+   //   if (ptopic->user_interaction_id() == "clear_application_data")
    //   {
 
    //      acmefile()->clear_application_data();
