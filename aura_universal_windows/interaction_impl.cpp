@@ -179,7 +179,7 @@ namespace aura_universal_windows
    void interaction_impl::post_non_client_destroy()
    {
 
-      ::user::interaction_impl::post_non_client_destroy();
+      ::windowing::window::post_non_client_destroy();
 
 #ifdef WINDOWS_DESKTOP
       
@@ -222,7 +222,7 @@ namespace aura_universal_windows
    bool interaction_impl::DestroyWindow()
    {
       //single_lock synchronouslock(m_pthread == nullptr ? nullptr : &m_pthread->m_mutex,true);
-      //::user::interaction_impl * pWnd;
+      //::windowing::window * pWnd;
       //hwnd_map * pMap;
       //oswindow hWndOrig;
       bool bResult = false;
@@ -382,7 +382,7 @@ namespace aura_universal_windows
 
 
 
-   ::user::interaction_impl * interaction_impl::GetAncestor(::u32 gaFlags) const
+   ::windowing::window * interaction_impl::GetAncestor(::u32 gaFlags) const
    {
 
 #ifdef WINDOWS_DESKTOP
@@ -1033,7 +1033,7 @@ interaction_impl wndTemp;
 wndTemp.set_handle(pCtl->hWnd);
 ::u32 nCtlType = pCtl->nCtlType;
 // if not coming from a permanent interaction_impl, use stack temporary
-::user::interaction_impl * pWnd = ::universal_windows::interaction_impl::FromHandlePermanent(wndTemp.get_handle());
+::windowing::window * pWnd = ::universal_windows::interaction_impl::FromHandlePermanent(wndTemp.get_handle());
 if (pWnd == nullptr)
 {
 pWnd = &wndTemp;
@@ -1338,7 +1338,7 @@ return true;
    ///* trans oswindow CLASS_DECL_AURA __get_parent_owner(::user::interaction * hWnd)
    //{
    //// check for permanent-owned interaction_impl first
-   //::user::interaction_impl * pWnd = ::universal_windows::interaction_impl::FromHandlePermanent(hWnd);
+   //::windowing::window * pWnd = ::universal_windows::interaction_impl::FromHandlePermanent(hWnd);
    //if (pWnd != nullptr)
    //return WIN_WINDOW(pWnd)->get_owner();
 
@@ -1419,7 +1419,7 @@ return true;
       throw ::exception(todo);
 
       //// special activate logic for floating toolbars and palettes
-      //::user::interaction_impl * pActiveWnd = GetForegroundWindow();
+      //::windowing::window * pActiveWnd = GetForegroundWindow();
       //if (pActiveWnd == nullptr || !(WIN_WINDOW(pActiveWnd)->get_handle() == get_handle() || ::IsChild(WIN_WINDOW(pActiveWnd)->get_handle(), get_handle())))
       //{
       //   // clicking on floating frame when it does not have
@@ -1452,7 +1452,7 @@ return true;
    //   return pFrameWnd;
    //}
 
-   /*   ::user::interaction_impl * interaction_impl::GetSafeOwner(::user::interaction_impl * pParent, oswindow* pWndTop)
+   /*   ::windowing::window * interaction_impl::GetSafeOwner(::windowing::window * pParent, oswindow* pWndTop)
       {
       oswindow hWnd = GetSafeOwner_((oswindow) pParent->get_os_data(), pWndTop);
       return ::universal_windows::interaction_impl::from_handle(hWnd);
@@ -1705,7 +1705,7 @@ return true;
    //   Default();
    //}
 
-   void interaction_impl::OnSetFocus(::user::interaction_impl *)
+   void interaction_impl::OnSetFocus(::windowing::window *)
    {
       bool bHandled;
 
@@ -2020,7 +2020,7 @@ return true;
    }
 
 
-   void interaction_impl::OnEnterIdle(::u32 /*nWhy*/,::user::interaction_impl * /*pWho*/)
+   void interaction_impl::OnEnterIdle(::u32 /*nWhy*/,::windowing::window * /*pWho*/)
    {
 
       throw ::exception(todo);
@@ -2041,7 +2041,7 @@ return true;
       //Default();
    }
 
-   //HBRUSH interaction_impl::OnCtlColor(::draw2d::graphics *,::user::interaction_impl * pWnd,::u32)
+   //HBRUSH interaction_impl::OnCtlColor(::draw2d::graphics *,::windowing::window * pWnd,::u32)
    //{
    //   //ASSERT(pWnd != nullptr && pWnd->get_handle() != nullptr);
    //   //LRESULT lResult;
@@ -2260,7 +2260,7 @@ return true;
    //}
    //
 
-   //bool interaction_impl::SubclassDlgItem(::u32 nID,::user::interaction_impl * pParent)
+   //bool interaction_impl::SubclassDlgItem(::u32 nID,::windowing::window * pParent)
    //{
 
    //   throw ::exception(todo);
@@ -2716,7 +2716,7 @@ return true;
    //// interaction_impl
    ///* interaction_impl::operator oswindow() const
    //{ return this == nullptr ? nullptr : get_handle(); }*/
-   //bool interaction_impl::operator==(const ::user::interaction_impl& wnd) const
+   //bool interaction_impl::operator==(const ::windowing::window& wnd) const
    //{
 
    //   return wnd.get_handle() == get_handle();
@@ -2724,7 +2724,7 @@ return true;
    //}
 
 
-   //bool interaction_impl::operator!=(const ::user::interaction_impl& wnd) const
+   //bool interaction_impl::operator!=(const ::windowing::window& wnd) const
    //{
 
    //   return wnd.get_handle() != get_handle();
@@ -2986,7 +2986,7 @@ return true;
    }
 
 
-   void interaction_impl::MapWindowPoints(::user::interaction_impl * puserinteractionTo,::point_i32 * lpPoint,::u32 nCount)
+   void interaction_impl::MapWindowPoints(::windowing::window * puserinteractionTo,::point_i32 * lpPoint,::u32 nCount)
    {
 
       throw ::exception(todo);
@@ -2995,7 +2995,7 @@ return true;
       //::MapWindowPoints(get_handle(), (oswindow) puserinteractionTo->get_os_data(), lpPoint, nCount);
    }
 
-   void interaction_impl::MapWindowPoints(::user::interaction_impl * puserinteractionTo,::rectangle_i32 * lpRect)
+   void interaction_impl::MapWindowPoints(::windowing::window * puserinteractionTo,::rectangle_i32 * lpRect)
    {
 
       throw ::exception(todo);
@@ -3332,7 +3332,7 @@ return true;
    {
 
 
-      return ::user::interaction_impl::SetTimer(uEvent, timeElapse,pfnTimer, bPeriodic, pdata);
+      return ::windowing::window::SetTimer(uEvent, timeElapse,pfnTimer, bPeriodic, pdata);
 
 
    }
@@ -3341,7 +3341,7 @@ return true;
    void interaction_impl::KillTimer(uptr uEvent)
    {
 
-      return ::user::interaction_impl::KillTimer(uEvent);
+      return ::windowing::window::KillTimer(uEvent);
 
    }
 
@@ -3536,7 +3536,7 @@ return true;
 
 #endif
 
-   ::user::interaction_impl * interaction_impl::GetNextDlgGroupItem(::user::interaction_impl * pWndCtl,bool bPrevious) const
+   ::windowing::window * interaction_impl::GetNextDlgGroupItem(::windowing::window * pWndCtl,bool bPrevious) const
    {
 
       throw ::exception(todo);
@@ -3548,7 +3548,7 @@ return true;
 
    }
 
-   ::user::interaction_impl * interaction_impl::GetNextDlgTabItem(::user::interaction_impl * pWndCtl,bool bPrevious) const
+   ::windowing::window * interaction_impl::GetNextDlgTabItem(::windowing::window * pWndCtl,bool bPrevious) const
    {
 
       throw ::exception(todo);
@@ -3719,7 +3719,7 @@ return true;
    //}
 
    
-   //::pointer<::user::interaction_impl>interaction_impl::WindowFromPoint(::point_i32 point_i32)
+   //::pointer<::windowing::window>interaction_impl::WindowFromPoint(::point_i32 point_i32)
    //{
 
    //   throw ::exception(todo);
@@ -3774,7 +3774,7 @@ return true;
    //}
 
 
-   //::user::interaction_impl * interaction_impl::GetOpenClipboardWindow()
+   //::windowing::window * interaction_impl::GetOpenClipboardWindow()
    //{
 
    //   throw ::exception(todo);
@@ -3784,7 +3784,7 @@ return true;
    //}
 
 
-   //::user::interaction_impl * interaction_impl::GetClipboardOwner()
+   //::windowing::window * interaction_impl::GetClipboardOwner()
    //{
 
    //   throw ::exception(todo);
@@ -3794,7 +3794,7 @@ return true;
    //}
 
 
-   //::user::interaction_impl * interaction_impl::GetClipboardViewer()
+   //::windowing::window * interaction_impl::GetClipboardViewer()
    //{
 
    //   throw ::exception(todo);
@@ -3848,7 +3848,7 @@ return true;
    //}
 
 
-   //::pointer<::user::interaction_impl>interaction_impl::GetForegroundWindow()
+   //::pointer<::windowing::window>interaction_impl::GetForegroundWindow()
    //{
 
    //   throw ::exception(todo);
@@ -3942,7 +3942,7 @@ return true;
    //}
 
 
-   //void interaction_impl::OnActivate(::u32,::user::interaction_impl *,bool)
+   //void interaction_impl::OnActivate(::u32,::windowing::window *,bool)
    //{
    //   
    //   Default();
@@ -3966,14 +3966,14 @@ return true;
    {
       Default();
    }
-   void interaction_impl::OnContextMenu(::user::interaction_impl *,point_i32)
+   void interaction_impl::OnContextMenu(::windowing::window *,point_i32)
    {
       Default();
    }
 
 #ifdef WINDOWS_DESKTOP
 
-   bool interaction_impl::OnCopyData(::user::interaction_impl *, COPYDATASTRUCT*)
+   bool interaction_impl::OnCopyData(::windowing::window *, COPYDATASTRUCT*)
    {
 
       return Default() != false;
@@ -4013,7 +4013,7 @@ return true;
    //{
    //   Default();
    //}
-   void interaction_impl::OnKillFocus(::user::interaction_impl *)
+   void interaction_impl::OnKillFocus(::windowing::window *)
    {
       Default();
    }
@@ -4105,7 +4105,7 @@ return true;
 #endif
 
    
-   void interaction_impl::OnPaletteIsChanging(::user::interaction_impl *)
+   void interaction_impl::OnPaletteIsChanging(::windowing::window *)
    {
       
       Default();
@@ -4222,7 +4222,7 @@ return true;
    {
       Default();
    }
-   void interaction_impl::OnPaletteChanged(::user::interaction_impl *)
+   void interaction_impl::OnPaletteChanged(::windowing::window *)
    {
       Default();
    }
@@ -4274,7 +4274,7 @@ return true;
    //{
    //   Default();
    //}
-   int interaction_impl::OnMouseActivate(::user::interaction_impl *,::u32,const ::atom & atom)
+   int interaction_impl::OnMouseActivate(::windowing::window *,::u32,const ::atom & atom)
    {
       return (int)Default();
    }
@@ -4351,7 +4351,7 @@ return true;
    }
 
 
-   void interaction_impl::OnHScrollClipboard(::user::interaction_impl *,::u32,::u32)
+   void interaction_impl::OnHScrollClipboard(::windowing::window *,::u32,::u32)
    {
 
       Default();
@@ -4359,7 +4359,7 @@ return true;
    }
 
 
-   void interaction_impl::OnPaintClipboard(::user::interaction_impl *,HGLOBAL)
+   void interaction_impl::OnPaintClipboard(::windowing::window *,HGLOBAL)
    {
 
       Default();
@@ -4383,7 +4383,7 @@ return true;
    }
 
 
-   void interaction_impl::OnSizeClipboard(::user::interaction_impl *,HGLOBAL)
+   void interaction_impl::OnSizeClipboard(::windowing::window *,HGLOBAL)
    {
 
       Default();
@@ -4391,7 +4391,7 @@ return true;
    }
 
 
-   void interaction_impl::OnVScrollClipboard(::user::interaction_impl *,::u32,::u32)
+   void interaction_impl::OnVScrollClipboard(::windowing::window *,::u32,::u32)
    {
 
       Default();
@@ -4407,7 +4407,7 @@ return true;
    }
 
 
-   void interaction_impl::OnMDIActivate(bool,::user::interaction_impl *,::user::interaction_impl *)
+   void interaction_impl::OnMDIActivate(bool,::windowing::window *,::windowing::window *)
    {
 
       Default();
@@ -4454,7 +4454,7 @@ return true;
    {
       Default();
    }
-   void interaction_impl::OnCaptureChanged(::user::interaction_impl *)
+   void interaction_impl::OnCaptureChanged(::windowing::window *)
    {
       Default();
    }
@@ -4547,14 +4547,14 @@ return true;
    }
 
    //////////////////////////////////////////////////////////////////////////////
-   //// UI related ::user::interaction_impl functions
+   //// UI related ::windowing::window functions
 
    //oswindow interaction_impl::GetSafeOwner_(oswindow hParent,oswindow* pWndTop)
    //{
 
    //   throw ::exception(todo);
 
-   //   //// get ::user::interaction_impl to start with
+   //   //// get ::windowing::window to start with
    //   //oswindow hWnd = hParent;
    //   //if (hWnd == nullptr)
    //   //{
@@ -4565,11 +4565,11 @@ return true;
    //   //   hWnd = ::auraacmesystem()->GetMainWnd()->get_handle();*/
    //   //}
 
-   //   //// a popup ::user::interaction_impl cannot be owned by a child ::user::interaction_impl
+   //   //// a popup ::windowing::window cannot be owned by a child ::windowing::window
    //   //while (hWnd != nullptr && (::GetWindowLong(hWnd, GWL_STYLE) & WS_CHILD))
    //   //   hWnd = ::get_parent(hWnd);
 
-   //   //// determine toplevel ::user::interaction_impl to disable as well
+   //   //// determine toplevel ::windowing::window to disable as well
    //   //oswindow hWndTop = hWnd, hWndTemp = hWnd;
    //   //for (;;)
    //   //{
@@ -4584,7 +4584,7 @@ return true;
    //   //if (hParent == nullptr && hWnd != nullptr)
    //   //   hWnd = ::GetLastActivePopup(hWnd);
 
-   //   //// disable and store top level parent ::user::interaction_impl if specified
+   //   //// disable and store top level parent ::windowing::window if specified
    //   //if (pWndTop != nullptr)
    //   //{
    //   //   if (hWndTop != nullptr && ::IsWindowEnabled(hWndTop) && hWndTop != hWnd)
@@ -4678,7 +4678,7 @@ run:
 #endif
 
 
-   /*CDataExchange::CDataExchange(::user::interaction_impl * pDlgWnd, bool bSaveAndValidate)
+   /*CDataExchange::CDataExchange(::windowing::window * pDlgWnd, bool bSaveAndValidate)
    {
    ASSERT_VALID(pDlgWnd);
    m_bSaveAndValidate = bSaveAndValidate;
@@ -4906,7 +4906,7 @@ namespace aura_universal_windows
    //bool interaction_impl::has_pending_graphical_update()
    //{
 
-   //   if (::user::interaction_impl::has_pending_graphical_update())
+   //   if (::windowing::window::has_pending_graphical_update())
    //   {
 
    //      return true;
@@ -5021,7 +5021,7 @@ namespace aura_universal_windows
    void interaction_impl::update_graphics_resources()
    {
 
-      ::user::interaction_impl::update_graphics_resources();
+      ::windowing::window::update_graphics_resources();
 
 
 
@@ -5032,7 +5032,7 @@ namespace aura_universal_windows
    void interaction_impl::queue_message_handler(::message::message * pmessage)
    {
 
-      return ::user::interaction_impl::queue_message_handler(pmessage);
+      return ::windowing::window::queue_message_handler(pmessage);
 
       //synchronous_lock synchronouslock(synchronization());
 
@@ -5138,7 +5138,7 @@ namespace aura_universal_windows
    //void interaction_impl::_001UpdateScreen()
    //{
 
-   //   ::user::interaction_impl::_001UpdateScreen();
+   //   ::windowing::window::_001UpdateScreen();
 
    //}
 
@@ -5230,7 +5230,7 @@ namespace aura_universal_windows
    void interaction_impl::on_layout(::draw2d::graphics_pointer & pgraphics)
    {
 
-      ::user::interaction_impl::on_layout(pgraphics);
+      ::windowing::window::on_layout(pgraphics);
 
       rectangle_i32 rectangleX;
 

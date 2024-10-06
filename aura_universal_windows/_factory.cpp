@@ -19,7 +19,7 @@ __FACTORY_EXPORT void aura_universal_windows_factory(::factory::factory * pfacto
    apex_universal_windows_factory(pfactory);
 
 
-   pfactory->add_factory_item < ::aura_universal_windows::interaction_impl, ::user::interaction_impl >();
+   pfactory->add_factory_item < ::aura_universal_windows::interaction_impl, ::windowing::window >();
 
    pfactory->add_factory_item < ::aura_universal_windows::node, ::acme::node >();
 

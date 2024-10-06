@@ -540,7 +540,7 @@ namespace windowing_universal_windows
 
       //   }
 
-      //   ::user::interaction_impl * pimpl = psystem->impl_from_handle(pmsg->hwnd);
+      //   ::windowing::window * pimpl = psystem->impl_from_handle(pmsg->hwnd);
 
       //   if (pimpl != nullptr)
       //   {
@@ -701,7 +701,7 @@ namespace windowing_universal_windows
    //      try
    //      {
 
-   //         m_pwindowCapture->m_puserinteractionimpl->m_puserinteractionCapture.release();
+   //         m_pwindowCapture->m_pwindow->m_puserinteractionCapture.release();
 
    //      }
    //      catch (...)

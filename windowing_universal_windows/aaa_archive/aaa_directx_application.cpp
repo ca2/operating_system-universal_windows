@@ -162,7 +162,7 @@
 //
 //      pcs->m_procedureSuccess = __routine(routine);
 //
-//      //m_pimpl = __create < ::user::interaction_impl >();
+//      //m_pimpl = __create < ::windowing::window >();
 //
 //      ::rectangle_f64 rectangle;
 //

@@ -73,7 +73,7 @@ namespace windowing_universal_windows
    }
 
 
-   void buffer::initialize_graphics_graphics(::user::interaction_impl * pimpl)
+   void buffer::initialize_graphics_graphics(::windowing::window * pimpl)
    {
 
       //::e_status estatus = 
@@ -269,9 +269,9 @@ namespace windowing_universal_windows
       //if (m_bNewBuffer)
       //{
 
-      auto & d = m_pwindow->m_puserinteractionimpl->m_puserinteraction->layout().m_statea[::user::e_layout_design];
+      auto & d = m_pwindow->m_pwindow->m_puserinteraction->layout().m_statea[::user::e_layout_design];
 
-      auto & w = m_pwindow->m_puserinteractionimpl->m_puserinteraction->layout().m_statea[::user::e_layout_window];
+      auto & w = m_pwindow->m_pwindow->m_puserinteraction->layout().m_statea[::user::e_layout_window];
 
       w.m_point2 = d.m_point2;
 
@@ -698,26 +698,26 @@ namespace windowing_universal_windows
 
       }
 
-      if (m_pwindow->m_puserinteractionimpl->m_puserinteraction)
+      if (m_pwindow->m_pwindow->m_puserinteraction)
       {
 
          //m_pwindow->m_puserinteraction->start_layout();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->place(0, 0, m_size.cx(), m_size.cy());
+         m_pwindow->m_pwindow->m_puserinteraction->place(0, 0, m_size.cx(), m_size.cy());
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->order_top();
+         m_pwindow->m_pwindow->m_puserinteraction->order_top();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->display(e_display_normal);
+         m_pwindow->m_pwindow->m_puserinteraction->display(e_display_normal);
 
          //defer_resize_top_level_windows();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_reposition();
+         m_pwindow->m_pwindow->m_puserinteraction->set_reposition();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_need_layout();
+         m_pwindow->m_pwindow->m_puserinteraction->set_need_layout();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->set_need_redraw();
+         m_pwindow->m_pwindow->m_puserinteraction->set_need_redraw();
 
-         m_pwindow->m_puserinteractionimpl->m_puserinteraction->post_redraw();
+         m_pwindow->m_pwindow->m_puserinteraction->post_redraw();
 
       }
 

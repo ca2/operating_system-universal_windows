@@ -91,7 +91,7 @@ namespace windowing_win32
       //      static HRGN GetAClipRgn(hwnd hwnd, const point_i32 & pointOffset, bool bExludeChilren);
       //      static void ExcludeChildren(hwnd hwnd, HRGN hrgn, const point_i32 & pointOffset);
 
-      //static void SortByZOrder(comparable_array < ::user::interaction_impl *, ::user::interaction_impl * > & wndpa);
+      //static void SortByZOrder(comparable_array < ::windowing::window *, ::windowing::window * > & wndpa);
       //static void SortByZOrder(comparable_array < hwnd, hwnd > & hwnda);
       //static void EnumChildren(hwnd hwnd, comparable_array < hwnd, hwnd > & hwnda);
 

@@ -141,7 +141,7 @@ namespace windowing_universal_windows
 
 
 
-      void initialize_graphics_graphics(::user::interaction_impl* pimpl) override;
+      void initialize_graphics_graphics(::windowing::window* pimpl) override;
 
 
       virtual bool create_buffer(const ::size_i32& size, int iStride = -1);
