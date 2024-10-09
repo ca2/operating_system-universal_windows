@@ -272,7 +272,7 @@
 //
 //      ::draw2d::lock draw2dlock;
 //
-//      //direct2d::direct2d() = ::place(new ::draw2d_direct2d::plugin());
+//      //direct2d::direct2d() = __new ::draw2d_direct2d::plugin();
 //
 //      //direct2d::direct2d()->initialize();
 //
@@ -293,7 +293,7 @@
 //      
 //      // Only handle window size_i32 changed if there is no pending DPI change.
 //
-//      session()->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this, dpi]()
+//      session()->m_paurasession->system()->windowing()->windowing_branch(__routine([this, dpi]()
 //         {
 //
 //            OnChangeDpi(dpi);
@@ -302,7 +302,7 @@
 //         //{
 //           // OnChangeDpi(dpi);
 //
-//            //         system()->system()->m_possystemwindow->m_bWindowSizeChange = true;
+//            //         system()->m_possystemwindow->m_bWindowSizeChange = true;
 //
 //         //}));
 //
@@ -344,7 +344,7 @@
 //   void direct2d_buffer::UpdateForWindowSizeChange()
 //   {
 //
-//      session()->m_paurasession->m_puser->m_pwindowing->windowing_branch(__routine([this]()
+//      session()->m_paurasession->system()->windowing()->windowing_branch(__routine([this]()
 //         {
 //            //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
 //            //{

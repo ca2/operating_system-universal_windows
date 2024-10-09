@@ -17,7 +17,7 @@ namespace apex_universal_windows
    public:
 
 
-      ::pointer < ::particle >           m_pClearApplicationDataHandler;
+      ::particle_pointer           m_pClearApplicationDataHandler;
 
       class ::time m_timeLastConnectivityCheck;
       class ::time m_timeLastInternetCheck;

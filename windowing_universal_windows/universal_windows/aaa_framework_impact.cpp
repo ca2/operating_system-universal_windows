@@ -130,7 +130,7 @@ namespace windowing_universal_windows
 
       //window::SetWindow(window);
 
-      //pbuffer = ::place(new directx_base());
+      //pbuffer = __new directx_base();
 
       //pbuffer->system() = system();
 
@@ -146,9 +146,9 @@ namespace windowing_universal_windows
 
       //m_bXXXFirst = true;
 
-      //system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = this;
+      //system()->m_paurasystem->get_session()->system()->windowing()->m_pwindowFirst = this;
 
-      //system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
+      //system()->m_paurasystem->get_session()->system()->windowing()->m_bXXXFirst = true;
 
       auto pwindowing = m_pwindow->windowing();
 

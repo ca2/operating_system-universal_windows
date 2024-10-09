@@ -47,9 +47,9 @@ template < typename PREDICATE >
 ::e_status windows_runtime_synchronously(const class time & time, PREDICATE predicate, enum_priority epriority = e_priority_normal)
 {
 
-   auto pmutex = ::place(new mutex());
+   auto pmutex = __new mutex();
 
-   auto pevent = ::place(new manual_reset_event());
+   auto pevent = __new manual_reset_event();
 
    pevent->m_estatus = error_timeout;
 

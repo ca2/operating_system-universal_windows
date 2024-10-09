@@ -6740,7 +6740,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //m_pwindowing = system()->m_paurasystem->m_paurasession->m_puser->m_pwindowing;
+      //m_pwindowing = system()->m_paurasystem->m_paurasession->system()->windowing();
 
       //if (!m_pwindowing->m_pwindowSoul)
       //{
@@ -7538,7 +7538,7 @@ namespace windowing_universal_windows
       //   auto routine = [this]()
       //   {
 
-      //      session()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
+      //      session()->system()->windowing()->windowing_sync(15_s, __routine([this]()
       //         {
 
       //            //pbuffer->m_windowscorewindowBounds = m_windowscorewindow->Bounds;
@@ -7583,9 +7583,9 @@ namespace windowing_universal_windows
 
       //   m_pwindow = system()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
 
-      //   system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = m_pwindow;
+      //   system()->m_paurasystem->get_session()->system()->windowing()->m_pwindowFirst = m_pwindow;
 
-      //   system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
+      //   system()->m_paurasystem->get_session()->system()->windowing()->m_bXXXFirst = true;
 
       //   m_windowscorewindow = m_windowscorewindow;
 
@@ -8759,9 +8759,9 @@ namespace windowing_universal_windows
 
          //m_bXXXFirst = true;
 
-         //system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = this;
+         //system()->m_paurasystem->get_session()->system()->windowing()->m_pwindowFirst = this;
 
-         //system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
+         //system()->m_paurasystem->get_session()->system()->windowing()->m_bXXXFirst = true;
 
          auto pwindowing = windowing();
 

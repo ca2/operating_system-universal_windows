@@ -21,7 +21,7 @@ namespace aura_universal_windows
       double                                                            m_dAccumulatedMouseMoveDistance;
       class ::time                                                            m_timeLastMouseMove;
       iptr_to_iptr                                                      m_mapLong;
-      ::pointer < ::particle >                                          m_pparticleMutexQueue;
+      ::particle_pointer                                          m_pparticleMutexQueue;
       manual_reset_event                                                m_evQueue;
       pointer_array < ::user::message >                                  m_messageaQueue;
       int m_nModalResult; // for return values from ::windowing::window::RunModalLoop

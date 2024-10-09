@@ -98,7 +98,7 @@ namespace windowing_universal_windows
 
       bool                                                     m_bFontopusShift;
 
-      ::pointer < ::particle >                                 m_pparticleMutex;
+      ::particle_pointer                                 m_pparticleMutex;
 
       //::pointer<directx_interaction>                          m_pdxi;
 

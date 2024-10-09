@@ -573,7 +573,7 @@ namespace windowing_universal_windows
 
       //::draw2d::lock draw2dlock;
 
-      //direct2d::direct2d() = ::place(new ::draw2d_direct2d::plugin());
+      //direct2d::direct2d() = __new ::draw2d_direct2d::plugin();
 
       //direct2d::direct2d()->initialize();
 
@@ -603,7 +603,7 @@ namespace windowing_universal_windows
             //{
               // OnChangeDpi(dpi);
 
-               //         system()->system()->m_possystemwindow->m_bWindowSizeChange = true;
+               //         system()->m_possystemwindow->m_bWindowSizeChange = true;
 
             //}));
 

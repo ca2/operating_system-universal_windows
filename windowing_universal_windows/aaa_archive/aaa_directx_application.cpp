@@ -123,14 +123,14 @@
 //
 //      //::user::os_calc_dark_mode();
 //
-//      auto pcs = ::place(new ::user::system());
+//      auto pcs = __new ::user::system();
 //
 //      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost;
 //
 //      auto routine = [this]()
 //      {
 //
-//         session()->m_puser->m_pwindowing->windowing_sync(15_s, __routine([this]()
+//         session()->system()->windowing()->windowing_sync(15_s, __routine([this]()
 //            {
 //
 //               //m_pdirectxbase->m_windowBounds = m_window->Bounds;
@@ -175,9 +175,9 @@
 //
 //      m_pwindow = system()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
 //
-//      system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_pwindowFirst = m_pwindow;
+//      system()->m_paurasystem->get_session()->system()->windowing()->m_pwindowFirst = m_pwindow;
 //
-//      system()->m_paurasystem->get_session()->m_puser->m_pwindowing->m_bXXXFirst = true;
+//      system()->m_paurasystem->get_session()->system()->windowing()->m_bXXXFirst = true;
 //
 //      m_pwindow->m_window = m_window;
 //
@@ -258,7 +258,7 @@
 //
 //      impact::SetWindow(window);
 //
-//      m_pdirectxbase = ::place(new directx_base());
+//      m_pdirectxbase = __new directx_base();
 //
 //      m_pdirectxbase->system() = system();
 //
@@ -419,7 +419,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      auto pkey  = ::place(new ::message::key());
+//      auto pkey  = __new ::message::key();
 //
 //      pusermessage = pkey;
 //
@@ -459,7 +459,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      auto pkey  = ::place(new ::message::key());
+//      auto pkey  = __new ::message::key();
 //
 //      pusermessage = pkey;
 //

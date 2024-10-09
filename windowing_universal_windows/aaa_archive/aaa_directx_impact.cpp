@@ -404,7 +404,7 @@ namespace windowing_universal_windows
 //
 //            ::pointer<::user::message>spbase;
 //
-//            auto pkey = ::place(new ::message::key());
+//            auto pkey = __new ::message::key();
 //
 //            spbase = pkey;
 //

@@ -54,7 +54,7 @@ namespace windowing_universal_windows
       ::logic::boolean                                      m_tristateCoreWindowVisible;
       bool                                                  m_bWindowSizeChangeInProgress;
       bool                                                  m_b3D;
-      ::pointer < ::particle >                              m_pparticleMutexDc;
+      ::particle_pointer                              m_pparticleMutexDc;
       size_i32                                              m_size;
       ::size_i32                                            m_sizeBuffer;
       ::pointer < window >                                  m_pwindow;
