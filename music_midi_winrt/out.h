@@ -3,7 +3,7 @@
 
 #include "acme/prototype/prototype/memory.h"
 #include "app-veriwell/multimedia/music/midi/out.h"
-#undef new
+#undef __new
 #include <winrt/Windows.Devices.h>
 #include <winrt/Windows.Devices.Midi.h>
 

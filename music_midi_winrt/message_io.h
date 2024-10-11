@@ -4,7 +4,7 @@
 //using namespace Platform;
 //using namespace ::winrt::Windows::Devices::Enumeration;
 //using namespace ::winrt::Windows::Devices::Midi;
-#undef new
+#undef __new
 
 
 #include <winrt/Windows.Devices.h>

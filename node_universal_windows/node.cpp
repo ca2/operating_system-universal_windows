@@ -76,7 +76,7 @@ namespace node_universal_windows
 
       }
 
-      auto pwindow = new ::windowing_universal_windows::window;
+      auto pwindow = __new ::windowing_universal_windows::window;
 
       pwindow->m_pwindowing = windowing();
 

@@ -295,7 +295,7 @@ namespace aura_universal_windows
 
       //static ::user::interaction *  get_desktop_window();
 
-      // Obsolete and non-portable APIs - not recommended for new code
+      // Obsolete and non-portable APIs - not recommended for __new code
       virtual void CloseWindow();
       virtual bool OpenIcon();
 

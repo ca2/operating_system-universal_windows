@@ -130,7 +130,7 @@ namespace windowing_universal_windows
 
       //window::SetWindow(window);
 
-      //pbuffer = __new directx_base();
+      //pbuffer = __allocate directx_base();
 
       //pbuffer->system() = system();
 

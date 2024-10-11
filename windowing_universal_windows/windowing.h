@@ -4,7 +4,7 @@
 
 #include "aura/windowing/sandbox/windowing.h"
 #include "application.h"
-#undef new
+#undef __new
 #include <winrt/Windows.UI.ViewManagement.h>
 #include <winrt/Windows.ApplicationModel.Core.h>
 

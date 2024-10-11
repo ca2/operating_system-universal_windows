@@ -90,7 +90,7 @@ namespace acme_universal_windows
    //   ::winrt::Windows::Compression::
 
    //   //unzip
-   //   ZipArchive archive = new ZipArchive(a);
+   //   ZipArchive archive = __new ZipArchive(a);
    //   archive.ExtractToDirectory(folder.Path);
 
    //}

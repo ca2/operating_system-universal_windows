@@ -106,7 +106,7 @@ LRESULT CALLBACK sentinel_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
          COPYDATASTRUCT * pcds = (COPYDATASTRUCT *) lParam;
          if(pcds->dwData == 15111984)
          {
-            g_pstraRestartCommandLine = new stra_dup;
+            g_pstraRestartCommandLine = __new stra_dup;
             char * str = (char *) ca2_alloc(pcds->cbData + 1);
             strncpy_dup(str, (const ::string &) pcds->lpData, pcds->cbData);
             str[pcds->cbData] = '\0';

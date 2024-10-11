@@ -1,11 +1,11 @@
 #pragma once
 
 
-//#undef new
+//#undef __new
 //#include <winrt/Windows.Foundation.h>
 //#include <winrt/Windows.Foundation.Collections.h>
 //using namespace winrt;
-//#define new ACME_NEW
+//#define __new ACME_NEW
 
 
 #define NOTHROW throw()
@@ -144,7 +144,7 @@ typedef unsigned int unichar32;
 
 #include <stddef.h>
 #include <limits.h>
-#include <new.h>
+#include <__new.h>
 #include <eh.h>
 
 #undef __window_procedure

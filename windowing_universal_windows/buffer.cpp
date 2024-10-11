@@ -573,7 +573,7 @@ namespace windowing_universal_windows
 
       //::draw2d::lock draw2dlock;
 
-      //direct2d::direct2d() = __new ::draw2d_direct2d::plugin();
+      //direct2d::direct2d() = __allocate ::draw2d_direct2d::plugin();
 
       //direct2d::direct2d()->initialize();
 
@@ -599,7 +599,7 @@ namespace windowing_universal_windows
 
             OnChangeDpi(dpi);
 
-            //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler([this,dpi]()
+            //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler([this,dpi]()
             //{
               // OnChangeDpi(dpi);
 
@@ -662,7 +662,7 @@ namespace windowing_universal_windows
 
       user_post([this]()
          {
-            //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+            //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref __new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
             //{
 
             OnWindowSizeChange();
@@ -855,7 +855,7 @@ namespace windowing_universal_windows
 
       //   if (hr == DXGI_ERROR_DEVICE_REMOVED)
       //   {
-      //      // If the device was erased for any reason, a new device and swapchain will need to be created.
+      //      // If the device was erased for any reason, a __new device and swapchain will need to be created.
       //      HandleDeviceLost();
 
       //      // Everything is set up now. Do not continue execution of this method.
@@ -896,7 +896,7 @@ namespace windowing_universal_windows
       {
 
 
-         // Otherwise, create a new one using the same adapter as the existing Direct3D device.
+         // Otherwise, create a __new one using the same adapter as the existing Direct3D device.
          DXGI_SWAP_CHAIN_DESC1 swapChainDesc = { 0 };
          swapChainDesc.Width = m_sizeBuffer.cx();                                     // Use automatic sizing.
          swapChainDesc.Height = m_sizeBuffer.cy();
@@ -1011,7 +1011,7 @@ namespace windowing_universal_windows
 
          if (hr == DXGI_ERROR_DEVICE_REMOVED)
          {
-            // If the device was erased for any reason, a new device and swapchain will need to be created.
+            // If the device was erased for any reason, a __new device and swapchain will need to be created.
             HandleDeviceLost();
 
             // Everything is set up now. Do not continue execution of this method.
@@ -1161,7 +1161,7 @@ namespace windowing_universal_windows
             {
 
                //A window size_i32 change has been initiated and the app has just completed presenting
-               //the first frame with the new size. Notify the resize manager so we can short
+               //the first frame with the __new size. Notify the resize manager so we can short
                //circuit any resize animation and prevent unnecessary delays.
                m_pwindow->m_resizemanager.NotifyLayoutCompleted();
 
@@ -1369,7 +1369,7 @@ namespace windowing_universal_windows
       defer_throw_hresult(currentAdapter->GetDesc(&currentDesc));
 
       // If the adapter LUIDs don't match, or if the device reports that it has been erased,
-      // a new D3D device must be created.
+      // a __new D3D device must be created.
 
       if ((deviceDesc.AdapterLuid.LowPart != currentDesc.AdapterLuid.LowPart) ||
          (deviceDesc.AdapterLuid.HighPart != currentDesc.AdapterLuid.HighPart) ||
@@ -1379,7 +1379,7 @@ namespace windowing_universal_windows
          dxgiDevice = nullptr;
          deviceAdapter = nullptr;
 
-         // Create a new device and __swap chain.
+         // Create a __new device and __swap chain.
          HandleDeviceLost();
 
       }

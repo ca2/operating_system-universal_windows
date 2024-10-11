@@ -6,7 +6,7 @@
 #include "aura/user/user/user.h"
 #include "aura/windowing/windowing.h"
 #include "interaction_impl.h"
-#undef new
+#undef __new
 #include <winrt/Windows.Graphics.Display.h>
 
 //#include "_windows_runtime.h"
@@ -59,7 +59,7 @@ namespace aura_universal_windows
 
       user_post([this]()
          {
-            //::wait(::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler([]()
+            //::wait(::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler([]()
               // {
 
             auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();

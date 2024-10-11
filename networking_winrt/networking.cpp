@@ -203,7 +203,7 @@ namespace networking_bsd
    //      }
 
 
-         //m_pajpaxissocketinit = new AjpBaseSocket::Initializer();
+         //m_pajpaxissocketinit = __new AjpBaseSocket::Initializer();
 
       m_countHttpPostBoundary = 0;
 
@@ -803,7 +803,7 @@ namespace networking_bsd
          {
             struct sockaddr_in *point = (struct sockaddr_in *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(__new< ::networking_bsd::ipv4_address(get_app >(), *point_i32));
+            addr(__allocate< ::networking_bsd::ipv4_address(get_app >(), *point_i32));
             return addr;
          }
          break;
@@ -812,7 +812,7 @@ namespace networking_bsd
          {
             struct sockaddr_in6 *point = (struct sockaddr_in6 *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(__new< ::networking_bsd::ipv6_address(get_app >(), *point_i32));
+            addr(__allocate< ::networking_bsd::ipv6_address(get_app >(), *point_i32));
             return addr;
          }
          break;
@@ -1153,7 +1153,7 @@ namespace networking_bsd
 
       }
 
-      pitem = __new reverse_cache_item();
+      pitem = __allocate reverse_cache_item();
 
       pitem->m_paddress = paddress;
 
@@ -1506,7 +1506,7 @@ namespace networking_bsd
       if (this != &item)
       {
 
-         auto paddress = __new address();
+         auto paddress = __allocate address();
 
          *paddress = *item.m_paddress;
 
@@ -2155,7 +2155,7 @@ namespace networking_bsd
          {
             struct sockaddr_in *point = (struct sockaddr_in *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(__new< ::networking_bsd::ipv4_address(get_app >(), *point_i32));
+            addr(__allocate< ::networking_bsd::ipv4_address(get_app >(), *point_i32));
             return addr;
          }
          break;
@@ -2164,7 +2164,7 @@ namespace networking_bsd
          {
             struct sockaddr_in6 *point = (struct sockaddr_in6 *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(__new< ::networking_bsd::ipv6_address(get_app >(), *point_i32));
+            addr(__allocate< ::networking_bsd::ipv6_address(get_app >(), *point_i32));
             return addr;
          }
          break;
@@ -2506,7 +2506,7 @@ namespace networking_bsd
       //
       //   }
       //
-      //   pitem = __new reverse_cache_item();
+      //   pitem = __allocate reverse_cache_item();
       //
       //   pitem->m_address = address;
       //
@@ -3205,7 +3205,7 @@ namespace networking_bsd
 ////      }
 //
 //
-//      //m_pajpaxissocketinit = new AjpBaseSocket::Initializer();
+//      //m_pajpaxissocketinit = __new AjpBaseSocket::Initializer();
 //
 //   m_countHttpPostBoundary = 0;
 //
@@ -3259,7 +3259,7 @@ namespace networking_bsd
    ::pointer<address>networking::create_ip4_address(u32 u, ::networking::port_t port)
    {
 
-      auto paddress2 = __new address();
+      auto paddress2 = __allocate address();
 
    #if defined(BSD_STYLE_SOCKETS)
 
@@ -3292,7 +3292,7 @@ namespace networking_bsd
    ::pointer<address>networking::create_ip6_address(void * p128bits, ::networking::port_t port)
    {
 
-      auto paddress2 = __new address();
+      auto paddress2 = __allocate address();
    #if defined(BSD_STYLE_SOCKETS)
 
       auto a = *paddress2;
@@ -3316,7 +3316,7 @@ namespace networking_bsd
    ::pointer<::networking::address>networking::create_ip4_address(const ::string & strAddress, ::networking::port_t port)
    {
 
-      auto paddress = __new address();
+      auto paddress = __allocate address();
 
       if(convert(paddress->u.m_addr.sin_addr, strAddress))
       {
@@ -3335,7 +3335,7 @@ namespace networking_bsd
    ::pointer<::networking::address>networking::create_ip6_address(const ::string & strAddress, ::networking::port_t port)
    {
 
-      auto paddress2 = __new address();
+      auto paddress2 = __allocate address();
 
       if (convert(paddress2->u.m_addr6.sin6_addr, strAddress))
       {

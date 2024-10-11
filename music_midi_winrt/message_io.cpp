@@ -92,7 +92,7 @@ namespace music
             //IMidiMessage^ midiMessage = args->Message;
 
             //create_task(Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
-            //   ref new ::winrt::Windows::UI::Core::DispatchedHandler([this, sender, midiMessage]()
+            //   ref __new ::winrt::Windows::UI::Core::DispatchedHandler([this, sender, midiMessage]()
             //{
             //   String^ outputString = midiMessage->Timestamp.Duration + ", " + _messageTypeMap->Lookup(midiMessage->Type);
 
@@ -164,11 +164,11 @@ namespace music
             //      {
             //         // prepare SysEx message for printing to the screen.
             //         // convert bytes to hex strings.
-            //         Array<wchar_t>^ byteInHex = ref new Array<wchar_t>(3);
+            //         Array<wchar_t>^ byteInHex = ref __new Array<wchar_t>(3);
             //         ::u8 byteRead = sysExReader->ReadByte();
 
             //         swprintf_s(byteInHex->Data, sizeof(byteInHex->Length), L"%02X", byteRead);
-            //         String^ hexString = ref new String(byteInHex->Data);
+            //         String^ hexString = ref __new String(byteInHex->Data);
 
             //         outputString += hexString + " ";
             //      }
@@ -403,7 +403,7 @@ namespace music
          //   if (_enumCompleted)
          //   {
          //      create_task(_coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
-         //         ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+         //         ref __new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
          //      {
          //         UpdatePorts();
          //      })));
@@ -415,7 +415,7 @@ namespace music
          //   if (_enumCompleted)
          //   {
          //      _coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
-         //         ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+         //         ref __new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
          //      {
          //         UpdatePorts();
          //      }));
@@ -427,7 +427,7 @@ namespace music
          //   if (_enumCompleted)
          //   {
          //      _coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
-         //         ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+         //         ref __new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
          //      {
          //         UpdatePorts();
          //      }));
@@ -439,7 +439,7 @@ namespace music
          //   _enumCompleted = true;
 
          //   _coreDispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::High,
-         //      ref new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+         //      ref __new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
          //   {
          //      UpdatePorts();
          //   }));
@@ -509,42 +509,42 @@ namespace music
          //   {
          //      //case MidiMessageType::NoteOff:
 
-         //      //   midiMessage = ref new MidiNoteOffMessage(_field1IntValue, _field2IntValue, _field3IntValue);
+         //      //   midiMessage = ref __new MidiNoteOffMessage(_field1IntValue, _field2IntValue, _field3IntValue);
          //      //   break;
 
          //   case MidiMessageType::NoteOn:
 
-         //      //midiMessage = ref new MidiNoteOnMessage(iChannel, uchNote, uchVelocity);
+         //      //midiMessage = ref __new MidiNoteOnMessage(iChannel, uchNote, uchVelocity);
          //      break;
 
          //      //case MidiMessageType::PolyphonicKeyPressure:
 
-         //      //   midiMessage = ref new MidiPolyphonicKeyPressureMessage(_field1IntValue, _field2IntValue, _field3IntValue);
+         //      //   midiMessage = ref __new MidiPolyphonicKeyPressureMessage(_field1IntValue, _field2IntValue, _field3IntValue);
          //      //   break;
 
                //case MidiMessageType::ControlChange:
 
-               //   midiMessage = ref new MidiControlChangeMessage(_field1IntValue, _field2IntValue, _field3IntValue);
+               //   midiMessage = ref __new MidiControlChangeMessage(_field1IntValue, _field2IntValue, _field3IntValue);
                //   break;
 
                //case MidiMessageType::ProgramChange:
 
-               //   midiMessage = ref new MidiProgramChangeMessage(_field1IntValue, _field2IntValue);
+               //   midiMessage = ref __new MidiProgramChangeMessage(_field1IntValue, _field2IntValue);
                //   break;
 
                //case MidiMessageType::ChannelPressure:
 
-               //   midiMessage = ref new MidiChannelPressureMessage(_field1IntValue, _field2IntValue);
+               //   midiMessage = ref __new MidiChannelPressureMessage(_field1IntValue, _field2IntValue);
                //   break;
 
                //case MidiMessageType::PitchBendChange:
 
-               //   midiMessage = ref new MidiPitchBendChangeMessage(_field1IntValue, _field2IntValue);
+               //   midiMessage = ref __new MidiPitchBendChangeMessage(_field1IntValue, _field2IntValue);
                //   break;
 
                //case MidiMessageType::SystemExclusive:
                //{
-               //   DataWriter^ dataWriter = ref new DataWriter();
+               //   DataWriter^ dataWriter = ref __new DataWriter();
 
                //   // expecting a string of format "NN NN NN NN...." where NN is a ::u8 in hex
                //   int len = _sendMessageTextBox->Text->Length();
@@ -571,57 +571,57 @@ namespace music
                //      startPointer = endPointer;
                //   } while (nullptr != endPointer);
 
-               //   midiMessage = ref new MidiSystemExclusiveMessage(dataWriter->DetachBuffer());
+               //   midiMessage = ref __new MidiSystemExclusiveMessage(dataWriter->DetachBuffer());
                //   break;
                //}
                //case MidiMessageType::MidiTimeCode:
 
-               //   midiMessage = ref new MidiTimeCodeMessage(_field1IntValue, _field2IntValue);
+               //   midiMessage = ref __new MidiTimeCodeMessage(_field1IntValue, _field2IntValue);
                //   break;
 
                //case MidiMessageType::SongPositionPointer:
 
-               //   midiMessage = ref new MidiSongPositionPointerMessage(_field1IntValue);
+               //   midiMessage = ref __new MidiSongPositionPointerMessage(_field1IntValue);
                //   break;
 
                //case MidiMessageType::SongSelect:
 
-               //   midiMessage = ref new MidiSongSelectMessage(_field1IntValue);
+               //   midiMessage = ref __new MidiSongSelectMessage(_field1IntValue);
                //   break;
 
                //case MidiMessageType::TuneRequest:
 
-               //   midiMessage = ref new MidiTuneRequestMessage();
+               //   midiMessage = ref __new MidiTuneRequestMessage();
                //   break;
 
                //case MidiMessageType::TimingClock:
 
-               //   midiMessage = ref new MidiTimingClockMessage();
+               //   midiMessage = ref __new MidiTimingClockMessage();
                //   break;
 
                //case MidiMessageType::Start:
 
-               //   midiMessage = ref new MidiStartMessage();
+               //   midiMessage = ref __new MidiStartMessage();
                //   break;
 
                //case MidiMessageType::Continue:
 
-               //   midiMessage = ref new MidiContinueMessage();
+               //   midiMessage = ref __new MidiContinueMessage();
                //   break;
 
                //case MidiMessageType::Stop:
 
-               //   midiMessage = ref new MidiStopMessage();
+               //   midiMessage = ref __new MidiStopMessage();
                //   break;
 
                //case MidiMessageType::ActiveSensing:
 
-               //   midiMessage = ref new MidiActiveSensingMessage();
+               //   midiMessage = ref __new MidiActiveSensingMessage();
                //   break;
 
                //case MidiMessageType::SystemReset:
 
-               //   midiMessage = ref new MidiSystemResetMessage();
+               //   midiMessage = ref __new MidiSystemResetMessage();
                //   break;
 
                //case MidiMessageType::None:

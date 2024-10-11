@@ -2,4 +2,4 @@
 #pragma once
 
 
-#undef new
+#undef __new

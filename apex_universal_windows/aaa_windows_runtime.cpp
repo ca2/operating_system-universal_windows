@@ -14,16 +14,16 @@
    /*
    CREATE_ALWAYS
    2
-   Creates a new file, always.
+   Creates a __new file, always.
    If the specified file exists and is writable, the function overwrites the file, the function succeeds, and last-error code is set to ERROR_ALREADY_EXISTS (183).
-   If the specified file does not exist and is a valid path, a new file is created, the function succeeds, and the last-error code is set to zero.
+   If the specified file does not exist and is a valid path, a __new file is created, the function succeeds, and the last-error code is set to zero.
    For more information, see the Remarks section of this topic.
 
    CREATE_NEW
    1
-   Creates a new file, only if it does not already exist.
+   Creates a __new file, only if it does not already exist.
    If the specified file exists, the function fails and the last-error code is set to ERROR_FILE_EXISTS (80).
-   If the specified file does not exist and is a valid path to a writable location, a new file is created.
+   If the specified file does not exist and is a valid path to a writable location, a __new file is created.
 
    OPEN_ALWAYS
    4

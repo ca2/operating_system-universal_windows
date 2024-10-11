@@ -433,7 +433,7 @@ namespace music
 
                //if(MMSYSERR_NOERROR != (mmrc = get_sequence()->Stop()))
                //{
-               //   throw new exception(EMidiPlayerStop);
+               //   throw __new exception(EMidiPlayerStop);
                //}
             }
             break;
@@ -453,7 +453,7 @@ namespace music
                if(::success != (mmrc = get_sequence()->Stop()))
                {
 
-                  throw new exception(EMidiPlayerStop);
+                  throw __new exception(EMidiPlayerStop);
 
                }
 

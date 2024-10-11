@@ -2,7 +2,7 @@
 
 
 #include "app-veriwell/multimedia/music/midi/midi.h"
-#undef new
+#undef __new
 
 #include <winrt/Windows.Devices.h>
 #include <winrt/Windows.Devices.Midi.h>

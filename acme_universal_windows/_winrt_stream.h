@@ -2,7 +2,7 @@
 #pragma once
 
 
-#undef new
+#undef __new
 #include <windows.h>
 #include <winrt/Windows.Storage.Streams.h>
 

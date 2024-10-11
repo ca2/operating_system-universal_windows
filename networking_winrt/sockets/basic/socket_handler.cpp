@@ -58,9 +58,9 @@ namespace sockets_bsd
       m_p2 = this;
       defer_create_synchronization();
       zero(m_socks4_host);
-      //m_prfds = new fd_set();
-      //m_pwfds = new fd_set();
-      //m_pefds = new fd_set();
+      //m_prfds = __new fd_set();
+      //m_pwfds = __new fd_set();
+      //m_pefds = __new fd_set();
       FD_ZERO(&m_rfds);
       FD_ZERO(&m_wfds);
       FD_ZERO(&m_efds);
@@ -1098,7 +1098,7 @@ end_processing_adding:
                if (::is_set(ppairSocket) && ::is_set(ppairSocket->m_psocket)) // found
                {
 
-                  // new SSL negotiate method
+                  // __new SSL negotiate method
                   if (ppairSocket->m_psocket->IsSSLNegotiate())
                   {
 
@@ -1136,7 +1136,7 @@ end_processing_adding:
                if (::is_set(ppairSocket) && ::is_set(ppairSocket->m_psocket)) // found
                {
 
-                  // new SSL negotiate method
+                  // __new SSL negotiate method
                   if (ppairSocket->m_psocket->IsSSLNegotiate())
                   {
 
@@ -1257,7 +1257,7 @@ end_processing_adding:
                   erase_socket(socket);
 
                   // After DetachSocket(), all calls to socket_handler() will return a object
-                  // to the new slave socket_handler running in the new thread.
+                  // to the __new slave socket_handler running in the __new thread.
                   try
                   {
 
@@ -1483,7 +1483,7 @@ end_processing_adding:
 
                   auto ptcpsocket = dynamic_cast <tcp_socket*> (psocket);
 
-                  // new graceful ptcpsocket - flush and close timeout 5s
+                  // __new graceful ptcpsocket - flush and close timeout 5s
                   if (::is_set(ptcpsocket) && psocket->IsConnected() && ptcpsocket->GetFlushBeforeClose() &&
                         !ptcpsocket->IsSSL() && psocket->TimeSinceClose().m_iSecond < 5)
                   {
@@ -1525,7 +1525,7 @@ end_processing_adding:
 
                      //information() << "close() before reconnect\n");
 
-                     ptcpsocket->close(); // dispose of old file descriptor (open creates a new)
+                     ptcpsocket->close(); // dispose of old file descriptor (open creates a __new)
 
                      ptcpsocket->OnDisconnect();
 
@@ -1570,7 +1570,7 @@ end_processing_adding:
 
                         synchronous_lock synchronouslock(__SystemNetworking(psystem)->m_pmutexPool);
 
-                        auto ppoolsocket = __new pool_socket(psocket);
+                        auto ppoolsocket = __allocate pool_socket(psocket);
 
                         ppoolsocket->m_psockethandler = this;
 
@@ -1826,7 +1826,7 @@ end_processing_adding:
 //
 //      // check cache
 //
-//      ::pointer<resolv_socket>presolvsocket = __new resolv_socket(pbasesocket, host, port);
+//      ::pointer<resolv_socket>presolvsocket = __allocate resolv_socket(pbasesocket, host, port);
 //
 //      presolvsocket->m_psockethandler = this;
 //
@@ -1863,7 +1863,7 @@ end_processing_adding:
 //
 //      // check cache
 //
-//      ::pointer<resolv_socket>resolv = __new resolv_socket(pbasesocket, host, port, true);
+//      ::pointer<resolv_socket>resolv = __allocate resolv_socket(pbasesocket, host, port, true);
 //
 //      resolv->m_psockethandler = this;
 //
@@ -1898,7 +1898,7 @@ end_processing_adding:
 //
 //      // check cache
 //
-//      ::pointer<resolv_socket>resolv = __new resolv_socket(pbasesocket, a);
+//      ::pointer<resolv_socket>resolv = __allocate resolv_socket(pbasesocket, a);
 //
 //      resolv->m_psockethandler = this;
 //
@@ -1933,7 +1933,7 @@ end_processing_adding:
 //
 //      // check cache
 //
-//      ::pointer<resolv_socket>resolv = __new resolv_socket(pbasesocket, a);
+//      ::pointer<resolv_socket>resolv = __allocate resolv_socket(pbasesocket, a);
 //
 //      resolv->m_psockethandler = this;
 //
@@ -1971,7 +1971,7 @@ end_processing_adding:
 //
 //         m_resolver_port = port;
 //
-//         auto presolvserver = __new resolv_server();
+//         auto presolvserver = __allocate resolv_server();
 //
 //         m_resolver = presolvserver;
 //

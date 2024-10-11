@@ -21,7 +21,7 @@
 #include <stddef.h>
 #include <limits.h>
 #include <malloc.h>
-#include <new.h>
+#include <__new.h>
 #include <eh.h>
 
 #undef __window_procedure

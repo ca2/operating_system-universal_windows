@@ -311,7 +311,7 @@ Seq_Open_File_Cleanup:
 
             //    sofs.pstrName     = m_pstrFile;
 
-            //PSMF pSmf = new SMF();
+            //PSMF pSmf = __new SMF();
 
             //smfrc = file()->OpenFile(&sofs);
             smfrc = file()->OpenFile(ar, openMode);
@@ -982,7 +982,7 @@ Seq_Open_File_Cleanup:
          //               {
          //                  if(plyriceventa == NULL)
          //                  {
-         //                     plyriceventa = new array <::ikaraoke::lyric_event_v1, ::ikaraoke::lyric_event_v1 &>;
+         //                     plyriceventa = __new array <::ikaraoke::lyric_event_v1, ::ikaraoke::lyric_event_v1 &>;
          //                  }
          //                  ::file::memory_buffer memFile(get_app(), (LPBYTE) &lpdwParam[1], pheader->m_dwLength - sizeof(uint32_t));
          //                  /* x2x                  CArchive ar(&memFile, CArchive::load);
@@ -1507,10 +1507,10 @@ Seq_Open_File_Cleanup:
          //   int32_t i;
          //   for(i = 0; i < tickaaTokensTicks.get_size(); i++)
          //   {
-         //      pLyricEventsV2 = new ::ikaraoke::lyric_events_v2();
-         //      pLyricEventsV2B = new ::ikaraoke::lyric_events_v2();
-         //      pLyricEventsV2C = new ::ikaraoke::lyric_events_v2();
-         //      pLyricEventsV2_ = new ::ikaraoke::lyric_events_v2();
+         //      pLyricEventsV2 = __new ::ikaraoke::lyric_events_v2();
+         //      pLyricEventsV2B = __new ::ikaraoke::lyric_events_v2();
+         //      pLyricEventsV2C = __new ::ikaraoke::lyric_events_v2();
+         //      pLyricEventsV2_ = __new ::ikaraoke::lyric_events_v2();
          //      staticdata.m_eventsv1.add(pLyricEventsV2);
          //      staticdata.m_eventsv1.add(pLyricEventsV2B);
          //      staticdata.m_eventsv1.add(pLyricEventsV2C);
@@ -1685,7 +1685,7 @@ Seq_Open_File_Cleanup:
 
          //   for(i = 0; i < tickaaTokensTicks.get_size(); i++)
          //   {
-         //      pLyricEventsV1 = new ::ikaraoke::lyric_events_v1();
+         //      pLyricEventsV1 = __new ::ikaraoke::lyric_events_v1();
          //      pLyricEventsV1->m_iType = ikaraoke::EventAdvanceShow;
          //      pLyricEventsV1->m_iOrder = i;
          //      //staticdata.m_eventsTracksForPositionCB.add(pLyricEventsV1);
@@ -2203,7 +2203,7 @@ Seq_Open_File_Cleanup:
          void sequence::seq_start()
          {
 
-            m_io = ref new message_io;
+            m_io = ref __new message_io;
 
             int i = 10;
 
@@ -2242,7 +2242,7 @@ Seq_Open_File_Cleanup:
 
             m_io->select_out_port(strPort);
 
-            m_pthreadPlay = new ::music::midi::winrt::thread(m_pobject);
+            m_pthreadPlay = __new ::music::midi::winrt::thread(m_pobject);
 
             m_pthreadPlay->m_pseq = this;
 

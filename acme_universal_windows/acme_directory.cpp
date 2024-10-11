@@ -13,7 +13,7 @@
 
 #include "_winrt_storage.h"
 
-#undef new
+#undef __new
 #include <winrt/Windows.Storage.h>
 #include <winrt/Windows.Foundation.Collections.h>
 
@@ -1214,7 +1214,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //
       //   #endif
       //
-      //      s_pstrCalc = new string(str);
+      //      s_pstrCalc = __new string(str);
       //
       //      return *s_pstrCalc;
       //

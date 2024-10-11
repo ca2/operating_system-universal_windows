@@ -192,7 +192,7 @@ namespace apex_universal_windows
 
          });
 
-      //::winrt::Windows::Foundation::Uri ^uri = ref new ::winrt::Windows::Foundation::Uri(anotherappURI);
+      //::winrt::Windows::Foundation::Uri ^uri = ref __new ::winrt::Windows::Foundation::Uri(anotherappURI);
 
       //::wait(Launcher::LaunchUriAsync(uri), timeTimeout);
 

@@ -80,7 +80,7 @@ namespace windowing_universal_windows
       m_pWindow4 = this;
 
       //set_layer(LAYERED_IMPL, this);
-      //m_plongmap  = new iptr_to_iptr;
+      //m_plongmap  = __new iptr_to_iptr;
 
 //      m_iXic = 0;
 //
@@ -1090,7 +1090,7 @@ namespace windowing_universal_windows
 
    //   }
 
-   //   ::window * pdata = new window;
+   //   ::window * pdata = __new window;
 
    //   pdata->m_bMessageOnlyWindow = true;
    //   pdata->m_windowscorewindow = None;
@@ -1140,7 +1140,7 @@ namespace windowing_universal_windows
 
    //   }
 
-   //   ::window * pdata = new ::window;
+   //   ::window * pdata = __new ::window;
 
    //   pdata->m_bMessageOnlyWindow = false;
    //   pdata->m_osdisplay = osdisplay_get(pdisplay);
@@ -6365,7 +6365,7 @@ namespace windowing_universal_windows
 
                //pbuffer->m_windowscorewindowBounds = m_windowscorewindow->Bounds;
 
-               //auto pchanged = ref new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
+               //auto pchanged = ref __new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
 
                ::size_i32 size((LONG)m_windowscorewindow.Bounds().Width, (LONG)m_windowscorewindow.Bounds().Height);
 
@@ -6938,20 +6938,20 @@ namespace windowing_universal_windows
    }
 
 
-   // Change the selection without notifying CoreTextEditContext of the new selection.
+   // Change the selection without notifying CoreTextEditContext of the __new selection.
    void window::SetSelection(::winrt::Windows::UI::Text::Core::CoreTextRange selection)
    {
 
       // Modify the internal selection.
       m_selection = selection;
 
-      //Update the UI to show the new selection.
+      //Update the UI to show the __new selection.
       UpdateTextUI();
 
    }
 
 
-   // Change the selection and notify CoreTextEditContext of the new selection.
+   // Change the selection and notify CoreTextEditContext of the __new selection.
    void window::SetSelectionAndNotify(::winrt::Windows::UI::Text::Core::CoreTextRange selection)
    {
 
@@ -7077,7 +7077,7 @@ namespace windowing_universal_windows
    void window::EditContext_SelectionUpdating(::winrt::Windows::UI::Text::Core::CoreTextEditContext sender, ::winrt::Windows::UI::Text::Core::CoreTextSelectionUpdatingEventArgs  args)
    {
 
-      // Set the new selection to the value specified by the system.
+      // Set the __new selection to the value specified by the system.
       auto range = args.Selection();
 
       // Update the selection of the edit context. There is no need to notify the system
@@ -7128,7 +7128,7 @@ namespace windowing_universal_windows
       if (args.UnderlineType() != nullptr)
       {
 
-         //TextDecoration underline = new TextDecoration(args.Range,args.UnderlineType.Value,args.UnderlineColor.Value);
+         //TextDecoration underline = __new TextDecoration(args.Range,args.UnderlineType.Value,args.UnderlineColor.Value);
 
          //InternalAddTextDecoration(underline);
 
@@ -7263,7 +7263,7 @@ namespace windowing_universal_windows
       }
 
       // This holds the range we intend to operate on, or which we intend
-      // to become the new selection. Start with the current selection.
+      // to become the __new selection. Start with the current selection.
       ::winrt::Windows::UI::Text::Core::CoreTextRange range = m_selection;
 
       // For the purpose of this sample, we will support only the left and right
@@ -7404,7 +7404,7 @@ namespace windowing_universal_windows
    void window::UpdateFocusUI()
    {
 
-      //BorderPanel->BorderBrush = _internalFocus ? new ::winrt::Windows::UI::Xaml::Media::SolidColorBrush(::winrt::Windows::UI::Colors::Green) : null;
+      //BorderPanel->BorderBrush = _internalFocus ? __new ::winrt::Windows::UI::Xaml::Media::SolidColorBrush(::winrt::Windows::UI::Colors::Green) : null;
 
    }
 
@@ -7445,8 +7445,8 @@ namespace windowing_universal_windows
    //Rect window::GetElementRect(FrameworkElement matter)
    //{
    //   GeneralTransform transform = matter.TransformToVisual(null);
-   //   Point point = transform.TransformPoint(new Point());
-   //   return new Rect(point, new Size(matter.ActualWidth, matter.ActualHeight));
+   //   Point point = transform.TransformPoint(__new Point());
+   //   return __new Rect(point, __new Size(matter.ActualWidth, matter.ActualHeight));
    //}
 
 
@@ -7543,7 +7543,7 @@ namespace windowing_universal_windows
 
       //            //pbuffer->m_windowscorewindowBounds = m_windowscorewindow->Bounds;
 
-      //            //auto pchanged = ref new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
+      //            //auto pchanged = ref __new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
 
       //            ::size_i32 size((LONG)m_windowscorewindow.Bounds().Width, (LONG)m_windowscorewindow.Bounds().Height);
 
@@ -8445,7 +8445,7 @@ namespace windowing_universal_windows
                if(m_windowscorewindow == nullptr)
                   return rectangle;
 
-               ::wait(m_windowscorewindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &rectangle]()
+               ::wait(m_windowscorewindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &rectangle]()
                {
                   try
                   {
@@ -8474,7 +8474,7 @@ namespace windowing_universal_windows
                if(g_iMouse < 0)
                   return p;
 
-               ::wait(m_windowscorewindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &p]()
+               ::wait(m_windowscorewindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &p]()
                {
                   try
                   {

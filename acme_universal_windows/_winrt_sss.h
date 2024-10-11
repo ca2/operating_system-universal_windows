@@ -2,14 +2,14 @@
 #pragma once
 
 #include "_.h"
-#undef new
+#undef __new
 #include "acme/operating_system/universal_windows/nano/_.h"
 #include <winrt/Windows.System.Threading.h>
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.Storage.h>
 #include <winrt/Windows.Storage.Streams.h>
 #include <winrt/Windows.Storage.FileProperties.h>
-#define new ACME_NEW
+#define __new ACME_NEW
 
 
 struct __declspec(uuid("5b0d3235-4dba-4d44-865e-8f1d0e4fd04d")) __declspec(novtable) IMemoryBufferByteAccess : ::IUnknown
@@ -47,9 +47,9 @@ template < typename PREDICATE >
 ::e_status windows_runtime_synchronously(const class time & time, PREDICATE predicate, enum_priority epriority = e_priority_normal)
 {
 
-   auto pmutex = __new mutex();
+   auto pmutex = __allocate mutex();
 
-   auto pevent = __new manual_reset_event();
+   auto pevent = __allocate manual_reset_event();
 
    pevent->m_estatus = error_timeout;
 
@@ -129,7 +129,7 @@ template < typename PREDICATE >
 //
 //   auto byteArrayTask = readBufferTask.then([] (Streams::IBuffer^ b) -> ByteArray
 //   {
-//   auto a = ref new Platform::Array<::u8>(b->Length);
+//   auto a = ref __new Platform::Array<::u8>(b->Length);
 //   Streams::DataReader::FromBuffer(b)->ReadBytes(a);
 //   ByteArray ba = { a };
 //   return ba;

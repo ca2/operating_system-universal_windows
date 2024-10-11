@@ -2,7 +2,7 @@
 #pragma once
 
 
-#undef new
+#undef __new
 #include <winrt/Windows.UI.Core.h>
 #include <winrt/Windows.ApplicationModel.Core.h>
 

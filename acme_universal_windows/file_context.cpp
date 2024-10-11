@@ -902,7 +902,7 @@ namespace acme_universal_windows
                m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &pfile, &file, &eopen]()
                {
 
-                  pfile = __new ::acme_universal_windows::native_buffer(file, eopen);
+                  pfile = __allocate ::acme_universal_windows::native_buffer(file, eopen);
 
                   pfile->initialize(this);
 

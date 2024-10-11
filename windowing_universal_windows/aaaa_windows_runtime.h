@@ -4,7 +4,7 @@
 #include "aura_universal_windows/_windows_runtime.h" 
 
 
-#undef new
+#undef __new
 #include <winrt/Windows.ApplicationModel.Activation.h>
 #include <winrt/Windows.ApplicationModel.Core.h>
 #include <winrt/Windows.Graphics.Display.h>
@@ -25,7 +25,7 @@
 #include <dwrite_1.h>
 #include <wincodec.h>
 
-#define new ACME_NEW
+#define __new ACME_NEW
 
 
 

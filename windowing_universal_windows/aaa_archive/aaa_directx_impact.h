@@ -102,9 +102,9 @@
 //      void SetText(const ::wstring & wstrText, int iBeg, int iEnd);
 //      bool HasSelection();
 //
-//      // Change the selection without notifying CoreTextEditContext of the new selection.
+//      // Change the selection without notifying CoreTextEditContext of the __new selection.
 //      void SetSelection(::winrt::Windows::UI::Text::Core::CoreTextRange selection);
-//      // Change the selection and notify CoreTextEditContext of the new selection.
+//      // Change the selection and notify CoreTextEditContext of the __new selection.
 //      void SetSelectionAndNotify(::winrt::Windows::UI::Text::Core::CoreTextRange selection);
 //
 //      // Return the specified range of text. Note that the system may ask for more text

@@ -123,7 +123,7 @@
 //
 //      //::user::os_calc_dark_mode();
 //
-//      auto pcs = __new ::user::system();
+//      auto pcs = __allocate ::user::system();
 //
 //      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost;
 //
@@ -135,7 +135,7 @@
 //
 //               //m_pdirectxbase->m_windowBounds = m_window->Bounds;
 //
-//               //auto pchanged = ref new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
+//               //auto pchanged = ref __new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
 //
 //               ::size_i32 size((LONG) m_window.Bounds().Width, (LONG) m_window.Bounds().Height);
 //
@@ -258,7 +258,7 @@
 //
 //      impact::SetWindow(window);
 //
-//      m_pdirectxbase = __new directx_base();
+//      m_pdirectxbase = __allocate directx_base();
 //
 //      m_pdirectxbase->system() = system();
 //
@@ -419,7 +419,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      auto pkey  = __new ::message::key();
+//      auto pkey  = __allocate ::message::key();
 //
 //      pusermessage = pkey;
 //
@@ -459,7 +459,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      auto pkey  = __new ::message::key();
+//      auto pkey  = __allocate ::message::key();
 //
 //      pusermessage = pkey;
 //
@@ -512,7 +512,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      ::message::key * pkey = new  ::message::key;
+//      ::message::key * pkey = __new  ::message::key;
 //
 //      pusermessage = pkey;
 //
@@ -660,7 +660,7 @@
 //
 //      ::g_iMouse = pointerPoint.PointerId();
 //
-//      ::message::mouse * pmouse = new ::message::mouse;
+//      ::message::mouse * pmouse = __new ::message::mouse;
 //
 //      pusermessage = pmouse;
 //
@@ -716,7 +716,7 @@
 //
 //      ::g_iMouse = pointerPoint.PointerId();
 //
-//      ::message::mouse * pmouse = new  ::message::mouse;
+//      ::message::mouse * pmouse = __new  ::message::mouse;
 //
 //      pusermessage = pmouse;
 //
@@ -788,7 +788,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      ::message::mouse * pmouse = new  ::message::mouse;
+//      ::message::mouse * pmouse = __new  ::message::mouse;
 //
 //      pusermessage = pmouse;
 //
@@ -854,7 +854,7 @@
 //
 //   //   //str += " full_screen";
 //
-//   //   return ref new directx_application_source(papexsystem, str);
+//   //   return ref __new directx_application_source(papexsystem, str);
 //
 //   //}
 //
@@ -966,7 +966,7 @@
 //            if(m_window == nullptr)
 //               return rectangle;
 //
-//            ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &rectangle]()
+//            ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &rectangle]()
 //            {
 //               try
 //               {
@@ -994,7 +994,7 @@
 //            if(g_iMouse < 0)
 //               return p;
 //
-//            ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &p]()
+//            ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &p]()
 //            {
 //               try
 //               {

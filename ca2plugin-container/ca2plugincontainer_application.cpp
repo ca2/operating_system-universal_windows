@@ -22,7 +22,7 @@ namespace ca2plugin_container
 
       //Sleep(15 * 1000);
       
-      m_phost = new host(this);
+      m_phost = __new host(this);
 
 
       vsstring strChannel = "\\ca2\\ca2plugin-container-";
