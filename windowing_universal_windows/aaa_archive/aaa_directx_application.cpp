@@ -135,7 +135,7 @@
 //
 //               //m_pdirectxbase->m_windowBounds = m_window->Bounds;
 //
-//               //auto pchanged = ref __new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
+//               //auto pchanged = ref ___new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
 //
 //               ::size_i32 size((LONG) m_window.Bounds().Width, (LONG) m_window.Bounds().Height);
 //
@@ -512,7 +512,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      ::message::key * pkey = __new  ::message::key;
+//      ::message::key * pkey = ___new  ::message::key;
 //
 //      pusermessage = pkey;
 //
@@ -660,7 +660,7 @@
 //
 //      ::g_iMouse = pointerPoint.PointerId();
 //
-//      ::message::mouse * pmouse = __new ::message::mouse;
+//      ::message::mouse * pmouse = ___new ::message::mouse;
 //
 //      pusermessage = pmouse;
 //
@@ -716,7 +716,7 @@
 //
 //      ::g_iMouse = pointerPoint.PointerId();
 //
-//      ::message::mouse * pmouse = __new  ::message::mouse;
+//      ::message::mouse * pmouse = ___new  ::message::mouse;
 //
 //      pusermessage = pmouse;
 //
@@ -788,7 +788,7 @@
 //
 //      ::pointer<::user::message>pusermessage;
 //
-//      ::message::mouse * pmouse = __new  ::message::mouse;
+//      ::message::mouse * pmouse = ___new  ::message::mouse;
 //
 //      pusermessage = pmouse;
 //
@@ -854,7 +854,7 @@
 //
 //   //   //str += " full_screen";
 //
-//   //   return ref __new directx_application_source(papexsystem, str);
+//   //   return ref ___new directx_application_source(papexsystem, str);
 //
 //   //}
 //
@@ -966,7 +966,7 @@
 //            if(m_window == nullptr)
 //               return rectangle;
 //
-//            ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &rectangle]()
+//            ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref ___new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &rectangle]()
 //            {
 //               try
 //               {
@@ -994,7 +994,7 @@
 //            if(g_iMouse < 0)
 //               return p;
 //
-//            ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &p]()
+//            ::wait(m_window->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref ___new ::winrt::Windows::UI::Core::DispatchedHandler ([=, &p]()
 //            {
 //               try
 //               {

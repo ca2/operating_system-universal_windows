@@ -1589,8 +1589,8 @@ namespace music
 //         * smfSeek
 //         *
 //         * This function moves the file pointer within a track
-//         * and gets the state of the track at the __new position. It returns a buffer of
-//         * state information which can be used to set up to play from the __new position.
+//         * and gets the state of the track at the ___new position. It returns a buffer of
+//         * state information which can be used to set up to play from the ___new position.
 //         *
 //         * hSmf                      - Handle of file to seek within
 //         *
@@ -2406,7 +2406,7 @@ namespace music
 //            ::music::midi::tempo_map_entry * pmtme = GetTempoMapEntry(m_ptracks->m_tkPosition);
 //            if(pmtme != NULL)
 //            {
-//               ::music::midi::event * pevent = __new ::music::midi::event();
+//               ::music::midi::event * pevent = ___new ::music::midi::event();
 //               GetTempoEvent(*pevent);
 //               m_mepaOnQuarterNote.add(pevent);
 //            }
@@ -2421,7 +2421,7 @@ namespace music
 //            fileHdr.wDivision = m_pFileHeader->wDivision ;
 //            fileHdr.wTracks = WORDSWAP(1) ;
 //
-//            ::music::midi::track * pTrackUnion = __new ::music::midi::track(m_pobject);
+//            ::music::midi::track * pTrackUnion = ___new ::music::midi::track(m_pobject);
 //            pTrackUnion->Initialize(m_ptracks);
 //            m_ptracks->CompactTracks(*pTrackUnion, true, true);
 //
@@ -2461,7 +2461,7 @@ namespace music
 //         ::e_status buffer::ImmediatePutTempoChange()
 //         {
 //
-//            ::music::midi::event * pevent = __new ::music::midi::event;
+//            ::music::midi::event * pevent = ___new ::music::midi::event;
 //
 //            GetTempoEvent(*pevent);
 //

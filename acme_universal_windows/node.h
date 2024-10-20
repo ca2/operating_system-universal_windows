@@ -5,7 +5,7 @@
 #include "acme_windows_common/node.h"
 
 
-#undef __new
+#undef ___new
 #include <winrt/Windows.Storage.h>
 
 

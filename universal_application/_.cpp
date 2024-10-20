@@ -28,7 +28,7 @@ int main(::Platform::Array < ::Platform::String ^ > ^ stra)
 
    int iSize = stra->Length + 1;
 
-   pp = __new wchar_t*[iSize];
+   pp = ___new wchar_t*[iSize];
 
    pp[0] = nullptr;
 

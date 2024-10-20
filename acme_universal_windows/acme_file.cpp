@@ -9,7 +9,7 @@
 #include "acme/_operating_system.h"
 
 
-#undef __new
+#undef ___new
 #include <winrt/Windows.Storage.h>
 
 

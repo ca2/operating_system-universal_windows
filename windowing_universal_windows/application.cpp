@@ -5,7 +5,7 @@
 #include "application.h"
 #include "window.h"
 #include "windowing.h"
-#undef __new
+#undef ___new
 #include <winrt/Windows.UI.ViewManagement.h>
 #include <winrt/Windows.ApplicationModel.Core.h>
 #include <winrt/Windows.UI.Core.h>

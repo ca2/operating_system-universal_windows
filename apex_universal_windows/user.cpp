@@ -20,7 +20,7 @@
 ////
 ////   ::point_i32 pointCursor;
 ////
-////   ::wait(::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler([=, &pointCursor, &iRet]()
+////   ::wait(::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref ___new ::winrt::Windows::UI::Core::DispatchedHandler([=, &pointCursor, &iRet]()
 ////   {
 ////
 ////      try
@@ -63,7 +63,7 @@
 ////      return false;
 ////
 ////   ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
-////          ref __new ::winrt::Windows::UI::Core::DispatchedHandler([]()
+////          ref ___new ::winrt::Windows::UI::Core::DispatchedHandler([]()
 ////   {
 ////
 ////      ::winrt::Windows::Foundation::Collections::IVectorView < ::winrt::Windows::Devices::Input::PointerDevice ^ > ^ deva = ::winrt::Windows::Devices::Input::PointerDevice::GetPointerDevices();
@@ -106,7 +106,7 @@
 //{
 //
 //   ::wait(
-//      ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler([pobjectTask]()
+//      ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView->CoreWindow->Dispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref ___new ::winrt::Windows::UI::Core::DispatchedHandler([pobjectTask]()
 //   {
 //
 //      pobjectTask->operator()();

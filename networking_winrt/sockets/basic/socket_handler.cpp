@@ -58,9 +58,9 @@ namespace sockets_bsd
       m_p2 = this;
       defer_create_synchronization();
       zero(m_socks4_host);
-      //m_prfds = __new fd_set();
-      //m_pwfds = __new fd_set();
-      //m_pefds = __new fd_set();
+      //m_prfds = ___new fd_set();
+      //m_pwfds = ___new fd_set();
+      //m_pefds = ___new fd_set();
       FD_ZERO(&m_rfds);
       FD_ZERO(&m_wfds);
       FD_ZERO(&m_efds);
@@ -1098,7 +1098,7 @@ end_processing_adding:
                if (::is_set(ppairSocket) && ::is_set(ppairSocket->m_psocket)) // found
                {
 
-                  // __new SSL negotiate method
+                  // ___new SSL negotiate method
                   if (ppairSocket->m_psocket->IsSSLNegotiate())
                   {
 
@@ -1136,7 +1136,7 @@ end_processing_adding:
                if (::is_set(ppairSocket) && ::is_set(ppairSocket->m_psocket)) // found
                {
 
-                  // __new SSL negotiate method
+                  // ___new SSL negotiate method
                   if (ppairSocket->m_psocket->IsSSLNegotiate())
                   {
 
@@ -1257,7 +1257,7 @@ end_processing_adding:
                   erase_socket(socket);
 
                   // After DetachSocket(), all calls to socket_handler() will return a object
-                  // to the __new slave socket_handler running in the __new thread.
+                  // to the ___new slave socket_handler running in the ___new thread.
                   try
                   {
 
@@ -1483,7 +1483,7 @@ end_processing_adding:
 
                   auto ptcpsocket = dynamic_cast <tcp_socket*> (psocket);
 
-                  // __new graceful ptcpsocket - flush and close timeout 5s
+                  // ___new graceful ptcpsocket - flush and close timeout 5s
                   if (::is_set(ptcpsocket) && psocket->IsConnected() && ptcpsocket->GetFlushBeforeClose() &&
                         !ptcpsocket->IsSSL() && psocket->TimeSinceClose().m_iSecond < 5)
                   {
@@ -1525,7 +1525,7 @@ end_processing_adding:
 
                      //information() << "close() before reconnect\n");
 
-                     ptcpsocket->close(); // dispose of old file descriptor (open creates a __new)
+                     ptcpsocket->close(); // dispose of old file descriptor (open creates a ___new)
 
                      ptcpsocket->OnDisconnect();
 

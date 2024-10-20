@@ -76,7 +76,7 @@ namespace music
             bool player::Play(imedia_position tickStart, uint32_t dwEllapse)
             {
 
-               ::music::midi::player::command * pcommand = __new ::music::midi::player::command(m_pobject);
+               ::music::midi::player::command * pcommand = ___new ::music::midi::player::command(m_pobject);
 
                pcommand->m_ecommand = ::music::midi::player::command_play;
                pcommand->m_dwEllapse = dwEllapse;
@@ -95,7 +95,7 @@ namespace music
             bool player::PlayRate(double dRate, uint32_t dwEllapse)
             {
 
-               ::music::midi::player::command * pcommand = __new ::music::midi::player::command(m_pobject);
+               ::music::midi::player::command * pcommand = ___new ::music::midi::player::command(m_pobject);
 
                pcommand->m_ecommand = ::music::midi::player::command_play;
                pcommand->m_dwEllapse = dwEllapse;
@@ -131,7 +131,7 @@ namespace music
             bool player::ExecuteCommand(::music::midi::player::e_command ecommand, uint32_t dwEllapse)
             {
 
-               ::music::midi::player::command * pcommand = __new ::music::midi::player::command(m_pobject);
+               ::music::midi::player::command * pcommand = ___new ::music::midi::player::command(m_pobject);
 
                pcommand->m_ecommand = ecommand;
                pcommand->m_dwEllapse = dwEllapse;
@@ -154,7 +154,7 @@ namespace music
                if(success != (mmrc = get_sequence()->close_file()) && mmrc != EFunctionNotSupported)
                {
 
-                  throw __new exception(EMidiPlayerClose);
+                  throw ___new exception(EMidiPlayerClose);
 
                }
 
@@ -282,7 +282,7 @@ namespace music
                if((mmrc = get_sequence()->SaveFile(lpszPathName)) != success)
                {
 
-                  throw __new exception(EMidiPlayerSave);
+                  throw ___new exception(EMidiPlayerSave);
 
                }
 

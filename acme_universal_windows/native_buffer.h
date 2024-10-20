@@ -4,7 +4,7 @@
 
 #include "acme/filesystem/file/file.h"
 #include "acme/prototype/prototype/memory.h"
-#undef __new
+#undef ___new
 #include <winrt/Windows.Storage.h>
 
 

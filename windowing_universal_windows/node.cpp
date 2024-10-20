@@ -49,7 +49,7 @@
 //
 //      //}
 //
-//      auto pwindow = __new window;
+//      auto pwindow = ___new window;
 //
 //      auto pwindowMain = ::pointer_transfer(pwindow);
 //

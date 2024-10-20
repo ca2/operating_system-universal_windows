@@ -3,7 +3,7 @@
 
 
 #include "aura/windowing/sandbox/window.h"
-#undef __new
+#undef ___new
 #include <winrt/Windows.UI.Text.Core.h>
 #include <winrt/Windows.Graphics.Display.h>
 #include <winrt/Windows.ApplicationModel.Core.h>
@@ -171,9 +171,9 @@ namespace windowing_universal_windows
       void SetText(const ::wstring & wstrText, int iBeg, int iEnd);
       bool HasSelection();
 
-      // Change the selection without notifying CoreTextEditContext of the __new selection.
+      // Change the selection without notifying CoreTextEditContext of the ___new selection.
       void SetSelection(::winrt::Windows::UI::Text::Core::CoreTextRange selection);
-      // Change the selection and notify CoreTextEditContext of the __new selection.
+      // Change the selection and notify CoreTextEditContext of the ___new selection.
       void SetSelectionAndNotify(::winrt::Windows::UI::Text::Core::CoreTextRange selection);
 
       // Return the specified range of text. Note that the system may ask for more text
@@ -733,7 +733,7 @@ namespace windowing_universal_windows
 
       //virtual ::user::interaction * get_desktop_window();
 
-      // Obsolete and non-portable APIs - not recommended for __new code
+      // Obsolete and non-portable APIs - not recommended for ___new code
       virtual void CloseWindow();
       virtual bool OpenIcon();
 

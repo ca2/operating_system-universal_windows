@@ -607,12 +607,12 @@ FT_BEGIN_HEADER
   /*    slow nature and the original developer losing interest meant that  */
   /*    this option was never enabled in default builds.                   */
   /*                                                                       */
-  /* 2. The __new default mode for the TrueType driver.  The Infinality code */
+  /* 2. The ___new default mode for the TrueType driver.  The Infinality code */
   /*    base was stripped to the bare minimum and all configurability      */
   /*    removed in the name of speed and simplicity.  The configurability  */
   /*    was mainly aimed at legacy fonts like Arial, Times New Roman, or   */
   /*    Courier.  Legacy fonts are fonts that modify vertical stems to     */
-  /*    achieve clean black-and-white bitmaps.  The __new mode focuses on    */
+  /*    achieve clean black-and-white bitmaps.  The ___new mode focuses on    */
   /*    applying a minimal set of rules to all fonts indiscriminately so   */
   /*    that modern and web fonts render well while legacy fonts render    */
   /*    okay.                                                              */
@@ -759,7 +759,7 @@ FT_BEGIN_HEADER
   /*                                                                       */
   /* Using CFF_CONFIG_OPTION_DARKENING_PARAMETER_{X,Y}{1,2,3,4} it is      */
   /* possible to set up the default values of the four control points that */
-  /* define the stem darkening behaviour of the (__new) CFF engine.  For     */
+  /* define the stem darkening behaviour of the (___new) CFF engine.  For     */
   /* more details please read the documentation of the                     */
   /* `darkening-parameters' property of the cff driver module (file        */
   /* `ftcffdrv.h'), which allows the control at run-time.                  */

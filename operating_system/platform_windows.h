@@ -96,7 +96,7 @@ using namespace ::winrt::Windows::Storage;
 #ifdef VC6
 #include <mbstring.h>
 #endif
-#include <__new.h>
+#include <___new.h>
 #include <eh.h>
 
 #undef __window_procedure

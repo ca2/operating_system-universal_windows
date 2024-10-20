@@ -18,26 +18,26 @@ appm::appm() :
 void appm::Initialize(CoreApplicationView^ applicationView)
 {
     applicationView->Activated +=
-        ref __new TypedEventHandler<CoreApplicationView^, IActivatedEventArgs^>(this, &appm::OnActivated);
+        ref ___new TypedEventHandler<CoreApplicationView^, IActivatedEventArgs^>(this, &appm::OnActivated);
 
     CoreApplication::Suspending +=
-        ref __new EventHandler<SuspendingEventArgs^>(this, &appm::OnSuspending);
+        ref ___new EventHandler<SuspendingEventArgs^>(this, &appm::OnSuspending);
 
     CoreApplication::Resuming +=
-        ref __new EventHandler<Platform::Object^>(this, &appm::OnResuming);
+        ref ___new EventHandler<Platform::Object^>(this, &appm::OnResuming);
 
-    m_renderer = ref __new CubeRenderer();
+    m_renderer = ref ___new CubeRenderer();
 }
 
 void appm::SetWindow(CoreWindow^ window)
 {
     window->SizeChanged += 
-        ref __new TypedEventHandler<CoreWindow^, WindowSizeChangedEventArgs^>(this, &appm::OnWindowSizeChanged);
+        ref ___new TypedEventHandler<CoreWindow^, WindowSizeChangedEventArgs^>(this, &appm::OnWindowSizeChanged);
 
     window->Closed += 
-        ref __new TypedEventHandler<CoreWindow^, CoreWindowEventArgs^>(this, &appm::OnWindowClosed);
+        ref ___new TypedEventHandler<CoreWindow^, CoreWindowEventArgs^>(this, &appm::OnWindowClosed);
 
-    window->PointerCursor = ref __new CoreCursor(CoreCursorType::Arrow, 0);
+    window->PointerCursor = ref ___new CoreCursor(CoreCursorType::Arrow, 0);
 
     m_renderer->Initialize(CoreWindow::GetForCurrentThread());
 }
@@ -48,7 +48,7 @@ void appm::Load(Platform::String^ entryPoint)
 
 void appm::Run()
 {
-    BasicTimer^ timer = ref __new BasicTimer();
+    BasicTimer^ timer = ref ___new BasicTimer();
 
     while (!m_windowClosed)
     {
@@ -98,13 +98,13 @@ void appm::OnResuming(Platform::Object^ sender, Platform::Object^ args)
 
 IFrameworkView^ Direct3DApplicationSource::CreateView()
 {
-    return ref __new appm();
+    return ref ___new appm();
 }
 
 [Platform::MTAThread]
 int main(Platform::Array<Platform::String^>^)
 {
-    auto direct3DApplicationSource = ref __new Direct3DApplicationSource();
+    auto direct3DApplicationSource = ref ___new Direct3DApplicationSource();
     CoreApplication::Run(direct3DApplicationSource);
     return 0;
 }

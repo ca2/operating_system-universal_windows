@@ -118,7 +118,7 @@ static int ssl_tlsext_ticket_key_evp_cb(SSL* s, unsigned char key_name[16],
    ::sockets_bsd::tcp_socket *c = (::sockets_bsd::tcp_socket *) SSL_get_app_data2(s);
    ssl_ticket_key key;
    int is_current_key;
-   if (enc)   /* create __new session */
+   if (enc)   /* create ___new session */
    {
       if (current_session_key(c, &key))
       {
@@ -164,7 +164,7 @@ static int ssl_tlsext_ticket_key_cb(SSL *s, unsigned char key_name[16], unsigned
    ::sockets_bsd::tcp_socket *c = (::sockets_bsd::tcp_socket *) SSL_get_app_data2(s);
    ssl_ticket_key key;
    int is_current_key;
-   if (enc)   /* create __new session */
+   if (enc)   /* create ___new session */
    {
       if (current_session_key(c, &key))
       {
@@ -420,7 +420,7 @@ namespace sockets_bsd
 
       ::pointer < ::networking_bsd::address > pnetworkingbsdaddressBind = paddressBind;
 
-      // if not, create __new connection
+      // if not, create ___new connection
       SOCKET s = CreateSocket(pnetworkingbsdaddress->get_family(),SOCK_STREAM,"tcp");
 
       if(s == INVALID_SOCKET)

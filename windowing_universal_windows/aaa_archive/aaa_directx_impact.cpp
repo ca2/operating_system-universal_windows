@@ -301,20 +301,20 @@ namespace windowing_universal_windows
 //   }
 //
 //
-//   // Change the selection without notifying CoreTextEditContext of the __new selection.
+//   // Change the selection without notifying CoreTextEditContext of the ___new selection.
 //   void impact::SetSelection(::winrt::Windows::UI::Text::Core::CoreTextRange selection)
 //   {
 //      
 //      // Modify the internal selection.
 //      m_selection = selection;
 //
-//      //Update the UI to show the __new selection.
+//      //Update the UI to show the ___new selection.
 //      UpdateTextUI();
 //
 //   }
 //
 //
-//   // Change the selection and notify CoreTextEditContext of the __new selection.
+//   // Change the selection and notify CoreTextEditContext of the ___new selection.
 //   void impact::SetSelectionAndNotify(::winrt::Windows::UI::Text::Core::CoreTextRange selection)
 //   {
 //
@@ -437,7 +437,7 @@ namespace windowing_universal_windows
 //   void impact::EditContext_SelectionUpdating(::winrt::Windows::UI::Text::Core::CoreTextEditContext sender, ::winrt::Windows::UI::Text::Core::CoreTextSelectionUpdatingEventArgs  args)
 //   {
 //
-//      // Set the __new selection to the value specified by the system.
+//      // Set the ___new selection to the value specified by the system.
 //      auto range = args.Selection();
 //
 //      // Update the selection of the edit context. There is no need to notify the system
@@ -488,7 +488,7 @@ namespace windowing_universal_windows
 //      if (args.UnderlineType() != nullptr)
 //      {
 //
-//         //TextDecoration underline = __new TextDecoration(args.Range,args.UnderlineType.Value,args.UnderlineColor.Value);
+//         //TextDecoration underline = ___new TextDecoration(args.Range,args.UnderlineType.Value,args.UnderlineColor.Value);
 //
 //         //InternalAddTextDecoration(underline);
 //
@@ -621,7 +621,7 @@ namespace windowing_universal_windows
 //      }
 //
 //      // This holds the range we intend to operate on, or which we intend
-//      // to become the __new selection. Start with the current selection.
+//      // to become the ___new selection. Start with the current selection.
 //      ::winrt::Windows::UI::Text::Core::CoreTextRange range = m_selection;
 //
 //      // For the purpose of this sample, we will support only the left and right
@@ -762,7 +762,7 @@ namespace windowing_universal_windows
 //   void impact::UpdateFocusUI()
 //   {
 //
-//      //BorderPanel->BorderBrush = _internalFocus ? __new ::winrt::Windows::UI::Xaml::Media::SolidColorBrush(::winrt::Windows::UI::Colors::Green) : null;
+//      //BorderPanel->BorderBrush = _internalFocus ? ___new ::winrt::Windows::UI::Xaml::Media::SolidColorBrush(::winrt::Windows::UI::Colors::Green) : null;
 //
 //   }
 //
@@ -803,8 +803,8 @@ namespace windowing_universal_windows
 //   //Rect impact::GetElementRect(FrameworkElement matter)
 //   //{
 //   //   GeneralTransform transform = matter.TransformToVisual(null);
-//   //   Point point = transform.TransformPoint(__new Point());
-//   //   return __new Rect(point, __new Size(matter.ActualWidth, matter.ActualHeight));
+//   //   Point point = transform.TransformPoint(___new Point());
+//   //   return ___new Rect(point, ___new Size(matter.ActualWidth, matter.ActualHeight));
 //   //}
 
 

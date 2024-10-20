@@ -14,7 +14,7 @@
 #include "acme/_operating_system.h"
 
 
-#undef __new
+#undef ___new
 #include <winrt/Windows.Storage.h>
 //#include "_windows_runtime.h"
 

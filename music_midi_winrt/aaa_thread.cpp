@@ -9,7 +9,7 @@
 //   TimeSpan delay;
 //   delay.Duration = maximum((ns / 100), 1) - 1;
 //   ThreadPoolTimer ^ PeriodicTimer =
-//      ThreadPoolTimer::CreateTimer(ref __new TimerElapsedHandler([&](ThreadPoolTimer ^) {topic.SetEvent(); }), delay);
+//      ThreadPoolTimer::CreateTimer(ref ___new TimerElapsedHandler([&](ThreadPoolTimer ^) {topic.SetEvent(); }), delay);
 //
 //   topic.wait();
 //

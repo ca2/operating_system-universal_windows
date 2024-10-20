@@ -26,7 +26,7 @@ int __win_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, i
 
    //_set_purecall_handler(_ca2_purecall);
 
-   ::plane::system * psystem = __new ::plane::system();
+   ::plane::system * psystem = ___new ::plane::system();
 
    ASSERT(hPrevInstance == NULL);
 
@@ -44,7 +44,7 @@ int __win_main(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPTSTR lpCmdLine, i
 
 
 
-   ::ca2plugin_container::application * papp = __new ::ca2plugin_container::application();
+   ::ca2plugin_container::application * papp = ___new ::ca2plugin_container::application();
 
 
    if(!papp->initialize(strChannel))

@@ -142,7 +142,7 @@ namespace sockets
 
       m_bConnecting = true;
 
-      m_streamsocket = ref __new ::winrt::Windows::Networking::Sockets::StreamSocket();
+      m_streamsocket = ref ___new ::winrt::Windows::Networking::Sockets::StreamSocket();
 
       //attach(data);
 
@@ -156,7 +156,7 @@ namespace sockets
       {
 
          m_streamsocket->ConnectAsync(ad.m_hostname, strService)->Completed =
-            ref __new ::winrt::Windows::Foundation::AsyncActionCompletedHandler
+            ref ___new ::winrt::Windows::Foundation::AsyncActionCompletedHandler
             ([this](::winrt::Windows::Foundation::IAsyncAction ^ action, ::winrt::Windows::Foundation::AsyncStatus status)
                {
 
@@ -211,7 +211,7 @@ namespace sockets
             }*/
 
 
-      m_streamsocket = ref __new ::winrt::Windows::Networking::Sockets::StreamSocket();
+      m_streamsocket = ref ___new ::winrt::Windows::Networking::Sockets::StreamSocket();
 
       ::winrt::Windows::Networking::EndpointPair ^ pair = ref __allocate< ::winrt::Windows::Networking::EndpointPair(bind_ad.m_hostname,  ansi_string_from_i64(bind_ad.get_service_number()), ad.m_hostname, ansi_string_from_i64(ad.get_service_number >()));
       //::sockets::socket::os_data data;
@@ -219,7 +219,7 @@ namespace sockets
       //attach(data);
 
       m_streamsocket->ConnectAsync(pair)->Completed =
-      ref __new ::winrt::Windows::Foundation::AsyncActionCompletedHandler
+      ref ___new ::winrt::Windows::Foundation::AsyncActionCompletedHandler
       ([this](::winrt::Windows::Foundation::IAsyncAction ^ action, ::winrt::Windows::Foundation::AsyncStatus status)
       {
 
@@ -233,7 +233,7 @@ namespace sockets
       });
 
 
-      m_streamsocket = ref __new ::winrt::Windows::Networking::Sockets::StreamSocket();
+      m_streamsocket = ref ___new ::winrt::Windows::Networking::Sockets::StreamSocket();
 
       //data.o = m_posdata->m_streamsocket;
       
@@ -260,7 +260,7 @@ namespace sockets
             return true;
          }
       }*/
-      // if not, create __new connection
+      // if not, create ___new connection
       //SOCKET s = CreateSocket(ad.GetFamily(), SOCK_STREAM, "tcp");
       //if (s == INVALID_SOCKET)
       //{
@@ -458,7 +458,7 @@ namespace sockets
       //if(inputstream->UnconsumedBufferLength > 0)
       //{
 
-      //   Array < unsigned char, 1U > ^ ucha = ref __new Array < unsigned char, 1U >(reader->UnconsumedBufferLength);
+      //   Array < unsigned char, 1U > ^ ucha = ref ___new Array < unsigned char, 1U >(reader->UnconsumedBufferLength);
 
       //   reader->ReadBytes(ucha);
 
@@ -516,7 +516,7 @@ namespace sockets
       //   else if(asyncStatus == ::winrt::Windows::Foundation::AsyncStatus::Completed)
       //   {
       //      //int n = reader->UnconsumedBufferLength;
-      //      Array < unsigned char, 1U > ^ ucha = ref __new Array < unsigned char, 1U >(reader->UnconsumedBufferLength);
+      //      Array < unsigned char, 1U > ^ ucha = ref ___new Array < unsigned char, 1U >(reader->UnconsumedBufferLength);
       //      reader->ReadBytes(ucha);
       //      memory mem;
       //      mem.assign(ucha->Data, ucha->Length);
@@ -760,7 +760,7 @@ namespace sockets
          }
          else
          {
-            m_obuf_top = __new OUTPUT();
+            m_obuf_top = ___new OUTPUT();
             m_obuf.add_tail( m_obuf_top );
          }
       }

@@ -281,7 +281,7 @@ namespace aura_universal_windows
 
   /*    ::wait(m_window->Dispatcher->RunAsync(
              CoreDispatcherPriority::Normal,
-             ref __new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+             ref ___new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
       {*/
 
       //m_pwindowing->windowing_sync(15_s, __routine([this]()
@@ -546,7 +546,7 @@ namespace aura_universal_windows
 
    //   }
 
-   //   pdispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref __new ::winrt::Windows::UI::Core::DispatchedHandler([routine]()
+   //   pdispatcher->RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal, ref ___new ::winrt::Windows::UI::Core::DispatchedHandler([routine]()
    //      {
 
    //         routine();
@@ -2881,7 +2881,7 @@ return true;
 
       //m_window->Dispatcher->RunAsync(
       //CoreDispatcherPriority::Normal,
-      //ref __new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
+      //ref ___new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
       //{
 
       //   ::winrt::Windows::UI::ViewManagement::ApplicationView  applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
@@ -2925,7 +2925,7 @@ return true;
    //{
    //   __UNREFERENCED_PARAMETER(bRedraw);
    //   ASSERT(::is_window(get_handle()));
-   //   m_pfont = __new ::write_text::font(*pfont);
+   //   m_pfont = ___new ::write_text::font(*pfont);
    //}
 
    //::write_text::font* interaction_impl::GetFont()

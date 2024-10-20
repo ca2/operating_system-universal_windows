@@ -17,7 +17,7 @@ public:
     {
         if (!QueryPerformanceFrequency(&m_frequency))
         {
-            throw ref __new Platform::FailureException();
+            throw ref ___new Platform::FailureException();
         }
         Reset();
     }
@@ -34,7 +34,7 @@ public:
     {
         if (!QueryPerformanceCounter(&m_currentTime))
         {
-            throw ref __new Platform::FailureException();
+            throw ref ___new Platform::FailureException();
         }
         
         m_total = static_cast<float>(

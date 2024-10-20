@@ -381,7 +381,7 @@ namespace ca2plugin_container
 #endif
          //Sleep(15 * 1000);
 
-         m_pplugin = __new ::plugin::instance();
+         m_pplugin = ___new ::plugin::instance();
          m_pplugin->m_phost = this;
          m_pplugin->m_strBitmapChannel = m_strBitmapChannel;
          m_bInstalling = false;
