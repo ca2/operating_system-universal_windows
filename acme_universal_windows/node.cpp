@@ -21,7 +21,7 @@ namespace acme_universal_windows
    }
 
 
-   //void node::implement(::pointer<::acme::node>& pnode, ::pointer<::platform::system>& psystem)
+   //void node::implement(::pointer<::platform::node>& pnode, ::pointer<::platform::system>& psystem)
    void node::node_main()
    {
 
@@ -31,7 +31,7 @@ namespace acme_universal_windows
 
       //system()->main();
 
-      ::acme::node::node_main();
+      ::platform::node::node_main();
 
       //if (!estatus)
       //{

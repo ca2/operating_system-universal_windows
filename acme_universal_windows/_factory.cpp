@@ -34,7 +34,7 @@ __FACTORY_EXPORT void acme_universal_windows_factory(::factory::factory * pfacto
    pfactory->add_factory_item < ::acme_universal_windows::watcher, ::file::watcher >();
    pfactory->add_factory_item < ::acme_universal_windows::watch, ::file::watch >();
 
-   pfactory->add_factory_item < ::acme_universal_windows::node, ::acme::node >();
+   pfactory->add_factory_item < ::acme_universal_windows::node, ::platform::node >();
 
 
 }

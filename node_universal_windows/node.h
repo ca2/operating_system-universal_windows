@@ -34,7 +34,7 @@ namespace node_universal_windows
       //void message_box_factory() override;
 
 
-      //void implement(::pointer<::acme::node> & pnode, ::pointer<::platform::system> & psystem) override;
+      //void implement(::pointer<::platform::node> & pnode, ::pointer<::platform::system> & psystem) override;
       void node_main() override;
 
 
@@ -65,7 +65,7 @@ namespace node_universal_windows
    };
 
 
-   //inline window * __window(::acme::node * pnode) { return pnode->m_pWindowingUniversalWindowsNode->m_pwindowNode; }
+   //inline window * __window(::platform::node * pnode) { return pnode->m_pWindowingUniversalWindowsNode->m_pwindowNode; }
 
 
 } // namespace node_universal_windows

@@ -31,7 +31,7 @@ __FACTORY_EXPORT void node_universal_windows_factory(::factory::factory * pfacto
 
    //pfactory->add_factory_item < ::windows::interaction_impl, ::windowing::window >();
 
-   pfactory->add_factory_item < ::node_universal_windows::node, ::acme::node >();
+   pfactory->add_factory_item < ::node_universal_windows::node, ::platform::node >();
 
 
 }

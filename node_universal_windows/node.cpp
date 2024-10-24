@@ -42,7 +42,7 @@ namespace node_universal_windows
    //}
 
 
-   //void node::implement(::pointer<::acme::node> & pnode, ::pointer<::platform::system> & psystem)
+   //void node::implement(::pointer<::platform::node> & pnode, ::pointer<::platform::system> & psystem)
    void node::node_main()
    {
 

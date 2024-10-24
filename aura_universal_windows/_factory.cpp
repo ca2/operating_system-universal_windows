@@ -21,7 +21,7 @@ __FACTORY_EXPORT void aura_universal_windows_factory(::factory::factory * pfacto
 
    pfactory->add_factory_item < ::aura_universal_windows::interaction_impl, ::windowing::window >();
 
-   pfactory->add_factory_item < ::aura_universal_windows::node, ::acme::node >();
+   pfactory->add_factory_item < ::aura_universal_windows::node, ::platform::node >();
 
    pfactory->add_factory_item < ::aura_universal_windows::hardware::device_group, ::hardware::device_group >();
    pfactory->add_factory_item < ::aura_universal_windows::hardware::devices, ::hardware::devices >();

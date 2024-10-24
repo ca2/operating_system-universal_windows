@@ -684,13 +684,13 @@ namespace windowing_universal_windows
 
       //if (((FAILED(hrIconLocation) && FAILED(hrGetLocation))
       //   || getfileimage.m_imagekey.m_iIcon == I32_MINIMUM
-      //   || !m_papplication->m_papexcontext->file().exists(strIconLocation))
+      //   || !m_papplication->file().exists(strIconLocation))
       //   && strFileParam.case_insensitive_ends(".lnk"))
       //{
 
-      //   m_papplication->m_papexcontext->file().resolve_link(pathTarget, strFileParam);
+      //   m_papplication->file().resolve_link(pathTarget, strFileParam);
 
-      //   if (!m_papplication->m_papexcontext->file().exists(pathTarget) && !m_papplication->m_papexcontext->dir().is(pathTarget))
+      //   if (!m_papplication->file().exists(pathTarget) && !m_papplication->dir().is(pathTarget))
       //   {
 
       //      if (pathTarget.case_insensitive_ends(".exe"))
@@ -764,7 +764,7 @@ namespace windowing_universal_windows
 
       //      strIcon = acmedirectory()->config() / "shell/app_theme" / getfileimage.m_imagekey.m_strShellThemePrefix + strExtension + ".ico";
 
-      //      if (m_papplication->m_papexcontext->file().exists(strIcon))
+      //      if (m_papplication->file().exists(strIcon))
       //      {
 
       //         if (reserve_image(getfileimage))

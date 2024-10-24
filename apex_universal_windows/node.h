@@ -30,7 +30,7 @@ namespace apex_universal_windows
       ~node() override;
 
 
-      //void implement(::pointer<::acme::node> & pnode, ::pointer<::platform::system> & psystem) override;
+      //void implement(::pointer<::platform::node> & pnode, ::pointer<::platform::system> & psystem) override;
 
       void node_main() override;
 

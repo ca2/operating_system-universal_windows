@@ -520,7 +520,7 @@ namespace acme_universal_windows
 
    //      strCandidate = stra[i] / pszTopic;
 
-   //      //if (m_papplication->m_papexcontext->file().exists(strCandidate))
+   //      //if (m_papplication->file().exists(strCandidate))
    //      if (m_pacmefile->exists(strCandidate))
    //      {
 

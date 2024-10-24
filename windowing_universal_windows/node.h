@@ -33,7 +33,7 @@
 //      //void message_box_factory() override;
 //
 //
-//      void implement(::pointer<::acme::node> pnode, ::pointer<::platform::system>psystem) override;
+//      void implement(::pointer<::platform::node> pnode, ::pointer<::platform::system>psystem) override;
 //
 //
 //      void call_member(::i64 i) override;
@@ -60,7 +60,7 @@
 //   };
 //
 //
-//   //inline window * __window(::acme::node * pnode) { return pnode->m_pWindowingUniversalWindowsNode->m_pwindowNode; }
+//   //inline window * __window(::platform::node * pnode) { return pnode->m_pWindowingUniversalWindowsNode->m_pwindowNode; }
 //
 //
 //} // namespace windowing_universal_windows

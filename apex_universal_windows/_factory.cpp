@@ -42,7 +42,7 @@ __FACTORY_EXPORT void apex_universal_windows_factory(::factory::factory * pfacto
    //pfactory->add_factory_item < ::apex_universal_windows::os_watcher, ::file::watcher >();
    //pfactory->add_factory_item < ::apex_universal_windows::os_watch, ::file::watch >();
 
-   pfactory->add_factory_item < ::apex_universal_windows::node, ::acme::node >();
+   pfactory->add_factory_item < ::apex_universal_windows::node, ::platform::node >();
 
 
 }
