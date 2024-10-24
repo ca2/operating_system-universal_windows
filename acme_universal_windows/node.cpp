@@ -21,7 +21,7 @@ namespace acme_universal_windows
    }
 
 
-   //void node::implement(::pointer<::acme::node>& pnode, ::pointer<::acme::system>& psystem)
+   //void node::implement(::pointer<::acme::node>& pnode, ::pointer<::platform::system>& psystem)
    void node::node_main()
    {
 

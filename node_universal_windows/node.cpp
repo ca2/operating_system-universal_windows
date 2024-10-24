@@ -42,7 +42,7 @@ namespace node_universal_windows
    //}
 
 
-   //void node::implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem)
+   //void node::implement(::pointer<::acme::node> & pnode, ::pointer<::platform::system> & psystem)
    void node::node_main()
    {
 
@@ -170,7 +170,7 @@ namespace node_universal_windows
    //   //return luminance < 0.5;
 
 
-   //   //system()->m_papexsystem->signal(id_user_color);
+   //   //system()->signal(id_user_color);
 
    //}
 

@@ -679,7 +679,7 @@ namespace networking_bsd
 
                memory mem2;
 
-               auto psystem = system()->m_papexsystem;
+               auto psystem = system();
 
                auto pbase64 = psystem->base64();
 
@@ -1009,7 +1009,7 @@ namespace networking_bsd
                else
                {
 
-                  ::acme::get()->platform()->informationf("ws_buffering");
+                  ::system()->platform()->informationf("ws_buffering");
 
                }
 

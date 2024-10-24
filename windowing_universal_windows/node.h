@@ -33,7 +33,7 @@
 //      //void message_box_factory() override;
 //
 //
-//      void implement(::pointer<::acme::node> pnode, ::pointer<::acme::system>psystem) override;
+//      void implement(::pointer<::acme::node> pnode, ::pointer<::platform::system>psystem) override;
 //
 //
 //      void call_member(::i64 i) override;

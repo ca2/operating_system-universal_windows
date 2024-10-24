@@ -301,11 +301,11 @@ namespace net
 		   "New number of mappings = %d \n"
 		   "It is recommended to update your list of mappings", lNewNumberOfEntries );
 
-      //auto psystem = system()->m_papexsystem;
+      //auto psystem = system();
 
       //message_box(tempStr,"Change Detected in Number of Port Mappings",e_message_box_ok | e_message_box_icon_exclamation);
 
-      ::acme::get()->platform()->informationf(tempStr + "Change Detected in Number of Port Mappings");
+      ::system()->platform()->informationf(tempStr + "Change Detected in Number of Port Mappings");
 
 	   return S_OK;
    }
@@ -319,7 +319,7 @@ namespace net
 		   "New IP address = %s \n"
 		   "It is recommended to update your list of mappings", ::string(scopedstrNewExternalIPAddress).c_str());
 
-      auto psystem = system()->m_papexsystem;
+      auto psystem = system();
 
       //message_box(tempStr,"Change Detected in External IP Address",e_message_box_ok | e_message_box_icon_exclamation);
 

@@ -121,7 +121,7 @@ namespace windowing_universal_windows
    void icon::load_file(const ::string & strPath)
    {
 
-      //m_ppathProcessed = m_pcontext->defer_process_matter_path(strPath);
+      //m_ppathProcessed = m_papplication->defer_process_matter_path(strPath);
 
       m_path = strPath;
 

@@ -34,7 +34,7 @@ namespace node_universal_windows
       //void message_box_factory() override;
 
 
-      //void implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem) override;
+      //void implement(::pointer<::acme::node> & pnode, ::pointer<::platform::system> & psystem) override;
       void node_main() override;
 
 

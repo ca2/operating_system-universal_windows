@@ -62,7 +62,7 @@ namespace apex_universal_windows
    }
 
 
-   //void node::implement(::pointer<::acme::node> & pnode, ::pointer<::acme::system> & psystem)
+   //void node::implement(::pointer<::acme::node> & pnode, ::pointer<::platform::system> & psystem)
 
    void node::node_main()
    {
@@ -101,7 +101,7 @@ namespace apex_universal_windows
       if (!m_pClearApplicationDataHandler)
       {
 
-         m_pClearApplicationDataHandler = system()->m_papexsystem->add_command_handler(
+         m_pClearApplicationDataHandler = system()->add_command_handler(
             "clear_application_data",
             [this](::message::message* pmessage)
             {
@@ -583,10 +583,10 @@ namespace apex_universal_windows
       //   key.open(key, "@ca2.cc/npca2", true);
 
       //   key.set("Description", "ca2 plugin for NPAPI");
-      //   key.set("Path", m_pcontext->m_papexcontext->dir().ca2module() /"npca2.dll");
+      //   key.set("Path", m_papplication->m_papexcontext->dir().ca2module() /"npca2.dll");
       //   key.set("ProductName", "ca2 plugin for NPAPI");
       //   key.set("Vendor", "ca2 Desenvolvimento de Software Ltda.");
-      //   key.set("Version", m_pcontext->m_papexcontext->file().as_string(m_pcontext->m_papexcontext->dir().install()/"appdata/x86/ca2_build.txt"));
+      //   key.set("Version", m_papplication->m_papexcontext->file().as_string(m_papplication->m_papexcontext->dir().install()/"appdata/x86/ca2_build.txt"));
 
       //   key.open(key, "application/apex", true);
 
@@ -1357,7 +1357,7 @@ namespace apex_universal_windows
 
       //strExe += ".exe";
 
-      //string strCalling = m_pcontext->m_papexcontext->dir().module() / strExe + " : service";
+      //string strCalling = m_papplication->m_papexcontext->dir().module() / strExe + " : service";
 
       //if(is_true("no_remote_simpledb"))
       //{
@@ -1741,7 +1741,7 @@ namespace apex_universal_windows
    //      //if (status.m_atime.get_time() != 0)
    //      //{
    //
-   //      //   //auto pnode = system()->m_papexsystem->node();
+   //      //   //auto pnode = system()->node();
    //
    //      //   ::time_to_file_time((file_time_t*)&lastAccessTime, &status.m_atime.m_time);
    //
@@ -2150,7 +2150,7 @@ namespace apex_universal_windows
 
    //#elif defined(LINUX)
    //   //string strDir;
-   //   //strDir = m_pcontext->m_papexcontext->dir().path(getenv("HOME"), "Pictures");
+   //   //strDir = m_papplication->m_papexcontext->dir().path(getenv("HOME"), "Pictures");
    //   //imagefileset.add_search(strDir);
    //   string strDir;
    //   strDir = "/usr/share/backgrounds";
@@ -2159,7 +2159,7 @@ namespace apex_universal_windows
    //
    //#elif defined(MACOS)
    //   //string strDir;
-   //   //strDir = m_pcontext->m_papexcontext->dir().path(getenv("HOME"), "Pictures");
+   //   //strDir = m_papplication->m_papexcontext->dir().path(getenv("HOME"), "Pictures");
    //   //imagefileset.add_search(strDir);
    //   string strDir;
    //   strDir = "/Library/Desktop Pictures";
@@ -2215,7 +2215,7 @@ namespace apex_universal_windows
 
       //auto pfile = file_
 
-      //path = m_pcontext->defer_process_matter_path(path);
+      //path = m_papplication->defer_process_matter_path(path);
 
       //fork([=]()
       //{

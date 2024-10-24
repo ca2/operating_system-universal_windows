@@ -35,7 +35,7 @@
 //   //}
 //
 //
-//   void node::implement(::pointer<::acme::node> pnode, ::pointer<::acme::system>psystem)
+//   void node::implement(::pointer<::acme::node> pnode, ::pointer<::platform::system>psystem)
 //   {
 //
 //      //auto estatus = 
@@ -137,7 +137,7 @@
 //      //return luminance < 0.5;
 //
 //
-//      //system()->m_papexsystem->signal(id_user_color);
+//      //system()->signal(id_user_color);
 //
 //   }
 //

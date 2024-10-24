@@ -210,7 +210,7 @@ namespace acme_universal_windows
 
       ::pointer < ::acme_universal_windows::node > pnode = node();
 
-      auto folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix, false);
+      auto folder = pnode->windows_runtime_folder(m_papplication, strRelative, strPrefix, false);
 
       if (folder)
       {
@@ -279,7 +279,7 @@ namespace acme_universal_windows
 
       ::pointer < ::acme_universal_windows::node > pnode = node();
 
-      auto file = pnode->windows_runtime_file(m_pcontext, psz, 0, 0, OPEN_EXISTING, 0);
+      auto file = pnode->windows_runtime_file(m_papplication, psz, 0, 0, OPEN_EXISTING, 0);
 
       if (file == nullptr)
       {
@@ -319,7 +319,7 @@ namespace acme_universal_windows
 
          ::pointer < ::acme_universal_windows::node > pnode = node();
 
-         ::winrt::Windows::Storage::StorageFolder folder = pnode->_windows_runtime_folder(m_pcontext, strDirNew, strPrefix);
+         ::winrt::Windows::Storage::StorageFolder folder = pnode->_windows_runtime_folder(m_papplication, strDirNew, strPrefix);
 
          if (strNameOld == strNameNew)
          {
@@ -856,10 +856,10 @@ namespace acme_universal_windows
 
       ::winrt::Windows::Storage::StorageFolder folder(nullptr);
 
-      m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &folder, pnode, &strRelative, &strPrefix, bDeferCreateFolder]()
+      m_papplication->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &folder, pnode, &strRelative, &strPrefix, bDeferCreateFolder]()
       {
 
-            folder = pnode->windows_runtime_folder(m_pcontext, strRelative, strPrefix, bDeferCreateFolder);
+            folder = pnode->windows_runtime_folder(m_papplication, strRelative, strPrefix, bDeferCreateFolder);
 
       });
 
@@ -874,7 +874,7 @@ namespace acme_universal_windows
 
          winrt::Windows::Storage::IStorageItem item{};
 
-         m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &item, &folder, &hstrName]()
+         m_papplication->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &item, &folder, &hstrName]()
          {
 
             item = folder.TryGetItemAsync(hstrName).get();
@@ -899,7 +899,7 @@ namespace acme_universal_windows
             if (file)
             {
 
-               m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &pfile, &file, &eopen]()
+               m_papplication->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &pfile, &file, &eopen]()
                {
 
                   pfile = __allocate ::acme_universal_windows::native_buffer(file, eopen);
@@ -918,7 +918,7 @@ namespace acme_universal_windows
 
 //      ::file_pointer pfile;
 
-      m_pcontext->__construct(pfile);
+      m_papplication->__construct(pfile);
 
       pfile->open(path, eopen);
 

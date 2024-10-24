@@ -2,7 +2,7 @@
 #include "framework.h"
 #include "node.h"
 #include "acme/_operating_system.h"
-#include "acme/platform/context.h"
+#include "acme/platform/application.h"
 #include "acme/operating_system/universal_windows/parallelization_winrt.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme_universal_windows/_winrt_core.h"
@@ -137,7 +137,7 @@ namespace apex_universal_windows
       decltype(::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(hostname, hstrPort).get())
          endPointPairs{};
 
-      m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &endPointPairs, &hostname, &hstrPort]()
+      m_papplication->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &endPointPairs, &hostname, &hstrPort]()
       {
 
          endPointPairs = ::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(hostname, hstrPort).get();

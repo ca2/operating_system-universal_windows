@@ -129,7 +129,7 @@ namespace windowing_universal_windows
       //return luminance < 0.5;
    
    
-      //system()->m_papexsystem->signal(id_user_color);
+      //system()->signal(id_user_color);
    
    }
    
@@ -957,7 +957,7 @@ namespace windowing_universal_windows
   /* ::e_status windowing::windowing_branch(const ::procedure & procedure)
    {
 
-      auto estatus = system()->m_papexsystem->post(routine);
+      auto estatus = system()->post(routine);
 
       if (!estatus)
       {

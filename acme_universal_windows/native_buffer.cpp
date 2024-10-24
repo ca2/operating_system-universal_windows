@@ -5,7 +5,7 @@
 #include "acme/filesystem/file/exception.h"
 #include "acme/filesystem/file/status.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
-#include "acme/platform/context.h"
+#include "acme/platform/application.h"
 #include "acme/platform/node.h"
 #include "acme/_operating_system.h"
 #include "_winrt_storage.h"
@@ -62,7 +62,7 @@ namespace acme_universal_windows
 
       ::pointer < ::acme_universal_windows::node > pnode = node();
 
-      auto folder = pnode->_windows_runtime_folder(m_pcontext, strPath, strPrefix);
+      auto folder = pnode->_windows_runtime_folder(m_papplication, strPath, strPrefix);
 
       if (folder == nullptr)
       {
@@ -437,7 +437,7 @@ namespace acme_universal_windows
 
       ::winrt::Windows::Storage::Streams::IBuffer buffer2{};
 
-      m_pcontext->synchronous_procedure(::winrt::impl::is_sta_thread(), [this,&buffer2, buffer, nCount]()
+      m_papplication->synchronous_procedure(::winrt::impl::is_sta_thread(), [this,&buffer2, buffer, nCount]()
          {
 
             buffer2 = m_stream.ReadAsync(buffer, (::u32)nCount, ::winrt::Windows::Storage::Streams::InputStreamOptions::None).get();

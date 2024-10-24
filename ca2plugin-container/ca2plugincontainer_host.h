@@ -21,7 +21,7 @@ namespace ca2plugin_container
       vsstring                      m_vssPluginName;
       vsstring                      m_vssPluginDescription;
 
-      application *                 m_pacmeapplication;      
+      application *                 m_papplication;      
 
 
       host(application * papp);

@@ -5,7 +5,7 @@
 #include "node.h"
 #include "acme/filesystem/filesystem/acme_directory.h"
 #include "acme/platform/application.h"
-#include "acme/platform/context.h"
+#include "acme/platform/application.h"
 #include "acme/prototype/prototype/memory.h"
 #include "acme/_operating_system.h"
 #include "acme/operating_system/universal_windows/parallelization_winrt.h"
@@ -233,7 +233,7 @@ namespace acme_universal_windows
 
       }
 
-      auto path = pparticle->m_pcontext->defer_process_path(strRelative);
+      auto path = pparticle->m_papplication->defer_process_path(strRelative);
 
       if (path.is_empty())
       {

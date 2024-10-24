@@ -404,7 +404,7 @@ namespace sockets_bsd
 
       tmp->set_start_time();
 
-      auto psystem = system()->m_papexsystem;
+      auto psystem = system();
 
       auto pnetworking2 = __SystemNetworking(psystem);
 

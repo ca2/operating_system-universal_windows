@@ -787,7 +787,7 @@ namespace acme_universal_windows
    /////////////////////////////////////////////////////////////////////////////
    // WinFileException helpers
 
-   //void CLASS_DECL_ACME throw_exception(::pointer<::acme::application>papp, int cause, ::i32 lOsError, const char * lpszFileName /* == nullptr */)
+   //void CLASS_DECL_ACME throw_exception(::pointer<::platform::application>papp, int cause, ::i32 lOsError, const char * lpszFileName /* == nullptr */)
    //{
 
    //   throw ::exception(::file::exception(WinFileException::OsErrorToException(lOsError),lOsError,lpszFileName));

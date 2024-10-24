@@ -2,7 +2,7 @@
 #include "file_watcher.h"
 #include "node.h"
 #include "acme/filesystem/watcher/action.h"
-#include "acme/platform/context.h"
+#include "acme/platform/application.h"
 #include "acme/_operating_system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "windows_runtime.h"
@@ -96,7 +96,7 @@ namespace acme_universal_windows
       try
       {
 
-         ::file::path pathFolder = m_pcontext->defer_process_path(pathFolderParam);
+         ::file::path pathFolder = m_papplication->defer_process_path(pathFolderParam);
 
          ::winrt::Windows::Storage::Search::QueryOptions options;
 
@@ -123,7 +123,7 @@ namespace acme_universal_windows
 
          ::pointer < ::acme_universal_windows::node > pnode = node();
 
-         m_folder = pnode->windows_runtime_folder(m_pcontext, strDirectory, false);
+         m_folder = pnode->windows_runtime_folder(m_papplication, strDirectory, false);
 
          if (m_folder == nullptr)
          {
