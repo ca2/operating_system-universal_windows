@@ -1,15 +1,15 @@
 #pragma once
 
 
-#include "acme/filesystem/filesystem/dir_system.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 
 
 namespace acme_universal_windows
 {
 
 
-   class CLASS_DECL_ACME_UNIVERSAL_WINDOWS dir_system:
-      virtual public ::dir_system
+   class CLASS_DECL_ACME_UNIVERSAL_WINDOWS directory_system:
+      virtual public ::directory_system
    {
    public:
 
@@ -23,8 +23,8 @@ namespace acme_universal_windows
       ::file::path            m_strCommonPrograms;
 
 
-      dir_system();
-      ~dir_system() override;
+      directory_system();
+      ~directory_system() override;
       
       
       void initialize(::particle * pparticle) override;

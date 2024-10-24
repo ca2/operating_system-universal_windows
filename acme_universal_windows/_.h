@@ -22,8 +22,8 @@ namespace acme_universal_windows
    class file_system;
    class file_context;
 
-   class dir_system;
-   class dir_context;
+   class directory_system;
+   class directory_context;
 
    class node;
 

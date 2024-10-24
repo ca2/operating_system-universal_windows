@@ -2,7 +2,7 @@
 // 03:09 BRT <3ThomasBorregaardSorensen
 // Copied by camilo from operating_system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #include "framework.h"
-#include "acme_file.h"
+#include "file_system.h"
 #include "acme/platform/node.h"
 
 
@@ -20,7 +20,7 @@ namespace acme_universal_windows
 {
 
 
-   acme_file::acme_file()
+   file_system::file_system()
    {
 
       //auto data = ::winrt::Windows::Storage::ApplicationData::Current();
@@ -30,14 +30,14 @@ namespace acme_universal_windows
    }
 
 
-   acme_file::~acme_file()
+   file_system::~file_system()
    {
 
 
    }
 
 
-   //::file::path acme_file::module()
+   //::file::path file_system::module()
    //{
 
    //   ::file::path path;
@@ -64,7 +64,7 @@ namespace acme_universal_windows
    //}
 
 
-   void acme_file::clear_application_data()
+   void file_system::clear_application_data()
    {
 
       user_post([]()

@@ -3,7 +3,7 @@
 #include "framework.h"
 #include "file_context.h"
 #include "node.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/platform/application.h"
 #include "acme/platform/application.h"
 #include "acme/prototype/prototype/memory.h"
@@ -175,7 +175,7 @@ namespace acme_universal_windows
             if (strPath.has_char())
             {
 
-               if (acmedirectory()->is(strPath))
+               if (directory_system()->is(strPath))
                {
 
                   return windows_runtime_folder(pparticle, strPath, false);
@@ -248,7 +248,7 @@ namespace acme_universal_windows
 
       bool bDir = false;
 
-      if (pparticle->acmedirectory()->::acme_directory::_file_type(path) == ::file::e_type_existent_folder)
+      if (pparticle->directory_system()->::directory_system::_file_type(path) == ::file::e_type_existent_folder)
       {
 
          pathFolder = path;
@@ -274,7 +274,7 @@ namespace acme_universal_windows
 
       //bDir = false;
 
-      //if (!pobject->acmedirectory()->_is(bDir, pathFolder) || !bDir)
+      //if (!pobject->directory_system()->_is(bDir, pathFolder) || !bDir)
       //{
 
       //   return nullptr;

@@ -1,14 +1,14 @@
 #include "framework.h"
 #include "file_context.h"
 #include "file_system.h"
-#include "dir_context.h"
-#include "dir_system.h"
+#include "directory_context.h"
+#include "directory_system.h"
 #include "node.h"
 #include "acme/filesystem/file/exception.h"
 #include "acme/filesystem/file/status.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
-#include "acme/filesystem/filesystem/acme_file.h"
-#include "acme/filesystem/filesystem/acme_path.h"
+#include "acme/filesystem/filesystem/directory_system.h"
+#include "acme/filesystem/filesystem/file_system.h"
+#include "acme/filesystem/filesystem/path_system.h"
 #include "acme/include/_c_swap.h"
 #include "acme/platform/system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
@@ -185,7 +185,7 @@ namespace acme_universal_windows
 
       }
 
-      return acmepath()->get_type(path);
+      return path_system()->get_type(path);
 
    }
 
@@ -344,7 +344,7 @@ namespace acme_universal_windows
    void file_context::erase(const ::file::path & psz)
    {
 
-      acmefile()->erase(psz);
+      file_system()->erase(psz);
       //{
       //
       //   return error_failed;
@@ -458,7 +458,7 @@ namespace acme_universal_windows
    //void file_context::get_status(::file::file_status & rStatus, const ::file::path & path)
    //{
 
-   //   auto pathFull = acmepath()->_final(path);
+   //   auto pathFull = path_system()->_final(path);
 
    //   wstring wstrFullName(pathFull);
 
@@ -932,7 +932,7 @@ namespace acme_universal_windows
 
       //::file::path pathJson;
 
-      //pathJson = acmedirectory()->user_appdata_local() / "Dropbox/info.json";
+      //pathJson = directory_system()->user_appdata_local() / "Dropbox/info.json";
 
       //return pathJson;
 

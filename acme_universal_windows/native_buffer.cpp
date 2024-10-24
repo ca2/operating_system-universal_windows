@@ -4,7 +4,7 @@
 #include "node.h"
 #include "acme/filesystem/file/exception.h"
 #include "acme/filesystem/file/status.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/platform/application.h"
 #include "acme/platform/node.h"
 #include "acme/_operating_system.h"
@@ -52,7 +52,7 @@ namespace acme_universal_windows
       if ((eopen & ::file::e_open_defer_create_directory) && (eopen & ::file::e_open_write))
       {
 
-         acmedirectory()->create(path.folder());
+         directory_system()->create(path.folder());
 
       }
 

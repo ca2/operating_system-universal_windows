@@ -1,11 +1,11 @@
 #include "framework.h"
 #include "icon.h"
 #include "shell.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/parallelization/synchronous_lock.h"
 #include "acme/platform/node.h"
 #include "acme/platform/system.h"
-#include "acme/filesystem/filesystem/dir_context.h"
+#include "acme/filesystem/filesystem/directory_context.h"
 #include "acme/filesystem/filesystem/file_context.h"
 #include "apex/platform/context.h"
 #include "aura/graphics/image/drawing.h"
@@ -762,7 +762,7 @@ namespace windowing_universal_windows
 
       //      string strIcon;
 
-      //      strIcon = acmedirectory()->config() / "shell/app_theme" / getfileimage.m_imagekey.m_strShellThemePrefix + strExtension + ".ico";
+      //      strIcon = directory_system()->config() / "shell/app_theme" / getfileimage.m_imagekey.m_strShellThemePrefix + strExtension + ".ico";
 
       //      if (m_papplication->file().exists(strIcon))
       //      {
@@ -1076,7 +1076,7 @@ namespace windowing_universal_windows
 
       strPath = wstrPath;
 
-      if (acmedirectory()->is(strPath))
+      if (directory_system()->is(strPath))
       {
 
          return e_folder_file_system;
@@ -1123,7 +1123,7 @@ namespace windowing_universal_windows
          if (reserve_image(getfileimage))
          {
 
-            ::file::path path = dir()->matter("cloud.ico");
+            ::file::path path = directory()->matter("cloud.ico");
 
             set_icon(path, getfileimage);
 
@@ -1139,7 +1139,7 @@ namespace windowing_universal_windows
          if (reserve_image(getfileimage))
          {
 
-            ::file::path path = dir()->matter("remote.ico");
+            ::file::path path = directory()->matter("remote.ico");
 
             set_icon(path, getfileimage);
 
@@ -1156,7 +1156,7 @@ namespace windowing_universal_windows
          if (reserve_image(getfileimage))
          {
 
-            ::file::path path = dir()->matter("ftp.ico");
+            ::file::path path = directory()->matter("ftp.ico");
 
             set_icon(path, getfileimage);
 

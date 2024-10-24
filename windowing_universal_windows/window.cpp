@@ -1409,7 +1409,7 @@ namespace windowing_universal_windows
 //      if (status != 0)
 //      {
 //
-//         //acmefile()->put_contents("/home/camilo/window.txt", __string((int)w->window()));
+//         //file_system()->put_contents("/home/camilo/window.txt", __string((int)w->window()));
 //         return false;
 //
 //      }
@@ -6345,9 +6345,9 @@ namespace windowing_universal_windows
 
       //}
 
-      //session()->m_papexapplication = this;
+      //session() = this;
 
-      //session()->m_papexsession->m_puserprimitiveHost = m_pdxi;
+      //session()->m_puserprimitiveHost = m_pdxi;
 
       //::user::os_calc_dark_mode();
 
@@ -6355,7 +6355,7 @@ namespace windowing_universal_windows
 
       auto pusersystem = m_pwindow->m_puserinteraction->m_pusersystem;
 
-      auto puserinteraction = session()->m_papexsession->m_puserprimitiveHost;
+      auto puserinteraction = session()->m_puserprimitiveHost;
 
       auto routine = [this]()
       {
@@ -6375,7 +6375,7 @@ namespace windowing_universal_windows
 
             } });
 
-         auto puserinteraction = session()->m_papexsession->m_puserprimitiveHost;
+         auto puserinteraction = session()->m_puserprimitiveHost;
 
          //auto puserinteraction = m_pdxi;
 
@@ -7525,15 +7525,15 @@ namespace windowing_universal_windows
 
       //   //}
 
-      //   //session()->m_papexapplication = this;
+      //   //session() = this;
 
-      //   //session()->m_papexsession->m_puserprimitiveHost = m_pdxi;
+      //   //session()->m_puserprimitiveHost = m_pdxi;
 
       //   //::user::os_calc_dark_mode();
 
       //   auto pcs = __create_new< ::user::system >();
 
-      //   auto puserinteraction = session()->m_papexsession->m_puserprimitiveHost;
+      //   auto puserinteraction = session()->m_puserprimitiveHost;
 
       //   auto routine = [this]()
       //   {
@@ -7553,7 +7553,7 @@ namespace windowing_universal_windows
 
       //         }));
 
-      //      auto puserinteraction = session()->m_papexsession->m_puserprimitiveHost;
+      //      auto puserinteraction = session()->m_puserprimitiveHost;
 
       //      //auto puserinteraction = m_pdxi;
 
@@ -7779,7 +7779,7 @@ namespace windowing_universal_windows
                //   if (strMessage.has_char())
                //   {
 
-               //      system()->application()->m_papexapplication->add_activation_message(strMessage);
+               //      system()->application()->add_activation_message(strMessage);
 
                //   }
 

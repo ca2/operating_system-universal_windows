@@ -1,7 +1,7 @@
 // Created by camilo on 2021-08-29 21:11 BRT <3ThomasBS_!!
 #include "framework.h"
 #include "node.h"
-#include "acme/filesystem/filesystem/acme_file.h"
+#include "acme/filesystem/filesystem/file_system.h"
 #include "apex/platform/system.h"
 //#include "node.h"
 //#include <wincred.h>
@@ -10,8 +10,8 @@
 //#include <Security.h>
 #include "acme_universal_windows/file_context.h"
 #include "acme_universal_windows/native_buffer.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
-#include "acme/filesystem/filesystem/acme_path.h"
+#include "acme/filesystem/filesystem/directory_system.h"
+#include "acme/filesystem/filesystem/path_system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme/platform/node.h"
 #include "acme/platform/system.h"
@@ -106,7 +106,7 @@ namespace apex_universal_windows
             [this](::message::message* pmessage)
             {
 
-               acmefile()->clear_application_data();
+               file_system()->clear_application_data();
 
             });
 
@@ -123,7 +123,7 @@ namespace apex_universal_windows
    //   if (ptopic->user_interaction_id() == "clear_application_data")
    //   {
 
-   //      acmefile()->clear_application_data();
+   //      file_system()->clear_application_data();
 
    //   }
 
@@ -2132,7 +2132,7 @@ namespace apex_universal_windows
 
       //   ::file::path pathFolder;
 
-      //   acmedirectory()->m_pplatformdir->_shell_get_special_folder_path(nullptr, pathFolder, CSIDL_WINDOWS, false);
+      //   directory_system()->m_pplatformdir->_shell_get_special_folder_path(nullptr, pathFolder, CSIDL_WINDOWS, false);
 
       //   pathFolder /= "Web/Wallpaper";
 
@@ -2437,7 +2437,7 @@ namespace apex_universal_windows
       //::application * papp = get_application();
 
       //string strTargetProgId;
-      //string strModule = solve_relative(acmefile()->executable());
+      //string strModule = solve_relative(file_system()->executable());
 
       //strTargetProgId = get_application()->m_strAppName;
 
@@ -2703,7 +2703,7 @@ namespace apex_universal_windows
 
       //string strTargetProgId;
 
-      //string strModule = solve_relative(acmefile()->executable());
+      //string strModule = solve_relative(file_system()->executable());
 
       //string strApplicationRegistryPath = find_string("ApplicationRegistryPath");
 

@@ -423,7 +423,7 @@ namespace windowing_universal_windows
 //            pkey->m_lparam = pkey->m_nFlags << 16;
 //            pkey->m_strText = m_strNewText;
 //
-//            auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost;
+//            auto puserinteractionHost = session()->m_puserprimitiveHost;
 //
 //            puserinteractionHost->message_handler(spbase);
 //

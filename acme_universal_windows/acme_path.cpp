@@ -1,9 +1,9 @@
 // Create on 2021-03-22 09:12 <3ThomasBS_
 // Copied by camilo from operating_system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
 #include "framework.h"
-#include "acme_path.h"
+#include "path_system.h"
 #include "node.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
+#include "acme/filesystem/filesystem/directory_system.h"
 #include "acme/platform/application.h"
 #include "acme/platform/system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
@@ -17,7 +17,7 @@ namespace acme_universal_windows
 {
 
 
-   acme_path::acme_path()
+   path_system::path_system()
    {
 
       m_pplatformpath = this;
@@ -25,14 +25,14 @@ namespace acme_universal_windows
    }
 
 
-   acme_path::~acme_path()
+   path_system::~path_system()
    {
 
 
    }
 
 
-   ::file::path acme_path::_real_path(const ::file::path & path)
+   ::file::path path_system::_real_path(const ::file::path & path)
    {
 
       wstring wstr(path);
@@ -122,7 +122,7 @@ namespace acme_universal_windows
    }
 
 
-   ::file::enum_type acme_path::get_type(const ::file::path & path)
+   ::file::enum_type path_system::get_type(const ::file::path & path)
    {
 
       string strRelative = path;
@@ -196,7 +196,7 @@ namespace acme_universal_windows
    }
 
 
-   ::file::enum_type acme_path::safe_get_type(const ::file::path & path)
+   ::file::enum_type path_system::safe_get_type(const ::file::path & path)
    {
 
       try

@@ -3,21 +3,21 @@
 #pragma once
 
 
-#include "acme_windows_common/acme_file.h"
+#include "acme_windows_common/file_system.h"
 
 
 namespace acme_universal_windows
 {
 
 
-   class CLASS_DECL_ACME_UNIVERSAL_WINDOWS acme_file :
-      virtual public ::acme_windows_common::acme_file
+   class CLASS_DECL_ACME_UNIVERSAL_WINDOWS file_system :
+      virtual public ::acme_windows_common::file_system
    {
    public:
 
 
-      acme_file();
-      ~acme_file() override;
+      file_system();
+      ~file_system() override;
 
 
       //::file::path module() override;

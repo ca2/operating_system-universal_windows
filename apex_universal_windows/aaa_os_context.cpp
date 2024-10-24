@@ -6,8 +6,8 @@
 //#include <Security.h>
 #include "acme_universal_windows/file_context.h"
 #include "acme_universal_windows/native_buffer.h"
-#include "acme/filesystem/filesystem/acme_directory.h"
-#include "acme/filesystem/filesystem/acme_path.h"
+#include "acme/filesystem/filesystem/directory_system.h"
+#include "acme/filesystem/filesystem/path_system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme/platform/node.h"
 #include "acme/platform/system.h"
@@ -2038,7 +2038,7 @@ return false;
 
       //   ::file::path pathFolder;
 
-      //   acmedirectory()->m_pplatformdir->_shell_get_special_folder_path(nullptr, pathFolder, CSIDL_WINDOWS, false);
+      //   directory_system()->m_pplatformdir->_shell_get_special_folder_path(nullptr, pathFolder, CSIDL_WINDOWS, false);
 
       //   pathFolder /= "Web/Wallpaper";
 
@@ -2343,7 +2343,7 @@ return false;
       //::application * papp = get_application();
 
       //string strTargetProgId;
-      //string strModule = solve_relative(acmefile()->executable());
+      //string strModule = solve_relative(file_system()->executable());
 
       //strTargetProgId = get_application()->m_strAppName;
 
@@ -2609,7 +2609,7 @@ return false;
 
       //string strTargetProgId;
 
-      //string strModule = solve_relative(acmefile()->executable());
+      //string strModule = solve_relative(file_system()->executable());
 
       //string strApplicationRegistryPath = find_string("ApplicationRegistryPath");
 

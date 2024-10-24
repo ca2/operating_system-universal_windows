@@ -1,8 +1,8 @@
 #include "framework.h"
 //#include "file_context.h"
 //#include "file_system.h"
-//#include "dir_context.h"
-//#include "dir_system.h"
+//#include "directory_context.h"
+//#include "directory_system.h"
 //#include "os_context.h"
 #include "interprocess_caller.h"
 #include "interprocess_target.h"
@@ -30,8 +30,8 @@ __FACTORY_EXPORT void apex_universal_windows_factory(::factory::factory * pfacto
 
    //pfactory->add_factory_item < ::apex_universal_windows::file_context, ::file_context >();
    //pfactory->add_factory_item < ::apex_universal_windows::file_system, ::file_system >();
-   //pfactory->add_factory_item < ::apex_universal_windows::dir_context, ::dir_context >();
-   //pfactory->add_factory_item < ::apex_universal_windows::dir_system, ::dir_system >();
+   //pfactory->add_factory_item < ::apex_universal_windows::directory_context, ::directory_context >();
+   //pfactory->add_factory_item < ::apex_universal_windows::directory_system, ::directory_system >();
 
    //pfactory->add_factory_item < ::apex_universal_windows::os_context, ::os_context >();
 

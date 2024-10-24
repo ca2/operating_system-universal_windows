@@ -117,15 +117,15 @@
 //
 //      //}
 //
-//      //session()->m_papexapplication = this;
+//      //session() = this;
 //
-//      //session()->m_papexsession->m_puserprimitiveHost = m_pdxi;
+//      //session()->m_puserprimitiveHost = m_pdxi;
 //
 //      //::user::os_calc_dark_mode();
 //
 //      auto pcs = __allocate ::user::system();
 //
-//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost;
+//      auto puserinteractionHost = session()->m_puserprimitiveHost;
 //
 //      auto routine = [this]()
 //      {
@@ -145,7 +145,7 @@
 //
 //            }));
 //
-//         auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost;
+//         auto puserinteractionHost = session()->m_puserprimitiveHost;
 //
 //         //auto puserinteraction = m_pdxi;
 //
@@ -185,7 +185,7 @@
 //
 //      m_pwindow->m_pdirectxbase = m_pdirectxbase;
 //
-//      //m_pwindow->m_papexapplication = this;
+//      //m_pwindow = this;
 //
 //      pcs->m_pimpl = m_pwindow->m_pimpl;
 //
@@ -409,7 +409,7 @@
 //      if(session() == nullptr)
 //         return;
 //
-//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;
@@ -449,7 +449,7 @@
 //
 //      }
 //
-//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;
@@ -502,7 +502,7 @@
 //      if(system() == nullptr)
 //         return;
 //
-//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;
@@ -646,7 +646,7 @@
 //      if(system() == nullptr)
 //         return;
 //
-//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;
@@ -694,7 +694,7 @@
 //
 //      }
 //
-//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //      {
@@ -778,7 +778,7 @@
 //
 //      ::g_iMouse = pointerPoint.PointerId();
 //
-//      auto puserinteractionHost = session()->m_papexsession->m_puserprimitiveHost->m_puiThis;
+//      auto puserinteractionHost = session()->m_puserprimitiveHost->m_puiThis;
 //
 //      if (puserinteractionHost == nullptr)
 //         return;

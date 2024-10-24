@@ -66,12 +66,12 @@ namespace sockets
             string strResponse;
             if(::str::case_insensitive_find("username", strRequest) >= 0)
             {
-               strResponse = ::apexacmesystem()->base64().encode(acmefile()->as_string("C:\\archive\\root\\x\\sensitive\\sensitive\\seed\\sendmail_user.txt"));
+               strResponse = ::apexacmesystem()->base64().encode(file_system()->as_string("C:\\archive\\root\\x\\sensitive\\sensitive\\seed\\sendmail_user.txt"));
                write(strResponse + "\r\n");
             }
             else if(::str::case_insensitive_find("password", strRequest) >= 0)
             {
-               strResponse = ::apexacmesystem()->base64().encode(acmefile()->as_string("C:\\archive\\root\\x\\sensitive\\sensitive\\seed\\sendmail_pass.txt"));
+               strResponse = ::apexacmesystem()->base64().encode(file_system()->as_string("C:\\archive\\root\\x\\sensitive\\sensitive\\seed\\sendmail_pass.txt"));
                write(strResponse + "\r\n");
             }
          }
