@@ -4540,7 +4540,7 @@ namespace windows
 //         if (papexsession)
 //         {
 //
-//            psession = papexsession->m_paurasession;
+//            psession = papexsession;
 //
 //         }
 //
@@ -4637,7 +4637,7 @@ namespace windows
 //         if (papexsession)
 //         {
 //
-//            psession = papexsession->m_paurasession;
+//            psession = papexsession;
 //
 //         }
 //
@@ -4771,7 +4771,7 @@ namespace windows
 //         if (papexsession)
 //         {
 //
-//            psession = papexsession->m_paurasession;
+//            psession = papexsession;
 //
 //         }
 //

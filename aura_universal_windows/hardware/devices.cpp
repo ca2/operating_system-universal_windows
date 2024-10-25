@@ -60,7 +60,7 @@ namespace aura_universal_windows
       void devices::on_initialize_object()
       {
 
-         /*auto psession = session()->m_paurasession;
+         /*auto psession = session();
 
          auto puser = psession->user();
 
@@ -151,7 +151,7 @@ namespace aura_universal_windows
 
       //   plistener->m_hdevnotify = hdevnotify;
 
-      //   auto psession = session()->m_paurasession;
+      //   auto psession = session();
 
       //   auto puser = psession->user();
 

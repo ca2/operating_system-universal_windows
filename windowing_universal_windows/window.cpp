@@ -5724,7 +5724,7 @@ namespace windowing_universal_windows
 //         if (papexsession)
 //         {
 //
-//            psession = papexsession->m_paurasession;
+//            psession = papexsession;
 //
 //         }
 //
@@ -5821,7 +5821,7 @@ namespace windowing_universal_windows
 //         if (papexsession)
 //         {
 //
-//            psession = papexsession->m_paurasession;
+//            psession = papexsession;
 //
 //         }
 //
@@ -5955,7 +5955,7 @@ namespace windowing_universal_windows
 //         if (papexsession)
 //         {
 //
-//            psession = papexsession->m_paurasession;
+//            psession = papexsession;
 //
 //         }
 //
@@ -6740,7 +6740,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //m_pwindowing = system()->m_paurasession->system()->windowing();
+      //m_pwindowing = system()->system()->windowing();
 
       //if (!m_pwindowing->m_pwindowSoul)
       //{

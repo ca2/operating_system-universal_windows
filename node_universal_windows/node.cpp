@@ -72,7 +72,7 @@ namespace node_universal_windows
       if (!windowing())
       {
 
-         session()->m_paurasession->user()->create_windowing();
+         session()->user()->create_windowing();
 
       }
 

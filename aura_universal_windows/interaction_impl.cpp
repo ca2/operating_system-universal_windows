@@ -5255,7 +5255,7 @@ namespace aura_universal_windows
 
       auto puser = psession->user();
 
-      auto pwindowing = puser->windowing();
+      auto pwindowing = system()->windowing();
 
       pwindowing->new_window(this);
 
