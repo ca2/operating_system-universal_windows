@@ -94,14 +94,14 @@ namespace aura_universal_windows
    {
       last_install_message_routing(pchannel);
       //m_pbuffer->InstallMessageHandling(pinterface);
-      MESSAGE_LINK(MESSAGE_DESTROY, pchannel, this,&interaction_impl::on_message_destroy);
+      MESSAGE_LINK(e_message_destroy, pchannel, this,&interaction_impl::on_message_destroy);
       MESSAGE_LINK(e_message_paint, pchannel, this,&interaction_impl::_001OnPaint);
       MESSAGE_LINK(WM_PRINT, pchannel, this,&interaction_impl::_001OnPrint);
       if(m_puserinteraction != nullptr)
       {
          m_puserinteraction->install_message_routing(pchannel);
       }
-      MESSAGE_LINK(MESSAGE_CREATE, pchannel, this,&interaction_impl::on_message_create);
+      MESSAGE_LINK(e_message_create, pchannel, this,&interaction_impl::on_message_create);
       //MESSAGE_LINK(e_message_set_cursor, pchannel, this,&interaction_impl::on_message_set_cursor);
       //MESSAGE_LINK(e_message_erase_background, pchannel, this,&interaction_impl::_001OnEraseBkgnd);
       MESSAGE_LINK(e_message_reposition, pchannel, this,&interaction_impl::on_message_move);
