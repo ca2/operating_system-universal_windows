@@ -60,7 +60,7 @@ namespace node_universal_windows
 
       //system()->m_htask = nullptr;
 
-      //system()->m_paurasystem->branch_synchronously();
+      //system()->branch_synchronously();
 
       ////if (!estatus)
       ////{
@@ -86,7 +86,7 @@ namespace node_universal_windows
 
       pwindowMain->initialize(this);
 
-      system()->m_paurasystem->m_pwindowMain = pwindowMain;
+      system()->m_pwindowMain = pwindowMain;
 
       auto frameworkviewsource = ((::windowing_universal_windows::windowing *)pwindow->m_pwindowing->m_pWindowing4)->m_frameworkviewsource;
 

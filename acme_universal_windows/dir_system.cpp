@@ -135,7 +135,7 @@ namespace acme_universal_windows
 
       /*     auto psystem = system();
 
-     auto pacmedir = psystem->m_pacmedirectory;*/
+     auto pacmedir = psystem->m_pdirectorysystem;*/
 
       directory_system()->create(m_strTimeFolder / "time");
 

@@ -481,7 +481,7 @@ wstring windowing::_windows_calc_icon_window_class(::user::interaction * puserin
    if (hIcon != nullptr)
    {
 
-      auto psystem = system()->m_paurasystem;
+      auto psystem = system();
       // will fill pszClassName with default WNDCLASS name
 
       // ignore instance handle from pre_create_window.

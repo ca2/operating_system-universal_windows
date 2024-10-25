@@ -378,7 +378,7 @@ namespace windowing_universal_windows
 
       //auto puser = psession->user();
 
-      //auto psystem = system()->m_paurasystem;
+      //auto psystem = system();
 
       //auto pnode = psystem->node();
 
@@ -401,7 +401,7 @@ namespace windowing_universal_windows
 
       //}
 
-      ////auto psystem = system()->m_paurasystem;
+      ////auto psystem = system();
 
 
       //comptr < IShellIcon > pshellicon;
@@ -1710,7 +1710,7 @@ namespace windowing_universal_windows
       if (reserve_image(getfileimage))
       {
 
-         //auto psystem = system()->m_paurasystem;
+         //auto psystem = system();
 
          //auto pnode = psystem->node()->m_pAuraPlatform;
 

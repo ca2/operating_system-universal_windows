@@ -54,7 +54,7 @@ namespace acme_universal_windows
 
       m_pfilesystem = psystem->m_pfilesystem;
 
-      m_pdirsystem =  psystem->m_pdirsystem;
+      m_pdirectorysystem =  psystem->m_pdirectorysystem;
 
       string strPath = ::winrt::Windows::Storage::ApplicationData::Current().LocalFolder().Path().begin();
 
@@ -94,7 +94,7 @@ namespace acme_universal_windows
       //      if (m_papplication->dir().is(pathFolderTime))
       //      {
 
-      //         m_pdirsystem->m_strTimeFolder = pathFolderTime;
+      //         m_pdirectorysystem->m_strTimeFolder = pathFolderTime;
 
       //      }
 
@@ -103,7 +103,7 @@ namespace acme_universal_windows
       //      if (m_papplication->dir().is(pathFolderNetseed))
       //      {
 
-      //         m_pdirsystem->m_strNetSeedFolder = pathFolderNetseed;
+      //         m_pdirectorysystem->m_strNetSeedFolder = pathFolderNetseed;
 
       //      }
 
@@ -844,7 +844,7 @@ namespace acme_universal_windows
    ::file::path directory_context::time()
    {
       
-      return m_pdirsystem->m_strTimeFolder;
+      return m_pdirectorysystem->m_strTimeFolder;
 
    }
 
@@ -868,7 +868,7 @@ namespace acme_universal_windows
    ::file::path directory_context::netseed()
    {
 
-      return m_pdirsystem->m_strNetSeedFolder;
+      return m_pdirectorysystem->m_strNetSeedFolder;
 
    }
 
@@ -878,7 +878,7 @@ namespace acme_universal_windows
 
    //   ::pointer<::apex::system>psystem = system();
 
-   //   return psystem->m_pacmedirectory->module->m_pathModule;
+   //   return psystem->m_pdirectorysystem->module->m_pathModule;
 
    //}
 
@@ -888,7 +888,7 @@ namespace acme_universal_windows
 
    //   ::pointer<::apex::system>psystem = system();
 
-   //   return psystem->m_pdirsystem->m_pathCa2Module;
+   //   return psystem->m_pdirectorysystem->m_pathCa2Module;
 
    //}
 
@@ -1177,7 +1177,7 @@ namespace acme_universal_windows
    ::file::path directory_context::commonappdata_root()
    {
 
-      return m_pdirsystem->m_strCommonAppData;
+      return m_pdirectorysystem->m_strCommonAppData;
 
    }
 
@@ -1185,7 +1185,7 @@ namespace acme_universal_windows
    ::file::path directory_context::userquicklaunch()
    {
 
-      return m_pdirsystem->m_strAppData / "Microsoft\\Internet Explorer\\Quick Launch";
+      return m_pdirectorysystem->m_strAppData / "Microsoft\\Internet Explorer\\Quick Launch";
 
    }
 
@@ -1193,7 +1193,7 @@ namespace acme_universal_windows
    ::file::path directory_context::userprograms()
    {
 
-      return m_pdirsystem->m_strPrograms;
+      return m_pdirectorysystem->m_strPrograms;
 
    }
 
@@ -1201,7 +1201,7 @@ namespace acme_universal_windows
    ::file::path directory_context::commonprograms()
    {
 
-      return m_pdirsystem->m_strCommonPrograms;
+      return m_pdirectorysystem->m_strCommonPrograms;
 
    }
 

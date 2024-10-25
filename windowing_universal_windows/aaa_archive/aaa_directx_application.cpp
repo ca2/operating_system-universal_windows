@@ -175,9 +175,9 @@
 //
 //      m_pwindow = system()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
 //
-//      system()->m_paurasystem->get_session()->system()->windowing()->m_pwindowFirst = m_pwindow;
+//      system()->get_session()->system()->windowing()->m_pwindowFirst = m_pwindow;
 //
-//      system()->m_paurasystem->get_session()->system()->windowing()->m_bXXXFirst = true;
+//      system()->get_session()->system()->windowing()->m_bXXXFirst = true;
 //
 //      m_pwindow->m_window = m_window;
 //
@@ -189,7 +189,7 @@
 //
 //      pcs->m_pimpl = m_pwindow->m_pimpl;
 //
-//      system()->m_paurasystem->__refer(system()->m_paurasystem->m_pimplMain, m_pwindow->m_pimpl);
+//      system()->__refer(system()->m_pimplMain, m_pwindow->m_pimpl);
 //
 //      //m_pwindow->m_bNotifyLayoutCompletedPending = true;
 //

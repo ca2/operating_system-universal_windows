@@ -974,7 +974,7 @@ namespace windowing_universal_windows
    //void windowing::windowing_post(const ::procedure & procedure)
    //{
 
-   //   system()->m_paurasystem->m_pwindowMain->window_post(procedure);
+   //   system()->m_pwindowMain->window_post(procedure);
 
    //}
 

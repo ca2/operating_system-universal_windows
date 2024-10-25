@@ -866,7 +866,7 @@ namespace windowing_universal_windows
          if (pmessage->m_atom == WM_FONTCHANGE)
          {
 
-            auto psystem = system()->m_paurasystem;
+            auto psystem = system();
 
             psystem->signal(id_operating_system_font_list_change);
 
@@ -6327,7 +6327,7 @@ namespace windowing_universal_windows
       //if (!system()->m_htask)
       //{
 
-      //   if (!system()->m_paurasystem->begin_synch())
+      //   if (!system()->begin_synch())
       //   {
 
       //      throw ::exception(error_failed, "failed to begin_synch the system");
@@ -6419,7 +6419,7 @@ namespace windowing_universal_windows
 
             auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
 
-            system()->m_paurasystem->m_dDpi = displayinformation.LogicalDpi();
+            system()->m_dDpi = displayinformation.LogicalDpi();
 
             displayinformation.DpiChanged(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DpiChanged));
 
@@ -6451,7 +6451,7 @@ namespace windowing_universal_windows
 
       pusersystem->m_pwindow = m_pwindow;
 
-      system()->m_paurasystem->m_puserprimitiveMain = m_pwindow;
+      system()->m_puserprimitiveMain = m_pwindow;
 
       //m_bNotifyLayoutCompletedPending = true;
 
@@ -6740,7 +6740,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //m_pwindowing = system()->m_paurasystem->m_paurasession->system()->windowing();
+      //m_pwindowing = system()->m_paurasession->system()->windowing();
 
       //if (!m_pwindowing->m_pwindowSoul)
       //{
@@ -7583,9 +7583,9 @@ namespace windowing_universal_windows
 
       //   m_pwindow = system()->m_papplicationStartup->__create_new < ::windowing_universal_windows::window >();
 
-      //   system()->m_paurasystem->get_session()->system()->windowing()->m_pwindowFirst = m_pwindow;
+      //   system()->get_session()->system()->windowing()->m_pwindowFirst = m_pwindow;
 
-      //   system()->m_paurasystem->get_session()->system()->windowing()->m_bXXXFirst = true;
+      //   system()->get_session()->system()->windowing()->m_bXXXFirst = true;
 
       //   m_windowscorewindow = m_windowscorewindow;
 
@@ -7597,7 +7597,7 @@ namespace windowing_universal_windows
 
       //   pcs->m_pwindow = m_pwindow;
 
-      //   system()->m_paurasystem->__refer(system()->m_paurasystem->m_pwindowMain, m_pwindow);
+      //   system()->__refer(system()->m_pwindowMain, m_pwindow);
 
       //   //m_bNotifyLayoutCompletedPending = true;
 
@@ -7796,7 +7796,7 @@ namespace windowing_universal_windows
 
                //}
 
-               //system()->m_paurasystem->post_object(e_message_system, e_system_message_create, pcreate);
+               //system()->post_object(e_message_system, e_system_message_create, pcreate);
 
             }
 
@@ -8759,9 +8759,9 @@ namespace windowing_universal_windows
 
          //m_bXXXFirst = true;
 
-         //system()->m_paurasystem->get_session()->system()->windowing()->m_pwindowFirst = this;
+         //system()->get_session()->system()->windowing()->m_pwindowFirst = this;
 
-         //system()->m_paurasystem->get_session()->system()->windowing()->m_bXXXFirst = true;
+         //system()->get_session()->system()->windowing()->m_bXXXFirst = true;
 
          auto pwindowing = windowing();
 

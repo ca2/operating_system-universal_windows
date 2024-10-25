@@ -146,9 +146,9 @@ namespace windowing_universal_windows
 
       //m_bXXXFirst = true;
 
-      //system()->m_paurasystem->get_session()->system()->windowing()->m_pwindowFirst = this;
+      //system()->get_session()->system()->windowing()->m_pwindowFirst = this;
 
-      //system()->m_paurasystem->get_session()->system()->windowing()->m_bXXXFirst = true;
+      //system()->get_session()->system()->windowing()->m_bXXXFirst = true;
 
       auto pwindowing = m_pwindow->windowing();
 

@@ -228,12 +228,12 @@ namespace acme_universal_windows
 
       auto psystem = system();
 
-      auto pacmedir = psystem->m_pacmedirectory;
+      auto pacmedir = psystem->m_pdirectorysystem;
 
 
       return          auto psystem = system();
 
-      auto pacmedir = psystem->m_pacmedirectory;
+      auto pacmedir = psystem->m_pdirectorysystem;
 
       pacmedir->roaming();
 
@@ -268,12 +268,12 @@ namespace acme_universal_windows
 
       auto psystem = system();
 
-      auto pacmedir = psystem->m_pacmedirectory;
+      auto pacmedir = psystem->m_pdirectorysystem;
 
 
       return          auto psystem = system();
 
-      auto pacmedir = psystem->m_pacmedirectory;
+      auto pacmedir = psystem->m_pdirectorysystem;
 
       pacmedir->roaming();
 
@@ -521,7 +521,7 @@ namespace acme_universal_windows
    //      strCandidate = stra[i] / pszTopic;
 
    //      //if (m_papplication->file().exists(strCandidate))
-   //      if (m_pacmefile->exists(strCandidate))
+   //      if (m_pfilesystem->exists(strCandidate))
    //      {
 
    //         return strCandidate;
@@ -1372,7 +1372,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //               //informationf("         auto psystem = system();
 //
-//         auto pacmedir = psystem->m_pacmedirectory;
+//         auto pacmedir = psystem->m_pdirectorysystem;
 //
 //pacmedir->create CreateDirectoryW last error(%d)=%s", dwError, pszError);
 //
@@ -1774,7 +1774,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
             strCandidate = ::file::path(stra[i]) / pszTopic;
 
-            if (m_pacmefile->exists(strCandidate))
+            if (m_pfilesystem->exists(strCandidate))
             {
                return strCandidate;
             }
@@ -1887,7 +1887,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //                  try
 //                  {
 //
-//                     m_pacmefile->delete_file(strDir);
+//                     m_pfilesystem->delete_file(strDir);
 //
 //                  }
 //                  catch (...)
@@ -1902,7 +1902,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //                  try
 //                  {
 //
-//                     m_pacmefile->delete_file(str);
+//                     m_pfilesystem->delete_file(str);
 //
 //                  }
 //                  catch (...)
@@ -1933,7 +1933,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //               //informationf("         auto psystem = system();
 //
-////         auto pacmedir = psystem->m_pacmedirectory;
+////         auto pacmedir = psystem->m_pdirectorysystem;
 ////
 ////pacmedir->create CreateDirectoryW last error(%d)=%s", dwError, pszError);
 ////

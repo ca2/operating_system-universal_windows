@@ -40,7 +40,7 @@
 //
 //      //auto estatus = 
 //      
-//      system()->m_paurasystem->branch_synchronously();
+//      system()->branch_synchronously();
 //
 //      //if (!estatus)
 //      //{
@@ -55,7 +55,7 @@
 //
 //      pwindowMain->initialize(this);
 //
-//      system()->m_paurasystem->m_pwindowMain = pwindowMain;
+//      system()->m_pwindowMain = pwindowMain;
 //
 //      ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(pwindowMain->m_frameworkviewsource);
 //
