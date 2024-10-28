@@ -5573,7 +5573,7 @@ namespace windowing_universal_windows
 //
 //         }
 //
-//         auto psession = get_session();
+//         
 //
 //         if (message == e_message_key_down || message == e_message_sys_key_down)
 //         {
@@ -5698,7 +5698,7 @@ namespace windowing_universal_windows
 //
 //      }
 //
-//      //auto psession = get_session();
+//      //
 //
 //
 //
@@ -7047,7 +7047,7 @@ namespace windowing_universal_windows
 
             auto puserinteraction = m_pwindow->m_puserinteraction;
 
-            auto psession = get_session();
+            
 
             bool bTextFocus = puserinteraction != nullptr;
 

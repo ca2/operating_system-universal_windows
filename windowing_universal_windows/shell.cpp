@@ -374,7 +374,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //auto psession = get_session();
+      //
 
       //auto puser = psession->user();
 

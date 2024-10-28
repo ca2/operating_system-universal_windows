@@ -620,7 +620,7 @@ namespace aura_universal_windows
          if(pmessage->m_atom == e_message_key_down || pmessage->m_atom == e_message_sys_key_down)
          {
 
-            auto psession = get_session();
+            
 
             try
             {
@@ -633,7 +633,7 @@ namespace aura_universal_windows
          else if(pmessage->m_atom == e_message_key_up || pmessage->m_atom == e_message_sys_key_up)
          {
 
-            auto psession = get_session();
+            
 
             try
             {
@@ -691,7 +691,7 @@ namespace aura_universal_windows
 
          //}
 
-         //auto psession = get_session();
+         //
 
          //psession->on_ui_mouse_message(pmouse);
 
@@ -782,7 +782,7 @@ namespace aura_universal_windows
 
          auto pkey = pmessage->m_union.m_pkey;
 
-         auto psession = get_session();
+         
 
          auto puserprimitiveFocus = m_puserinteraction->get_keyboard_focus();
 
@@ -1809,7 +1809,7 @@ return true;
    void interaction_impl::on_message_create(::message::message * pmessage)
    {
 
-      //auto psession = get_session();
+      //
 
       //auto phost = psession->get_user_interaction_host();
 
@@ -5251,7 +5251,7 @@ namespace aura_universal_windows
    void interaction_impl::_create_window()
    {
 
-      auto psession = get_session();
+      
 
       auto puser = psession->user();
 
