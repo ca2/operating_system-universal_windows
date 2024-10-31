@@ -376,7 +376,7 @@ namespace windowing_universal_windows
 
       //
 
-      //auto puser = psession->user();
+      //auto puser = user();
 
       //auto psystem = system();
 

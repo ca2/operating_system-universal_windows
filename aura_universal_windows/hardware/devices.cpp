@@ -62,7 +62,7 @@ namespace aura_universal_windows
 
          /*auto psession = session();
 
-         auto puser = psession->user();
+         auto puser = user();
 
          auto pwindowing = (::windowing_win32::windowing *)system()->windowing()->m_pWindowing4;
 
@@ -153,7 +153,7 @@ namespace aura_universal_windows
 
       //   auto psession = session();
 
-      //   auto puser = psession->user();
+      //   auto puser = user();
 
       //   auto pwindowing = (::windowing_win32::windowing *)system()->windowing()->m_pWindowing4;
 
