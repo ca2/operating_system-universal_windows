@@ -104,7 +104,7 @@ namespace music
 
                m_deviceinformationcollection = deviceinformationcollection;
 
-               for (::u32 u = 0; u < deviceinformationcollection.Size(); u++)
+               for (unsigned int u = 0; u < deviceinformationcollection.Size(); u++)
                {
 
                   ::winrt::Windows::Devices::Enumeration::DeviceInformation deviceinformation = deviceinformationcollection.GetAt(u);

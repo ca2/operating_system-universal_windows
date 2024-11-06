@@ -313,7 +313,7 @@ namespace acme_universal_windows
       catch (const winrt::hresult_error & e)
       {
 
-         output_debug_string("winrt::hresult_error = " + ::as_string((i32)e.code()) + "\n");
+         output_debug_string("winrt::hresult_error = " + ::as_string((int)e.code()) + "\n");
 
       }
       catch (...)
@@ -640,7 +640,7 @@ namespace acme_universal_windows
    //bool windows_runtime_is_folder(const wchar_t * pwszPath)
    //{
    //
-   //   ::u32 dwLastError = ::GetLastError();
+   //   unsigned int dwLastError = ::GetLastError();
    //
    //   string strPrefix;
    //
@@ -922,7 +922,7 @@ namespace acme_universal_windows
    //
    //   auto a = folder->GetItemsAsync().get();
    //
-   //   for (u32 u = 0; u < a->Size; u++)
+   //   for (unsigned int u = 0; u < a->Size; u++)
    //   {
    //
    //      string strPath = string(begin(a->GetAt(u)->Path));
@@ -953,7 +953,7 @@ namespace acme_universal_windows
    //
    //   ::winrt::Windows::Foundation::Collections::IVectorView < ::winrt::Windows::Storage::StorageFolder ^ > ^ a = wait(folder->GetFoldersAsync());
    //
-   //   for (u32 u = 0; u < a->Size; u++)
+   //   for (unsigned int u = 0; u < a->Size; u++)
    //   {
    //      stra.add(begin(a->GetAt(u)->Path));
    //   }
@@ -962,7 +962,7 @@ namespace acme_universal_windows
 
 
 
-   //::u32 system_main(::apex::system * psystem)
+   //unsigned int system_main(::apex::system * psystem)
    //{
    //
    //   try
@@ -1113,7 +1113,7 @@ namespace acme_universal_windows
 //{
 //
 
-   ::winrt::Windows::Storage::StorageFile node::windows_runtime_file(::particle * pparticle, const char * lpcszFileName, ::u32 dwDesiredAcces, ::u32 dwShareMode, ::u32 dwCreationDisposition, ::u32 dwFlagsAndAttributes)
+   ::winrt::Windows::Storage::StorageFile node::windows_runtime_file(::particle * pparticle, const char * lpcszFileName, unsigned int dwDesiredAcces, unsigned int dwShareMode, unsigned int dwCreationDisposition, unsigned int dwFlagsAndAttributes)
    {
 
       /*
@@ -1261,7 +1261,7 @@ CLASS_DECL_ACME_UNIVERSAL_WINDOWS memsize windows_runtime_read_buffer(void * p, 
 
    auto reader = ::winrt::Windows::Storage::Streams::DataReader::FromBuffer(ibuffer);
 
-   winrt::array_view < ::u8 > bytes((unsigned char *)p, ((unsigned char *)p) + s);
+   winrt::array_view < unsigned char > bytes((unsigned char *)p, ((unsigned char *)p) + s);
 
    reader.ReadBytes(bytes);
 
@@ -1278,7 +1278,7 @@ memory windows_runtime_buffer_memory(::winrt::Windows::Storage::Streams::IBuffer
 
    memory memory(ibuffer.Capacity());
 
-   ::winrt::array_view < ::u8 > bytes(memory.begin(), memory.end());
+   ::winrt::array_view < unsigned char > bytes(memory.begin(), memory.end());
 
    reader.ReadBytes(bytes);
 
@@ -1287,10 +1287,10 @@ memory windows_runtime_buffer_memory(::winrt::Windows::Storage::Streams::IBuffer
 }
 
 
-::winrt::array_view <::u8 > windows_runtime_bytes(const void * p, memsize s)
+::winrt::array_view <unsigned char > windows_runtime_bytes(const void * p, memsize s)
 {
 
-   return { (::u8 *)p, ((::u8 *)p) + s };
+   return { (unsigned char *)p, ((unsigned char *)p) + s };
 
 
 }
@@ -1301,7 +1301,7 @@ memory windows_runtime_buffer_memory(::winrt::Windows::Storage::Streams::IBuffer
 
    ::winrt::Windows::Storage::Streams::DataWriter writer;
 
-   ::winrt::array_view < const ::u8 > bytes((::u8 *)p, ((::u8 *)p) + s);
+   ::winrt::array_view < const unsigned char > bytes((unsigned char *)p, ((unsigned char *)p) + s);
 
    writer.WriteBytes(bytes);
 

@@ -29,7 +29,7 @@ namespace networking_bsd
    }
 
 
-   void address::set_family(i32 family, ::networking::port_t port)
+   void address::set_family(int family, ::networking::port_t port)
    {
 
 #ifdef BSD_STYLE_SOCKETS
@@ -573,7 +573,7 @@ namespace networking_bsd
 
 #if defined(BSD_STYLE_SOCKETS)
 
-   i32 address::sa_len() const
+   int address::sa_len() const
    {
 
       int iFamilyLen = u.s.get_family_len();
@@ -614,7 +614,7 @@ namespace networking_bsd
    }
 
 
-//   address ipv4(u32 u, ::networking::port_t port)
+//   address ipv4(unsigned int u, ::networking::port_t port)
 //   {
 //
 //      address a;

@@ -85,7 +85,7 @@ namespace sockets
       //
       int ptr = 0;
 
-      get_byte(buf, ptr); // skip first ::u8: prefix_code
+      get_byte(buf, ptr); // skip first unsigned char: prefix_code
       unsigned char method = get_byte(buf, ptr);
       string    protocol = get_string(buf, ptr);
       string    req_uri = get_string(buf, ptr);

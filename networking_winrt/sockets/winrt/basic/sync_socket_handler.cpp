@@ -118,7 +118,7 @@ namespace sockets
       if(iTimeout < 0)
          iTimeout = m_iDefaultTimeout;
       strsize uiLen = strlen(xml_payload);
-      u32 wf_total_length = htonl((u_long) uiLen);
+      unsigned int wf_total_length = htonl((u_long) uiLen);
       write(&wf_total_length, 4);
       write( (char *) xml_payload, uiLen);
    }

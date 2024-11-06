@@ -82,7 +82,7 @@ FT_BEGIN_HEADER
 #error "Unsupported size of `int' type!"
 #endif
 
-  /* The size of a `long' type.  A five-::u8 `long' (as used e.g. on the */
+  /* The size of a `long' type.  A five-unsigned char `long' (as used e.g. on the */
   /* DM642) is recognized but avoided.                                   */
 #if                                  FT_ULONG_MAX == 0xFFFFFFFFUL
 #define FT_SIZEOF_LONG  (32 / FT_CHAR_BIT)

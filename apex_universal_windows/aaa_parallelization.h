@@ -7,7 +7,7 @@
 typedef struct tag_MSG
 {
    oswindow    hwnd;
-   ::u32        message;
+   unsigned int        message;
    WPARAM      wParam;
    LPARAM      lParam;
    ::point_i32       pt;

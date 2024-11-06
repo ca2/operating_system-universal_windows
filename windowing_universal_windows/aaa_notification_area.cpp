@@ -62,7 +62,7 @@ namespace windowing_win32
 
    }
 
-   void notification_area::ListTrayIcons(i32 defindex /*= 0*/)
+   void notification_area::ListTrayIcons(int defindex /*= 0*/)
    {
 
 #ifdef WINDOWS_DESKTOP
@@ -99,7 +99,7 @@ namespace windowing_win32
       if (dwTrayPid == 0)
          return;
 
-      i32 count = (i32)::SendMessage(m_hwndTray, TB_BUTTONCOUNT, 0, 0);
+      int count = (int)::SendMessage(m_hwndTray, TB_BUTTONCOUNT, 0, 0);
 
       process_data < TBBUTTON > data(dwTrayPid);
 
@@ -107,7 +107,7 @@ namespace windowing_win32
       TRAYDATA tray = { 0 };
       TrayItemInfo info;
 
-      for (i32 i = 0; i < count; i++)
+      for (int i = 0; i < count; i++)
       {
          ::SendMessage(m_hwndTray, TB_GETBUTTON, i, (LPARAM)data.get_data());
          data.ReadData(&tb);
@@ -129,7 +129,7 @@ namespace windowing_win32
 
          if (!(tb.fsState & TBSTATE_HIDDEN))
          {
-            i32 x = 0;
+            int x = 0;
             do
             {
                if (x == 1023)
@@ -151,7 +151,7 @@ namespace windowing_win32
 
          info.m_bVisible = !(tb.fsState & TBSTATE_HIDDEN);
 
-         i32 iconindex = 0;
+         int iconindex = 0;
 
          ICONINFO  iinfo;
 
@@ -185,7 +185,7 @@ namespace windowing_win32
          //lv.iImage = iconindex;
 
          m_infoa.add(___new TrayItemInfo(info));
-         //i32 index = GetListCtrl().InsertItem(&lv);
+         //int index = GetListCtrl().InsertItem(&lv);
          //GetListCtrl().set_item_text(index,1,info.sTip);
          //GetListCtrl().set_item_text(index,2,info.sProcessPath);
       }
@@ -199,13 +199,13 @@ namespace windowing_win32
 #endif
    }
 
-   void notification_area::EditCopy(i32 iItem)
+   void notification_area::EditCopy(int iItem)
    {
       __UNREFERENCED_PARAMETER(iItem);
       /*   POSITION pos = GetListCtrl().GetFirstSelectedItemPosition();
          if(pos)
          {
-            i32 index = GetListCtrl().GetNextSelectedItem(pos);
+            int index = GetListCtrl().GetNextSelectedItem(pos);
             OpenClipboard();
             EmptyClipboard();
             HGLOBAL hText = GlobalAlloc(GMEM_MOVEABLE, sizeof char * 512);
@@ -218,31 +218,31 @@ namespace windowing_win32
          }*/
    }
 
-   void notification_area::DoubleClick(i32 iItem)
+   void notification_area::DoubleClick(int iItem)
    {
       PostMessageToTrayIcon(iItem, e_message_left_button_double_click);
    }
 
-   void notification_area::LeftClick(i32 iItem)
+   void notification_area::LeftClick(int iItem)
    {
       PostMessageToTrayIcon(iItem, e_message_left_button_down);
       PostMessageToTrayIcon(iItem, e_message_left_button_up);
    }
 
-   void notification_area::RightClick(i32 iItem)
+   void notification_area::RightClick(int iItem)
    {
       PostMessageToTrayIcon(iItem, e_message_right_button_down);
       PostMessageToTrayIcon(iItem, e_message_right_button_up);
    }
 
-   void notification_area::PostMessageToTrayIcon(i32 iItem, LPARAM lParam)
+   void notification_area::PostMessageToTrayIcon(int iItem, LPARAM lParam)
    {
 #ifdef WINDOWS_DESKTOP
       ::PostMessage(m_infoa[iItem]->m_hwnd, m_infoa[iItem]->m_uCallbackMessage, m_infoa[iItem]->m_uID, lParam);
 #endif
    }
 
-   void notification_area::MoveLeft(i32 iItem)
+   void notification_area::MoveLeft(int iItem)
    {
 #ifdef WINDOWS_DESKTOP
       if (iItem > 0)
@@ -255,7 +255,7 @@ namespace windowing_win32
 #endif
    }
 
-   void notification_area::MoveRight(i32 iItem)
+   void notification_area::MoveRight(int iItem)
    {
 #ifdef WINDOWS_DESKTOP
       if (iItem < (m_infoa.get_size() - 1))

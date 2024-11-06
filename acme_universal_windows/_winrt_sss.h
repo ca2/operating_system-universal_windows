@@ -110,7 +110,7 @@ template < typename PREDICATE >
 //   //   }
 //   //}
 //
-//   struct ByteArray { Platform::Array<::u8> ^ data; };
+//   struct ByteArray { Platform::Array<unsigned char> ^ data; };
 //
 //   // function that reads from a binary file asynchronously
 //   /*	inline Concurrency::task<ByteArray> ReadDataAsync(Platform::String^ filename)
@@ -129,7 +129,7 @@ template < typename PREDICATE >
 //
 //   auto byteArrayTask = readBufferTask.then([] (Streams::IBuffer^ b) -> ByteArray
 //   {
-//   auto a = ref ___new Platform::Array<::u8>(b->Length);
+//   auto a = ref ___new Platform::Array<unsigned char>(b->Length);
 //   Streams::DataReader::FromBuffer(b)->ReadBytes(a);
 //   ByteArray ba = { a };
 //   return ba;

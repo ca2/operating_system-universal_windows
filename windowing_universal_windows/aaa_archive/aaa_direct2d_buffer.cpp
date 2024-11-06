@@ -326,9 +326,9 @@
 //         if (m_bCreated)
 //         {
 //
-//            //m_size.cx = (::i32)m_window->Bounds.Width;
+//            //m_size.cx = (int)m_window->Bounds.Width;
 //
-//            //m_size.cy = (::i32)m_window->Bounds.Height;
+//            //m_size.cy = (int)m_window->Bounds.Height;
 //
 //
 //

@@ -13,14 +13,14 @@ namespace music
 
       const uint32_t grbChanMsgLen[] =
       {
-         0,                      /* 0x   not a status ::u8   */
-         0,                      /* 1x   not a status ::u8   */
-         0,                      /* 2x   not a status ::u8   */
-         0,                      /* 3x   not a status ::u8   */
-         0,                      /* 4x   not a status ::u8   */
-         0,                      /* 5x   not a status ::u8   */
-         0,                      /* 6x   not a status ::u8   */
-         0,                      /* 7x   not a status ::u8   */
+         0,                      /* 0x   not a status unsigned char   */
+         0,                      /* 1x   not a status unsigned char   */
+         0,                      /* 2x   not a status unsigned char   */
+         0,                      /* 3x   not a status unsigned char   */
+         0,                      /* 4x   not a status unsigned char   */
+         0,                      /* 5x   not a status unsigned char   */
+         0,                      /* 6x   not a status unsigned char   */
+         0,                      /* 7x   not a status unsigned char   */
          3,                      /* 8x   Note off            */
          3,                      /* 9x   Note on             */
          3,                      /* Ax   Poly pressure       */
@@ -368,12 +368,12 @@ namespace music
       }
 
       // returns the midi stream var dword
-      uint32_t GetVDWord(::u8 * &hpbMidiStream, uint32_t dwLeft, uint32_t &dwValueParam)
+      uint32_t GetVDWord(unsigned char * &hpbMidiStream, uint32_t dwLeft, uint32_t &dwValueParam)
       {
 
          BYTE                    b;
          uint32_t                   dwUsed  = 0;
-         ::u8 * &            hpbImage = hpbMidiStream;
+         unsigned char * &            hpbImage = hpbMidiStream;
          uint32_t               dwValue;
 
          ASSERT(hpbImage != NULL);

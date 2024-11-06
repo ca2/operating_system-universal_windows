@@ -34,7 +34,7 @@ namespace windowing_universal_windows
       ~copydesk() override;
 
 
-      //static lresult WINAPI WindowProc(HWND hwnd, ::u32 message, wparam wparam, lparam lparam);
+      //static lresult WINAPI WindowProc(HWND hwnd, unsigned int message, wparam wparam, lparam lparam);
 
 
       DECLARE_MESSAGE_HANDLER(_001OnClipboardUpdate);

@@ -78,9 +78,9 @@
 ////
 ////            ::winrt::Windows::UI::Input::PointerPoint ^ pointerPoint = ::winrt::Windows::UI::Input::PointerPoint::GetCurrentPoint(g_iMouse);
 ////
-////            g_iMouseX = (::i32)pointerPoint->RawPosition.X;
+////            g_iMouseX = (int)pointerPoint->RawPosition.X;
 ////
-////            g_iMouseY = (::i32)pointerPoint->RawPosition.Y;
+////            g_iMouseY = (int)pointerPoint->RawPosition.Y;
 ////
 ////         }
 ////
@@ -525,7 +525,7 @@
 //}
 //
 //
-////::u32 system_main(::apex::system * psystem)
+////unsigned int system_main(::apex::system * psystem)
 ////{
 ////
 ////   try

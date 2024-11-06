@@ -42,7 +42,7 @@ namespace networking_bsd
       memsize         m_header_size;
       memsize         m_iN;
       int         m_i;
-      ::u8        m_maskingkey[4];
+      unsigned char        m_maskingkey[4];
       int         m_iLastPos;
       ::pointer < ::mutex >       m_pmutexWebsocketWrite;
       string            m_strOrigin;

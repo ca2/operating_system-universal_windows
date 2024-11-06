@@ -28,7 +28,7 @@ namespace windowing_universal_windows
 
       void _load_default_cursor(enum_cursor ecursor);
 
-      void _create_from_image(const ::image* pimage, ::i32 xHotspot, ::i32 yHotspot);
+      void _create_from_image(const ::image* pimage, int xHotspot, int yHotspot);
 
 
    };

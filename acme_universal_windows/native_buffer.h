@@ -51,7 +51,7 @@ namespace acme_universal_windows
 
       //virtual ::pointer<::file::file>Duplicate() const;
 
-      //void put_byte_back(::u8 u8) override;
+      //void put_byte_back(unsigned char u8) override;
 
       void translate(filesize lOff, ::enum_seek eseek) override;
       void set_size(filesize dwNewLen) override;
@@ -69,7 +69,7 @@ namespace acme_universal_windows
 
       bool is_opened() const override;
       //enum BufferCommand { bufferRead,bufferWrite,bufferCommit,bufferCheck };
-      //virtual u64 GetBufferPtr(::u32 nCommand,u64 nCount = 0,
+      //virtual u64 GetBufferPtr(unsigned int nCommand,u64 nCount = 0,
       //                              void ** ppBufStart = nullptr,void ** ppBufMax = nullptr);
 
    };

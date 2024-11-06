@@ -112,7 +112,7 @@ namespace apex_universal_windows
 
       virtual ::pointer < ::file::link > resolve_lnk_link(const ::file::path & path, ::file::e_link elink = ::file::e_link_all);
 
-      void raise_exception(u32 dwExceptionCode, u32 dwExceptionFlags);
+      void raise_exception(unsigned int dwExceptionCode, unsigned int dwExceptionFlags);
 
       bool is_remote_session() override;
 

@@ -1,7 +1,7 @@
 #pragma once
 
 
-using port_t = u16;
+using port_t = unsigned short;
 
 
 #include "apex/networking/address.h"

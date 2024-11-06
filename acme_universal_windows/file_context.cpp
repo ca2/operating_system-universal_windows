@@ -154,15 +154,15 @@ namespace acme_universal_windows
    //}
 
 
-   //::u32 file_context::GetFileName(const ::string & pszPathName, string & str)
+   //unsigned int file_context::GetFileName(const ::string & pszPathName, string & str)
 
    //{
-   //   i32 nMax = MAX_PATH * 8;
+   //   int nMax = MAX_PATH * 8;
    //   wstring wstrPathName;
    //   wstrPathName = utf8_to_unicode(pszPathName);
 
    //   wstring wstrTitle;
-   //   ::u32 user = vfxGetFileName(wstrPathName, wstrTitle.get_buffer(nMax), nMax);
+   //   unsigned int user = vfxGetFileName(wstrPathName, wstrTitle.get_buffer(nMax), nMax);
    //   str = unicode_to_utf8(wstrTitle);
    //   return user;
    //}
@@ -361,7 +361,7 @@ namespace acme_universal_windows
 
 #ifdef WINDOWS_DESKTOP
 
-      u32 dwAttrib = windows_get_file_attributes(psz);
+      unsigned int dwAttrib = windows_get_file_attributes(psz);
 
       if (dwAttrib & FILE_ATTRIBUTE_READONLY)
       {
@@ -479,7 +479,7 @@ namespace acme_universal_windows
 
    //   FindClose(hFind);
 
-   //   rStatus.m_attribute = (::u8)(findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
+   //   rStatus.m_attribute = (unsigned char)(findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
 
    //   rStatus.m_filesize = make64_from32(findFileData.nFileSizeLow, findFileData.nFileSizeHigh);
 
@@ -508,7 +508,7 @@ namespace acme_universal_windows
 
    //   wstring pszFileName(path);
 
-   //   ::u32 wAttr;
+   //   unsigned int wAttr;
    //   FILETIME creationTime;
    //   FILETIME lastAccessTime;
    //   FILETIME lastWriteTime;
@@ -519,19 +519,19 @@ namespace acme_universal_windows
    //   LPFILETIME pLastWriteTime = nullptr;
 
 
-   //   if((wAttr = windows_get_file_attributes((LPWSTR)(const ::wide_character *)pszFileName)) == (::u32)-1L)
+   //   if((wAttr = windows_get_file_attributes((LPWSTR)(const ::wide_character *)pszFileName)) == (unsigned int)-1L)
 
-   //      file_exception::throw_os_error((::i32)GetLastError());
+   //      file_exception::throw_os_error((int)GetLastError());
 
-   //   if((::u32)status.m_attribute != wAttr && (wAttr & readOnly))
+   //   if((unsigned int)status.m_attribute != wAttr && (wAttr & readOnly))
    //   {
    //      // set file attribute, only if currently readonly.
    //      // This way we will be able to modify the time assuming the
    //      // caller changed the file from readonly.
 
-   //      if(!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName,(::u32)status.m_attribute))
+   //      if(!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName,(unsigned int)status.m_attribute))
 
-   //         file_exception::throw_os_error((::i32)GetLastError());
+   //         file_exception::throw_os_error((int)GetLastError());
    //   }
 
    //   // last modification time
@@ -563,21 +563,21 @@ namespace acme_universal_windows
    //         nullptr);
 
    //      if(hFile == INVALID_HANDLE_VALUE)
-   //         file_exception::throw_os_error((::i32)::GetLastError());
+   //         file_exception::throw_os_error((int)::GetLastError());
 
    //      if(!SetFileTime((HANDLE)hFile,pCreationTime,lpLastAccessTime,lpLastWriteTime))
 
-   //         file_exception::throw_os_error((::i32)::GetLastError());
+   //         file_exception::throw_os_error((int)::GetLastError());
 
    //      if(!::CloseHandle(hFile))
-   //         file_exception::throw_os_error((::i32)::GetLastError());
+   //         file_exception::throw_os_error((int)::GetLastError());
    //   }
 
-   //   if((::u32)status.m_attribute != wAttr && !(wAttr & readOnly))
+   //   if((unsigned int)status.m_attribute != wAttr && !(wAttr & readOnly))
    //   {
-   //      if(!SetFileAttributes((char *)pszFileName,(::u32)status.m_attribute))
+   //      if(!SetFileAttributes((char *)pszFileName,(unsigned int)status.m_attribute))
 
-   //         file_exception::throw_os_error((::i32)GetLastError());
+   //         file_exception::throw_os_error((int)GetLastError());
    //   }
    //}
 
@@ -585,7 +585,7 @@ namespace acme_universal_windows
    //void file::SetStatus(const ::string & pszFileName,const ::file::file_status& status)
 
    //{
-   //   ::u32 wAttr;
+   //   unsigned int wAttr;
    //   FILETIME creationTime;
    //   FILETIME lastAccessTime;
    //   FILETIME lastWriteTime;
@@ -596,19 +596,19 @@ namespace acme_universal_windows
    //   LPFILETIME pLastWriteTime = nullptr;
 
 
-   //   if((wAttr = GetFileAttributes((char *)pszFileName)) == (::u32)-1L)
+   //   if((wAttr = GetFileAttributes((char *)pszFileName)) == (unsigned int)-1L)
 
-   //      file_exception::throw_os_error((::i32)GetLastError());
+   //      file_exception::throw_os_error((int)GetLastError());
 
-   //   if((::u32)status.m_attribute != wAttr && (wAttr & readOnly))
+   //   if((unsigned int)status.m_attribute != wAttr && (wAttr & readOnly))
    //   {
    //      // set file attribute, only if currently readonly.
    //      // This way we will be able to modify the time assuming the
    //      // caller changed the file from readonly.
 
-   //      if(!SetFileAttributes((char *)pszFileName,(::u32)status.m_attribute))
+   //      if(!SetFileAttributes((char *)pszFileName,(unsigned int)status.m_attribute))
 
-   //         file_exception::throw_os_error((::i32)GetLastError());
+   //         file_exception::throw_os_error((int)GetLastError());
    //   }
 
    //   // last modification time
@@ -640,21 +640,21 @@ namespace acme_universal_windows
    //         nullptr);
 
    //      if(hFile == INVALID_HANDLE_VALUE)
-   //         file_exception::throw_os_error((::i32)::GetLastError());
+   //         file_exception::throw_os_error((int)::GetLastError());
 
    //      if(!SetFileTime((HANDLE)hFile,pCreationTime,lpLastAccessTime,lpLastWriteTime))
 
-   //         file_exception::throw_os_error((::i32)::GetLastError());
+   //         file_exception::throw_os_error((int)::GetLastError());
 
    //      if(!::CloseHandle(hFile))
-   //         file_exception::throw_os_error((::i32)::GetLastError());
+   //         file_exception::throw_os_error((int)::GetLastError());
    //   }
 
-   //   if((::u32)status.m_attribute != wAttr && !(wAttr & readOnly))
+   //   if((unsigned int)status.m_attribute != wAttr && !(wAttr & readOnly))
    //   {
-   //      if(!SetFileAttributes((char *)pszFileName,(::u32)status.m_attribute))
+   //      if(!SetFileAttributes((char *)pszFileName,(unsigned int)status.m_attribute))
 
-   //         file_exception::throw_os_error((::i32)GetLastError());
+   //         file_exception::throw_os_error((int)GetLastError());
    //   }
    //}
 
@@ -665,7 +665,7 @@ namespace acme_universal_windows
    //   wstring pszFileName(path);
 
 
-   //   ::u32 wAttr;
+   //   unsigned int wAttr;
    //   FILETIME creationTime;
    //   FILETIME lastAccessTime;
    //   FILETIME lastWriteTime;
@@ -676,7 +676,7 @@ namespace acme_universal_windows
    //   LPFILETIME pLastWriteTime = nullptr;
 
 
-   //   if ((wAttr = ::windows::get_file_attributes(path)) == (::u32)INVALID_FILE_ATTRIBUTES)
+   //   if ((wAttr = ::windows::get_file_attributes(path)) == (unsigned int)INVALID_FILE_ATTRIBUTES)
    //   {
 
    //      auto dwLastError = ::GetLastError();
@@ -689,13 +689,13 @@ namespace acme_universal_windows
 
    //   }
 
-   //   if ((::u32)status.m_attribute != wAttr && (wAttr & FILE_ATTRIBUTE_READONLY))
+   //   if ((unsigned int)status.m_attribute != wAttr && (wAttr & FILE_ATTRIBUTE_READONLY))
    //   {
    //      // set file attribute, only if currently readonly.
    //      // This way we will be able to modify the time assuming the
    //      // caller changed the file from readonly.
 
-   //      if (!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName, (::u32)status.m_attribute))
+   //      if (!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName, (unsigned int)status.m_attribute))
    //      {
 
    //         auto dwLastError = ::GetLastError();
@@ -784,10 +784,10 @@ namespace acme_universal_windows
 
    //   }
 
-   //   if ((::u32)status.m_attribute != wAttr && !(wAttr & FILE_ATTRIBUTE_READONLY))
+   //   if ((unsigned int)status.m_attribute != wAttr && !(wAttr & FILE_ATTRIBUTE_READONLY))
    //   {
 
-   //      if (!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName, (::u32)status.m_attribute))
+   //      if (!SetFileAttributesW((LPWSTR)(const ::wide_character *)pszFileName, (unsigned int)status.m_attribute))
    //      {
 
    //         auto dwLastError = ::GetLastError();

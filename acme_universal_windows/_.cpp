@@ -32,7 +32,7 @@
 //   }
 //
 //
-//   bool CLASS_DECL_ACME_WINDOWS shell_get_special_folder_path(HWND hwnd, ::file::path& str, i32 csidl, bool fCreate)
+//   bool CLASS_DECL_ACME_WINDOWS shell_get_special_folder_path(HWND hwnd, ::file::path& str, int csidl, bool fCreate)
 //   {
 //
 //      return ::SHGetSpecialFolderPathW(hwnd, wstring_adaptor(str, MAX_PATH * 8), csidl, fCreate) != false;
@@ -40,7 +40,7 @@
 //   }
 //
 //
-//   ::file::path CLASS_DECL_ACME_WINDOWS shell_get_special_folder_path(i32 csidl, bool fCreate, ::windowing::window* pwindow)
+//   ::file::path CLASS_DECL_ACME_WINDOWS shell_get_special_folder_path(int csidl, bool fCreate, ::windowing::window* pwindow)
 //   {
 //
 //      ::file::path path;
@@ -59,7 +59,7 @@
 //
 //
 //
-//   ::u32 get_current_directory(string& str)
+//   unsigned int get_current_directory(string& str)
 //   {
 //
 //      return ::GetCurrentDirectoryW(MAX_PATH * 8, wstring_adaptor(str, MAX_PATH * 8));
@@ -67,7 +67,7 @@
 //   }
 //
 //
-//   ::u32 get_temp_path(string& str)
+//   unsigned int get_temp_path(string& str)
 //   {
 //
 //      return ::GetTempPathW(MAX_PATH * 8, wstring_adaptor(str, MAX_PATH * 8));
@@ -75,12 +75,12 @@
 //   }
 //
 //
-//   //::i32 reg_query_value(HKEY hkey, const ::string & pszSubKey, string& str)
+//   //int reg_query_value(HKEY hkey, const ::string & pszSubKey, string& str)
 //   //{
 //
 //   //   DWORD dwType = 0;
 //   //   DWORD dwSize = 0;
-//   //   ::i32 lResult = RegQueryValueExW(hkey, wstring(pszSubKey), nullptr, &dwType, nullptr, &dwSize);
+//   //   int lResult = RegQueryValueExW(hkey, wstring(pszSubKey), nullptr, &dwType, nullptr, &dwSize);
 //
 //   //   if (lResult != ERROR_SUCCESS)
 //   //      return lResult;
@@ -90,7 +90,7 @@
 //
 //   //      natural_wstring pwsz(byte_count, dwSize);
 //
-//   //      lResult = RegQueryValueExW(hkey, wstring(pszSubKey), nullptr, &dwType, (::u8*)(unichar*)pwsz, &dwSize);
+//   //      lResult = RegQueryValueExW(hkey, wstring(pszSubKey), nullptr, &dwType, (unsigned char*)(unichar*)pwsz, &dwSize);
 //
 //   //      str = pwsz;
 //
@@ -109,7 +109,7 @@
 //   //}
 //
 //
-//   HICON extract_icon(HINSTANCE hInst, const ::string & pszExeFileName, ::u32 nIconIndex)
+//   HICON extract_icon(HINSTANCE hInst, const ::string & pszExeFileName, unsigned int nIconIndex)
 //
 //   {
 //

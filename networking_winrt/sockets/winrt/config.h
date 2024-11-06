@@ -16,7 +16,7 @@
 #endif // _RUN_DP
 
 
-//typedef i32 SOCKET;
+//typedef int SOCKET;
 
 
 /* Ipv6 support. */

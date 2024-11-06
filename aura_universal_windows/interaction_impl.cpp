@@ -237,7 +237,7 @@ namespace aura_universal_windows
    }
 
 
-   LRESULT interaction_impl::DefWindowProc(::u32 nMsg,WPARAM wParam,lparam lParam)
+   LRESULT interaction_impl::DefWindowProc(unsigned int nMsg,WPARAM wParam,lparam lParam)
    {
       return 0;
 
@@ -372,7 +372,7 @@ namespace aura_universal_windows
 #endif
 
 
-   bool interaction_impl::_EnableToolTips(bool bEnable,::u32 nFlag)
+   bool interaction_impl::_EnableToolTips(bool bEnable,unsigned int nFlag)
    {
       __UNREFERENCED_PARAMETER(bEnable);
       __UNREFERENCED_PARAMETER(nFlag);
@@ -382,7 +382,7 @@ namespace aura_universal_windows
 
 
 
-   ::windowing::window * interaction_impl::GetAncestor(::u32 gaFlags) const
+   ::windowing::window * interaction_impl::GetAncestor(unsigned int gaFlags) const
    {
 
 #ifdef WINDOWS_DESKTOP
@@ -400,7 +400,7 @@ namespace aura_universal_windows
 
 
 #ifdef WINDOWS_DESKTOP
-   bool interaction_impl::GetScrollBarInfo(::i32 idObject, PSCROLLBARINFO psbi) const
+   bool interaction_impl::GetScrollBarInfo(int idObject, PSCROLLBARINFO psbi) const
    {
       ASSERT(::is_window((oswindow)get_os_data()));
       ASSERT(psbi != nullptr);
@@ -415,7 +415,7 @@ namespace aura_universal_windows
    }
 #endif
 
-//   bool interaction_impl::AnimateWindow(::time ::time,u32 dwFlags)
+//   bool interaction_impl::AnimateWindow(::time ::time,unsigned int dwFlags)
 //   {
 //#ifdef WINDOWS_DESKTOP
 //      ASSERT(::is_window((oswindow)get_os_data()));
@@ -426,7 +426,7 @@ namespace aura_universal_windows
 //      return false;
 //   }
 
-   //bool interaction_impl::FlashWindowEx(u32 dwFlags,::u32  uCount,::time tickTimeout)
+   //bool interaction_impl::FlashWindowEx(unsigned int dwFlags,unsigned int  uCount,::time tickTimeout)
    //{
    //   throw ::exception(todo);
 
@@ -444,7 +444,7 @@ namespace aura_universal_windows
 
 
 
-   //bool interaction_impl::SetLayeredWindowAttributes(color32_t crKey,::u8 bAlpha,u32 dwFlags)
+   //bool interaction_impl::SetLayeredWindowAttributes(color32_t crKey,unsigned char bAlpha,unsigned int dwFlags)
    //{
    //   throw ::exception(todo);
    //   //ASSERT(::is_window((oswindow)get_os_data()));
@@ -452,7 +452,7 @@ namespace aura_universal_windows
    //}
 
    //bool interaction_impl::UpdateLayeredWindow(::draw2d::graphics * pDCDst,::point_i32 *pptDst,::size_i32 *psize,
-   //      ::draw2d::graphics * pDCSrc,::point_i32 *pptSrc,color32_t crKey,BLENDFUNCTION *pblend,u32 dwFlags)
+   //      ::draw2d::graphics * pDCSrc,::point_i32 *pptSrc,color32_t crKey,BLENDFUNCTION *pblend,unsigned int dwFlags)
    //{
    //   throw ::exception(todo);
    //   //ASSERT(::is_window((oswindow)get_os_data()));
@@ -461,14 +461,14 @@ namespace aura_universal_windows
    //}
 
 
-   //bool interaction_impl::GetLayeredWindowAttributes(color32_t *pcrKey,::u8 *pbAlpha,u32 *pdwFlags) const
+   //bool interaction_impl::GetLayeredWindowAttributes(color32_t *pcrKey,unsigned char *pbAlpha,unsigned int *pdwFlags) const
    //{
    //   throw ::exception(todo);
    //   //ASSERT(::is_window((oswindow)get_os_data()));
    //   //return ::GetLayeredWindowAttributes((oswindow)get_os_data(), pcrKey, pbAlpha, pdwFlags) != false;
    //}
 
-   bool interaction_impl::PrintWindow(::draw2d::graphics_pointer & pgraphics,::u32 nFlags) const
+   bool interaction_impl::PrintWindow(::draw2d::graphics_pointer & pgraphics,unsigned int nFlags) const
    {
       throw ::exception(todo);
       //ASSERT(::is_window((oswindow)get_os_data()));
@@ -492,7 +492,7 @@ namespace aura_universal_windows
    
 
 #ifdef WINDOWS_DESKTOP
-   void interaction_impl::WinHelpInternal(dword_ptr dwData, ::u32 nCmd)
+   void interaction_impl::WinHelpInternal(dword_ptr dwData, unsigned int nCmd)
    {
       __UNREFERENCED_PARAMETER(dwData);
       __UNREFERENCED_PARAMETER(nCmd);
@@ -740,16 +740,16 @@ namespace aura_universal_windows
 
          //   //   get_session()->get_monitor_rectangle(0,&rcMonitor);
          //   //   if(rectangleWindow.left() >= rcMonitor.left())
-         //   //      pmouse->m_point.x += (::i32)rectangleWindow.left();
+         //   //      pmouse->m_point.x += (int)rectangleWindow.left();
          //   //   if(rectangleWindow.top() >= rcMonitor.top())
-         //   //      pmouse->m_point.y += (::i32)rectangleWindow.top();
+         //   //      pmouse->m_point.y += (int)rectangleWindow.top();
          //   //}
          //   //else
          //   {
          //      if(rectangleWindow.left() >= 0)
-         //         pmouse->m_point.x += (::i32)rectangleWindow.left();
+         //         pmouse->m_point.x += (int)rectangleWindow.left();
          //      if(rectangleWindow.top() >= 0)
-         //         pmouse->m_point.y += (::i32)rectangleWindow.top();
+         //         pmouse->m_point.y += (int)rectangleWindow.top();
          //   }
          //}
 
@@ -806,7 +806,7 @@ namespace aura_universal_windows
                   return;
             }
          }
-         pmessage->set_lresult(DefWindowProc((::u32)pmessage->m_atom.as_i64(), pmessage->m_wparam, pmessage->m_lparam));
+         pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_atom.as_i64(), pmessage->m_wparam, pmessage->m_lparam));
          return;
       }
       //if(pmessage->m_atom == e_message_event)
@@ -840,7 +840,7 @@ namespace aura_universal_windows
       return;
       }
       */
-      pmessage->set_lresult(DefWindowProc((::u32)pmessage->m_atom.as_i64(), pmessage->m_wparam, pmessage->m_lparam));
+      pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_atom.as_i64(), pmessage->m_wparam, pmessage->m_lparam));
    }
 
    /*
@@ -888,7 +888,7 @@ namespace aura_universal_windows
    bHandled = false;
 
    const __MSGMAP* pMessageMap; pMessageMap = GetMessageMap();
-   ::u32 iHash; iHash = (LOWORD((dword_ptr)pMessageMap)  message) & (iHashMax-1);
+   unsigned int iHash; iHash = (LOWORD((dword_ptr)pMessageMap)  message) & (iHashMax-1);
    winMsgLock.lock(CRIT_WINMSGCACHE);
    __MSG_CACHE* pMsgCache; pMsgCache = &gen_MsgCache[iHash];
    const __MSGMAP_ENTRY* lpEntry;
@@ -935,7 +935,7 @@ else
 lpEntry = pMessageMap->lpEntries;
 while ((lpEntry = ::ca2::FindMessageEntry(lpEntry, 0xC000, 0, 0)) != nullptr)
 {
-::u32* pnID = (::u32*)(lpEntry->nSig);
+unsigned int* pnID = (unsigned int*)(lpEntry->nSig);
 ASSERT(*pnID >= 0xC000 || *pnID == 0);
 // must be successfully registered
 if (*pnID == message)
@@ -979,7 +979,7 @@ lResult = (this->*mmf.pfn_b_b)(static_cast<bool>(wParam));
 break;
 
 case ::ca2::Sig_b_u_v:
-lResult = (this->*mmf.pfn_b_u)(static_cast<::u32>(wParam));
+lResult = (this->*mmf.pfn_b_u)(static_cast<unsigned int>(wParam));
 break;
 
 case ::ca2::Sig_b_h_v:
@@ -987,7 +987,7 @@ lResult = (this->*mmf.pfn_b_h)(reinterpret_cast<HANDLE>(wParam));
 break;
 
 case ::ca2::Sig_i_u_v:
-lResult = (this->*mmf.pfn_i_u)(static_cast<::u32>(wParam));
+lResult = (this->*mmf.pfn_i_u)(static_cast<unsigned int>(wParam));
 break;
 
 case ::ca2::Sig_C_v_v:
@@ -995,12 +995,12 @@ lResult = reinterpret_cast<LRESULT>((this->*mmf.pfn_C_v)());
 break;
 
 case ::ca2::Sig_v_u_W:
-(this->*mmf.pfn_v_u_W)(static_cast<::u32>(wParam),
+(this->*mmf.pfn_v_u_W)(static_cast<unsigned int>(wParam),
 ::universal_windows::interaction_impl::from_handle(reinterpret_cast<oswindow>(lParam)));
 break;
 
 case ::ca2::Sig_u_u_v:
-lResult = (this->*mmf.pfn_u_u)(static_cast<::u32>(wParam));
+lResult = (this->*mmf.pfn_u_u)(static_cast<unsigned int>(wParam));
 break;
 
 case ::ca2::Sig_b_v_v:
@@ -1031,7 +1031,7 @@ __CTLCOLOR* pCtl = reinterpret_cast<__CTLCOLOR*>(lParam);
 dcTemp.set_handle1(pCtl->hDC);
 interaction_impl wndTemp;
 wndTemp.set_handle(pCtl->hWnd);
-::u32 nCtlType = pCtl->nCtlType;
+unsigned int nCtlType = pCtl->nCtlType;
 // if not coming from a permanent interaction_impl, use stack temporary
 ::windowing::window * pWnd = ::universal_windows::interaction_impl::FromHandlePermanent(wndTemp.get_handle());
 if (pWnd == nullptr)
@@ -1053,7 +1053,7 @@ ASSERT(message == WM_REFLECT_BASE+WM_CTLCOLOR);
 __CTLCOLOR* pCtl = reinterpret_cast<__CTLCOLOR*>(lParam);
 ::draw2d::graphics_pointer dcTemp;
 dcTemp.set_handle1(pCtl->hDC);
-::u32 nCtlType = pCtl->nCtlType;
+unsigned int nCtlType = pCtl->nCtlType;
 HBRUSH hbr = (this->*mmf.pfn_B_D_u)(&dcTemp, nCtlType);
 // fast detach of temporary objects
 dcTemp.set_handle1(nullptr);
@@ -1104,11 +1104,11 @@ case ::ca2::Sig_v_v_v:
 break;
 
 case ::ca2::Sig_v_u_v:
-(this->*mmf.pfn_v_u)(static_cast<::u32>(wParam));
+(this->*mmf.pfn_v_u)(static_cast<unsigned int>(wParam));
 break;
 
 case ::ca2::Sig_v_u_u:
-(this->*mmf.pfn_v_u_u)(static_cast<::u32>(wParam), static_cast<::u32>(lParam));
+(this->*mmf.pfn_v_u_u)(static_cast<unsigned int>(wParam), static_cast<unsigned int>(lParam));
 break;
 
 case ::ca2::Sig_v_uu_v:
@@ -1120,11 +1120,11 @@ case ::ca2::Sig_v_v_ii:
 break;
 
 case ::ca2::Sig_v_u_uu:
-(this->*mmf.pfn_v_u_u_u)(static_cast<::u32>(wParam), LOWORD(lParam), HIWORD(lParam));
+(this->*mmf.pfn_v_u_u_u)(static_cast<unsigned int>(wParam), LOWORD(lParam), HIWORD(lParam));
 break;
 
 case ::ca2::Sig_v_u_ii:
-(this->*mmf.pfn_v_u_i_i)(static_cast<::u32>(wParam), LOWORD(lParam), HIWORD(lParam));
+(this->*mmf.pfn_v_u_i_i)(static_cast<unsigned int>(wParam), LOWORD(lParam), HIWORD(lParam));
 break;
 
 case ::ca2::Sig_v_w_l:
@@ -1193,7 +1193,7 @@ case ::ca2::Sig_v_v_s:
 break;
 
 case ::ca2::Sig_v_u_cs:
-(this->*mmf.pfn_v_u_cs)(static_cast<::u32>(wParam), reinterpret_cast<const char *>(lParam));
+(this->*mmf.pfn_v_u_cs)(static_cast<unsigned int>(wParam), reinterpret_cast<const char *>(lParam));
 break;
 
 case ::ca2::Sig_OWNERDRAW:
@@ -1232,12 +1232,12 @@ break;
 case ::ca2::Sig_v_u_p:
 {
 ::point_i32 point(lParam);
-(this->*mmf.pfn_v_u_p)(static_cast<::u32>(wParam), point);
+(this->*mmf.pfn_v_u_p)(static_cast<unsigned int>(wParam), point);
 }
 break;
 
 case ::ca2::Sig_SIZING:
-(this->*mmf.pfn_v_u_pr)(static_cast<::u32>(wParam), reinterpret_cast<::rectangle_i32 *>(lParam));
+(this->*mmf.pfn_v_u_pr)(static_cast<unsigned int>(wParam), reinterpret_cast<::rectangle_i32 *>(lParam));
 lResult = true;
 break;
 
@@ -1307,7 +1307,7 @@ return true;
    //   //      __NOTIFY notify;
    //   //    notify.pResult = pResult;
    //   //  notify.pNMHDR = pNMHDR;
-   //   //xxx   return _001OnCommand((::u32)nID, MAKELONG(nCode, WM_NOTIFY), &notify, nullptr);
+   //   //xxx   return _001OnCommand((unsigned int)nID, MAKELONG(nCode, WM_NOTIFY), &notify, nullptr);
    //   return false;
    //}
 
@@ -1458,7 +1458,7 @@ return true;
       return ::universal_windows::interaction_impl::from_handle(hWnd);
       }
       */
-   //int interaction_impl::message_box(const ::string & lpszText, const ::string & lpszCaption,::u32 nType)
+   //int interaction_impl::message_box(const ::string & lpszText, const ::string & lpszCaption,unsigned int nType)
    //{
    //   if(lpszCaption == nullptr)
    //      lpszCaption = papplication->m_strAppName;
@@ -1530,7 +1530,7 @@ return true;
       return true;
    }
 
-   bool interaction_impl::GetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, ::u32 nMask)
+   bool interaction_impl::GetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, unsigned int nMask)
    {
       __UNREFERENCED_PARAMETER(nMask);
       ASSERT(lpScrollInfo != nullptr);
@@ -1598,12 +1598,12 @@ return true;
    //}
 
 
-   void interaction_impl::CalcWindowRect(::rectangle_i32 * lpClientRect,::u32 nAdjustType)
+   void interaction_impl::CalcWindowRect(::rectangle_i32 * lpClientRect,unsigned int nAdjustType)
    {
 
       throw ::exception(todo);
 
-      //u32 dwExStyle = GetExStyle();
+      //unsigned int dwExStyle = GetExStyle();
       //if (nAdjustType == 0)
       //   dwExStyle &= ~WS_EX_CLIENTEDGE;
       //::AdjustWindowRectEx(lpClientRect, GetStyle(), false, dwExStyle);
@@ -1612,7 +1612,7 @@ return true;
    /////////////////////////////////////////////////////////////////////////////
    // Special keyboard/system command processing
 
-   //bool interaction_impl::HandleFloatingSysCommand(::u32 nID,LPARAM lParam)
+   //bool interaction_impl::HandleFloatingSysCommand(unsigned int nID,LPARAM lParam)
    //{
 
 
@@ -1694,7 +1694,7 @@ return true;
    //   return false;   // let the parent handle it
    //}
 
-   //void interaction_impl::OnParentNotify(::u32 message,LPARAM lParam)
+   //void interaction_impl::OnParentNotify(unsigned int message,LPARAM lParam)
    //{
    //   if((LOWORD(message) == e_message_create || LOWORD(message) == e_message_destroy))
    //   {
@@ -1734,7 +1734,7 @@ return true;
 
    //bool gen_GotScrollLines;
 
-   //void interaction_impl::OnSettingChange(::u32 uFlags, const ::string & lpszSection)
+   //void interaction_impl::OnSettingChange(unsigned int uFlags, const ::string & lpszSection)
    //{
    //   UNUSED_ALWAYS(uFlags);
    //   UNUSED_ALWAYS(lpszSection);
@@ -1821,8 +1821,8 @@ return true;
 
       //m_rectangleWindowScreen.left() = 0;
       //m_rectangleWindowScreen.top() = 0;
-      //m_rectangleWindowScreen.right() = (::i32)m_window->Bounds.Width;
-      //m_rectangleWindowScreen.bottom() = (::i32)m_window->Bounds.Height;
+      //m_rectangleWindowScreen.right() = (int)m_window->Bounds.Width;
+      //m_rectangleWindowScreen.bottom() = (int)m_window->Bounds.Height;
 
       //m_pframeworkview.get().m_directx->m_bCreated = true;
 
@@ -1850,13 +1850,13 @@ return true;
 
    }
 
-   //void interaction_impl::OnHScroll(::u32,::u32,CScrollBar* pScrollBar)
+   //void interaction_impl::OnHScroll(unsigned int,unsigned int,CScrollBar* pScrollBar)
    //{
    //   __UNREFERENCED_PARAMETER(pScrollBar);
    //   Default();
    //}
 
-   //void interaction_impl::OnVScroll(::u32,::u32,CScrollBar* pScrollBar)
+   //void interaction_impl::OnVScroll(unsigned int,unsigned int,CScrollBar* pScrollBar)
    //{
    //   __UNREFERENCED_PARAMETER(pScrollBar);
    //   Default();
@@ -1960,7 +1960,7 @@ return true;
       //::rectangle_i32 rectx;
       //::draw2d::bitmap * pbitmap = &pgraphics->GetCurrentBitmap();
       //::GetCurrentObject((HDC) pusermessage->m_wparam, OBJ_BITMAP);
-      ////      u32 dw = ::get_last_error();
+      ////      unsigned int dw = ::get_last_error();
       //::size_i32 size = pbitmap->get_size();
       //rectx.left() = 0;
       //rectx.top() = 0;
@@ -2020,7 +2020,7 @@ return true;
    }
 
 
-   void interaction_impl::OnEnterIdle(::u32 /*nWhy*/,::windowing::window * /*pWho*/)
+   void interaction_impl::OnEnterIdle(unsigned int /*nWhy*/,::windowing::window * /*pWho*/)
    {
 
       throw ::exception(todo);
@@ -2041,7 +2041,7 @@ return true;
       //Default();
    }
 
-   //HBRUSH interaction_impl::OnCtlColor(::draw2d::graphics *,::windowing::window * pWnd,::u32)
+   //HBRUSH interaction_impl::OnCtlColor(::draw2d::graphics *,::windowing::window * pWnd,unsigned int)
    //{
    //   //ASSERT(pWnd != nullptr && pWnd->get_handle() != nullptr);
    //   //LRESULT lResult;
@@ -2058,7 +2058,7 @@ return true;
    ////  return value of false means caller must call DefWindowProc's default
    ////  true means that 'hbrGray' will be used and the appropriate text
    ////    ('clrText') and background colors are set.
-   //bool interaction_impl::GrayCtlColor(HDC hDC,oswindow hWnd,::u32 nCtlColor,HBRUSH hbrGray,color32_t clrText)
+   //bool interaction_impl::GrayCtlColor(HDC hDC,oswindow hWnd,unsigned int nCtlColor,HBRUSH hbrGray,color32_t clrText)
    //{
 
    //   //if (hDC == nullptr)
@@ -2079,7 +2079,7 @@ return true;
    //   //{
    //   //   // only handle requests to draw the space between edit and drop button
    //   //   //  in a drop-down combo (not a drop-down list)
-   //   //   if (!__is_combo_box_control(hWnd, (::u32)CBS_DROPDOWN))
+   //   //   if (!__is_combo_box_control(hWnd, (unsigned int)CBS_DROPDOWN))
    //   //      return false;
    //   //}
 
@@ -2109,7 +2109,7 @@ return true;
    //   ////ASSERT(::is_window(get_handle()));
 
    //   ////// determine owner interaction_impl to center against
-   //   ////u32 uStyle = GetStyle();
+   //   ////unsigned int uStyle = GetStyle();
    //   ////::user::interaction * hWndCenter = pAlternateOwner;
    //   ////if (pAlternateOwner == nullptr)
    //   ////{
@@ -2138,7 +2138,7 @@ return true;
    //   ////   // don't center against invisible or minimized windows
    //   ////   if (hWndCenter != nullptr)
    //   ////   {
-   //   ////      u32 dwAlternateStyle = hWndCenter->GetWindowLong(GWL_STYLE);
+   //   ////      unsigned int dwAlternateStyle = hWndCenter->GetWindowLong(GWL_STYLE);
    //   ////      if (!(dwAlternateStyle & WS_VISIBLE) || (dwAlternateStyle & WS_MINIMIZE))
    //   ////         hWndCenter = nullptr;
    //   ////   }
@@ -2260,7 +2260,7 @@ return true;
    //}
    //
 
-   //bool interaction_impl::SubclassDlgItem(::u32 nID,::windowing::window * pParent)
+   //bool interaction_impl::SubclassDlgItem(unsigned int nID,::windowing::window * pParent)
    //{
 
    //   throw ::exception(todo);
@@ -2323,7 +2323,7 @@ return true;
    //}
 
 
-   //bool interaction_impl::set_window_position(iptr z,int x,int y,int cx,int cy,::u32 nFlags)
+   //bool interaction_impl::set_window_position(iptr z,int x,int y,int cx,int cy,unsigned int nFlags)
    //{
    //   /*bool b;
    //   bool * pb = &b;
@@ -2386,10 +2386,10 @@ return true;
 
    //   }
 
-   //   lprect->left()   += (::i32)rectangleWindow.left();
-   //   lprect->right()  += (::i32)rectangleWindow.left();
-   //   lprect->top()    += (::i32)rectangleWindow.top();
-   //   lprect->bottom() += (::i32)rectangleWindow.top();
+   //   lprect->left()   += (int)rectangleWindow.left();
+   //   lprect->right()  += (int)rectangleWindow.left();
+   //   lprect->top()    += (int)rectangleWindow.top();
+   //   lprect->bottom() += (int)rectangleWindow.top();
 
    //   return true;
 
@@ -2408,8 +2408,8 @@ return true;
 
    //   }
 
-   //   lppoint->x     += (::i32)rectangleWindow.left();
-   //   lppoint->y     += (::i32)rectangleWindow.top();
+   //   lppoint->x     += (int)rectangleWindow.left();
+   //   lppoint->y     += (int)rectangleWindow.top();
 
    //   return true;
 
@@ -2470,10 +2470,10 @@ return true;
 
    //   }
 
-   //   lprect->left()   -= (::i32)rectangleWindow.left();
-   //   lprect->right()  -= (::i32)rectangleWindow.left();
-   //   lprect->top()    -= (::i32)rectangleWindow.top();
-   //   lprect->bottom() -= (::i32)rectangleWindow.top();
+   //   lprect->left()   -= (int)rectangleWindow.left();
+   //   lprect->right()  -= (int)rectangleWindow.left();
+   //   lprect->top()    -= (int)rectangleWindow.top();
+   //   lprect->bottom() -= (int)rectangleWindow.top();
 
    //   return true;
 
@@ -2492,8 +2492,8 @@ return true;
 
    //   }
 
-   //   lppoint->x     -= (::i32)rectangleWindow.left();
-   //   lppoint->y     -= (::i32)rectangleWindow.top();
+   //   lppoint->x     -= (int)rectangleWindow.left();
+   //   lppoint->y     -= (int)rectangleWindow.top();
 
    //   return true;
 
@@ -2691,7 +2691,7 @@ return true;
       //return ::universal_windows::interaction_impl::from_handle(::get_parent(get_handle()));
    }
 
-   ::i32 interaction_impl::GetWindowLong(int nIndex)
+   int interaction_impl::GetWindowLong(int nIndex)
    {
 
       throw ::exception(todo);
@@ -2702,7 +2702,7 @@ return true;
    }
 
 
-   ::i32 interaction_impl::SetWindowLong(int nIndex,::i32 lValue)
+   int interaction_impl::SetWindowLong(int nIndex,int lValue)
    {
 
       throw ::exception(todo);
@@ -2732,7 +2732,7 @@ return true;
    //}
 
 
-   iptr interaction_impl::get_window_long_ptr(i32 nIndex) const
+   iptr interaction_impl::get_window_long_ptr(int nIndex) const
    {
 
       return m_mapLong[nIndex];
@@ -2740,7 +2740,7 @@ return true;
    }
 
 
-   iptr interaction_impl::set_window_long_ptr(i32 nIndex, iptr lValue)
+   iptr interaction_impl::set_window_long_ptr(int nIndex, iptr lValue)
    {
 
       return m_mapLong[nIndex] = lValue;
@@ -2748,23 +2748,23 @@ return true;
    }
 
 
-   u32 interaction_impl::GetStyle() const
+   unsigned int interaction_impl::GetStyle() const
    {
 
-      return (::u32) get_window_long_ptr(GWL_STYLE);
+      return (unsigned int) get_window_long_ptr(GWL_STYLE);
 
    }
 
 
-   u32 interaction_impl::GetExStyle() const
+   unsigned int interaction_impl::GetExStyle() const
    {
 
-      return (::u32) get_window_long_ptr(GWL_EXSTYLE);
+      return (unsigned int) get_window_long_ptr(GWL_EXSTYLE);
 
    }
 
 
-   bool interaction_impl::ModifyStyle(u32 dwRemove,u32 dwAdd,::u32 nFlags)
+   bool interaction_impl::ModifyStyle(unsigned int dwRemove,unsigned int dwAdd,unsigned int nFlags)
    {
 
       //set_window_long_ptr(GWL_STYLE, (get_window_long_ptr(GWL_STYLE) | dwAdd) & ~(dwRemove));
@@ -2780,7 +2780,7 @@ return true;
    }
 
 
-   bool interaction_impl::ModifyStyleEx(u32 dwRemove,u32 dwAdd,::u32 nFlags)
+   bool interaction_impl::ModifyStyleEx(unsigned int dwRemove,unsigned int dwAdd,unsigned int nFlags)
    {
 
       //set_window_long_ptr(GWL_EXSTYLE, (get_window_long_ptr(GWL_EXSTYLE) | dwAdd) & ~(dwRemove));
@@ -2962,7 +2962,7 @@ return true;
    //   MoveWindow(lpRect->left(),lpRect->top(),lpRect->right() - lpRect->left(),lpRect->bottom() - lpRect->top(),bRepaint);
    //}
 
-   ::u32 interaction_impl::ArrangeIconicWindows()
+   unsigned int interaction_impl::ArrangeIconicWindows()
    {
 
       throw ::exception(todo);
@@ -2986,7 +2986,7 @@ return true;
    }
 
 
-   void interaction_impl::MapWindowPoints(::windowing::window * puserinteractionTo,::point_i32 * lpPoint,::u32 nCount)
+   void interaction_impl::MapWindowPoints(::windowing::window * puserinteractionTo,::point_i32 * lpPoint,unsigned int nCount)
    {
 
       throw ::exception(todo);
@@ -3223,7 +3223,7 @@ return true;
 
 
 
-   ::draw2d::graphics * interaction_impl::GetDCEx(::draw2d::region* prgnClip,u32 flags)
+   ::draw2d::graphics * interaction_impl::GetDCEx(::draw2d::region* prgnClip,unsigned int flags)
    {
 
       throw ::exception(todo);
@@ -3264,7 +3264,7 @@ return true;
    //}
 
 
-   //void interaction_impl::RedrawWindow(const ::rectangle_i32& rectangleUpdate, ::draw2d::region* prgnUpdate, ::u32 flags)
+   //void interaction_impl::RedrawWindow(const ::rectangle_i32& rectangleUpdate, ::draw2d::region* prgnUpdate, unsigned int flags)
    //{
 
    //   m_puserinteraction->m_bNeedRedraw = true;
@@ -3287,7 +3287,7 @@ return true;
 
 #ifdef WINDOWS_DESKTOP
 
-   bool interaction_impl::EnableScrollBar(int nSBFlags, ::u32 nArrowFlags)
+   bool interaction_impl::EnableScrollBar(int nSBFlags, unsigned int nArrowFlags)
    {
 
       throw ::exception(todo);
@@ -3314,7 +3314,7 @@ return true;
    }
 
 
-   bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics,const ::rectangle_i32 * lprc,::u32 uFlags)
+   bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics,const ::rectangle_i32 * lprc,unsigned int uFlags)
    {
 
       throw ::exception(todo);
@@ -3427,7 +3427,7 @@ return true;
       return 0; // invalid ID
    }
 
-   void interaction_impl::CheckDlgButton(int nIDButton,::u32 nCheck)
+   void interaction_impl::CheckDlgButton(int nIDButton,unsigned int nCheck)
    {
 
       throw ::exception(todo);
@@ -3451,7 +3451,7 @@ return true;
 
 #ifdef WINDOWS_DESKTOP
 
-   int interaction_impl::DlgDirList(__inout_z char * lpPathSpec, __in int nIDListBox, __in int nIDStaticPath, __in ::u32 nFileType)
+   int interaction_impl::DlgDirList(__inout_z char * lpPathSpec, __in int nIDListBox, __in int nIDStaticPath, __in unsigned int nFileType)
    {
 
       throw ::exception(todo);
@@ -3462,7 +3462,7 @@ return true;
 
    }
 
-   int interaction_impl::DlgDirListComboBox(__inout_z char * lpPathSpec, __in int nIDComboBox,  __in int nIDStaticPath, __in ::u32 nFileType)
+   int interaction_impl::DlgDirListComboBox(__inout_z char * lpPathSpec, __in int nIDComboBox,  __in int nIDStaticPath, __in unsigned int nFileType)
    {
 
       throw ::exception(todo);
@@ -3508,7 +3508,7 @@ return true;
 
    //}
 
-   //::u32 interaction_impl::GetDlgItemInt(int nID,BOOL * lpTrans,bool bSigned) const
+   //unsigned int interaction_impl::GetDlgItemInt(int nID,BOOL * lpTrans,bool bSigned) const
    //{
 
    //   throw ::exception(todo);
@@ -3561,7 +3561,7 @@ return true;
    }
 
 
-   ::u32 interaction_impl::IsDlgButtonChecked(int nIDButton) const
+   unsigned int interaction_impl::IsDlgButtonChecked(int nIDButton) const
    {
 
       throw ::exception(todo);
@@ -3589,7 +3589,7 @@ return true;
    }
 
 
-   void interaction_impl::SetDlgItemInt(int nID,::u32 nValue,bool bSigned)
+   void interaction_impl::SetDlgItemInt(int nID,unsigned int nValue,bool bSigned)
    {
 
       throw ::exception(todo);
@@ -3613,7 +3613,7 @@ return true;
    }
 
 
-   //int interaction_impl::ScrollWindowEx(int dx,int dy,const ::rectangle_i32 & rectangleScroll,const ::rectangle_i32 & rectangleClip,::draw2d::region* prgnUpdate,::rectangle_i32 * lpRectUpdate,::u32 flags)
+   //int interaction_impl::ScrollWindowEx(int dx,int dy,const ::rectangle_i32 & rectangleScroll,const ::rectangle_i32 & rectangleClip,::draw2d::region* prgnUpdate,::rectangle_i32 * lpRectUpdate,unsigned int flags)
    //{
 
    //   throw ::exception(todo);
@@ -3625,7 +3625,7 @@ return true;
    //}
 
 
-   void interaction_impl::ShowScrollBar(::u32 nBar,bool bShow)
+   void interaction_impl::ShowScrollBar(unsigned int nBar,bool bShow)
    {
 
       throw ::exception(todo);
@@ -3651,7 +3651,7 @@ return true;
    }
 
 
-   ::user::interaction *  interaction_impl::ChildWindowFromPoint(::point_i32 point,::u32 nFlags)
+   ::user::interaction *  interaction_impl::ChildWindowFromPoint(::point_i32 point,unsigned int nFlags)
    {
 
       throw ::exception(todo);
@@ -3681,7 +3681,7 @@ return true;
    }
 
 
-   ::user::interaction *  interaction_impl::GetWindow(::u32 nCmd)
+   ::user::interaction *  interaction_impl::GetWindow(unsigned int nCmd)
    {
 
       throw ::exception(todo);
@@ -3892,7 +3892,7 @@ return true;
    ////}
 
 
-   void interaction_impl::Print(::draw2d::graphics_pointer & pgraphics,u32 dwFlags) const
+   void interaction_impl::Print(::draw2d::graphics_pointer & pgraphics,unsigned int dwFlags) const
    {
 
       //ASSERT(::is_window(get_handle()));
@@ -3903,7 +3903,7 @@ return true;
    }
 
 
-   void interaction_impl::PrintClient(::draw2d::graphics_pointer & pgraphics,u32 dwFlags) const
+   void interaction_impl::PrintClient(::draw2d::graphics_pointer & pgraphics,unsigned int dwFlags) const
    {
 
       //ASSERT(::is_window(get_handle()));
@@ -3914,7 +3914,7 @@ return true;
    }
 
 
-   //bool interaction_impl::SetWindowContextHelpId(u32 dwContextHelpId)
+   //bool interaction_impl::SetWindowContextHelpId(unsigned int dwContextHelpId)
    //{
 
    //   throw ::exception(todo);
@@ -3924,7 +3924,7 @@ return true;
    //}
 
 
-   //u32 interaction_impl::GetWindowContextHelpId() const
+   //unsigned int interaction_impl::GetWindowContextHelpId() const
    //{
 
    //   throw ::exception(todo);
@@ -3934,7 +3934,7 @@ return true;
    //}
 
 
-   //void interaction_impl::OnActivateApp(bool,u32)
+   //void interaction_impl::OnActivateApp(bool,unsigned int)
    //{
 
    //   Default();
@@ -3942,7 +3942,7 @@ return true;
    //}
 
 
-   //void interaction_impl::OnActivate(::u32,::windowing::window *,bool)
+   //void interaction_impl::OnActivate(unsigned int,::windowing::window *,bool)
    //{
    //   
    //   Default();
@@ -4017,11 +4017,11 @@ return true;
    {
       Default();
    }
-   //LRESULT interaction_impl::OnMenuChar(::u32,::u32,::user::menu*)
+   //LRESULT interaction_impl::OnMenuChar(unsigned int,unsigned int,::user::menu*)
    //{
    //   return Default();
    //}
-   void interaction_impl::OnMenuSelect(::u32,::u32,HMENU)
+   void interaction_impl::OnMenuSelect(unsigned int,unsigned int,HMENU)
    {
       Default();
    }
@@ -4072,15 +4072,15 @@ return true;
 
    // }
 
-   void interaction_impl::OnShowWindow(bool,::u32)
+   void interaction_impl::OnShowWindow(bool,unsigned int)
    {
       Default();
    }
-   void interaction_impl::OnSize(::u32,int,int)
+   void interaction_impl::OnSize(unsigned int,int,int)
    {
       Default();
    }
-   void interaction_impl::OnTCard(::u32,u32)
+   void interaction_impl::OnTCard(unsigned int,unsigned int)
    {
       Default();
    }
@@ -4146,7 +4146,7 @@ return true;
    //}
 
 
-   //void interaction_impl::OnNcLButtonDblClk(::u32,point_i32)
+   //void interaction_impl::OnNcLButtonDblClk(unsigned int,point_i32)
    //{
 
    //   Default();
@@ -4154,27 +4154,27 @@ return true;
    //}
 
 
-   //void interaction_impl::OnNcLButtonDown(::u32,point_i32)
+   //void interaction_impl::OnNcLButtonDown(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnNcLButtonUp(::u32,point_i32)
+   //void interaction_impl::OnNcLButtonUp(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnNcMButtonDblClk(::u32,point_i32)
+   //void interaction_impl::OnNcMButtonDblClk(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnNcMButtonDown(::u32,point_i32)
+   //void interaction_impl::OnNcMButtonDown(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnNcMButtonUp(::u32,point_i32)
+   //void interaction_impl::OnNcMButtonUp(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnNcMouseMove(::u32,point_i32)
+   //void interaction_impl::OnNcMouseMove(unsigned int,point_i32)
    //{
    //   Default();
    //}
@@ -4182,39 +4182,39 @@ return true;
    //{
    //   Default();
    //}
-   //void interaction_impl::OnNcRButtonDblClk(::u32,point_i32)
+   //void interaction_impl::OnNcRButtonDblClk(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnNcRButtonDown(::u32,point_i32)
+   //void interaction_impl::OnNcRButtonDown(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnNcRButtonUp(::u32,point_i32)
+   //void interaction_impl::OnNcRButtonUp(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   void interaction_impl::OnSysChar(::u32,::u32,::u32)
+   void interaction_impl::OnSysChar(unsigned int,unsigned int,unsigned int)
    {
       Default();
    }
-   void interaction_impl::OnSysCommand(::u32,LPARAM)
+   void interaction_impl::OnSysCommand(unsigned int,LPARAM)
    {
       Default();
    }
-   void interaction_impl::OnSysDeadChar(::u32,::u32,::u32)
+   void interaction_impl::OnSysDeadChar(unsigned int,unsigned int,unsigned int)
    {
       Default();
    }
-   void interaction_impl::OnSysKeyDown(::u32,::u32,::u32)
+   void interaction_impl::OnSysKeyDown(unsigned int,unsigned int,unsigned int)
    {
       Default();
    }
-   void interaction_impl::OnSysKeyUp(::u32,::u32,::u32)
+   void interaction_impl::OnSysKeyUp(unsigned int,unsigned int,unsigned int)
    {
       Default();
    }
-   void interaction_impl::OnCompacting(::u32)
+   void interaction_impl::OnCompacting(unsigned int)
    {
       Default();
    }
@@ -4226,7 +4226,7 @@ return true;
    {
       Default();
    }
-   void interaction_impl::OnSpoolerStatus(::u32,::u32)
+   void interaction_impl::OnSpoolerStatus(unsigned int,unsigned int)
    {
       Default();
    }
@@ -4234,56 +4234,56 @@ return true;
    {
       Default();
    }
-   void interaction_impl::OnChar(::u32,::u32,::u32)
+   void interaction_impl::OnChar(unsigned int,unsigned int,unsigned int)
    {
       Default();
    }
-   void interaction_impl::OnDeadChar(::u32,::u32,::u32)
+   void interaction_impl::OnDeadChar(unsigned int,unsigned int,unsigned int)
    {
       Default();
    }
-   void interaction_impl::OnKeyDown(::u32,::u32,::u32)
+   void interaction_impl::OnKeyDown(unsigned int,unsigned int,unsigned int)
    {
       Default();
    }
-   void interaction_impl::OnKeyUp(::u32,::u32,::u32)
+   void interaction_impl::OnKeyUp(unsigned int,unsigned int,unsigned int)
    {
       Default();
    }
-   //void interaction_impl::OnLButtonDblClk(::u32,point_i32)
+   //void interaction_impl::OnLButtonDblClk(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnLButtonDown(::u32,point_i32)
+   //void interaction_impl::OnLButtonDown(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnLButtonUp(::u32,point_i32)
+   //void interaction_impl::OnLButtonUp(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnMButtonDblClk(::u32,point_i32)
+   //void interaction_impl::OnMButtonDblClk(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnMButtonDown(::u32,point_i32)
+   //void interaction_impl::OnMButtonDown(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnMButtonUp(::u32,point_i32)
+   //void interaction_impl::OnMButtonUp(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   int interaction_impl::OnMouseActivate(::windowing::window *,::u32,const ::atom & atom)
+   int interaction_impl::OnMouseActivate(::windowing::window *,unsigned int,const ::atom & atom)
    {
       return (int)Default();
    }
-   //void interaction_impl::OnMouseMove(::u32,point_i32)
+   //void interaction_impl::OnMouseMove(unsigned int,point_i32)
    //{
    //   Default();
    //}
 
-   //bool interaction_impl::OnMouseWheel(::u32,short,point_i32)
+   //bool interaction_impl::OnMouseWheel(unsigned int,short,point_i32)
    //{
 
    //   return Default() != false;
@@ -4294,15 +4294,15 @@ return true;
    {
       return Default();
    }
-   //void interaction_impl::OnRButtonDblClk(::u32,point_i32)
+   //void interaction_impl::OnRButtonDblClk(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnRButtonDown(::u32,point_i32)
+   //void interaction_impl::OnRButtonDown(unsigned int,point_i32)
    //{
    //   Default();
    //}
-   //void interaction_impl::OnRButtonUp(::u32,point_i32)
+   //void interaction_impl::OnRButtonUp(unsigned int,point_i32)
    //{
    //   Default();
    //}
@@ -4314,14 +4314,14 @@ return true;
    //{
    //   Default();
    //}
-   //void interaction_impl::OnInitMenuPopup(::user::menu*,::u32,bool)
+   //void interaction_impl::OnInitMenuPopup(::user::menu*,unsigned int,bool)
    //{
    //   Default();
    //}
 
 #ifdef WINDOWS_DESKTOP
 
-   void interaction_impl::OnAskCbFormatName(__in ::u32 nMaxCount, __out_ecount_z(nMaxCount) char * pszName)
+   void interaction_impl::OnAskCbFormatName(__in unsigned int nMaxCount, __out_ecount_z(nMaxCount) char * pszName)
    {
       (nMaxCount);
       if(nMaxCount>0)
@@ -4351,7 +4351,7 @@ return true;
    }
 
 
-   void interaction_impl::OnHScrollClipboard(::windowing::window *,::u32,::u32)
+   void interaction_impl::OnHScrollClipboard(::windowing::window *,unsigned int,unsigned int)
    {
 
       Default();
@@ -4375,7 +4375,7 @@ return true;
    }
 
 
-   void interaction_impl::OnRenderFormat(::u32)
+   void interaction_impl::OnRenderFormat(unsigned int)
    {
 
       Default();
@@ -4391,7 +4391,7 @@ return true;
    }
 
 
-   void interaction_impl::OnVScrollClipboard(::windowing::window *,::u32,::u32)
+   void interaction_impl::OnVScrollClipboard(::windowing::window *,unsigned int,unsigned int)
    {
 
       Default();
@@ -4399,10 +4399,10 @@ return true;
    }
 
 
-   ::u32 interaction_impl::OnGetDlgCode()
+   unsigned int interaction_impl::OnGetDlgCode()
    {
 
-      return (::u32)Default();
+      return (unsigned int)Default();
 
    }
 
@@ -4446,11 +4446,11 @@ return true;
 
 #endif
 
-   void interaction_impl::OnSizing(::u32,::rectangle_i32 *)
+   void interaction_impl::OnSizing(unsigned int,::rectangle_i32 *)
    {
       Default();
    }
-   void interaction_impl::OnMoving(::u32,::rectangle_i32 *)
+   void interaction_impl::OnMoving(unsigned int,::rectangle_i32 *)
    {
       Default();
    }
@@ -4459,7 +4459,7 @@ return true;
       Default();
    }
 
-   bool interaction_impl::OnDeviceChange(::u32,::uptr)
+   bool interaction_impl::OnDeviceChange(unsigned int,::uptr)
    {
 
       return Default() != false;
@@ -4470,17 +4470,17 @@ return true;
    //{
    //   Default();
    //}
-   void interaction_impl::OnChangeUIState(::u32,::u32)
+   void interaction_impl::OnChangeUIState(unsigned int,unsigned int)
    {
       Default();
    }
-   void interaction_impl::OnUpdateUIState(::u32,::u32)
+   void interaction_impl::OnUpdateUIState(unsigned int,unsigned int)
    {
       Default();
    }
-   ::u32 interaction_impl::OnQueryUIState()
+   unsigned int interaction_impl::OnQueryUIState()
    {
-      return (::u32)Default();
+      return (unsigned int)Default();
    }
 
    // interaction_impl dialog data support
@@ -4608,7 +4608,7 @@ return true;
 
 #ifdef WINDOWS_DESKTOP
 
-   CLASS_DECL_AURA LRESULT __call_window_procedure(::user::interaction * pinteraction, oswindow hWnd, ::u32 nMsg, WPARAM wParam, LPARAM lParam)
+   CLASS_DECL_AURA LRESULT __call_window_procedure(::user::interaction * pinteraction, oswindow hWnd, unsigned int nMsg, WPARAM wParam, LPARAM lParam)
    {
 
 
@@ -4625,7 +4625,7 @@ return true;
 
          // special case for WM_INITDIALOG
          ::rectangle_i32 rectangleOld;
-         u32 uStyle = 0;
+         unsigned int uStyle = 0;
          if (nMsg == WM_INITDIALOG)
             __pre_init_dialog(pinteraction, &rectangleOld, &uStyle);
 

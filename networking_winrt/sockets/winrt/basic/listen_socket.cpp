@@ -39,7 +39,7 @@ namespace sockets
    /** Bind and listen to any interface.
    \lparam port Port (0 is random)
    \lparam depth Listen queue depth */
-   i32 listen_socket_base::Bind(port_t port, i32 depth)
+   int listen_socket_base::Bind(port_t port, int depth)
    {
       if (IsIpv6())
       {
@@ -53,7 +53,7 @@ namespace sockets
       }
    }
 
-   i32 listen_socket_base::Bind(::networking::address * ad, i32 depth)
+   int listen_socket_base::Bind(::networking::address * ad, int depth)
    {
 #ifdef USE_SCTP
       if (dynamic_cast<SctpSocket*>(m_creator))
@@ -68,7 +68,7 @@ namespace sockets
    \lparam port Port (0 is random)
    \lparam protocol Network protocol
    \lparam depth Listen queue depth */
-   i32 listen_socket_base::Bind(port_t port, const string& protocol, i32 depth)
+   int listen_socket_base::Bind(port_t port, const string& protocol, int depth)
    {
       if (IsIpv6())
       {
@@ -86,7 +86,7 @@ namespace sockets
    \lparam intf Interface hostname
    \lparam port Port (0 is random)
    \lparam depth Listen queue depth */
-   i32 listen_socket_base::Bind(const string& intf, port_t port, i32 depth)
+   int listen_socket_base::Bind(const string& intf, port_t port, int depth)
    {
 
       ::networking::address address(intf, port);
@@ -110,7 +110,7 @@ namespace sockets
    \lparam port Port (0 is random)
    \lparam protocol Network protocol
    \lparam depth Listen queue depth */
-   i32 listen_socket_base::Bind(const string& intf, port_t port, const string& protocol, i32 depth)
+   int listen_socket_base::Bind(const string& intf, port_t port, const string& protocol, int depth)
    {
       ::networking::address ad(intf, port);
       if (ad.is_valid())
@@ -129,7 +129,7 @@ namespace sockets
 //   \lparam a Ipv4 interface address
 //   \lparam port Port (0 is random)
 //   \lparam depth Listen queue depth */
-//   i32 listen_socket_base::Bind(in_addr a, port_t port, i32 depth)
+//   int listen_socket_base::Bind(in_addr a, port_t port, int depth)
 //   {
 //      ::networking::address ad(a, port);
 //#ifdef USE_SCTP
@@ -145,7 +145,7 @@ namespace sockets
    //\lparam port Port (0 is random)
    //\lparam protocol Network protocol
    //\lparam depth Listen queue depth */
-   //i32 listen_socket_base::Bind(in_addr a, port_t port, const string& protocol, i32 depth)
+   //int listen_socket_base::Bind(in_addr a, port_t port, const string& protocol, int depth)
    //{
    //   ::networking::address ad(a, port);
    //   return Bind(ad, protocol, depth);
@@ -155,7 +155,7 @@ namespace sockets
 //   \lparam a Ipv6 interface address
 //   \lparam port Port (0 is random)
 //   \lparam depth Listen queue depth */
-//   i32 listen_socket_base::Bind(in6_addr a, port_t port, i32 depth)
+//   int listen_socket_base::Bind(in6_addr a, port_t port, int depth)
 //   {
 //      ::networking::address ad(a, port);
 //#ifdef USE_SCTP
@@ -171,7 +171,7 @@ namespace sockets
    //\lparam port Port (0 is random)
    //\lparam protocol Network protocol
    //\lparam depth Listen queue depth */
-   //i32 listen_socket_base::Bind(in6_addr a, port_t port, const string& protocol, i32 depth)
+   //int listen_socket_base::Bind(in6_addr a, port_t port, const string& protocol, int depth)
    //{
    //   ::networking::address ad(a, port);
    //   return Bind(ad, protocol, depth);
@@ -181,7 +181,7 @@ namespace sockets
    \lparam ad Interface address
    \lparam protocol Network protocol
    \lparam depth Listen queue depth */
-   i32 listen_socket_base::Bind(::networking::address * ad, const string& protocol, i32 depth)
+   int listen_socket_base::Bind(::networking::address * ad, const string& protocol, int depth)
    {
 
       //SOCKET s;
@@ -265,7 +265,7 @@ namespace sockets
    //   }
 
    /** Return listen queue depth. */
-   i32 listen_socket_base::GetDepth()
+   int listen_socket_base::GetDepth()
    {
       return m_depth;
    }
@@ -302,7 +302,7 @@ namespace sockets
       //if (socket_handler()->get_count() >= FD_SETSIZE)
       //{
 
-      //   fatal() <<log_this, "accept", (i32)socket_handler()->get_count(), "base_socket_handler fd_set limit reached";
+      //   fatal() <<log_this, "accept", (int)socket_handler()->get_count(), "base_socket_handler fd_set limit reached";
 
       //   close_socket(a_s);
 
@@ -379,7 +379,7 @@ namespace sockets
       return false;
    }
 
-   void listen_socket_base::OnOptions(i32, i32, i32, SOCKET s)
+   void listen_socket_base::OnOptions(int, int, int, SOCKET s)
    {
       _SetSoReuseaddr(s, true);
    }

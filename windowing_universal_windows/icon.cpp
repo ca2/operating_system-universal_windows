@@ -285,7 +285,7 @@ namespace windowing_universal_windows
          ////int area = size.area();
 
          ////auto pc = pixmap.colorref();
-         ////::u8 * pA = &((::u8 *)pc)[3];
+         ////unsigned char * pA = &((unsigned char *)pc)[3];
 
          ////for (int i = 0; i < area; i++)
          ////{
@@ -306,7 +306,7 @@ namespace windowing_universal_windows
          ////{
 
          ////   pc = pixmap.colorref();
-         ////   pA = &((::u8 *)pc)[3];
+         ////   pA = &((unsigned char *)pc)[3];
 
          ////   for (int i = 0; i < area; i++)
          ////   {

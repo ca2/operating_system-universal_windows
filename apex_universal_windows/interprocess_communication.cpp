@@ -22,7 +22,7 @@ namespace apex_universal_windows
 
       // extern bool (WINAPI * g_pfnChangeWindowMessageFilter)(
       // _In_ const ::atom & atom,
-      // _In_ ::u32 dwFlag);
+      // _In_ unsigned int dwFlag);
 
 
    interprocess_communication_base::interprocess_communication_base()

@@ -165,7 +165,7 @@ namespace music
             //         // prepare SysEx message for printing to the screen.
             //         // convert bytes to hex strings.
             //         Array<wchar_t>^ byteInHex = ref ___new Array<wchar_t>(3);
-            //         ::u8 byteRead = sysExReader->ReadByte();
+            //         unsigned char byteRead = sysExReader->ReadByte();
 
             //         swprintf_s(byteInHex->Data, sizeof(byteInHex->Length), L"%02X", byteRead);
             //         String^ hexString = ref ___new String(byteInHex->Data);
@@ -546,7 +546,7 @@ namespace music
                //{
                //   DataWriter^ dataWriter = ref ___new DataWriter();
 
-               //   // expecting a string of format "NN NN NN NN...." where NN is a ::u8 in hex
+               //   // expecting a string of format "NN NN NN NN...." where NN is a unsigned char in hex
                //   int len = _sendMessageTextBox->Text->Length();
                //   if (0 == len)
                //   {
@@ -558,7 +558,7 @@ namespace music
 
                //   do
                //   {
-               //      ::u8 midiByte = (::u8)wcstoul(startPointer, &endPointer, 16);
+               //      unsigned char midiByte = (unsigned char)wcstoul(startPointer, &endPointer, 16);
                //      if (endPointer == startPointer)
                //      {
                //         // conversion failed, bail out

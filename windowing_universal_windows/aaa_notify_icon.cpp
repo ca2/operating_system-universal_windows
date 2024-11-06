@@ -296,7 +296,7 @@ namespace windowing_win32
 
       }
 
-      //m_puserinteractionNotify->OnNotifyIconMessage(m_uiId, (::u32)pusermessage->m_lparam);
+      //m_puserinteractionNotify->OnNotifyIconMessage(m_uiId, (unsigned int)pusermessage->m_lparam);
 
       auto pevent = __create_new < ::user::control_event >();
 

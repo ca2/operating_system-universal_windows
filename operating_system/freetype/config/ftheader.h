@@ -402,7 +402,7 @@
    *
    * @description:
    *   A macro used in #include statements to name the file containing the
-   *   definitions of TrueType four-::u8 `tags' which identify blocks in
+   *   definitions of TrueType four-unsigned char `tags' which identify blocks in
    *   SFNT-based font formats (i.e., TrueType and OpenType).
    *
    */

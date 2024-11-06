@@ -76,7 +76,7 @@ namespace acme_universal_windows
 
       virtual bool is_opened()const  override;
       //enum BufferCommand { bufferRead, bufferWrite, bufferCommit, bufferCheck };
-      //virtual u64 GetBufferPtr(::u32 nCommand, u64 nCount = 0,
+      //virtual u64 GetBufferPtr(unsigned int nCommand, u64 nCount = 0,
       //                              void ** ppBufStart = nullptr, void ** ppBufMax = nullptr);
 
    };
@@ -84,9 +84,9 @@ namespace acme_universal_windows
    //namespace WinFileException
    //{
 
-   //   ::e_status OsErrorToException(::i32 lOsError);
+   //   ::e_status OsErrorToException(int lOsError);
    //   ::e_status ErrnoToException(int nErrno);
-   //   void ThrowOsError(::matter * pobject, ::i32 lOsError, const char * lpszFileName = nullptr);
+   //   void ThrowOsError(::matter * pobject, int lOsError, const char * lpszFileName = nullptr);
    //   void ThrowErrno(::matter * pobject, int nErrno, const char * lpszFileName = nullptr);
 
    //}

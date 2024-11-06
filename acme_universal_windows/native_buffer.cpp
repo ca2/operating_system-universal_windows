@@ -93,7 +93,7 @@ namespace acme_universal_windows
    }
    
    
-   //void native_buffer::put_byte_back(::u8 u8)
+   //void native_buffer::put_byte_back(unsigned char u8)
    //{
 
    //   m_memoryBuffer.write(strUtf8.c_str(), strUtf8.get_length());
@@ -230,7 +230,7 @@ namespace acme_universal_windows
       }
 
       m_bCloseOnDelete = false;
-      //m_hnative_buffer = (::u32)hnative_bufferNull;
+      //m_hnative_buffer = (unsigned int)hnative_bufferNull;
       m_strFileName.empty();
 
       m_strFileName = path;
@@ -241,7 +241,7 @@ namespace acme_universal_windows
 
       // ::map read/write mode
       ASSERT((::file::e_open_read | ::file::e_open_write | ::file::e_open_read_write) == 3);
-      ::u32 dwAccess = 0;
+      unsigned int dwAccess = 0;
       switch (eopen & 3)
       {
       case ::file::e_open_read:
@@ -259,7 +259,7 @@ namespace acme_universal_windows
       }
 
       // ::map share mode
-      //::u32 dwShareMode = 0;
+      //unsigned int dwShareMode = 0;
       //switch(nOpenFlags & 0x70)    // ::map compatibility mode to exclusive
       //{
       //default:
@@ -433,14 +433,14 @@ namespace acme_universal_windows
 
       }
 
-      ::winrt::Windows::Storage::Streams::Buffer buffer((::u32)  nCount);
+      ::winrt::Windows::Storage::Streams::Buffer buffer((unsigned int)  nCount);
 
       ::winrt::Windows::Storage::Streams::IBuffer buffer2{};
 
       m_papplication->synchronous_procedure(::winrt::impl::is_sta_thread(), [this,&buffer2, buffer, nCount]()
          {
 
-            buffer2 = m_stream.ReadAsync(buffer, (::u32)nCount, ::winrt::Windows::Storage::Streams::InputStreamOptions::None).get();
+            buffer2 = m_stream.ReadAsync(buffer, (unsigned int)nCount, ::winrt::Windows::Storage::Streams::InputStreamOptions::None).get();
 
       });
 
@@ -540,11 +540,11 @@ namespace acme_universal_windows
    //void native_buffer::Abort()
    //{
    //   //ASSERT_VALID(this);
-   //   //if(m_hnative_buffer != (::u32)hnative_bufferNull)
+   //   //if(m_hnative_buffer != (unsigned int)hnative_bufferNull)
    //   //{
    //   //   // close but ignore errors
    //   //   ::CloseHandle((HANDLE)m_hnative_buffer);
-   //   //   m_hnative_buffer = (::u32)hnative_bufferNull;
+   //   //   m_hnative_buffer = (unsigned int)hnative_bufferNull;
    //   //}
    //   //m_strFileName.empty();
    //}
@@ -552,19 +552,19 @@ namespace acme_universal_windows
    void native_buffer::lock(filesize dwPos, filesize dwCount)
    {
       //ASSERT_VALID(this);
-      //ASSERT(m_hnative_buffer != (::u32)hnative_bufferNull);
+      //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
       ////      if (!::Locknative_buffer((HANDLE)m_hnative_buffer, lower_u32(dwPos), upper_u32(dwPos), lower_u32(dwCount), upper_u32(dwCount)))
-      ////       WinFileException::ThrowOsError(get_application(), (::i32)::get_last_error());
+      ////       WinFileException::ThrowOsError(get_application(), (int)::get_last_error());
    }
 
    void native_buffer::unlock(filesize dwPos, filesize dwCount)
    {
       //ASSERT_VALID(this);
-      //ASSERT(m_hnative_buffer != (::u32)hnative_bufferNull);
+      //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
       ////  if (!::Unlocknative_buffer((HANDLE)m_hnative_buffer,  lower_u32(dwPos), upper_u32(dwPos), lower_u32(dwCount), upper_u32(dwCount)))
-      ////   WinFileException::ThrowOsError(get_application(), (::i32)::get_last_error());
+      ////   WinFileException::ThrowOsError(get_application(), (int)::get_last_error());
    }
 
 
@@ -581,12 +581,12 @@ namespace acme_universal_windows
       }
 
       //ASSERT_VALID(this);
-      //ASSERT(m_hnative_buffer != (::u32)hnative_bufferNull);
+      //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
-      //seek((::i32)dwNewLen,(::enum_seek)::e_seek_set);
+      //seek((int)dwNewLen,(::enum_seek)::e_seek_set);
 
       //if(!::SetEndOfnative_buffer((HANDLE)m_hnative_buffer))
-      //   WinFileException::ThrowOsError(get_application(),(::i32)::get_last_error());
+      //   WinFileException::ThrowOsError(get_application(),(int)::get_last_error());
    }
 
 
@@ -613,7 +613,7 @@ namespace acme_universal_windows
    }
 
    //// native_buffer does not support direct buffering (CMemnative_buffer does)
-   //u64 native_buffer::GetBufferPtr(::u32 nCommand,u64 /*nCount*/,
+   //u64 native_buffer::GetBufferPtr(unsigned int nCommand,u64 /*nCount*/,
    //                                     void ** /*ppBufStart*/,void ** /*ppBufMax*/)
    //{
    //   ASSERT(nCommand == bufferCheck);
@@ -628,7 +628,7 @@ namespace acme_universal_windows
    {
    if (!::Movenative_buffer((char *)pszOldName, (char *)pszNewName))
 
-   WinFileException::ThrowOsError(get_application(), (::i32)::get_last_error());
+   WinFileException::ThrowOsError(get_application(), (int)::get_last_error());
    }
 
    void native_buffer::erase(const scoped_string & strfileName)
@@ -636,7 +636,7 @@ namespace acme_universal_windows
    {
    if (!::Deletenative_buffer((char *)pszfileName))
 
-   WinFileException::ThrowOsError(get_application(), (::i32)::get_last_error());
+   WinFileException::ThrowOsError(get_application(), (int)::get_last_error());
    }
    */
 

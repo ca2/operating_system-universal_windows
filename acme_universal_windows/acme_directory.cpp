@@ -515,7 +515,7 @@ namespace acme_universal_windows
 
    //   string strCandidate;
 
-   //   for (i32 i = 0; i < stra.get_count(); i++)
+   //   for (int i = 0; i < stra.get_count(); i++)
    //   {
 
    //      strCandidate = stra[i] / pszTopic;
@@ -586,7 +586,7 @@ namespace acme_universal_windows
    //bool directory_system::_is(bool & bDir, const ::file::path & path)
    //{
 
-   //   u32 dwFileAttributes = ::windows::_get_file_attributes(path);
+   //   unsigned int dwFileAttributes = ::windows::_get_file_attributes(path);
 
    //   if (dwFileAttributes == INVALID_FILE_ATTRIBUTES)
    //   {
@@ -630,11 +630,11 @@ namespace acme_universal_windows
 
    //      //::file::path pathThomasBS_ = "C:\\Users\\thoma";
 
-   //      //u32 dwFileAttributesCamilo = ::windows::_get_file_attributes(pathCamilo);
+   //      //unsigned int dwFileAttributesCamilo = ::windows::_get_file_attributes(pathCamilo);
 
    //      //auto lasterror2 = ::GetLastError();
 
-   //      //u32 dwFileAttributesThomasBS_ = ::windows::_get_file_attributes(pathThomasBS_);
+   //      //unsigned int dwFileAttributesThomasBS_ = ::windows::_get_file_attributes(pathThomasBS_);
 
    //      //auto lasterror5 = ::GetLastError();
 
@@ -851,7 +851,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //      }
    //
-   //      if (!GetModuleFileNameW(hmodule, wstrModuleFilePath, (::u32)wstrModuleFilePath.length()))
+   //      if (!GetModuleFileNameW(hmodule, wstrModuleFilePath, (unsigned int)wstrModuleFilePath.length()))
    //      {
    //
    //         return "";
@@ -862,7 +862,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //      LPWSTR pszModuleFileName;
    //
-   //      if (!GetFullPathNameW(wstrModuleFilePath, (::u32)wstrModuleFilePath.length(), wstrModuleFolder, &pszModuleFileName))
+   //      if (!GetFullPathNameW(wstrModuleFilePath, (unsigned int)wstrModuleFilePath.length(), wstrModuleFolder, &pszModuleFileName))
    //      {
    //
    //         return "";
@@ -969,7 +969,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         wstring wstrModuleFilePath(get_buffer, MAX_PATH * 8);
 //
-//         if (!GetModuleFileNameW(nullptr, wstrModuleFilePath, (::u32)wstrModuleFilePath.length()))
+//         if (!GetModuleFileNameW(nullptr, wstrModuleFilePath, (unsigned int)wstrModuleFilePath.length()))
 //         {
 //
 //            return "";
@@ -978,7 +978,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         LPWSTR pszModuleFileName;
 //
-//         if (!GetFullPathNameW(wstrModuleFilePath, (::u32)wstrModuleFilePath.length(), wstrModuleFolder, &pszModuleFileName))
+//         if (!GetFullPathNameW(wstrModuleFilePath, (unsigned int)wstrModuleFilePath.length(), wstrModuleFolder, &pszModuleFileName))
 //         {
 //
 //            return "";
@@ -1038,7 +1038,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         }
 //
-//         if (!GetModuleFileNameW(hmodule, wstrModuleFilePath, (::u32)wstrModuleFilePath.length()))
+//         if (!GetModuleFileNameW(hmodule, wstrModuleFilePath, (unsigned int)wstrModuleFilePath.length()))
 //         {
 //
 //            return "";
@@ -1047,7 +1047,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         LPWSTR pszModuleFileName;
 //
-//         if (!GetFullPathNameW(wstrModuleFilePath, (::u32)wstrModuleFilePath.length(), wstrModuleFolder, &pszModuleFileName))
+//         if (!GetFullPathNameW(wstrModuleFilePath, (unsigned int)wstrModuleFilePath.length(), wstrModuleFolder, &pszModuleFileName))
 //         {
 //
 //            return "";
@@ -1075,7 +1075,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //      }
 
 
-      // bool eat_end_level(string & str, i32 iLevelCount, const char * pSeparator)
+      // bool eat_end_level(string & str, int iLevelCount, const char * pSeparator)
       // {
 
       //    strsize iLast = str.length() - 1;
@@ -1086,7 +1086,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //    while(str[iLast] == '/' || str[iLast] == '\\')
       //       iLast--;
 
-      //    for(i32 i = 0; i < iLevelCount; i++)
+      //    for(int i = 0; i < iLevelCount; i++)
       //    {
 
       //       strsize iFind1 = str.rear_find('/', iLast);
@@ -1552,7 +1552,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          auto items = folder.GetItemsAsync().get();
 
-         for (u32 u = 0; u < items.Size(); u++)
+         for (unsigned int u = 0; u < items.Size(); u++)
          {
 
             auto item = items.GetAt(u);
@@ -1625,7 +1625,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         auto folders = folder.GetFoldersAsync().get();
 //
-//         for (u32 u = 0; u < folders.Size(); u++)
+//         for (unsigned int u = 0; u < folders.Size(); u++)
 //         {
 //
 //            stra.add(folders.GetAt(u).Path().begin());
@@ -1712,7 +1712,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         auto files = folder.GetFilesAsync().get();
 //
-//         for (u32 u = 0; u < files.Size(); u++)
+//         for (unsigned int u = 0; u < files.Size(); u++)
 //         {
 //
 //            stra.add(files.GetAt(u).Path().begin());
@@ -1766,7 +1766,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 
          string strCandidate;
 
-         for (i32 i = 0; i < stra.get_count(); i++)
+         for (int i = 0; i < stra.get_count(); i++)
          {
 
             if (stra[i].is_empty())

@@ -6,7 +6,7 @@
 //#include <string.h>
 
 
-::i32 networking_last_error()
+int networking_last_error()
 {
 
    return c_error_number().m_iErrorNumber;

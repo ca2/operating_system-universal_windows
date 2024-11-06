@@ -63,7 +63,7 @@ namespace acme_universal_windows
    //::pointer<::file::file>file::Duplicate() const
    //{
    //   ASSERT_VALID(this);
-   //   ASSERT(m_hfile != (::u32)INVALID_HANDLE_VALUE);
+   //   ASSERT(m_hfile != (unsigned int)INVALID_HANDLE_VALUE);
 
    //   ::pointer<file>pFile = __allocate file();
    //   HANDLE hFile;
@@ -71,11 +71,11 @@ namespace acme_universal_windows
    //                          ::GetCurrentProcess(), &hFile, 0, false, DUPLICATE_SAME_ACCESS))
    //   {
    //      delete pFile;
-   //      //xxx      Ex1::file::throw_os_error((::i32)::GetLastError(), m_path);
+   //      //xxx      Ex1::file::throw_os_error((int)::GetLastError(), m_path);
    //      throw ::exception(::exception("integer_exception 1"));
    //   }
-   //   pFile->m_hfile = (::u32)hFile;
-   //   ASSERT(pFile->m_hfile != (::u32)INVALID_HANDLE_VALUE);
+   //   pFile->m_hfile = (unsigned int)hFile;
+   //   ASSERT(pFile->m_hfile != (unsigned int)INVALID_HANDLE_VALUE);
    //   pFile->m_bCloseOnDelete = m_bCloseOnDelete;
    //   return pFile;
    //}
@@ -135,7 +135,7 @@ namespace acme_universal_windows
 
       // ::map read/write mode
       ASSERT((::file::e_open_read|::file::e_open_write|::file::e_open_read_write) == 3);
-      ::u32 dwAccess = 0;
+      unsigned int dwAccess = 0;
       switch (eopen & 3)
       {
       case ::file::e_open_read:
@@ -153,7 +153,7 @@ namespace acme_universal_windows
       }
 
       // ::map share mode
-      ::u32 dwShareMode = 0;
+      unsigned int dwShareMode = 0;
       switch (eopen & 0x70)    // ::map compatibility mode to exclusive
       {
       default:
@@ -182,7 +182,7 @@ namespace acme_universal_windows
       sa.bInheritHandle = !(eopen & ::file::e_open_no_inherit);
 
       // ::map creation flags
-      ::u32 dwCreateFlag;
+      unsigned int dwCreateFlag;
       if (eopen & ::file::e_open_create)
       {
          if (eopen & ::file::e_open_no_truncate)
@@ -198,7 +198,7 @@ namespace acme_universal_windows
       HANDLE hfile = ::hfile_create(m_path, dwAccess, dwShareMode, &sa, dwCreateFlag, FILE_ATTRIBUTE_NORMAL, nullptr);
       if (hfile_is_nok(hfile))
       {
-         ::u32 dwLastError = ::GetLastError();
+         unsigned int dwLastError = ::GetLastError();
 
          m_estatus = ::windows::last_error_status(dwLastError);
 
@@ -268,7 +268,7 @@ namespace acme_universal_windows
             {*/
 
 
-            ::u32 dwLastError = ::GetLastError();
+            unsigned int dwLastError = ::GetLastError();
             m_estatus = ::windows::last_error_status(dwLastError);
 
             if (eopen & ::file::e_open_no_exception_on_open)
@@ -312,7 +312,7 @@ namespace acme_universal_windows
 
       DWORD dwRead;
 
-      if (!::ReadFile((HANDLE)m_hfile, lpBuf, (::u32)nCount, &dwRead, nullptr))
+      if (!::ReadFile((HANDLE)m_hfile, lpBuf, (unsigned int)nCount, &dwRead, nullptr))
       {
 
          auto dwLastError = ::GetLastError();
@@ -325,7 +325,7 @@ namespace acme_universal_windows
 
       }
 
-      return (::u32)dwRead;
+      return (unsigned int)dwRead;
 
    }
 
@@ -343,7 +343,7 @@ namespace acme_universal_windows
 
       DWORD nWritten;
 
-      if (!::WriteFile((HANDLE)m_hfile, lpBuf, (::u32)nCount, &nWritten, nullptr))
+      if (!::WriteFile((HANDLE)m_hfile, lpBuf, (unsigned int)nCount, &nWritten, nullptr))
       {
 
          auto dwLastError = ::GetLastError();
@@ -357,7 +357,7 @@ namespace acme_universal_windows
       }
 
       // Win32s will not return an error all the time (usually DISK_FULL)
-      if (nWritten < (::u32) nCount)
+      if (nWritten < (unsigned int) nCount)
       {
 
          auto dwLastError = ::GetLastError();
@@ -397,7 +397,7 @@ namespace acme_universal_windows
       LONG lLoOffset = offset & 0xffffffff;
       LONG lHiOffset = (offset >> 32) & 0xffffffff;
 
-      filesize posNew = ::SetFilePointer((HANDLE)m_hfile, lLoOffset, &lHiOffset, (::u32)eseek);
+      filesize posNew = ::SetFilePointer((HANDLE)m_hfile, lLoOffset, &lHiOffset, (unsigned int)eseek);
 
       posNew |= ((filesize) lHiOffset) << 32;
 
@@ -502,11 +502,11 @@ namespace acme_universal_windows
    //void file::Abort()
    //{
    //   ASSERT_VALID(this);
-   //   if (m_hfile != (::u32)INVALID_HANDLE_VALUE)
+   //   if (m_hfile != (unsigned int)INVALID_HANDLE_VALUE)
    //   {
    //      // close but ignore errors
    //      ::CloseHandle((HANDLE)m_hfile);
-   //      m_hfile = (::u32)INVALID_HANDLE_VALUE;
+   //      m_hfile = (unsigned int)INVALID_HANDLE_VALUE;
    //   }
    //   m_path.empty();
    //}
@@ -539,7 +539,7 @@ namespace acme_universal_windows
 
       ASSERT(m_hfile != INVALID_HANDLE_VALUE);
 
-      translate((::i32)dwNewLen, (::enum_seek)::e_seek_set);
+      translate((int)dwNewLen, (::enum_seek)::e_seek_set);
 
       if (!::SetEndOfFile((HANDLE)m_hfile))
       {
@@ -615,10 +615,10 @@ namespace acme_universal_windows
 //                  ERROR_SUCCESS)
 //            {
 //               char * lpsz = str.GetBuffer(_MAX_PATH);
-//               ::u32 dwSize = _MAX_PATH * sizeof(char);
-//               ::u32 dwType;
-//               ::i32 lRes = ::RegQueryValueEx(hKeyInProc, "",
-//                                             nullptr, &dwType, (::u8*)lpsz, &dwSize);
+//               unsigned int dwSize = _MAX_PATH * sizeof(char);
+//               unsigned int dwType;
+//               int lRes = ::RegQueryValueEx(hKeyInProc, "",
+//                                             nullptr, &dwType, (unsigned char*)lpsz, &dwSize);
 //               str.ReleaseBuffer();
 //               b = (lRes == ERROR_SUCCESS);
 //               RegCloseKey(hKeyInProc);
@@ -739,7 +739,7 @@ namespace acme_universal_windows
    }
 
 
-   //::u32 CLASS_DECL_ACME vfxGetFileName(const unichar * lpszPathName, unichar * lpszTitle, ::u32 nMax)
+   //unsigned int CLASS_DECL_ACME vfxGetFileName(const unichar * lpszPathName, unichar * lpszTitle, unsigned int nMax)
    //{
    //   ASSERT(lpszTitle == nullptr ||
    //          is_memory_segment_ok(lpszTitle, _MAX_FNAME));
@@ -770,7 +770,7 @@ namespace acme_universal_windows
 
 
 
-   //void WinFileException::ThrowOsError(::matter * pobject, ::i32 lOsError, const char * lpszFileName /* = nullptr */)
+   //void WinFileException::ThrowOsError(::matter * pobject, int lOsError, const char * lpszFileName /* = nullptr */)
    //{
    //   if (lOsError != 0)
    //      ::file::throw_os_error(pobject, WinFileException::OsErrorToException(lOsError), lOsError, ::error_io, lpszFileName);
@@ -787,7 +787,7 @@ namespace acme_universal_windows
    /////////////////////////////////////////////////////////////////////////////
    // WinFileException helpers
 
-   //void CLASS_DECL_ACME throw_exception(::pointer<::platform::application>papp, int cause, ::i32 lOsError, const char * lpszFileName /* == nullptr */)
+   //void CLASS_DECL_ACME throw_exception(::pointer<::platform::application>papp, int cause, int lOsError, const char * lpszFileName /* == nullptr */)
    //{
 
    //   throw ::exception(::file::exception(WinFileException::OsErrorToException(lOsError),lOsError,lpszFileName));
@@ -821,10 +821,10 @@ namespace acme_universal_windows
    //   }
    //}
 
-   //::e_status WinFileException::OsErrorToException(::i32 lOsErr)
+   //::e_status WinFileException::OsErrorToException(int lOsErr)
    //{
    //   // NT Error codes
-   //   switch ((::u32)lOsErr)
+   //   switch ((unsigned int)lOsErr)
    //   {
    //   case NO_ERROR:
    //      return ::file::exception::none;
@@ -1036,11 +1036,11 @@ namespace acme_universal_windows
 //      VERIFY(FindClose(hFind));
 //
 //      // strip attribute of NORMAL bit, our API doesn't have a "normal" bit.
-//      rStatus.m_attribute = (::u8) (findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
+//      rStatus.m_attribute = (unsigned char) (findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
 //
-//      // get just the low ::u32 of the file size_i32
+//      // get just the low unsigned int of the file size_i32
 //      ASSERT(findFileData.nFileSizeHigh == 0);
-//      rStatus.m_size = (::i32)findFileData.nFileSizeLow;
+//      rStatus.m_size = (int)findFileData.nFileSizeLow;
 //
 //      // convert times as appropriate
 //      rStatus.m_ctime = ::earth::time(findFileData.ftCreationTime);
@@ -1088,7 +1088,7 @@ namespace acme_universal_windows
    u64 file::ReadHuge(void * lpBuffer, u64 dwCount)
    { 
       
-      return (u64) read(lpBuffer, (::u32)dwCount);
+      return (u64) read(lpBuffer, (unsigned int)dwCount);
       
    }
 
@@ -1096,7 +1096,7 @@ namespace acme_universal_windows
    void file::WriteHuge(const void * lpBuffer, u64 dwCount)
    {
       
-      write(lpBuffer, (::u32)dwCount);
+      write(lpBuffer, (unsigned int)dwCount);
       
    }
 

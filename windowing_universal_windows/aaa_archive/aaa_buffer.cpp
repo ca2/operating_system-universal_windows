@@ -702,7 +702,7 @@ namespace windowing_universal_windows
 //            //#endif
 //            //               {
 //            //
-//            //                  u32 uFlags = SWP_NOREDRAW
+//            //                  unsigned int uFlags = SWP_NOREDRAW
 //            //                     | SWP_NOCOPYBITS
 //            //                     | SWP_NOACTIVATE
 //            //                     | SWP_NOOWNERZORDER

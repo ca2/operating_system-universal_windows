@@ -112,7 +112,7 @@ namespace windowing_universal_windows
    }
 
 
-   //      i32 shell::thread::get_image_by_file_extension(oswindow image_key & imagekey, ::color::color colorBackground)
+   //      int shell::thread::get_image_by_file_extension(oswindow image_key & imagekey, ::color::color colorBackground)
    //      {
    //
    //#ifdef WINDOWS_DESKTOP
@@ -317,7 +317,7 @@ namespace windowing_universal_windows
 
 
 
-      //i32 iType;
+      //int iType;
 
       //switch (getfileimage.m_imagekey.m_eicon)
       //{
@@ -636,7 +636,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //::u32 uExtractIconLocationFlags = 0;
+      //unsigned int uExtractIconLocationFlags = 0;
 
       //string strIconLocation;
 
@@ -1005,7 +1005,7 @@ namespace windowing_universal_windows
    //{
    //   LPITEMIDLIST ppidl;
 
-   //   i32 csidla[] =
+   //   int csidla[] =
    //   {
    //      CSIDL_DESKTOP,
    //      CSIDL_DRIVES,
@@ -1016,7 +1016,7 @@ namespace windowing_universal_windows
    //      -1,
    //   };
 
-   //   i32 * pcsidl = csidla;
+   //   int * pcsidl = csidla;
 
    //   while (*pcsidl != -1)
    //   {
@@ -1103,7 +1103,7 @@ namespace windowing_universal_windows
    }
 
 
-   //i32 shell::_get_file_image(const image_key & key)
+   //int shell::_get_file_image(const image_key & key)
    bool shell::_get_file_image(::user::shell::_get_file_image_ & getfileimage)
    {
 
@@ -1291,7 +1291,7 @@ namespace windowing_universal_windows
 
       //   string strProtocol = imagekey.m_strPath.left()(maximum(iFind, iFind2));
 
-      //   i32 i = 0;
+      //   int i = 0;
 
       //   while (i < strProtocol.get_length() && character_isalnum(strProtocol[i]))
       //   {
@@ -1408,7 +1408,7 @@ namespace windowing_universal_windows
    }
 
 
-   //i32 _017ItemIDListGetLen(LPITEMIDLIST piidl)
+   //int _017ItemIDListGetLen(LPITEMIDLIST piidl)
 
    //{
    //   if (piidl == nullptr)
@@ -1419,7 +1419,7 @@ namespace windowing_universal_windows
    //   LPSHITEMID  pshiidLast = nullptr;
 
    //   USHORT cb;
-   //   i32 iLen = 0;
+   //   int iLen = 0;
    //   while (true)
    //   {
    //      cb = pshiid->cb;
@@ -1429,7 +1429,7 @@ namespace windowing_universal_windows
    //         break;
    //      pshiidLast = lpshiid;
 
-   //      pshiid = (LPSHITEMID)(((::u8 *)lpshiid) + cb);
+   //      pshiid = (LPSHITEMID)(((unsigned char *)lpshiid) + cb);
 
 
    //   }
@@ -1550,7 +1550,7 @@ namespace windowing_universal_windows
       //      if (hicon == nullptr)
       //      {
 
-      //         ::u32 dwLastError = ::GetLastError();
+      //         unsigned int dwLastError = ::GetLastError();
 
       //         output_debug_string("LastError = " + __string(dwLastError));
 

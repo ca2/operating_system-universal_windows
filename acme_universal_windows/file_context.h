@@ -39,7 +39,7 @@ namespace acme_universal_windows
       //virtual bool FullPath(string & str, const ::string & pszFileIn);
 
       //virtual bool FullPath(wstring & wstrFullPath, const wstring & wstrPath);
-      //virtual ::u32 GetFileName(const ::string & pszPathName, string & str);
+      //virtual unsigned int GetFileName(const ::string & pszPathName, string & str);
 
       //virtual void GetModuleShortFileName(HINSTANCE hInst, string & strShortName);
 

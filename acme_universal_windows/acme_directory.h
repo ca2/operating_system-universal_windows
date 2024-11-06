@@ -70,8 +70,8 @@ namespace acme_universal_windows
 
       void set_path_install_folder(const ::string & pszPath) override;
 
-      //virtual  bool        _shell_get_special_folder_path(HWND hwnd, ::file::path& str, i32 csidl, bool fCreate);
-      //virtual ::file::path _shell_get_special_folder_path(i32 csidl, bool fCreate = true, ::windowing::window* pwindow = nullptr);
+      //virtual  bool        _shell_get_special_folder_path(HWND hwnd, ::file::path& str, int csidl, bool fCreate);
+      //virtual ::file::path _shell_get_special_folder_path(int csidl, bool fCreate = true, ::windowing::window* pwindow = nullptr);
       //virtual ::file::path _get_known_folder(REFKNOWNFOLDERID kfid);
 
       //virtual ::file::path pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode) override;

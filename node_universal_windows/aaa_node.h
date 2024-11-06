@@ -37,7 +37,7 @@ namespace aura
 
          virtual ::color::color get_default_color(::u64 u) override;
 
-         virtual void set_console_colors(::u32 dwScreenColors, ::u32 dwPopupColors, ::u32 dwWindowAlpha) override;
+         virtual void set_console_colors(unsigned int dwScreenColors, unsigned int dwPopupColors, unsigned int dwWindowAlpha) override;
 
          virtual ::e_status set_system_dark_mode1(bool bSet = true);
 

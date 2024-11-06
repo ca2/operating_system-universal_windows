@@ -55,7 +55,7 @@ namespace music
 
             ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection inputCollection = m_pmidiInDeviceWatcher->GetDeviceInformationCollection();
 
-            for (::u32 u = 0; u < inputCollection.Size(); u++)
+            for (unsigned int u = 0; u < inputCollection.Size(); u++)
             {
 
                ::winrt::Windows::Devices::Enumeration::DeviceInformation devInfo = inputCollection.GetAt(u);
@@ -79,7 +79,7 @@ namespace music
 
             ::winrt::Windows::Devices::Enumeration::DeviceInformationCollection inputCollection = m_pmidiOutDeviceWatcher->GetDeviceInformationCollection();
 
-            for (::u32 u = 0; u < inputCollection.Size(); u++)
+            for (unsigned int u = 0; u < inputCollection.Size(); u++)
             {
 
                ::winrt::Windows::Devices::Enumeration::DeviceInformation deviceinformation = inputCollection.GetAt(u);

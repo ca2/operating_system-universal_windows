@@ -8,7 +8,7 @@
 #include <winrt/Windows.Storage.FileProperties.h>
 
 
-::winrt::Windows::Storage::StorageFile windows_runtime_file(::particle * pparticle, const char * lpcszFileName, ::u32 dwDesiredAcces, ::u32 dwShareMode, ::u32 dwCreationDisposition, ::u32 dwFlagsAndAttributes)
+::winrt::Windows::Storage::StorageFile windows_runtime_file(::particle * pparticle, const char * lpcszFileName, unsigned int dwDesiredAcces, unsigned int dwShareMode, unsigned int dwCreationDisposition, unsigned int dwFlagsAndAttributes)
 {
 
    /*

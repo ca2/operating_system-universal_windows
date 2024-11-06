@@ -1177,9 +1177,9 @@ namespace windowing_universal_windows
       //wstring  wstr;
 
       //wstr.get_buffer(MAX_PATH * 8);
-      ////::u32 uLen = pwsz.memsize();
+      ////unsigned int uLen = pwsz.memsize();
 
-      //if (!SystemParametersInfoW(SPI_GETDESKWALLPAPER, (::u32)wstr.get_storage_length(), wstr.m_pdata, 0))
+      //if (!SystemParametersInfoW(SPI_GETDESKWALLPAPER, (unsigned int)wstr.get_storage_length(), wstr.m_pdata, 0))
       //{
       //   return "";
 
@@ -1238,9 +1238,9 @@ namespace windowing_universal_windows
 
                auto pointerPoint = ::winrt::Windows::UI::Input::PointerPoint::GetCurrentPoint(m_iMouseDevice);
 
-               pointCursor.x() = (::i32)pointerPoint.RawPosition().X;
+               pointCursor.x() = (int)pointerPoint.RawPosition().X;
 
-               pointCursor.y() = (::i32)pointerPoint.RawPosition().Y;
+               pointCursor.y() = (int)pointerPoint.RawPosition().Y;
 
             //}
 

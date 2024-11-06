@@ -208,7 +208,7 @@ namespace windowing_universal_windows
 
    //   strsize iLen = 0;
 
-   //   for (i32 i = 0; i < patha.get_size(); i++)
+   //   for (int i = 0; i < patha.get_size(); i++)
    //   {
 
    //      iLen += utf8_to_unicode_count(patha[i]) + 1;
@@ -230,7 +230,7 @@ namespace windowing_universal_windows
    //   unichar * pwsz = (unichar *)psz;
 
 
-   //   for (i32 i = 0; i < patha.get_size(); i++)
+   //   for (int i = 0; i < patha.get_size(); i++)
    //   {
 
    //      ::collection::count c = utf8_to_unicode_count(patha[i]) + 1;
@@ -287,7 +287,7 @@ namespace windowing_universal_windows
    //HGLOBAL copydesk::hglobal_get_image(const ::image::image * pimage)
    //{
 
-   //   ::u32 dwWidth, dwHeight;
+   //   unsigned int dwWidth, dwHeight;
    //   BITMAPINFOHEADER bi;
    //   hcursor hAlphaCursor = nullptr;
 
@@ -297,7 +297,7 @@ namespace windowing_universal_windows
    //   ZeroMemory(&bi, sizeof(BITMAPINFOHEADER));
    //   bi.biSize = sizeof(BITMAPINFOHEADER);
    //   bi.biWidth = dwWidth;
-   //   bi.biHeight = -(::i32)dwHeight;
+   //   bi.biHeight = -(int)dwHeight;
    //   bi.biPlanes = 1;
    //   bi.biBitCount = 32;
    //   bi.biCompression = BI_RGB;
@@ -312,7 +312,7 @@ namespace windowing_universal_windows
 
    //   }
 
-   //   ::u8 * p = (::u8 *) ::GlobalLock(hglb);
+   //   unsigned char * p = (unsigned char *) ::GlobalLock(hglb);
 
 
    //   pimage->map();
@@ -334,9 +334,9 @@ namespace windowing_universal_windows
       //if(m_iPriorityTextFormat == -2)
       //{
 
-      //   ::u32 iCfShellInternetUrlW = ::RegisterClipboardFormat(CFSTR_INETURLW);
+      //   unsigned int iCfShellInternetUrlW = ::RegisterClipboardFormat(CFSTR_INETURLW);
 
-      //   ::u32 uaFormatPriorityList[] =
+      //   unsigned int uaFormatPriorityList[] =
       //   {
       //      iCfShellInternetUrlW,
       //      CF_UNICODETEXT,
@@ -455,13 +455,13 @@ namespace windowing_universal_windows
       //for (::collection::index i = 0; i < c; i++)
       //{
 
-      //   ::u32 uLen = ::DragQueryFileW(hdrop, (::u32) i, nullptr, 0);
+      //   unsigned int uLen = ::DragQueryFileW(hdrop, (unsigned int) i, nullptr, 0);
 
       //   wstring wstr(get_buffer, uLen);
 
       //   auto x = wstr.length();
 
-      //   ::DragQueryFileW(hdrop, (::u32) i, wstr, (::u32) wstr.length() + 1);
+      //   ::DragQueryFileW(hdrop, (unsigned int) i, wstr, (unsigned int) wstr.length() + 1);
 
       //   wstr.release_buffer();
 
@@ -688,7 +688,7 @@ namespace windowing_universal_windows
 
       memsize s = (memsize)stream.Size();
 
-      ::winrt::Windows::Storage::Streams::Buffer buffer((::u32) s);
+      ::winrt::Windows::Storage::Streams::Buffer buffer((unsigned int) s);
 
       if (buffer == nullptr)
       {
@@ -697,7 +697,7 @@ namespace windowing_universal_windows
 
       }
 
-      stream.ReadAsync(buffer, (::u32) s, ::winrt::Windows::Storage::Streams::InputStreamOptions::ReadAhead).get();
+      stream.ReadAsync(buffer, (unsigned int) s, ::winrt::Windows::Storage::Streams::InputStreamOptions::ReadAhead).get();
 
       memory m;
 
@@ -756,9 +756,9 @@ namespace windowing_universal_windows
 
       ////auto byteaccess = bitmapbuffer_ref.as<IMemoryBufferByteAccess>();
 
-      //::u8 * pdataSrc = data.data();
+      //unsigned char * pdataSrc = data.data();
       //
-      //::u32 sizeSrc = data.size();
+      //unsigned int sizeSrc = data.size();
 
       ////auto hresult = byteaccess->GetBuffer(&pdataSrc, &sizeSrc);
 

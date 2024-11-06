@@ -795,7 +795,7 @@ namespace music
 //               {
 //                  int32_t iTrack = pEvent->GetTrack();
 //                  int32_t iProgramChange = pEvent->GetChB1();
-//                  m_keyframe.rbProgram[iTrack] = (::u8) iProgramChange;
+//                  m_keyframe.rbProgram[iTrack] = (unsigned char) iProgramChange;
 //                  //if(iProgramChange == 54)
 //                  //{
 //                  // pEvent->SetChB1(62);
@@ -823,7 +823,7 @@ namespace music
 //                  {
 //                     iNotePitch += 12;
 //                  }
-//                  pEvent->SetNotePitch((::u8) iNotePitch);
+//                  pEvent->SetNotePitch((unsigned char) iNotePitch);
 //               }
 //
 //               *lpdw++ = (uint32_t)tickDelta;
@@ -1670,7 +1670,7 @@ namespace music
 //                     if (ptopic->GetDataSize() != sizeof(m_keyframe.rbTempo))
 //                        return EInvalidFile;
 //
-//                     memory_copy((::u8 *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
+//                     memory_copy((unsigned char *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
 //                  }
 //               }
 //               if((bEvent & 0xF0) == ::music::midi::ProgramChange)
@@ -1939,7 +1939,7 @@ namespace music
 //         {
 //
 //            uint32_t                len;
-//            ::u8 *                  hpbImage;
+//            unsigned char *                  hpbImage;
 //            uint32_t                index;
 //
 //            ASSERT(pSmf != NULL);
@@ -1949,7 +1949,7 @@ namespace music
 //
 //            *pData = (uchar *) LocalAlloc(LPTR,len);
 //
-//            hpbImage = (::u8 *) pEvent->GetData();
+//            hpbImage = (unsigned char *) pEvent->GetData();
 //
 //            for(index = 0; len; index++)
 //            {
@@ -1986,7 +1986,7 @@ namespace music
 //               return ENoMemory;
 //            }
 //
-//            ::u8 * hpbDest, * hpbSrc;
+//            unsigned char * hpbDest, * hpbSrc;
 //
 //            hpbDest = GetImage();
 //
@@ -2204,8 +2204,8 @@ namespace music
 //         track * pTrack = m_ptracks->GetEventTrack(pEventOld);
 //         if(pTrack == NULL)
 //         return TrackNotFound;
-//         ::u8 * hpbImage = pEventOld->GetImage();
-//         ::u8 * hpbFileImage = m_hpbImage;
+//         unsigned char * hpbImage = pEventOld->GetImage();
+//         unsigned char * hpbFileImage = m_hpbImage;
 //         if(pEventOld->GetImageSize() != pEventNew->m_cbImage)
 //         {
 //         int32_t iAddUp = pEventNew->m_cbImage - pEventOld->GetImageSize();
@@ -2231,8 +2231,8 @@ namespace music
 //         track * pTrack = m_ptracks->GetEventTrack(pEventOld);
 //         if(pTrack == NULL)
 //         return TrackNotFound;
-//         ::u8 * hpbImage = pEventOld->GetImage();
-//         ::u8 * hpbFileImage = m_hpbImage;
+//         unsigned char * hpbImage = pEventOld->GetImage();
+//         unsigned char * hpbFileImage = m_hpbImage;
 //         if(pEventOld->GetImageSize() != pEventNew->m_cbImage)
 //         {
 //         int32_t iAddUp = pEventNew->m_cbImage - pEventOld->GetImageSize();
@@ -2268,7 +2268,7 @@ namespace music
 //         imedia_position tickOldDelta;
 //         uint32_t dwGetUsed = ::music::midi::event::GetVDWord(pEvent->GetImage(), 256, &tickOldDelta);
 //         ASSERT(tickOldDelta == pEvent->_GetDelta());
-//         ::u8 * hpbImage = pEvent->GetImage();
+//         unsigned char * hpbImage = pEvent->GetImage();
 //         if(dwSetUsed != dwGetUsed)
 //         {
 //         int32_t iAddUp = dwSetUsed - dwGetUsed;
@@ -2853,7 +2853,7 @@ namespace music
 //                     if (ptopic->GetDataSize() != sizeof(m_keyframe.rbTempo))
 //                        return EInvalidFile;
 //
-//                     memory_copy((::u8 *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
+//                     memory_copy((unsigned char *)m_keyframe.rbTempo, ptopic->GetData(), ptopic->GetDataSize());
 //                  }
 //               }
 //               if((bEvent & 0xF0) == ::music::midi::ProgramChange)
