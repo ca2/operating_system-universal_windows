@@ -93,7 +93,7 @@ namespace acme_universal_windows
    }
    
    
-   //void native_buffer::put_byte_back(unsigned char u8)
+   //void native_buffer::put_byte_back(unsigned char unsigned char)
    //{
 
    //   m_memoryBuffer.write(strUtf8.c_str(), strUtf8.get_length());
@@ -116,7 +116,7 @@ namespace acme_universal_windows
 
       ::file::path path;
 
-      if (strPrefix.has_char())
+      if (strPrefix.has_character())
       {
 
          path = strPrefix / pathFile;
@@ -554,7 +554,7 @@ namespace acme_universal_windows
       //ASSERT_VALID(this);
       //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
-      ////      if (!::Locknative_buffer((HANDLE)m_hnative_buffer, lower_u32(dwPos), upper_u32(dwPos), lower_u32(dwCount), upper_u32(dwCount)))
+      ////      if (!::Locknative_buffer((HANDLE)m_hnative_buffer, lower_unsigned_int(dwPos), upper_unsigned_int(dwPos), lower_unsigned_int(dwCount), upper_unsigned_int(dwCount)))
       ////       WinFileException::ThrowOsError(get_application(), (int)::get_last_error());
    }
 
@@ -563,7 +563,7 @@ namespace acme_universal_windows
       //ASSERT_VALID(this);
       //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
-      ////  if (!::Unlocknative_buffer((HANDLE)m_hnative_buffer,  lower_u32(dwPos), upper_u32(dwPos), lower_u32(dwCount), upper_u32(dwCount)))
+      ////  if (!::Unlocknative_buffer((HANDLE)m_hnative_buffer,  lower_unsigned_int(dwPos), upper_unsigned_int(dwPos), lower_unsigned_int(dwCount), upper_unsigned_int(dwCount)))
       ////   WinFileException::ThrowOsError(get_application(), (int)::get_last_error());
    }
 
@@ -613,7 +613,7 @@ namespace acme_universal_windows
    }
 
    //// native_buffer does not support direct buffering (CMemnative_buffer does)
-   //u64 native_buffer::GetBufferPtr(unsigned int nCommand,u64 /*nCount*/,
+   //huge_natural native_buffer::GetBufferPtr(unsigned int nCommand,huge_natural /*nCount*/,
    //                                     void ** /*ppBufStart*/,void ** /*ppBufMax*/)
    //{
    //   ASSERT(nCommand == bufferCheck);

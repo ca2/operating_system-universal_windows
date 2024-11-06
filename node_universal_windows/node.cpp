@@ -106,7 +106,7 @@ namespace node_universal_windows
    }
 
 
-   void node::call_member(::i64 i)
+   void node::call_member(huge_integer i)
    {
 
       //if (i == SOUL_ID)

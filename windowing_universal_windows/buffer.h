@@ -55,8 +55,8 @@ namespace windowing_universal_windows
       bool                                                  m_bWindowSizeChangeInProgress;
       bool                                                  m_b3D;
       ::particle_pointer                              m_pparticleMutexDc;
-      size_i32                                              m_size;
-      ::size_i32                                            m_sizeBuffer;
+      int_size                                              m_size;
+      ::int_size                                            m_sizeBuffer;
       ::pointer < window >                                  m_pwindow;
       ::pointer < ::graphics::buffer_item >                 m_pbufferitem;
       bool                                                  m_bInitialized;
@@ -144,7 +144,7 @@ namespace windowing_universal_windows
       void initialize_graphics_graphics(::windowing::window* pimpl) override;
 
 
-      virtual bool create_buffer(const ::size_i32& size, int iStride = -1);
+      virtual bool create_buffer(const ::int_size& size, int iStride = -1);
       void destroy_buffer() override;
 
       void on_after_graphical_update() override;
@@ -164,7 +164,7 @@ namespace windowing_universal_windows
       void on_end_draw() override;
 
 
-      virtual bool create_os_buffer(const ::size_i32& size, int iStride = -1);
+      virtual bool create_os_buffer(const ::int_size& size, int iStride = -1);
       virtual void destroy_os_buffer();
 
 

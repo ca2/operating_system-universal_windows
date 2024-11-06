@@ -22,7 +22,7 @@ CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS WNDPROC windows_user_interaction_impl_get
 CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS wstring windows_register_window_class(::particle * pparticle, unsigned int nClassStyle, hcursor hCursor, HBRUSH hbrBackground, hicon hIcon);
 
 
-bool has_autohide_appbar(unsigned int edge, const rectangle_i32 & mon)
+bool has_autohide_appbar(unsigned int edge, const int_rectangle & mon)
 {
 
    if (IsWindows8Point1OrGreater())

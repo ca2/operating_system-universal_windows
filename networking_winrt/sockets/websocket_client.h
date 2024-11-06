@@ -72,7 +72,7 @@ namespace networking_bsd
 
       virtual void OnRawData(char *buf, memsize len) override;
 
-      virtual void on_websocket_data(u8 * pdata, int len);
+      virtual void on_websocket_data(unsigned char * pdata, int len);
       virtual void on_websocket_data(string str);
 
       virtual bool client_ping_pong_ok();

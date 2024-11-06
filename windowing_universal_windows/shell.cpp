@@ -223,7 +223,7 @@ namespace windowing_universal_windows
 
    //               ::image::image_source imagesource(pimage);
 
-   //               ::image::image_drawing_options imagedrawingoptions(::rectangle_f64(), e_placement_aspect_fit);
+   //               ::image::image_drawing_options imagedrawingoptions(::double_rectangle(), e_placement_aspect_fit);
 
    //               set_image(getfileimage.m_iImage, iSize, { imagedrawingoptions, imagesource });
 
@@ -738,7 +738,7 @@ namespace windowing_universal_windows
       //if (getfileimage.m_imagekey.m_iIcon == I32_MINIMUM)
       //{
 
-      //   if (getfileimage.m_imagekey.m_strShellThemePrefix.has_char())
+      //   if (getfileimage.m_imagekey.m_strShellThemePrefix.has_character())
       //   {
 
       //      string strExtension = pathTarget.final_extension();
@@ -859,7 +859,7 @@ namespace windowing_universal_windows
       //   return true;
 
       //}
-      //else if (strIconLocation.has_char())
+      //else if (strIconLocation.has_character())
       //{
 
       //   if (strIconLocation.case_insensitive_ends(".ico"))
@@ -1259,7 +1259,7 @@ namespace windowing_universal_windows
 
       //      string strPath = shfi.szDisplayName;
 
-      //      if (strPath.has_char())
+      //      if (strPath.has_character())
       //      {
 
       //         getfileimage.m_imagekey.m_iIcon = shfi.iIcon;
@@ -1282,9 +1282,9 @@ namespace windowing_universal_windows
       //// And then should find icon by extension if
       //// it is a file or as folder otherwise.
 
-      //strsize iFind = imagekey.m_strPath.case_insensitive_find("://");
+      //character_count iFind = imagekey.m_strPath.case_insensitive_find("://");
 
-      //strsize iFind2 = imagekey.m_strPath.case_insensitive_find(":");
+      //character_count iFind2 = imagekey.m_strPath.case_insensitive_find(":");
 
       //if (iFind >= 0 || iFind2 >= 2)
       //{

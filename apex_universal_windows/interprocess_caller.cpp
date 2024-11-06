@@ -36,7 +36,7 @@ namespace apex_universal_windows
 
    //   __UNREFERENCED_PARAMETER(plauncher);
 
-   //   if (m_strBaseChannel.has_char())
+   //   if (m_strBaseChannel.has_character())
    //      close();
 
    //   // LaunchUri protocol is m_strBaseChannel
@@ -54,7 +54,7 @@ namespace apex_universal_windows
    void interprocess_caller::open(const ::string & strChannel, ::launcher * plauncher)
    {
 
-      if (m_strBaseChannel.has_char())
+      if (m_strBaseChannel.has_character())
       {
 
          close();
@@ -145,7 +145,7 @@ namespace apex_universal_windows
 
       //return ::IsWindow(m_hwnd) != false;
 
-      return m_strBaseChannel.has_char();
+      return m_strBaseChannel.has_character();
 
    }
 

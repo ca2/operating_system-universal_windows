@@ -65,9 +65,9 @@ extern "C" {
 //  4.  Add 0x10000
 //
 //  Result: U+10000. This is correct, since the first character in the Supplementary character
-//  range immediately follows the last code point_i32 in the 16-bit UTF-16 range (U+FFFF)
+//  range immediately follows the last code int_point in the 16-bit UTF-16 range (U+FFFF)
 //
-//  B) A UTF-32 code point_i32 such as U+2040A (this a CJK character in CJK Extension B), and wish
+//  B) A UTF-32 code int_point such as U+2040A (this a CJK character in CJK Extension B), and wish
 //  to convert it in UTF-16:
 //
 //  1.  Subtract 0x10000 - Result: 0x1040A
@@ -77,7 +77,7 @@ extern "C" {
 //
 //  RESULT: The surrogate pair: U+D841, U+DC0A
 //
-//  Special Unicode code point_i32 values, for use with UTF-16 surrogate pairs.
+//  Special Unicode code int_point values, for use with UTF-16 surrogate pairs.
 //
 #define HIGH_SURROGATE_START  0xd800
 #define HIGH_SURROGATE_END    0xdbff
@@ -2115,18 +2115,18 @@ int_bool
 WINAPI VerifyScripts(
        DWORD   dwFlags,            // optional behavior flags
        LPCWSTR lpLocaleScripts,    // Locale list of scripts string
-       int32_t     cchLocaleScripts,   // size_i32 of locale script list string
+       int32_t     cchLocaleScripts,   // int_size of locale script list string
        LPCWSTR lpTestScripts,      // test scripts string
-       int32_t     cchTestScripts);    // size_i32 of test list string
+       int32_t     cchTestScripts);    // int_size of test list string
 
 WINBASEAPI
 int32_t
 WINAPI GetStringScripts(
                                 DWORD   dwFlags,        // optional behavior flags
                                 LPCWSTR lpString,       // Unicode character input string
-                                int32_t     cchString,      // size_i32 of input string
+                                int32_t     cchString,      // int_size of input string
         __out_ecount_opt(cchScripts) LPWSTR  lpScripts,      // Script list output string
-                                int32_t     cchScripts);    // size_i32 of output string
+                                int32_t     cchScripts);    // int_size of output string
 
 #endif //(WINVER >= 0x0600)
 

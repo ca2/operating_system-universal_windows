@@ -5,7 +5,7 @@
 //#include "_uwp.h"
 //
 //
-//::size_i32 winrt_get_big_back_buffer_size();
+//::int_size winrt_get_big_back_buffer_size();
 ////
 ////using namespace ::winrt::Windows::UI::Core;
 ////using namespace ::winrt::Windows::Foundation;
@@ -291,7 +291,7 @@
 //   void direct2d_buffer::SetDpi(float dpi)
 //   {
 //      
-//      // Only handle window size_i32 changed if there is no pending DPI change.
+//      // Only handle window int_size changed if there is no pending DPI change.
 //
 //      session()->system()->windowing()->windowing_branch(__routine([this, dpi]()
 //         {
@@ -470,7 +470,7 @@
 //      ::windowing::graphics_lock graphicslock(m_pwindow);
 //
 //      // Store the window bounds so the next time we get a SizeChanged event we can
-//      // avoid rebuilding everything if the size_i32 is identical.
+//      // avoid rebuilding everything if the int_size is identical.
 //      m_windowBounds.Width = (float) m_size.cx;
 //      m_windowBounds.Height = (float) m_size.cy;
 //
@@ -704,7 +704,7 @@
 //      ::windowing::graphics_lock devicelock(m_pwindow);
 //
 //      // Store the window bounds so the next time we get a SizeChanged event we can
-//      // avoid rebuilding everything if the size_i32 is identical.
+//      // avoid rebuilding everything if the int_size is identical.
 //      m_windowBounds.Width = (float)m_size.cx;
 //      m_windowBounds.Height = (float)m_size.cy;
 //
@@ -844,7 +844,7 @@
 //      //   m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal, ref ___new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
 //      //   {
 //
-//      // A window size_i32 change has been initiated and the app has just completed presenting
+//      // A window int_size change has been initiated and the app has just completed presenting
 //      // the first frame with the ___new size. Notify the resize manager so we can short
 //      // circuit any resize animation and prevent unnecessary delays.
 //      //      CoreWindowResizeManager::GetForCurrentView()->NotifyLayoutCompleted();
@@ -945,7 +945,7 @@
 //   //   //   if (pbuffer.is_set())
 //   //   //   {
 //
-//   //   //      size_i32 sz = pbuffer->get_buffer().get_size();
+//   //   //      int_size sz = pbuffer->get_buffer().get_size();
 //
 //   //   //      ::draw2d::graphics_pointer & pgraphics = pbuffer->get_buffer().get_graphics();
 //

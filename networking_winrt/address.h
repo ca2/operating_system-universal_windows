@@ -26,8 +26,8 @@ namespace networking_bsd
 
 #if defined(FREEBSD) || defined(__APPLE__)
 
-            u8 m_len;
-            u8 m_uchFamily;
+            unsigned char m_len;
+            unsigned char m_uchFamily;
 
 
 #else // !FREEBSD
@@ -58,7 +58,7 @@ namespace networking_bsd
 
             }
 
-            u8 get_family() const
+            unsigned char get_family() const
             {
 
                return m_uchFamily;

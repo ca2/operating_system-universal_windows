@@ -163,7 +163,7 @@ namespace windowing_win32
    }
    }
 
-   void window_util::ExcludeChildren(HWND hwnd, HRGN hrgn, const point_i32 & pointOffset)
+   void window_util::ExcludeChildren(HWND hwnd, HRGN hrgn, const int_point & pointOffset)
    {
 
 
@@ -174,7 +174,7 @@ namespace windowing_win32
    for(int i = 0; i < hwnda.get_size(); i++)
    {
    HWND hwndChild = hwnda[i];
-   ::rectangle_i32 rectangleChild;
+   ::int_rectangle rectangleChild;
    ::this->rectangle(hwndChild, rectangleChild);
    ::_001ClientToScreen(hwndChild, &rectangleChild.top_left());
    ::_001ClientToScreen(hwndChild, &rectangleChild.bottom_right());
@@ -191,9 +191,9 @@ namespace windowing_win32
 
    }*/
 
-   /*HRGN window_util::GetAClipRgn(HWND hwnd, const point_i32 & pointOffset, bool bExludeChildren)
+   /*HRGN window_util::GetAClipRgn(HWND hwnd, const int_point & pointOffset, bool bExludeChildren)
    {
-   ::rectangle_i32 rectangleWnd;
+   ::int_rectangle rectangleWnd;
    ::this->rectangle(hwnd, rectangleWnd);
    rectangleWnd.offset(pointOffset);
    HRGN hrgn = ::create_rect(rectangleWnd);
@@ -373,7 +373,7 @@ namespace windowing_win32
 
    ::collection::index hwnd_tree::compare_hwnd(const hwnd_tree * ptree1, const hwnd_tree * ptree2)
    {
-      return (index)((u8 *)(void *)ptree1->m_hwnd - (u8 *)(void *)ptree2->m_hwnd);
+      return (index)((unsigned char *)(void *)ptree1->m_hwnd - (unsigned char *)(void *)ptree2->m_hwnd);
    }
 
 
@@ -506,7 +506,7 @@ namespace windowing_win32
    void window_util::ContraintPosToParent(HWND hwnd)
    {
       //#if !defined(UNIVERSAL_WINDOWS) && !defined(APPLE_IOS)
-      //      ::rectangle_i32 rectangleMajor;
+      //      ::int_rectangle rectangleMajor;
       //      HWND hwndParent = ::get_parent(hwnd);
       //      if(hwndParent == nullptr)
       //      {
@@ -530,7 +530,7 @@ namespace windowing_win32
       //         ::this->rectangle(hwndParent, rectangleMajor);
       //      }
       //
-      //      ::rectangle_i32 rectangle;
+      //      ::int_rectangle rectangle;
       //      ::this->rectangle(hwnd, rectangle);
       //
       //#ifdef WINDOWS_DESKTOP
@@ -832,7 +832,7 @@ namespace windowing_win32
    }
    }*/
 
-   //   void window_util::ExcludeChildren(HWND hwnd, HRGN hrgn, const point_i32 & pointOffset)
+   //   void window_util::ExcludeChildren(HWND hwnd, HRGN hrgn, const int_point & pointOffset)
    //   {
    //
    //
@@ -847,7 +847,7 @@ namespace windowing_win32
    //
    //         HWND hwndChild = hwnda[i];
    //
-   //         ::rectangle_i32 rectangleChild;
+   //         ::int_rectangle rectangleChild;
    //
    //         ::GetClientRect(hwndChild, rectangleChild);
    //
@@ -878,12 +878,12 @@ namespace windowing_win32
    //
    //   }
 
-   //   HRGN window_util::GetAClipRgn(HWND hwnd, const point_i32 & pointOffset, bool bExludeChildren)
+   //   HRGN window_util::GetAClipRgn(HWND hwnd, const int_point & pointOffset, bool bExludeChildren)
    //   {
    //
    //#ifdef WINDOWS_DESKTOP
    //
-   //      ::rectangle_i32 rectangleWnd;
+   //      ::int_rectangle rectangleWnd;
    //
    //      ::GetClientRect(hwnd, rectangleWnd);
    //

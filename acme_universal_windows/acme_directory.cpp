@@ -190,7 +190,7 @@ namespace acme_universal_windows
 
       string strFolder;
 
-      strsize iFind = strAppId.find('/');
+      character_count iFind = strAppId.find('/');
 
       if (strPlatform.case_insensitive_order("win32") == 0 || strPlatform.case_insensitive_order("x86") == 0)
       {
@@ -256,7 +256,7 @@ namespace acme_universal_windows
 
       string strFolder;
 
-      strsize iFind = strAppId.find('/');
+      character_count iFind = strAppId.find('/');
 
       path = ca2roaming();
 
@@ -871,7 +871,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //      wstrModuleFolder.release_buffer();
    //
-   //      if(wstrModuleFolder.has_char())
+   //      if(wstrModuleFolder.has_character())
    //      {
    //
    //         wstrModuleFolder.trim_right(L"\\/");
@@ -886,9 +886,9 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //
    //      {
    //
-   ////         str = ::dir::pathfind(getenv("DYLD_LIBRARY_PATH"), "libacme.dylib", "rfs"); // readable - normal file - non zero size_f64
+   ////         str = ::dir::pathfind(getenv("DYLD_LIBRARY_PATH"), "libacme.dylib", "rfs"); // readable - normal file - non zero double_size
    ////
-   ////         if(str.has_char())
+   ////         if(str.has_character())
    ////         {
    ////            str = ::file::path(str).folder();
    ////            goto found;
@@ -896,9 +896,9 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    ////         }
    ////
    ////
-   ////         str = ::dir::pathfind(getenv("DYLD_FALLBACK_LIBRARY_PATH"), "libacme.dylib", "rfs"); // readable - normal file - non zero size_f64
+   ////         str = ::dir::pathfind(getenv("DYLD_FALLBACK_LIBRARY_PATH"), "libacme.dylib", "rfs"); // readable - normal file - non zero double_size
    ////
-   ////         if(str.has_char())
+   ////         if(str.has_character())
    ////         {
    ////            str = ::file::path(str).folder();
    ////            goto found;
@@ -908,7 +908,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
    //         str = get_exe_path();
    //
    //
-   //         if(str.has_char())
+   //         if(str.has_character())
    //         {
    //            str = ::file::path(str).folder();
    //            goto found;
@@ -1078,7 +1078,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       // bool eat_end_level(string & str, int iLevelCount, const char * pSeparator)
       // {
 
-      //    strsize iLast = str.length() - 1;
+      //    character_count iLast = str.length() - 1;
 
       //    if(iLast < 0)
       //       return iLevelCount <= 0;
@@ -1089,11 +1089,11 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //    for(int i = 0; i < iLevelCount; i++)
       //    {
 
-      //       strsize iFind1 = str.rear_find('/', iLast);
+      //       character_count iFind1 = str.rear_find('/', iLast);
 
-      //       strsize iFind2 = str.rear_find('\\', iLast);
+      //       character_count iFind2 = str.rear_find('\\', iLast);
 
-      //       strsize iFind = maximum(iFind1, iFind2);
+      //       character_count iFind = maximum(iFind1, iFind2);
 
       //       if(iFind >= iLast)
       //          return false;
@@ -1164,25 +1164,25 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //
       //         str = get_exe_path();
       //
-      //         if(str.has_char())
+      //         if(str.has_character())
       //         {
       //
       //            goto found;
       //
       //         }
       //
-      //         str = ::dir::pathfind(::file::path(str).folder(), "libacme.dylib", "rfs"); // readable - normal file - non zero size_f64
+      //         str = ::dir::pathfind(::file::path(str).folder(), "libacme.dylib", "rfs"); // readable - normal file - non zero double_size
       //
-      //         if(str.has_char())
+      //         if(str.has_character())
       //         {
       //
       //            goto found;
       //
       //         }
       //
-      //         str = ::dir::pathfind(getenv("DYLD_LIBRARY_PATH"), "libacme.dylib", "rfs"); // readable - normal file - non zero size_f64
+      //         str = ::dir::pathfind(getenv("DYLD_LIBRARY_PATH"), "libacme.dylib", "rfs"); // readable - normal file - non zero double_size
       //
-      //         if(str.has_char())
+      //         if(str.has_character())
       //         {
       //
       //            goto found;
@@ -1191,16 +1191,16 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       //
       //         str = get_exe_path();
       //
-      //         if(str.has_char())
+      //         if(str.has_character())
       //         {
       //
       //            goto found;
       //
       //         }
       //
-      //         str = ::dir::pathfind(getenv("DYLD_FALLBACK_LIBRARY_PATH"), "libacme.dylib", "rfs"); // readable - normal file - non zero size_f64
+      //         str = ::dir::pathfind(getenv("DYLD_FALLBACK_LIBRARY_PATH"), "libacme.dylib", "rfs"); // readable - normal file - non zero double_size
       //
-      //         if(str.has_char())
+      //         if(str.has_character())
       //         {
       //
       //            goto found;
@@ -1255,7 +1255,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         ::file::path pathDir;
 //
-//         strsize iLastPos;
+//         character_count iLastPos;
 //
 //#ifdef UNIVERSAL_WINDOWS
 //
@@ -1837,7 +1837,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
 //
 //         ::file::path pathDir;
 //
-//         strsize iLastPo = -1;
+//         character_count iLastPo = -1;
 //
 //         ::file::path_array stra;
 //

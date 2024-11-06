@@ -457,7 +457,7 @@ namespace sockets_bsd
       
       auto addrSocks4 = GetSocks4Host();
 
-      if(!skip_socks && addrSocks4.has_char() && GetSocks4Port())
+      if(!skip_socks && addrSocks4.has_character() && GetSocks4Port())
       {
          
          auto paddressSocks4 = system()->networking()->create_address(addrSocks4);
@@ -1438,7 +1438,7 @@ namespace sockets_bsd
    void tcp_socket::write(const void * p, ::memsize s)
    {
 
-      const u8 * buf = (const u8 *)p;
+      const unsigned char * buf = (const unsigned char *)p;
 
       if(!Ready() && !is_connecting())
       {
@@ -1731,7 +1731,7 @@ namespace sockets_bsd
          if (m_bClientSessionSet || m_psslcontext->m_pclientcontext->m_psslsession == nullptr)
          {
 
-            if (m_strTlsHostName.has_char())
+            if (m_strTlsHostName.has_character())
             {
 
                SSL_set_tlsext_host_name(m_psslcontext->m_ssl, (char *)(const char *)m_strTlsHostName);
@@ -2709,18 +2709,18 @@ namespace sockets_bsd
    }
 
 
-   u64 tcp_socket::GetBytesReceived(bool clear)
+   huge_natural tcp_socket::GetBytesReceived(bool clear)
    {
-      u64 z = m_bytes_received;
+      huge_natural z = m_bytes_received;
       if(clear)
          m_bytes_received = 0;
       return z;
    }
 
 
-   u64 tcp_socket::GetBytesSent(bool clear)
+   huge_natural tcp_socket::GetBytesSent(bool clear)
    {
-      u64 z = m_bytes_sent;
+      huge_natural z = m_bytes_sent;
       if(clear)
          m_bytes_sent = 0;
       return z;

@@ -75,7 +75,7 @@ namespace sockets
                      m_chunk_line = m_chunk_line.left(m_chunk_line.get_length() - 2);
                      ::parse pa(m_chunk_line, ";");
                      string size_str = pa.getword();
-                     m_chunk_size = ::hex::to_u32(size_str);
+                     m_chunk_size = ::hex::to_unsigned_int(size_str);
                      if (!m_chunk_size)
                      {
                         m_chunk_state = 4;
@@ -163,8 +163,8 @@ namespace sockets
 
 #ifdef WINDOWS
 
-            i64 count;
-            i64 freq;
+            huge_integer count;
+            huge_integer freq;
             if(QueryPerformanceCounter((LARGE_INTEGER *) &count)
                   && QueryPerformanceFrequency((LARGE_INTEGER *) &freq))
             {

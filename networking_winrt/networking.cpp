@@ -803,7 +803,7 @@ namespace networking_bsd
          {
             struct sockaddr_in *point = (struct sockaddr_in *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(__allocate< ::networking_bsd::ipv4_address(get_app >(), *point_i32));
+            addr(__allocate< ::networking_bsd::ipv4_address(get_app >(), *int_point));
             return addr;
          }
          break;
@@ -812,7 +812,7 @@ namespace networking_bsd
          {
             struct sockaddr_in6 *point = (struct sockaddr_in6 *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(__allocate< ::networking_bsd::ipv6_address(get_app >(), *point_i32));
+            addr(__allocate< ::networking_bsd::ipv6_address(get_app >(), *int_point));
             return addr;
          }
          break;
@@ -1372,7 +1372,7 @@ namespace networking_bsd
    {
 
       if (::str::is_simple_natural(str))
-         return ::str::to_i32(str);
+         return ::str::to_int(str);
 
       if (str.case_insensitive_equals("http"))
       {
@@ -2155,7 +2155,7 @@ namespace networking_bsd
          {
             struct sockaddr_in *point = (struct sockaddr_in *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(__allocate< ::networking_bsd::ipv4_address(get_app >(), *point_i32));
+            addr(__allocate< ::networking_bsd::ipv4_address(get_app >(), *int_point));
             return addr;
          }
          break;
@@ -2164,7 +2164,7 @@ namespace networking_bsd
          {
             struct sockaddr_in6 *point = (struct sockaddr_in6 *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(__allocate< ::networking_bsd::ipv6_address(get_app >(), *point_i32));
+            addr(__allocate< ::networking_bsd::ipv6_address(get_app >(), *int_point));
             return addr;
          }
          break;
@@ -2725,7 +2725,7 @@ namespace networking_bsd
 //   {
 //
 //      if (::str::is_simple_natural(str))
-//         return ::str::to_i32(str);
+//         return ::str::to_int(str);
 //
 //      if (str.case_insensitive_order("http"))
 //      {

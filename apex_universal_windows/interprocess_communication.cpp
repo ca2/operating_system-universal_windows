@@ -48,7 +48,7 @@ namespace apex_universal_windows
 
    //   __UNREFERENCED_PARAMETER(plauncher);
 
-   //   if (m_strBaseChannel.has_char())
+   //   if (m_strBaseChannel.has_character())
    //      close();
 
    //   // LaunchUri protocol is m_strBaseChannel
@@ -66,7 +66,7 @@ namespace apex_universal_windows
    void interprocess_caller::open(const ::string & strChannel, ::launcher * plauncher)
    {
 
-      if (m_strBaseChannel.has_char())
+      if (m_strBaseChannel.has_character())
       {
 
          close();
@@ -159,7 +159,7 @@ namespace apex_universal_windows
 
       //return ::IsWindow(m_hwnd) != false;
 
-      return m_strBaseChannel.has_char();
+      return m_strBaseChannel.has_character();
 
 
    }
@@ -218,7 +218,7 @@ namespace apex_universal_windows
    void interprocess_handler::create(const ::string & strChannel)
    {
 
-      if (m_strBaseChannel.has_char())
+      if (m_strBaseChannel.has_character())
       {
 
          destroy();
@@ -263,7 +263,7 @@ namespace apex_universal_windows
    //}
 
 
-   //void rx::receiver::on_ipc_post(rx * prx, long long int a, long long int b)
+   //void rx::receiver::on_ipc_post(rx * prx, huge_integer int a, huge_integer int b)
    //{
 
    //}
@@ -298,7 +298,7 @@ namespace apex_universal_windows
    //}
 
 
-   //void * rx::on_interprocess_post(rx * prx, long long int a, long long int b)
+   //void * rx::on_interprocess_post(rx * prx, huge_integer int a, huge_integer int b)
    //{
 
    //   if (m_preceiver != nullptr)
@@ -326,7 +326,7 @@ namespace apex_universal_windows
    bool interprocess_handler::is_rx_ok()
    {
 
-      return m_strBaseChannel.has_char();
+      return m_strBaseChannel.has_character();
 
    }
 

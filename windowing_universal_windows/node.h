@@ -36,7 +36,7 @@
 //      void implement(::pointer<::platform::node> pnode, ::pointer<::platform::system>psystem) override;
 //
 //
-//      void call_member(::i64 i) override;
+//      void call_member(huge_integer i) override;
 //      
 //
 //      //bool _os_calc_app_dark_mode() override;

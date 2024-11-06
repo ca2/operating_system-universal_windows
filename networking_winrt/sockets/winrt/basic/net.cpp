@@ -744,7 +744,7 @@ namespace sockets
    {
 
       if(::str::is_simple_natural(psz))
-         return ::str::to_i32(psz);
+         return ::str::to_int(psz);
 
       string str(psz);
 

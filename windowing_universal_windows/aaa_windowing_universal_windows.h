@@ -40,7 +40,7 @@
 //   //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS HBITMAP create_alpha_bitmap_v5(const ::image* pimage);
 //   //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS HICON create_alpha_icon(const ::image* pimage, bool bIcon = true, int xHotSpot = 0, int yHotSpot = 0);
 //   //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS HCURSOR create_alpha_cursor(const ::image* pimage, int xHotSpot, int yHotSpot);
-//   //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS HBITMAP create_windows_dib(const ::size_i32& size, int* piScan = nullptr, ::color32_t ** ppdata = nullptr);;
+//   //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS HBITMAP create_windows_dib(const ::int_size& size, int* piScan = nullptr, ::color32_t ** ppdata = nullptr);;
 //   //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS HICON load_icon(::object* pobject, string_array& straMatter, string strIcon, int cx, int cy);
 //
 //

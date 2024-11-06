@@ -94,7 +94,7 @@ namespace windowing_universal_windows
    //   _In_ ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs args
    //   );
 
-   //   void on_window_size_changed(::winrt::Windows::UI::Core::CoreWindow  sender, const ::size_i32 & size);
+   //   void on_window_size_changed(::winrt::Windows::UI::Core::CoreWindow  sender, const ::int_size & size);
 
    //   void DpiChanged(::winrt::Windows::Graphics::Display::DisplayInformation  sender, ::winrt::Windows::Foundation::IInspectable);
 

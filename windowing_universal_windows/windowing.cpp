@@ -617,7 +617,7 @@ namespace windowing_universal_windows
 
    //   pmouse->m_nFlags = wparam;
 
-   //   pmouse->m_point = ::point_i32(lparam);
+   //   pmouse->m_point = ::int_point(lparam);
 
    //   pmouse->m_bTranslated = true; // not in root coordinates
 
@@ -720,7 +720,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //void windowing::get_cursor_pos(::point_i32 * ppoint)
+   //void windowing::get_cursor_pos(::int_point * ppoint)
    //{
 
 
@@ -747,7 +747,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //void windowing::set_cursor_position(const ::point_i32 & point)
+   //void windowing::set_cursor_position(const ::int_point & point)
    //{
 
    //   //if (!::SetCursorPos(point.x, point.y))
@@ -829,7 +829,7 @@ namespace windowing_universal_windows
 //   }
 
    
-   int_bool windowing::point_is_window_origin(::point_i32 ptHitTest, oswindow oswindowExclude, int iMargin)
+   int_bool windowing::point_is_window_origin(::int_point ptHitTest, oswindow oswindowExclude, int iMargin)
    {
 
       //HWND hwndExclude = __hwnd(oswindowExclude);
@@ -843,7 +843,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //::rectangle_i32 rectangleWindow;
+      //::int_rectangle rectangleWindow;
 
       //for (auto & hwnd : *phwnda)
       //{
@@ -861,7 +861,7 @@ namespace windowing_universal_windows
       //      if (::GetWindowRect(hwnd, &rectangleWindow))
       //      {
 
-      //         ::rectangle_i32 rectangleHitTest;
+      //         ::int_rectangle rectangleHitTest;
 
       //         __copy(rectangleHitTest, rectangleWindow);
 
@@ -922,7 +922,7 @@ namespace windowing_universal_windows
 
    //}
 
-   //::pointer<::windowing::window>windowing::window_from_point(::aura::application * papp, const ::point_i32 & point)
+   //::pointer<::windowing::window>windowing::window_from_point(::aura::application * papp, const ::int_point & point)
    //{
 
    //   auto uia = *papp->m_puserinteractiona;
@@ -1142,7 +1142,7 @@ namespace windowing_universal_windows
    }
 
 
-   //void windowing::get_cursor_position(::point_i32* ppoint)
+   //void windowing::get_cursor_position(::int_point* ppoint)
    //{
 
    //   ppoint = m_pointCursor;

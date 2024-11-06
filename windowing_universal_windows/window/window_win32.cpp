@@ -187,7 +187,7 @@ LRESULT CALLBACK __window_procedure(HWND hwnd, UINT message, WPARAM wparam, LPAR
 
       pimpl->m_lparamLastMouseMove = lparam;
 
-      ::point_i32 pointMouseMove(i32_x(lparam), i32_y(lparam));
+      ::int_point pointMouseMove(lparam_int_x(lparam), lparam_int_y(lparam));
 
       if (pimpl->m_pointMouseMove == pointMouseMove)
       {

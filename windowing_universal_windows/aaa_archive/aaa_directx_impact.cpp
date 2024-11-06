@@ -388,7 +388,7 @@ namespace windowing_universal_windows
 //      // because the system itself changed the selection.
 //      SetSelection(newSelection);
 //
-//      if(m_strNewText.has_char())
+//      if(m_strNewText.has_character())
 //      {
 //
 //         auto pfocusui = host()->get_keyboard_focus();
@@ -655,7 +655,7 @@ namespace windowing_universal_windows
 //
 //         // Left arrow
 //      case ::winrt::Windows::System::VirtualKey::Left:
-//         // If the shift key is down, then adjust the size_i32 of the selection.
+//         // If the shift key is down, then adjust the int_size of the selection.
 //         //if ((int)m_window->GetKeyState(VirtualKey::Shift) & (int) CoreVirtualKeyStates::Down)
 //         //{
 //         //   // If this is the start of a selection, then remember which edge we are adjusting.
@@ -689,7 +689,7 @@ namespace windowing_universal_windows
 //
 //         // Right arrow
 //      case ::winrt::Windows::System::VirtualKey::Right:
-//         // If the shift key is down, then adjust the size_i32 of the selection.
+//         // If the shift key is down, then adjust the int_size of the selection.
 //         //if ((int)m_window->GetKeyState(VirtualKey::Shift) & (int) CoreVirtualKeyStates::Down)
 //         //{
 //         //   // If this is the start of a selection, then remember which edge we are adjusting.

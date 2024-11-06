@@ -976,7 +976,7 @@ namespace music
 //         *
 //         * lpmh                      - Contains information about the buffer to fill.
 //         *
-//         * tickMax                     - Specifies a cutoff point_i32 in the stream
+//         * tickMax                     - Specifies a cutoff int_point in the stream
 //         *                             beyond which events will not be read.
 //         *
 //         * Return@rdes
@@ -1102,7 +1102,7 @@ namespace music
 //
 //               /* smfGetNextEvent doesn't set this because smfSeek uses it
 //               ** as well and needs to distinguish between reaching the
-//               ** seek point_i32 and reaching end-of-file.
+//               ** seek int_point and reaching end-of-file.
 //               **
 //               ** To the ::fontopus::user, however, we present the selection between
 //               ** their given tickBase and tickEnd as the entire file, therefore
@@ -1239,7 +1239,7 @@ namespace music
 //               {
 //                  /* smfGetNextEvent doesn't set this because smfSeek uses it
 //                  ** as well and needs to distinguish between reaching the
-//                  ** seek point_i32 and reaching end-of-file.
+//                  ** seek int_point and reaching end-of-file.
 //                  **
 //                  ** To the ::fontopus::user, however, we present the selection between
 //                  ** their given tickBase and tickEnd as the entire file, therefore
@@ -1271,7 +1271,7 @@ namespace music
 //         *
 //         * lpmh                      - Contains information about the buffer to fill.
 //         *
-//         * tickMax                     - Specifies a cutoff point_i32 in the stream
+//         * tickMax                     - Specifies a cutoff int_point in the stream
 //         *                             beyond which events will not be read.
 //         *
 //         * Return@rdes
@@ -1622,7 +1622,7 @@ namespace music
 //         * The meta events (tempo, time signature, key signature) will be the
 //         * first events in the buffer if they exist.
 //         *
-//         * Use smfGetStateMaxSize to determine the maximum size_i32 of the state
+//         * Use smfGetStateMaxSize to determine the maximum int_size of the state
 //         * information buffer. State information that will not fit into the given
 //         * buffer will be lost.
 //         *
@@ -2556,7 +2556,7 @@ namespace music
 //         //      {
 //         //         // smfGetNextEvent doesn't set this because smfSeek uses it
 //         //         // as well and needs to distinguish between reaching the
-//         //         // seek point_i32 and reaching end-of-file.
+//         //         // seek int_point and reaching end-of-file.
 //         //         //
 //         //         // To the ::fontopus::user, however, we present the selection between
 //         //         // their given tickBase and tickEnd as the entire file, therefore

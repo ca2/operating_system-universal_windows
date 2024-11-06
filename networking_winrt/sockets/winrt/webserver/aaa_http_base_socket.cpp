@@ -143,7 +143,7 @@ namespace sockets
 
       }
 
-      m_response.m_propertysetHeader.set_at(__id(content-length), (i64) m_response.file()->get_size());
+      m_response.m_propertysetHeader.set_at(__id(content-length), (huge_integer) m_response.file()->get_size());
 
       for(int i = 0; i < m_response.cookies().get_size(); i++)
       {
@@ -255,7 +255,7 @@ namespace sockets
 
             compress_context compress(this);
 
-            if (response().m_strFile.has_char())
+            if (response().m_strFile.has_character())
             {
 
                compress.gz(pfile, file()->get_reader(response().m_strFile));

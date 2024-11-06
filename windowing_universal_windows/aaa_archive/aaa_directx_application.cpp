@@ -137,7 +137,7 @@
 //
 //               //auto pchanged = ref ___new ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs();
 //
-//               ::size_i32 size((LONG) m_window.Bounds().Width, (LONG) m_window.Bounds().Height);
+//               ::int_size size((LONG) m_window.Bounds().Width, (LONG) m_window.Bounds().Height);
 //
 //               //pchanged->Size.Height = m_window.Bounds().Height;
 //
@@ -164,7 +164,7 @@
 //
 //      //m_pimpl = __create < ::windowing::window >();
 //
-//      ::rectangle_f64 rectangle;
+//      ::double_rectangle rectangle;
 //
 //      rectangle.left() = (LONG) m_window.Bounds().X;
 //      rectangle.top() = (LONG) m_window.Bounds().Y;
@@ -306,14 +306,14 @@
 //   void application::OnWindowSizeChanged(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs args)
 //   {
 //
-//      ::size_i32 size((LONG) args.Size().Width, (LONG) args.Size().Height);
+//      ::int_size size((LONG) args.Size().Width, (LONG) args.Size().Height);
 //
 //      on_window_size_changed(sender, size);
 //
 //   }
 //
 //
-//   void application::on_window_size_changed(::winrt::Windows::UI::Core::CoreWindow sender, const ::size_i32 & size)
+//   void application::on_window_size_changed(::winrt::Windows::UI::Core::CoreWindow sender, const ::int_size & size)
 //   {
 //
 //      //m_pdirectxbase->m_size = size;
@@ -481,7 +481,7 @@
 //         pkey->m_nFlags             = virtualkey_to_code(args.VirtualKey());
 //         pkey->m_lparam             = pkey->m_nFlags << 16;
 //         //pkey->m_strText            = m_strNewText;
-//         //if (pkey->m_strText.has_char())
+//         //if (pkey->m_strText.has_character())
 //         //{
 //           // pkey->m_ekey = ::user::e_key_refer_to_text_member;
 //         //}
@@ -871,7 +871,7 @@
 //      if (puserinteraction)
 //      {
 //
-//         ::rectangle_i32 r = puserinteraction->window_rectangle();
+//         ::int_rectangle r = puserinteraction->window_rectangle();
 //
 //         m_rectangleInputContentRect.X = (float) r.left();
 //         m_rectangleInputContentRect.Y = (float)r.top();

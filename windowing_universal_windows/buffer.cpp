@@ -21,7 +21,7 @@
 #include <winrt/Windows.UI.ViewManagement.h>
 
 
-::size_i32 winrt_get_big_back_buffer_size();
+::int_size winrt_get_big_back_buffer_size();
 
 //#include "__debug_power.h"
 
@@ -104,7 +104,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool buffer::create_os_buffer(const ::size_i32 & size, int iStrideParam)
+   bool buffer::create_os_buffer(const ::int_size & size, int iStrideParam)
    {
 
 
@@ -242,7 +242,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool buffer::create_buffer(const ::size_i32 & size, int iStrideParam)
+   bool buffer::create_buffer(const ::int_size & size, int iStrideParam)
    {
 
       return true;
@@ -592,7 +592,7 @@ namespace windowing_universal_windows
    void buffer::SetDpi(float dpi)
    {
 
-      // Only handle window size_i32 changed if there is no pending DPI change.
+      // Only handle window int_size changed if there is no pending DPI change.
 
       user_post([this, dpi]()
          {
@@ -811,7 +811,7 @@ namespace windowing_universal_windows
       graphics_device_lock graphicsdevicelock;
 
       // Store the window bounds so the next time we get a SizeChanged event we can
-      // avoid rebuilding everything if the size_i32 is identical.
+      // avoid rebuilding everything if the int_size is identical.
       m_windowBounds.Width = (float)m_size.cx();
       m_windowBounds.Height = (float)m_size.cy();
 
@@ -1160,7 +1160,7 @@ namespace windowing_universal_windows
          user_post([this]()
             {
 
-               //A window size_i32 change has been initiated and the app has just completed presenting
+               //A window int_size change has been initiated and the app has just completed presenting
                //the first frame with the ___new size. Notify the resize manager so we can short
                //circuit any resize animation and prevent unnecessary delays.
                m_pwindow->m_resizemanager.NotifyLayoutCompleted();
@@ -1185,7 +1185,7 @@ namespace windowing_universal_windows
       graphics_device_lock devicelock;
 
       // Store the window bounds so the next time we get a SizeChanged event we can
-      // avoid rebuilding everything if the size_i32 is identical.
+      // avoid rebuilding everything if the int_size is identical.
       m_windowBounds.Width = (float)m_size.cx();
 
       m_windowBounds.Height = (float)m_size.cy();
@@ -1432,7 +1432,7 @@ namespace windowing_universal_windows
    //   //   if (pbuffer.is_set())
    //   //   {
 
-   //   //      size_i32 sz = pbuffer->get_buffer().get_size();
+   //   //      int_size sz = pbuffer->get_buffer().get_size();
 
    //   //      ::draw2d::graphics_pointer & pgraphics = pbuffer->get_buffer().get_graphics();
 

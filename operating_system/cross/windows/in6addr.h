@@ -17,5 +17,5 @@ typedef struct in6_addr {
 // Defines to match RFC 2553.
 //
 #define _S6_un      u
-#define _S6_u8      Byte
-#define s6_addr     _S6_un._S6_u8
+#define _S6_unsigned_char      Byte
+#define s6_addr     _S6_un._S6_unsigned_char

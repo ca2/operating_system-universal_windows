@@ -104,7 +104,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool buffer::create_os_buffer(const ::size_i32 & size, int iStrideParam)
+   bool buffer::create_os_buffer(const ::int_size & size, int iStrideParam)
    {
 
       if (m_hdcScreen != NULL && m_pwindow)
@@ -190,7 +190,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool buffer::update_buffer(const ::size_i32 & size, int iStrideParam)
+   bool buffer::update_buffer(const ::int_size & size, int iStrideParam)
    {
 
       if (get_hwnd() == nullptr || ::is_null(m_pimpl))
@@ -314,7 +314,7 @@ namespace windowing_universal_windows
 
    }
 
-   ::point_i32 g_pointLastBottomRight;
+   ::int_point g_pointLastBottomRight;
 
    bool buffer::update_window(::image::image * pimage)
    {
@@ -438,7 +438,7 @@ namespace windowing_universal_windows
 //            //else
 //            //{
 //
-//            ::point_i32 pointSrc = { 0 };
+//            ::int_point pointSrc = { 0 };
 //
 //            //BLENDFUNCTION blendPixelFunction = { AC_SRC_OVER, 0, 255, AC_SRC_ALPHA };
 //
@@ -633,9 +633,9 @@ namespace windowing_universal_windows
 //
 //               string str;
 //
-//               rectangle_i32 rectangleDrawing(point, size);
+//               int_rectangle rectangleDrawing(point, size);
 //
-//               rectangle_i32 rectangleWindowCurrent;
+//               int_rectangle rectangleWindowCurrent;
 //
 //               GetWindowRect(hwnd, (RECT *) &rectangleWindowCurrent);
 //
@@ -677,7 +677,7 @@ namespace windowing_universal_windows
 //
 //               }
 //
-//               ::point_i32 pointBottomRight = point + size;
+//               ::int_point pointBottomRight = point + size;
 //
 //               if (g_pointLastBottomRight != pointBottomRight)
 //               {
@@ -714,11 +714,11 @@ namespace windowing_universal_windows
 //            //
 //            //               }
 //
-//                           //::rectangle_i32 r3;
+//                           //::int_rectangle r3;
 //
 //                           //GetWindowRect(m_oswindow, &r3);
 //
-//                           //::rectangle_i32 r4;
+//                           //::int_rectangle r4;
 //
 //                           //GetClientRect(m_oswindow, &r4);
 //

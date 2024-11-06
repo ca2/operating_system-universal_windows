@@ -172,7 +172,7 @@ namespace acme_universal_windows
 
             auto strPath = file()->safe_get_string(path);
 
-            if (strPath.has_char())
+            if (strPath.has_character())
             {
 
                if (directory_system()->is(strPath))
@@ -405,7 +405,7 @@ namespace acme_universal_windows
 
                item.as(folder);
 
-               if (strPrefixMore.has_char())
+               if (strPrefixMore.has_character())
                {
 
                   strPrefixMore += "/" + strCurrentFolder;
@@ -458,7 +458,7 @@ namespace acme_universal_windows
 
          }
 
-         if (strRelative.has_char())
+         if (strRelative.has_character())
          {
 
             return nullptr;
@@ -864,7 +864,7 @@ namespace acme_universal_windows
    //
    //         }
    //
-   //         if (strPrefix.has_char())
+   //         if (strPrefix.has_character())
    //         {
    //
    //            string_array stra;
@@ -878,7 +878,7 @@ namespace acme_universal_windows
    //
    //               str = stra[0];
    //
-   //               if (str.has_char())
+   //               if (str.has_character())
    //               {
    //
    //                  folder = wait(folder->GetFolderAsync(str));
@@ -1144,7 +1144,7 @@ namespace acme_universal_windows
 
       TRUNCATE_EXISTING
       5
-      Opens a file and truncates it so that its size_i32 is zero bytes, only if it exists.
+      Opens a file and truncates it so that its int_size is zero bytes, only if it exists.
       If the specified file does not exist, the function fails and the last-error code is set to ERROR_FILE_NOT_FOUND (2).
       The calling process must open the file with the GENERIC_WRITE bit set as part of the dwDesiredAccess parameter.
 

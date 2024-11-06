@@ -62,7 +62,7 @@ static inline memsize u32_size(unsigned int v)
 * \return
 *      Number of bytes written to `out`.
 */
-static inline memsize u32_pack(unsigned int value, u8 *out)
+static inline memsize u32_pack(unsigned int value, unsigned char *out)
 {
    unsigned rv = 0;
 
@@ -111,7 +111,7 @@ CLASS_DECL_NETWORKING_BSD void websocket_prefix_varuint32(memory & m, unsigned i
 int client_send(memory & m, int fin, memory & memory, bool useMask)
 {
 
-   i64 message_size = memory.get_size();
+   huge_integer message_size = memory.get_size();
 
    int length = (int) ( 2 + message_size);
 
@@ -128,7 +128,7 @@ int client_send(memory & m, int fin, memory & memory, bool useMask)
 
    }
 
-   u8 masking_key[4];
+   unsigned char masking_key[4];
 
    if (useMask)
    {
@@ -141,7 +141,7 @@ int client_send(memory & m, int fin, memory & memory, bool useMask)
 
    m.set_size(length);
 
-   u8 * frame = (unsigned char*)m.get_data();
+   unsigned char * frame = (unsigned char*)m.get_data();
 
    frame[0] = 0x80 | fin;
 
@@ -271,7 +271,7 @@ int client_send(memory & m, int fin, const char* src)
 
          frame[1] = 127;
          
-         *((i64*)&frame[2]) = HTONLL(len);
+         *((huge_integer*)&frame[2]) = HTONLL(len);
          
       }
       else
@@ -572,14 +572,14 @@ namespace networking_bsd
          iLen = (int)(m_strBase64.length());
 
          inheader("Sec-WebSocket-Key") = m_strBase64;
-         if (m_strWebSocketProtocol.has_char())
+         if (m_strWebSocketProtocol.has_character())
          {
             inheader("Sec-WebSocket-Protocol") = m_strWebSocketProtocol;
 
          }
          inheader("Sec-WebSocket-Version") = "13";
 
-         if (m_strOrigin.has_char())
+         if (m_strOrigin.has_character())
          {
 
             inheader("Origin") = m_strOrigin;
@@ -698,7 +698,7 @@ namespace networking_bsd
 
                   informationf("\n\nnow : websocket\n");
 
-                  if (m_strWebSocketProtocol.has_char())
+                  if (m_strWebSocketProtocol.has_character())
                   {
 
                      informationf("Sec-WebSocket-Protocol: "+ m_strWebSocketProtocol +"\n");
@@ -817,7 +817,7 @@ namespace networking_bsd
 
          m_memResponse.append(buf, len);
 
-         //u64 uLen = 0;
+         //huge_natural uLen = 0;
 
          //int iOffset = 2;
 
@@ -827,7 +827,7 @@ namespace networking_bsd
             // From
             // https://github.com/dhbaird/easywsclient/blob/master/easywsclient.cpp
 
-            u8 * data = (u8 *)m_memResponse.get_data(); // peek, but don't consume
+            unsigned char * data = (unsigned char *)m_memResponse.get_data(); // peek, but don't consume
 
 
 #if DEEP_DATA_DEBUG
@@ -931,8 +931,8 @@ namespace networking_bsd
             {
 
                m_iN = 0;
-               m_iN |= ((u64)data[2]) << 8;
-               m_iN |= ((u64)data[3]) << 0;
+               m_iN |= ((huge_natural)data[2]) << 8;
+               m_iN |= ((huge_natural)data[3]) << 0;
                m_i = 4;
 
             }
@@ -940,14 +940,14 @@ namespace networking_bsd
             {
 
                m_iN = 0;
-               m_iN |= ((u64)data[2]) << 56;
-               m_iN |= ((u64)data[3]) << 48;
-               m_iN |= ((u64)data[4]) << 40;
-               m_iN |= ((u64)data[5]) << 32;
-               m_iN |= ((u64)data[6]) << 24;
-               m_iN |= ((u64)data[7]) << 16;
-               m_iN |= ((u64)data[8]) << 8;
-               m_iN |= ((u64)data[9]) << 0;
+               m_iN |= ((huge_natural)data[2]) << 56;
+               m_iN |= ((huge_natural)data[3]) << 48;
+               m_iN |= ((huge_natural)data[4]) << 40;
+               m_iN |= ((huge_natural)data[5]) << 32;
+               m_iN |= ((huge_natural)data[6]) << 24;
+               m_iN |= ((huge_natural)data[7]) << 16;
+               m_iN |= ((huge_natural)data[8]) << 8;
+               m_iN |= ((huge_natural)data[9]) << 0;
                m_i = 10;
 
             }
@@ -955,10 +955,10 @@ namespace networking_bsd
             if (m_mask)
             {
 
-               m_maskingkey[0] = ((u8)data[m_i + 0]);
-               m_maskingkey[1] = ((u8)data[m_i + 1]);
-               m_maskingkey[2] = ((u8)data[m_i + 2]);
-               m_maskingkey[3] = ((u8)data[m_i + 3]);
+               m_maskingkey[0] = ((unsigned char)data[m_i + 0]);
+               m_maskingkey[1] = ((unsigned char)data[m_i + 1]);
+               m_maskingkey[2] = ((unsigned char)data[m_i + 2]);
+               m_maskingkey[3] = ((unsigned char)data[m_i + 3]);
 
             }
 
@@ -1083,7 +1083,7 @@ namespace networking_bsd
    }
 
 
-   void websocket_client::on_websocket_data(u8 * pdata, int len)
+   void websocket_client::on_websocket_data(unsigned char * pdata, int len)
    {
 
       m_durationLastPong.Now();

@@ -1038,7 +1038,7 @@ namespace acme_universal_windows
 //      // strip attribute of NORMAL bit, our API doesn't have a "normal" bit.
 //      rStatus.m_attribute = (unsigned char) (findFileData.dwFileAttributes & ~FILE_ATTRIBUTE_NORMAL);
 //
-//      // get just the low unsigned int of the file size_i32
+//      // get just the low unsigned int of the file int_size
 //      ASSERT(findFileData.nFileSizeHigh == 0);
 //      rStatus.m_size = (int)findFileData.nFileSizeLow;
 //
@@ -1085,15 +1085,15 @@ namespace acme_universal_windows
    }
 
 
-   u64 file::ReadHuge(void * lpBuffer, u64 dwCount)
+   huge_natural file::ReadHuge(void * lpBuffer, huge_natural dwCount)
    { 
       
-      return (u64) read(lpBuffer, (unsigned int)dwCount);
+      return (huge_natural) read(lpBuffer, (unsigned int)dwCount);
       
    }
 
 
-   void file::WriteHuge(const void * lpBuffer, u64 dwCount)
+   void file::WriteHuge(const void * lpBuffer, huge_natural dwCount)
    {
       
       write(lpBuffer, (unsigned int)dwCount);

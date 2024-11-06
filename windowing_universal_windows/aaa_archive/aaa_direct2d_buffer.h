@@ -68,8 +68,8 @@
 //      bool                                                  m_b3D;
 //      ::aura::system *                                      system();
 //      ::mutex                                               m_mutexDc;
-//      size_i32                                              m_size;
-//      ::size_i32                                            m_sizeBuffer;
+//      int_size                                              m_size;
+//      ::int_size                                            m_sizeBuffer;
 //      ::pointer<::windowing_universal_windows::window>     m_pwindow;
 //      bool                                                  m_bInitialized;
 //      bool                                                  m_bInit;

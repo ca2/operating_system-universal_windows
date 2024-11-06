@@ -39,7 +39,7 @@
 
    TRUNCATE_EXISTING
    5
-   Opens a file and truncates it so that its size_i32 is zero bytes, only if it exists.
+   Opens a file and truncates it so that its int_size is zero bytes, only if it exists.
    If the specified file does not exist, the function fails and the last-error code is set to ERROR_FILE_NOT_FOUND (2).
    The calling process must open the file with the GENERIC_WRITE bit set as part of the dwDesiredAccess parameter.
 

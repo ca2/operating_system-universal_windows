@@ -120,7 +120,7 @@ namespace aura
       }
 
 
-      ::color::color node::get_default_color(::u64 u)
+      ::color::color node::get_default_color(huge_natural u)
       {
 
          switch (u)

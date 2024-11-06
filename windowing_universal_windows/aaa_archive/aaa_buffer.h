@@ -39,7 +39,7 @@ namespace windowing_universal_windows
       HDC                           m_hdcScreen;
       bool                          m_bWindowDC;
       oswindow                      m_hwndIpc;
-      ::rectangle_i32               m_rectangleLast;
+      ::int_rectangle               m_rectangleLast;
 
 
       buffer();
@@ -49,7 +49,7 @@ namespace windowing_universal_windows
       virtual ::e_status initialize_graphics_graphics(::windowing::window * pimpl) override;
 
 
-      virtual bool update_buffer(const ::size_i32 & size, int iStride = -1) override;
+      virtual bool update_buffer(const ::int_size & size, int iStride = -1) override;
       virtual void destroy_buffer() override;
       virtual bool update_window() override;
 
@@ -60,7 +60,7 @@ namespace windowing_universal_windows
       virtual ::draw2d::graphics * on_begin_draw() override;
 
 
-      bool create_os_buffer(const ::size_i32 & size, int iStride = -1);
+      bool create_os_buffer(const ::int_size & size, int iStride = -1);
       void destroy_os_buffer();
 
 

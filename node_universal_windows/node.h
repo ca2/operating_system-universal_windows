@@ -41,7 +41,7 @@ namespace node_universal_windows
       void on_system_main() override;
 
 
-      void call_member(::i64 i) override;
+      void call_member(huge_integer i) override;
       
 
       //bool _os_calc_app_dark_mode() override;

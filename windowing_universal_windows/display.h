@@ -23,11 +23,11 @@ namespace windowing_universal_windows
 
 #else
 
-      //rectangle_i32_array                                         m_rectangleaMonitor;
-      //rectangle_i32_array                                             m_rectangleaWork;
+      //::int_rectangle_array                                         m_rectangleaMonitor;
+      //::int_rectangle_array                                             m_rectangleaWork;
 
-      rectangle_i32_array                                               m_rectangleaMonitor;
-      rectangle_i32_array                                               m_rectangleaWkspace;
+      ::int_rectangle_array                                               m_rectangleaMonitor;
+      ::int_rectangle_array                                               m_rectangleaWkspace;
 #endif
       //#pragma message("at macos??")
       //raw_array < MONITORINFO >                          m_monitorinfoa;
@@ -49,22 +49,22 @@ namespace windowing_universal_windows
 
       void enum_display_monitors() override;
 
-      ::collection::index get_main_monitor(::rectangle_i32 & rectangle) override;
+      ::collection::index get_main_monitor(::int_rectangle & rectangle) override;
 
       ::collection::count get_monitor_count() override;
-      //virtual bool  get_monitor_rect(::collection::index iMonitor, ::rectangle_i32 * prectangle) override;
+      //virtual bool  get_monitor_rect(::collection::index iMonitor, ::int_rectangle * prectangle) override;
 
       ::collection::count get_desk_monitor_count() override;
-      //virtual bool  get_desk_monitor_rect(::collection::index iMonitor, ::rectangle_i32 * prectangle) override;
+      //virtual bool  get_desk_monitor_rect(::collection::index iMonitor, ::int_rectangle * prectangle) override;
 
 
-      ::collection::index get_main_workspace(::rectangle_i32 & rectangle) override;
+      ::collection::index get_main_workspace(::int_rectangle & rectangle) override;
 
       ::collection::count get_workspace_count() override;
-      //virtual bool  get_wkspace_rect(::collection::index iWkspace, ::rectangle_i32 * prectangle) override;
+      //virtual bool  get_wkspace_rect(::collection::index iWkspace, ::int_rectangle * prectangle) override;
 
       ::collection::count get_desk_workspace_count() override;
-      //virtual bool  get_desk_wkspace_rect(::collection::index iWkspace, ::rectangle_i32 * prectangle) override;
+      //virtual bool  get_desk_wkspace_rect(::collection::index iWkspace, ::int_rectangle * prectangle) override;
 
       //virtual ::collection::index get_ui_wkspace(::user::interaction * pinteraction) override;
 
@@ -78,38 +78,38 @@ namespace windowing_universal_windows
       virtual bool set_main_monitor(::collection::index iMonitor);
 
 
-      //virtual bool wkspace_to_monitor(::rectangle_i32 * prectangle, ::collection::index iMonitor, ::collection::index iWkspace) override;
+      //virtual bool wkspace_to_monitor(::int_rectangle * prectangle, ::collection::index iMonitor, ::collection::index iWkspace) override;
 
-      //virtual bool monitor_to_wkspace(::rectangle_i32 * prectangle, ::collection::index iWkspace, ::collection::index iMonitor) override;
+      //virtual bool monitor_to_wkspace(::int_rectangle * prectangle, ::collection::index iWkspace, ::collection::index iMonitor) override;
 
-      //virtual bool wkspace_to_monitor(::rectangle_i32 * prectangle) override;
+      //virtual bool wkspace_to_monitor(::int_rectangle * prectangle) override;
 
-      //virtual bool monitor_to_wkspace(::rectangle_i32 * prectangle) override;
-
-
-      virtual void _get_monitor(rectangle_i32_array & rectaMonitor, rectangle_i32_array& rectaIntersect, const rectangle_i32 & rectangleParam);
+      //virtual bool monitor_to_wkspace(::int_rectangle * prectangle) override;
 
 
-      virtual ::collection::index _get_best_zoneing(::e_display * pedisplay, ::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, bool bPreserveSize = false);
+      virtual void _get_monitor(::int_rectangle_array & rectaMonitor, ::int_rectangle_array& rectaIntersect, const int_rectangle & rectangleParam);
 
-      ::collection::index get_best_monitor(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::e_activation eactivation = e_activation_default, ::user::interaction* puserinteractionGetCursorPosition = nullptr) override;
 
-      ::collection::index get_best_workspace(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::e_activation eactivation = e_activation_default, ::user::interaction * puserinteractionGetCursorPosition = nullptr) override;
+      virtual ::collection::index _get_best_zoneing(::e_display * pedisplay, ::int_rectangle * prectangle, const ::int_rectangle & rectangle, bool bPreserveSize = false);
 
-      ::collection::index get_good_iconify(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle) override;
+      ::collection::index get_best_monitor(::int_rectangle * prectangle, const ::int_rectangle & rectangle, ::e_activation eactivation = e_activation_default, ::user::interaction* puserinteractionGetCursorPosition = nullptr) override;
+
+      ::collection::index get_best_workspace(::int_rectangle * prectangle, const ::int_rectangle & rectangle, ::e_activation eactivation = e_activation_default, ::user::interaction * puserinteractionGetCursorPosition = nullptr) override;
+
+      ::collection::index get_good_iconify(::int_rectangle * prectangle, const ::int_rectangle & rectangle) override;
       
-      //virtual ::collection::index get_window_restore_1(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::user::interaction * pinteraction, edisplay edisplayRestore);
+      //virtual ::collection::index get_window_restore_1(::int_rectangle * prectangle, const ::int_rectangle & rectangle, ::user::interaction * pinteraction, edisplay edisplayRestore);
 
-      //virtual ::collection::index get_window_restore_2(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::user::interaction * pinteraction, edisplay edisplayRestore);
+      //virtual ::collection::index get_window_restore_2(::int_rectangle * prectangle, const ::int_rectangle & rectangle, ::user::interaction * pinteraction, edisplay edisplayRestore);
 
-      //virtual ::collection::index get_good_move(::rectangle_i32 * prectangle, const ::rectangle_i32 & rectangle, ::user::interaction * pinteraction);
+      //virtual ::collection::index get_good_move(::int_rectangle * prectangle, const ::int_rectangle & rectangle, ::user::interaction * pinteraction);
 
 
       bool impl_set_wallpaper(::collection::index iScreen, string strLocalImagePath) override;
       string impl_get_wallpaper(::collection::index iScreen) override;
 
 
-      ::point_i32 _get_mouse_cursor_position() override;
+      ::int_point _get_mouse_cursor_position() override;
 
 
    };

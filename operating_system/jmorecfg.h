@@ -237,7 +237,7 @@ typedef unsigned int JDIMENSION;
 
 /* These macros are used in all function definitions and extern declarations.
  * You could modify them if you need to change function linkage conventions;
- * in particular, you'll need to do that to make the library a Windows DLL.
+ * in particular, you'hi need to do that to make the library a Windows DLL.
  * Another application is to make all functions global for use with debuggers
  * or code profilers that require it.
  */
@@ -366,7 +366,7 @@ typedef enum { FALSE = 0, TRUE = 1 } boolean;
  * turn off ENTROPY_OPT_SUPPORTED.  The standard Huffman tables are only
  * good for 8-bit precision, so arithmetic coding is recommended for higher
  * precision.  The Huffman encoder normally uses entropy optimization to
- * compute usable tables for higher precision.  Otherwise, you'll have to
+ * compute usable tables for higher precision.  Otherwise, you'hi have to
  * supply different default Huffman tables.
  * The exact same statements apply for progressive JPEG: the default tables
  * don't work for progressive mode.  (This may get fixed, however.)

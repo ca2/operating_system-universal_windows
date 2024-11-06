@@ -103,8 +103,8 @@ namespace sockets
       //::winrt::Windows::Networking::Sockets::StreamSocket ^ m_streamsocket;
       
       bool m_b_input_buffer_disabled;
-      u64 m_bytes_sent;
-      u64 m_bytes_received;
+      huge_natural m_bytes_sent;
+      huge_natural m_bytes_received;
 #ifdef SOCKETS_DYNAMIC_TEMP
       char *m_buf; ///< temporary read buffer
 #endif
@@ -145,8 +145,8 @@ namespace sockets
       tcp_socket();
       /** Constructor with custom values for i/o buffer.
       \param h base_socket_handler object
-      \param isize Input buffer size_i32
-      \param osize Output buffer size_i32 */
+      \param isize Input buffer int_size
+      \param osize Output buffer int_size */
       tcp_socket(memsize isize,memsize osize);
       ~tcp_socket();
 
@@ -213,9 +213,9 @@ namespace sockets
       \param line Line read */
       void OnLine(const string & line);
       /** get counter of number of bytes received. */
-      u64 GetBytesReceived(bool clear = false);
+      huge_natural GetBytesReceived(bool clear = false);
       /** get counter of number of bytes sent. */
-      u64 GetBytesSent(bool clear = false);
+      huge_natural GetBytesSent(bool clear = false);
 
 
 #ifdef HAVE_OPENSSL

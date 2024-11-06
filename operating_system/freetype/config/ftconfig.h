@@ -278,8 +278,8 @@ FT_BEGIN_HEADER
 #if defined( __STDC_VERSION__ ) && __STDC_VERSION__ >= 199901L
 
 #define FT_LONG64
-#define FT_INT64   long long int
-#define FT_UINT64  unsigned long long int
+#define FT_INT64   huge_integer int
+#define FT_UINT64  huge_natural
 
 #elif defined( _MSC_VER ) && _MSC_VER >= 900  /* Visual C++ (and Intel C++) */
 
@@ -305,15 +305,15 @@ FT_BEGIN_HEADER
 #elif defined( __MWERKS__ )    /* Metrowerks CodeWarrior */
 
 #define FT_LONG64
-#define FT_INT64   long long int
-#define FT_UINT64  unsigned long long int
+#define FT_INT64   huge_integer int
+#define FT_UINT64  huge_natural
 
 #elif defined( __GNUC__ )
 
-  /* GCC provides the `long long' type */
+  /* GCC provides the `huge_integer' type */
 #define FT_LONG64
-#define FT_INT64   long long int
-#define FT_UINT64  unsigned long long int
+#define FT_INT64   huge_integer int
+#define FT_UINT64  huge_natural
 
 #endif /* __STDC_VERSION__ >= 199901L */
 

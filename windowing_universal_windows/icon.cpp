@@ -5,7 +5,7 @@
 #include "aura/graphics/image/image.h"
 
 
-// http ://stackoverflow.com/questions/1913468/how-to-determine-the-size_i32-of-an-icon-from-a-hicon
+// http ://stackoverflow.com/questions/1913468/how-to-determine-the-int_size-of-an-icon-from-a-hicon
 // http://stackoverflow.com/users/739731/sergey
 
 
@@ -29,7 +29,7 @@ namespace windowing_universal_windows
    }
 
 
-   //void * icon::get_os_data(const ::size_i32 & size) const
+   //void * icon::get_os_data(const ::int_size & size) const
    //{
 
    //   //auto & hicon = ((icon *)this)->m_iconmap[size];
@@ -37,7 +37,7 @@ namespace windowing_universal_windows
    //   //if (!hicon)
    //   //{
 
-   //   //   if (m_ppathProcessed.has_char())
+   //   //   if (m_ppathProcessed.has_character())
    //   //   {
 
    //   //      //hicon = (HICON) ::LoadImageW(nullptr, wstring(m_ppathProcessed), IMAGE_ICON, size.cx, size.cy, LR_LOADFROMFILE);
@@ -52,7 +52,7 @@ namespace windowing_universal_windows
    //   //   if (!m_iconmap.is_empty())
    //   //   {
 
-   //   //      ::size_i32 size1 = size;
+   //   //      ::int_size size1 = size;
 
    //   //      //for (auto& hicon1 : m_iconmap.values())
    //   //      //{
@@ -141,13 +141,13 @@ namespace windowing_universal_windows
       //   if (hicon != nullptr)
       //   {
 
-      //      m_iconmap[::size_i32(i, i)] = hicon;
+      //      m_iconmap[::int_size(i, i)] = hicon;
 
       //   }
 
       //}
 
-      //return m_path.has_char();
+      //return m_path.has_character();
 
 //      return !m_iconmap.is_empty();
 
@@ -196,7 +196,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::image::image_pointer icon::get_image(const ::size_i32 & size)
+   ::image::image_pointer icon::get_image(const ::int_size & size)
    {
 
       auto& pimage  = m_imagemap[size];
@@ -215,7 +215,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::image::image_pointer icon::_create_image(const ::size_i32 & size)
+   ::image::image_pointer icon::_create_image(const ::int_size & size)
    {
 
       HICON hicon = (HICON) get_os_data(size);

@@ -206,7 +206,7 @@ namespace windowing_universal_windows
    //HGLOBAL copydesk::hglobal_get_filea(const ::file::path_array & patha)
    //{
 
-   //   strsize iLen = 0;
+   //   character_count iLen = 0;
 
    //   for (int i = 0; i < patha.get_size(); i++)
    //   {
