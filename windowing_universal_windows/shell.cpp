@@ -384,7 +384,7 @@ namespace windowing_universal_windows
 
       //auto pwindowing = puser->windowing()->cast < windowing >();
 
-      //HWND hwnd = __hwnd(pwindowing->system_window()->get_oswindow());
+      //HWND hwnd = as_hwnd(pwindowing->system_window()->get_oswindow());
 
       //comptr < IExtractIconW > piextracticon;
 

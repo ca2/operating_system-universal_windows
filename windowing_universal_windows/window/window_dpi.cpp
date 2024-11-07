@@ -54,7 +54,7 @@ unsigned int get_dpi_for_window(oswindow oswindow)
    if (pfn_get_dpi_for_window)
    {
 
-      return pfn_get_dpi_for_window(__hwnd(oswindow));
+      return pfn_get_dpi_for_window(as_hwnd(oswindow));
 
    }
 

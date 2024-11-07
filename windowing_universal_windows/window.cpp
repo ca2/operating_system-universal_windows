@@ -574,7 +574,7 @@ namespace windowing_universal_windows
       if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
       {
 
-         puserinteraction->place(rectangle_f64_dimension(rectangleWindow.X, rectangleWindow.Y, rectangleWindow.Width, rectangleWindow.Height));
+         puserinteraction->place(double_rectangle_dimension(rectangleWindow.X, rectangleWindow.Y, rectangleWindow.Width, rectangleWindow.Height));
 
       }
 
@@ -1514,7 +1514,7 @@ namespace windowing_universal_windows
       //if (::is_set(pwindowParent))
       //{
 
-      //   hwndParent = __hwnd(pwindowParent->get_oswindow());
+      //   hwndParent = as_hwnd(pwindowParent->get_oswindow());
 
       //}
 
@@ -2867,7 +2867,7 @@ namespace windowing_universal_windows
       //if (::is_set(pWndNewOwner))
       //{
 
-      //   hwndOwner = __hwnd(pWndNewOwner->get_oswindow());
+      //   hwndOwner = as_hwnd(pWndNewOwner->get_oswindow());
 
       //}
 
@@ -2944,7 +2944,7 @@ namespace windowing_universal_windows
    void window::default_message_handler(::message::message * pmessage)
    {
 
-      //HWND hwnd = __hwnd(pmessage->m_oswindow);
+      //HWND hwnd = as_hwnd(pmessage->m_oswindow);
 
       //UINT message = pmessage->m_atom.unsigned int();
 

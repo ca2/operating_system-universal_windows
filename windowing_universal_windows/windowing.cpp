@@ -291,7 +291,7 @@ namespace windowing_universal_windows
    ::windowing::window * windowing::window(oswindow oswindow)
    {
 
-      ///HWND hwnd = __hwnd(oswindow);
+      ///HWND hwnd = as_hwnd(oswindow);
 
       //auto pwindow = _window(hwnd);
 
@@ -629,7 +629,7 @@ namespace windowing_universal_windows
    //void windowing::set_focus(::windowing::window * pwindow)
    //{
 
-   //   auto pwindowFocus = __hwnd(pwindow);
+   //   auto pwindowFocus = as_hwnd(pwindow);
 
    //   HWND hwnd  = pwindow->m_
    //   if (pinteraction == nullptr)
@@ -765,7 +765,7 @@ namespace windowing_universal_windows
    void windowing::erase_window(::windowing::window * pwindow)
    {
 
-      //if (!m_windowmap.erase_key(__hwnd(pwindow->get_oswindow())))
+      //if (!m_windowmap.erase_key(as_hwnd(pwindow->get_oswindow())))
       //{
 
       //   return ::error_failed;
@@ -832,7 +832,7 @@ namespace windowing_universal_windows
    int_bool windowing::point_is_window_origin(::int_point ptHitTest, oswindow oswindowExclude, int iMargin)
    {
 
-      //HWND hwndExclude = __hwnd(oswindowExclude);
+      //HWND hwndExclude = as_hwnd(oswindowExclude);
 
       //auto phwnda = get_top_level_windows();
 
@@ -895,7 +895,7 @@ namespace windowing_universal_windows
    //   //for (int i = 0; i < ptra.get_size(); i++)
    //   //{
 
-   //   //   hwnda.add(__hwnd(ptra.element_at(i)->get_oswindow()));
+   //   //   hwnda.add(as_hwnd(ptra.element_at(i)->get_oswindow()));
 
    //   //}
 

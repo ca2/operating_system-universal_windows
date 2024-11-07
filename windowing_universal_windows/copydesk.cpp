@@ -389,7 +389,7 @@ namespace windowing_universal_windows
 
             //      synchronous_lock synchronouslock(synchronization());
 
-            //      if (!::OpenClipboard(__hwnd(get_oswindow())))
+            //      if (!::OpenClipboard(as_hwnd(get_oswindow())))
             //      //if(!OpenClipboard())
             //      {
 
@@ -443,7 +443,7 @@ namespace windowing_universal_windows
 
       //synchronous_lock synchronouslock(synchronization());
 
-      //if (!::OpenClipboard(__hwnd(get_oswindow())))
+      //if (!::OpenClipboard(as_hwnd(get_oswindow())))
       //{
 
       //   return false;
@@ -485,7 +485,7 @@ namespace windowing_universal_windows
 
       //synchronous_lock synchronouslock(synchronization());
 
-      //if (!::OpenClipboard(__hwnd(get_oswindow())))
+      //if (!::OpenClipboard(as_hwnd(get_oswindow())))
       //{
 
       //   return false;
@@ -787,7 +787,7 @@ namespace windowing_universal_windows
 
       synchronous_lock synchronouslock(synchronization());
 
-      //if (!::OpenClipboard(__hwnd(get_oswindow())))
+      //if (!::OpenClipboard(as_hwnd(get_oswindow())))
       //{
 
       //   return false;

@@ -125,7 +125,7 @@ namespace windowing_universal_windows
 
       m_path = strPath;
 
-      //::i32_array ia;
+      //::int_array ia;
 
       //ia.add(16);
       //ia.add(24);
@@ -181,7 +181,7 @@ namespace windowing_universal_windows
    }
 
 
-   void icon::get_sizes(::size_i32_array & a)
+   void icon::get_sizes(::int_size_array & a)
    {
 
       a.erase_all();
