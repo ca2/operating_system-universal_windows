@@ -108,7 +108,7 @@ namespace music
 
             uint64_t uiFile;
 
-            i32_map < i32_map < int > > map;
+            int_map < int_map < int > > map;
 
             bool bProcessed;
 
