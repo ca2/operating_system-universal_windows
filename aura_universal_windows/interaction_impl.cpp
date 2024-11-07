@@ -2377,7 +2377,7 @@ return true;
    //bool interaction_impl::client_to_screen(::int_rectangle * lprect)
    //{
 
-   //   ::i64_rectangle rectangleWindow;
+   //   ::huge_integer_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2399,7 +2399,7 @@ return true;
    //bool interaction_impl::client_to_screen(::int_point * lppoint)
    //{
 
-   //   ::i64_rectangle rectangleWindow;
+   //   ::huge_integer_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2416,7 +2416,7 @@ return true;
    //}
 
 
-   //bool interaction_impl::client_to_screen(::i64_rectangle * lprect)
+   //bool interaction_impl::client_to_screen(::huge_integer_rectangle * lprect)
    //{
 
    //   ::int_rectangle rectangleWindow;
@@ -2441,7 +2441,7 @@ return true;
    //bool interaction_impl::client_to_screen(::huge_integer_point * lppoint)
    //{
 
-   //   ::i64_rectangle rectangleWindow;
+   //   ::huge_integer_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2461,7 +2461,7 @@ return true;
    //bool interaction_impl::screen_to_client(::int_rectangle * lprect)
    //{
 
-   //   ::i64_rectangle rectangleWindow;
+   //   ::huge_integer_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2483,7 +2483,7 @@ return true;
    //bool interaction_impl::screen_to_client(::int_point * lppoint)
    //{
 
-   //   ::i64_rectangle rectangleWindow;
+   //   ::huge_integer_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2500,10 +2500,10 @@ return true;
    //}
 
 
-   //bool interaction_impl::screen_to_client(::i64_rectangle * lprect)
+   //bool interaction_impl::screen_to_client(::huge_integer_rectangle * lprect)
    //{
 
-   //   ::i64_rectangle rectangleWindow;
+   //   ::huge_integer_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2525,7 +2525,7 @@ return true;
    //bool interaction_impl::screen_to_client(::huge_integer_point * lppoint)
    //{
 
-   //   ::i64_rectangle rectangleWindow;
+   //   ::huge_integer_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2543,7 +2543,7 @@ return true;
 
 
 
-   //bool interaction_impl::window_rectangle(::i64_rectangle * lprect)
+   //bool interaction_impl::window_rectangle(::huge_integer_rectangle * lprect)
    //{
 
    //   if(m_pwindow == nullptr)
@@ -2600,7 +2600,7 @@ return true;
    //}
 
 
-   //bool interaction_impl::this->rectangle(::i64_rectangle * lprect)
+   //bool interaction_impl::this->rectangle(::huge_integer_rectangle * lprect)
    //{
 
    //   if(!::is_window(get_handle()))

@@ -200,17 +200,17 @@ namespace aura_universal_windows
       virtual unsigned int ArrangeIconicWindows();
       virtual bool BringWindowToTop();
       //using ::windowing::window::window_rectangle;
-      //virtual bool window_rectangle(::i64_rectangle * lpRect);
+      //virtual bool window_rectangle(::huge_integer_rectangle * lpRect);
       //using ::windowing::window::this->rectangle;
-      //virtual bool this->rectangle(::i64_rectangle * lpRect);
+      //virtual bool this->rectangle(::huge_integer_rectangle * lpRect);
 
       //virtual bool client_to_screen(::int_rectangle * lprect);
       //virtual bool client_to_screen(::int_point * lppoint);
-      //virtual bool client_to_screen(::i64_rectangle * lprect);
+      //virtual bool client_to_screen(::huge_integer_rectangle * lprect);
       //virtual bool client_to_screen(::huge_integer_point * lppoint);
       //virtual bool screen_to_client(::int_rectangle * lprect);
       //virtual bool screen_to_client(::int_point * lppoint);
-      //virtual bool screen_to_client(::i64_rectangle * lprect);
+      //virtual bool screen_to_client(::huge_integer_rectangle * lprect);
       //virtual bool screen_to_client(::huge_integer_point * lppoint);
 
       //      virtual bool GetWindowPlacement(WINDOWPLACEMENT* lpuserinteractionpl);
