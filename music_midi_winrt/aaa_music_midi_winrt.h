@@ -34,10 +34,10 @@
 //////////////
 //////////////typedef struct midievent_tag
 //////////////{
-//////////////   DWORD       dwDeltaTime;          /* Ticks since last event */
+//////////////   DWORD       dwDeltaTime;          /* Ticks since last happening */
 //////////////   DWORD       dwStreamID;           /* Reserved; must be zero */
 //////////////   DWORD       dwEvent;              /* Event type and parameters */
-//////////////   DWORD       dwParms[1];           /* Parameters if this is a long event */
+//////////////   DWORD       dwParms[1];           /* Parameters if this is a long happening */
 //////////////} MIDIEVENT;
 //////////////
 //

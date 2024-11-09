@@ -36,7 +36,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
       class socket;
       class resolv_server;
 
-      /** socket container class, event generator.
+      /** socket container class, happening generator.
       \ingroup basic */
       class CLASS_DECL_APEX socket_handler :
          public base_socket_handler
@@ -65,13 +65,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          /** Set read/write/exception file descriptor sets (fd_set). */
          void set(SOCKET s,bool bRead,bool bWrite,bool bException = true);
 
-         /** Wait for events, generate callbacks. */
+         /** Wait for happenings, generate callbacks. */
          int select(int sec, int usec);
 
-         /** This method will not return until an event has been detected. */
+         /** This method will not return until an happening has been detected. */
          int select();
 
-         /** Wait for events, generate callbacks. */
+         /** Wait for happenings, generate callbacks. */
          int select(struct timeval *tsel);
 
          /** Check that a socket really is handled by this socket handler. */
@@ -144,7 +144,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          port_t GetResolverPort();
          /** Resolver thread ready for queries. */
          bool ResolverReady();
-         /** Returns true if the socket is waiting for a resolve event. */
+         /** Returns true if the socket is waiting for a resolve happening. */
          bool Resolving(base_socket *);
 
          /** Fetch unique trigger atom. */
@@ -181,8 +181,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          /** erase socket from socket ::map, used by socket class. */
          void erase(base_socket *);
          SOCKET m_maxsock; ///< Highest file descriptor + 1 in active sockets list
-//         fd_set m_rfds; ///< file descriptor set monitored for read events
-  //       fd_set m_wfds; ///< file descriptor set monitored for write events
+//         fd_set m_rfds; ///< file descriptor set monitored for read happenings
+  //       fd_set m_wfds; ///< file descriptor set monitored for write happenings
     //     fd_set m_efds; ///< file descriptor set monitored for exceptions
          int m_preverror; ///< debug select() error
          int m_errcnt; ///< debug select() error

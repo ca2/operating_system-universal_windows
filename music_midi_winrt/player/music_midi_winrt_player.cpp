@@ -42,7 +42,7 @@ namespace music
 
                set_thread_priority(::multithreading::e_priority_normal);
 
-               //m_evInitialized.set_happening();
+               //m_happeningInitialized.set_happening();
 
                return true;
 
@@ -362,11 +362,11 @@ namespace music
                   ::music::midi::sequence::e_flag_tempo_change,
                   ::music::midi::sequence::FlagNull);
                   imedia_position tick = get_sequence()->GetPositionTicks();
-                  get_sequence()->m_evMmsgDone.reset_happening();
+                  get_sequence()->m_happeningMmsgDone.reset_happening();
                   link.m_tkRestart = tick + get_sequence()->m_tkBase;
                   //m_bChangingTempo = true;
                   get_sequence()->Stop();
-                  //get_sequence()->m_evMmsgDone.lock();
+                  //get_sequence()->m_happeningMmsgDone.lock();
                   */
                   bool bPlay = IsPlaying();
                   imedia_position ticks = 0;
@@ -388,7 +388,7 @@ namespace music
             }
 
 
-            void player::PostNotifyEvent(::music::midi::player::e_notify_event eevent)
+            void player::PostNotifyEvent(::music::midi::player::e_notify_event ehappening)
             {
 
                if(m_puserinteraction != NULL)
@@ -398,7 +398,7 @@ namespace music
 
                   pdata->m_pplayer = this;
 
-                  pdata->m_enotifyevent = eevent;
+                  pdata->m_enotifyevent = ehappening;
 
                   m_puserinteraction->post_object(::music::midi::player::message_notify_event, 0, pdata);
 

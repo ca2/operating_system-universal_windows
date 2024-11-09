@@ -44,7 +44,7 @@ namespace sockets
    class IEventOwner;
 
    
-   /** Store information about a timer event.
+   /** Store information about a timer happening.
       \ingroup timer */
    class Event
    {

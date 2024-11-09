@@ -588,7 +588,7 @@ namespace windowing_universal_windows
    }
 
    // Helps track the DPI in the helper class.
-   // This is called in the dpiChanged event handler in the impact class.
+   // This is called in the dpiChanged happening handler in the impact class.
    void buffer::SetDpi(float dpi)
    {
 
@@ -800,7 +800,7 @@ namespace windowing_universal_windows
    }
 
 
-   // Allocate all memory resources that change on a window SizeChanged event.
+   // Allocate all memory resources that change on a window SizeChanged happening.
    void buffer::CreateWindowSizeDependentResources()
    {
 
@@ -810,7 +810,7 @@ namespace windowing_universal_windows
 
       graphics_device_lock graphicsdevicelock;
 
-      // Store the window bounds so the next time we get a SizeChanged event we can
+      // Store the window bounds so the next time we get a SizeChanged happening we can
       // avoid rebuilding everything if the int_size is identical.
       m_windowBounds.Width = (float)m_size.cx();
       m_windowBounds.Height = (float)m_size.cy();
@@ -1184,7 +1184,7 @@ namespace windowing_universal_windows
 
       graphics_device_lock devicelock;
 
-      // Store the window bounds so the next time we get a SizeChanged event we can
+      // Store the window bounds so the next time we get a SizeChanged happening we can
       // avoid rebuilding everything if the int_size is identical.
       m_windowBounds.Width = (float)m_size.cx();
 

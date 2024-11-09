@@ -130,7 +130,7 @@ namespace aura_universal_windows
       //   NotificationFilter.dbcc_classguid = guid;
 
       //   auto hdevnotify = RegisterDeviceNotification(
-      //      m_hwnd,                     // events recipient
+      //      m_hwnd,                     // happenings recipient
       //      &NotificationFilter,        // type of device
       //      DEVICE_NOTIFY_WINDOW_HANDLE // type of recipient handle
       //   );

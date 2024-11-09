@@ -39,12 +39,12 @@ namespace music
          thread::thread(::particle * pparticle) :
             ::object(pobject),
             ::thread(pobject),
-            m_evRun(pobject)
+            m_happeningRun(pobject)
          {
 
             m_pseq = NULL;
 
-            m_evRun.set_happening();
+            m_happeningRun.set_happening();
 
             m_tkPosition = 0;
 
@@ -67,7 +67,7 @@ namespace music
 
             e_result smfrc;
 
-            ::music::midi::event * pevent = NULL;
+            ::music::midi::happening * pevent = NULL;
 
             imedia_position tickMax = ::numeric_info <imedia_position>::get_maximum_value();
 
@@ -114,7 +114,7 @@ namespace music
 
             bool bEqual = false;
 
-            m_evRun.wait();
+            m_happeningRun.wait();
 
             if (!task_get_run())
             {

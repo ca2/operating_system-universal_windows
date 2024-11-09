@@ -88,39 +88,39 @@ namespace windowing_universal_windows
       // inform a keyboard layout and text behavior.
       m_pwindow->m_editcontext.InputScope(::winrt::Windows::UI::Text::Core::CoreTextInputScope::Text);
 
-      // The system raises this event to request a specific range of text.
+      // The system raises this happening to request a specific range of text.
       m_pwindow->m_editcontext.TextRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextTextRequestedEventArgs>(m_pwindow, &window::EditContext_TextRequested));
 
-      // The system raises this event to request the current selection.
+      // The system raises this happening to request the current selection.
       m_pwindow->m_editcontext.SelectionRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextSelectionRequestedEventArgs>(m_pwindow, &window::EditContext_SelectionRequested));
 
-      // The system raises this event when it wants the edit control to erase focus.
+      // The system raises this happening when it wants the edit control to erase focus.
       m_pwindow->m_editcontext.FocusRemoved(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::Foundation::IInspectable>(m_pwindow, &window::EditContext_FocusRemoved));
 
-      // The system raises this event to update text in the edit control.
+      // The system raises this happening to update text in the edit control.
       m_pwindow->m_editcontext.TextUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextTextUpdatingEventArgs>(m_pwindow, &window::EditContext_TextUpdating));
 
-      // The system raises this event to change the selection in the edit control.
+      // The system raises this happening to change the selection in the edit control.
       m_pwindow->m_editcontext.SelectionUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextSelectionUpdatingEventArgs>(m_pwindow, &window::EditContext_SelectionUpdating));
 
-      // The system raises this event when it wants the edit control
+      // The system raises this happening when it wants the edit control
       // to apply formatting on a r::winrt::Windows::Foundation::Tange of text.
       m_pwindow->m_editcontext.FormatUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextFormatUpdatingEventArgs>(m_pwindow, &window::EditContext_FormatUpdating));
 
-      // The system raises this event to request layout information.
+      // The system raises this happening to request layout information.
       // This is used to help choose a position for the IME candidate window.
       m_pwindow->m_editcontext.LayoutRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextLayoutRequestedEventArgs>(m_pwindow, &window::EditContext_LayoutRequested));
 
-      // The system raises this event to notify the edit control
+      // The system raises this happening to notify the edit control
       // that the string composition has started.
       m_pwindow->m_editcontext.CompositionStarted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextCompositionStartedEventArgs>(m_pwindow, &window::EditContext_CompositionStarted));
 
-      // The system raises this event to notify the edit control
+      // The system raises this happening to notify the edit control
       // that the string composition is finished.
       m_pwindow->m_editcontext.CompositionCompleted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextCompositionCompletedEventArgs>(m_pwindow, &window::EditContext_CompositionCompleted));
 
-      // The system raises this event when the NotifyFocusLeave operation has
-      // completed. Our sample does not use this event.
+      // The system raises this happening when the NotifyFocusLeave operation has
+      // completed. Our sample does not use this happening.
       m_pwindow->m_editcontext.NotifyFocusLeaveCompleted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::Foundation::IInspectable>(m_pwindow, &window::EditContext_NotifyFocusLeaveCompleted));
 
       // Set our initial UI.

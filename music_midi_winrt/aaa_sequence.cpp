@@ -532,7 +532,7 @@ Seq_Open_File_Cleanup:
 
             set_status(::music::midi::sequence::status_playing);
 
-            m_evMmsgDone.reset_happening();
+            m_happeningMmsgDone.reset_happening();
 
             ::e_status mmrc = ::success;
 
@@ -621,7 +621,7 @@ Seq_Open_File_Cleanup:
                return ::multimedia::result_unsupported_function;
 
             set_status(status_playing);
-            m_evMmsgDone.reset_happening();
+            m_happeningMmsgDone.reset_happening();
 
             //    ::e_status mmrc = 0;
             //    single_lock slStream(&m_csStream, false);
@@ -845,7 +845,7 @@ Seq_Open_File_Cleanup:
 
          //   if(m_uBuffersInMMSYSTEM <= 0)
          //   {
-         //      m_evBuffersZero.set_happening();
+         //      m_happeningBuffersZero.set_happening();
          //   }
 
          //   if (status_reset == get_status())
@@ -925,9 +925,9 @@ Seq_Open_File_Cleanup:
          //         }
          //         else if(m_uiSpecialModeV001Operation == SPMV001TempoChange)
          //         {
-         //            ::music::midi::event event;
-         //            file()->GetTempoEvent(event);
-         //            file()->StreamEvent(event.GetDelta(), &event, lpmidihdr, I32_MAXIMUM, 256);
+         //            ::music::midi::happening happening;
+         //            file()->GetTempoEvent(happening);
+         //            file()->StreamEvent(happening.GetDelta(), &happening, lpmidihdr, I32_MAXIMUM, 256);
          //            // lpmidihdr->dwBytesRecorded = sizeof(gmModeOn);
          //            // memory_copy(lpmidihdr->lpData, gmModeOn, sizeof(gmModeOn));
          //         }
@@ -1222,7 +1222,7 @@ Seq_Open_File_Cleanup:
          }
 
 
-         void sequence::on_midi_playback_end(::music::midi::sequence::event * pevent)
+         void sequence::on_midi_playback_end(::music::midi::sequence::happening * pevent)
          {
 
             __UNREFERENCED_PARAMETER(pevent);
@@ -1233,11 +1233,11 @@ Seq_Open_File_Cleanup:
 
             m_flags.unsignalize(e_flag_waiting);
 
-            m_evMmsgDone.set_happening();
+            m_happeningMmsgDone.set_happening();
 
          }
 
-         void sequence::OnEvent(::music::midi::sequence::event * pevent)
+         void sequence::OnHappening(::music::midi::sequence::happening * pevent)
          {
             switch(ptopic->m_atom)
             {
@@ -1261,7 +1261,7 @@ Seq_Open_File_Cleanup:
 
                single_lock synchronouslock(m_mutex, true);
 
-               ::music::midi::winrt::sequence::event * pev = (::music::midi::winrt::sequence::event *) pevent;
+               ::music::midi::winrt::sequence::happening * pev = (::music::midi::winrt::sequence::happening *) pevent;
 
                if(m_flags.is_signalized(e_flag_end_of_file))
                {
@@ -1276,7 +1276,7 @@ Seq_Open_File_Cleanup:
 
                //if(IsInSpecialModeV001())
                //{
-               //   informationf("::music::midi::sequence::OnEvent e_event_midi_stream_out IsInSpecialModeV001");
+               //   informationf("::music::midi::sequence::OnHappening e_event_midi_stream_out IsInSpecialModeV001");
                //}
                //else
                //{
@@ -1463,21 +1463,21 @@ Seq_Open_File_Cleanup:
          //   imedia::time_array_array ms2DNoteOffMillis(m_pobject);
          //   imedia::time_array_array ms2DBegMillis(m_pobject);
          //   imedia::time_array_array ms2DEndMillis(m_pobject);
-         //   ::music::midi::events midiEvents;
+         //   ::music::midi::happenings midiEvents;
 
 
 
 
-         //   // Note on and off events
+         //   // Note on and off happenings
          //   // and maximum and minimum
          //   // pitch bend peaks.
-         //   ::music::midi::events midiEventsLevel2;
+         //   ::music::midi::happenings midiEventsLevel2;
 
-         //   ::music::midi::events noteOnEvents;
-         //   ::music::midi::events noteOffEvents;
+         //   ::music::midi::happenings noteOnHappenings;
+         //   ::music::midi::happenings noteOffEvents;
 
-         //   ::music::midi::events eventsLevel2Beg;
-         //   ::music::midi::events eventsLevel2End;
+         //   ::music::midi::happenings eventsLevel2Beg;
+         //   ::music::midi::happenings eventsLevel2End;
          //   ::ikaraoke::events_tracks_v1 lyricEventsForPositionCB;
          //   ::ikaraoke::events_tracks_v1 lyricEventsForBouncingBall;
          //   ::ikaraoke::events_tracks_v1 lyricEventsForScoring;
@@ -1498,7 +1498,7 @@ Seq_Open_File_Cleanup:
          //   ::ikaraoke::lyric_events_v2 *pLyricEventsV2_;
          //   ::ikaraoke::lyric_events_v2 *pLyricEventsV2B;
          //   ::ikaraoke::lyric_events_v2 *pLyricEventsV2C;
-         //   ::music::midi::events *pMidiEventsV1;
+         //   ::music::midi::happenings *pMidiEventsV1;
 
          //   tickaaNoteOnPositions.set_size_create(tickaaTokensTicks.get_size());
          //   tickaaNoteOffPositions.set_size_create(tickaaTokensTicks.get_size());
@@ -1584,7 +1584,7 @@ Seq_Open_File_Cleanup:
          //      ::music::midi::util miditutil(m_pobject);
 
          //      miditutil.PrepareNoteOnOffEvents(
-         //         &noteOnEvents,
+         //         &noteOnHappenings,
          //         &noteOffEvents,
          //         (int32_t) pLyricEventsV2->m_iTrack,
          //         file.GetFormat(),
@@ -1600,16 +1600,16 @@ Seq_Open_File_Cleanup:
          //         tickaaTokensTicks.operator()(i));
 
 
-         //      tickaaNoteOnPositions(i)     = noteOnEvents.m_tickaEventsPosition;
+         //      tickaaNoteOnPositions(i)     = noteOnHappenings.m_tickaEventsPosition;
          //      tickaaNoteOffPositions(i)    = noteOffEvents.m_tickaEventsPosition;
          //      tickaaBegPositions(i)        = eventsLevel2Beg.m_tickaEventsPosition;
          //      tickaaEndPositions(i)        = eventsLevel2End.m_tickaEventsPosition;
-         //      pLyricEventsV2->m_dwaNotesData.copy(noteOnEvents.m_dwaEventsData);
+         //      pLyricEventsV2->m_dwaNotesData.copy(noteOnHappenings.m_dwaEventsData);
          //      pLyricEventsV2B->m_dwaNotesData.copy(eventsLevel2Beg.m_dwaEventsData);
          //      pLyricEventsV2C->m_dwaNotesData.copy(eventsLevel2Beg.m_dwaEventsData);
          //      pLyricEventsV2_->m_dwaNotesData.copy(eventsLevel2Beg.m_dwaEventsData);
          //      midiEvents.erase_all();
-         //      noteOnEvents.erase_all();
+         //      noteOnHappenings.erase_all();
          //      noteOffEvents.erase_all();
          //      midiEventsLevel2.erase_all();
          //      eventsLevel2Beg.erase_all();

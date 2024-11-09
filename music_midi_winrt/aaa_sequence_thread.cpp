@@ -63,20 +63,20 @@ namespace music
          }
 
 
-         bool sequence_thread::PostMidiSequenceEvent(::music::midi::sequence * pseq, ::music::midi::sequence::e_event eevent)
+         bool sequence_thread::PostMidiSequenceEvent(::music::midi::sequence * pseq, ::music::midi::sequence::e_happening ehappening)
          {
 
-            return post_object(::music::midi::sequence::message_event,  (WPARAM) pseq, pseq->create_new_event(eevent));
+            return post_object(::music::midi::sequence::message_event,  (WPARAM) pseq, pseq->create_new_event(ehappening));
 
          }
 
 
-         bool sequence_thread::PostMidiSequenceEvent(::music::midi::sequence * pseq, ::music::midi::sequence::e_event eevent, LPMIDIHDR lpmh)
+         bool sequence_thread::PostMidiSequenceEvent(::music::midi::sequence * pseq, ::music::midi::sequence::e_happening ehappening, LPMIDIHDR lpmh)
          {
 
             sp(sequence) seq = pseq;
 
-            return post_object(::music::midi::sequence::message_event,  (WPARAM) pseq, seq->create_new_event(eevent));
+            return post_object(::music::midi::sequence::message_event,  (WPARAM) pseq, seq->create_new_event(ehappening));
 
          }
 
@@ -85,11 +85,11 @@ namespace music
 
             ::pointer<::user::message>pusermessage(pobj);
 
-            sp(::music::midi::sequence::event) pevent(pusermessage->m_lparam);
+            sp(::music::midi::sequence::happening) pevent(pusermessage->m_lparam);
 
             ::music::midi::winrt::sequence * pseq = dynamic_cast < ::music::midi::winrt::sequence * > (ptopic->m_psequence);
 
-            pseq->OnEvent(pevent);
+            pseq->OnHappening(pevent);
 
             switch(ptopic->m_atom)
             {
@@ -233,7 +233,7 @@ namespace music
          }
 
 
-         void sequence_thread::PostNotifyEvent(::music::midi::player::e_notify_event eevent)
+         void sequence_thread::PostNotifyEvent(::music::midi::player::e_notify_event ehappening)
          {
 
             if(m_pplayer != NULL)
@@ -241,7 +241,7 @@ namespace music
 
                sp(::music::midi::player::notify_event) pdata(canew(::music::midi::player::notify_event));
 
-               pdata->m_enotifyevent = eevent;
+               pdata->m_enotifyevent = ehappening;
 
                m_pplayer->post_object(::music::midi::player::message_notify_event, 0, pdata);
 
@@ -360,9 +360,9 @@ namespace music
          void sequence_thread::SendTempoChange()
          {
             ASSERT(!get_sequence()->IsPlaying());
-            get_sequence()->m_evMmsgDone.reset_happening();
+            get_sequence()->m_happeningMmsgDone.reset_happening();
             PostTempoChange();
-            get_sequence()->m_evMmsgDone.wait();
+            get_sequence()->m_happeningMmsgDone.wait();
          }
 
 

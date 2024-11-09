@@ -44,7 +44,7 @@ namespace windowing_universal_windows
 
    void application::OnActivated(CoreApplicationView const & /* applicationView */, IActivatedEventArgs const & /* args */)
    {
-      // Activate the application window, making it visible and enabling it to receive events.
+      // Activate the application window, making it visible and enabling it to receive happenings.
       CoreWindow::GetForCurrentThread().Activate();
    }
 
@@ -106,7 +106,7 @@ namespace windowing_universal_windows
 //      // Enter the render loop.  Note that a UWP app should never exit.
 //      while (true)
 //      {
-//         // Process events incoming to the window.
+//         // Process happenings incoming to the window.
 //         m_window.get().Dispatcher().ProcessEvents(CoreProcessEventsOption::ProcessAllIfPresent);
 //
 //         // Specify the render target we created as the output target.

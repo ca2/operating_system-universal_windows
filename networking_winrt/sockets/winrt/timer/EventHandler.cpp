@@ -72,7 +72,7 @@ namespace sockets
          */
          if (!s || (s && Valid(s)))
          {
-            pe ->GetFrom()->OnEvent(pe->GetID());
+            pe ->GetFrom()->OnHappening(pe->GetID());
          }
          for (pos = m_happenings.get_head_position(); pos != nullptr; )
          {

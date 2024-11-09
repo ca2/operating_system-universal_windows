@@ -287,7 +287,7 @@
 //   }
 //
 //   // Helps track the DPI in the helper class.
-//   // This is called in the dpiChanged event handler in the impact class.
+//   // This is called in the dpiChanged happening handler in the impact class.
 //   void direct2d_buffer::SetDpi(float dpi)
 //   {
 //      
@@ -461,7 +461,7 @@
 //   //}
 //
 //
-//   // Allocate all memory resources that change on a window SizeChanged event.
+//   // Allocate all memory resources that change on a window SizeChanged happening.
 //   void direct2d_buffer::CreateWindowSizeDependentResources()
 //   {
 //
@@ -469,7 +469,7 @@
 //
 //      ::windowing::graphics_lock graphicslock(m_pwindow);
 //
-//      // Store the window bounds so the next time we get a SizeChanged event we can
+//      // Store the window bounds so the next time we get a SizeChanged happening we can
 //      // avoid rebuilding everything if the int_size is identical.
 //      m_windowBounds.Width = (float) m_size.cx;
 //      m_windowBounds.Height = (float) m_size.cy;
@@ -703,7 +703,7 @@
 //
 //      ::windowing::graphics_lock devicelock(m_pwindow);
 //
-//      // Store the window bounds so the next time we get a SizeChanged event we can
+//      // Store the window bounds so the next time we get a SizeChanged happening we can
 //      // avoid rebuilding everything if the int_size is identical.
 //      m_windowBounds.Width = (float)m_size.cx;
 //      m_windowBounds.Height = (float)m_size.cy;

@@ -705,7 +705,7 @@ namespace music
 //         }
 //
 //         ::music::e_result buffer::StreamEventF1(imedia_position tickDelta,
-//            array < ::music::midi::event *, ::music::midi::event * > & eventptra,
+//            array < ::music::midi::happening *, ::music::midi::happening * > & eventptra,
 //            LPMIDIHDR lpmh,
 //            imedia_position tickMax,
 //            uint32_t cbPrerollNomimalMax
@@ -720,7 +720,7 @@ namespace music
 //               return success;
 //            }
 //
-//            ::music::midi::event * pevent;
+//            ::music::midi::happening * pevent;
 //            int32_t iSize = sizeof(midi_stream_happening_header);
 //            int32_t i;
 //            for(i = 0; i < eventptra.get_size(); i++)
@@ -771,7 +771,7 @@ namespace music
 //
 //         ::music::e_result buffer::StreamEvent(
 //            imedia_position                   tickDelta,
-//            ::music::midi::event *        pEvent,
+//            ::music::midi::happening *        pEvent,
 //            LPMIDIHDR               lpmh,
 //            imedia_position                   tickMax,
 //            uint32_t                   cbPrerollNominalMax)
@@ -848,7 +848,7 @@ namespace music
 //               if (pEvent->GetDataSize() != 3)
 //               {
 //
-//                  information( "smfReadEvents: Corrupt tempo event");
+//                  information( "smfReadEvents: Corrupt tempo happening");
 //
 //                  return EInvalidFile;
 //
@@ -955,8 +955,8 @@ namespace music
 //            }
 //            else // Meta
 //            {
-//               // se o meta event possuir tickDelta > 0,
-//               // It inserts the event in the stream so that it doesn't loose syncing
+//               // se o meta happening possuir tickDelta > 0,
+//               // It inserts the happening in the stream so that it doesn't loose syncing
 //               if(tickDelta > 0)
 //               {
 //                  InsertPadEvent(tickDelta, lpmh);
@@ -970,18 +970,18 @@ namespace music
 //         *
 //         * smfReadEvents
 //         *
-//         * This function reads events from a track.
+//         * This function reads happenings from a track.
 //         *
 //         * hSmf                      - Specifies the file to read data from.
 //         *
 //         * lpmh                      - Contains information about the buffer to fill.
 //         *
 //         * tickMax                     - Specifies a cutoff int_point in the stream
-//         *                             beyond which events will not be read.
+//         *                             beyond which happenings will not be read.
 //         *
 //         * Return@rdes
-//         *   ::music::success The events were successfully read.
-//         *   SMF_END_OF_TRACK There are no more events to read in this track.
+//         *   ::music::success The happenings were successfully read.
+//         *   SMF_END_OF_TRACK There are no more happenings to read in this track.
 //         *   EInvalidFile A disk error occured on the file.
 //         *
 //         * @xref <f smfWriteEvents>
@@ -994,7 +994,7 @@ namespace music
 //
 //            //    PSMF                    pSmf = (PSMF)hSmf;
 //            e_result               smfrc;
-//            ::music::midi::event * pevent;
+//            ::music::midi::happening * pevent;
 //            LPDWORD                 lpdw;
 //            //    uint32_t                   dwTempo;
 //            imedia_position               tickDelta;
@@ -1015,7 +1015,7 @@ namespace music
 //            ASSERT(lpmh != NULL);
 //
 //            /*
-//            ** read events from the track and pack them into the buffer in polymsg
+//            ** read happenings from the track and pack them into the buffer in polymsg
 //            ** format.
 //            **
 //            ** If a SysEx or meta would go over a buffer boundry, split it.
@@ -1075,11 +1075,11 @@ namespace music
 //               }
 //
 //               /* If we know ahead of time we won't have room for the
-//               ** event, just break out now. We need 2 uint32_t's for the
-//               ** terminator event and at least 2 uint32_t's for any
-//               ** event we might store - this will allow us a full
-//               ** int16_t event or the delta time and stub for a long
-//               ** event to be split.
+//               ** happening, just break out now. We need 2 uint32_t's for the
+//               ** terminator happening and at least 2 uint32_t's for any
+//               ** happening we might store - this will allow us a full
+//               ** int16_t happening or the delta time and stub for a long
+//               ** happening to be split.
 //               */
 //               /*
 //               now 16 DWORDS
@@ -1097,7 +1097,7 @@ namespace music
 //
 //               /*        if (::music::success != smfrc)
 //               {
-//               smfrc = GetNextEvent((event *)&event, tickMax, true);
+//               smfrc = GetNextEvent((happening *)&happening, tickMax, true);
 //               ASSERT(::music::success != smfrc); */
 //
 //               /* smfGetNextEvent doesn't set this because smfSeek uses it
@@ -1265,18 +1265,18 @@ namespace music
 //         *
 //         * smfReadEvents
 //         *
-//         * This function reads events from a track.
+//         * This function reads happenings from a track.
 //         *
 //         * hSmf                      - Specifies the file to read data from.
 //         *
 //         * lpmh                      - Contains information about the buffer to fill.
 //         *
 //         * tickMax                     - Specifies a cutoff int_point in the stream
-//         *                             beyond which events will not be read.
+//         *                             beyond which happenings will not be read.
 //         *
 //         * Return@rdes
-//         *   ::music::success The events were successfully read.
-//         *   SMF_END_OF_TRACK There are no more events to read in this track.
+//         *   ::music::success The happenings were successfully read.
+//         *   SMF_END_OF_TRACK There are no more happenings to read in this track.
 //         *   EInvalidFile A disk error occured on the file.
 //         *
 //         * @xref <f smfWriteEvents>
@@ -1330,7 +1330,7 @@ namespace music
 //
 //            ASSERT(tickDelta >= 0);
 //
-//            /* Can't fit 4 uint32_t's? (tickDelta + stream-atom + event + some data)
+//            /* Can't fit 4 uint32_t's? (tickDelta + stream-atom + happening + some data)
 //            ** Can't do anything.
 //            */
 //            /*ASSERT(lpmh->dwBufferLength >= lpmh->dwBytesRecorded);
@@ -1421,7 +1421,7 @@ namespace music
 //            //    assert(pSmf != NULL);
 //            ASSERT(lpmh != NULL);
 //
-//            /* Can't fit 4 uint32_t's? (tickDelta + stream-atom + event + some data)
+//            /* Can't fit 4 uint32_t's? (tickDelta + stream-atom + happening + some data)
 //            ** Can't do anything.
 //            */
 //            ASSERT(lpmh->dwBufferLength >= lpmh->dwBytesRecorded);
@@ -1508,14 +1508,14 @@ namespace music
 //         * lpmh                      - Contains information about the buffer to fill.
 //         *
 //         * Returns
-//         *   ::music::success The events were successfully read.
+//         *   ::music::success The happenings were successfully read.
 //         *   EInvalidFile A disk error occured on the file.
 //         *
 //         * Fills as much data as will fit while leaving room for the buffer
 //         * terminator.
 //         *
 //         * If the long data is depleted, resets m_dwPendingUserEvent so
-//         * that the next event may be read.
+//         * that the next happening may be read.
 //         *
 //         *****************************************************************************/
 //         e_result buffer::InsertParmData(
@@ -1529,7 +1529,7 @@ namespace music
 //            //    assert(pSmf != NULL);
 //            ASSERT(lpmh != NULL);
 //
-//            /* Can't fit 4 uint32_t's? (tickDelta + stream-atom + event + some data)
+//            /* Can't fit 4 uint32_t's? (tickDelta + stream-atom + happening + some data)
 //            ** Can't do anything.
 //            */
 //            ASSERT(lpmh->dwBufferLength >= lpmh->dwBytesRecorded);
@@ -1615,12 +1615,12 @@ namespace music
 //         *
 //         * The buffer is mean to be sent as a streaming buffer; i.e. immediately
 //         * followed by the first data buffer. If the requested tick position
-//         * does not exist in the file, the last event in the buffer
+//         * does not exist in the file, the last happening in the buffer
 //         * will be a MEVT_NOP with a delta time calculated to make sure that
-//         * the next stream event plays at the proper time.
+//         * the next stream happening plays at the proper time.
 //         *
-//         * The meta events (tempo, time signature, key signature) will be the
-//         * first events in the buffer if they exist.
+//         * The meta happenings (tempo, time signature, key signature) will be the
+//         * first happenings in the buffer if they exist.
 //         *
 //         * Use smfGetStateMaxSize to determine the maximum int_size of the state
 //         * information buffer. State information that will not fit into the given
@@ -1637,7 +1637,7 @@ namespace music
 //            LPMIDIHDR               lpmh)
 //         {
 //            e_result     smfrc;
-//            ::music::midi::event *        pevent;
+//            ::music::midi::happening *        pevent;
 //            LPDWORD                 lpdw;
 //            BYTE                    bEvent;
 //            uint32_t                    idx;
@@ -1694,7 +1694,7 @@ namespace music
 //            lpmh->dwBytesRecorded = 0;
 //            lpdw = (LPDWORD)lpmh->lpData;
 //
-//            /* Tempo change event?
+//            /* Tempo change happening?
 //            */
 //            if (KF_EMPTY != m_keyframe.rbTempo[0] ||
 //               KF_EMPTY != m_keyframe.rbTempo[1] ||
@@ -1739,7 +1739,7 @@ namespace music
 //               lpmh->dwBytesRecorded += 3*sizeof(uint32_t);
 //            }
 //
-//            /* Program change events?
+//            /* Program change happenings?
 //            */
 //            for (idx = 0; idx < 16; idx++)
 //            {
@@ -1759,7 +1759,7 @@ namespace music
 //               }
 //            }
 //
-//            /* Controller events?
+//            /* Controller happenings?
 //            */
 //            idx = 0;
 //            for (idxChannel = 0; idxChannel < 16; idxChannel++)
@@ -1788,8 +1788,8 @@ namespace music
 //            }
 //
 //            /* Force all tracks to be at tickPosition. We are guaranteed that
-//            ** all tracks will be past the event immediately preceding tickPosition;
-//            ** this will force correct delta-ticks to be generated so that events
+//            ** all tracks will be past the happening immediately preceding tickPosition;
+//            ** this will force correct delta-ticks to be generated so that happenings
 //            ** on all tracks will line up properly on a seek into the middle of the
 //            ** file.
 //            */
@@ -1811,7 +1811,7 @@ namespace music
 //            imedia_position                   tickPosition)
 //         {
 //            e_result  smfrc;
-//            ::music::midi::event *     pevent;
+//            ::music::midi::happening *     pevent;
 //
 //
 //            m_ptracks->m_tkPosition = 0;
@@ -1831,7 +1831,7 @@ namespace music
 //         }
 //
 //
-//         e_result buffer::GetNextEvent(::music::midi::event * & pevent, imedia_position tickMax, bool bTkMaxInclusive)
+//         e_result buffer::GetNextEvent(::music::midi::happening * & pevent, imedia_position tickMax, bool bTkMaxInclusive)
 //         {
 //
 //            if (GetFlags().is_signalized(file::EndOfFile))
@@ -1845,7 +1845,7 @@ namespace music
 //            {
 //               if(m_mepaImmediate.get_size() > 0)
 //               {
-//                  ::music::midi::event * peventImmediate = m_mepaImmediate.element_at(0);
+//                  ::music::midi::happening * peventImmediate = m_mepaImmediate.element_at(0);
 //                  *pevent = *peventImmediate;
 //                  delete peventImmediate;
 //                  m_mepaImmediate.erase_at(0);
@@ -1935,7 +1935,7 @@ namespace music
 //         *
 //         *
 //         ****/
-//         uint32_t mysmfGetTrackEventData(sp(::music::midi::file::buffer) pSmf, ::music::midi::event * pEvent, BYTE * pData[])
+//         uint32_t mysmfGetTrackEventData(sp(::music::midi::file::buffer) pSmf, ::music::midi::happening * pEvent, BYTE * pData[])
 //         {
 //
 //            uint32_t                len;
@@ -2032,14 +2032,14 @@ namespace music
 //
 //
 //
-//         //int32_t buffer::CalcMelodyTrack(::music::midi::events **ppEvents, imedia::position_array & ticka)
+//         //int32_t buffer::CalcMelodyTrack(::music::midi::happenings **ppEvents, imedia::position_array & ticka)
 //         //{
 //            //    return -1;
 //           // return m_ptracks->CalcMelodyTrack(ppEvents, pTicks, m_pFileHeader->wFormat);
 //         //}
 //
 //         /*int32_t buffer::WorkCalcMelodyTrack(
-//            ::music::midi::events ** ppEvents,
+//            ::music::midi::happenings ** ppEvents,
 //            imedia::position_array & positiona,
 //            ::int_array & iaTokenLine)
 //         {
@@ -2103,9 +2103,9 @@ namespace music
 //         {
 //         if(pEvent->_GetDelta() != 0)
 //         {
-//         // if this event being deleted has non-zero delta,
-//         // the previous event must have it delta corrected;
-//         event   previousEvent;
+//         // if this happening being deleted has non-zero delta,
+//         // the previous happening must have it delta corrected;
+//         happening   previousEvent;
 //         if(buffer::music::success != (smfrc = GetPreviousEvent(
 //         &previousEvent,
 //         pEvent)))
@@ -2144,14 +2144,14 @@ namespace music
 //         } */
 //
 //         e_result buffer::GetPreviousEvent(
-//            ::music::midi::event  * pPreviousEvent,
-//            ::music::midi::event  * pEvent)
+//            ::music::midi::happening  * pPreviousEvent,
+//            ::music::midi::happening  * pEvent)
 //         {
 //            __UNREFERENCED_PARAMETER(pPreviousEvent);
 //
 //            e_result               smfrc;
-//            ::music::midi::event *           pevent;
-//            ::music::midi::event *           peventPrevious;
+//            ::music::midi::happening *           pevent;
+//            ::music::midi::happening *           peventPrevious;
 //
 //            m_ptracks->m_tkPosition = 0;
 //            GetFlags().unsignalize(file::EndOfFile);
@@ -2179,7 +2179,7 @@ namespace music
 //
 //         }
 //
-//         e_result buffer::ReplaceSameDeltaEvent(::music::midi::event &eventNew)
+//         e_result buffer::ReplaceSameDeltaEvent(::music::midi::happening &eventNew)
 //         {
 //            int32_t iCurrentTrack = m_ptracks->m_iCurrentTrack;
 //            if(iCurrentTrack < 0)
@@ -2192,12 +2192,12 @@ namespace music
 //
 //            ::music::midi::track_v8 & trackWork = pTrkMidi->GetWorkTrack();
 //
-//            ::music::midi::event & event = trackWork.EventAt(iCurrentEvent);
+//            ::music::midi::happening & happening = trackWork.EventAt(iCurrentEvent);
 //
-//            event = eventNew;
+//            happening = eventNew;
 //            return ::music::success;
 //         }
-//         /*e_result ReplaceSameDeltaEvent(::music::midi::event *pEventOld, CMidiEventV007 *pEventNew)
+//         /*e_result ReplaceSameDeltaEvent(::music::midi::happening *pEventOld, CMidiEventV007 *pEventNew)
 //         {
 //         ASSERT(pEventOld->_GetDeltaTicks() == pEventNew->_GetDeltaTicks());
 //         ASSERT(pEventNew->IsAutoAllocated());
@@ -2255,7 +2255,7 @@ namespace music
 //
 //         }*/
 //
-//         /*e_result ChangeEventDelta(::music::midi::event *pEvent, imedia_position tickNewDelta)
+//         /*e_result ChangeEventDelta(::music::midi::happening *pEvent, imedia_position tickNewDelta)
 //         {
 //         e_result smfrc;
 //         if(pEvent->_GetDelta() != tickNewDelta)
@@ -2264,9 +2264,9 @@ namespace music
 //         if(pTrack == NULL)
 //         return TrackNotFound;
 //         BYTE buffer[256];
-//         uint32_t dwSetUsed = ::music::midi::event::SetVDWord(buffer, 256, tickNewDelta);
+//         uint32_t dwSetUsed = ::music::midi::happening::SetVDWord(buffer, 256, tickNewDelta);
 //         imedia_position tickOldDelta;
-//         uint32_t dwGetUsed = ::music::midi::event::GetVDWord(pEvent->GetImage(), 256, &tickOldDelta);
+//         uint32_t dwGetUsed = ::music::midi::happening::GetVDWord(pEvent->GetImage(), 256, &tickOldDelta);
 //         ASSERT(tickOldDelta == pEvent->_GetDelta());
 //         unsigned char * hpbImage = pEvent->GetImage();
 //         if(dwSetUsed != dwGetUsed)
@@ -2292,7 +2292,7 @@ namespace music
 //         return smfrc;
 //         }
 //         }
-//         ::music::midi::event::SetVDWord(hpbImage, dwSetUsed, tickNewDelta);
+//         ::music::midi::happening::SetVDWord(hpbImage, dwSetUsed, tickNewDelta);
 //         return ::music::success;
 //         }
 //         else
@@ -2374,8 +2374,8 @@ namespace music
 //               return &m_tempomap.element_at(idx - 1);
 //         }
 //
-//         // event must have space to put event data
-//         ::music::e_result buffer::GetTempoEvent(::music::midi::event &event)
+//         // happening must have space to put happening data
+//         ::music::e_result buffer::GetTempoEvent(::music::midi::happening &happening)
 //         {
 //            ::music::midi::tempo_map_entry * pmtme = GetTempoMapEntry(m_ptracks->m_tkPosition);
 //            if(pmtme != NULL)
@@ -2393,9 +2393,9 @@ namespace music
 //               uB.ba[1] = uA.ba[1];
 //               uB.ba[2] = uA.ba[0];
 //
-//               event.SetFullType(::music::midi::Meta);
-//               event.SetMetaType(::music::midi::MetaTempo);
-//               event.SetData(&uB.dw, 3);
+//               happening.SetFullType(::music::midi::Meta);
+//               happening.SetMetaType(::music::midi::MetaTempo);
+//               happening.SetData(&uB.dw, 3);
 //            }
 //            return ::music::success;
 //
@@ -2406,7 +2406,7 @@ namespace music
 //            ::music::midi::tempo_map_entry * pmtme = GetTempoMapEntry(m_ptracks->m_tkPosition);
 //            if(pmtme != NULL)
 //            {
-//               ::music::midi::event * pevent = ___new ::music::midi::event();
+//               ::music::midi::happening * pevent = ___new ::music::midi::happening();
 //               GetTempoEvent(*pevent);
 //               m_mepaOnQuarterNote.add(pevent);
 //            }
@@ -2461,7 +2461,7 @@ namespace music
 //         ::e_status buffer::ImmediatePutTempoChange()
 //         {
 //
-//            ::music::midi::event * pevent = ___new ::music::midi::event;
+//            ::music::midi::happening * pevent = ___new ::music::midi::happening;
 //
 //            GetTempoEvent(*pevent);
 //
@@ -2476,8 +2476,8 @@ namespace music
 //         //e_result buffer::WorkStreamRender(LPMIDIHDR lpmh, imedia_position tickMax, uint32_t cbPrerollNominalMax)
 //         //{
 //         //   e_result       smfrc;
-//         //   ::music::midi::event *           pevent;
-//         //   array < ::music::midi::event *, ::music::midi::event * > eventptraPositionCB;
+//         //   ::music::midi::happening *           pevent;
+//         //   array < ::music::midi::happening *, ::music::midi::happening * > eventptraPositionCB;
 //         //   LPDWORD                    lpdw;
 //         //   imedia_position                        tickDelta;
 //         //   imedia_position                        tickLastDelta = 0 ;
@@ -2489,7 +2489,7 @@ namespace music
 //         //   ASSERT(lpmh != NULL);
 //
 //         //   /////////////////////////////////////////////////////////////////////////////
-//         //   // read events from the track and pack them into the buffer in polymsg
+//         //   // read happenings from the track and pack them into the buffer in polymsg
 //         //   // format.
 //         //   //
 //         //   // If a SysEx or meta would go over a buffer boundry, split it.
@@ -2527,11 +2527,11 @@ namespace music
 //         //      }
 //
 //         //      // If we know ahead of time we won't have room for the
-//         //      // event, just break out now. We need 2 uint32_t's for the
-//         //      // terminator event and at least 2 uint32_t's for any
-//         //      // event we might store - this will allow us a full
-//         //      // int16_t event or the delta time and stub for a long
-//         //      // event to be split.
+//         //      // happening, just break out now. We need 2 uint32_t's for the
+//         //      // terminator happening and at least 2 uint32_t's for any
+//         //      // happening we might store - this will allow us a full
+//         //      // int16_t happening or the delta time and stub for a long
+//         //      // happening to be split.
 //         //      //
 //         //      //
 //
@@ -2573,34 +2573,34 @@ namespace music
 //         //      tickPosition  = GetPosition();
 //         //      tickDelta     = tickPosition - tickLastPosition;
 //
-//         //      // The position CB events are grouped in a single position CB
-//         //      // event after other type of simultaneous events.
-//         //      // The {if block} change the order of simultaneous events.
-//         //      // position CB events ( ptopic->GetFlags() & 1 )
-//         //      // are streamed together in a single position CB event, through
+//         //      // The position CB happenings are grouped in a single position CB
+//         //      // happening after other type of simultaneous happenings.
+//         //      // The {if block} change the order of simultaneous happenings.
+//         //      // position CB happenings ( ptopic->GetFlags() & 1 )
+//         //      // are streamed together in a single position CB happening, through
 //         //      // StreamEventF1 member function.
-//         //      // These position CB events are put after any other kind of event
+//         //      // These position CB happenings are put after any other kind of happening
 //         //      // that have the same position.
-//         //      // The order of the non PositionCB events are not altered.
+//         //      // The order of the non PositionCB happenings are not altered.
 //
 //         //      if(ptopic->GetFlags() & 1)
 //         //      {
 //         //         if(eventptraPositionCB.get_size() <= 0)
 //         //         {
-//         //            // This is the first PositionCB event
+//         //            // This is the first PositionCB happening
 //         //            // at the F1 position.
 //         //            eventptraPositionCB.add(pevent);
 //         //            tickPositionF1   = tickPosition;
 //         //         }
 //         //         else if(tickPosition == tickPositionF1)
 //         //         {
-//         //            // This is another PositionCB event
+//         //            // This is another PositionCB happening
 //         //            // at the F1 position.
 //         //            eventptraPositionCB.add(pevent);
 //         //         }
 //         //         else
 //         //         {
-//         //            // This is another PositionCB event
+//         //            // This is another PositionCB happening
 //         //            // at another position.
 //
 //         //            ASSERT(tickPositionF1 >= tickLastPosition);
@@ -2629,10 +2629,10 @@ namespace music
 //         //            }
 //         //            else
 //         //            {
-//         //               // The event to be streamed in the following StreamEvent function
-//         //               // has the same position of the eventptraPositionCB events.
-//         //               // So, when these eventptraPositionCB events are streamed,
-//         //               // the event delta will be zero.
+//         //               // The happening to be streamed in the following StreamEvent function
+//         //               // has the same position of the eventptraPositionCB happenings.
+//         //               // So, when these eventptraPositionCB happenings are streamed,
+//         //               // the happening delta will be zero.
 //         //               tickDelta = tickPosition - tickPositionF1;
 //         //               tickPositionF1   = tickPosition;
 //         //            }
@@ -2661,7 +2661,7 @@ namespace music
 //         //}
 //
 //         e_result buffer::WorkGetNextRawEvent(
-//            ::music::midi::event *&      pevent,
+//            ::music::midi::happening *&      pevent,
 //            imedia_position                tickMax,
 //            bool                  bTkMaxInclusive)
 //         {
@@ -2682,7 +2682,7 @@ namespace music
 //         }
 //
 //         e_result buffer::WorkGetNextRawMidiEvent(
-//            ::music::midi::event *&      pevent,
+//            ::music::midi::happening *&      pevent,
 //            imedia_position                tickMax,
 //            bool                  bTkMaxInclusive)
 //         {
@@ -2703,7 +2703,7 @@ namespace music
 //         }
 //
 //         e_result buffer::WorkGetNextEvent(
-//            ::music::midi::event *&      pevent,
+//            ::music::midi::happening *&      pevent,
 //            imedia_position                tickMax,
 //            bool                  bTkMaxInclusive)
 //         {
@@ -2716,7 +2716,7 @@ namespace music
 //            {
 //            if(m_mepaImmediate.get_size() > 0)
 //            {
-//            event * peventImmediate = m_mepaImmediate.element_at(0);
+//            happening * peventImmediate = m_mepaImmediate.element_at(0);
 //            pevent = peventImmediate;
 //            delete peventImmediate;
 //            m_mepaImmediate.erase_at(0);
@@ -2824,7 +2824,7 @@ namespace music
 //         {
 //
 //            e_result        smfrc;
-//            ::music::midi::event *           pevent;
+//            ::music::midi::happening *           pevent;
 //            LPDWORD                    lpdw;
 //            BYTE                       bEvent;
 //            uint32_t                       idx;
@@ -2877,7 +2877,7 @@ namespace music
 //            //lpmh->dwBytesRecorded = 0;
 //            lpdw = (LPDWORD)(lpmh->lpData + lpmh->dwBytesRecorded);
 //
-//            /* Tempo change event?
+//            /* Tempo change happening?
 //            */
 //            if (KF_EMPTY != m_keyframe.rbTempo[0] ||
 //               KF_EMPTY != m_keyframe.rbTempo[1] ||
@@ -2899,7 +2899,7 @@ namespace music
 //               lpmh->dwBytesRecorded += 3*sizeof(uint32_t);
 //            }
 //
-//            /* Program change events?
+//            /* Program change happenings?
 //            */
 //            for (idx = 0; idx < 16; idx++)
 //            {
@@ -2919,7 +2919,7 @@ namespace music
 //               }
 //            }
 //
-//            /* Controller events?
+//            /* Controller happenings?
 //            */
 //            idx = 0;
 //            for (idxChannel = 0; idxChannel < 16; idxChannel++)
@@ -2948,8 +2948,8 @@ namespace music
 //            }
 //
 //            /* Force all tracks to be at tickPosition. We are guaranteed that
-//            ** all tracks will be past the event immediately preceding tickPosition;
-//            ** this will force correct delta-ticks to be generated so that events
+//            ** all tracks will be past the happening immediately preceding tickPosition;
+//            ** this will force correct delta-ticks to be generated so that happenings
 //            ** on all tracks will line up properly on a seek into the middle of the
 //            ** file.
 //            */
@@ -2972,7 +2972,7 @@ namespace music
 //            bool bFirst = true;
 //            ::music::midi::tempo_map_entry tempo;
 //            e_result smfrc;
-//            ::music::midi::event * pevent;
+//            ::music::midi::happening * pevent;
 //            m_ptracks->WorkSeekBegin();
 //            while (::music::success
 //               == (smfrc = WorkGetNextRawMidiEvent(pevent, MAX_TICKS, true)))
@@ -2988,7 +2988,7 @@ namespace music
 //
 //                  if (bFirst && m_ptracks->m_tkPosition != 0)
 //                  {
-//                     /* Inserting first event and the absolute time is zero.
+//                     /* Inserting first happening and the absolute time is zero.
 //                     ** Use defaults of 500,000 uSec/qn from MIDI spec
 //                     */
 //
@@ -3215,7 +3215,7 @@ namespace music
 //                  0x00,
 //                  0x11};
 //               track.seek_begin();
-//               ::music::midi::event eventV008;
+//               ::music::midi::happening eventV008;
 //               eventV008.SetPosition(0);
 //               eventV008.SetFullType(::music::midi::Meta);
 //               eventV008.SetMetaType(::music::midi::MetaSeqSpecific);

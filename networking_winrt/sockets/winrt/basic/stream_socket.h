@@ -31,7 +31,7 @@
          ~stream_socket();
 
 
-         /** socket should Check Connect on next write event from select(). */
+         /** socket should Check Connect on next write happening from select(). */
          void set_connecting(bool = true);
 
          /** Check connecting flag.

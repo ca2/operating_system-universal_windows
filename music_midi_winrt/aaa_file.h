@@ -43,7 +43,7 @@ namespace music
 
             //::e_status ImmediatePutTempoChange();
 
-            //::music::e_result GetTempoEvent(::music::midi::event & event);
+            //::music::e_result GetTempoEvent(::music::midi::happening & happening);
 
             //void OnStop();
 
@@ -81,19 +81,19 @@ namespace music
 
             //e_result WriteHeader(MIDIFILEHDR * lpmfh);
 
-            //e_result ChangeEventDelta(::music::midi::event *pEvent, imedia_position tickNewDelta);
+            //e_result ChangeEventDelta(::music::midi::happening *pEvent, imedia_position tickNewDelta);
 
-            //e_result ReplaceSameDeltaEvent(::music::midi::event & pEventNew);
+            //e_result ReplaceSameDeltaEvent(::music::midi::happening & pEventNew);
 
-            //e_result GetPreviousEvent(::music::midi::event * pPreviousEvent, ::music::midi::event * pEvent);
+            //e_result GetPreviousEvent(::music::midi::happening * pPreviousEvent, ::music::midi::happening * pEvent);
 
             //e_result SaveFile(const ::string & lpFilePath);
 
             //e_result WorkWriteXFTracks(string_array & tokena, imedia::position_array & positiona, ::music::xf::info_header & xfinfoheader);
 
-            ////int32_t CalcMelodyTrack(::music::midi::events ** ppEvents, imedia::position_array & ticka);
+            ////int32_t CalcMelodyTrack(::music::midi::happenings ** ppEvents, imedia::position_array & ticka);
 
-            ////int32_t WorkCalcMelodyTrack(::music::midi::events ** ppEvents, imedia::position_array & positiona, ::int_array & iaTokenLine);
+            ////int32_t WorkCalcMelodyTrack(::music::midi::happenings ** ppEvents, imedia::position_array & positiona, ::int_array & iaTokenLine);
 
             //int32_t GetFormat();
 
@@ -103,11 +103,11 @@ namespace music
 
             ////e_result WorkStreamRender(LPMIDIHDR lpmh, imedia_position tickMax, uint32_t cbPrerollNomimalMax);
 
-            //e_result WorkGetNextEvent(::music::midi::event * & pevent, imedia_position tickMax, bool bTkMaxInclusive);
+            //e_result WorkGetNextEvent(::music::midi::happening * & pevent, imedia_position tickMax, bool bTkMaxInclusive);
 
-            //e_result WorkGetNextRawEvent(::music::midi::event * & pevent, imedia_position tickMax, bool bTkMaxInclusive);
+            //e_result WorkGetNextRawEvent(::music::midi::happening * & pevent, imedia_position tickMax, bool bTkMaxInclusive);
 
-            //e_result WorkGetNextRawMidiEvent(::music::midi::event * & pevent, imedia_position tickMax, bool bTkMaxInclusive);
+            //e_result WorkGetNextRawMidiEvent(::music::midi::happening * & pevent, imedia_position tickMax, bool bTkMaxInclusive);
 
             //e_result WorkSeek(imedia_position tickPosition, LPMIDIHDR lpmh);
 
@@ -159,9 +159,9 @@ namespace music
 
             //e_result StreamRender(LPMIDIHDR lpmh, imedia_position tickMax, uint32_t cbPrerollNomimalMax);
 
-            //::music::e_result StreamEvent(imedia_position tickDelta, ::music::midi::event * Event, LPMIDIHDR lpmh, imedia_position tickMax, uint32_t cbPrerollNomimalMax);
+            //::music::e_result StreamEvent(imedia_position tickDelta, ::music::midi::happening * Event, LPMIDIHDR lpmh, imedia_position tickMax, uint32_t cbPrerollNomimalMax);
 
-            //::music::e_result StreamEventF1(imedia_position tickDelta, array < ::music::midi::event *, ::music::midi::event * > & eventptra, LPMIDIHDR lpmh, imedia_position tickMax, uint32_t cbPrerollNomimalMax);
+            //::music::e_result StreamEventF1(imedia_position tickDelta, array < ::music::midi::happening *, ::music::midi::happening * > & eventptra, LPMIDIHDR lpmh, imedia_position tickMax, uint32_t cbPrerollNomimalMax);
 
             //e_result seek(imedia_position tickPosition, LPMIDIHDR lpmh);
 
@@ -169,7 +169,7 @@ namespace music
 
             ////e_result Build();
 
-            //e_result GetNextEvent(::music::midi::event *& pevent, imedia_position tickMax, bool   bTkMaxInclusive);
+            //e_result GetNextEvent(::music::midi::happening *& pevent, imedia_position tickMax, bool   bTkMaxInclusive);
 
             //e_result GetNextEventTkPosition(imedia_position * pTkPosition, imedia_position tickMax);
 

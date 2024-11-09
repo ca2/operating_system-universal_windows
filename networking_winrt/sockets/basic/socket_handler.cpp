@@ -749,7 +749,7 @@ start_processing_adding:
 
          m_maxsock = (socket + 1 > m_maxsock) ? socket + 1 : m_maxsock;
 
-         // only add to m_socketlist (process fd_set events) if
+         // only add to m_socketlist (process fd_set happenings) if
          //  slave handler and detached/detaching socket
          //  master handler and non-detached socket
          //if (!(m_slave ^ psocket->IsDetach()))
@@ -1281,7 +1281,7 @@ end_processing_adding:
 
       }
 
-      // check is_connecting - connection timeout - conditional event
+      // check is_connecting - connection timeout - conditional happening
       if (m_socketlistTimeout.get_size())
       {
          
@@ -1430,7 +1430,7 @@ end_processing_adding:
 
       }
 
-      // check close and delete - conditional event
+      // check close and delete - conditional happening
       if (m_socketlistClose.get_size() > 0)
       {
 

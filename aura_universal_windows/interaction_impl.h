@@ -22,7 +22,7 @@ namespace aura_universal_windows
       class ::time                                                            m_timeLastMouseMove;
       iptr_to_iptr                                                      m_mapLong;
       ::particle_pointer                                          m_pparticleMutexQueue;
-      manual_reset_happening                                                m_evQueue;
+      manual_reset_happening                                                m_happeningQueue;
       pointer_array < ::user::message >                                  m_messageaQueue;
       int m_nModalResult; // for return values from ::windowing::window::RunModalLoop
 

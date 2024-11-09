@@ -22,7 +22,7 @@ namespace music
 
             sequence *              m_pseq;
 
-            manual_reset_happening      m_evRun;
+            manual_reset_happening      m_happeningRun;
 
             imedia_position         m_tkPosition;
 

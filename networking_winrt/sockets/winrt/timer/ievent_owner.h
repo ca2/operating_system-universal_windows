@@ -34,7 +34,7 @@ namespace sockets
 {
 
 
-   /** Any class that wants to use timer events inherits this.
+   /** Any class that wants to use timer happenings inherits this.
       \ingroup timer */
    class IEventOwner
    {
@@ -42,18 +42,18 @@ namespace sockets
       IEventOwner(IEventHandler& h);
       virtual ~IEventOwner();
 
-      /** Schedule event.
-         \param sec Seconds until event
-         \param usec Microseconds until event
+      /** Schedule happening.
+         \param sec Seconds until happening
+         \param usec Microseconds until happening
          \return Event ID */
       long AddEvent(long sec,long usec);
-      /** clear all events scheduled by this owner. */
+      /** clear all happenings scheduled by this owner. */
       void ClearEvents();
-      /** erase one event scheduled by this owner.
+      /** erase one happening scheduled by this owner.
          \param eid Event ID to erase */
       void RemoveEvent(long eid);
       /** Event callback will fire when time is up. */
-      virtual void OnEvent(int) = 0;
+      virtual void OnHappening(int) = 0;
 
       IEventHandler& EventHandler();
       void SetHandlerInvalid(bool x = true) { m_handler_invalid = x; }
