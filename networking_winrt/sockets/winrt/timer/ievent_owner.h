@@ -59,7 +59,7 @@ namespace sockets
       void SetHandlerInvalid(bool x = true) { m_handler_invalid = x; }
 
    private:
-      IEventHandler& m_event_handler;
+      IEventHandler& m_happening_handler;
       bool m_handler_invalid;
    };
 

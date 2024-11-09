@@ -22,25 +22,25 @@ namespace sockets
 
    EventHandler::~EventHandler()
    {
-      POSITION pos = m_events.get_head_position();
+      POSITION pos = m_happenings.get_head_position();
       while(pos != nullptr)
       {
-         Event * pe = m_events.get_next(pos);
+         Event * pe = m_happenings.get_next(pos);
          pe -> GetFrom() -> SetHandlerInvalid();
          delete pe;
       }
-      m_events.erase_all();
+      m_happenings.erase_all();
    }
 
 
    bool EventHandler::GetTimeUntilNextEvent(struct timeval *tv)
    {
-      if (!m_events.get_size())
+      if (!m_happenings.get_size())
          return false;
-      POSITION pos = m_events.get_head_position();
+      POSITION pos = m_happenings.get_head_position();
       if(pos != nullptr)
       {
-         Event * pe = m_events.get_next(pos);
+         Event * pe = m_happenings.get_next(pos);
          EventTime now;
          mytime_t diff = pe->get_time() - now;
          if (diff < 1)
@@ -58,10 +58,10 @@ namespace sockets
    void EventHandler::CheckEvents()
    {
       EventTime now;
-      POSITION pos = m_events.get_head_position();
+      POSITION pos = m_happenings.get_head_position();
       while(pos != nullptr)
       {
-         Event * pe = m_events.get_next(pos);
+         Event * pe = m_happenings.get_next(pos);
          if(!(pe->get_time() < now))
             break;
          socket * s = dynamic_cast<socket *>(pe->GetFrom());
@@ -74,16 +74,16 @@ namespace sockets
          {
             pe ->GetFrom()->OnEvent(pe->GetID());
          }
-         for (pos = m_events.get_head_position(); pos != nullptr; )
+         for (pos = m_happenings.get_head_position(); pos != nullptr; )
          {
-            Event * pe2 = m_events.get_next(pos);
+            Event * pe2 = m_happenings.get_next(pos);
             if(pe2 == pe)
                break;
          }
          delete pe;
          if(pos != nullptr)
-            m_events.erase_at(pos);
-         pos = m_events.get_head_position();
+            m_happenings.erase_at(pos);
+         pos = m_happenings.get_head_position();
       }
    }
 
@@ -91,14 +91,14 @@ namespace sockets
    long EventHandler::AddEvent(IEventOwner *from,long sec,long usec)
    {
       Event * peNew = ___new Event(from, sec, usec);
-      POSITION pos = m_events.get_head_position();
+      POSITION pos = m_happenings.get_head_position();
       while(pos != nullptr)
       {
-         Event * pe = m_events.get_next(pos);
+         Event * pe = m_happenings.get_next(pos);
          if(!(*pe < *peNew))
             break;
       }
-      m_events.insert_before(pos, peNew);
+      m_happenings.insert_before(pos, peNew);
       if (m_socket)
       {
          m_socket->write("\n");
@@ -113,10 +113,10 @@ namespace sockets
       do
       {
          repeat = false;
-         POSITION pos = m_events.get_head_position();
+         POSITION pos = m_happenings.get_head_position();
          for(; pos != nullptr;)
          {
-            Event * pe = m_events.get_next(pos);
+            Event * pe = m_happenings.get_next(pos);
             if(pe->GetFrom() == from)
             {
                delete pe;
@@ -124,7 +124,7 @@ namespace sockets
                break;
             }
          }
-         m_events.erase_all();
+         m_happenings.erase_all();
       } while (repeat);
    }
 
@@ -157,14 +157,14 @@ namespace sockets
 
    void EventHandler::RemoveEvent(IEventOwner *from, long eid)
    {
-      POSITION pos = m_events.get_head_position();
+      POSITION pos = m_happenings.get_head_position();
       for(; pos != nullptr; )
       {
-         Event * pe = m_events.get_next(pos);
+         Event * pe = m_happenings.get_next(pos);
          if(from == pe->GetFrom() && eid == pe->GetID())
          {
             delete pe;
-            m_events.erase_at(pos);
+            m_happenings.erase_at(pos);
             break;
          }
       }

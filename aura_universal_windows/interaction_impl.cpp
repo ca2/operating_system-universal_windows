@@ -1890,17 +1890,17 @@ return true;
 
 
 
-   //   manual_reset_happening m_event;
+   //   manual_reset_happening m_happening;
    //   oswindow m_hwnd;
    //   HDC m_hdc;
 
    //   print_window(oswindow hwnd,HDC hdc,::time tickTimeout)
    //   {
-   //      m_event.ResetEvent();
+   //      m_happening.ResetEvent();
    //      m_hwnd = hwnd;
    //      m_hdc = hdc;
    //      begin_thread(&print_window::s_print_window,(LPVOID) this,::e_priority_above_normal);
-   //      if(m_event.wait(::time(tickTimeout)).timeout())
+   //      if(m_happening.wait(::time(tickTimeout)).timeout())
    //      {
    //         informationf("print_window::time_out");
    //      }
@@ -1914,7 +1914,7 @@ return true;
    //      //print_window * pprintwindow = (print_window *) pvoid;
    //      //try
    //      //{
-   //      //   HANDLE hevent = (HANDLE) pprintwindow->m_event.get_os_data();
+   //      //   HANDLE hevent = (HANDLE) pprintwindow->m_happening.get_os_data();
    //      //   ::PrintWindow(pprintwindow->m_hwnd, pprintwindow->m_hdc, 0);
    //      //   ::SetEvent(hevent);
    //      //}

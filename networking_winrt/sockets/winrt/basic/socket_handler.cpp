@@ -312,7 +312,7 @@ namespace sockets
          //m_sockets.get_next_assoc(pos, s, psocket);
          if(psocket != nullptr)
          {
-            psocket->m_event.wait(seconds(tsel->tv_sec));
+            psocket->m_happening.wait(seconds(tsel->tv_sec));
             if(psocket->is_connecting())
             {
                psocket->m_estatus = ::error_timeout;
@@ -328,13 +328,13 @@ namespace sockets
 
                   auto writer = pstreamsocket->m_writer;
 
-                  psocket->m_event.ResetEvent();
+                  psocket->m_happening.ResetEvent();
 
                   writer->StoreAsync()->Completed = ref __allocate< ::winrt::Windows::Foundation::AsyncOperationCompletedHandler < unsigned int >  >([=]
                                                     (::winrt::Windows::Foundation::IAsyncOperation < unsigned int > ^ action, ::winrt::Windows::Foundation::AsyncStatus status)
                   {
                      writer->DetachStream();
-                     psocket->m_event.SetEvent();
+                     psocket->m_happening.SetEvent();
                   });
 
                   pstreamsocket->m_writer = nullptr;

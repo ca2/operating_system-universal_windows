@@ -721,37 +721,37 @@ namespace music
 //            }
 //
 //            ::music::midi::event * pevent;
-//            int32_t iSize = sizeof(midi_stream_event_header);
+//            int32_t iSize = sizeof(midi_stream_happening_header);
 //            int32_t i;
 //            for(i = 0; i < eventptra.get_size(); i++)
 //            {
 //               pevent = eventptra[i];
 //               ASSERT(ptopic->GetFlags() & 1);
 //               iSize += (int32_t) ptopic->GetDataSize();
-//               iSize += sizeof(midi_stream_event_header);
+//               iSize += sizeof(midi_stream_happening_header);
 //            }
 //
 //            m_memstorageF1.allocate(iSize);
 //            LPBYTE lpbParam;
 //            LPDWORD lpdwType;
-//            midi_stream_event_header * pheader;
-//            pheader = (midi_stream_event_header *) &m_memstorageF1.get_data()[0];
-//            pheader->m_dwLength = iSize - sizeof(midi_stream_event_header);
+//            midi_stream_happening_header * pheader;
+//            pheader = (midi_stream_happening_header *) &m_memstorageF1.get_data()[0];
+//            pheader->m_dwLength = iSize - sizeof(midi_stream_happening_header);
 //            pheader->m_dwType = 0;
-//            iSize = sizeof(midi_stream_event_header);
+//            iSize = sizeof(midi_stream_happening_header);
 //            for(i = 0; i < eventptra.get_size(); i++)
 //            {
 //               pevent = eventptra[i];
 //               lpbParam = ptopic->GetData();
 //               lpdwType = (LPDWORD) lpbParam;
-//               pheader = (midi_stream_event_header *) &m_memstorageF1.get_data()[iSize];
+//               pheader = (midi_stream_happening_header *) &m_memstorageF1.get_data()[iSize];
 //               pheader->m_dwLength = (uint32_t) ptopic->GetDataSize();
 //               pheader->m_dwType = *lpdwType;
 //               memory_copy(
-//                  &m_memstorageF1.get_data()[iSize + sizeof(midi_stream_event_header)],
+//                  &m_memstorageF1.get_data()[iSize + sizeof(midi_stream_happening_header)],
 //                  lpbParam,
 //                  pheader->m_dwLength);
-//               iSize += pheader->m_dwLength + sizeof(midi_stream_event_header);
+//               iSize += pheader->m_dwLength + sizeof(midi_stream_happening_header);
 //            }
 //
 //            m_cbPendingUserEvent = (uint32_t) m_memstorageF1.get_size();
@@ -1120,9 +1120,9 @@ namespace music
 //               tickLastDelta = 0;
 //               /*      while(true)
 //               {
-//               for(i = 0; i < m_eventsTracksForPositionCB.get_size(); i++)
+//               for(i = 0; i < m_happeningsTracksForPositionCB.get_size(); i++)
 //               {
-//               pEventsV1 = m_eventsTracksForPositionCB.get_at(i);
+//               pEventsV1 = m_happeningsTracksForPositionCB.get_at(i);
 //               if(pEventsV1->GetClassOrder() == 1)
 //               {
 //               while(m_ptracks->m_tkPosition >
@@ -1166,7 +1166,7 @@ namespace music
 //               break;
 //               else
 //               {
-//               pEventsV1 = m_eventsTracksForPositionCB.get_at(iTrackFound);
+//               pEventsV1 = m_happeningsTracksForPositionCB.get_at(iTrackFound);
 //               #ifdef DEBUG
 //               //         if(pEventsV1->m_iType == 1)
 //               //         {
@@ -1382,18 +1382,18 @@ namespace music
 //            //   if(m_cbPendingLyricEventV1 >= (3 * sizeof(uint32_t)))
 //            //   {
 //            //      // offset Lyric CallBack Event Code
-//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_pevent->m_nType;
+//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_phappening->m_nType;
 //            //   }
 //            //   if(m_cbPendingLyricEventV1 >= (2 * sizeof(uint32_t)))
 //            //   {
 //            //      // offset Lyric CallBack Event Code
-//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_pevent->m_nTrack;
+//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_phappening->m_nTrack;
 //            //   }
 //            //   if(m_cbPendingLyricEventV1 >= (1 * sizeof(uint32_t)))
 //            //   {
 //            //      // offset Lyric CallBack Event Code
-//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_pevent->m_nCurrentIndex;
-//            //      m_pPendingLyricEventV1->m_Union.m_pevent->m_nCurrentIndex++;
+//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_phappening->m_nCurrentIndex;
+//            //      m_pPendingLyricEventV1->m_Union.m_phappening->m_nCurrentIndex++;
 //            //   }
 //            memFile.seek_to_begin();
 //            memFile.read(lpdw, dwLength);
@@ -1470,18 +1470,18 @@ namespace music
 //            //   if(m_cbPendingLyricEventV1 >= (3 * sizeof(uint32_t)))
 //            //   {
 //            //      // offset Lyric CallBack Event Code
-//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_pevent->m_nType;
+//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_phappening->m_nType;
 //            //   }
 //            //   if(m_cbPendingLyricEventV1 >= (2 * sizeof(uint32_t)))
 //            //   {
 //            //      // offset Lyric CallBack Event Code
-//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_pevent->m_nTrack;
+//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_phappening->m_nTrack;
 //            //   }
 //            //   if(m_cbPendingLyricEventV1 >= (1 * sizeof(uint32_t)))
 //            //   {
 //            //      // offset Lyric CallBack Event Code
-//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_pevent->m_nCurrentIndex;
-//            //      m_pPendingLyricEventV1->m_Union.m_pevent->m_nCurrentIndex++;
+//            //      *lpdw++ = m_pPendingLyricEventV1->m_Union.m_phappening->m_nCurrentIndex;
+//            //      m_pPendingLyricEventV1->m_Union.m_phappening->m_nCurrentIndex++;
 //            //   }
 //            //   m_pPendingLyricEventV1->ToData(lpdw, m_cbPendingLyricEventV1);
 //            //   if (0 == (m_cbPendingLyricEventV1 -= dwLength))

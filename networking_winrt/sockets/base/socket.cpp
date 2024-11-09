@@ -98,7 +98,7 @@ namespace sockets_bsd
       ,m_bLineProtocol(false)
       ,m_skip_c(false)
 //#if !defined(BSD_STYLE_SOCKETS)
-      //,m_event(h.get_())
+      //,m_happening(h.get_())
 //#endif
    {
       m_p2 = this;
