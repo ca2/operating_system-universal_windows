@@ -148,7 +148,7 @@ namespace sockets
 
       create_socket();
 
-      m_happening.ResetEvent();
+      m_happening.reset_happening();
 
       String ^ strService = as_string(ad.get_service_number());
 
@@ -177,7 +177,7 @@ namespace sockets
 
                   m_bConnecting = false;
 
-                  m_happening.SetEvent();
+                  m_happening.set_happening();
 
                });
 
@@ -476,7 +476,7 @@ namespace sockets
       m_memoryRead.set_size(16 * 1024);
 
       m_bufferRead = m_memoryRead.get_os_buffer();
-      m_happening.ResetEvent();
+      m_happening.reset_happening();
 
       try
       {
@@ -491,13 +491,13 @@ namespace sockets
 
          SetCloseAndDelete();
 
-         m_happening.SetEvent();
+         m_happening.set_happening();
 
          return;
 
       }
 
-      m_happening.SetEvent();
+      m_happening.set_happening();
 
       on_read((char*)m_memoryRead.get_data(), m_memoryRead.get_size());
 
@@ -529,7 +529,7 @@ namespace sockets
       //   //delete reader;
       //   reader->DetachStream();
       //   m_bReading = false;
-      //   m_happening.SetEvent();
+      //   m_happening.set_happening();
       //});
 
    }
@@ -562,15 +562,15 @@ namespace sockets
       {
          m_bExpectRequest = false;
          m_bExpectResponse = false;
-         m_happening.SetEvent();
+         m_happening.set_happening();
       }
       else if(m_bExpectRequest || m_bExpectResponse)
       {
-         m_happening.SetEvent();
+         m_happening.set_happening();
       }
       else
       {
-         m_happening.SetEvent();
+         m_happening.set_happening();
          SetCloseAndDelete();
       }
    }

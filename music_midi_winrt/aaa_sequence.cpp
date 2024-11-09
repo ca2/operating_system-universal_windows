@@ -532,7 +532,7 @@ Seq_Open_File_Cleanup:
 
             set_status(::music::midi::sequence::status_playing);
 
-            m_evMmsgDone.ResetEvent();
+            m_evMmsgDone.reset_happening();
 
             ::e_status mmrc = ::success;
 
@@ -621,7 +621,7 @@ Seq_Open_File_Cleanup:
                return ::multimedia::result_unsupported_function;
 
             set_status(status_playing);
-            m_evMmsgDone.ResetEvent();
+            m_evMmsgDone.reset_happening();
 
             //    ::e_status mmrc = 0;
             //    single_lock slStream(&m_csStream, false);
@@ -671,7 +671,7 @@ Seq_Open_File_Cleanup:
             set_status(status_stopping);
             m_flags.signalize(::music::midi::sequence::e_flag_waiting);
 
-            m_happeningMidiPlaybackEnd.ResetEvent();
+            m_happeningMidiPlaybackEnd.reset_happening();
 
             //if(m_hstream != NULL)
             //{
@@ -845,7 +845,7 @@ Seq_Open_File_Cleanup:
 
          //   if(m_uBuffersInMMSYSTEM <= 0)
          //   {
-         //      m_evBuffersZero.SetEvent();
+         //      m_evBuffersZero.set_happening();
          //   }
 
          //   if (status_reset == get_status())
@@ -1233,7 +1233,7 @@ Seq_Open_File_Cleanup:
 
             m_flags.unsignalize(e_flag_waiting);
 
-            m_evMmsgDone.SetEvent();
+            m_evMmsgDone.set_happening();
 
          }
 

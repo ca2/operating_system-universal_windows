@@ -1896,7 +1896,7 @@ return true;
 
    //   print_window(oswindow hwnd,HDC hdc,::time tickTimeout)
    //   {
-   //      m_happening.ResetEvent();
+   //      m_happening.reset_happening();
    //      m_hwnd = hwnd;
    //      m_hdc = hdc;
    //      begin_thread(&print_window::s_print_window,(LPVOID) this,::e_priority_above_normal);
@@ -1933,7 +1933,7 @@ return true;
    void interaction_impl::_001OnProdevianSynch(::message::message * pmessage)
    {
       __UNREFERENCED_PARAMETER(pmessage);
-      //      ::auraacmesystem()->get_event(m_pthread)->SetEvent();
+      //      ::auraacmesystem()->get_event(m_pthread)->set_happening();
       //    ::auraacmesystem()->get_event(::auraacmesystem()->get_twf())->wait(::time(8400));
    }
 

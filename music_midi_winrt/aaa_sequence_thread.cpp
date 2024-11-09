@@ -360,7 +360,7 @@ namespace music
          void sequence_thread::SendTempoChange()
          {
             ASSERT(!get_sequence()->IsPlaying());
-            get_sequence()->m_evMmsgDone.ResetEvent();
+            get_sequence()->m_evMmsgDone.reset_happening();
             PostTempoChange();
             get_sequence()->m_evMmsgDone.wait();
          }
@@ -399,7 +399,7 @@ namespace music
             case ::music::midi::player::command_fade_out_and_stop:
             {
 
-               m_happeningStop.ResetEvent();
+               m_happeningStop.reset_happening();
 
                ::e_status            mmrc;
 
@@ -421,7 +421,7 @@ namespace music
             case ::music::midi::player::command_stop:
             {
 
-               m_happeningStop.ResetEvent();
+               m_happeningStop.reset_happening();
 
                ::e_status            mmrc;
 

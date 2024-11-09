@@ -9,7 +9,7 @@
 //   TimeSpan delay;
 //   delay.Duration = maximum((ns / 100), 1) - 1;
 //   ThreadPoolTimer ^ PeriodicTimer =
-//      ThreadPoolTimer::CreateTimer(ref ___new TimerElapsedHandler([&](ThreadPoolTimer ^) {topic.SetEvent(); }), delay);
+//      ThreadPoolTimer::CreateTimer(ref ___new TimerElapsedHandler([&](ThreadPoolTimer ^) {topic.set_happening(); }), delay);
 //
 //   topic.wait();
 //
@@ -44,7 +44,7 @@ namespace music
 
             m_pseq = NULL;
 
-            m_evRun.SetEvent();
+            m_evRun.set_happening();
 
             m_tkPosition = 0;
 

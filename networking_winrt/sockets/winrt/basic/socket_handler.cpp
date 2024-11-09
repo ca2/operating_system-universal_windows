@@ -328,13 +328,13 @@ namespace sockets
 
                   auto writer = pstreamsocket->m_writer;
 
-                  psocket->m_happening.ResetEvent();
+                  psocket->m_happening.reset_happening();
 
                   writer->StoreAsync()->Completed = ref __allocate< ::winrt::Windows::Foundation::AsyncOperationCompletedHandler < unsigned int >  >([=]
                                                     (::winrt::Windows::Foundation::IAsyncOperation < unsigned int > ^ action, ::winrt::Windows::Foundation::AsyncStatus status)
                   {
                      writer->DetachStream();
-                     psocket->m_happening.SetEvent();
+                     psocket->m_happening.set_happening();
                   });
 
                   pstreamsocket->m_writer = nullptr;

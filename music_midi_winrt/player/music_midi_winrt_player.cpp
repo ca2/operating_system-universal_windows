@@ -42,7 +42,7 @@ namespace music
 
                set_thread_priority(::multithreading::e_priority_normal);
 
-               //m_evInitialized.SetEvent();
+               //m_evInitialized.set_happening();
 
                return true;
 
@@ -362,7 +362,7 @@ namespace music
                   ::music::midi::sequence::e_flag_tempo_change,
                   ::music::midi::sequence::FlagNull);
                   imedia_position tick = get_sequence()->GetPositionTicks();
-                  get_sequence()->m_evMmsgDone.ResetEvent();
+                  get_sequence()->m_evMmsgDone.reset_happening();
                   link.m_tkRestart = tick + get_sequence()->m_tkBase;
                   //m_bChangingTempo = true;
                   get_sequence()->Stop();
