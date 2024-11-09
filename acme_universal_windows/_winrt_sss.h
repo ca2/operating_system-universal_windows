@@ -49,7 +49,7 @@ template < typename PREDICATE >
 
    auto pmutex = __allocate mutex();
 
-   auto pevent = __allocate manual_reset_event();
+   auto pevent = __allocate manual_reset_happening();
 
    pevent->m_estatus = error_timeout;
 

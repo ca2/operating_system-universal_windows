@@ -431,7 +431,7 @@ namespace windowing_universal_windows
       if (!m_windowscorewindow)
       {
 
-         //manual_reset_event ev;
+         //manual_reset_happening ev;
 
          //fork([this, &ev]()
            // {

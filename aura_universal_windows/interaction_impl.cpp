@@ -1890,7 +1890,7 @@ return true;
 
 
 
-   //   manual_reset_event m_event;
+   //   manual_reset_happening m_event;
    //   oswindow m_hwnd;
    //   HDC m_hdc;
 

@@ -4,7 +4,7 @@
 /* Windows sleep in 100ns units */
 //BOOLEAN nanosleep(LONGLONG ns)
 //{
-//   manual_reset_event ev(::get_thread_app());
+//   manual_reset_happening ev(::get_thread_app());
 //
 //   TimeSpan delay;
 //   delay.Duration = maximum((ns / 100), 1) - 1;
