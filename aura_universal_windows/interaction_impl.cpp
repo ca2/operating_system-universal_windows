@@ -5097,7 +5097,7 @@ namespace aura_universal_windows
 
          //m_messageaQueue.add(pusermessage);
 
-         //m_evQueue.set_event();
+         //m_evQueue.set_happening();
       
          //void primitive_impl::queue_message_handler(::user::message * pbaseParam)
          //{

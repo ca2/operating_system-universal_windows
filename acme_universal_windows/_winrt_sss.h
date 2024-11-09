@@ -80,7 +80,7 @@ template < typename PREDICATE >
 
             pevent->m_estatus = estatus;
 
-            pevent->set_event();
+            pevent->set_happening();
 
          }
 

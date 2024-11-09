@@ -443,7 +443,7 @@ namespace windowing_universal_windows
 
          // m_windowscorewindow = m_coreapplicationview.CoreWindow();
 
-           //    topic.set_event();
+           //    topic.set_happening();
              //  coreapplicationview.Dispatcher().ProcessEvents(
                //   ::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
 
