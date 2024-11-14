@@ -1061,8 +1061,11 @@ namespace sockets_bsd
 
    const string & base_socket::GetSocks4Userid()
    {
+      
       return m_socks4_userid;
+
    }
+
 
    bool base_socket::prepare_for_detach()
    {

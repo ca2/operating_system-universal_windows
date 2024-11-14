@@ -9,7 +9,7 @@ class CLASS_DECL_APEX networking_application_socket :
 public:
 
 
-   ::pointer<networking_application>      m_pnetworkingapplication;
+   ::pointer<networking_application>      m_p_networkingapplication;
 
 
    networking_application_socket();
