@@ -159,6 +159,7 @@ typedef unsigned int unichar32;
 #ifdef __cplusplus
 
 #include <typeinfo>
+#include <new>
 
 typedef std::type_info std_type_info;
 
