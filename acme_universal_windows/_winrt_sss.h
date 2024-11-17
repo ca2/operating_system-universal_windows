@@ -2,14 +2,14 @@
 #pragma once
 
 #include "_.h"
-#undef ___new
+//#undef new
 #include "acme/operating_system/universal_windows/nano/_.h"
 #include <winrt/Windows.System.Threading.h>
 #include <winrt/Windows.Foundation.Collections.h>
 #include <winrt/Windows.Storage.h>
 #include <winrt/Windows.Storage.Streams.h>
 #include <winrt/Windows.Storage.FileProperties.h>
-#define ___new ACME_NEW
+//#define new ACME_NEW
 
 
 struct __declspec(uuid("5b0d3235-4dba-4d44-865e-8f1d0e4fd04d")) __declspec(novtable) IMemoryBufferByteAccess : ::IUnknown
