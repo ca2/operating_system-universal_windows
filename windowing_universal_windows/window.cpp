@@ -1530,11 +1530,11 @@ namespace windowing_universal_windows
    }
 
 
-   //void window::show_window(const ::e_display & edisplay, const ::e_activation & eactivation)
-   bool window::_configure_window_unlocked(const class ::zorder & zorder, const ::e_activation & eactivation, bool bNoZorder, ::e_display edisplay) 
+   //void window::show_window(const ::e_display & edisplay, const ::user::e_activation & useractivation)
+   bool window::_configure_window_unlocked(const class ::zorder & zorder, const ::user::e_activation & useractivation, bool bNoZorder, ::e_display edisplay) 
    {
 
-      //auto iShowWindow = windows_show_window(edisplay, eactivation);
+      //auto iShowWindow = windows_show_window(edisplay, useractivation);
 
       //HWND hwnd = get_hwnd();
 
@@ -2103,14 +2103,14 @@ namespace windowing_universal_windows
    }
 
 
-   //bool window::on_set_window_position(const class ::zorder& zorder, int x, int y, int cx, int cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide)
+   //bool window::on_set_window_position(const class ::zorder& zorder, int x, int y, int cx, int cy, const ::user::e_activation& useractivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide)
    bool window::_strict_set_window_position_unlocked(int x, int y, int cx, int cy, bool bNoMove, bool bNoSize)
    {
 
       //if (!(_get_ex_style() & WS_EX_LAYERED))
       //{
 
-      //   ::windowing::window::on_set_window_position(zorder, x, y, cx, cy, eactivation, bNoZorder, bNoMove, bNoSize, bShow, bHide);
+      //   ::windowing::window::on_set_window_position(zorder, x, y, cx, cy, useractivation, bNoZorder, bNoMove, bNoSize, bShow, bHide);
 
       //}
 
@@ -5030,7 +5030,7 @@ namespace windowing_universal_windows
     //}
     //
 
-    void window::_window_show_change_visibility(::e_display edisplay, ::e_activation eactivation)
+    void window::_window_show_change_visibility(::e_display edisplay, const ::user::activation & useractivation)
     {
 
        throw ::interface_only();
@@ -5191,10 +5191,10 @@ namespace windowing_universal_windows
 */
 
 
-   //void window::window_show_change_visibility(::e_display edisplay, ::e_activation eactivation)
+   //void window::window_show_change_visibility(::e_display edisplay, const ::user::activation & useractivation)
    //{
 
-   //   ::user::window::window_show_change_visibility(edisplay, eactivation);
+   //   ::user::window::window_show_change_visibility(edisplay, useractivation);
 
    //}
 

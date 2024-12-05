@@ -397,9 +397,9 @@ namespace windowing_universal_windows
 
       void destroy_window() override;
 
-      //void show_window(const ::e_display & edisplay, const ::e_activation & eactivation) override;
+      //void show_window(const ::e_display & edisplay, const ::user::e_activation & useractivation) override;
 
-      bool _configure_window_unlocked(const class ::zorder & zorder, const ::e_activation & eactivation, bool bNoZorder, ::e_display edisplay) override;
+      bool _configure_window_unlocked(const class ::zorder & zorder, const ::user::e_activation & useractivation, bool bNoZorder, ::e_display edisplay) override;
 
       //virtual void set_user_interaction(::layered * pinteraction) override;
 
@@ -419,17 +419,17 @@ namespace windowing_universal_windows
 
       //bool :window_is_iconic()
 
-      //virtual ::e_status show_window(const::e_display & edisplay, const::e_activation & eactivation) override;
+      //virtual ::e_status show_window(const::e_display & edisplay, const::user::e_activation & useractivation) override;
       
       virtual bool client_to_screen(::int_point * ppoint) override;
 
       virtual bool screen_to_client(::int_point * ppoint) override;
 
-      //virtual bool on_set_window_position(const class ::zorder& zorder, int x, int y, int cx, int cy, const ::e_activation& eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
+      //virtual bool on_set_window_position(const class ::zorder& zorder, int x, int y, int cx, int cy, const ::user::e_activation& useractivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
 
       bool _strict_set_window_position_unlocked(int x, int y, int cx, int cy, bool bNoMove, bool bNoSize) override;
 
-      // virtual bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, const ::e_activation & eactivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
+      // virtual bool set_window_position(const class ::zorder & zorder, int x, int y, int cx, int cy, const ::user::e_activation & useractivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide) override;
 
       //virtual bool _set_window_pos(class::zorder zorder, int x, int y, int cx, int cy, unsigned int nFlags) override;
 
@@ -656,7 +656,7 @@ namespace windowing_universal_windows
       //virtual bool display(::e_display edisplay);
 
 
-      //virtual void sketch_prepare_window_minimize(::e_activation eactivation) override;
+      //virtual void sketch_prepare_window_minimize(const ::user::activation & useractivation) override;
       //virtual void sketch_prepare_window_maximize() override;
       //virtual void sketch_prepare_window_full_screen(const ::int_rectangle & rectangleHint = nullptr) override;
       //virtual void sketch_prepare_window_restore(::e_display edisplay) override;
@@ -1134,7 +1134,7 @@ namespace windowing_universal_windows
 //      virtual bool get_rect_normal(::int_rectangle * prectangle);
       //virtual void register_drop_target();
       //virtual void show_task(bool bShow);
-      void _window_show_change_visibility(::e_display edisplay, ::e_activation eactivation) override;
+      void _window_show_change_visibility(::e_display edisplay, const ::user::activation & useractivation) override;
 
 
       virtual void non_top_most_upper_window_rects(::int_rectangle_array & recta) override;
