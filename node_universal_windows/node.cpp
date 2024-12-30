@@ -7,7 +7,6 @@
 #include "aura/user/user/user.h"
 #include "windowing_universal_windows/window.h"
 #include "windowing_universal_windows/windowing.h"
-#include <winrt/Windows.UI.Core.h>
 
 
 float g_DPIScaleX__2;
@@ -51,59 +50,57 @@ namespace node_universal_windows
    }
 
 
-   void node::on_system_main()
-   {
+   //void node::on_system_main()
+   //{
 
-      ////auto estatus = 
+   //   ////auto estatus = 
 
-      //system()->m_itask = 0;
+   //   //system()->m_itask = 0;
 
-      //system()->m_htask = nullptr;
+   //   //system()->m_htask = nullptr;
 
-      //system()->branch_synchronously();
+   //   //system()->branch_synchronously();
 
-      ////if (!estatus)
-      ////{
+   //   ////if (!estatus)
+   //   ////{
 
-      ////   return estatus;
+   //   ////   return estatus;
 
-      ////}
+   //   ////}
 
-      if (!windowing())
-      {
+   //   //if (!windowing())
+   //   //{
 
-         session()->user()->create_windowing();
+   //   //   session()->user()->create_windowing();
 
-      }
+   //   //}
 
-      auto pwindow = ___new ::windowing_universal_windows::window;
+   //   auto pwindow = __allocate ::windowing_universal_windows::window;
 
-      pwindow->m_pwindowing = windowing();
+   //   ::cast 
 
-      auto pwindowMain = ::pointer_transfer(pwindow);
+   //   pwindow->windowing()->m_pwindowMain = pwindow;
 
-      pwindow->windowing()->m_pwindowMain = pwindowMain;
+   //   pwindow->initialize(this);
 
-      pwindowMain->initialize(this);
+   //   system()->m_pwindowMain = pwindow;
 
-      system()->m_pwindowMain = pwindowMain;
+   //   auto frameworkviewsource = system()->m_frameworkviewsource;
 
-      auto frameworkviewsource = ((::windowing_universal_windows::windowing *)pwindow->m_pwindowing->m_pWindowing4)->m_frameworkviewsource;
+   //   ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(frameworkviewsource);
 
-      ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(frameworkviewsource);
+   //   //estatus = call_member(SOUL_ID);
 
-      //estatus = call_member(SOUL_ID);
+   //   //if (!estatus)
+   //   //{
 
-      //if (!estatus)
-      //{
+   //   //   return estatus;
 
-      //   return estatus;
+   //   //}
 
-      //}
+   //   //return ::success;
 
-      //return ::success;
-
-   }
+   //}
 
 
    void node::call_member(huge_integer i)
@@ -209,22 +206,22 @@ namespace node_universal_windows
    ////}
 
 
-   void node::user_post(const ::procedure & procedure)
-   {
+   //void node::user_post(const ::procedure & procedure)
+   //{
 
-      auto window = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow();
+   //   auto window = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow();
 
-      auto dispatcher = window.Dispatcher();
+   //   auto dispatcher = window.Dispatcher();
 
-      dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
-         [procedure]()
-      {
+   //   dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
+   //      [procedure]()
+   //   {
 
-         procedure();
+   //      procedure();
 
-      });
+   //   });
 
-   }
+   //}
 
    //void node::windowing_post(const ::procedure & procedure)
    //{

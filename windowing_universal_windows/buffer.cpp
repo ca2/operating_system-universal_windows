@@ -596,7 +596,7 @@ namespace windowing_universal_windows
 
       // Only handle window int_size changed if there is no pending DPI change.
 
-      user_post([this, dpi]()
+      m_pwindow->main_post([this, dpi]()
          {
 
             OnChangeDpi(dpi);
@@ -662,7 +662,7 @@ namespace windowing_universal_windows
    void buffer::UpdateForWindowSizeChange()
    {
 
-      user_post([this]()
+      m_pwindow->main_post([this]()
          {
             //m_window->Dispatcher->RunAsync(CoreDispatcherPriority::Normal,ref ___new ::winrt::Windows::UI::Core::DispatchedHandler([this]()
             //{
@@ -1159,7 +1159,7 @@ namespace windowing_universal_windows
 
          m_bWindowSizeChangeInProgress = false;
 
-         user_post([this]()
+         m_pwindow->main_post([this]()
             {
 
                //A window int_size change has been initiated and the app has just completed presenting

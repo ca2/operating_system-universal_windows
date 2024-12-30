@@ -2,6 +2,7 @@
 #pragma once
 
 
+#include "acme_windowing_universal_windows/windowing.h"
 #include "aura/windowing/sandbox/windowing.h"
 #include "application.h"
 #undef ___new
@@ -14,7 +15,8 @@ namespace windowing_universal_windows
 
 
    class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS windowing :
-      virtual public ::sandbox_windowing::windowing
+      virtual public ::sandbox_windowing::windowing,
+      virtual public ::universal_windows::acme::windowing::windowing
       
    {
    public:
@@ -71,6 +73,7 @@ namespace windowing_universal_windows
 
       //void get_cursor_position(::int_point* ppoint) override;
 
+      void kick_idle() override;
       //virtual bool defer_create_system_window();
       //virtual ::pointer<::user::interaction>create_system_window();
       //::extended::transport < system_interaction > create_system_window();
@@ -205,6 +208,12 @@ namespace windowing_universal_windows
       //virtual string _get_window_text_timeout(oswindow oswindow, const class time & time = 1_s);
 
 
+      void windowing_application_main_loop() override;
+      void windowing_post_quit() override;
+
+      void _main_send(const ::procedure & procedure) override;
+      void _user_post(const ::procedure & procedure) override;
+      void on_create_window_object(::user::interaction * puserinteraction) override;
    };
 
 

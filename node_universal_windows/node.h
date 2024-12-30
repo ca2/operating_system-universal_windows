@@ -38,7 +38,7 @@ namespace node_universal_windows
       void node_main() override;
 
 
-      void on_system_main() override;
+      //void on_system_main() override;
 
 
       void call_member(huge_integer i) override;
@@ -56,7 +56,7 @@ namespace node_universal_windows
 
       //pointer< ::extended::future < ::conversation > > _message_box(::particle * pparticle, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
 
-      void user_post(const ::procedure & procedure) override;
+      //void _user_post(const ::procedure & procedure) override;
 
 
       //void windowing_post(const ::procedure& procedure) override;

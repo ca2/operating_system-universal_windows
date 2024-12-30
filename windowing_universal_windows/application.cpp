@@ -54,8 +54,6 @@ namespace windowing_universal_windows
 
       auto windowscorewindow = m_pwindowing->m_pwindowMain->m_windowscorewindow;
 
-      windowscorewindow.Activate();
-
       windowscorewindow.Dispatcher().ProcessEvents(::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
 
 //      // First, create the Direct3D device.

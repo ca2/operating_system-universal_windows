@@ -2,6 +2,7 @@
 #pragma once
 
 
+#include "acme_windowing_universal_windows/window.h"
 #include "aura/windowing/sandbox/window.h"
 #undef ___new
 #include <winrt/Windows.UI.Text.Core.h>
@@ -14,7 +15,8 @@ namespace windowing_universal_windows
 
 
    class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS window :
-      virtual public ::sandbox_windowing::window
+      virtual public ::sandbox_windowing::window,
+      virtual public ::universal_windows::acme::windowing::window
    {
    public:
 
@@ -120,7 +122,7 @@ namespace windowing_universal_windows
 
       void on_initialize_particle() override;
 
-
+      void destroy() override;
       //void main_post(const ::procedure & procedure);
 
       void defer_process_activation_message();
@@ -136,15 +138,20 @@ namespace windowing_universal_windows
       virtual ::winrt::Windows::Foundation::Point get_cursor_position();
       //::int_point get_mouse_cursor_position() override;
 
+      virtual ::int_rectangle get_input_content_rect() override;
+      virtual ::int_rectangle get_input_selection_rect() override;
 
-      virtual ::int_rectangle get_input_content_rect();
-      virtual ::int_rectangle get_input_selection_rect();
+      virtual ::winrt::Windows::Foundation::Rect _get_input_content_rect();
+      virtual ::winrt::Windows::Foundation::Rect _get_input_selection_rect();
 
 
       virtual wide_string get_input_text();
       virtual bool set_input_text(const wide_string & wstr);
 
       virtual void __on_window_visible();
+
+
+      void _create_window() override;
 
       //impact();
 
@@ -249,7 +256,11 @@ namespace windowing_universal_windows
       //::aura::system * get_context_system() const;
 
 
+      void set_mouse_capture() override;
+      bool has_mouse_capture() override;
 
+
+      void defer_show_system_menu(::user::mouse * pmouse) override;
 
       // IFrameworkView Methods
 
@@ -327,21 +338,22 @@ namespace windowing_universal_windows
       bool get_rect_normal(::int_rectangle * prectangle) override;
 
 
-      bool operator== (const window & window) const
-      {
+      //bool operator== (const window & window) const
+      //{
 
-         return oswindow() == window.oswindow();
+      //   return oswindow() == window.oswindow();
 
-      }
+      //}
 
 
-      bool operator!= (const window & window) const
-      {
+      //bool operator!= (const window & window) const
+      //{
 
-         return !operator==(window);
+      //   return !operator==(window);
 
-      }
-
+      //}
+      ::oswindow oswindow() override;
+      ::oswindow oswindow() const override;
 
       class windowing * windowing() const;
 
@@ -1218,6 +1230,12 @@ namespace windowing_universal_windows
       void Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & coreapplicationview);
       void SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window);
 
+      void _set_oswindow(::oswindow oswindow) override;
+
+      void _main_send(const ::procedure & procedure) override;
+      void _main_post(const ::procedure & procedure) override;
+
+      
 
    };
 

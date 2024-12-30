@@ -11,11 +11,13 @@
 #include "aura/user/user/interaction.h"
 #include "aura/message/user.h"
 #include "aura/platform/system.h"
+#include "aura/user/user/frame_interaction.h"
 #include "aura/windowing/window.h"
 #include "direct2d/direct2d.h"
 //#include "universal_windows/framework_impact_source.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include <winrt/Windows.UI.ViewManagement.h>
+#include <winrt/Windows.UI.Core.h>
 
 
 namespace windowing_universal_windows
@@ -233,6 +235,13 @@ namespace windowing_universal_windows
       //}
 
       //return estatus;
+
+   }
+
+   void windowing::kick_idle()
+   {
+
+      ::universal_windows::acme::windowing::windowing::kick_idle();  
 
    }
 
@@ -1385,6 +1394,105 @@ namespace windowing_universal_windows
       return picon;
 
    }
+
+
+   void windowing::_main_send(const ::procedure & procedure)
+   {
+
+      ::universal_windows::acme::windowing::windowing::_main_send(procedure);
+
+   }
+
+
+   void windowing::windowing_application_main_loop()
+   {
+
+
+      //system()->defer_post_initial_request();
+
+      auto pwindow = __allocate::windowing_universal_windows::window;
+
+      m_pwindowMain = pwindow;
+
+      pwindow->initialize(this);
+
+      system()->m_pwindowMain = pwindow;
+
+      auto frameworkviewsource = m_frameworkviewsource;
+
+      ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(frameworkviewsource);
+
+      //estatus = call_member(SOUL_ID);
+
+      //if (!estatus)
+      //{
+
+      //   return estatus;
+
+      //}
+
+      //return ::success;
+
+
+   }
+
+
+   void windowing::on_create_window_object(::user::interaction * puserinteraction)
+   {
+
+      if (m_pwindowMain)
+      {
+
+         if (dynamic_cast <::user::frame_interaction *>(puserinteraction) != nullptr)
+         {
+
+            if (!m_pwindowMain->m_puserinteraction)
+            {
+
+               puserinteraction->m_pacmewindowingwindow = m_pwindowMain;
+
+               m_pwindowMain->m_puserinteraction = puserinteraction;
+
+               m_pwindowMain->m_pacmeuserinteraction = puserinteraction;
+
+               return;
+
+            }
+
+         }
+
+      }
+
+      ::windowing::windowing::on_create_window_object(puserinteraction);
+
+   }
+
+
+   void windowing::windowing_post_quit()
+   {
+
+      ::universal_windows::acme::windowing::windowing::windowing_post_quit();
+
+   }
+
+
+   void windowing::_user_post(const ::procedure & procedure)
+   {
+
+      auto window = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow();
+
+      auto dispatcher = window.Dispatcher();
+
+      dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
+         [procedure]()
+      {
+
+         procedure();
+
+      });
+
+   }
+
 
 
 } // namespace windowing_universal_windows

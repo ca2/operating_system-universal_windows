@@ -288,7 +288,7 @@ namespace acme_universal_windows
 
       }
 
-      auto hstrRelative = as_hstring(pathFolder.windows_path().extended_path());
+      auto hstrRelative = as_hstring(pathFolder.windows_path().path());
 
       try
       {
