@@ -6607,7 +6607,7 @@ namespace windowing_universal_windows
             pkey->m_lparam = pkey->m_nFlags << 16;
             pkey->m_strText = m_strNewText;
 
-            queue_message_handler(spbase);
+            m_puserinteraction->message_handler(spbase);
 
          }
 
@@ -7428,7 +7428,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          
          pkey->m_strText = szUtf8;
 
-         queue_message_handler(pkey);
+         m_puserinteraction->message_handler(pkey);
 
       }
 
@@ -7492,7 +7492,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
    //      pkey->m_key = args;
 
 
-         queue_message_handler(pkey);
+         m_puserinteraction->message_handler(pkey);
 
       //   ;;
       //}
@@ -7578,7 +7578,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
                   //}
                   //else
                   //{
-            queue_message_handler(pusermessage);
+            m_puserinteraction->message_handler(pusermessage);
             //}
 
          //}
@@ -8242,7 +8242,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
 
-         queue_message_handler(pusermessage);
+         m_puserinteraction->message_handler(pusermessage);
 
          m_timeLastMouseMove = ::time::now();
 
@@ -8330,7 +8330,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
 
-         queue_message_handler(pmouse);
+         m_puserinteraction->message_handler(pmouse);
 
       }
 
@@ -8410,7 +8410,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
 
-         queue_message_handler(pmouse);
+         m_puserinteraction->message_handler(pmouse);
 
       }
 
