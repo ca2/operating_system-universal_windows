@@ -137,8 +137,8 @@ namespace windowing_universal_windows
       //::int_point get_mouse_cursor_position() override;
 
 
-      virtual ::winrt::Windows::Foundation::Rect get_input_content_rect();
-      virtual ::winrt::Windows::Foundation::Rect get_input_selection_rect();
+      virtual ::int_rectangle get_input_content_rect();
+      virtual ::int_rectangle get_input_selection_rect();
 
 
       virtual wide_string get_input_text();
@@ -343,7 +343,7 @@ namespace windowing_universal_windows
       }
 
 
-      class windowing * windowing() const { return m_pwindowing.cast < ::windowing_universal_windows::windowing > (); }
+      class windowing * windowing() const;
 
       //virtual void set_oswindow(oswindow oswindow) override;
 
@@ -353,7 +353,7 @@ namespace windowing_universal_windows
       virtual bool has_keyboard_focus() const;
 
 
-      bool is_full_screen() const override;
+      bool is_full_screen() override;
 
       //void send_client_event(Atom atom, unsigned int numArgs, ...);
       //int store_name(const ::string & psz);
@@ -380,7 +380,7 @@ namespace windowing_universal_windows
 
       void bring_to_front() override;
       
-      void set_foreground_window() override;
+      void set_foreground_window(::user::activation_token * puseractivationtoken) override;
       
       //void set_mouse_capture() override;
 
@@ -399,11 +399,11 @@ namespace windowing_universal_windows
 
       //void show_window(const ::e_display & edisplay, const ::user::e_activation & useractivation) override;
 
-      bool _configure_window_unlocked(const class ::zorder & zorder, const ::user::e_activation & useractivation, bool bNoZorder, ::e_display edisplay) override;
+      bool _configure_window_unlocked(const class ::zorder & zorder, const ::user::activation & useractivation, bool bNoZorder, ::e_display edisplay) override;
 
       //virtual void set_user_interaction(::layered * pinteraction) override;
 
-      virtual void post_non_client_destroy() override;
+      //virtual void post_non_client_destroy() override;
 
       void set_mouse_cursor(::windowing::cursor * pcursor) override;
 
@@ -483,6 +483,7 @@ namespace windowing_universal_windows
 
       DECLARE_MESSAGE_HANDLER(on_message_destroy);
       DECLARE_MESSAGE_HANDLER(on_message_create);
+      DECLARE_MESSAGE_HANDLER(on_message_non_client_destroy);
       //DECLARE_MESSAGE_HANDLER(on_message_kill_focus);
       DECLARE_MESSAGE_HANDLER(_001OnPaint);
       DECLARE_MESSAGE_HANDLER(_001OnPrint);
@@ -566,7 +567,7 @@ namespace windowing_universal_windows
 
       virtual lresult send_message(const ::atom & atom, wparam wParam = 0, lparam lParam = nullptr) override;
 
-      virtual bool post_message(const ::atom & atom, wparam wParam = 0, lparam lParam = nullptr) override;
+      virtual void post_message(const ::atom & atom, wparam wParam = 0, lparam lParam = nullptr) override;
 
 
       //bool SendNotifyMessage(unsigned int message, wparam wParam, lparam lParam);
@@ -715,7 +716,7 @@ namespace windowing_universal_windows
 
             // Window State Functions
       virtual bool is_this_enabled();
-      virtual bool enable_window(bool bEnable = true);
+      void enable_window(bool bEnable = true) override;
 
       // the active interaction_impl applies only to top-level (frame windows)
       //virtual ::user::interaction * get_active_window();
@@ -822,12 +823,12 @@ namespace windowing_universal_windows
       virtual ::windowing::window * get_last_active_popup() const;
 
       
-      virtual ::windowing::window * get_parent() const override;
-      virtual ::oswindow get_parent_oswindow() const override;
+      ::windowing::window * window_get_parent() override;
+      virtual ::oswindow get_parent_oswindow();
       void set_parent(::windowing::window * pwindow) override;
 
-      virtual ::windowing::window * get_owner() const override;
-      virtual ::oswindow get_owner_oswindow() const override;
+      ::user::interaction * get_owner() override;
+      virtual ::oswindow get_owner_oswindow() override;
       void set_owner(::windowing::window * pwindow) override;
 
       //virtual ::user::interaction * set_owner(::user::interaction * pWndNewParent);
@@ -1204,7 +1205,7 @@ namespace windowing_universal_windows
 
       virtual ::winrt::Windows::UI::Core::CoreDispatcher _get_dispatcher();
       
-      void user_post(const ::procedure & procedure) override;
+      void _user_post(const ::procedure & procedure) override;
 
       bool is_branch_current() const override;
 

@@ -9,7 +9,7 @@
 #include "aura/graphics/draw2d/lock.h"
 //#include "aura/graphics/image/_image.h"
 #include "aura/windowing/window.h"
-#include "aura_universal_windows/interaction_impl.h"
+//#include "aura_universal_windows/interaction_impl.h"
 #include "aura/platform/session.h"
 #include "aura/platform/system.h"
 #include "aura/user/user/user.h"
@@ -73,12 +73,12 @@ namespace windowing_universal_windows
    }
 
 
-   void buffer::initialize_graphics_graphics(::windowing::window * pimpl)
+   void buffer::initialize_graphics_graphics(::windowing::window * pwindow)
    {
 
       //::e_status estatus = 
 
-      ::graphics::bitmap_source_buffer::initialize_graphics_graphics(pimpl);
+      ::graphics::bitmap_source_buffer::initialize_graphics_graphics(pwindow);
 
       //if (!estatus)
       //{
@@ -87,9 +87,11 @@ namespace windowing_universal_windows
 
       //}
 
-      ::pointer < ::aura_universal_windows::interaction_impl > puwpimpl = pimpl;
+      //::pointer < ::aura_universal_windows::interaction_impl > puwpimpl = pimpl;
 
-      m_pwindow = (class window *)pimpl->m_pwindow->m_pWindow4;
+      //m_pwindow = (class window *)pimpl->m_pwindow->m_pWindow4;
+
+      m_pwindow = pwindow;
 
       m_dDpiIni = (float) system()->m_dDpi;
 
@@ -263,15 +265,15 @@ namespace windowing_universal_windows
    }
 
 
-   bool buffer::update_screen()
+   void buffer::update_screen()
    {
 
       //if (m_bNewBuffer)
       //{
 
-      auto & d = m_pwindow->m_pwindow->m_puserinteraction->layout().m_statea[::user::e_layout_design];
+      auto & d = m_pwindow->m_puserinteraction->layout().m_statea[::user::e_layout_design];
 
-      auto & w = m_pwindow->m_pwindow->m_puserinteraction->layout().m_statea[::user::e_layout_window];
+      auto & w = m_pwindow->m_puserinteraction->layout().m_statea[::user::e_layout_window];
 
       w.m_point2 = d.m_point2;
 
@@ -283,12 +285,12 @@ namespace windowing_universal_windows
 
    //}
 
-      return true;
+      //return true;
 
    }
 
 
-   bool buffer::on_update_screen(::graphics::buffer_item * pbufferitem)
+   void buffer::on_update_screen(::graphics::buffer_item * pbufferitem)
    {
 
       if (m_bNewBuffer)
@@ -298,7 +300,7 @@ namespace windowing_universal_windows
 
       }
 
-      return true;
+      //return true;
 
    }
 
@@ -322,7 +324,7 @@ namespace windowing_universal_windows
    //using namespace D2D1;
 
 
-   extern CLASS_DECL_AURA image_array * g_pimagea;
+   extern CLASS_DECL_AURA ::image::image_array * g_pimagea;
 
 
    //CLASS_DECL_ACME void dpi_os_initialize();
@@ -396,7 +398,7 @@ namespace windowing_universal_windows
 
       m_bInitialized = true;
 
-      system()->m_pnode->m_pauranode->dpi_os_initialize();
+      node()->dpi_os_initialize();
 
       //m_pimage->alloc(get_application()->create_new, this);
       //m_pimage = create_image({1000,  1000});
@@ -698,26 +700,26 @@ namespace windowing_universal_windows
 
       }
 
-      if (m_pwindow->m_pwindow->m_puserinteraction)
+      if (m_pwindow->m_puserinteraction)
       {
 
          //m_pwindow->m_puserinteraction->start_layout();
 
-         m_pwindow->m_pwindow->m_puserinteraction->place(0, 0, m_size.cx(), m_size.cy());
+         m_pwindow->m_puserinteraction->place(0, 0, m_size.cx(), m_size.cy());
 
-         m_pwindow->m_pwindow->m_puserinteraction->order_top();
+         m_pwindow->m_puserinteraction->order_top();
 
-         m_pwindow->m_pwindow->m_puserinteraction->display(e_display_normal);
+         m_pwindow->m_puserinteraction->display(e_display_normal);
 
          //defer_resize_top_level_windows();
 
-         m_pwindow->m_pwindow->m_puserinteraction->set_reposition();
+         m_pwindow->m_puserinteraction->set_reposition();
 
-         m_pwindow->m_pwindow->m_puserinteraction->set_need_layout();
+         m_pwindow->m_puserinteraction->set_need_layout();
 
-         m_pwindow->m_pwindow->m_puserinteraction->set_need_redraw();
+         m_pwindow->m_puserinteraction->set_need_redraw();
 
-         m_pwindow->m_pwindow->m_puserinteraction->post_redraw();
+         m_pwindow->m_puserinteraction->post_redraw();
 
       }
 

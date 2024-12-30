@@ -92,7 +92,7 @@ CLASS_DECL_EXPORT void main_branch(::matter * pobjectTask, enum_priority epriori
    windows_runtime_async([pobjectTask]()
       {
 
-         pobjectTask->call_run();
+         pobjectTask->call();
 
       }, epriority);
 
@@ -288,7 +288,7 @@ namespace acme_universal_windows
 
       }
 
-      auto hstrRelative = as_hstring(pathFolder.windows_path());
+      auto hstrRelative = as_hstring(pathFolder.windows_path().extended_path());
 
       try
       {

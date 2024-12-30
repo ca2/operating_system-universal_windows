@@ -88,7 +88,6 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='StaticRelease|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="interaction_impl.cpp" />
     <ClCompile Include="node.cpp" />
     <ClCompile Include="_.cpp" />
   </ItemGroup>
@@ -96,7 +95,6 @@
     <ClInclude Include="framework.h" />
     <ClInclude Include="hardware\devices.h" />
     <ClInclude Include="hardware\device_group.h" />
-    <ClInclude Include="interaction_impl.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="_.h" />
     <ClInclude Include="aaa_aura_universal_windows.h" />

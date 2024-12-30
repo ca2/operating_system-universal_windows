@@ -101,14 +101,21 @@ namespace apex_universal_windows
       if (!m_pClearApplicationDataHandler)
       {
 
-         m_pClearApplicationDataHandler = system()->add_command_handler(
-            "clear_application_data",
-            [this](::message::message* pmessage)
-            {
+         ::cast < ::channel > pchannel = system();
 
-               file_system()->clear_application_data();
+         if (pchannel)
+         {
 
-            });
+            m_pClearApplicationDataHandler = pchannel->add_command_handler(
+               "clear_application_data",
+               [this](::message::message * pmessage)
+               {
+
+                     file_system()->clear_application_data();
+
+               });
+
+         }
 
       }
 

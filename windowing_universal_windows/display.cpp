@@ -299,98 +299,98 @@ namespace windowing_universal_windows
    }
 
 
-   ::collection::count display::get_workspace_count()
-   {
+   //::collection::count display::get_workspace_count()
+   //{
 
-      //#ifdef WINDOWS_DESKTOP
-      //
-      //      return m_monitorinfoa.get_count();
-      //
-      //#else
-      //
-      //      return get_monitor_count();
-      //
-      //#endif
-      return 1;
+   //   //#ifdef WINDOWS_DESKTOP
+   //   //
+   //   //      return m_monitorinfoa.get_count();
+   //   //
+   //   //#else
+   //   //
+   //   //      return get_monitor_count();
+   //   //
+   //   //#endif
+   //   return 1;
 
-   }
-
-
-   //   bool display::get_wkspace_rect(::collection::index iWkspace, ::int_rectangle * prectangle)
-   //   {
-   //
-   //#ifdef WINDOWS_DESKTOP
-   //
-   //      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
-   //         return false;
-   //
-   //      __copy(prectangle, m_monitorinfoa[iWkspace].rcWork);
-   //
-   //
-   //#elif defined(UNIVERSAL_WINDOWS)
-   //
-   //      return get_monitor_rect(iWkspace, prectangle);
-   //
-   //
-   //      //#elif defined(LINUX)
-   //      //
-   //      //return false;
-   //      //
-   //#elif defined(__APPLE__)
-   //
-   //      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
-   //      {
-   //
-   //         return false;
-   //
-   //      }
-   //
-   //      GetWkspaceRect(prectangle, (int)iWkspace);
-   //
-   //
-   //      //      prectangle->top() += ::mac::get_system_main_menu_bar_height();
-   //
-   //      //    prectangle->bottom() -= ::mac::get_system_dock_height();
-   //
-   //#elif defined(LINUX)
-   //
-   //      synchronous_lock synchronouslock(synchronization());
-   //
-   //      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
-   //      {
-   //
-   //         return false;
-   //
-   //      }
-   //
-   //      *prectangle = m_rectangleaWkspace[iWkspace];
-   //
-   //
-   //      return true;
-   //
-   //#else
-   //
-   //      //throw ::exception(todo);
-   //
-   //      //::window_rectangle(::get_desktop_window(),prectangle);
-   //
-   //
-   //      get_monitor_rect(iWkspace, prectangle);
-   //
-   //
-   //#endif
-   //
-   //      return true;
-   //
-   //   }
+   //}
 
 
-   ::collection::count display::get_desk_workspace_count()
-   {
+   ////   bool display::get_wkspace_rect(::collection::index iWkspace, ::int_rectangle * prectangle)
+   ////   {
+   ////
+   ////#ifdef WINDOWS_DESKTOP
+   ////
+   ////      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
+   ////         return false;
+   ////
+   ////      __copy(prectangle, m_monitorinfoa[iWkspace].rcWork);
+   ////
+   ////
+   ////#elif defined(UNIVERSAL_WINDOWS)
+   ////
+   ////      return get_monitor_rect(iWkspace, prectangle);
+   ////
+   ////
+   ////      //#elif defined(LINUX)
+   ////      //
+   ////      //return false;
+   ////      //
+   ////#elif defined(__APPLE__)
+   ////
+   ////      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
+   ////      {
+   ////
+   ////         return false;
+   ////
+   ////      }
+   ////
+   ////      GetWkspaceRect(prectangle, (int)iWkspace);
+   ////
+   ////
+   ////      //      prectangle->top() += ::mac::get_system_main_menu_bar_height();
+   ////
+   ////      //    prectangle->bottom() -= ::mac::get_system_dock_height();
+   ////
+   ////#elif defined(LINUX)
+   ////
+   ////      synchronous_lock synchronouslock(synchronization());
+   ////
+   ////      if (iWkspace < 0 || iWkspace >= get_wkspace_count())
+   ////      {
+   ////
+   ////         return false;
+   ////
+   ////      }
+   ////
+   ////      *prectangle = m_rectangleaWkspace[iWkspace];
+   ////
+   ////
+   ////      return true;
+   ////
+   ////#else
+   ////
+   ////      //throw ::exception(todo);
+   ////
+   ////      //::window_rectangle(::get_desktop_window(),prectangle);
+   ////
+   ////
+   ////      get_monitor_rect(iWkspace, prectangle);
+   ////
+   ////
+   ////#endif
+   ////
+   ////      return true;
+   ////
+   ////   }
 
-      return get_workspace_count();
 
-   }
+   //::collection::count display::get_desk_workspace_count()
+   //{
+
+   //   return get_workspace_count();
+
+   //}
 
 
    //bool display::get_desk_wkspace_rect(::collection::index iWkspace, ::int_rectangle * prectangle)
@@ -949,7 +949,7 @@ namespace windowing_universal_windows
 
       }
 
-      for (::collection::index iWorkspace = 0; iWorkspace < get_workspace_count(); iWorkspace++)
+      for (::collection::index iWorkspace = 0; iWorkspace < get_monitor_count(); iWorkspace++)
       {
 
          ::int_rectangle rectangleIntersect;
@@ -1039,12 +1039,12 @@ namespace windowing_universal_windows
    }
 
 
-   void display::initialize_display(::windowing::windowing * pwindowing)
+   void display::open_display()
    {
 
       //auto estatus = 
 
-      ::windowing::display::initialize_display(pwindowing);
+      ::windowing::display::open_display();
 
       //if (!estatus)
       //{
@@ -1053,17 +1053,17 @@ namespace windowing_universal_windows
 
       //}
 
-      m_pwindowing = pwindowing;
+      //m_pwindowing = pwindowing;
 
-      if (!m_pwindowing)
-      {
+      //if (!m_pwindowing)
+      //{
 
-         //return error_no_interface;
+      //   //return error_no_interface;
 
-         throw ::exception(error_no_interface);
+      //   throw ::exception(error_no_interface);
 
 
-      }
+      //}
 
       enum_display_monitors();
 
@@ -1161,12 +1161,12 @@ namespace windowing_universal_windows
    //}
 
 
-   bool display::impl_set_wallpaper(::collection::index iScreen, string strLocalImagePath)
+   void display::impl_set_wallpaper(::collection::index iScreen, const ::scoped_string & scopedstrLocalImagePath)
    {
 
       //return SystemParametersInfoW(SPI_SETDESKWALLPAPER, 0, wstring(strLocalImagePath), SPIF_UPDATEINIFILE | SPIF_SENDCHANGE) != false;
 
-      return false;
+      //return false;
 
    }
 

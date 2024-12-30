@@ -28,7 +28,7 @@ namespace windowing_universal_windows
 
       
 
-      m_pWindowing4 = this;
+      //m_pWindowing4 = this;
 
 //      set_layer(LAYERED_IMPL, this);
 
@@ -43,12 +43,12 @@ namespace windowing_universal_windows
    }
 
 
-   void windowing::initialize_windowing(::user::user * puser)
+   void windowing::initialize_windowing()
    {
 
       //auto estatus = 
       
-      ::windowing::windowing::initialize_windowing(puser);
+      ::windowing::windowing::initialize_windowing();
 
       //if (!estatus)
       //{
@@ -59,7 +59,7 @@ namespace windowing_universal_windows
 
       //estatus = 
       
-      __construct(m_pdisplay);
+      __øconstruct(m_pdisplay);
 
       //if (!estatus)
       //{
@@ -70,7 +70,7 @@ namespace windowing_universal_windows
 
       //estatus = 
       
-      m_pdisplay->initialize_display(this);
+      m_pdisplay->open_display();
 
       //if (!estatus)
       //{
@@ -145,7 +145,7 @@ namespace windowing_universal_windows
    
       auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
    
-      system()->background_color(colorBackground);
+      system()->set_background_color(colorBackground);
    
    }
    
@@ -288,7 +288,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::windowing::window * windowing::window(oswindow oswindow)
+   ::acme::windowing::window * windowing::window(oswindow oswindow)
    {
 
       ///HWND hwnd = as_hwnd(oswindow);

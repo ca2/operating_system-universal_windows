@@ -5,7 +5,7 @@
 #include "aura/platform/session.h"
 #include "aura/user/user/user.h"
 #include "aura/windowing/windowing.h"
-#include "interaction_impl.h"
+//#include "interaction_impl.h"
 #undef ___new
 #include <winrt/Windows.Graphics.Display.h>
 

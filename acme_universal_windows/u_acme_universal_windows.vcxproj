@@ -455,11 +455,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="acme_directory.cpp" />
-    <ClCompile Include="acme_file.cpp" />
-    <ClCompile Include="acme_path.cpp" />
-    <ClCompile Include="dir_context.cpp" />
-    <ClCompile Include="dir_system.cpp" />
+    <ClCompile Include="path_system.cpp" />
+    <ClCompile Include="directory_context.cpp" />
+    <ClCompile Include="directory_system.cpp" />
     <ClCompile Include="file_context.cpp" />
     <ClCompile Include="file_watcher.cpp" />
     <ClCompile Include="file_system.cpp" />
@@ -489,11 +487,9 @@
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="acme_directory.h" />
-    <ClInclude Include="acme_file.h" />
-    <ClInclude Include="acme_path.h" />
-    <ClInclude Include="dir_context.h" />
-    <ClInclude Include="dir_system.h" />
+    <ClInclude Include="path_system.h" />
+    <ClInclude Include="directory_context.h" />
+    <ClInclude Include="directory_system.h" />
     <ClInclude Include="file_context.h" />
     <ClInclude Include="file_watcher.h" />
     <ClInclude Include="file_system.h" />

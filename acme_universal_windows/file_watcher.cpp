@@ -224,7 +224,7 @@ namespace acme_universal_windows
 
       ::file::action action;
 
-      action.m_pwatch = this;
+      action.m_pfilewatch = this;
 
       action.m_pathFolder = m_pathFolder;
 

@@ -14,8 +14,8 @@ namespace acme_universal_windows
    public:
 
 
-      ::pointer<file_system>     m_pfilesystem;
-      ::pointer<directory_system>      m_pdirectorysystem;
+      ::pointer<::acme_universal_windows::file_system>     m_pfilesystem;
+      ::pointer<::acme_universal_windows::directory_system>      m_pdirectorysystem;
 
 
       directory_context();

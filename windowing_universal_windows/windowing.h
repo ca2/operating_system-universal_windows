@@ -22,7 +22,7 @@ namespace windowing_universal_windows
 
       ::pointer < ::windowing_universal_windows::window >    m_pwindowMain;
       // From node
-      ::pointer<::aura_universal_windows::interaction_impl>m_pimplMain;
+      // ::pointer<::aura_universal_windows::interaction_impl>m_pimplMain;
 
       bool                          m_bAppInit;
 
@@ -59,7 +59,7 @@ namespace windowing_universal_windows
       ~windowing() override;
 
 
-      void initialize_windowing(::user::user * puser) override;
+      void initialize_windowing() override;
 
       void defer_term_ui() override;
 
@@ -88,7 +88,7 @@ namespace windowing_universal_windows
 
       //virtual hwnd_array _get_hwnda(const ::user::primitive_pointer_array& primitivepointera);
 
-      ::windowing::window * window(oswindow oswindow) override;
+      ::acme::windowing::window * window(oswindow oswindow) override;
 
       //virtual ::windowing_universal_windows::window * _window(HWND hwnd);
 

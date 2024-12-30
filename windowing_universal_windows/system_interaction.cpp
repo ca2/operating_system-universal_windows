@@ -8,6 +8,7 @@
 #include "aura/graphics/image/image.h"
 #include "aura/platform/system.h"
 #include "aura/message/user.h"
+#include "aura/windowing/windowing.h"
 
 
 namespace windowing_win32
@@ -51,12 +52,12 @@ namespace windowing_win32
    }
 
 
-   void system_interaction::start_destroying_window()
-   {
+   //void system_interaction::start_destroying_window()
+   //{
 
-      ::user::interaction::start_destroying_window();
+   //   ::user::interaction::start_destroying_window();
 
-   }
+   //}
 
 
    void system_interaction::on_message_destroy(::message::message * pmessage)
@@ -93,7 +94,14 @@ namespace windowing_win32
 
             auto psystem = system();
 
-            psystem->signal(id_operating_system_font_list_change);
+            ::cast < ::manager > pmanager = psystem;
+
+            if (pmanager)
+            {
+
+               pmanager->send_signal(id_operating_system_font_list_change);
+
+            }
 
             //fork([this]()
               // {
@@ -109,9 +117,10 @@ namespace windowing_win32
             strLparamString == "ImmersiveColorSet")
          {
 
-            auto pnode = system()->m_pnode;
+            auto pwindowing = system()->windowing();
 
-            pnode->fetch_user_color();
+            //pwindowing->fetch_user_color();
+            pwindowing->fetch_dark_mode();
 
          }
          else if (pmessage->m_atom == e_message_display_change ||

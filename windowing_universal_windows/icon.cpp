@@ -227,9 +227,9 @@ namespace windowing_universal_windows
 
       }
 
-      ::pointer<::image>pimage;
+      ::pointer<::image::image>pimage;
 
-      __construct(pimage);
+      __øconstruct(pimage);
 
       bool bOk = false;
 
