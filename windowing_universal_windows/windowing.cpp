@@ -152,6 +152,22 @@ namespace windowing_universal_windows
    }
    
 
+   bool windowing::combo_box_list_box_is_top_level()
+   {
+
+      return false;
+
+   }
+
+
+   bool windowing::targeted_keyboard_messages()
+   {
+
+      return true;
+
+   }
+
+
 
    void windowing::app_init()
    {
@@ -1410,14 +1426,6 @@ namespace windowing_universal_windows
 
       //system()->defer_post_initial_request();
 
-      auto pwindow = __allocate::windowing_universal_windows::window;
-
-      m_pwindowMain = pwindow;
-
-      pwindow->initialize(this);
-
-      system()->m_pwindowMain = pwindow;
-
       auto frameworkviewsource = m_frameworkviewsource;
 
       ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(frameworkviewsource);
@@ -1440,24 +1448,19 @@ namespace windowing_universal_windows
    void windowing::on_create_window_object(::user::interaction * puserinteraction)
    {
 
-      if (m_pwindowMain)
+      if (m_pwindowMain && !m_pwindowMain->m_puserinteraction)
       {
 
          if (dynamic_cast <::user::frame_interaction *>(puserinteraction) != nullptr)
          {
 
-            if (!m_pwindowMain->m_puserinteraction)
-            {
+            puserinteraction->m_pacmewindowingwindow = m_pwindowMain;
 
-               puserinteraction->m_pacmewindowingwindow = m_pwindowMain;
+            m_pwindowMain->m_puserinteraction = puserinteraction;
 
-               m_pwindowMain->m_puserinteraction = puserinteraction;
+            m_pwindowMain->m_pacmeuserinteraction = puserinteraction;
 
-               m_pwindowMain->m_pacmeuserinteraction = puserinteraction;
-
-               return;
-
-            }
+            return;
 
          }
 

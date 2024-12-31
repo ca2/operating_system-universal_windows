@@ -23,6 +23,7 @@ namespace windowing_universal_windows
 
 
       ::pointer < ::windowing_universal_windows::window >    m_pwindowMain;
+      ::pointer < ::windowing_universal_windows::window >    m_pwindowCreating;
       // From node
       // ::pointer<::aura_universal_windows::interaction_impl>m_pimplMain;
 
@@ -84,7 +85,8 @@ namespace windowing_universal_windows
       virtual void fetch_user_color();
       // END From Node
 
-
+      bool combo_box_list_box_is_top_level() override;
+      bool targeted_keyboard_messages() override;
       //inline system_interaction * system_window() { return system()interaction; }
 
       //virtual HICON _load_icon(string_array& straMatter, string strIcon, int cx, int cy);

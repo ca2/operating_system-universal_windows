@@ -1635,6 +1635,8 @@ namespace windowing_universal_windows
    bool window::_strict_set_window_position_unlocked(int x, int y, int cx, int cy, bool bNoMove, bool bNoSize)
    {
 
+      //m_coreapplicationview.Cu
+
       //if (!(_get_ex_style() & WS_EX_LAYERED))
       //{
 
@@ -6167,6 +6169,8 @@ namespace windowing_universal_windows
 
       puserinteraction->post_procedure(pprodevian->m_procedureUpdateScreen);*/
 
+      set_window_position_unlocked();
+
       ::pointer<::windowing_universal_windows::buffer>pbuffer = m_pgraphicsgraphics;
 
       pbuffer->update_screen();
@@ -7813,11 +7817,13 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
             //fork([this, &ev]()
               // {
 
+            pwindowing->m_pwindowCreating = this;
+
             auto coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(pwindowing->m_frameworkviewsource);
 
-            Initialize(coreapplicationview);
+            //Initialize(coreapplicationview);
 
-            SetWindow(coreapplicationview.CoreWindow());
+            //SetWindow(coreapplicationview.CoreWindow());
 
             // m_windowscorewindow = m_coreapplicationview.CoreWindow();
 
@@ -8767,7 +8773,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
 
 
-         m_windowscorewindow = window;
+         //m_windowscorewindow = window;
 
          m_resizemanager = ::winrt::Windows::UI::Core::CoreWindowResizeManager::GetForCurrentView();
 
@@ -8895,10 +8901,26 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
       }
 
+
       void window::_main_send(const ::procedure & procedure)
       {
 
          auto window = m_windowscorewindow;
+
+         if (!window)
+         {
+
+            ::cast < ::windowing_universal_windows::window > pwindowOwner =
+                  owner_window();
+
+            if(pwindowOwner)
+            {
+
+               window = pwindowOwner->m_windowscorewindow;
+
+            }
+
+         }
 
          auto dispatcher = window.Dispatcher();
 
