@@ -2565,7 +2565,7 @@ namespace universal_windows
 
             }
 
-            auto puserinteraction = user_interaction();
+            auto puserinteraction = acme_user_interaction();
 
             if (puserinteraction == nullptr)
             {
@@ -2577,9 +2577,9 @@ namespace universal_windows
             //if (puserinteraction->m_pinteractionimpl == nullptr)
               // return;
 
-            auto pkey = __create_new< ::message::key >();
+            auto pkey = __create_new< ::user::key >();
 
-            bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
+            //bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
 
             bool bSpecialKey = false;
 
@@ -2588,9 +2588,9 @@ namespace universal_windows
             //if (bSpecialKey s || session()->is_key_pressed(::user::e_key_control)
             //   || session()->is_key_pressed(::user::e_key_alt))
             //{
-            pkey->m_pwindow = this;
+            //pkey->m_pwindow = this;
 
-            pkey->m_oswindow = this;
+            //pkey->m_oswindow = this;
 
             pkey->m_atom = e_message_key_down;
             //pkey->m_playeredUserPrimitive       = session()->m_puserinteractionHost;
