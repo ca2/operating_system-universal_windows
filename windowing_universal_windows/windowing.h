@@ -4,10 +4,8 @@
 
 #include "acme_windowing_universal_windows/windowing.h"
 #include "aura/windowing/sandbox/windowing.h"
-#include "application.h"
-#undef ___new
-#include <winrt/Windows.UI.ViewManagement.h>
-#include <winrt/Windows.ApplicationModel.Core.h>
+//#include "application.h"
+//#undef ___new
 
 
 namespace windowing_universal_windows
@@ -21,24 +19,6 @@ namespace windowing_universal_windows
    {
    public:
 
-
-      ::pointer < ::windowing_universal_windows::window >    m_pwindowMain;
-      ::pointer < ::windowing_universal_windows::window >    m_pwindowCreating;
-      // From node
-      // ::pointer<::aura_universal_windows::interaction_impl>m_pimplMain;
-
-      bool                          m_bAppInit;
-
-      ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource    m_frameworkviewsource = nullptr;
-      ::winrt::Windows::UI::ViewManagement::ApplicationView             m_applicationview = nullptr;
-
-      //winrt::agile_ref< application>    m_application;
-
-      ::windowing_universal_windows::application * m_papplication;
-      //auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
-
-      ::winrt::Windows::UI::ViewManagement::UISettings m_uisettings;
-      // END From node
 
 
       //i64_map < ::user::enum_key >     m_mapKey;
@@ -80,9 +60,9 @@ namespace windowing_universal_windows
       //::extended::transport < system_interaction > create_system_window();
 
       // From Node
-      void app_init();
-      void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);
-      virtual void fetch_user_color();
+      //void app_init();
+      //void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);
+      //virtual void fetch_user_color();
       // END From Node
 
       bool combo_box_list_box_is_top_level() override;
@@ -215,7 +195,8 @@ namespace windowing_universal_windows
 
       void _main_send(const ::procedure & procedure) override;
       void _user_post(const ::procedure & procedure) override;
-      void on_create_window_object(::user::interaction * puserinteraction) override;
+      void on_create_window_object(::acme::user::interaction * puserinteraction) override;
+
    };
 
 

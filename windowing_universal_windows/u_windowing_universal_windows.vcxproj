@@ -67,12 +67,10 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="application.cpp" />
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="copydesk.cpp" />
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="display.cpp" />
-    <ClCompile Include="impact.cpp" />
     <ClCompile Include="_factory.cpp" />
     <ClCompile Include="framework.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -102,14 +100,12 @@
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="application.h" />
     <ClInclude Include="buffer.h" />
     <ClInclude Include="copydesk.h" />
     <ClInclude Include="cursor.h" />
     <ClInclude Include="display.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="icon.h" />
-    <ClInclude Include="impact.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="shell.h" />

@@ -455,6 +455,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="application.cpp" />
+    <ClCompile Include="impact.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="windowing.cpp" />
     <ClCompile Include="_factory.cpp" />
@@ -479,7 +481,9 @@
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="application.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="impact.h" />
     <ClInclude Include="window.h" />
     <ClInclude Include="windowing.h" />
     <ClInclude Include="_.h" />

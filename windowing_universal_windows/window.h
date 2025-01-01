@@ -4,7 +4,7 @@
 
 #include "acme_windowing_universal_windows/window.h"
 #include "aura/windowing/sandbox/window.h"
-#undef ___new
+//#undef ___new
 #include <winrt/Windows.UI.Text.Core.h>
 #include <winrt/Windows.Graphics.Display.h>
 #include <winrt/Windows.ApplicationModel.Core.h>
@@ -29,13 +29,10 @@ namespace windowing_universal_windows
       //::winrt::Windows::ApplicationModel::Core::IFrameworkView               m_frameworkview;
 
 
-      int   m_iMouse;
       //::pointer<class ::windowing_universal_windows::buffer>   m_pBdbuffer;
 
 
       //comptr < ::windowing_universal_windows::application > 
-      ::winrt::Windows::ApplicationModel::Core::CoreApplicationView m_coreapplicationview = nullptr;
-      ::winrt::Windows::UI::Core::CoreWindow  m_windowscorewindow = nullptr;
 
       //bool                                      m_bMainWindow;
       //HICON                                     m_hiconSmall;
@@ -54,13 +51,11 @@ namespace windowing_universal_windows
       wide_string                                               m_strNewText;
       //::aura::system * system();
 
-      ::winrt::Windows::UI::Core::CoreWindowResizeManager      m_resizemanager = nullptr;
 
 
       //::winrt::Windows::UI::Core::CoreWindow                   m_window = nullptr;
 
       // The _editContext lets us communicate with the input system.
-      ::winrt::Windows::UI::Text::Core::CoreTextEditContext   m_editcontext = nullptr;
 
       // We will use a plain text string to represent the
       // content of the custom text edit control.
@@ -69,6 +64,7 @@ namespace windowing_universal_windows
       // If the _selection starts and ends at the same point,
       // then it represents the location of the caret (insertion int_point).
       ::winrt::Windows::UI::Text::Core::CoreTextRange          m_selection;
+      ::winrt::Windows::UI::Text::Core::CoreTextEditContext   m_editcontext = nullptr;
 
       // _internalFocus keeps track of whether our control acts like it has focus.
       bool                                                     m_bInternalFocus;
@@ -83,12 +79,6 @@ namespace windowing_universal_windows
       ::winrt::Windows::UI::ViewManagement::InputPane          m_inputpane = nullptr;
 
 
-      ::winrt::event_token                                     m_tokenActivated;
-      ::winrt::event_token                                     m_tokenClosed;
-      ::winrt::event_token                                     m_tokenKeyDown;
-      ::winrt::event_token                                     m_tokenPointerPressed;
-
-      ::winrt::Windows::Foundation::Point                      m_pointLastCursor;
 
       unsigned int                                                    m_dwMouseMoveThrottle;
 
@@ -98,19 +88,11 @@ namespace windowing_universal_windows
 
       //impact *                                               m_pimpact;
 
-      bool                                                     m_bFontopusShift;
-
       ::particle_pointer                                 m_pparticleMutex;
 
       //::pointer<directx_interaction>                          m_pdxi;
 
-      bool                                                     m_bLeftButton;
 
-      bool                                                     m_bMiddleButton;
-
-      bool                                                     m_bRightButton;
-
-      ::winrt::Windows::Foundation::Rect                       m_rectangleLastWindowRect;
       ::winrt::Windows::Foundation::Rect                       m_rectangleInputContentRect;
       ::winrt::Windows::Foundation::Rect                       m_rectangleInputSelectionRect;
 
@@ -161,7 +143,23 @@ namespace windowing_universal_windows
       //inline ::user::interaction * host() { return m_puserinteraction; }
 
 
-      void CoreWindow_PointerPressed(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args);
+      void InstallPrototypeHappeningHandling() override;
+
+      void on_window_size_changed(::winrt::Windows::UI::Core::CoreWindow sender, const ::int_size & size) override;
+
+
+      void on_display_contents_invalidated(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable) override;
+      void on_dpi_changed(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable) override;
+
+
+      void on_window_visibility_changed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args) override;
+      void on_pointer_moved(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args) override;
+      void on_pointer_pressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args) override;
+      void on_pointer_released(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args) override;
+
+      void on_character_received(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args) override;
+      void on_key_down(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args) override;
+      void on_key_up(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args) override;
 
       void SetInternalFocus();
 
@@ -210,12 +208,8 @@ namespace windowing_universal_windows
       void EditContext_NotifyFocusLeaveCompleted(::winrt::Windows::UI::Text::Core::CoreTextEditContext sender, ::winrt::Windows::Foundation::IInspectable);
 
 
-      // Revoke with event_token
-      void CoreWindow_WindowActivated(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::WindowActivatedEventArgs args);
-      void CoreWindow_CoreWindowClosed(::winrt::Windows::UI::Core::CoreWindow  sender, ::winrt::Windows::UI::Core::CoreWindowEventArgs args);
 
 
-      void CoreWindow_KeyDown(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::KeyEventArgs args);
       // Adjust the active endpoint of the selection in the specified direction.
       void AdjustSelectionEndpoint(int direction);
 
@@ -277,46 +271,6 @@ namespace windowing_universal_windows
       //__DECLARE_APPLICATION_RELEASE_TIME();
 
 
-
-
-
-      // Event Handlers
-      void OnWindowSizeChanged(
-         _In_::winrt::Windows::UI::Core::CoreWindow sender,
-         _In_::winrt::Windows::UI::Core::WindowSizeChangedEventArgs args
-      );
-
-      void on_window_size_changed(::winrt::Windows::UI::Core::CoreWindow  sender, const ::int_size & size);
-
-      void DpiChanged(::winrt::Windows::Graphics::Display::DisplayInformation  sender, ::winrt::Windows::Foundation::IInspectable);
-
-      void DisplayContentsInvalidated(::winrt::Windows::Graphics::Display::DisplayInformation  sender, ::winrt::Windows::Foundation::IInspectable);
-
-      void OnActivated(
-         ::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & applicationView,
-         ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs const & args
-      );
-
-      void OnSuspending(
-         ::winrt::Windows::Foundation::IInspectable const & sender,
-         ::winrt::Windows::ApplicationModel::SuspendingEventArgs const & args
-      );
-
-      void OnResuming(
-         ::winrt::Windows::Foundation::IInspectable const & sender,
-         ::winrt::Windows::Foundation::IInspectable const & args
-      );
-
-      void OnWindowClosed(::winrt::Windows::UI::Core::CoreWindow  sender, ::winrt::Windows::UI::Core::CoreWindowEventArgs  args);
-      void OnWindowVisibilityChanged(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args);
-
-      void OnPointerMoved(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args);
-
-      void OnCharacterReceived(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args);
-      void OnKeyDown(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args);
-      void OnKeyUp(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args);
-      void OnPointerPressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args);
-      void OnPointerReleased(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args);
 
 
       //comptr<ID2D1SolidColorBrush>                    m_blackBrush;
@@ -1227,8 +1181,6 @@ namespace windowing_universal_windows
 
       //void user_post(const ::procedure & procedure) override;
 
-      void Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & coreapplicationview);
-      void SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window);
 
       void _set_oswindow(::oswindow oswindow) override;
 

@@ -1,9 +1,8 @@
-// from application by Camilo on
-// 2024-12-31 17:35 BRT <3ThomasBorregaardSoerensen!!
+// from window by Camilo 2022-03-25 08:54 BRT <3CamiloSasukeThomasBorregaardSoerensen
 #pragma once
 
 
-#undef ___new
+//#undef ___new
 #include <winrt/Windows.ApplicationModel.Core.h>
 //
 //
@@ -42,50 +41,64 @@
 
 #include <winrt/Windows.ApplicationModel.Core.h>
 
+//#include "impact.h"
 
-namespace windowing_universal_windows
+using namespace winrt;
+using namespace Windows;
+using namespace Windows::ApplicationModel::Activation;
+using namespace Windows::ApplicationModel::Core;
+using namespace Windows::Foundation::Numerics;
+using namespace Windows::UI;
+using namespace Windows::UI::Core;
+using namespace Windows::UI::Composition;
+
+
+
+namespace universal_windows
 {
-   using namespace winrt;
-   using namespace Windows;
-   using namespace Windows::ApplicationModel::Activation;
-   using namespace Windows::ApplicationModel::Core;
-   using namespace Windows::Foundation::Numerics;
-   using namespace Windows::UI;
-   using namespace Windows::UI::Core;
-   using namespace Windows::UI::Composition;
 
 
-   class impact :
-      public winrt::implements < impact, ::winrt::Windows::ApplicationModel::Core::IFrameworkView >
+   namespace acme
+   {
+
+
+      namespace windowing
+      {
+
+   class impact;
+   class application :
+      public winrt::implements < application, ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource >
    {
    public:
 
       windowing * m_pwindowing;
-      ::pointer < window > m_pwindow;
       //winrt::agile_ref<CoreWindow> m_window;
       //winrt::com_ptr<IDXGISwapChain1> m_swapChain;
       //winrt::com_ptr<ID3D11Device1> m_d3dDevice;
       //winrt::com_ptr<ID3D11DeviceContext1> m_d3dDeviceContext;
       //winrt::com_ptr<ID3D11RenderTargetView> m_renderTargetView;
 
-      impact(windowing * pwindowing);
-      ~impact();
+      ::comparable_array < impact * > m_impacta;
 
-      // This method is called on application launch.
-      void Initialize(CoreApplicationView const & applicationView);
+      application(windowing * pwindowing);
 
-      void Load(winrt::hstring const & /*entryPoint*/);
+      IFrameworkView CreateView();
 
-      void OnActivated(CoreApplicationView const & /* applicationView */, IActivatedEventArgs const & /* args */);
+      //// This method is called on application launch.
+      //void Initialize(CoreApplicationView const & applicationView);
 
-      // This method is called after Load.
-      void Run();
+      //void Load(winrt::hstring const & /*entryPoint*/);
 
-      // This method is called after Initialize.
-      void SetWindow(CoreWindow const & window);
+      //void OnActivated(CoreApplicationView const & /* applicationView */, IActivatedEventArgs const & /* args */);
 
-      // This method is called before the application exits.
-      void Uninitialize();
+      //// This method is called after Load.
+      //void Run();
+
+      //// This method is called after Initialize.
+      //void SetWindow(CoreWindow const & window);
+
+      //// This method is called before the application exits.
+      //void Uninitialize();
 
 
       //// This method creates all application resources that depend on
@@ -210,8 +223,13 @@ namespace windowing_universal_windows
    };
 
 
+      } // namespace windowing
 
-} // namespace windowing_universal_windows
+
+   } // namespace acme
+
+
+} // namespace universal_windows
 
 
 

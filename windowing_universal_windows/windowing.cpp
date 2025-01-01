@@ -24,8 +24,7 @@ namespace windowing_universal_windows
 {
 
 
-   windowing::windowing() :
-      m_frameworkviewsource{  winrt::make<::windowing_universal_windows::application>(this) }
+   windowing::windowing()
    {
 
       
@@ -121,36 +120,6 @@ namespace windowing_universal_windows
    //}
 
 
-   void windowing::OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings uisettings, ::winrt::Windows::Foundation::IInspectable inpectable)
-   {
-   
-      fetch_user_color();
-   
-      //auto luminance = color.get_luminance();
-   
-      //return luminance < 0.5;
-   
-   
-      //system()->signal(id_user_color);
-   
-   }
-   
-   
-   void windowing::fetch_user_color()
-   {
-   
-      auto colortypeBackground = ::winrt::Windows::UI::ViewManagement::UIColorType::Background;
-   
-      auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
-   
-      auto colorvalue = uisettings.GetColorValue(colortypeBackground);
-   
-      auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
-   
-      system()->set_background_color(colorBackground);
-   
-   }
-   
 
    bool windowing::combo_box_list_box_is_top_level()
    {
@@ -167,16 +136,6 @@ namespace windowing_universal_windows
 
    }
 
-
-
-   void windowing::app_init()
-   {
-
-      //m_uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
-
-      m_uisettings.ColorValuesChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::ViewManagement::UISettings, winrt::Windows::Foundation::IInspectable>(this, &windowing::OnUISettingsColorValuesChange));
-
-   }
 
 
 
@@ -1445,28 +1404,28 @@ namespace windowing_universal_windows
    }
 
 
-   void windowing::on_create_window_object(::user::interaction * puserinteraction)
+   void windowing::on_create_window_object(::acme::user::interaction * puserinteraction)
    {
 
-      if (m_pwindowMain && !m_pwindowMain->m_puserinteraction)
-      {
+      //if (m_pwindowMain && !m_pwindowMain->m_puserinteraction)
+      //{
 
-         if (dynamic_cast <::user::frame_interaction *>(puserinteraction) != nullptr)
-         {
+      //   if (dynamic_cast <::user::frame_interaction *>(puserinteraction) != nullptr)
+      //   {
 
-            puserinteraction->m_pacmewindowingwindow = m_pwindowMain;
+      //      puserinteraction->m_pacmewindowingwindow = m_pwindowMain;
 
-            m_pwindowMain->m_puserinteraction = puserinteraction;
+      //      m_pwindowMain->m_puserinteraction = puserinteraction;
 
-            m_pwindowMain->m_pacmeuserinteraction = puserinteraction;
+      //      m_pwindowMain->m_pacmeuserinteraction = puserinteraction;
 
-            return;
+      //      return;
 
-         }
+      //   }
 
-      }
+      //}
 
-      ::windowing::windowing::on_create_window_object(puserinteraction);
+      ::universal_windows::acme::windowing::windowing::on_create_window_object(puserinteraction);
 
    }
 

@@ -107,6 +107,13 @@ namespace universal_windows
       {
 
 
+         class application;
+
+         class impact;
+
+         class window;
+
+         class windowing;
 
       } // namespace windowing
 

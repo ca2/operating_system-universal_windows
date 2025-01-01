@@ -271,9 +271,11 @@ namespace windowing_universal_windows
       //if (m_bNewBuffer)
       //{
 
-      auto & d = m_pwindow->m_puserinteraction->layout().m_statea[::user::e_layout_design];
+      auto puserinteraction = m_pwindow->user_interaction();
 
-      auto & w = m_pwindow->m_puserinteraction->layout().m_statea[::user::e_layout_window];
+      auto & d = puserinteraction->layout().m_statea[::user::e_layout_design];
+
+      auto & w = puserinteraction->layout().m_statea[::user::e_layout_window];
 
       w.m_point2 = d.m_point2;
 
@@ -700,26 +702,28 @@ namespace windowing_universal_windows
 
       }
 
-      if (m_pwindow->m_puserinteraction)
+      auto puserinteraction = m_pwindow->user_interaction();
+
+      if (::is_set(puserinteraction))
       {
 
          //m_pwindow->m_puserinteraction->start_layout();
 
-         m_pwindow->m_puserinteraction->place(0, 0, m_size.cx(), m_size.cy());
+         puserinteraction->place(0, 0, m_size.cx(), m_size.cy());
 
-         m_pwindow->m_puserinteraction->order_top();
+         puserinteraction->order_top();
 
-         m_pwindow->m_puserinteraction->display(e_display_normal);
+         puserinteraction->display(e_display_normal);
 
          //defer_resize_top_level_windows();
 
-         m_pwindow->m_puserinteraction->set_reposition();
+         puserinteraction->set_reposition();
 
-         m_pwindow->m_puserinteraction->set_need_layout();
+         puserinteraction->set_need_layout();
 
-         m_pwindow->m_puserinteraction->set_need_redraw();
+         puserinteraction->set_need_redraw();
 
-         m_pwindow->m_puserinteraction->post_redraw();
+         puserinteraction->post_redraw();
 
       }
 

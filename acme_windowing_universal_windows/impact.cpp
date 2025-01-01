@@ -1,7 +1,8 @@
 // From application by camilo on 2024-12-31 <3ThomasBS_!!
 #include "framework.h"
 #include "acme/platform/system.h"
-#include "aura/windowing/sandbox/windowing.h"
+//#include "aura/windowing/sandbox/windowing.h"
+#include "application.h"
 #include "impact.h"
 #include "window.h"
 #include "windowing.h"
@@ -11,8 +12,19 @@
 #include <winrt/Windows.UI.Core.h>
 
 
-namespace windowing_universal_windows
+
+
+namespace universal_windows
 {
+
+
+   namespace acme
+   {
+
+
+      namespace windowing
+      {
+
 
    impact::impact(windowing * pwindowing) :
       m_pwindowing(pwindowing)
@@ -29,9 +41,9 @@ namespace windowing_universal_windows
       else
       {
 
-         m_pwindow = __allocate::windowing_universal_windows::window;
+         m_pwindow = pwindowing->__øcreate<::universal_windows::acme::windowing::window>();
 
-         m_pwindow->initialize(pwindowing);
+         //m_pwindow->initialize(pwindowing);
 
       }
 
@@ -301,7 +313,13 @@ namespace windowing_universal_windows
 
 
 
-} // namespace windowing_universal_windows
+      } // namespace windowing
+
+
+   } // namespace acme
+
+
+} // namespace universal_windows
 
 
 

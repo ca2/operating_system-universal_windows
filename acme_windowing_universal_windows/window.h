@@ -7,6 +7,10 @@
 //#include "acme/operating_system/windows/window.h"
 #undef USUAL_OPERATING_SYSTEM_SUPPRESSIONS
 #include "acme/_operating_system.h"
+#include <winrt/Windows.UI.Text.Core.h>
+#include <winrt/Windows.Graphics.Display.h>
+#include <winrt/Windows.ApplicationModel.Core.h>
+
 
 
 namespace universal_windows
@@ -48,9 +52,37 @@ namespace universal_windows
       //      ::atom m_atomLeftButtonUp;
       //      //::atom                             m_atomResult;
       //      ::pointer<::micro::child>m_pchildFocus;
+            ::winrt::event_token                                     m_tokenActivated;
+            ::winrt::event_token                                     m_tokenClosed;
+            ::winrt::event_token                                     m_tokenPointerPressed;
+            ::winrt::event_token                                     m_tokenKeyDown;
+
+            ::winrt::Windows::Foundation::Point                      m_pointLastCursor;
+
+            ::winrt::Windows::ApplicationModel::Core::CoreApplicationView m_coreapplicationview = nullptr;
+            ::winrt::Windows::UI::Core::CoreWindow  m_windowscorewindow = nullptr;
+            ::winrt::Windows::UI::Core::CoreWindowResizeManager      m_resizemanager = nullptr;
+
+
             ::task_pointer       m_ptask;
 
             ::pointer < ::nano::graphics::device > m_pnanodevice;
+
+
+            ::winrt::Windows::Foundation::Rect                       m_rectangleLastWindowRect;
+
+
+            int   m_iMouse;
+
+            bool                                                     m_bLeftButton;
+
+            bool                                                     m_bMiddleButton;
+
+            bool                                                     m_bRightButton;
+
+            bool                                                     m_bFontopusShift;
+
+
 
             window();
 
@@ -70,6 +102,10 @@ namespace universal_windows
 
             ::oswindow oswindow() override;
 
+            void Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & coreapplicationview);
+            void SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window);
+
+            void UpdateFocusUI();
             //void on_draw(::nano::graphics::device * pnanodevice) override;
 
             //void on_char(int iChar) override;
@@ -163,6 +199,70 @@ namespace universal_windows
             void set_mouse_capture() override;
 
             bool has_mouse_capture() override;
+
+
+            virtual void InstallPrototypeHappeningHandling();
+
+
+            virtual void on_window_size_changed(::winrt::Windows::UI::Core::CoreWindow  sender, const ::int_size & size);
+
+            void CoreWindow_PointerPressed(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args);
+
+            // Revoke with event_token
+            void CoreWindow_WindowActivated(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::WindowActivatedEventArgs args);
+            void CoreWindow_CoreWindowClosed(::winrt::Windows::UI::Core::CoreWindow  sender, ::winrt::Windows::UI::Core::CoreWindowEventArgs args);
+            void CoreWindow_KeyDown(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::KeyEventArgs args);
+
+            // Event Handlers
+            void OnWindowSizeChanged(
+               _In_::winrt::Windows::UI::Core::CoreWindow sender,
+               _In_::winrt::Windows::UI::Core::WindowSizeChangedEventArgs args
+            );
+
+            void DpiChanged(::winrt::Windows::Graphics::Display::DisplayInformation  sender, ::winrt::Windows::Foundation::IInspectable);
+
+            virtual void on_dpi_changed(::winrt::Windows::Graphics::Display::DisplayInformation  sender, ::winrt::Windows::Foundation::IInspectable);
+
+            void DisplayContentsInvalidated(::winrt::Windows::Graphics::Display::DisplayInformation  sender, ::winrt::Windows::Foundation::IInspectable);
+
+            virtual void on_display_contents_invalidated(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable);
+
+            void OnActivated(
+               ::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & applicationView,
+               ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs const & args
+            );
+
+            void OnSuspending(
+               ::winrt::Windows::Foundation::IInspectable const & sender,
+               ::winrt::Windows::ApplicationModel::SuspendingEventArgs const & args
+            );
+
+            void OnResuming(
+               ::winrt::Windows::Foundation::IInspectable const & sender,
+               ::winrt::Windows::Foundation::IInspectable const & args
+            );
+
+            void OnWindowClosed(::winrt::Windows::UI::Core::CoreWindow  sender, ::winrt::Windows::UI::Core::CoreWindowEventArgs  args);
+            void OnWindowVisibilityChanged(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args);
+
+            void OnPointerMoved(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args);
+            void OnPointerPressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args);
+            void OnPointerReleased(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args);
+            
+            void OnCharacterReceived(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args);
+            void OnKeyDown(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args);
+            void OnKeyUp(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args);
+
+
+            virtual void on_window_visibility_changed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args);
+
+            virtual void on_pointer_moved(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args);
+            virtual void on_pointer_pressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args);
+            virtual void on_pointer_released(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args);
+
+            virtual void on_character_received(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args);
+            virtual void on_key_down(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args);
+            virtual void on_key_up(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args);
 
 
          };

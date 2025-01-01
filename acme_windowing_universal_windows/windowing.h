@@ -5,6 +5,8 @@
 
 
 #include "acme/windowing/sandbox/windowing.h"
+#include <winrt/Windows.UI.ViewManagement.h>
+#include <winrt/Windows.ApplicationModel.Core.h>
 
 
 namespace universal_windows
@@ -24,7 +26,25 @@ namespace universal_windows
          {
          public:
 
-            
+            ::pointer < ::universal_windows::acme::windowing::window >    m_pwindowMain;
+            ::pointer < ::universal_windows::acme::windowing::window >    m_pwindowCreating;
+            // From node
+            // ::pointer<::aura_universal_windows::interaction_impl>m_pimplMain;
+
+            bool                          m_bAppInit;
+
+            ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource    m_frameworkviewsource = nullptr;
+            ::winrt::Windows::UI::ViewManagement::ApplicationView             m_applicationview = nullptr;
+
+            //winrt::agile_ref< application>    m_application;
+
+            ::universal_windows::acme::windowing::application * m_papplication;
+            //auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
+
+            ::winrt::Windows::UI::ViewManagement::UISettings m_uisettings;
+            // END From node
+
+
             windowing();
             ~windowing() override;
 
@@ -38,6 +58,9 @@ namespace universal_windows
             void display_error_trap_push(int i) override;
             void display_error_trap_pop_ignored(int i) override;
 
+            void on_create_window_object(::acme::user::interaction * puserinteraction) override;
+           
+
             //   ::e_status x11_initialize() override;
             //   void * x11_get_display() override;
             //   void x11_sync(const ::procedure & procedure) override;
@@ -46,6 +69,9 @@ namespace universal_windows
             //   void x11_display_error_trap_pop_ignored(int i) override;
 
             //void set_dark_mode(bool bDarkMode) override;
+            void app_init();
+            void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);
+            virtual void fetch_user_color();
 
 
             bool dark_mode() override;

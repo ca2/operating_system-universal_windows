@@ -1,8 +1,9 @@
-// from window by Camilo 2022-03-25 08:54 BRT <3CamiloSasukeThomasBorregaardSoerensen
+// from application by Camilo on
+// 2024-12-31 17:35 BRT <3ThomasBorregaardSoerensen!!
 #pragma once
 
 
-#undef ___new
+//#undef ___new
 #include <winrt/Windows.ApplicationModel.Core.h>
 //
 //
@@ -41,10 +42,18 @@
 
 #include <winrt/Windows.ApplicationModel.Core.h>
 
-//#include "impact.h"
 
-namespace windowing_universal_windows
+namespace universal_windows
 {
+
+
+   namespace acme
+   {
+
+
+      namespace windowing
+      {
+
    using namespace winrt;
    using namespace Windows;
    using namespace Windows::ApplicationModel::Activation;
@@ -54,40 +63,38 @@ namespace windowing_universal_windows
    using namespace Windows::UI::Core;
    using namespace Windows::UI::Composition;
 
-   class impact;
-   class application :
-      public winrt::implements < application, ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource >
+
+   class impact :
+      public winrt::implements < impact, ::winrt::Windows::ApplicationModel::Core::IFrameworkView >
    {
    public:
 
-      windowing * m_pwindowing;
+      ::universal_windows::acme::windowing::windowing * m_pwindowing;
+      ::pointer < window > m_pwindow;
       //winrt::agile_ref<CoreWindow> m_window;
       //winrt::com_ptr<IDXGISwapChain1> m_swapChain;
       //winrt::com_ptr<ID3D11Device1> m_d3dDevice;
       //winrt::com_ptr<ID3D11DeviceContext1> m_d3dDeviceContext;
       //winrt::com_ptr<ID3D11RenderTargetView> m_renderTargetView;
 
-      ::comparable_array < impact * > m_impacta;
+      impact(windowing * pwindowing);
+      ~impact();
 
-      application(windowing * pwindowing);
+      // This method is called on application launch.
+      void Initialize(CoreApplicationView const & applicationView);
 
-      IFrameworkView CreateView();
+      void Load(winrt::hstring const & /*entryPoint*/);
 
-      //// This method is called on application launch.
-      //void Initialize(CoreApplicationView const & applicationView);
+      void OnActivated(CoreApplicationView const & /* applicationView */, IActivatedEventArgs const & /* args */);
 
-      //void Load(winrt::hstring const & /*entryPoint*/);
+      // This method is called after Load.
+      void Run();
 
-      //void OnActivated(CoreApplicationView const & /* applicationView */, IActivatedEventArgs const & /* args */);
+      // This method is called after Initialize.
+      void SetWindow(CoreWindow const & window);
 
-      //// This method is called after Load.
-      //void Run();
-
-      //// This method is called after Initialize.
-      //void SetWindow(CoreWindow const & window);
-
-      //// This method is called before the application exits.
-      //void Uninitialize();
+      // This method is called before the application exits.
+      void Uninitialize();
 
 
       //// This method creates all application resources that depend on
@@ -213,7 +220,15 @@ namespace windowing_universal_windows
 
 
 
-} // namespace windowing_universal_windows
+      } // namespace windowing
+
+
+   } // namespace acme
+
+
+} // namespace universal_windows
+
+
 
 
 
