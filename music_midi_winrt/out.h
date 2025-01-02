@@ -35,7 +35,7 @@ namespace music
             ~out() override;
 
 
-            void open() override;
+            void open(bool bForSequencing) override;
             void close() override;
 
 

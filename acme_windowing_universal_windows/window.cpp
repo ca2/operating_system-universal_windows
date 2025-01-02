@@ -20,6 +20,7 @@
 #include "acme/user/user/mouse.h"
 //#include "acme/windowing/windowing.h"
 //#include "acme/operating_system/windows/windows.h"
+#include "acme_universal_windows/_winrt_system.h"
 #include <winrt/Windows.UI.Core.h>
 #include <winrt/Windows.UI.Input.h>
 #include <winrt/Windows.UI.ViewManagement.h>
@@ -1614,6 +1615,36 @@ namespace universal_windows
          void window::InstallPrototypeHappeningHandling()
          {
 
+            auto window = m_windowscorewindow;
+
+            window.VisibilityChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs>(this, &window::OnWindowVisibilityChanged));
+
+            window.PointerCursor(::winrt::Windows::UI::Core::CoreCursor(::winrt::Windows::UI::Core::CoreCursorType::Arrow, 0));
+
+            window.SizeChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs>(this, &window::OnWindowSizeChanged));
+
+            window.PointerMoved(::winrt::Windows::Foundation::TypedEventHandler <::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerMoved));
+
+            window.CharacterReceived(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs>(this, &window::OnCharacterReceived));
+
+            window.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyDown));
+
+            window.KeyUp(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyUp));
+
+            window.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerPressed));
+
+            window.PointerReleased(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs >(this, &window::OnPointerReleased));
+
+            //auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
+
+            //system()->m_dDpi = displayinformation.LogicalDpi();
+
+            //displayinformation.DpiChanged(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DpiChanged));
+
+            //displayinformation.DisplayContentsInvalidated(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DisplayContentsInvalidated));
+
+
+
             m_resizemanager = ::winrt::Windows::UI::Core::CoreWindowResizeManager::GetForCurrentView();
 
             m_resizemanager.ShouldWaitForLayoutCompletion(true);
@@ -2115,6 +2146,13 @@ namespace universal_windows
          }
 
 
+         void window::on_window_visibility_changed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args)
+         {
+
+
+         }
+
+
          void window::OnPointerMoved(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
          {
 
@@ -2142,7 +2180,7 @@ namespace universal_windows
 
             //}
 
-            ::pointer<::message::message>pusermessage;
+            //::pointer<::message::message>pusermessage;
 
             ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
 
@@ -2150,7 +2188,7 @@ namespace universal_windows
 
             auto pmouse = __create_new< ::user::mouse >();
 
-            pusermessage = pmouse;
+            //pusermessage = pmouse;
 
             //pmouse->m_pwindow = this;
 
@@ -2536,6 +2574,10 @@ namespace universal_windows
 
             pkey->m_strText = szUtf8;
 
+            ::pointer<::micro::elemental> pelemental = m_pacmeuserinteraction;
+
+            pelemental->on_character(pkey);
+
             //puserinteraction->message_handler(pkey);
 
          }
@@ -2606,8 +2648,9 @@ namespace universal_windows
             //}
       //      pkey->m_key = args;
 
+            ::pointer<::micro::elemental> pelemental = m_pacmeuserinteraction;
 
-            puserinteraction->message_handler(pkey);
+            pelemental->on_key_down(pkey);
 
             //   ;;
             //}
@@ -2636,11 +2679,11 @@ namespace universal_windows
             //if (puserinteraction->m_pinteractionimpl == nullptr)
             //   return;
 
-            ::pointer<::message::message>pusermessage;
+            //::pointer<::message::message>pusermessage;
 
-            auto pkey = __create_new< ::message::key >();
+            auto pkey = __create_new< ::user::key >();
 
-            pusermessage = pkey;
+            // pusermessage = pkey;
 
 
             //if (args.VirtualKey() == ::winrt::Windows::System::VirtualKey::Shift)
@@ -2658,9 +2701,9 @@ namespace universal_windows
 
             //if (bSpecialKey || !bTextFocus)
             //{
-            pkey->m_pwindow = this;
+            //pkey->m_pwindow = this;
 
-            pkey->m_oswindow = this;
+            //pkey->m_oswindow = this;
 
             pkey->m_atom = e_message_key_up;
             //pkey->m_playeredUserPrimitive = session()->m_puserinteractionHost;
@@ -2701,12 +2744,44 @@ namespace universal_windows
                   //}
                   //else
                   //{
-            puserinteraction->message_handler(pusermessage);
+
+            ::pointer<::micro::elemental> pelemental = m_pacmeuserinteraction;
+            pelemental->on_key_up(pkey);
             //}
 
          //}
 
          }
+
+         void window::_main_post(const ::procedure & procedure)
+         {
+
+            auto window = m_windowscorewindow;
+
+            if (!window)
+            {
+
+               system()->acme_windowing()->_main_post(procedure);
+
+               return;
+
+            }
+
+
+
+            auto dispatcher = window.Dispatcher();
+
+            dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
+               ::winrt::Windows::UI::Core::DispatchedHandler([procedure]()
+                  {
+
+                     procedure();
+
+                  }));
+
+         }
+
+
 
 
       } // namespace windowing

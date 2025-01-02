@@ -41,7 +41,7 @@ namespace universal_windows
       else
       {
 
-         m_pwindow = pwindowing->__øcreate<::universal_windows::acme::windowing::window>();
+         m_pwindow = pwindowing->__øcreate<::acme::windowing::window>();
 
          //m_pwindow->initialize(pwindowing);
 

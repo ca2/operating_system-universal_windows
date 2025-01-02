@@ -5935,23 +5935,23 @@ namespace windowing_universal_windows
 
             auto window = m_windowscorewindow;
 
-            window.VisibilityChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs>(this, &window::OnWindowVisibilityChanged));
+            //window.VisibilityChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs>(this, &window::OnWindowVisibilityChanged));
 
-            window.PointerCursor(::winrt::Windows::UI::Core::CoreCursor(::winrt::Windows::UI::Core::CoreCursorType::Arrow, 0));
+            //window.PointerCursor(::winrt::Windows::UI::Core::CoreCursor(::winrt::Windows::UI::Core::CoreCursorType::Arrow, 0));
 
-            window.SizeChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs>(this, &window::OnWindowSizeChanged));
+            //window.SizeChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs>(this, &window::OnWindowSizeChanged));
 
-            window.PointerMoved(::winrt::Windows::Foundation::TypedEventHandler <::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerMoved));
+            //window.PointerMoved(::winrt::Windows::Foundation::TypedEventHandler <::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerMoved));
 
-            window.CharacterReceived(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs>(this, &window::OnCharacterReceived));
+            //window.CharacterReceived(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs>(this, &window::OnCharacterReceived));
 
-            window.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyDown));
+            //window.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyDown));
 
-            window.KeyUp(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyUp));
+            //window.KeyUp(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyUp));
 
-            window.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerPressed));
+            //window.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerPressed));
 
-            window.PointerReleased(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs >(this, &window::OnPointerReleased));
+            //window.PointerReleased(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs >(this, &window::OnPointerReleased));
 
             //auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
 
@@ -7198,216 +7198,216 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
 
 
-      //void window::OnCharacterReceived(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args)
-      //{
+      void window::on_character_received(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args)
+      {
 
-      //   if (m_bInternalFocus)
-      //   {
+         if (m_bInternalFocus)
+         {
 
-      //      return;
+            return;
 
-      //   }
+         }
 
-      //   auto puserinteraction = user_interaction();
+         auto puserinteraction = user_interaction();
 
-      //   if (puserinteraction == nullptr)
-      //   {
+         if (puserinteraction == nullptr)
+         {
 
-      //      return;
+            return;
 
-      //   }
+         }
 
-      //   //if (puserinteraction->m_pinteractionimpl == nullptr)
-      //   //{
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //{
 
-      //   //   return;
+         //   return;
 
-      //   //}
+         //}
 
-      //   ::wd32_character wd32ch = args.KeyCode();
+         ::wd32_character wd32ch = args.KeyCode();
 
-      //   if (wd32ch < 32)
-      //   {
+         if (wd32ch < 32)
+         {
 
-      //      // It is control character.
+            // It is control character.
 
-      //      return;
+            return;
 
-      //   }
+         }
 
-      //   auto pkey = __create_new< ::message::key >();
-      //   pkey->m_pwindow = this;
+         auto pkey = __create_new< ::message::key >();
+         pkey->m_pwindow = this;
 
-      //   pkey->m_oswindow = this;
+         pkey->m_oswindow = this;
 
-      //   pkey->m_atom = e_message_char;
+         pkey->m_atom = e_message_char;
 
-      //   pkey->m_ekey = ::user::e_key_refer_to_text_member;
+         pkey->m_ekey = ::user::e_key_refer_to_text_member;
 
-      //   char szUtf8[32];
+         char szUtf8[32];
 
-      //   wd32_to_ansi(szUtf8, &wd32ch, 1);
-      //   
-      //   pkey->m_strText = szUtf8;
+         wd32_to_ansi(szUtf8, &wd32ch, 1);
+         
+         pkey->m_strText = szUtf8;
 
-      //   puserinteraction->message_handler(pkey);
+         puserinteraction->message_handler(pkey);
 
+      }
+
+
+      void window::on_key_down(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
+      {
+
+         if (args.VirtualKey() == ::winrt::Windows::System::VirtualKey::Shift)
+         {
+
+            m_bFontopusShift = true;
+
+         }
+
+         if (system() == nullptr)
+         {
+
+            return;
+
+         }
+
+         auto puserinteraction = user_interaction();
+
+         if (puserinteraction == nullptr)
+         {
+
+            return;
+
+         }
+
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+           // return;
+
+         auto pkey = __create_new< ::message::key >();
+
+         bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
+
+         bool bSpecialKey = false;
+
+         ::user::enum_key ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
+
+         //if (bSpecialKey s || session()->is_key_pressed(::user::e_key_control)
+         //   || session()->is_key_pressed(::user::e_key_alt))
+         //{
+         pkey->m_pwindow = this;
+
+         pkey->m_oswindow = this;
+
+         pkey->m_atom = e_message_key_down;
+         //pkey->m_playeredUserPrimitive       = session()->m_puserinteractionHost;
+         pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
+         pkey->m_ekey = ekey;
+         pkey->m_wparam = pkey->m_nChar;
+         pkey->m_nFlags = (unsigned int)::universal_windows::virtualkey_to_code(args.VirtualKey());
+         pkey->m_lparam = pkey->m_nFlags << 16;
+         //pkey->m_strText            = m_strNewText;
+         //if (pkey->m_strText.has_character())
+         //{
+           // pkey->m_ekey = ::user::e_key_refer_to_text_member;
+         //}
+   //      pkey->m_key = args;
+
+
+         puserinteraction->message_handler(pkey);
+
+      //   ;;
       //}
 
+      }
 
-   //   void window::OnKeyDown(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
-   //   {
+      void window::on_key_up(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
+      {
 
-   //      if (args.VirtualKey() == ::winrt::Windows::System::VirtualKey::Shift)
-   //      {
+         if (system() == nullptr)
+            return;
 
-   //         m_bFontopusShift = true;
+         auto puserinteraction = user_interaction();
 
-   //      }
+         if (puserinteraction == nullptr)
+            return;
 
-   //      if (system() == nullptr)
-   //      {
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //   return;
 
-   //         return;
+         ::pointer<::user::message>pusermessage;
 
-   //      }
+         auto pkey = __create_new< ::message::key >();
 
-   //      auto puserinteraction = user_interaction();
-
-   //      if (puserinteraction == nullptr)
-   //      {
-
-   //         return;
-
-   //      }
-
-   //      //if (puserinteraction->m_pinteractionimpl == nullptr)
-   //        // return;
-
-   //      auto pkey = __create_new< ::message::key >();
-
-   //      bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
-
-   //      bool bSpecialKey = false;
-
-   //      ::user::enum_key ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
-
-   //      //if (bSpecialKey s || session()->is_key_pressed(::user::e_key_control)
-   //      //   || session()->is_key_pressed(::user::e_key_alt))
-   //      //{
-   //      pkey->m_pwindow = this;
-
-   //      pkey->m_oswindow = this;
-
-   //      pkey->m_atom = e_message_key_down;
-   //      //pkey->m_playeredUserPrimitive       = session()->m_puserinteractionHost;
-   //      pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
-   //      pkey->m_ekey = ekey;
-   //      pkey->m_wparam = pkey->m_nChar;
-   //      pkey->m_nFlags = (unsigned int)::universal_windows::virtualkey_to_code(args.VirtualKey());
-   //      pkey->m_lparam = pkey->m_nFlags << 16;
-   //      //pkey->m_strText            = m_strNewText;
-   //      //if (pkey->m_strText.has_character())
-   //      //{
-   //        // pkey->m_ekey = ::user::e_key_refer_to_text_member;
-   //      //}
-   ////      pkey->m_key = args;
+         pusermessage = pkey;
 
 
-   //      puserinteraction->message_handler(pkey);
+         if (args.VirtualKey() == ::winrt::Windows::System::VirtualKey::Shift)
+         {
 
-   //   //   ;;
-   //   //}
+            m_bFontopusShift = false;
 
-   //   }
+         }
 
-      //void window::OnKeyUp(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
-      //{
+         bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
 
-      //   if (system() == nullptr)
-      //      return;
+         bool bSpecialKey = false;
 
-      //   auto puserinteraction = user_interaction();
+         ::user::enum_key ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 
-      //   if (puserinteraction == nullptr)
-      //      return;
+         //if (bSpecialKey || !bTextFocus)
+         //{
+         pkey->m_pwindow = this;
 
-      //   //if (puserinteraction->m_pinteractionimpl == nullptr)
-      //   //   return;
+         pkey->m_oswindow = this;
 
-      //   ::pointer<::user::message>pusermessage;
-
-      //   auto pkey = __create_new< ::message::key >();
-
-      //   pusermessage = pkey;
+            pkey->m_atom = e_message_key_up;
+            //pkey->m_playeredUserPrimitive = session()->m_puserinteractionHost;
+            pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
+            pkey->m_ekey = ekey;
+            pkey->m_wparam = pkey->m_nChar;
 
 
-      //   if (args.VirtualKey() == ::winrt::Windows::System::VirtualKey::Shift)
-      //   {
+            //      pkey->m_key = args;
 
-      //      m_bFontopusShift = false;
+                  //if (system()->m_psimpleui != nullptr && system()->m_psimpleui->is_window_visible())
+                  //{
+                  //   string str;
+                  //   str = (char)pkey->m_nChar;
+                  //   if (m_bFontopusShift)
+                  //   {
+                  //      if (pkey->m_nChar == 0xbe)
+                  //      {
+                  //         str = ">";
+                  //      }
+                  //      else if (str == "2")
+                  //      {
+                  //         str = "@";
+                  //      }
+                  //      else
+                  //      {
+                  //         str.make_upper();
+                  //      }
+                  //   }
+                  //   else
+                  //   {
+                  //      if (pkey->m_nChar == 0xbe)
+                  //      {
+                  //         str = ".";
+                  //      }
+                  //   }
+                  //   system()->m_psimpleui->on_char(virtualkey_to_userkey(args.VirtualKey), str);
+                  //}
+                  //else
+                  //{
+            puserinteraction->message_handler(pusermessage);
+            //}
 
-      //   }
-
-      //   bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
-
-      //   bool bSpecialKey = false;
-
-      //   ::user::enum_key ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
-
-      //   //if (bSpecialKey || !bTextFocus)
-      //   //{
-      //   pkey->m_pwindow = this;
-
-      //   pkey->m_oswindow = this;
-
-      //      pkey->m_atom = e_message_key_up;
-      //      //pkey->m_playeredUserPrimitive = session()->m_puserinteractionHost;
-      //      pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
-      //      pkey->m_ekey = ekey;
-      //      pkey->m_wparam = pkey->m_nChar;
-
-
-      //      //      pkey->m_key = args;
-
-      //            //if (system()->m_psimpleui != nullptr && system()->m_psimpleui->is_window_visible())
-      //            //{
-      //            //   string str;
-      //            //   str = (char)pkey->m_nChar;
-      //            //   if (m_bFontopusShift)
-      //            //   {
-      //            //      if (pkey->m_nChar == 0xbe)
-      //            //      {
-      //            //         str = ">";
-      //            //      }
-      //            //      else if (str == "2")
-      //            //      {
-      //            //         str = "@";
-      //            //      }
-      //            //      else
-      //            //      {
-      //            //         str.make_upper();
-      //            //      }
-      //            //   }
-      //            //   else
-      //            //   {
-      //            //      if (pkey->m_nChar == 0xbe)
-      //            //      {
-      //            //         str = ".";
-      //            //      }
-      //            //   }
-      //            //   system()->m_psimpleui->on_char(virtualkey_to_userkey(args.VirtualKey), str);
-      //            //}
-      //            //else
-      //            //{
-      //      puserinteraction->message_handler(pusermessage);
-      //      //}
-
-      //   //}
+         //}
 
 
 
-      //}
+      }
 
 
       //void window::OnWindowClosed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CoreWindowEventArgs args)
@@ -7986,34 +7986,6 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
       }
 
 
-      //void window::OnWindowVisibilityChanged(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args)
-      //{
-
-      //   if (args.Visible())
-      //   {
-
-      //      __on_window_visible();
-
-      //   }
-      //   else
-      //   {
-
-      //      auto pbuffer = __buffer(get_window_graphics());
-
-      //      if (pbuffer && pbuffer->m_tristateCoreWindowVisible)
-      //      {
-
-      //         pbuffer->m_tristateCoreWindowVisible = false;
-
-      //         pbuffer->DestroyWindowSizeDependentResources();
-
-      //      }
-
-      //   }
-
-      //}
-
-
       void window::on_window_visibility_changed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args)
       {
 
@@ -8042,457 +8014,483 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
       }
 
 
-
-
-      //void window::OnPointerMoved(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
+      //void window::on_window_visibility_changed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args)
       //{
 
-      //   auto puserinteraction = user_interaction();
-
-      //   if (puserinteraction == nullptr)
+      //   if (args.Visible())
       //   {
 
-      //      return;
+      //      __on_window_visible();
 
       //   }
+      //   else
+      //   {
 
-      //   //if (puserinteraction->m_pinteractionimpl == nullptr)
-      //   //{
+      //      auto pbuffer = __buffer(get_window_graphics());
 
-      //   //   return;
+      //      if (pbuffer && pbuffer->m_tristateCoreWindowVisible)
+      //      {
 
-      //   //}
+      //         pbuffer->m_tristateCoreWindowVisible = false;
 
-      //   ::pointer<::user::message>pusermessage;
+      //         pbuffer->DestroyWindowSizeDependentResources();
 
-      //   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+      //      }
 
-      //   m_iMouse = pointerPoint.PointerId();
-
-      //   auto pmouse = __create_new< ::message::mouse >();
-
-      //   pusermessage = pmouse;
-
-      //   pmouse->m_pwindow = this;
-
-      //   pmouse->m_oswindow = this;
-
-      //   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
-
-      //   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
-
-      //   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
-
-      //   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
-
-      //   pmouse->m_atom = e_message_mouse_move;
-      //   //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
-
-      //   m_pointLastCursor = pointerPoint.RawPosition();
-
-      //   //set_cursor_position({ (int) m_pointLastCursor.X, (int) m_pointLastCursor.Y});
-
-      //   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
-
-      //   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
-
-      //   puserinteraction->message_handler(pusermessage);
-
-      //   m_timeLastMouseMove = ::time::now();
+      //   }
 
       //}
 
 
-      //void window::OnPointerPressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
-      //{
+      void window::on_pointer_moved(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
+      {
 
-      //   if (system() == nullptr)
-      //   {
+         auto puserinteraction = user_interaction();
 
-      //      return;
+         if (puserinteraction == nullptr)
+         {
 
-      //   }
+            return;
 
-      //   auto puserinteraction = user_interaction();
+         }
 
-      //   if (puserinteraction == nullptr)
-      //   {
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //{
 
-      //      return;
+         //   return;
 
-      //   }
+         //}
 
-      //   //if (puserinteraction->m_pinteractionimpl == nullptr)
-      //   //{
+         ::pointer<::user::message>pusermessage;
 
-      //   //   return;
+         ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
 
-      //   //}
+         m_iMouse = pointerPoint.PointerId();
 
-      //   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+         auto pmouse = __create_new< ::message::mouse >();
 
-      //   m_iMouse = pointerPoint.PointerId();
+         pusermessage = pmouse;
 
-      //   auto pmouse = __create_new< ::message::mouse >();
+         pmouse->m_pwindow = this;
 
-      //   pmouse->m_pwindow = this;
+         pmouse->m_oswindow = this;
 
-      //   pmouse->m_oswindow = this;
+         pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 
-      //   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
+         pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
 
-      //   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
+         pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
 
-      //   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
+         pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
 
-      //   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
+         pmouse->m_atom = e_message_mouse_move;
+         //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
 
-      //   if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
-      //   {
+         m_pointLastCursor = pointerPoint.RawPosition();
 
-      //      pmouse->m_atom = e_message_left_button_down;
+         //set_cursor_position({ (int) m_pointLastCursor.X, (int) m_pointLastCursor.Y});
 
-      //      m_bLeftButton = true;
-      //      m_bMiddleButton = false;
-      //      m_bRightButton = false;
+         m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
 
-      //   }
-      //   else if (args.CurrentPoint().Properties().IsRightButtonPressed() && !m_bRightButton)
-      //   {
+         m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
 
-      //      pmouse->m_atom = e_message_right_button_down;
+         puserinteraction->message_handler(pusermessage);
 
-      //      m_bLeftButton = false;
-      //      m_bMiddleButton = false;
-      //      m_bRightButton = true;
+         m_timeLastMouseMove = ::time::now();
 
-      //   }
-      //   else if (args.CurrentPoint().Properties().IsMiddleButtonPressed() && !m_bMiddleButton)
-      //   {
+      }
 
-      //      pmouse->m_atom = e_message_middle_button_down;
 
-      //      m_bLeftButton = false;
-      //      m_bMiddleButton = true;
-      //      m_bRightButton = false;
+      void window::on_pointer_pressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
+      {
 
-      //   }
+         if (system() == nullptr)
+         {
 
-      //   m_pointLastCursor = pointerPoint.RawPosition();
+            return;
 
-      //   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+         }
 
-      //   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
+         auto puserinteraction = user_interaction();
 
-      //   puserinteraction->message_handler(pmouse);
+         if (puserinteraction == nullptr)
+         {
 
-      //}
+            return;
 
+         }
 
-      //void window::OnPointerReleased(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
-      //{
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //{
 
-      //   if (system() == nullptr)
-      //   {
+         //   return;
 
-      //      return;
+         //}
 
-      //   }
+         ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
 
-      //   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+         m_iMouse = pointerPoint.PointerId();
 
-      //   m_iMouse = pointerPoint.PointerId();
+         auto pmouse = __create_new< ::message::mouse >();
 
-      //   auto puserinteraction = user_interaction();
+         pmouse->m_pwindow = this;
 
-      //   if (puserinteraction == nullptr)
-      //   {
+         pmouse->m_oswindow = this;
 
-      //      return;
+         pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 
-      //   }
+         pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
 
-      //   //if (puserinteraction->m_pinteractionimpl == nullptr)
-      //   //{
+         pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
 
-      //   //   return;
+         pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
 
-      //   //}
+         if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
+         {
 
-      //   auto pmouse = __create_new< ::message::mouse >();
+            pmouse->m_atom = e_message_left_button_down;
 
-      //   pmouse->m_pwindow = this;
+            m_bLeftButton = true;
+            m_bMiddleButton = false;
+            m_bRightButton = false;
 
-      //   pmouse->m_oswindow = this;
+         }
+         else if (args.CurrentPoint().Properties().IsRightButtonPressed() && !m_bRightButton)
+         {
 
-      //   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
+            pmouse->m_atom = e_message_right_button_down;
 
-      //   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
+            m_bLeftButton = false;
+            m_bMiddleButton = false;
+            m_bRightButton = true;
 
-      //   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
+         }
+         else if (args.CurrentPoint().Properties().IsMiddleButtonPressed() && !m_bMiddleButton)
+         {
 
-      //   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
+            pmouse->m_atom = e_message_middle_button_down;
 
-      //   if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
-      //   {
+            m_bLeftButton = false;
+            m_bMiddleButton = true;
+            m_bRightButton = false;
 
-      //      pmouse->m_atom = e_message_left_button_up;
+         }
 
-      //      m_bLeftButton = false;
+         m_pointLastCursor = pointerPoint.RawPosition();
 
-      //   }
-      //   else if (m_bRightButton && !args.CurrentPoint().Properties().IsRightButtonPressed())
-      //   {
+         m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
 
-      //      pmouse->m_atom = e_message_right_button_up;
+         m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
 
-      //      m_bRightButton = false;
+         puserinteraction->message_handler(pmouse);
 
-      //   }
-      //   else if (m_bMiddleButton && !args.CurrentPoint().Properties().IsMiddleButtonPressed())
-      //   {
+      }
 
-      //      pmouse->m_atom = e_message_middle_button_up;
 
-      //      m_bMiddleButton = false;
+      void window::on_pointer_released(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
+      {
 
-      //   }
+         if (system() == nullptr)
+         {
 
-      //   m_pointLastCursor = pointerPoint.RawPosition();
+            return;
 
-      //   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+         }
 
-      //   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
+         ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
 
-      //   puserinteraction->message_handler(pmouse);
+         m_iMouse = pointerPoint.PointerId();
 
-      //}
+         auto puserinteraction = user_interaction();
 
+         if (puserinteraction == nullptr)
+         {
 
-void window::on_pointer_moved(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
-{
+            return;
 
-   auto puserinteraction = user_interaction();
+         }
 
-   if (puserinteraction == nullptr)
-   {
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //{
 
-      return;
+         //   return;
 
-   }
+         //}
 
-   //if (puserinteraction->m_pinteractionimpl == nullptr)
-   //{
+         auto pmouse = __create_new< ::message::mouse >();
 
-   //   return;
+         pmouse->m_pwindow = this;
 
-   //}
+         pmouse->m_oswindow = this;
 
-   ::pointer<::user::message>pusermessage;
+         pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 
-   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+         pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
 
-   m_iMouse = pointerPoint.PointerId();
+         pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
 
-   auto pmouse = __create_new< ::message::mouse >();
+         pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
 
-   pusermessage = pmouse;
+         if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
+         {
 
-   pmouse->m_pwindow = this;
+            pmouse->m_atom = e_message_left_button_up;
 
-   pmouse->m_oswindow = this;
+            m_bLeftButton = false;
 
-   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
+         }
+         else if (m_bRightButton && !args.CurrentPoint().Properties().IsRightButtonPressed())
+         {
 
-   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
+            pmouse->m_atom = e_message_right_button_up;
 
-   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
+            m_bRightButton = false;
 
-   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
+         }
+         else if (m_bMiddleButton && !args.CurrentPoint().Properties().IsMiddleButtonPressed())
+         {
 
-   pmouse->m_atom = e_message_mouse_move;
-   //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
+            pmouse->m_atom = e_message_middle_button_up;
 
-   m_pointLastCursor = pointerPoint.RawPosition();
+            m_bMiddleButton = false;
 
-   //set_cursor_position({ (int) m_pointLastCursor.X, (int) m_pointLastCursor.Y});
+         }
 
-   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+         m_pointLastCursor = pointerPoint.RawPosition();
 
-   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
-
-   puserinteraction->message_handler(pusermessage);
-
-   m_timeLastMouseMove = ::time::now();
-
-}
-
-
-void window::on_pointer_pressed(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
-{
-
-   if (system() == nullptr)
-   {
-
-      return;
-
-   }
-
-   auto puserinteraction = user_interaction();
-
-   if (puserinteraction == nullptr)
-   {
-
-      return;
-
-   }
-
-   //if (puserinteraction->m_pinteractionimpl == nullptr)
-   //{
-
-   //   return;
-
-   //}
-
-   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
-
-   m_iMouse = pointerPoint.PointerId();
-
-   auto pmouse = __create_new< ::message::mouse >();
-
-   pmouse->m_pwindow = this;
-
-   pmouse->m_oswindow = this;
-
-   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
-
-   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
-
-   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
-
-   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
-
-   if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
-   {
-
-      pmouse->m_atom = e_message_left_button_down;
-
-      m_bLeftButton = true;
-      m_bMiddleButton = false;
-      m_bRightButton = false;
-
-   }
-   else if (args.CurrentPoint().Properties().IsRightButtonPressed() && !m_bRightButton)
-   {
-
-      pmouse->m_atom = e_message_right_button_down;
-
-      m_bLeftButton = false;
-      m_bMiddleButton = false;
-      m_bRightButton = true;
-
-   }
-   else if (args.CurrentPoint().Properties().IsMiddleButtonPressed() && !m_bMiddleButton)
-   {
-
-      pmouse->m_atom = e_message_middle_button_down;
-
-      m_bLeftButton = false;
-      m_bMiddleButton = true;
-      m_bRightButton = false;
-
-   }
-
-   m_pointLastCursor = pointerPoint.RawPosition();
-
-   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
-
-   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
-
-   puserinteraction->message_handler(pmouse);
-
-}
-
-
-
-void window::on_pointer_released(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
-{
-
-   if (system() == nullptr)
-   {
-
-      return;
-
-   }
-
-   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
-
-   m_iMouse = pointerPoint.PointerId();
-
-   auto puserinteraction = user_interaction();
-
-   if (puserinteraction == nullptr)
-   {
-
-      return;
-
-   }
-
-   //if (puserinteraction->m_pinteractionimpl == nullptr)
-   //{
-
-   //   return;
-
-   //}
-
-   auto pmouse = __create_new< ::message::mouse >();
-
-   pmouse->m_pwindow = this;
-
-   pmouse->m_oswindow = this;
-
-   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
-
-   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
-
-   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
-
-   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
-
-   if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
-   {
-
-      pmouse->m_atom = e_message_left_button_up;
-
-      m_bLeftButton = false;
-
-   }
-   else if (m_bRightButton && !args.CurrentPoint().Properties().IsRightButtonPressed())
-   {
-
-      pmouse->m_atom = e_message_right_button_up;
-
-      m_bRightButton = false;
-
-   }
-   else if (m_bMiddleButton && !args.CurrentPoint().Properties().IsMiddleButtonPressed())
-   {
-
-      pmouse->m_atom = e_message_middle_button_up;
-
-      m_bMiddleButton = false;
-
-   }
-
-   m_pointLastCursor = pointerPoint.RawPosition();
-
-   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
-
-   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
-
-   puserinteraction->message_handler(pmouse);
-
-}
+         m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+
+         m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
+
+         puserinteraction->message_handler(pmouse);
+
+      }
+
+
+//void window::on_pointer_moved(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
+//{
+//
+//   auto puserinteraction = user_interaction();
+//
+//   if (puserinteraction == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   //if (puserinteraction->m_pinteractionimpl == nullptr)
+//   //{
+//
+//   //   return;
+//
+//   //}
+//
+//   ::pointer<::user::message>pusermessage;
+//
+//   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+//
+//   m_iMouse = pointerPoint.PointerId();
+//
+//   auto pmouse = __create_new< ::message::mouse >();
+//
+//   pusermessage = pmouse;
+//
+//   pmouse->m_pwindow = this;
+//
+//   pmouse->m_oswindow = this;
+//
+//   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
+//
+//   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
+//
+//   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
+//
+//   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   pmouse->m_atom = e_message_mouse_move;
+//   //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
+//
+//   m_pointLastCursor = pointerPoint.RawPosition();
+//
+//   //set_cursor_position({ (int) m_pointLastCursor.X, (int) m_pointLastCursor.Y});
+//
+//   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+//
+//   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   puserinteraction->message_handler(pusermessage);
+//
+//   m_timeLastMouseMove = ::time::now();
+//
+//}
+//
+//
+//void window::on_pointer_pressed(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
+//{
+//
+//   if (system() == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   auto puserinteraction = user_interaction();
+//
+//   if (puserinteraction == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   //if (puserinteraction->m_pinteractionimpl == nullptr)
+//   //{
+//
+//   //   return;
+//
+//   //}
+//
+//   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+//
+//   m_iMouse = pointerPoint.PointerId();
+//
+//   auto pmouse = __create_new< ::message::mouse >();
+//
+//   pmouse->m_pwindow = this;
+//
+//   pmouse->m_oswindow = this;
+//
+//   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
+//
+//   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
+//
+//   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
+//
+//   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
+//   {
+//
+//      pmouse->m_atom = e_message_left_button_down;
+//
+//      m_bLeftButton = true;
+//      m_bMiddleButton = false;
+//      m_bRightButton = false;
+//
+//   }
+//   else if (args.CurrentPoint().Properties().IsRightButtonPressed() && !m_bRightButton)
+//   {
+//
+//      pmouse->m_atom = e_message_right_button_down;
+//
+//      m_bLeftButton = false;
+//      m_bMiddleButton = false;
+//      m_bRightButton = true;
+//
+//   }
+//   else if (args.CurrentPoint().Properties().IsMiddleButtonPressed() && !m_bMiddleButton)
+//   {
+//
+//      pmouse->m_atom = e_message_middle_button_down;
+//
+//      m_bLeftButton = false;
+//      m_bMiddleButton = true;
+//      m_bRightButton = false;
+//
+//   }
+//
+//   m_pointLastCursor = pointerPoint.RawPosition();
+//
+//   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+//
+//   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   puserinteraction->message_handler(pmouse);
+//
+//}
+//
+//
+//
+//void window::on_pointer_released(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
+//{
+//
+//   if (system() == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+//
+//   m_iMouse = pointerPoint.PointerId();
+//
+//   auto puserinteraction = user_interaction();
+//
+//   if (puserinteraction == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   //if (puserinteraction->m_pinteractionimpl == nullptr)
+//   //{
+//
+//   //   return;
+//
+//   //}
+//
+//   auto pmouse = __create_new< ::message::mouse >();
+//
+//   pmouse->m_pwindow = this;
+//
+//   pmouse->m_oswindow = this;
+//
+//   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
+//
+//   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
+//
+//   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
+//
+//   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
+//   {
+//
+//      pmouse->m_atom = e_message_left_button_up;
+//
+//      m_bLeftButton = false;
+//
+//   }
+//   else if (m_bRightButton && !args.CurrentPoint().Properties().IsRightButtonPressed())
+//   {
+//
+//      pmouse->m_atom = e_message_right_button_up;
+//
+//      m_bRightButton = false;
+//
+//   }
+//   else if (m_bMiddleButton && !args.CurrentPoint().Properties().IsMiddleButtonPressed())
+//   {
+//
+//      pmouse->m_atom = e_message_middle_button_up;
+//
+//      m_bMiddleButton = false;
+//
+//   }
+//
+//   m_pointLastCursor = pointerPoint.RawPosition();
+//
+//   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+//
+//   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   puserinteraction->message_handler(pmouse);
+//
+//}
 
 
       ::int_rectangle window::get_input_content_rect()
@@ -8984,7 +8982,12 @@ void window::on_pointer_released(::winrt::Windows::UI::Core::CoreWindow, ::winrt
       
       void window::_main_post(const ::procedure & procedure)
       {
-         auto window = m_windowscorewindow;
+
+         ::universal_windows::acme::windowing::window::_main_post(procedure);
+
+         //
+
+         /*auto window = m_windowscorewindow;
 
          auto dispatcher = window.Dispatcher();
 
@@ -8994,7 +8997,7 @@ void window::on_pointer_released(::winrt::Windows::UI::Core::CoreWindow, ::winrt
                   
                   procedure();
 
-               }));
+               }));*/
 
       }
 

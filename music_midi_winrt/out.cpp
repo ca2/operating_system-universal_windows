@@ -33,7 +33,7 @@ namespace music
          }
 
 
-         void out::open()
+         void out::open(bool bForSequencing)
          {
 
             //HRESULT mmrc;

@@ -264,6 +264,8 @@ namespace universal_windows
             virtual void on_key_down(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args);
             virtual void on_key_up(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args);
 
+            void _main_post(const ::procedure & procedure) override;
+
 
          };
 
