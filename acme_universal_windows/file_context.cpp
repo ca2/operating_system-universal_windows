@@ -10,6 +10,7 @@
 #include "acme/filesystem/filesystem/file_system.h"
 #include "acme/filesystem/filesystem/path_system.h"
 #include "acme/include/_c_swap.h"
+#include "acme/platform/application.h"
 #include "acme/platform/system.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme_universal_windows/native_buffer.h"
@@ -918,7 +919,7 @@ namespace acme_universal_windows
 
 //      ::file_pointer pfile;
 
-      m_papplication->__construct(pfile);
+      m_papplication->__øconstruct(pfile);
 
       pfile->open(path, eopen);
 

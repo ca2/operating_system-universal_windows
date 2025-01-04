@@ -67,7 +67,6 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="application.cpp" />
     <ClCompile Include="buffer.cpp" />
     <ClCompile Include="copydesk.cpp" />
     <ClCompile Include="cursor.cpp" />
@@ -101,7 +100,6 @@
     <ClCompile Include="_.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="application.h" />
     <ClInclude Include="buffer.h" />
     <ClInclude Include="copydesk.h" />
     <ClInclude Include="cursor.h" />
@@ -152,6 +150,9 @@
     </ProjectReference>
     <ProjectReference Include="..\acme_universal_windows\u_acme_universal_windows.vcxproj">
       <Project>{e38ecf25-a157-4402-a803-f54759ff1c91}</Project>
+    </ProjectReference>
+    <ProjectReference Include="..\acme_windowing_universal_windows\u_acme_windowing_universal_windows.vcxproj">
+      <Project>{4a17f27f-30d9-4af6-a2cc-66125ee771e8}</Project>
     </ProjectReference>
     <ProjectReference Include="..\apex_universal_windows\u_apex_universal_windows.vcxproj">
       <Project>{310fec1b-4deb-40c9-8ed2-4d8fd9cf52d0}</Project>

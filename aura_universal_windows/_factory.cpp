@@ -1,6 +1,6 @@
 #include "framework.h"
 #include "node.h"
-#include "interaction_impl.h"
+//#include "interaction_impl.h"
 #include "hardware/device_group.h"
 #include "hardware/devices.h"
 
@@ -19,7 +19,7 @@ __FACTORY_EXPORT void aura_universal_windows_factory(::factory::factory * pfacto
    apex_universal_windows_factory(pfactory);
 
 
-   pfactory->add_factory_item < ::aura_universal_windows::interaction_impl, ::windowing::window >();
+   //pfactory->add_factory_item < ::aura_universal_windows::interaction_impl, ::windowing::window >();
 
    pfactory->add_factory_item < ::aura_universal_windows::node, ::platform::node >();
 

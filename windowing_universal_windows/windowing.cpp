@@ -11,24 +11,25 @@
 #include "aura/user/user/interaction.h"
 #include "aura/message/user.h"
 #include "aura/platform/system.h"
+#include "aura/user/user/frame_interaction.h"
 #include "aura/windowing/window.h"
 #include "direct2d/direct2d.h"
 //#include "universal_windows/framework_impact_source.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include <winrt/Windows.UI.ViewManagement.h>
+#include <winrt/Windows.UI.Core.h>
 
 
 namespace windowing_universal_windows
 {
 
 
-   windowing::windowing() :
-      m_frameworkviewsource{  winrt::make<::windowing_universal_windows::application>(this) }
+   windowing::windowing()
    {
 
       
 
-      m_pWindowing4 = this;
+      //m_pWindowing4 = this;
 
 //      set_layer(LAYERED_IMPL, this);
 
@@ -43,12 +44,12 @@ namespace windowing_universal_windows
    }
 
 
-   void windowing::initialize_windowing(::user::user * puser)
+   void windowing::initialize_windowing()
    {
 
       //auto estatus = 
       
-      ::windowing::windowing::initialize_windowing(puser);
+      ::windowing::windowing::initialize_windowing();
 
       //if (!estatus)
       //{
@@ -59,7 +60,7 @@ namespace windowing_universal_windows
 
       //estatus = 
       
-      __construct(m_pdisplay);
+      __øconstruct(m_pdisplay);
 
       //if (!estatus)
       //{
@@ -70,7 +71,7 @@ namespace windowing_universal_windows
 
       //estatus = 
       
-      m_pdisplay->initialize_display(this);
+      m_pdisplay->open_display();
 
       //if (!estatus)
       //{
@@ -119,46 +120,22 @@ namespace windowing_universal_windows
    //}
 
 
-   void windowing::OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings uisettings, ::winrt::Windows::Foundation::IInspectable inpectable)
-   {
-   
-      fetch_user_color();
-   
-      //auto luminance = color.get_luminance();
-   
-      //return luminance < 0.5;
-   
-   
-      //system()->signal(id_user_color);
-   
-   }
-   
-   
-   void windowing::fetch_user_color()
-   {
-   
-      auto colortypeBackground = ::winrt::Windows::UI::ViewManagement::UIColorType::Background;
-   
-      auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
-   
-      auto colorvalue = uisettings.GetColorValue(colortypeBackground);
-   
-      auto colorBackground = argb(colorvalue.A, colorvalue.R, colorvalue.G, colorvalue.B);
-   
-      system()->background_color(colorBackground);
-   
-   }
-   
 
-
-   void windowing::app_init()
+   bool windowing::combo_box_list_box_is_top_level()
    {
 
-      //m_uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
-
-      m_uisettings.ColorValuesChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::ViewManagement::UISettings, winrt::Windows::Foundation::IInspectable>(this, &windowing::OnUISettingsColorValuesChange));
+      return false;
 
    }
+
+
+   bool windowing::targeted_keyboard_messages()
+   {
+
+      return true;
+
+   }
+
 
 
 
@@ -236,6 +213,13 @@ namespace windowing_universal_windows
 
    }
 
+   void windowing::kick_idle()
+   {
+
+      ::universal_windows::acme::windowing::windowing::kick_idle();  
+
+   }
+
 
    //::e_status windowing::destroy()
    //{
@@ -288,7 +272,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::windowing::window * windowing::window(oswindow oswindow)
+   ::acme::windowing::window * windowing::window(oswindow oswindow)
    {
 
       ///HWND hwnd = as_hwnd(oswindow);
@@ -1385,6 +1369,92 @@ namespace windowing_universal_windows
       return picon;
 
    }
+
+
+   void windowing::_main_send(const ::procedure & procedure)
+   {
+
+      ::universal_windows::acme::windowing::windowing::_main_send(procedure);
+
+   }
+
+
+   void windowing::windowing_application_main_loop()
+   {
+
+
+      //system()->defer_post_initial_request();
+
+      auto frameworkviewsource = m_frameworkviewsource;
+
+      ::winrt::Windows::ApplicationModel::Core::CoreApplication::Run(frameworkviewsource);
+
+      //estatus = call_member(SOUL_ID);
+
+      //if (!estatus)
+      //{
+
+      //   return estatus;
+
+      //}
+
+      //return ::success;
+
+
+   }
+
+
+   void windowing::on_create_window_object(::acme::user::interaction * puserinteraction)
+   {
+
+      //if (m_pwindowMain && !m_pwindowMain->m_puserinteraction)
+      //{
+
+      //   if (dynamic_cast <::user::frame_interaction *>(puserinteraction) != nullptr)
+      //   {
+
+      //      puserinteraction->m_pacmewindowingwindow = m_pwindowMain;
+
+      //      m_pwindowMain->m_puserinteraction = puserinteraction;
+
+      //      m_pwindowMain->m_pacmeuserinteraction = puserinteraction;
+
+      //      return;
+
+      //   }
+
+      //}
+
+      ::universal_windows::acme::windowing::windowing::on_create_window_object(puserinteraction);
+
+   }
+
+
+   void windowing::windowing_post_quit()
+   {
+
+      ::universal_windows::acme::windowing::windowing::windowing_post_quit();
+
+   }
+
+
+   void windowing::_user_post(const ::procedure & procedure)
+   {
+
+      auto window = ::winrt::Windows::ApplicationModel::Core::CoreApplication::MainView().CoreWindow();
+
+      auto dispatcher = window.Dispatcher();
+
+      dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
+         [procedure]()
+      {
+
+         procedure();
+
+      });
+
+   }
+
 
 
 } // namespace windowing_universal_windows

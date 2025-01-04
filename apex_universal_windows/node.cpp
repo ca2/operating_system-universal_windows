@@ -15,6 +15,7 @@
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"
 #include "acme/platform/node.h"
 #include "acme/platform/system.h"
+#include "acme/windowing/windowing.h"
 #include <winrt/Windows.System.h>
 
 
@@ -101,14 +102,21 @@ namespace apex_universal_windows
       if (!m_pClearApplicationDataHandler)
       {
 
-         m_pClearApplicationDataHandler = system()->add_command_handler(
-            "clear_application_data",
-            [this](::message::message* pmessage)
-            {
+         ::cast < ::channel > pchannel = system();
 
-               file_system()->clear_application_data();
+         if (pchannel)
+         {
 
-            });
+            m_pClearApplicationDataHandler = pchannel->add_command_handler(
+               "clear_application_data",
+               [this](::message::message * pmessage)
+               {
+
+                     file_system()->clear_application_data();
+
+               });
+
+         }
 
       }
 
@@ -3853,7 +3861,7 @@ namespace apex_universal_windows
    void node::open_url_link_at_system_browser(const string & strUrl, const string & strProfile)
    {
 
-      user_post([strUrl]()
+      system()->acme_windowing()->user_post([strUrl]()
          {
 
             auto hstrUri = as_hstring(strUrl);

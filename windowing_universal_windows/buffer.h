@@ -149,14 +149,16 @@ namespace windowing_universal_windows
 
       void on_after_graphical_update() override;
 
-      bool update_screen() override;
+      //bool update_screen() override;
+
+      void update_screen() override;
 
       ID2D1DeviceContext * get_device_context();
 
       bool is_single_buffer_mode() const override;
 
 
-      bool on_update_screen(::graphics::buffer_item * pimage) override;
+      void on_update_screen(::graphics::buffer_item * pimage) override;
 
 
       bool _on_begin_draw(::graphics::buffer_item * pbufferitem) override;

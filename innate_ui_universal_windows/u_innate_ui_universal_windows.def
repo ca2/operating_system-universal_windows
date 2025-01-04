@@ -1,0 +1,4 @@
+LIBRARY  "acme_universal_windows"
+
+EXPORTS
+acme_universal_windows_factory_exchange

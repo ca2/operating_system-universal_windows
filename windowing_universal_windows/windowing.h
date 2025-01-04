@@ -2,11 +2,10 @@
 #pragma once
 
 
+#include "acme_windowing_universal_windows/windowing.h"
 #include "aura/windowing/sandbox/windowing.h"
-#include "application.h"
-#undef ___new
-#include <winrt/Windows.UI.ViewManagement.h>
-#include <winrt/Windows.ApplicationModel.Core.h>
+//#include "application.h"
+//#undef ___new
 
 
 namespace windowing_universal_windows
@@ -14,28 +13,12 @@ namespace windowing_universal_windows
 
 
    class CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS windowing :
-      virtual public ::sandbox_windowing::windowing
+      virtual public ::sandbox_windowing::windowing,
+      virtual public ::universal_windows::acme::windowing::windowing
       
    {
    public:
 
-
-      ::pointer < ::windowing_universal_windows::window >    m_pwindowMain;
-      // From node
-      ::pointer<::aura_universal_windows::interaction_impl>m_pimplMain;
-
-      bool                          m_bAppInit;
-
-      ::winrt::Windows::ApplicationModel::Core::IFrameworkViewSource    m_frameworkviewsource = nullptr;
-      ::winrt::Windows::UI::ViewManagement::ApplicationView             m_applicationview = nullptr;
-
-      //winrt::agile_ref< application>    m_application;
-
-      ::windowing_universal_windows::application * m_papplication;
-      //auto uisettings = ::winrt::Windows::UI::ViewManagement::UISettings();
-
-      ::winrt::Windows::UI::ViewManagement::UISettings m_uisettings;
-      // END From node
 
 
       //i64_map < ::user::enum_key >     m_mapKey;
@@ -59,7 +42,7 @@ namespace windowing_universal_windows
       ~windowing() override;
 
 
-      void initialize_windowing(::user::user * puser) override;
+      void initialize_windowing() override;
 
       void defer_term_ui() override;
 
@@ -71,24 +54,26 @@ namespace windowing_universal_windows
 
       //void get_cursor_position(::int_point* ppoint) override;
 
+      void kick_idle() override;
       //virtual bool defer_create_system_window();
       //virtual ::pointer<::user::interaction>create_system_window();
       //::extended::transport < system_interaction > create_system_window();
 
       // From Node
-      void app_init();
-      void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);
-      virtual void fetch_user_color();
+      //void app_init();
+      //void OnUISettingsColorValuesChange(::winrt::Windows::UI::ViewManagement::UISettings, ::winrt::Windows::Foundation::IInspectable);
+      //virtual void fetch_user_color();
       // END From Node
 
-
+      bool combo_box_list_box_is_top_level() override;
+      bool targeted_keyboard_messages() override;
       //inline system_interaction * system_window() { return system()interaction; }
 
       //virtual HICON _load_icon(string_array& straMatter, string strIcon, int cx, int cy);
 
       //virtual hwnd_array _get_hwnda(const ::user::primitive_pointer_array& primitivepointera);
 
-      ::windowing::window * window(oswindow oswindow) override;
+      ::acme::windowing::window * window(oswindow oswindow) override;
 
       //virtual ::windowing_universal_windows::window * _window(HWND hwnd);
 
@@ -204,6 +189,13 @@ namespace windowing_universal_windows
       //virtual bool _top_level_contains_name(string str);
       //virtual string _get_window_text_timeout(oswindow oswindow, const class time & time = 1_s);
 
+
+      void windowing_application_main_loop() override;
+      void windowing_post_quit() override;
+
+      void _main_send(const ::procedure & procedure) override;
+      void _user_post(const ::procedure & procedure) override;
+      void on_create_window_object(::acme::user::interaction * puserinteraction) override;
 
    };
 

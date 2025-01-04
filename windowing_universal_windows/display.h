@@ -42,7 +42,10 @@ namespace windowing_universal_windows
       ~display() override;
 
 
-      void initialize_display(::windowing::windowing * pwindowing) override;
+      //void initialize_display(::windowing::windowing * pwindowing) override;
+
+
+      void open_display() override;
 
 
       virtual void update_dpi();
@@ -60,10 +63,10 @@ namespace windowing_universal_windows
 
       ::collection::index get_main_workspace(::int_rectangle & rectangle) override;
 
-      ::collection::count get_workspace_count() override;
+      //::collection::count get_workspace_count() override;
       //virtual bool  get_wkspace_rect(::collection::index iWkspace, ::int_rectangle * prectangle) override;
 
-      ::collection::count get_desk_workspace_count() override;
+      //::collection::count get_desk_workspace_count() override;
       //virtual bool  get_desk_wkspace_rect(::collection::index iWkspace, ::int_rectangle * prectangle) override;
 
       //virtual ::collection::index get_ui_wkspace(::user::interaction * pinteraction) override;
@@ -105,7 +108,7 @@ namespace windowing_universal_windows
       //virtual ::collection::index get_good_move(::int_rectangle * prectangle, const ::int_rectangle & rectangle, ::user::interaction * pinteraction);
 
 
-      bool impl_set_wallpaper(::collection::index iScreen, string strLocalImagePath) override;
+      void impl_set_wallpaper(::collection::index iScreen, const ::scoped_string & scopedstrLocalImagePath) override;
       string impl_get_wallpaper(::collection::index iScreen) override;
 
 

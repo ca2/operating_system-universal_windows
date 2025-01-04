@@ -8,9 +8,10 @@
 #include "acme/constant/timer.h"
 #include "acme/constant/user_key.h"
 #include "acme/exception/interface_only.h"
+#include "acme/operating_system/universal_windows/geometry2d.h"
 #include "acme/parallelization/synchronous_lock.h"
 #include "acme/platform/node.h"
-#include "aura_universal_windows/interaction_impl.h"
+//#include "aura_universal_windows/interaction_impl.h"
 #include "aura/user/user/interaction_graphics_thread.h"
 #include "aura/user/user/system.h"
 #include "aura/message/user.h"
@@ -77,7 +78,7 @@ namespace windowing_universal_windows
       m_bExtendingLeft = false;
       m_bTextCompositionActive = false;
       //m_bMainWindow = false;
-      m_pWindow4 = this;
+      //m_pWindow4 = this;
 
       //set_layer(LAYERED_IMPL, this);
       //m_plongmap  = ___new iptr_to_iptr;
@@ -219,9 +220,9 @@ namespace windowing_universal_windows
 
       MESSAGE_LINK(e_message_create, pchannel, this, &window::on_message_create);
 
-      auto puserinteraction = m_pwindow->m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
-      auto pimpl = m_pwindow.m_p;
+      //auto pimpl = m_pwindow.m_p;
 
       if (!puserinteraction->m_bMessageWindow)
       {
@@ -246,7 +247,7 @@ namespace windowing_universal_windows
       MESSAGE_LINK(WM_ACTIVATE, pchannel, this, &window::_001OnActivate);
       MESSAGE_LINK(WM_DWMNCRENDERINGCHANGED, pchannel, this, &window::_001OnDwmNcRenderingChanged);
 
-      pimpl->install_message_routing(pchannel);
+      ::windowing::window::install_message_routing(pchannel);
 
 
       MESSAGE_LINK(e_message_destroy, pchannel, this, &window::on_message_destroy);
@@ -261,525 +262,7 @@ namespace windowing_universal_windows
    void window::create_window()
    {
 
-      auto pwindowing = windowing();
-
-      m_pwindowing = pwindowing;
-
-      // m_pwindow = pimpl;
-
-      //__refer(puserinteraction->m_pthreadUserInteraction, ::get_task() REFERENCING_DEBUGGING_COMMA_THIS_FUNCTION_FILE_LINE);
-
-      //puserinteraction->m_pthreadUserInteraction->uiptra().add(puserinteraction);
-
-      //__refer(m_pthreadUserImpl, puserinteraction->m_pthreadUserInteraction REFERENCING_DEBUGGING_COMMA_THIS_FUNCTION_FILE_LINE);
-
-      //m_strDebug += ::str().demangle(puserinteraction->type_name()) + ";";
-
-      //ASSERT(pusersystem->m_createstruct.lpszClass == nullptr || is_string_ok(pusersystem->m_createstruct.lpszClass) || __is_valid_atom(pusersystem->m_createstruct.lpszClass));
-
-      //ENSURE_ARG(pusersystem->m_createstruct.lpszName == nullptr || is_string_ok(pusersystem->m_createstruct.lpszName));
-
-      //wstring wstrClassName(pusersystem->m_createstruct.lpszClass);
-      wstring wstrClassName;
-
-      //if (wstrClassName.is_empty())
-      //{
-
-      auto pimpl = m_pwindow;
-
-      auto puserinteraction = pimpl->m_puserinteraction;
-
-      //auto pwindowing = windowing();
-
-      wstrClassName = pwindowing->_windows_get_user_interaction_window_class(puserinteraction);
-
-      //->initialize(system()->m_papplicationStartup);
-
-      //}
-
-      //pusersystem->m_createstruct.lpszClass = wstrClassName;
-
-      if (!puserinteraction->m_pusersystem)
-      {
-
-         puserinteraction->m_pusersystem = __create_new< ::user::system >();
-
-      }
-
-      if (!puserinteraction->pre_create_window(puserinteraction->m_pusersystem))
-      {
-
-         //return false;
-
-         throw ::exception(error_failed);
-
-      }
-
-      set_oswindow(this);
-
-      m_pwindow = pimpl;
-
-
-      //pimpl->install_message_routing(puserinteraction);
-
-      //install_message_routing(puserinteraction);
-
-      //if (!hook_window_create(this))
-      //{
-
-      //   post_non_client_destroy();
-
-      //   return false;
-
-      //}
-
-      // if window is not created, it may destroy this object, so keep the app as local ::payload
-
-      //thread_property("wnd_init") = this;
-
-      //::aura::window * papp = &papplication;
-
-      //wstring wstrWindowName(pusersystem->m_createstruct.lpszName);
-      wstring wstrWindowName;
-
-      //string char
-
-      //wstring wchar_t
-
-      //if (wstrWindowName.is_empty())
-      //{
-
-      //   wstrWindowName = L"window";
-
-      //}
-
-#if 0
-
-      WCHAR szTitle[256];
-      WCHAR szWindowClass[256];
-
-      wcscpy(szTitle, L"123");
-      wcscpy(szWindowClass, L"WindowsDestkop1");
-
-      //HWND hwnd = CreateWindowExW(pusersystem->m_createstruct.dwExStyle, szWindowClass, wstrWindowName, pusersystem->m_createstruct.style,
-        // pusersystem->m_createstruct.x, pusersystem->m_createstruct.y, pusersystem->m_createstruct.cx, pusersystem->m_createstruct.cy, pusersystem->m_createstruct.hwndParent, pusersystem->m_createstruct.hMenu, pusersystem->m_createstruct.hInstance, pusersystem->m_createstruct.lpCreateParams);
-      HWND hwnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPED,
-         CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, pusersystem->m_createstruct.hInstance, nullptr);
-      //if (!hwnd)
-      //{
-         //return false;
-      //}
-
-      ::ShowWindow(hwnd, SW_SHOWNORMAL);
-      ::UpdateWindow(hwnd);
-
-#if 0
-
-      MSG msg;
-
-      // Main message loop:
-      while (mq_get_message(&msg, nullptr, 0, 0))
-      {
-         //if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
-         {
-            TranslateMessage(&msg);
-            DispatchMessage(&msg);
-         }
-      }
-
-#else
-
-      m_puserthread->run();
-
-#endif
-
-      //return true;
-
-#else
-
-      //unsigned int dwExStyle = puserinteraction->GetExStyle();
-      //unsigned int dwStyle = puserinteraction->GetStyle();
-
-      unsigned int dwExStyle = 0;
-      unsigned int dwStyle = 0;
-
-      auto pusersystem = puserinteraction->m_pusersystem;
-
-      //CREATESTRUCTW createstruct{};
-
-      //auto & createstruct = pusersystem->m_createstruct;
-
-      wstrWindowName = puserinteraction->m_strWindowText2;
-
-      //if (pusersystem->m_createstruct.lpszName)
-      //{
-
-      //   wstrWindowName = pusersystem->m_createstruct.lpszName;
-
-      //}
-
-      ::winrt::Windows::Foundation::Rect rectangleWindow;
-
-      rectangleWindow.X = (float) puserinteraction->const_layout().design().origin().x();
-
-      rectangleWindow.Y = (float)puserinteraction->const_layout().design().origin().y();
-
-      rectangleWindow.Width = (float)puserinteraction->const_layout().design().size().cx();
-
-      rectangleWindow.Height = (float)puserinteraction->const_layout().design().size().cy();
-
-      if (!m_windowscorewindow)
-      {
-
-         //manual_reset_happening ev;
-
-         //fork([this, &ev]()
-           // {
-         auto coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(pwindowing->m_frameworkviewsource);
-
-         Initialize(coreapplicationview);
-
-         SetWindow(coreapplicationview.CoreWindow());
-
-         // m_windowscorewindow = m_coreapplicationview.CoreWindow();
-
-           //    topic.set_happening();
-             //  coreapplicationview.Dispatcher().ProcessEvents(
-               //   ::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
-
-            //});
-
-            //topic.wait();
-               user_post([this]()
-                  {
-
-                     //   m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
-
-                     //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
-                     //   {
-
-                     //      m_applicationview.SetPreferredMinSize({ (float)rectangleWindow.Width, (float)rectangleWindow.Height });
-
-                     //   }
-
-                     m_windowscorewindow.Activate();
-
-
-
-                     //   //auto applicationview1 = m_applicationview;
-
-                     //   //auto Id1 = applicationview1.Id();
-
-                     //   //::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
-                     //   //Id1,
-                     //   //::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
-
-                     //   //rectangleWindow = m_windowscorewindow.Bounds();
-                     //
-                     //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
-                     //   {
-
-                     //      m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectangleWindow.Width,(float)rectangleWindow.Height }));
-
-                     //   }
-
-
-
-
-                  } );
-
-
-      }
-      //else
-      //{
-
-      user_post([this, pusersystem, puserinteraction, &rectangleWindow]()
-      {
-
-
-         ::int_rectangle rectangle;
-
-         get_rect_normal(&rectangle);
-
-         auto puserinteraction = m_pwindow->m_puserinteraction;
-
-         auto& sketch = puserinteraction->const_layout().sketch();
-
-         puserinteraction->place(rectangle);
-
-         puserinteraction->place(rectangle, ::user::e_layout_design);
-
-
-      } );
-
-      //}
-
-      if (!puserinteraction->pre_create_window(pusersystem))
-      {
-
-         throw ::exception(error_failed);
-
-      }
-
-      puserinteraction->m_puserinteractionTopLevel = puserinteraction->_top_level();
-
-      puserinteraction->m_puserframeParent = puserinteraction->_parent_frame();
-
-      puserinteraction->m_puserframeTopLevel = puserinteraction->_top_level_frame();
-
-      puserinteraction->m_pwindow = this;
-
-      //set_window_long(GWL_STYLE, pusersystem->m_createstruct.style);
-
-      //set_window_long(GWL_EXSTYLE, pusersystem->m_createstruct.dwExStyle);
-
-      install_message_routing(puserinteraction);
-
-      //m_rectangleWindowScreen = m_rectangle;
-
-      //send_message(e_message_create, 0, (LPARAM)&pusersystem->m_createstruct);
-
-      puserinteraction->send_message(e_message_create, 0, 0);
-
-      user_post([this]()
-
-         {
-
-            if (m_windowscorewindow.Visible())
-            {
-
-               __on_window_visible();
-
-            }
-});
-
-      //on_window_size_changed()
-
-      //send_message(e_message_size, 0, MAKELPARAM(pusersystem->m_createstruct.cx, cy));
-
-      //::int_size sizeDrawn;
-
-      //synchronous_lock slGraphics(m_pgraphics->synchronization());
-
-      //::synchronization_object * psync = m_pgraphics->get_draw_lock();
-
-      //synchronous_lock synchronouslock(psync);
-
-      ////::draw2d::graphics_pointer pgraphics = m_pgraphics->on_begin_draw();
-
-      //slGraphics.unlock();
-
-      synchronous_lock synchronouslock(puserinteraction->synchronization());
-
-      if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
-      {
-
-         puserinteraction->place(double_rectangle_dimension(rectangleWindow.X, rectangleWindow.Y, rectangleWindow.Width, rectangleWindow.Height));
-
-      }
-
-      puserinteraction->increment_reference_count(REFERENCING_DEBUGGING_THIS_FUNCTION_FILE_LINE);
-
-      puserinteraction->m_ewindowflag |= ::e_window_flag_is_window;
-
-      puserinteraction->m_ewindowflag |= ::e_window_flag_window_created;
-
-      puserinteraction->set_flag(e_flag_task_started);
-
-      //m_puserinteraction->m_layout.sketch().set_modified();
-
-      //return true;
-
-
-
-      //dwExStyle = createstruct.dwExStyle;
-      //dwStyle = createstruct.style;
-
-      windowing()->__synthesizes_creates_styles(puserinteraction, dwExStyle, dwStyle);
-
-      pusersystem->m_pwindow = this;
-
-      //puserinteraction->layout().sketch().set_modified();
-
-      int x = puserinteraction->const_layout().sketch().origin().x();
-      int y = puserinteraction->const_layout().sketch().origin().y();
-      int cx = puserinteraction->const_layout().sketch().size().cx();
-      int cy = puserinteraction->const_layout().sketch().size().cy();
-
-      HWND hwndParent = nullptr;
-
-      HMENU hmenu = nullptr;
-
-//      HINSTANCE hinstance = (HINSTANCE)GetModuleHandleW(L"windowing_universal_windows.dll");
-//
-//      void * lpCreateParams = nullptr;
-//
-//      if (puserinteraction->m_bMessageWindow)
-//      {
-//
-//         hwndParent = HWND_MESSAGE;
-//         dwExStyle = 0;
-//         dwStyle = 0;
-//         x = y = cx = cy = 0;
-//
-//      }
-//
-//      //if (puserinteraction->m_pusersystem)
-//      //{
-//
-//      //   lpCreateParams = puserinteraction->m_pusersystem->m_createstruct.lpCreateParams;
-//
-//      //}
-//
-//      HWND hwnd = ::CreateWindowExW(
-//         dwExStyle,
-//         wstrClassName,
-//         wstrWindowName,
-//         dwStyle,
-//         x,
-//         y,
-//         cx,
-//         cy,
-//         hwndParent,
-//         hmenu,
-//         hinstance,
-//         pusersystem);
-//
-#endif
-//
-//      //HWND hwnd = CreateWindowW(wstrClassName, wstrWindowName, WS_OVERLAPPED,
-//      //   CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, pusersystem->m_createstruct.hInstance, nullptr);
-//
-//      //::XXXShowWindow(hwnd,SW_SHOWNORMAL);
-//      //::UpdateWindow(hwnd);
-//
-//      //bool bUnicode = IsWindowUnicode(hwnd);
-//
-//      unsigned int dwLastError = ::GetLastError();
-//
-//      //if (!unhook_window_create())
-//      //{
-//
-//      //   post_non_client_destroy();        // cleanup if CreateWindowEx fails too soon
-//
-//      //}
-//
-      if (puserinteraction->m_bMessageWindow)
-      {
-
-         puserinteraction->m_ewindowflag -= e_window_flag_graphical;
-
-      }
-
-      //if (hwnd == nullptr)
-      //{
-
-      //   //if (papp == nullptr)
-      //   //{
-
-      //   //   return false;
-
-      //   //}
-
-      //   string strLastError = FormatMessageFromSystem(dwLastError);
-
-      //   string strMessage;
-
-      //   strMessage.formatf("%s\n\nSystem Error Code: %d", strLastError, dwLastError);
-
-      //   information(trace_category_appmsg, e_trace_level_warning, "Warning: Window creation failed: get_last_error returned:\n");
-
-      //   information(trace_category_appmsg, e_trace_level_warning, "%s\n", strMessage);
-
-      //   try
-      //   {
-
-      //      if (dwLastError == 0x0000057e)
-      //      {
-
-      //         informationf("Cannot create a top-level child window.");
-
-      //      }
-      //      else
-      //      {
-
-      //         informationf("%s", strMessage);
-
-      //      }
-
-      //   }
-      //   catch (...)
-      //   {
-
-      //   }
-
-      //}
-
-      //if (hwnd == nullptr)
-      //{
-
-      //   return false;
-
-      //}
-
-      //if (puserinteraction->m_bEdgeGestureDisableTouchWhenFullscreen)
-      //{
-
-      //   SetTouchDisableProperty(hwnd, true);
-
-      //}
-
-      puserinteraction->m_ewindowflag += ::e_window_flag_is_window;
-
-      //puserinteraction->layout().sketch() = ::int_point(pusersystem->m_createstruct.x, pusersystem->m_createstruct.y);
-      //puserinteraction->layout().sketch() = ::int_size(pusersystem->m_createstruct.cx, pusersystem->m_createstruct.cy);
-
-      //puserinteraction->layout().window() = ::int_point(pusersystem->m_createstruct.x, pusersystem->m_createstruct.y);
-      //puserinteraction->layout().window() = ::int_size(pusersystem->m_createstruct.cx, pusersystem->m_createstruct.cy);
-
-      //bool bUnicode = ::IsWindowUnicode(hwnd) != false;
-
-      //if (bUnicode)
-      //{
-
-      //   output_debug_string("window is unicode");
-
-      //}
-      //else
-      //{
-
-      //   output_debug_string("window is ANSI");
-
-      //}
-
-      ////WNDCLASSEXW wndcls;
-
-      ////if (wstrClassName.get_length() > 0 && GetClassInfoExW(psystem->m_hinstance, wstrClassName, &wndcls) && wndcls.hIcon != nullptr)
-      //{
-
-      //   //papplication->set_icon(puserinteraction, __create_new< ::image::icon >(get_application(), wndcls.hIcon), false);
-
-      //   //papplication->set_icon(puserinteraction, __create_new< ::image::icon >(get_application(), wndcls.hIcon), true);
-
-      //}
-
-      //if (hwnd != get_hwnd())
-      //{
-
-      //   set_hwnd(hwnd);
-      //   //ASSERT(false); // should have been set in send msg hook
-
-      //}
-
-      //send_message(e_message_create);
-
-      /// this Windows native window "holds" object to the
-      /// wrapping object.
-      puserinteraction->increment_reference_count();
-
-      puserinteraction->m_ewindowflag |= e_window_flag_window_created;
-
-      //return true;
+      ::windowing::window::create_window();
 
    }
 
@@ -818,7 +301,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool window::is_full_screen() const 
+   bool window::is_full_screen() 
    {
 
       auto pwindowing = windowing();
@@ -841,6 +324,32 @@ namespace windowing_universal_windows
 
       return applicationview.IsFullScreenMode();
 
+   }
+
+   ::oswindow window::oswindow() const
+   {
+
+      return (::windowing::window *) this;
+
+   }
+   ::oswindow window::oswindow()
+   {
+
+      return this;
+
+   }
+
+   class windowing * window::windowing() const
+   {
+      ::cast < ::windowing_universal_windows::windowing > pwindowing = system()->windowing();
+
+      if (!pwindowing)
+      {
+         return nullptr;
+
+      }
+
+      return pwindowing;
    }
 
 
@@ -868,7 +377,14 @@ namespace windowing_universal_windows
 
             auto psystem = system();
 
-            psystem->signal(id_operating_system_font_list_change);
+            ::cast < ::manager > pmanager = psystem;
+
+            if (pmanager)
+            {
+               
+               pmanager->send_signal(id_operating_system_font_list_change);
+
+            }
 
             //psystem->handle_subject(ptopic);
 
@@ -1467,28 +983,40 @@ namespace windowing_universal_windows
    //}
 
 
-   void window::post_non_client_destroy()
+   void window::on_message_non_client_destroy(::message::message * pmessage)
    {
 
+      auto pwindowing = system()->windowing();
 
-      m_pwindowing->erase_window(this);
+      pwindowing->erase_window(this);
 
    }
 
 
-   ::windowing::window * window::get_parent() const
+   ::windowing::window * window::window_get_parent()
    {
 
       auto oswindow = get_parent_oswindow();
 
-      auto pwindow = m_pwindowing->window(oswindow);
+      if (!oswindow)
+      {
+         
+         return nullptr;
+
+      }
+
+      auto pwindowing = system()->windowing();
+
+      auto pacmewindowingwindow = pwindowing->window(oswindow);
+
+      ::cast < ::windowing::window > pwindow = pacmewindowingwindow;
 
       return pwindow;
 
    }
 
 
-   oswindow window::get_parent_oswindow() const
+   oswindow window::get_parent_oswindow()
    {
 
       //auto hwnd = get_hwnd();
@@ -1531,7 +1059,7 @@ namespace windowing_universal_windows
 
 
    //void window::show_window(const ::e_display & edisplay, const ::user::e_activation & useractivation)
-   bool window::_configure_window_unlocked(const class ::zorder & zorder, const ::user::e_activation & useractivation, bool bNoZorder, ::e_display edisplay) 
+   bool window::_configure_window_unlocked(const class ::zorder & zorder, const ::user::activation & useractivation, bool bNoZorder, ::e_display edisplay) 
    {
 
       //auto iShowWindow = windows_show_window(edisplay, useractivation);
@@ -1766,17 +1294,17 @@ namespace windowing_universal_windows
    //   if (m_pwindow)
    //   {
 
-   //      if (m_pwindow->m_puserinteractionFocusRequest)
+   //      if (m_puserinteractionFocusRequest)
    //      {
 
-   //         m_pwindow->m_puserinteractionFocus1 = m_pwindow->m_puserinteractionFocusRequest;
+   //         m_puserinteractionFocus1 = m_puserinteractionFocusRequest;
 
-   //         m_pwindow->m_puserinteractionFocusRequest.release();
+   //         m_puserinteractionFocusRequest.release();
 
-   //         if (m_pwindow->m_puserinteractionFocus1)
+   //         if (m_puserinteractionFocus1)
    //         {
 
-   //            if (m_pwindow->m_puserinteractionFocus1->keyboard_focus_is_focusable())
+   //            if (m_puserinteractionFocus1->keyboard_focus_is_focusable())
    //            {
 
 
@@ -1870,7 +1398,7 @@ namespace windowing_universal_windows
 
    //   //itask_t itask = 0;
 
-   //   //auto puserinteraction = m_pwindow->m_puserinteraction;
+   //   //auto puserinteraction = user_interaction();
 
    //   //if (puserinteraction && puserinteraction->m_pthreadUserInteraction)
    //   //{
@@ -2089,7 +1617,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //auto puserinteraction = m_pwindow->m_puserinteraction;
+      //auto puserinteraction = user_interaction();
 
       //if (!puserinteraction->m_bUserElementOk)
       //{
@@ -2106,6 +1634,8 @@ namespace windowing_universal_windows
    //bool window::on_set_window_position(const class ::zorder& zorder, int x, int y, int cx, int cy, const ::user::e_activation& useractivation, bool bNoZorder, bool bNoMove, bool bNoSize, bool bShow, bool bHide)
    bool window::_strict_set_window_position_unlocked(int x, int y, int cx, int cy, bool bNoMove, bool bNoSize)
    {
+
+      //m_coreapplicationview.Cu
 
       //if (!(_get_ex_style() & WS_EX_LAYERED))
       //{
@@ -2365,7 +1895,7 @@ namespace windowing_universal_windows
 //
 //      }
 //
-//      //m_pwindow->on_change_visibility();
+//      //on_change_visibility();
 //
 //      windowing_output_debug_string("\n::window::set_window_position 2");
 //
@@ -2454,7 +1984,7 @@ namespace windowing_universal_windows
    //      if (pmessage->m_wparam == SC_SCREENSAVE)
    //      {
 
-   //         auto puserinteraction = m_pwindow->m_puserinteraction;
+   //         auto puserinteraction = user_interaction();
 
    //         if (puserinteraction && !puserinteraction->_001CanEnterScreenSaver())
    //         {
@@ -2471,7 +2001,7 @@ namespace windowing_universal_windows
    //      else if (pmessage->m_wparam == SC_MAXIMIZE)
    //      {
 
-   //         auto puserinteraction = m_pwindow->m_puserinteraction;
+   //         auto puserinteraction = user_interaction();
 
    //         if (puserinteraction && !puserinteraction->_001Maximize())
    //         {
@@ -2487,7 +2017,7 @@ namespace windowing_universal_windows
    //      else if (pmessage->m_wparam == SC_RESTORE)
    //      {
 
-   //         auto puserinteraction = m_pwindow->m_puserinteraction;
+   //         auto puserinteraction = user_interaction();
 
    //         if (puserinteraction && !puserinteraction->_001Restore())
    //         {
@@ -2503,7 +2033,7 @@ namespace windowing_universal_windows
 
    //   }
 
-   //   auto puserinteraction = m_pwindow->m_puserinteraction;
+   //   auto puserinteraction = user_interaction();
 
    //   if (puserinteraction)
    //   {
@@ -2549,7 +2079,7 @@ namespace windowing_universal_windows
    //bool window::set_window_placement(const WINDOWPLACEMENT * puserinteractionpl)
    //{
 
-   //   auto puserinteraction = m_pwindow->m_puserinteraction;
+   //   auto puserinteraction = user_interaction();
 
    //   synchronous_lock synchronouslock(puserinteraction->synchronization());
 
@@ -2562,7 +2092,7 @@ namespace windowing_universal_windows
    //}
 
 
-   void window::set_foreground_window()
+   void window::set_foreground_window(::user::activation_token * puseractivationtoken)
    {
 
       /*HWND hwnd = get_hwnd();
@@ -2618,7 +2148,7 @@ namespace windowing_universal_windows
 
       ::int_rectangle rectangleWindow;
 
-      auto puserinteraction = m_pwindow->m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       rectangleWindow = puserinteraction->screen_rectangle();
 
@@ -2786,7 +2316,7 @@ namespace windowing_universal_windows
       //if (_get_ex_style() & WS_EX_LAYERED)
       //{
       //   
-      //   auto puserinteraction = m_pwindow->m_puserinteraction;
+      //   auto puserinteraction = user_interaction();
 
       //   return puserinteraction->layout().sketch().display() == ::e_display_iconic;
 
@@ -2812,19 +2342,23 @@ namespace windowing_universal_windows
 
 
 
-   ::windowing::window * window::get_owner() const
+   ::user::interaction * window::get_owner()
    {
 
-      ::oswindow oswindow = m_oswindow;
+      ::oswindow oswindow = get_owner_oswindow();
 
-      auto pwindow = m_pwindowing->window(oswindow);
+      auto pwindowing = system()->windowing();
 
-      return pwindow;
+      auto pacmewindowingwindow = pwindowing->window(oswindow);
+
+      ::cast < ::windowing::window > pwindow = pacmewindowingwindow;
+
+      return pwindow->user_interaction();
 
    }
 
 
-   oswindow window::get_owner_oswindow() const
+   oswindow window::get_owner_oswindow()
    {
 
       //if (!::IsWindow(get_hwnd()))
@@ -3057,7 +2591,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool window::post_message(const ::atom & atom, wparam wParam, lparam lParam)
+   void window::post_message(const ::atom & atom, wparam wParam, lparam lParam)
    {
 
       //HWND hwnd = get_hwnd();
@@ -3068,7 +2602,7 @@ namespace windowing_universal_windows
 
       //return ::PostMessage(hwnd, message, wparam, lParam.m_lparam) != false;
 
-      return false;
+      //return false;
    }
 
 
@@ -3089,7 +2623,7 @@ namespace windowing_universal_windows
 
    //   //DWORD_PTR lresult = 0;
 
-   //   //auto puserinteraction = m_pwindow->m_puserinteraction;
+   //   //auto puserinteraction = user_interaction();
 
    //   //puserinteraction->m_strWindowText = pszString;
 
@@ -3384,7 +2918,7 @@ namespace windowing_universal_windows
 
       //ASSERT(::IsWindow(get_hwnd()));
 
-      auto pgraphics = __create < ::draw2d::graphics >();
+      auto pgraphics = __øcreate < ::draw2d::graphics >();
 
       throw ::exception(todo);
 
@@ -3426,7 +2960,7 @@ namespace windowing_universal_windows
 
       //}
 
-      auto puserinteraction = m_pwindow->m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       if (!puserinteraction->is_window_visible(::user::e_layout_sketch))
       {
@@ -3543,12 +3077,12 @@ namespace windowing_universal_windows
    }
 
 
-   bool window::enable_window(bool bEnable)
+   void window::enable_window(bool bEnable)
    {
 
       //return ::EnableWindow(get_hwnd(), bEnable) != false;
 
-      return false;
+      //return false;
 
    }
 
@@ -4290,7 +3824,7 @@ namespace windowing_universal_windows
       //if (::IsIconic(get_hwnd()))
       //{
 
-      //   auto puserinteraction = m_pwindow->m_puserinteraction;
+      //   auto puserinteraction = user_interaction();
 
       //   if (puserinteraction->layout().sketch().display() != ::e_display_iconic)
       //   {
@@ -4303,7 +3837,7 @@ namespace windowing_universal_windows
       //else if (::IsZoomed(get_hwnd()))
       //{
 
-      //   auto puserinteraction = m_pwindow->m_puserinteraction;
+      //   auto puserinteraction = user_interaction();
 
       //   if (puserinteraction->layout().window().display() != ::e_display_zoomed)
       //   {
@@ -4322,7 +3856,7 @@ namespace windowing_universal_windows
 
       ////}
 
-      //auto puserinteraction = m_pwindow->m_puserinteraction;
+      //auto puserinteraction = user_interaction();
 
       //if (puserinteraction->layout().m_eflag)
       //{
@@ -4985,7 +4519,7 @@ namespace windowing_universal_windows
    void window::track_mouse_hover()
    {
 
-      if (m_pwindow->m_bTransparentMouseEvents)
+      if (m_bTransparentMouseEvents)
       {
 
          m_bTrackMouseLeave = true;
@@ -4999,7 +4533,7 @@ namespace windowing_universal_windows
       //tme.hwndTrack = get_hwnd();
       //TrackMouseEvent(&tme);
 
-      m_pwindow->track_mouse_leave();
+      track_mouse_leave();
 
    }
 
@@ -6213,7 +5747,7 @@ namespace windowing_universal_windows
 
       //auto pwindowing = windowing();
 
-      //auto itask = m_pwindow->m_puserinteraction->m_pthreadUserInteraction->m_itask;
+      //auto itask = puserinteraction->m_pthreadUserInteraction->m_itask;
 
       //HWND hwnd = get_hwnd();
 
@@ -6274,7 +5808,7 @@ namespace windowing_universal_windows
       //      if (m_bTrackMouseLeave)
       //      {
 
-      //         m_pwindow->m_puserinteraction->post_message(e_message_mouse_leave);
+      //         puserinteraction->post_message(e_message_mouse_leave);
 
       //      }
 
@@ -6288,9 +5822,9 @@ namespace windowing_universal_windows
 
       //   m_timeLastMouseMove.Now();
 
-      //   //pimpl->m_puserinteraction->post_message(e_message_mouse_move, 0, lparam);
+      //   //pimpl->puserinteraction->post_message(e_message_mouse_move, 0, lparam);
       //   
-      //   pimpl->m_puserinteraction->send_message(e_message_mouse_move, 0, lparam);
+      //   pimpl->puserinteraction->send_message(e_message_mouse_move, 0, lparam);
 
       //   //::SendMessage(hwnd, e_message_mouse_move, 0, lparam);
 
@@ -6353,14 +5887,16 @@ namespace windowing_universal_windows
 
       //auto pcs = __create_new< ::user::system >();
 
-      auto pusersystem = m_pwindow->m_puserinteraction->m_pusersystem;
+      auto puserinteractionUserSystem = user_interaction();
+
+      auto pusersystem = puserinteractionUserSystem->m_pusersystem;
 
       auto puserinteraction = session()->m_puserprimitiveHost;
 
       auto routine = [this]()
       {
 
-         user_send({ e_timeout, 15_s, [this]()
+         main_send({ e_timeout, 15_s, [this]()
             {
 
                //pbuffer->m_windowscorewindowBounds = m_windowscorewindow->Bounds;
@@ -6394,36 +5930,36 @@ namespace windowing_universal_windows
 
       //m_pwindow = __create < ::windowing::window >();
 
-      user_send({ e_timeout, 15_s, [this]()
+      main_send({ e_timeout, 15_s, [this]()
          {
 
             auto window = m_windowscorewindow;
 
-            window.VisibilityChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs>(this, &window::OnWindowVisibilityChanged));
+            //window.VisibilityChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs>(this, &window::OnWindowVisibilityChanged));
 
-            window.PointerCursor(::winrt::Windows::UI::Core::CoreCursor(::winrt::Windows::UI::Core::CoreCursorType::Arrow, 0));
+            //window.PointerCursor(::winrt::Windows::UI::Core::CoreCursor(::winrt::Windows::UI::Core::CoreCursorType::Arrow, 0));
 
-            window.SizeChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs>(this, &window::OnWindowSizeChanged));
+            //window.SizeChanged(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs>(this, &window::OnWindowSizeChanged));
 
-            window.PointerMoved(::winrt::Windows::Foundation::TypedEventHandler <::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerMoved));
+            //window.PointerMoved(::winrt::Windows::Foundation::TypedEventHandler <::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerMoved));
 
-            window.CharacterReceived(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs>(this, &window::OnCharacterReceived));
+            //window.CharacterReceived(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs>(this, &window::OnCharacterReceived));
 
-            window.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyDown));
+            //window.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyDown));
 
-            window.KeyUp(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyUp));
+            //window.KeyUp(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::OnKeyUp));
 
-            window.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerPressed));
+            //window.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::OnPointerPressed));
 
-            window.PointerReleased(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs >(this, &window::OnPointerReleased));
+            //window.PointerReleased(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs >(this, &window::OnPointerReleased));
 
-            auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
+            //auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
 
-            system()->m_dDpi = displayinformation.LogicalDpi();
+            //system()->m_dDpi = displayinformation.LogicalDpi();
 
-            displayinformation.DpiChanged(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DpiChanged));
+            //displayinformation.DpiChanged(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DpiChanged));
 
-            displayinformation.DisplayContentsInvalidated(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DisplayContentsInvalidated));
+            //displayinformation.DisplayContentsInvalidated(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Graphics::Display::DisplayInformation, ::winrt::Windows::Foundation::IInspectable >(this, &window::DisplayContentsInvalidated));
 
 
 
@@ -6449,9 +5985,9 @@ namespace windowing_universal_windows
 
          } } );
 
-      pusersystem->m_pwindow = m_pwindow;
+      pusersystem->m_pwindow = this;
 
-      system()->m_puserprimitiveMain = m_pwindow;
+      system()->m_pacmeuserinteractionMain = m_pacmeuserinteraction;
 
       //m_bNotifyLayoutCompletedPending = true;
 
@@ -6514,17 +6050,19 @@ namespace windowing_universal_windows
 
 //         default_message_handler(pmessage);
 
-      if (m_pwindow->m_puserinteraction)
+      //auto puserinteraction = user_interaction();
+
+      if (puserinteraction)
       {
 
-         //if (m_pwindow->m_puserinteraction->is_message_only_window() || m_pwindow->m_puserinteraction.cast <::windowing_universal_windows::system_interaction >())
+         //if (puserinteraction->is_message_only_window() || m_puserinteraction.cast <::windowing_universal_windows::system_interaction >())
          //{
 
          //   informationf("good : opt out!");
 
          //}
 
-         if (m_pwindow->m_puserinteraction->m_bUserElementOk)
+         if (puserinteraction->m_bUserElementOk)
          {
 
             pcreate->m_lresult = 0;
@@ -6539,7 +6077,7 @@ namespace windowing_universal_windows
    float window::get_dpi_for_window()
    {
 
-      ::oswindow oswindow = m_oswindow;
+      //::oswindow oswindow = this;
 
       //return (float) ::get_dpi_for_window(oswindow);
 
@@ -6603,9 +6141,9 @@ namespace windowing_universal_windows
 
    //   ::windowing::window::_window_request_presentation();
 
-   //   //auto puserinteraction = m_pwindow->m_puserinteraction;
+   //   //auto puserinteraction = user_interaction();
 
-   //   //auto pprodevian = m_pwindow->m_pprodevian;
+   //   //auto pprodevian = m_pprodevian;
 
    //   //puserinteraction->post_procedure(pprodevian->m_procedureWindowShow);
 
@@ -6615,7 +6153,7 @@ namespace windowing_universal_windows
    void window::__update_graphics_buffer()
    {
 
-      /*auto puserinteraction = m_pwindow->m_puserinteraction;
+      /*auto puserinteraction = user_interaction();
 
       if (!puserinteraction)
       {
@@ -6624,7 +6162,7 @@ namespace windowing_universal_windows
 
       }
 
-      auto pprodevian = m_pwindow->m_pprodevian;
+      auto pprodevian = m_pprodevian;
 
       if (!pprodevian)
       {
@@ -6635,7 +6173,9 @@ namespace windowing_universal_windows
 
       puserinteraction->post_procedure(pprodevian->m_procedureUpdateScreen);*/
 
-      ::pointer<::windowing_universal_windows::buffer>pbuffer = m_pwindow->m_pgraphicsgraphics;
+      set_window_position_unlocked();
+
+      ::pointer<::windowing_universal_windows::buffer>pbuffer = m_pgraphicsgraphics;
 
       pbuffer->update_screen();
 
@@ -6754,6 +6294,16 @@ namespace windowing_universal_windows
    }
 
 
+   void window::destroy()
+   {
+
+      ::sandbox_windowing::window::destroy();
+
+         ::universal_windows::acme::windowing::window::destroy();
+
+
+   }
+
    //void window::main_post(const ::procedure & procedure)
    //{
 
@@ -6762,30 +6312,6 @@ namespace windowing_universal_windows
    //}
 
 
-   void window::CoreWindow_PointerPressed(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
-   {
-      // See whether the pointer is inside or outside the control.
-      //Rect contentRect = GetElementRect(BorderPanel);
-      //if (contentRect.Contains(args.CurrentPoint.Position))
-      //{
-      //   // The user tapped inside the control. Give it focus.
-      //   SetInternalFocus();
-
-      //   // Tell XAML that this matter has focus, so we don't have two
-      //   // focus elements. That is the extent of our integration with XAML focus.
-      //   Focus(FocusState.Programmatic);
-
-      //   // A more complete custom control would move the caret to the
-      //   // pointer position. It would also provide some way to select
-      //   // text via touch. We do neither in this sample.
-
-      //}
-      //else
-      //{
-      //   // The user tapped outside the control. Remove focus.
-      //   RemoveInternalFocus();
-      //}
-   }
 
 
    void window::SetInternalFocus()
@@ -6814,12 +6340,12 @@ namespace windowing_universal_windows
 
       ::sandbox_windowing::window::SetInternalFocus();
 
-      //if (m_pwindow->m_puserinteractionFocusRequest != nullptr)
+      //if (m_puserinteractionFocusRequest != nullptr)
       //{
 
-      //   m_pwindow->m_puserinteractionFocus1 = m_pwindow->m_puserinteractionFocusRequest;
+      //   m_puserinteractionFocus1 = m_puserinteractionFocusRequest;
 
-      //   m_pwindow->m_puserinteractionFocusRequest = nullptr;
+      //   m_puserinteractionFocusRequest = nullptr;
 
 
       //}
@@ -6887,7 +6413,7 @@ namespace windowing_universal_windows
 
       set_input_text(wstrText);
 
-      user_post([this, iBeg, iEnd]()
+      main_post([this, iBeg, iEnd]()
          {
 
             wide_string wstrText = get_input_text();
@@ -7028,7 +6554,9 @@ namespace windowing_universal_windows
       if (m_strNewText.has_character())
       {
 
-         auto pfocusui = m_pwindow->m_puserinteraction->get_keyboard_focus();
+         auto puserinteraction = user_interaction();
+
+         auto pfocusui = puserinteraction->get_keyboard_focus();
 
          if (pfocusui)
          {
@@ -7045,9 +6573,7 @@ namespace windowing_universal_windows
 
             spbase = pkey;
 
-            auto puserinteraction = m_pwindow->m_puserinteraction;
-
-            
+            auto puserinteraction = user_interaction();
 
             bool bTextFocus = puserinteraction != nullptr;
 
@@ -7065,7 +6591,7 @@ namespace windowing_universal_windows
             pkey->m_lparam = pkey->m_nFlags << 16;
             pkey->m_strText = m_strNewText;
 
-            m_pwindow->queue_message_handler(spbase);
+            puserinteraction->message_handler(spbase);
 
          }
 
@@ -7154,9 +6680,9 @@ namespace windowing_universal_windows
       // First, get the coordinates of the edit control and the selection
       // relative to the Window.
 
-      auto contentRect = get_input_content_rect();
+      auto contentRect = _get_input_content_rect();
 
-      auto selectionRect = get_input_selection_rect();
+      auto selectionRect = _get_input_selection_rect();
 
       // Next, convert to screen coordinates in window pixels.
       auto windowBounds = m_windowscorewindow.Bounds();
@@ -7196,7 +6722,7 @@ namespace windowing_universal_windows
 
       m_bTextCompositionActive = false;
 
-      auto puserinteraction = m_pwindow->m_puserinteraction;
+      auto puserinteraction = user_interaction();
 
       auto pfocusui = puserinteraction->get_keyboard_focus();
 
@@ -7221,149 +6747,6 @@ namespace windowing_universal_windows
    }
 
 
-   void window::CoreWindow_WindowActivated(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::WindowActivatedEventArgs args)
-   {
-
-      if (args.WindowActivationState() == ::winrt::Windows::UI::Core::CoreWindowActivationState::Deactivated)
-      {
-
-         ::output_debug_string("Deactivated");
-
-         //auto puserinteraction = Sess(system()).host();
-
-         //puserinteraction->set_need_layout();
-
-         //puserinteraction->set_need_redraw();
-
-         //puserinteraction->post_redraw();
-
-      }
-
-   }
-
-
-   void window::CoreWindow_CoreWindowClosed(::winrt::Windows::UI::Core::CoreWindow  sender, ::winrt::Windows::UI::Core::CoreWindowEventArgs  args)
-   {
-
-      ::output_debug_string("window closed");
-
-   }
-
-
-   void window::CoreWindow_KeyDown(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::KeyEventArgs args)
-   {
-
-      // Do not process keyboard input if the custom edit control does not
-      // have focus.
-      if (!m_bInternalFocus)
-      {
-
-         return;
-
-      }
-
-      // This holds the range we intend to operate on, or which we intend
-      // to become the ___new selection. Start with the current selection.
-      ::winrt::Windows::UI::Text::Core::CoreTextRange range = m_selection;
-
-      // For the purpose of this sample, we will support only the left and right
-      // arrow keys and the backspace key. A more complete text edit control
-      // would also handle keys like Home, End, and Delete, as well as
-      // hotkeys like Ctrl+V to paste.
-      //
-      // Note that this sample does not properly handle surrogate pairs
-      // nor does it handle grapheme clusters.
-
-      switch (args.VirtualKey())
-      {
-         // Backspace
-      case ::winrt::Windows::System::VirtualKey::Back:
-         // If there is a selection, then delete the selection.
-         //if (HasSelection())
-         //{
-         //   // Set the text in the selection to nothing.
-         //   ReplaceText(range, "");
-         //}
-         //else
-         //{
-         //   // Delete the character to the left of the caret, if one exists,
-         //   // by creating a range that encloses the character to the left
-         //   // of the caret, and setting the contents of that range to nothing.
-         //   range.StartCaretPosition = maximum(0, range.StartCaretPosition - 1);
-         //   ReplaceText(range, "");
-         //}
-         //m_strNewText.empty();
-         break;
-
-         // Left arrow
-      case ::winrt::Windows::System::VirtualKey::Left:
-         // If the shift key is down, then adjust the int_size of the selection.
-         //if ((int)m_windowscorewindow->GetKeyState(VirtualKey::Shift) & (int) CoreVirtualKeyStates::Down)
-         //{
-         //   // If this is the start of a selection, then remember which edge we are adjusting.
-         //   if (!HasSelection())
-         //   {
-         //      _extendingLeft = true;
-         //   }
-
-         //   // Adjust the selection and notify CoreTextEditContext.
-         //   AdjustSelectionEndpoint(-1);
-         //}
-         //else
-         //{
-         //   // The shift key is not down. If there was a selection, then snap the
-         //   // caret at the left edge of the selection.
-         //   if (HasSelection())
-         //   {
-         //      range.EndCaretPosition = range.StartCaretPosition;
-         //      SetSelectionAndNotify(range);
-         //   }
-         //   else
-         //   {
-         //      // There was no selection. Move the caret left one code unit if possible.
-         //      range.StartCaretPosition = maximum(0, range.StartCaretPosition - 1);
-         //      range.EndCaretPosition = range.StartCaretPosition;
-         //      SetSelectionAndNotify(range);
-         //   }
-         //}
-         //m_strNewText.empty();
-         break;
-
-         // Right arrow
-      case ::winrt::Windows::System::VirtualKey::Right:
-         // If the shift key is down, then adjust the int_size of the selection.
-         //if ((int)m_windowscorewindow->GetKeyState(VirtualKey::Shift) & (int) CoreVirtualKeyStates::Down)
-         //{
-         //   // If this is the start of a selection, then remember which edge we are adjusting.
-         //   if (!HasSelection())
-         //   {
-         //      _extendingLeft = false;
-         //   }
-
-         //   // Adjust the selection and notify CoreTextEditContext.
-         //   AdjustSelectionEndpoint(+1);
-         //}
-         //else
-         //{
-         //   // The shift key is not down. If there was a selection, then snap the
-         //   // caret at the right edge of the selection.
-         //   if (HasSelection())
-         //   {
-         //      range.StartCaretPosition = range.EndCaretPosition;
-         //      SetSelectionAndNotify(range);
-         //   }
-         //   else
-         //   {
-         //      // There was no selection. Move the caret right one code unit if possible.
-         //      range.StartCaretPosition = minimum(m_strText.length(), range.StartCaretPosition + 1);
-         //      range.EndCaretPosition = range.StartCaretPosition;
-         //      SetSelectionAndNotify(range);
-         //   }
-         //}
-         //m_strNewText.empty();
-         break;
-      }
-   }
 
    // Adjust the active endpoint of the selection in the specified direction.
    void window::AdjustSelectionEndpoint(int direction)
@@ -7634,23 +7017,106 @@ namespace windowing_universal_windows
       //}
 
 
+void window::set_mouse_capture()
+{
+   ::sandbox_windowing::window::set_mouse_capture();
+
+}
+bool window::has_mouse_capture()
+{
+   return ::sandbox_windowing::window::has_mouse_capture();
+
+}
+
+void window::defer_show_system_menu(::user::mouse * pmouse)
+{
+
+   ::universal_windows::acme::windowing::window::defer_show_system_menu(pmouse);
+
+}
+
+      //void window::OnWindowSizeChanged(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs args)
+      //{
+
+      //   ::int_size size((LONG)args.Size().Width, (LONG)args.Size().Height);
+
+      //   on_window_size_changed(sender, size);
+
+      //}
 
 
-
-      void window::OnWindowSizeChanged(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::WindowSizeChangedEventArgs args)
+      void window::InstallPrototypeHappeningHandling()
       {
 
-         ::int_size size((LONG)args.Size().Width, (LONG)args.Size().Height);
+         ::universal_windows::acme::windowing::window::InstallPrototypeHappeningHandling();
 
-         on_window_size_changed(sender, size);
+         auto manager = ::winrt::Windows::UI::Text::Core::CoreTextServicesManager::GetForCurrentView();
+
+         m_editcontext = manager.CreateEditContext();
+
+         // Get the Input Pane so we can programmatically hide and show it.
+         m_inputpane = ::winrt::Windows::UI::ViewManagement::InputPane::GetForCurrentView();
+
+         // For demonstration purposes, this sample sets the Input Pane display policy to Manual
+         // so that it can manually show the software keyboard when the control gains focus and
+         // dismiss it when the control loses focus. If you leave the policy as Automatic, then
+         // the system will hide and show the Input Pane for you. Note that on Desktop, you will
+         // need to implement the UIA text pattern to get expected automatic behavior.
+         m_editcontext.InputPaneDisplayPolicy(::winrt::Windows::UI::Text::Core::CoreTextInputPaneDisplayPolicy::Automatic);
+
+         // Set the input scope to Text because this text box is for any text.
+         // This also informs software keyboards to show their regular
+         // text entry layout.  There are many other input scopes and each will
+         // inform a keyboard layout and text behavior.
+         m_editcontext.InputScope(::winrt::Windows::UI::Text::Core::CoreTextInputScope::Text);
+
+         // The system raises this happening to request a specific range of text.
+         m_editcontext.TextRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextTextRequestedEventArgs>(this, &window::EditContext_TextRequested));
+
+         // The system raises this happening to request the current selection.
+         m_editcontext.SelectionRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextSelectionRequestedEventArgs>(this, &window::EditContext_SelectionRequested));
+
+         // The system raises this happening when it wants the edit control to erase focus.
+         m_editcontext.FocusRemoved(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::Foundation::IInspectable>(this, &window::EditContext_FocusRemoved));
+
+         // The system raises this happening to update text in the edit control.
+         m_editcontext.TextUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextTextUpdatingEventArgs>(this, &window::EditContext_TextUpdating));
+
+         // The system raises this happening to change the selection in the edit control.
+         m_editcontext.SelectionUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextSelectionUpdatingEventArgs>(this, &window::EditContext_SelectionUpdating));
+
+         // The system raises this happening when it wants the edit control
+         // to apply formatting on a r::winrt::Windows::Foundation::Tange of text.
+         m_editcontext.FormatUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextFormatUpdatingEventArgs>(this, &window::EditContext_FormatUpdating));
+
+         // The system raises this happening to request layout information.
+         // This is used to help choose a position for the IME candidate window.
+         m_editcontext.LayoutRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextLayoutRequestedEventArgs>(this, &window::EditContext_LayoutRequested));
+
+         // The system raises this happening to notify the edit control
+         // that the string composition has started.
+         m_editcontext.CompositionStarted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextCompositionStartedEventArgs>(this, &window::EditContext_CompositionStarted));
+
+         // The system raises this happening to notify the edit control
+         // that the string composition is finished.
+         m_editcontext.CompositionCompleted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextCompositionCompletedEventArgs>(this, &window::EditContext_CompositionCompleted));
+
+         // The system raises this happening when the NotifyFocusLeave operation has
+         // completed. Our sample does not use this happening.
+         m_editcontext.NotifyFocusLeaveCompleted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::Foundation::IInspectable>(this, &window::EditContext_NotifyFocusLeaveCompleted));
+
+         // Set our initial UI.
+         UpdateTextUI();
+
+         UpdateFocusUI();
+
 
       }
-
 
       void window::on_window_size_changed(::winrt::Windows::UI::Core::CoreWindow sender, const ::int_size & size)
       {
 
-         auto pbuffer = m_pwindow->get_window_graphics();
+         auto pbuffer = get_window_graphics();
 
          if (::is_set(pbuffer))
          {
@@ -7665,161 +7131,74 @@ namespace windowing_universal_windows
 
          //::lparam lparam(size);
 //
-         //m_pwindow->m_puserinteraction->send_message(e_message_size, 0, lparam);
+         //puserinteraction->send_message(e_message_size, 0, lparam);
 
-         m_pwindow->m_puserinteraction->place({ int_point(), size });
+         auto puserinteraction = user_interaction();
 
-         //m_pwindow->m_puserinteraction->set_size(size);
+         puserinteraction->place({ int_point(), size });
 
-         m_pwindow->m_puserinteraction->set_need_layout();
+         //puserinteraction->set_size(size);
 
-         m_pwindow->m_puserinteraction->set_need_redraw();
+         puserinteraction->set_need_layout();
 
-         m_pwindow->m_puserinteraction->post_redraw();
+         puserinteraction->set_need_redraw();
+
+         puserinteraction->post_redraw();
 
       }
 
 
-      void window::DpiChanged(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable)
+      //void window::DpiChanged(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable)
+      //{
+
+      //   m_rectangleLastWindowRect = m_windowscorewindow.Bounds();
+
+      //   auto pbuffer = __buffer(get_window_graphics());
+
+      //   pbuffer->OnChangeDpi(sender.LogicalDpi());
+
+      //}
+
+      void window::on_dpi_changed(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable)
       {
 
-         m_rectangleLastWindowRect = m_windowscorewindow.Bounds();
+         ::universal_windows::acme::windowing::window::on_dpi_changed(sender, inspectable);
 
-         auto pbuffer = __buffer(m_pwindow->get_window_graphics());
+         auto pbuffer = __buffer(get_window_graphics());
 
          pbuffer->OnChangeDpi(sender.LogicalDpi());
 
       }
 
 
-      void window::DisplayContentsInvalidated(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable)
+
+
+      //void window::DisplayContentsInvalidated(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable)
+      //{
+
+      //   // Ensure the D3D Device is available for rendering.
+
+      //   auto pbuffer = __buffer(get_window_graphics());
+
+      //   pbuffer->ValidateDevice();
+
+      //}
+
+
+      void window::on_display_contents_invalidated(::winrt::Windows::Graphics::Display::DisplayInformation sender, ::winrt::Windows::Foundation::IInspectable inspectable)
       {
 
          // Ensure the D3D Device is available for rendering.
 
-         auto pbuffer = __buffer(m_pwindow->get_window_graphics());
+         auto pbuffer = __buffer(get_window_graphics());
 
          pbuffer->ValidateDevice();
 
       }
 
 
-      void window::OnActivated(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & applicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs const & args)
-      {
 
-         auto pwindowing = windowing();
-
-         if (pwindowing)
-         {
-
-            if (!pwindowing->m_applicationview)
-            {
-
-               pwindowing->m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
-
-            }
-
-         }
-
-         if (args != nullptr)
-         {
-
-            //preempt(20_s);
-
-            auto kind = args.Kind();
-
-            if (args.Kind() == ::winrt::Windows::ApplicationModel::Activation::ActivationKind::Launch)
-            {
-
-               auto launchActivatedEventArgs = args.as<::winrt::Windows::ApplicationModel::Activation::LaunchActivatedEventArgs>();
-
-               string str = launchActivatedEventArgs.Arguments().begin();
-
-               if (str.has_character())
-               {
-
-                  if (system()->_handle_uri(str))
-                  {
-
-                     return;
-
-                  }
-
-               }
-
-            }
-            else if (args.Kind() == ::winrt::Windows::ApplicationModel::Activation::ActivationKind::Protocol)
-            {
-
-               auto protocolActivatedEventArgs =  args.as<::winrt:: Windows::ApplicationModel::Activation::ProtocolActivatedEventArgs>();
-
-               string str = protocolActivatedEventArgs.Uri().AbsoluteUri().begin();
-
-               application()->payload("activation") = str;
-
-               system()->post_procedure([this, str]()
-                  {
-
-                     if (system()->_handle_uri(str))
-                     {
-
-                        return;
-
-                     }
-
-               });
-
-               //string strServer = system()->url()->get_server(str);
-
-               //if (strServer == "send")
-               //{
-
-               //   string strMessage = system()->url()->get_param(str, "message");
-
-               //   if (strMessage.has_character())
-               //   {
-
-               //      system()->application()->add_activation_message(strMessage);
-
-               //   }
-
-               //}
-
-               //system()->add_create(pcreate);
-
-               //auto papp = system()->m_papplicationStartup;
-
-               //if (papp == nullptr)
-               //{
-
-               //   papp = session()->m_papplicationCurrent;
-
-               //}
-
-               //system()->post_object(e_message_system, e_system_message_create, pcreate);
-
-            }
-
-         }
-
-         m_windowscorewindow.Activate();
-
-      }
-
-
-      void window::OnSuspending(::winrt::Windows::Foundation::IInspectable const & sender, ::winrt::Windows::ApplicationModel::SuspendingEventArgs const & args)
-      {
-
-      }
-
-
-      void window::OnResuming(::winrt::Windows::Foundation::IInspectable const & sender, ::winrt::Windows::Foundation::IInspectable const & args)
-      {
-
-      }
-
-
-      void window::OnCharacterReceived(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args)
+      void window::on_character_received(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CharacterReceivedEventArgs args)
       {
 
          if (m_bInternalFocus)
@@ -7829,7 +7208,7 @@ namespace windowing_universal_windows
 
          }
 
-         auto puserinteraction = m_pwindow->m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
          if (puserinteraction == nullptr)
          {
@@ -7838,12 +7217,12 @@ namespace windowing_universal_windows
 
          }
 
-         if (puserinteraction->m_pinteractionimpl == nullptr)
-         {
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //{
 
-            return;
+         //   return;
 
-         }
+         //}
 
          ::wd32_character wd32ch = args.KeyCode();
 
@@ -7871,12 +7250,12 @@ namespace windowing_universal_windows
          
          pkey->m_strText = szUtf8;
 
-         puserinteraction->m_pinteractionimpl->m_pImpl2->queue_message_handler(pkey);
+         puserinteraction->message_handler(pkey);
 
       }
 
 
-      void window::OnKeyDown(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
+      void window::on_key_down(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
       {
 
          if (args.VirtualKey() == ::winrt::Windows::System::VirtualKey::Shift)
@@ -7893,7 +7272,7 @@ namespace windowing_universal_windows
 
          }
 
-         auto puserinteraction = m_pwindow->m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
          if (puserinteraction == nullptr)
          {
@@ -7935,26 +7314,26 @@ namespace windowing_universal_windows
    //      pkey->m_key = args;
 
 
-         m_pwindow->queue_message_handler(pkey);
+         puserinteraction->message_handler(pkey);
 
       //   ;;
       //}
 
       }
 
-      void window::OnKeyUp(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
+      void window::on_key_up(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs args)
       {
 
          if (system() == nullptr)
             return;
 
-         auto puserinteraction = m_pwindow->m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
          if (puserinteraction == nullptr)
             return;
 
-         if (puserinteraction->m_pinteractionimpl == nullptr)
-            return;
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //   return;
 
          ::pointer<::user::message>pusermessage;
 
@@ -8021,7 +7400,7 @@ namespace windowing_universal_windows
                   //}
                   //else
                   //{
-            m_pwindow->queue_message_handler(pusermessage);
+            puserinteraction->message_handler(pusermessage);
             //}
 
          //}
@@ -8031,16 +7410,16 @@ namespace windowing_universal_windows
       }
 
 
-      void window::OnWindowClosed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CoreWindowEventArgs args)
-      {
+      //void window::OnWindowClosed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CoreWindowEventArgs args)
+      //{
 
-      }
+      //}
 
       void window::__on_window_visible()
       {
 
 
-         auto pbuffer = __buffer(m_pwindow->get_window_graphics());
+         auto pbuffer = __buffer(get_window_graphics());
 
          if (pbuffer)
          {
@@ -8074,7 +7453,540 @@ namespace windowing_universal_windows
       }
 
 
-      void window::OnWindowVisibilityChanged(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args)
+      void window::_create_window()
+      {
+
+
+         //::universal_windows::acme::windowing::window::_create_window();
+
+               //auto pwindowing = windowing();
+
+      //m_pwindowing = pwindowing;
+
+      // m_pwindow = pimpl;
+
+      //__refer(puserinteraction->m_pthreadUserInteraction, ::get_task() REFERENCING_DEBUGGING_COMMA_THIS_FUNCTION_FILE_LINE);
+
+      //puserinteraction->m_pthreadUserInteraction->uiptra().add(puserinteraction);
+
+      //__refer(m_pthreadUserImpl, puserinteraction->m_pthreadUserInteraction REFERENCING_DEBUGGING_COMMA_THIS_FUNCTION_FILE_LINE);
+
+      //m_strDebug += ::str().demangle(puserinteraction->type_name()) + ";";
+
+      //ASSERT(pusersystem->m_createstruct.lpszClass == nullptr || is_string_ok(pusersystem->m_createstruct.lpszClass) || __is_valid_atom(pusersystem->m_createstruct.lpszClass));
+
+      //ENSURE_ARG(pusersystem->m_createstruct.lpszName == nullptr || is_string_ok(pusersystem->m_createstruct.lpszName));
+
+      //wstring wstrClassName(pusersystem->m_createstruct.lpszClass);
+         wstring wstrClassName;
+
+         //if (wstrClassName.is_empty())
+         //{
+
+         //auto pimpl = m_pwindow;
+
+         auto puserinteraction = user_interaction();
+
+         //auto pwindowing = windowing();
+
+         //wstrClassName = _windows_get_user_interaction_window_class(puserinteraction);
+
+         //->initialize(system()->m_papplicationStartup);
+
+         //}
+
+         //pusersystem->m_createstruct.lpszClass = wstrClassName;
+
+         if (!puserinteraction->m_pusersystem)
+         {
+
+            puserinteraction->m_pusersystem = __create_new< ::user::system >();
+
+         }
+
+         if (!puserinteraction->pre_create_window(puserinteraction->m_pusersystem))
+         {
+
+            //return false;
+
+            throw ::exception(error_failed);
+
+         }
+
+         set_oswindow(this);
+
+         //m_pwindow = pimpl;
+
+         //pimpl->install_message_routing(puserinteraction);
+
+         //install_message_routing(puserinteraction);
+
+         //if (!hook_window_create(this))
+         //{
+
+         //   post_non_client_destroy();
+
+         //   return false;
+
+         //}
+
+         // if window is not created, it may destroy this object, so keep the app as local ::payload
+
+         //thread_property("wnd_init") = this;
+
+         //::aura::window * papp = &papplication;
+
+         //wstring wstrWindowName(pusersystem->m_createstruct.lpszName);
+         wstring wstrWindowName;
+
+         //string char
+
+         //wstring wchar_t
+
+         //if (wstrWindowName.is_empty())
+         //{
+
+         //   wstrWindowName = L"window";
+
+         //}
+
+#if 0
+
+         WCHAR szTitle[256];
+         WCHAR szWindowClass[256];
+
+         wcscpy(szTitle, L"123");
+         wcscpy(szWindowClass, L"WindowsDestkop1");
+
+         //HWND hwnd = CreateWindowExW(pusersystem->m_createstruct.dwExStyle, szWindowClass, wstrWindowName, pusersystem->m_createstruct.style,
+           // pusersystem->m_createstruct.x, pusersystem->m_createstruct.y, pusersystem->m_createstruct.cx, pusersystem->m_createstruct.cy, pusersystem->m_createstruct.hwndParent, pusersystem->m_createstruct.hMenu, pusersystem->m_createstruct.hInstance, pusersystem->m_createstruct.lpCreateParams);
+         HWND hwnd = CreateWindowW(szWindowClass, szTitle, WS_OVERLAPPED,
+            CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, pusersystem->m_createstruct.hInstance, nullptr);
+         //if (!hwnd)
+         //{
+            //return false;
+         //}
+
+         ::ShowWindow(hwnd, SW_SHOWNORMAL);
+         ::UpdateWindow(hwnd);
+
+#if 0
+
+         MSG msg;
+
+         // Main message loop:
+         while (mq_get_message(&msg, nullptr, 0, 0))
+         {
+            //if (!TranslateAccelerator(msg.hwnd, hAccelTable, &msg))
+            {
+               TranslateMessage(&msg);
+               DispatchMessage(&msg);
+            }
+         }
+
+#else
+
+         m_puserthread->run();
+
+#endif
+
+         //return true;
+
+#else
+
+      //unsigned int dwExStyle = puserinteraction->GetExStyle();
+      //unsigned int dwStyle = puserinteraction->GetStyle();
+
+         unsigned int dwExStyle = 0;
+         unsigned int dwStyle = 0;
+
+         auto pusersystem = puserinteraction->m_pusersystem;
+
+         //CREATESTRUCTW createstruct{};
+
+         //auto & createstruct = pusersystem->m_createstruct;
+
+         wstrWindowName = puserinteraction->m_strWindowText2;
+
+         //if (pusersystem->m_createstruct.lpszName)
+         //{
+
+         //   wstrWindowName = pusersystem->m_createstruct.lpszName;
+
+         //}
+
+         ::winrt::Windows::Foundation::Rect rectangleWindow;
+
+         rectangleWindow.X = (float)puserinteraction->const_layout().design().origin().x();
+
+         rectangleWindow.Y = (float)puserinteraction->const_layout().design().origin().y();
+
+         rectangleWindow.Width = (float)puserinteraction->const_layout().design().size().cx();
+
+         rectangleWindow.Height = (float)puserinteraction->const_layout().design().size().cy();
+
+         auto pwindowing = windowing();
+
+         if (!m_windowscorewindow)
+         {
+
+            //manual_reset_happening ev;
+
+            //fork([this, &ev]()
+              // {
+
+            pwindowing->m_pwindowCreating = this;
+
+            auto coreapplicationview = ::winrt::Windows::ApplicationModel::Core::CoreApplication::CreateNewView(pwindowing->m_frameworkviewsource);
+
+            //Initialize(coreapplicationview);
+
+            //SetWindow(coreapplicationview.CoreWindow());
+
+            // m_windowscorewindow = m_coreapplicationview.CoreWindow();
+
+              //    topic.set_happening();
+                //  coreapplicationview.Dispatcher().ProcessEvents(
+                  //   ::winrt::Windows::UI::Core::CoreProcessEventsOption::ProcessUntilQuit);
+
+               //});
+
+               //topic.wait();
+            user_post([this]()
+               {
+
+               //   m_applicationview = ::winrt::Windows::UI::ViewManagement::ApplicationView::GetForCurrentView();
+
+               //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
+               //   {
+
+               //      m_applicationview.SetPreferredMinSize({ (float)rectangleWindow.Width, (float)rectangleWindow.Height });
+
+               //   }
+
+               m_windowscorewindow.Activate();
+
+
+
+               //   //auto applicationview1 = m_applicationview;
+
+               //   //auto Id1 = applicationview1.Id();
+
+               //   //::winrt::Windows::UI::ViewManagement::ApplicationViewSwitcher::TryShowAsStandaloneAsync(
+               //   //Id1,
+               //   //::winrt::Windows::UI::ViewManagement::ViewSizePreference::UseMore);
+
+               //   //rectangleWindow = m_windowscorewindow.Bounds();
+               //
+               //   if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
+               //   {
+
+               //      m_applicationview.TryResizeView(::winrt::Windows::Foundation::Size({ (float)rectangleWindow.Width,(float)rectangleWindow.Height }));
+
+               //   }
+
+
+
+
+               });
+
+
+         }
+         //else
+         //{
+
+         user_post([this, pusersystem, puserinteraction, &rectangleWindow]()
+         {
+
+
+               ::int_rectangle rectangle;
+
+               get_rect_normal(&rectangle);
+
+               auto puserinteraction = user_interaction();
+
+               auto & sketch = puserinteraction->const_layout().sketch();
+
+               puserinteraction->place(rectangle);
+
+               puserinteraction->place(rectangle, ::user::e_layout_design);
+
+
+         });
+
+         //}
+
+         if (!puserinteraction->pre_create_window(pusersystem))
+         {
+
+            throw ::exception(error_failed);
+
+         }
+
+         //puserinteraction->m_puserinteractionTopLevel = puserinteraction->_top_level();
+
+         //puserinteraction->m_puserframeParent = puserinteraction->_parent_frame();
+
+         //puserinteraction->m_puserframeTopLevel = puserinteraction->_top_level_frame();
+
+         //puserinteraction->m_pwindow = this;
+
+         //set_window_long(GWL_STYLE, pusersystem->m_createstruct.style);
+
+         //set_window_long(GWL_EXSTYLE, pusersystem->m_createstruct.dwExStyle);
+
+         //install_message_routing(puserinteraction);
+
+         //m_rectangleWindowScreen = m_rectangle;
+
+         //send_message(e_message_create, 0, (LPARAM)&pusersystem->m_createstruct);
+
+         puserinteraction->send_message(e_message_create, 0, 0);
+
+         user_post([this]()
+
+            {
+
+                  if (m_windowscorewindow.Visible())
+                  {
+
+                     __on_window_visible();
+
+                  }
+   });
+
+         //on_window_size_changed()
+
+         //send_message(e_message_size, 0, MAKELPARAM(pusersystem->m_createstruct.cx, cy));
+
+         //::int_size sizeDrawn;
+
+         //synchronous_lock slGraphics(m_pgraphics->synchronization());
+
+         //::synchronization_object * psync = m_pgraphics->get_draw_lock();
+
+         //synchronous_lock synchronouslock(psync);
+
+         ////::draw2d::graphics_pointer pgraphics = m_pgraphics->on_begin_draw();
+
+         //slGraphics.unlock();
+
+         synchronous_lock synchronouslock(puserinteraction->synchronization());
+
+         if (rectangleWindow.Width > 0 && rectangleWindow.Height > 0)
+         {
+
+            puserinteraction->place(double_rectangle_dimension(rectangleWindow.X, rectangleWindow.Y, rectangleWindow.Width, rectangleWindow.Height));
+
+         }
+
+         puserinteraction->increment_reference_count(REFERENCING_DEBUGGING_THIS_FUNCTION_FILE_LINE);
+
+         puserinteraction->m_ewindowflag |= ::e_window_flag_is_window;
+
+         puserinteraction->m_ewindowflag |= ::e_window_flag_window_created;
+
+         puserinteraction->set_flag(e_flag_task_started);
+
+         //puserinteraction->m_layout.sketch().set_modified();
+
+         //return true;
+
+
+
+         //dwExStyle = createstruct.dwExStyle;
+         //dwStyle = createstruct.style;
+
+         windowing()->__synthesizes_creates_styles(puserinteraction, dwExStyle, dwStyle);
+
+         pusersystem->m_pwindow = this;
+
+         //puserinteraction->layout().sketch().set_modified();
+
+         int x = puserinteraction->const_layout().sketch().origin().x();
+         int y = puserinteraction->const_layout().sketch().origin().y();
+         int cx = puserinteraction->const_layout().sketch().size().cx();
+         int cy = puserinteraction->const_layout().sketch().size().cy();
+
+         HWND hwndParent = nullptr;
+
+         HMENU hmenu = nullptr;
+
+         //      HINSTANCE hinstance = (HINSTANCE)GetModuleHandleW(L"windowing_universal_windows.dll");
+         //
+         //      void * lpCreateParams = nullptr;
+         //
+         //      if (puserinteraction->m_bMessageWindow)
+         //      {
+         //
+         //         hwndParent = HWND_MESSAGE;
+         //         dwExStyle = 0;
+         //         dwStyle = 0;
+         //         x = y = cx = cy = 0;
+         //
+         //      }
+         //
+         //      //if (puserinteraction->m_pusersystem)
+         //      //{
+         //
+         //      //   lpCreateParams = puserinteraction->m_pusersystem->m_createstruct.lpCreateParams;
+         //
+         //      //}
+         //
+         //      HWND hwnd = ::CreateWindowExW(
+         //         dwExStyle,
+         //         wstrClassName,
+         //         wstrWindowName,
+         //         dwStyle,
+         //         x,
+         //         y,
+         //         cx,
+         //         cy,
+         //         hwndParent,
+         //         hmenu,
+         //         hinstance,
+         //         pusersystem);
+         //
+#endif
+//
+//      //HWND hwnd = CreateWindowW(wstrClassName, wstrWindowName, WS_OVERLAPPED,
+//      //   CW_USEDEFAULT, 0, CW_USEDEFAULT, 0, nullptr, nullptr, pusersystem->m_createstruct.hInstance, nullptr);
+//
+//      //::XXXShowWindow(hwnd,SW_SHOWNORMAL);
+//      //::UpdateWindow(hwnd);
+//
+//      //bool bUnicode = IsWindowUnicode(hwnd);
+//
+//      unsigned int dwLastError = ::GetLastError();
+//
+//      //if (!unhook_window_create())
+//      //{
+//
+//      //   post_non_client_destroy();        // cleanup if CreateWindowEx fails too soon
+//
+//      //}
+//
+         if (puserinteraction->m_bMessageWindow)
+         {
+
+            puserinteraction->m_ewindowflag -= e_window_flag_graphical;
+
+         }
+
+         //if (hwnd == nullptr)
+         //{
+
+         //   //if (papp == nullptr)
+         //   //{
+
+         //   //   return false;
+
+         //   //}
+
+         //   string strLastError = FormatMessageFromSystem(dwLastError);
+
+         //   string strMessage;
+
+         //   strMessage.formatf("%s\n\nSystem Error Code: %d", strLastError, dwLastError);
+
+         //   information(trace_category_appmsg, e_trace_level_warning, "Warning: Window creation failed: get_last_error returned:\n");
+
+         //   information(trace_category_appmsg, e_trace_level_warning, "%s\n", strMessage);
+
+         //   try
+         //   {
+
+         //      if (dwLastError == 0x0000057e)
+         //      {
+
+         //         informationf("Cannot create a top-level child window.");
+
+         //      }
+         //      else
+         //      {
+
+         //         informationf("%s", strMessage);
+
+         //      }
+
+         //   }
+         //   catch (...)
+         //   {
+
+         //   }
+
+         //}
+
+         //if (hwnd == nullptr)
+         //{
+
+         //   return false;
+
+         //}
+
+         //if (puserinteraction->m_bEdgeGestureDisableTouchWhenFullscreen)
+         //{
+
+         //   SetTouchDisableProperty(hwnd, true);
+
+         //}
+
+         puserinteraction->m_ewindowflag += ::e_window_flag_is_window;
+
+         //puserinteraction->layout().sketch() = ::int_point(pusersystem->m_createstruct.x, pusersystem->m_createstruct.y);
+         //puserinteraction->layout().sketch() = ::int_size(pusersystem->m_createstruct.cx, pusersystem->m_createstruct.cy);
+
+         //puserinteraction->layout().window() = ::int_point(pusersystem->m_createstruct.x, pusersystem->m_createstruct.y);
+         //puserinteraction->layout().window() = ::int_size(pusersystem->m_createstruct.cx, pusersystem->m_createstruct.cy);
+
+         //bool bUnicode = ::IsWindowUnicode(hwnd) != false;
+
+         //if (bUnicode)
+         //{
+
+         //   output_debug_string("window is unicode");
+
+         //}
+         //else
+         //{
+
+         //   output_debug_string("window is ANSI");
+
+         //}
+
+         ////WNDCLASSEXW wndcls;
+
+         ////if (wstrClassName.get_length() > 0 && GetClassInfoExW(psystem->m_hinstance, wstrClassName, &wndcls) && wndcls.hIcon != nullptr)
+         //{
+
+         //   //papplication->set_icon(puserinteraction, __create_new< ::image::icon >(get_application(), wndcls.hIcon), false);
+
+         //   //papplication->set_icon(puserinteraction, __create_new< ::image::icon >(get_application(), wndcls.hIcon), true);
+
+         //}
+
+         //if (hwnd != get_hwnd())
+         //{
+
+         //   set_hwnd(hwnd);
+         //   //ASSERT(false); // should have been set in send msg hook
+
+         //}
+
+         //send_message(e_message_create);
+
+         /// this Windows native window "holds" object to the
+         /// wrapping object.
+         puserinteraction->increment_reference_count();
+
+         puserinteraction->m_ewindowflag |= e_window_flag_window_created;
+
+         //return true;
+
+      }
+
+
+      void window::on_window_visibility_changed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args)
       {
 
          if (args.Visible())
@@ -8086,7 +7998,7 @@ namespace windowing_universal_windows
          else
          {
 
-            auto pbuffer = __buffer(m_pwindow->get_window_graphics());
+            auto pbuffer = __buffer(get_window_graphics());
 
             if (pbuffer && pbuffer->m_tristateCoreWindowVisible)
             {
@@ -8102,10 +8014,38 @@ namespace windowing_universal_windows
       }
 
 
-      void window::OnPointerMoved(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
+      //void window::on_window_visibility_changed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::VisibilityChangedEventArgs args)
+      //{
+
+      //   if (args.Visible())
+      //   {
+
+      //      __on_window_visible();
+
+      //   }
+      //   else
+      //   {
+
+      //      auto pbuffer = __buffer(get_window_graphics());
+
+      //      if (pbuffer && pbuffer->m_tristateCoreWindowVisible)
+      //      {
+
+      //         pbuffer->m_tristateCoreWindowVisible = false;
+
+      //         pbuffer->DestroyWindowSizeDependentResources();
+
+      //      }
+
+      //   }
+
+      //}
+
+
+      void window::on_pointer_moved(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
       {
 
-         auto puserinteraction = m_pwindow->m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
          if (puserinteraction == nullptr)
          {
@@ -8114,12 +8054,12 @@ namespace windowing_universal_windows
 
          }
 
-         if (puserinteraction->m_pinteractionimpl == nullptr)
-         {
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //{
 
-            return;
+         //   return;
 
-         }
+         //}
 
          ::pointer<::user::message>pusermessage;
 
@@ -8154,14 +8094,14 @@ namespace windowing_universal_windows
 
          m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
 
-         puserinteraction->m_pinteractionimpl->queue_message_handler(pusermessage);
+         puserinteraction->message_handler(pusermessage);
 
          m_timeLastMouseMove = ::time::now();
 
       }
 
 
-      void window::OnPointerPressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
+      void window::on_pointer_pressed(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
       {
 
          if (system() == nullptr)
@@ -8171,7 +8111,7 @@ namespace windowing_universal_windows
 
          }
 
-         auto puserinteraction = m_pwindow->m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
          if (puserinteraction == nullptr)
          {
@@ -8180,12 +8120,12 @@ namespace windowing_universal_windows
 
          }
 
-         if (puserinteraction->m_pinteractionimpl == nullptr)
-         {
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //{
 
-            return;
+         //   return;
 
-         }
+         //}
 
          ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
 
@@ -8242,12 +8182,12 @@ namespace windowing_universal_windows
 
          m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
 
-         puserinteraction->m_pinteractionimpl->queue_message_handler(pmouse);
+         puserinteraction->message_handler(pmouse);
 
       }
 
 
-      void window::OnPointerReleased(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
+      void window::on_pointer_released(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
       {
 
          if (system() == nullptr)
@@ -8261,7 +8201,7 @@ namespace windowing_universal_windows
 
          m_iMouse = pointerPoint.PointerId();
 
-         auto puserinteraction = m_pwindow->m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
          if (puserinteraction == nullptr)
          {
@@ -8270,12 +8210,12 @@ namespace windowing_universal_windows
 
          }
 
-         if (puserinteraction->m_pinteractionimpl == nullptr)
-         {
+         //if (puserinteraction->m_pinteractionimpl == nullptr)
+         //{
 
-            return;
+         //   return;
 
-         }
+         //}
 
          auto pmouse = __create_new< ::message::mouse >();
 
@@ -8322,24 +8262,266 @@ namespace windowing_universal_windows
 
          m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
 
-         puserinteraction->m_pinteractionimpl->queue_message_handler(pmouse);
+         puserinteraction->message_handler(pmouse);
 
       }
 
 
-      ::winrt::Windows::Foundation::Rect window::get_input_content_rect()
+//void window::on_pointer_moved(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
+//{
+//
+//   auto puserinteraction = user_interaction();
+//
+//   if (puserinteraction == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   //if (puserinteraction->m_pinteractionimpl == nullptr)
+//   //{
+//
+//   //   return;
+//
+//   //}
+//
+//   ::pointer<::user::message>pusermessage;
+//
+//   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+//
+//   m_iMouse = pointerPoint.PointerId();
+//
+//   auto pmouse = __create_new< ::message::mouse >();
+//
+//   pusermessage = pmouse;
+//
+//   pmouse->m_pwindow = this;
+//
+//   pmouse->m_oswindow = this;
+//
+//   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
+//
+//   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
+//
+//   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
+//
+//   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   pmouse->m_atom = e_message_mouse_move;
+//   //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
+//
+//   m_pointLastCursor = pointerPoint.RawPosition();
+//
+//   //set_cursor_position({ (int) m_pointLastCursor.X, (int) m_pointLastCursor.Y});
+//
+//   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+//
+//   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   puserinteraction->message_handler(pusermessage);
+//
+//   m_timeLastMouseMove = ::time::now();
+//
+//}
+//
+//
+//void window::on_pointer_pressed(::winrt::Windows::UI::Core::CoreWindow sender, ::winrt::Windows::UI::Core::PointerEventArgs args)
+//{
+//
+//   if (system() == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   auto puserinteraction = user_interaction();
+//
+//   if (puserinteraction == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   //if (puserinteraction->m_pinteractionimpl == nullptr)
+//   //{
+//
+//   //   return;
+//
+//   //}
+//
+//   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+//
+//   m_iMouse = pointerPoint.PointerId();
+//
+//   auto pmouse = __create_new< ::message::mouse >();
+//
+//   pmouse->m_pwindow = this;
+//
+//   pmouse->m_oswindow = this;
+//
+//   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
+//
+//   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
+//
+//   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
+//
+//   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
+//   {
+//
+//      pmouse->m_atom = e_message_left_button_down;
+//
+//      m_bLeftButton = true;
+//      m_bMiddleButton = false;
+//      m_bRightButton = false;
+//
+//   }
+//   else if (args.CurrentPoint().Properties().IsRightButtonPressed() && !m_bRightButton)
+//   {
+//
+//      pmouse->m_atom = e_message_right_button_down;
+//
+//      m_bLeftButton = false;
+//      m_bMiddleButton = false;
+//      m_bRightButton = true;
+//
+//   }
+//   else if (args.CurrentPoint().Properties().IsMiddleButtonPressed() && !m_bMiddleButton)
+//   {
+//
+//      pmouse->m_atom = e_message_middle_button_down;
+//
+//      m_bLeftButton = false;
+//      m_bMiddleButton = true;
+//      m_bRightButton = false;
+//
+//   }
+//
+//   m_pointLastCursor = pointerPoint.RawPosition();
+//
+//   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+//
+//   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   puserinteraction->message_handler(pmouse);
+//
+//}
+//
+//
+//
+//void window::on_pointer_released(::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs args)
+//{
+//
+//   if (system() == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   ::winrt::Windows::UI::Input::PointerPoint pointerPoint = args.CurrentPoint();
+//
+//   m_iMouse = pointerPoint.PointerId();
+//
+//   auto puserinteraction = user_interaction();
+//
+//   if (puserinteraction == nullptr)
+//   {
+//
+//      return;
+//
+//   }
+//
+//   //if (puserinteraction->m_pinteractionimpl == nullptr)
+//   //{
+//
+//   //   return;
+//
+//   //}
+//
+//   auto pmouse = __create_new< ::message::mouse >();
+//
+//   pmouse->m_pwindow = this;
+//
+//   pmouse->m_oswindow = this;
+//
+//   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
+//
+//   pmouse->m_pointHost.y() = (int)pointerPoint.Position().Y;
+//
+//   pmouse->m_pointAbsolute.x() = (int)pointerPoint.RawPosition().X;
+//
+//   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
+//   {
+//
+//      pmouse->m_atom = e_message_left_button_up;
+//
+//      m_bLeftButton = false;
+//
+//   }
+//   else if (m_bRightButton && !args.CurrentPoint().Properties().IsRightButtonPressed())
+//   {
+//
+//      pmouse->m_atom = e_message_right_button_up;
+//
+//      m_bRightButton = false;
+//
+//   }
+//   else if (m_bMiddleButton && !args.CurrentPoint().Properties().IsMiddleButtonPressed())
+//   {
+//
+//      pmouse->m_atom = e_message_middle_button_up;
+//
+//      m_bMiddleButton = false;
+//
+//   }
+//
+//   m_pointLastCursor = pointerPoint.RawPosition();
+//
+//   m_pointCursor2.x() = (int)pointerPoint.RawPosition().X;
+//
+//   m_pointCursor2.y() = (int)pointerPoint.RawPosition().Y;
+//
+//   puserinteraction->message_handler(pmouse);
+//
+//}
+
+
+      ::int_rectangle window::get_input_content_rect()
+      {
+
+         return as_int_rectangle(_get_input_content_rect());
+
+      }
+
+
+      ::int_rectangle window::get_input_selection_rect()
+      {
+
+         return as_int_rectangle(_get_input_content_rect());
+
+      }
+
+
+      ::winrt::Windows::Foundation::Rect window::_get_input_content_rect()
       {
 
          ::winrt::Windows::Foundation::Rect rectangle;
 
-         auto puserinteraction = m_pwindow->m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
          auto puserprimitiveFocus = puserinteraction->get_keyboard_focus();
 
          if (puserprimitiveFocus)
          {
 
-            auto puserinteractionFocus = puserprimitiveFocus->m_puserinteraction;
+            ::cast <::user::interaction> puserinteractionFocus = puserprimitiveFocus;
 
             if (puserinteractionFocus)
             {
@@ -8362,7 +8544,7 @@ namespace windowing_universal_windows
       }
 
 
-      ::winrt::Windows::Foundation::Rect window::get_input_selection_rect()
+      ::winrt::Windows::Foundation::Rect window::_get_input_selection_rect()
       {
 
          ::winrt::Windows::Foundation::Rect rectangle = m_rectangleInputSelectionRect;
@@ -8377,18 +8559,18 @@ namespace windowing_universal_windows
 
          wide_string wstrText;
 
-         auto puserinteraction = m_pwindow->m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
          auto pfocusui = puserinteraction->get_keyboard_focus();
 
-         auto puserinteractionFocus = pfocusui;
+         ::cast < ::user::interaction > puserinteractionFocus = pfocusui;
 
          if (puserinteractionFocus)
          {
 
             string strText;
 
-            puserinteractionFocus->get_text(strText);
+            strText = puserinteractionFocus->get_text();
 
             wstrText = strText;
 
@@ -8402,11 +8584,11 @@ namespace windowing_universal_windows
       bool window::set_input_text(const wide_string & wstr)
       {
 
-         auto puserinteraction = m_pwindow->m_puserinteraction;
+         auto puserinteraction = user_interaction();
 
          auto pfocusui = puserinteraction->get_keyboard_focus();
 
-         auto puserinteractionFocus = pfocusui;
+         ::cast < ::user::interaction > puserinteractionFocus = pfocusui;
 
          if (puserinteractionFocus)
          {
@@ -8595,7 +8777,7 @@ namespace windowing_universal_windows
       }
 
 
-      void window::user_post(const ::procedure & procedure)
+      void window::_user_post(const ::procedure & procedure)
       {
 
          ::winrt::Windows::UI::Core::CoreDispatcher dispatcher = _get_dispatcher();
@@ -8622,165 +8804,200 @@ namespace windowing_universal_windows
       }
 
 
-      void window::Initialize(CoreApplicationView const & coreapplicationview)
+      //void window::Initialize(CoreApplicationView const & coreapplicationview)
+      //{
+
+      //   m_coreapplicationview = coreapplicationview;
+
+      //   ::winrt::Windows::ApplicationModel::Core::CoreApplication::Suspending(::winrt::Windows::Foundation::EventHandler<::winrt::Windows::ApplicationModel::SuspendingEventArgs>(this, &window::OnSuspending));
+
+      //   ::winrt::Windows::ApplicationModel::Core::CoreApplication::Resuming(::winrt::Windows::Foundation::EventHandler<::winrt::Windows::Foundation::IInspectable >(this, &window::OnResuming));
+
+      //   m_coreapplicationview.Activated({ this, &window::OnActivated });
+      //   ::winrt::Windows::UI::ViewManagement::UISettings uisettings;
+
+      //   auto uicolorBackground = uisettings.GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
+
+      //   ::color::color colorBackground;
+
+      //   colorBackground = argb(255, uicolorBackground.R, uicolorBackground.G, uicolorBackground.B);
+
+      //   system()->set_background_color(colorBackground);
+
+      //   //m_coreapplicationview.Activated(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::ApplicationModel::Core::CoreApplicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs>(this, &window::OnActivated));
+
+      //   //Initialize(coreapplicationview);
+
+      //}
+
+
+
+      //void window::SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window)
+      //{
+
+      //   m_windowscorewindow = window;
+      //   // Specify the cursor type as the standard arrow cursor.
+      //   m_windowscorewindow.PointerCursor(CoreCursor{ CoreCursorType::Arrow, 0 });
+
+      //   // Allow the application to respond when the window size changes.
+      //   //window.SizeChanged({ this, &App::OnWindowSizeChanged });
+
+
+
+      //   //m_windowscorewindow = window;
+
+      //   m_resizemanager = ::winrt::Windows::UI::Core::CoreWindowResizeManager::GetForCurrentView();
+
+      //   m_resizemanager.ShouldWaitForLayoutCompletion(true);
+
+      //   //auto coreTitleBar = ::winrt::Windows::ApplicationModel::Core::CoreApplication::GetCurrentView()->TitleBar;
+
+      //   //coreTitleBar->ExtendViewIntoTitleBar = true;
+
+      //   m_tokenActivated = m_windowscorewindow.Activated(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowActivatedEventArgs>(this, &window::CoreWindow_WindowActivated));
+
+      //   m_tokenClosed = m_windowscorewindow.Closed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CoreWindowEventArgs>(this, &window::CoreWindow_CoreWindowClosed));
+
+      //   m_tokenKeyDown = m_windowscorewindow.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::CoreWindow_KeyDown));
+
+      //   m_tokenPointerPressed = m_windowscorewindow.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::CoreWindow_PointerPressed));
+
+      //   //window::SetWindow(window);
+
+      //   //pbuffer = __create_new< directx_base >();
+
+      //   //pbuffer->system() = system();
+
+      //   auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
+
+      //   //pbuffer->Initialize(window, displayinformation.LogicalDpi());
+
+      //   //pbuffer->initialize(system()->m_papplicationStartup);
+
+      //   //install_directx_application_message_routing();
+
+      //   //initialize_directx_application();
+
+      //   //m_bXXXFirst = true;
+
+      //   //system()->get_session()->system()->windowing()->m_pwindowFirst = this;
+
+      //   //system()->get_session()->system()->windowing()->m_bXXXFirst = true;
+
+      //   //auto pwindowing = windowing();
+
+      //   //if (!pwindowing->m_bAppInit)
+      //   //{
+
+      //   //   pwindowing->app_init();
+
+      //   //}
+
+      //   //if (!system()->node()->m_bHasNodePostedSystemInitialRequest)
+      //   //{
+
+      //   //   system()->node()->m_bHasNodePostedSystemInitialRequest = true;
+
+      //   //   system()->defer_post_initial_request();
+
+      //   //}
+
+
+      //}
+
+      void window::_set_oswindow(::oswindow oswindow)
       {
 
-         m_coreapplicationview = coreapplicationview;
-
-         ::winrt::Windows::ApplicationModel::Core::CoreApplication::Suspending(::winrt::Windows::Foundation::EventHandler<::winrt::Windows::ApplicationModel::SuspendingEventArgs>(this, &window::OnSuspending));
-
-         ::winrt::Windows::ApplicationModel::Core::CoreApplication::Resuming(::winrt::Windows::Foundation::EventHandler<::winrt::Windows::Foundation::IInspectable >(this, &window::OnResuming));
-
-         m_coreapplicationview.Activated({ this, &window::OnActivated });
-
-         ::winrt::Windows::UI::ViewManagement::UISettings uisettings;
-
-         auto uicolorBackground = uisettings.GetColorValue(::winrt::Windows::UI::ViewManagement::UIColorType::Background);
-
-         ::color::color colorBackground;
-
-         colorBackground = argb(255, uicolorBackground.R, uicolorBackground.G, uicolorBackground.B);
-
-         system()->background_color(colorBackground);
-
-         //m_coreapplicationview.Activated(::winrt::Windows::Foundation::TypedEventHandler<::winrt::Windows::ApplicationModel::Core::CoreApplicationView, ::winrt::Windows::ApplicationModel::Activation::IActivatedEventArgs>(this, &window::OnActivated));
-
-         //Initialize(coreapplicationview);
+         
 
       }
 
 
-
-      void window::SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window)
+      void window::_main_send(const ::procedure & procedure)
       {
 
-         m_windowscorewindow = window;
-         // Specify the cursor type as the standard arrow cursor.
-         m_windowscorewindow.PointerCursor(CoreCursor{ CoreCursorType::Arrow, 0 });
+         auto window = m_windowscorewindow;
 
-         // Allow the application to respond when the window size changes.
-         //window.SizeChanged({ this, &App::OnWindowSizeChanged });
-
-
-
-         m_windowscorewindow = window;
-
-         m_resizemanager = ::winrt::Windows::UI::Core::CoreWindowResizeManager::GetForCurrentView();
-
-         m_resizemanager.ShouldWaitForLayoutCompletion(true);
-
-         //auto coreTitleBar = ::winrt::Windows::ApplicationModel::Core::CoreApplication::GetCurrentView()->TitleBar;
-
-         //coreTitleBar->ExtendViewIntoTitleBar = true;
-
-         m_tokenActivated = m_windowscorewindow.Activated(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::WindowActivatedEventArgs>(this, &window::CoreWindow_WindowActivated));
-
-         m_tokenClosed = m_windowscorewindow.Closed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::CoreWindowEventArgs>(this, &window::CoreWindow_CoreWindowClosed));
-
-         m_tokenKeyDown = m_windowscorewindow.KeyDown(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::KeyEventArgs>(this, &window::CoreWindow_KeyDown));
-
-         m_tokenPointerPressed = m_windowscorewindow.PointerPressed(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Core::CoreWindow, ::winrt::Windows::UI::Core::PointerEventArgs>(this, &window::CoreWindow_PointerPressed));
-
-         auto manager = ::winrt::Windows::UI::Text::Core::CoreTextServicesManager::GetForCurrentView();
-
-         m_editcontext = manager.CreateEditContext();
-
-         // Get the Input Pane so we can programmatically hide and show it.
-         m_inputpane = ::winrt::Windows::UI::ViewManagement::InputPane::GetForCurrentView();
-
-         // For demonstration purposes, this sample sets the Input Pane display policy to Manual
-         // so that it can manually show the software keyboard when the control gains focus and
-         // dismiss it when the control loses focus. If you leave the policy as Automatic, then
-         // the system will hide and show the Input Pane for you. Note that on Desktop, you will
-         // need to implement the UIA text pattern to get expected automatic behavior.
-         m_editcontext.InputPaneDisplayPolicy(::winrt::Windows::UI::Text::Core::CoreTextInputPaneDisplayPolicy::Automatic);
-
-         // Set the input scope to Text because this text box is for any text.
-         // This also informs software keyboards to show their regular
-         // text entry layout.  There are many other input scopes and each will
-         // inform a keyboard layout and text behavior.
-         m_editcontext.InputScope(::winrt::Windows::UI::Text::Core::CoreTextInputScope::Text);
-
-         // The system raises this happening to request a specific range of text.
-         m_editcontext.TextRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextTextRequestedEventArgs>(this, &window::EditContext_TextRequested));
-
-         // The system raises this happening to request the current selection.
-         m_editcontext.SelectionRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextSelectionRequestedEventArgs>(this, &window::EditContext_SelectionRequested));
-
-         // The system raises this happening when it wants the edit control to erase focus.
-         m_editcontext.FocusRemoved(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::Foundation::IInspectable>(this, &window::EditContext_FocusRemoved));
-
-         // The system raises this happening to update text in the edit control.
-         m_editcontext.TextUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextTextUpdatingEventArgs>(this, &window::EditContext_TextUpdating));
-
-         // The system raises this happening to change the selection in the edit control.
-         m_editcontext.SelectionUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextSelectionUpdatingEventArgs>(this, &window::EditContext_SelectionUpdating));
-
-         // The system raises this happening when it wants the edit control
-         // to apply formatting on a r::winrt::Windows::Foundation::Tange of text.
-         m_editcontext.FormatUpdating(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextFormatUpdatingEventArgs>(this, &window::EditContext_FormatUpdating));
-
-         // The system raises this happening to request layout information.
-         // This is used to help choose a position for the IME candidate window.
-         m_editcontext.LayoutRequested(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextLayoutRequestedEventArgs>(this, &window::EditContext_LayoutRequested));
-
-         // The system raises this happening to notify the edit control
-         // that the string composition has started.
-         m_editcontext.CompositionStarted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextCompositionStartedEventArgs>(this, &window::EditContext_CompositionStarted));
-
-         // The system raises this happening to notify the edit control
-         // that the string composition is finished.
-         m_editcontext.CompositionCompleted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::UI::Text::Core::CoreTextCompositionCompletedEventArgs>(this, &window::EditContext_CompositionCompleted));
-
-         // The system raises this happening when the NotifyFocusLeave operation has
-         // completed. Our sample does not use this happening.
-         m_editcontext.NotifyFocusLeaveCompleted(::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::UI::Text::Core::CoreTextEditContext, ::winrt::Windows::Foundation::IInspectable>(this, &window::EditContext_NotifyFocusLeaveCompleted));
-
-         // Set our initial UI.
-         UpdateTextUI();
-
-         UpdateFocusUI();
-
-         //window::SetWindow(window);
-
-         //pbuffer = __create_new< directx_base >();
-
-         //pbuffer->system() = system();
-
-         auto displayinformation = ::winrt::Windows::Graphics::Display::DisplayInformation::GetForCurrentView();
-
-         //pbuffer->Initialize(window, displayinformation.LogicalDpi());
-
-         //pbuffer->initialize(system()->m_papplicationStartup);
-
-         //install_directx_application_message_routing();
-
-         //initialize_directx_application();
-
-         //m_bXXXFirst = true;
-
-         //system()->get_session()->system()->windowing()->m_pwindowFirst = this;
-
-         //system()->get_session()->system()->windowing()->m_bXXXFirst = true;
-
-         auto pwindowing = windowing();
-
-         if (!pwindowing->m_bAppInit)
+         if (!window)
          {
 
-            pwindowing->app_init();
+            ::cast < ::windowing_universal_windows::window > pwindowOwner =
+                  owner_window();
+
+            if(pwindowOwner)
+            {
+
+               window = pwindowOwner->m_windowscorewindow;
+
+            }
 
          }
 
-         if (!system()->node()->m_bHasNodePostedSystemInitialRequest)
+         auto dispatcher = window.Dispatcher();
+
+         if (dispatcher.HasThreadAccess())
          {
 
-            system()->node()->m_bHasNodePostedSystemInitialRequest = true;
+            procedure();
 
-            system()->defer_post_initial_request();
+            return;
 
          }
 
+         //__matter_send_procedure(this, this, &node::node_post, procedure);
+
+   //      CLASS_DECL_ACME bool main_synchronous(const class time & time, const ::procedure & function)
+   //      {
+
+         auto phappening = __allocate manual_reset_happening();
+
+         _user_post([procedure, phappening]
+                   {
+
+                   procedure();
+
+                   phappening->set_happening();
+
+                   });
+
+
+         auto timeout = procedure.timeout();
+
+         if (!phappening->wait(timeout))
+         {
+
+            throw ::exception(error_timeout);
+            //phappening.release();
+
+            //return false;
+
+         }
+
+         ///return true;
+   //
+   //      }
+
+      }
+
+      
+      void window::_main_post(const ::procedure & procedure)
+      {
+
+         ::universal_windows::acme::windowing::window::_main_post(procedure);
+
+         //
+
+         /*auto window = m_windowscorewindow;
+
+         auto dispatcher = window.Dispatcher();
+
+         dispatcher.RunAsync(::winrt::Windows::UI::Core::CoreDispatcherPriority::Normal,
+            ::winrt::Windows::UI::Core::DispatchedHandler([procedure]()
+               {
+                  
+                  procedure();
+
+               }));*/
 
       }
 

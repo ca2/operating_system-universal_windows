@@ -138,13 +138,13 @@ typedef unsigned int unichar32;
 
 
 
-
+#include <new>
 
 
 
 #include <stddef.h>
 #include <limits.h>
-#include <___new.h>
+#include <new.h>
 #include <eh.h>
 
 #undef __window_procedure
