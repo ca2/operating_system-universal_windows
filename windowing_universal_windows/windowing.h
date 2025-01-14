@@ -107,7 +107,7 @@ namespace windowing_universal_windows
       //::windowing::window * get_mouse_capture(::thread * pthread) override;
 
       
-      // oswindow _get_mouse_capture(itask_t itask);
+      // oswindow _get_mouse_capture(itask itask);
 
 
       //void release_mouse_capture() override;

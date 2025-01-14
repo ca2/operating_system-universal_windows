@@ -1396,7 +1396,7 @@ namespace windowing_universal_windows
    //bool window::is_active_window() const
    //{
 
-   //   //itask_t itask = 0;
+   //   //itask itask = 0;
 
    //   //auto puserinteraction = user_interaction();
 

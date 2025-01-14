@@ -447,7 +447,7 @@ namespace windowing_universal_windows
    ::windowing::window * windowing::get_active_window(::thread * pthread)
    {
 
-      itask_t itask = 0;
+      itask itask = 0;
 
       if (pthread)
       {
@@ -643,7 +643,7 @@ namespace windowing_universal_windows
    //::windowing::window * windowing::get_mouse_capture(::thread * pthread)
    //{
 
-   //   itask_t itask = 0;
+   //   itask itask = 0;
 
    //   if (pthread)
    //   {
@@ -668,7 +668,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //oswindow windowing::_get_mouse_capture(itask_t itask)
+   //oswindow windowing::_get_mouse_capture(itask itask)
    //{
 
    //   return m_pwindowCapture;
