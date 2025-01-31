@@ -168,10 +168,10 @@ namespace aura_universal_windows
 
 #endif   // WINVER >= 0x0500
 
-      //LRESULT send_message(const ::atom & atom, WPARAM wParam = 0, lparam lParam = nullptr);
-      //bool post_message(const ::atom & atom, WPARAM wParam = 0, lparam lParam = nullptr);
+      //LRESULT send_message(::enum_message emessage, ::wparam wparam = {}, ::lparam lparam = {});
+      //bool post_message(::enum_message emessage, ::wparam wparam = {}, ::lparam lparam = {});
 
-      //bool SendNotifyMessage(const ::atom & atom, WPARAM wParam, LPARAM lParam);
+      //bool SendNotifyMessage(::enum_message emessage, ::wparam wparam, ::lparam lparam);
       //bool SendChildNotifyLastMsg(LRESULT* pResult = nullptr);
 
       //bool DragDetect(::int_point pt) const;
@@ -318,7 +318,7 @@ namespace aura_universal_windows
       virtual ::windowing::window * GetNextDlgGroupItem(::windowing::window * pWndCtl, bool bPrevious = false) const;
       virtual ::windowing::window * GetNextDlgTabItem(::windowing::window * pWndCtl, bool bPrevious = false) const;
       virtual unsigned int IsDlgButtonChecked(int nIDButton) const;
-      virtual LRESULT SendDlgItemMessage(int nID, const ::atom & atom, WPARAM wParam = 0, LPARAM lParam = 0);
+      virtual LRESULT SendDlgItemMessage(int nID, ::enum_message emessage, ::wparam wparam = {}, ::lparam lparam = {});
       virtual void SetDlgItemInt(int nID, unsigned int nValue, bool bSigned = true);
       virtual void SetDlgItemText(int nID, const ::string & lpszString);
 
@@ -583,7 +583,7 @@ namespace aura_universal_windows
 
       // for processing Windows messages
       virtual void message_handler(::message::message * pmessage);
-      //virtual bool OnWndMsg(const ::atom & atom, WPARAM wParam, LPARAM lParam, LRESULT* pResult);
+      //virtual bool OnWndMsg(::enum_message emessage, ::wparam wparam, ::lparam lparam, LRESULT* pResult);
 
       // for handling default processing
       LRESULT Default();

@@ -91,7 +91,7 @@ namespace music
 
             pseq->OnHappening(pevent);
 
-            switch(ptopic->m_atom)
+            switch(ptopic->id())
             {
             case ::music::midi::sequence::e_event_midi_playback_end:
             {

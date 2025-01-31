@@ -23,7 +23,7 @@ namespace innate_ui_universal_windows
 
       m_dwThread = 0;
 
-      m_atom = 0;
+      id() = 0;
 
    }
 

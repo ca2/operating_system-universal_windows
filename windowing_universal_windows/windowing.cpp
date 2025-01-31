@@ -569,14 +569,14 @@ namespace windowing_universal_windows
 
       }
 
-      // pusermessage->set(pmsg->oswindow, pwindow, pmsg->m_atom, pmsg->wParam, pmsg->lParam);
+      // pusermessage->set(pmsg->oswindow, pwindow, pmsg->id(), pmsg->wParam, pmsg->lParam);
 
       return pusermessage;
 
    }
 
 
-   //void windowing::set(message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
+   //void windowing::set(message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, ::enum_message emessage, ::wparam wparam, ::lparam lparam)
    //{
 
    //   pkey->m_nChar = static_cast<unsigned int>(wparam);
@@ -591,12 +591,12 @@ namespace windowing_universal_windows
 
    //   //pkey->m_iVirtualKey = (int)MapLeftRightKeys(wparam, lparam);
 
-   //   ::windowing::windowing::set(pkey, oswindow, pwindow, atom, wparam, lparam);
+   //   ::windowing::windowing::set(pkey, oswindow, pwindow, emessage, wparam, lparam);
 
    //}
 
 
-   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, ::enum_message emessage, ::wparam wparam, ::lparam lparam)
    //{
 
    //   pmouse->m_nFlags = wparam;
@@ -1009,14 +1009,14 @@ namespace windowing_universal_windows
    //}
 
 
-   //void windowing::set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, ::enum_message emessage, ::wparam wparam, ::lparam lparam)
    //{
 
 
    //}
 
 
-   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, const ::atom & atom, wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, ::enum_message emessage, ::wparam wparam, ::lparam lparam)
    //{
 
 

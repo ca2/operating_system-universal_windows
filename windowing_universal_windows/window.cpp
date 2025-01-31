@@ -365,14 +365,14 @@ namespace windowing_universal_windows
 
          string strLparamString;
 
-         if (pmessage->m_atom == WM_SETTINGCHANGE && wparam == 0)
+         if (pmessage->m_emessage == WM_SETTINGCHANGE && wparam == 0)
          {
 
             strLparamString = (const WCHAR *) (LPARAM(lparam));
 
          }
 
-         if (pmessage->m_atom == WM_FONTCHANGE)
+         if (pmessage->m_emessage == WM_FONTCHANGE)
          {
 
             auto psystem = system();
@@ -397,8 +397,8 @@ namespace windowing_universal_windows
 
          //}
          }
-         else if (pmessage->m_atom == e_message_display_change ||
-            (pmessage->m_atom == WM_SETTINGCHANGE &&
+         else if (pmessage->m_emessage == e_message_display_change ||
+            (pmessage->m_emessage == WM_SETTINGCHANGE &&
                (pmessage->m_wparam == SPI_SETWORKAREA)))
          {
 
@@ -1978,7 +1978,7 @@ namespace windowing_universal_windows
    //void window::message_handler(::message::message * pmessage)
    //{
    //   
-   //   if (pmessage->m_atom == (enum_message)WM_SYSCOMMAND)
+   //   if (pmessage->m_emessage == (enum_message)WM_SYSCOMMAND)
    //   {
 
    //      if (pmessage->m_wparam == SC_SCREENSAVE)
@@ -2480,7 +2480,7 @@ namespace windowing_universal_windows
 
       //HWND hwnd = as_hwnd(pmessage->m_oswindow);
 
-      //UINT message = pmessage->m_atom.unsigned int();
+      //UINT message = pmessage->m_emessage.unsigned int();
 
       //WPARAM wparam = pmessage->m_wparam;
 
@@ -2581,7 +2581,7 @@ namespace windowing_universal_windows
    //}
 
 
-   lresult window::send_message(const ::atom & atom, wparam wParam, lparam lParam)
+   lresult window::send_message(::enum_message emessage, ::wparam wparam, ::lparam lparam)
    {
 
       ///return ::SendMessage(get_hwnd(), atom.umessage(), wParam, lParam);
@@ -2591,7 +2591,7 @@ namespace windowing_universal_windows
    }
 
 
-   void window::post_message(const ::atom & atom, wparam wParam, lparam lParam)
+   void window::post_message(::enum_message emessage, ::wparam wparam, ::lparam lparam)
    {
 
       //HWND hwnd = get_hwnd();
@@ -4954,13 +4954,13 @@ namespace windowing_universal_windows
    //   if (pfnWndProc == nullptr)
    //   {
 
-   //      lresult = ::DefWindowProcW(m_oswindow, (unsigned int)pmessage->m_atom.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
+   //      lresult = ::DefWindowProcW(m_oswindow, (unsigned int)pmessage->m_emessage.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
 
    //   }
    //   else
    //   {
 
-   //      lresult = ::CallWindowProc(pfnWndProc, m_oswindow, (unsigned int)pmessage->m_atom.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
+   //      lresult = ::CallWindowProc(pfnWndProc, m_oswindow, (unsigned int)pmessage->m_emessage.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
 
    //   }
 
@@ -5052,7 +5052,7 @@ namespace windowing_universal_windows
 //
 //      unsigned int message;
 //
-//      message = pmessage->m_atom.umessage();
+//      message = pmessage->m_emessage.umessage();
 //
 //      m_uiMessage = message;
 //
@@ -5587,7 +5587,7 @@ namespace windowing_universal_windows
 //      //   else
 //      //   {
 //      //      
-//      //      pmessage->set_lresult(::DefWindowProcW(m_oswindow, pmessage->m_atom, pmessage->m_wparam, pmessage->m_lparam));
+//      //      pmessage->set_lresult(::DefWindowProcW(m_oswindow, pmessage->m_emessage, pmessage->m_wparam, pmessage->m_lparam));
 //
 //      //   }
 //
@@ -6582,7 +6582,7 @@ namespace windowing_universal_windows
 
             pkey->m_oswindow = this;
 
-            pkey->m_atom = e_message_key_down;
+            pkey->m_emessage = e_message_key_down;
             //pkey->m_playeredUserPrimitive = psession->get_user_interaction_host();
             pkey->m_nChar = 0;
             pkey->m_ekey = ::user::e_key_refer_to_text_member;
@@ -7240,7 +7240,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          pkey->m_oswindow = this;
 
-         pkey->m_atom = e_message_char;
+         pkey->m_emessage = e_message_char;
 
          pkey->m_ekey = ::user::e_key_refer_to_text_member;
 
@@ -7299,7 +7299,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          pkey->m_oswindow = this;
 
-         pkey->m_atom = e_message_key_down;
+         pkey->m_emessage = e_message_key_down;
          //pkey->m_playeredUserPrimitive       = session()->m_puserinteractionHost;
          pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
          pkey->m_ekey = ekey;
@@ -7361,7 +7361,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          pkey->m_oswindow = this;
 
-            pkey->m_atom = e_message_key_up;
+            pkey->m_emessage = e_message_key_up;
             //pkey->m_playeredUserPrimitive = session()->m_puserinteractionHost;
             pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
             pkey->m_ekey = ekey;
@@ -8083,7 +8083,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
 
-         pmouse->m_atom = e_message_mouse_move;
+         pmouse->m_emessage = e_message_mouse_move;
          //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
 
          m_pointLastCursor = pointerPoint.RawPosition();
@@ -8148,7 +8148,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
          {
 
-            pmouse->m_atom = e_message_left_button_down;
+            pmouse->m_emessage = e_message_left_button_down;
 
             m_bLeftButton = true;
             m_bMiddleButton = false;
@@ -8158,7 +8158,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          else if (args.CurrentPoint().Properties().IsRightButtonPressed() && !m_bRightButton)
          {
 
-            pmouse->m_atom = e_message_right_button_down;
+            pmouse->m_emessage = e_message_right_button_down;
 
             m_bLeftButton = false;
             m_bMiddleButton = false;
@@ -8168,7 +8168,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          else if (args.CurrentPoint().Properties().IsMiddleButtonPressed() && !m_bMiddleButton)
          {
 
-            pmouse->m_atom = e_message_middle_button_down;
+            pmouse->m_emessage = e_message_middle_button_down;
 
             m_bLeftButton = false;
             m_bMiddleButton = true;
@@ -8234,7 +8234,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
          {
 
-            pmouse->m_atom = e_message_left_button_up;
+            pmouse->m_emessage = e_message_left_button_up;
 
             m_bLeftButton = false;
 
@@ -8242,7 +8242,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          else if (m_bRightButton && !args.CurrentPoint().Properties().IsRightButtonPressed())
          {
 
-            pmouse->m_atom = e_message_right_button_up;
+            pmouse->m_emessage = e_message_right_button_up;
 
             m_bRightButton = false;
 
@@ -8250,7 +8250,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          else if (m_bMiddleButton && !args.CurrentPoint().Properties().IsMiddleButtonPressed())
          {
 
-            pmouse->m_atom = e_message_middle_button_up;
+            pmouse->m_emessage = e_message_middle_button_up;
 
             m_bMiddleButton = false;
 
@@ -8308,7 +8308,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //
 //   pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
 //
-//   pmouse->m_atom = e_message_mouse_move;
+//   pmouse->m_emessage = e_message_mouse_move;
 //   //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
 //
 //   m_pointLastCursor = pointerPoint.RawPosition();
@@ -8373,7 +8373,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //   if (args.CurrentPoint().Properties().IsLeftButtonPressed() && !m_bLeftButton)
 //   {
 //
-//      pmouse->m_atom = e_message_left_button_down;
+//      pmouse->m_emessage = e_message_left_button_down;
 //
 //      m_bLeftButton = true;
 //      m_bMiddleButton = false;
@@ -8383,7 +8383,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //   else if (args.CurrentPoint().Properties().IsRightButtonPressed() && !m_bRightButton)
 //   {
 //
-//      pmouse->m_atom = e_message_right_button_down;
+//      pmouse->m_emessage = e_message_right_button_down;
 //
 //      m_bLeftButton = false;
 //      m_bMiddleButton = false;
@@ -8393,7 +8393,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //   else if (args.CurrentPoint().Properties().IsMiddleButtonPressed() && !m_bMiddleButton)
 //   {
 //
-//      pmouse->m_atom = e_message_middle_button_down;
+//      pmouse->m_emessage = e_message_middle_button_down;
 //
 //      m_bLeftButton = false;
 //      m_bMiddleButton = true;
@@ -8460,7 +8460,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //   if (m_bLeftButton && !args.CurrentPoint().Properties().IsLeftButtonPressed())
 //   {
 //
-//      pmouse->m_atom = e_message_left_button_up;
+//      pmouse->m_emessage = e_message_left_button_up;
 //
 //      m_bLeftButton = false;
 //
@@ -8468,7 +8468,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //   else if (m_bRightButton && !args.CurrentPoint().Properties().IsRightButtonPressed())
 //   {
 //
-//      pmouse->m_atom = e_message_right_button_up;
+//      pmouse->m_emessage = e_message_right_button_up;
 //
 //      m_bRightButton = false;
 //
@@ -8476,7 +8476,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //   else if (m_bMiddleButton && !args.CurrentPoint().Properties().IsMiddleButtonPressed())
 //   {
 //
-//      pmouse->m_atom = e_message_middle_button_up;
+//      pmouse->m_emessage = e_message_middle_button_up;
 //
 //      m_bMiddleButton = false;
 //

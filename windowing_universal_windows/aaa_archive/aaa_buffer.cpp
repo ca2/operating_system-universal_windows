@@ -343,7 +343,7 @@ namespace windowing_universal_windows
 
       }
 
-      ::collection::index iScreenBuffer = (::collection::index)pimage->m_atom;
+      ::collection::index iScreenBuffer = (::collection::index)pimage->id();
 
       auto & buffer = m_osbuffera[iScreenBuffer];
 

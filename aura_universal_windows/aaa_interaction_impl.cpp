@@ -605,19 +605,19 @@ namespace aura_universal_windows
       //}
 
 
-      if(pmessage->m_atom == e_message_key_down ||
-         pmessage->m_atom == e_message_key_up ||
-         pmessage->m_atom == e_message_char ||
-         pmessage->m_atom == e_message_sys_key_down ||
-         pmessage->m_atom == e_message_sys_key_up ||
-         pmessage->m_atom == e_message_sys_char)
+      if(pmessage->m_emessage == e_message_key_down ||
+         pmessage->m_emessage == e_message_key_up ||
+         pmessage->m_emessage == e_message_char ||
+         pmessage->m_emessage == e_message_sys_key_down ||
+         pmessage->m_emessage == e_message_sys_key_up ||
+         pmessage->m_emessage == e_message_sys_char)
       {
 
          auto pkey = pmessage->m_union.m_pkey;
 
          //psession->keyboard().translate_os_key_message(pkey);
 
-         if(pmessage->m_atom == e_message_key_down || pmessage->m_atom == e_message_sys_key_down)
+         if(pmessage->m_emessage == e_message_key_down || pmessage->m_emessage == e_message_sys_key_down)
          {
 
             
@@ -630,7 +630,7 @@ namespace aura_universal_windows
             {
             }
          }
-         else if(pmessage->m_atom == e_message_key_up || pmessage->m_atom == e_message_sys_key_up)
+         else if(pmessage->m_emessage == e_message_key_up || pmessage->m_emessage == e_message_sys_key_up)
          {
 
             
@@ -645,15 +645,15 @@ namespace aura_universal_windows
          }
       }
 
-      if(pmessage->m_atom == e_message_timer)
+      if(pmessage->m_emessage == e_message_timer)
       {
 //         m_puserinteraction->get_application()->step_timer();
       }
-      else if(pmessage->m_atom == e_message_left_button_down)
+      else if(pmessage->m_emessage == e_message_left_button_down)
       {
          //g_puserinteractionLastLButtonDown = m_puserinteraction;
       }
-      /*      else if(pusermessage->m_atom == CA2M_BERGEDGE)
+      /*      else if(pusermessage->id() == CA2M_BERGEDGE)
       {
       if(pusermessage->m_wparam == BERGEDGE_GETAPP)
       {
@@ -667,14 +667,14 @@ namespace aura_universal_windows
 
       //_000OnMouseLeave(pusermessage);
 
-      if(pmessage->m_atom == e_message_left_button_down ||
-         pmessage->m_atom == e_message_left_button_up ||
-         pmessage->m_atom == e_message_middle_button_down ||
-         pmessage->m_atom == e_message_middle_button_up ||
-         pmessage->m_atom == e_message_right_button_down ||
-         pmessage->m_atom == e_message_right_button_up ||
-         pmessage->m_atom == e_message_mouse_move ||
-         pmessage->m_atom == e_message_mouse_wheel)
+      if(pmessage->m_emessage == e_message_left_button_down ||
+         pmessage->m_emessage == e_message_left_button_up ||
+         pmessage->m_emessage == e_message_middle_button_down ||
+         pmessage->m_emessage == e_message_middle_button_up ||
+         pmessage->m_emessage == e_message_right_button_down ||
+         pmessage->m_emessage == e_message_right_button_up ||
+         pmessage->m_emessage == e_message_mouse_move ||
+         pmessage->m_emessage == e_message_mouse_wheel)
       {
 
          auto pmouse = pmessage->m_union.m_pmouse;
@@ -682,7 +682,7 @@ namespace aura_universal_windows
          //if (pmessage)
          //{
 
-         //   if (pmessage->m_atom == e_message_left_button_up)
+         //   if (pmessage->m_emessage == e_message_left_button_up)
          //   {
 
          //      output_debug_string("e_message_left_button_up");
@@ -753,7 +753,7 @@ namespace aura_universal_windows
          //   }
          //}
 
-         //if(pmessage->m_atom == e_message_mouse_move)
+         //if(pmessage->m_emessage == e_message_mouse_move)
          //{
          //   // We are at the message handler procedure.
          //   // mouse messages originated from message handler and that are mouse move happenings should end up with the correct cursor.
@@ -775,9 +775,9 @@ namespace aura_universal_windows
          }
 
       }
-      else if(pmessage->m_atom == e_message_key_down ||
-      pmessage->m_atom == e_message_key_up ||
-      pmessage->m_atom == e_message_char)
+      else if(pmessage->m_emessage == e_message_key_down ||
+      pmessage->m_emessage == e_message_key_up ||
+      pmessage->m_emessage == e_message_char)
       {
 
          auto pkey = pmessage->m_union.m_pkey;
@@ -806,10 +806,10 @@ namespace aura_universal_windows
                   return;
             }
          }
-         pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_atom.as_huge_integer(), pmessage->m_wparam, pmessage->m_lparam));
+         pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_emessage.as_huge_integer(), pmessage->m_wparam, pmessage->m_lparam));
          return;
       }
-      //if(pmessage->m_atom == e_message_event)
+      //if(pmessage->m_emessage == e_message_event)
       //{
       //   if(m_puserinteraction != nullptr)
       //   {
@@ -840,11 +840,11 @@ namespace aura_universal_windows
       return;
       }
       */
-      pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_atom.as_huge_integer(), pmessage->m_wparam, pmessage->m_lparam));
+      pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_emessage.as_huge_integer(), pmessage->m_wparam, pmessage->m_lparam));
    }
 
    /*
-   bool interaction_impl::OnWndMsg(const ::atom & atom, WPARAM wParam, LPARAM lParam, LRESULT* pResult)
+   bool interaction_impl::OnWndMsg(::enum_message emessage, ::wparam wparam, ::lparam lparam, LRESULT* pResult)
    {
    LRESULT lResult = 0;
    union MessageMapFunctions mmf;
@@ -2636,15 +2636,15 @@ return true;
 
    atom interaction_impl::SetDlgCtrlId(atom atom)
    {
-//      m_atom = atom;
-      //    return m_atom;
-      m_puserinteraction->m_atom = atom;
-      return m_puserinteraction->m_atom;
+//      id() = atom;
+      //    return id();
+      m_puserinteraction->id() = atom;
+      return m_puserinteraction->id();
    }
 
    atom interaction_impl::GetDlgCtrlId()
    {
-      return m_puserinteraction->m_atom;
+      return m_puserinteraction->id();
    }
 
 
@@ -2800,7 +2800,7 @@ return true;
    //   m_pguieOwner = pOwnerWnd;
    //}
 
-   //LRESULT interaction_impl::send_message(const ::atom & atom,wparam wparam,lparam lparam)
+   //LRESULT interaction_impl::send_message(::enum_message emessage, ::wparam wparam, ::lparam lparam)
    //{
 
    //   ::pointer<::user::message>spbase;
@@ -2845,12 +2845,12 @@ return true;
    //}
 
 
-//   bool interaction_impl::post_message(const ::atom & atom,WPARAM wParam,lparam lParam)
+//   bool interaction_impl::post_message(::enum_message emessage, ::wparam wparam, ::lparam lparam)
 //   {
 //
 ////      return ::PostMessageW(get_handle(),message,wParam,lParam) != false;
 //      //return m_puserinteraction->post_message(message, wParam, lParam);
-//      return message_queue_post(get_handle(), atom, wParam, lParam) != false;
+//      return message_queue_post(get_handle(), emessage, wparam, lparam) != false;
 //
 //   }
 
@@ -3182,7 +3182,7 @@ return true;
 
    }
 
-   //void interaction_impl::send_message_to_descendants(const ::atom & atom,WPARAM wParam,lparam lParam,bool bDeep,bool bOnlyPerm)
+   //void interaction_impl::send_message_to_descendants(::enum_message emessage, ::wparam wparam, ::lparam lparam,bool bDeep,bool bOnlyPerm)
    //{
    //   ASSERT(::is_window(get_handle()));
    //   //interaction_impl::send_message_to_descendants(get_handle(), message, wParam, lParam, bDeep, bOnlyPerm);
@@ -3575,7 +3575,7 @@ return true;
    }
    
    
-   LPARAM interaction_impl::SendDlgItemMessage(int nID,const ::atom & atom,WPARAM wParam,LPARAM lParam)
+   LPARAM interaction_impl::SendDlgItemMessage(int nID,::enum_message emessage, ::wparam wparam, ::lparam lparam)
    {
 
       throw ::exception(todo);
@@ -3858,7 +3858,7 @@ return true;
    //}
 
 
-   //bool interaction_impl::SendNotifyMessage(const ::atom & atom,WPARAM wParam,LPARAM lParam)
+   //bool interaction_impl::SendNotifyMessage(::enum_message emessage, ::wparam wparam, ::lparam lparam)
    //{
 
    //   throw ::exception(todo);
@@ -5055,7 +5055,7 @@ namespace aura_universal_windows
          //if (pmouse)
          //{
 
-         //   if (pmouse->m_atom == e_message_mouse_move)
+         //   if (pmouse->m_emessage == e_message_mouse_move)
          //   {
 
          //      double_point pointNow(pmouse->m_point);

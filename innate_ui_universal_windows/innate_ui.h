@@ -21,7 +21,7 @@ namespace innate_ui_universal_windows
       HANDLE m_hthread;
       DWORD m_dwThread;
 
-      //ATOM m_atom;
+      //ATOM id();
 
 
       string_map < ATOM >                    m_classmap;

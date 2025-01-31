@@ -978,7 +978,7 @@ namespace windows
 
    //   unsigned int message;
 
-   //   message = ::message::translate_to_os_message(pusermessage->m_atom);
+   //   message = ::message::translate_to_os_message(pusermessage->id());
 
    //   switch (message)
    //   {
@@ -1805,7 +1805,7 @@ namespace windows
    //}
 
 
-   lresult interaction_impl::send_message(const ::atom & atom, wparam wparam, lparam lparam)
+   lresult interaction_impl::send_message(::enum_message emessage, ::wparam wparam, ::lparam lparam)
    {
 
       auto pwindow = m_pwindow;
@@ -1817,7 +1817,7 @@ namespace windows
    }
 
 
-   bool interaction_impl::post_message(const ::atom & atom, wparam wparam, lparam lparam)
+   bool interaction_impl::post_message(::enum_message emessage, ::wparam wparam, ::lparam lparam)
    {
 
       auto pwindow = m_pwindow;
@@ -4263,13 +4263,13 @@ namespace windows
 //      if (pfnWndProc == nullptr)
 //      {
 //
-//         lresult = ::DefWindowProcW(m_oswindow, (unsigned int) pmessage->m_atom.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
+//         lresult = ::DefWindowProcW(m_oswindow, (unsigned int) pmessage->m_emessage.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
 //
 //      }
 //      else
 //      {
 //
-//         lresult = ::CallWindowProc(pfnWndProc, m_oswindow, (unsigned int) pmessage->m_atom.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
+//         lresult = ::CallWindowProc(pfnWndProc, m_oswindow, (unsigned int) pmessage->m_emessage.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
 //
 //      }
 //
@@ -4334,7 +4334,7 @@ namespace windows
 //
 //      unsigned int message;
 //
-//      message = pusermessage->m_atom.umessage();
+//      message = pusermessage->id().umessage();
 //
 //      m_uiMessage = message;
 //
@@ -4869,7 +4869,7 @@ namespace windows
 //      //   else
 //      //   {
 //      //      
-//      //      pusermessage->set_lresult(::DefWindowProcW(m_oswindow, pusermessage->m_atom, pusermessage->m_wparam, pusermessage->m_lparam));
+//      //      pusermessage->set_lresult(::DefWindowProcW(m_oswindow, pusermessage->id(), pusermessage->m_wparam, pusermessage->m_lparam));
 //
 //      //   }
 //

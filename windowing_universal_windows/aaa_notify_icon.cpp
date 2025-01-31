@@ -83,7 +83,7 @@ namespace windowing_win32
 
       }
 
-      m_atom = atom;
+      id() = atom;
 
       m_nid.hWnd = as_hwnd(get_oswindow());
       m_nid.uID = as_hash32(atom.to_string());
@@ -300,7 +300,7 @@ namespace windowing_win32
 
       auto pevent = __create_new < ::user::control_event >();
 
-      ptopic->user_interaction_id() = m_atom;
+      ptopic->user_interaction_id() = id();
 
       ptopic->user_interaction() = this;
 
@@ -309,19 +309,19 @@ namespace windowing_win32
       if (uMessage == e_message_right_button_down)
       {
 
-         ptopic->m_atom = ::id_context_menu;
+         ptopic->id() = ::id_context_menu;
 
       }
       else if (uMessage == e_message_left_button_double_click)
       {
 
-         ptopic->m_atom = ::id_left_button_double_click;
+         ptopic->id() = ::id_left_button_double_click;
 
       }
       else if (uMessage == e_message_left_button_down)
       {
 
-         ptopic->m_atom = ::id_left_button_down;
+         ptopic->id() = ::id_left_button_down;
 
       }
 

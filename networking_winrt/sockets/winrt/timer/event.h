@@ -54,7 +54,7 @@ namespace sockets
       IEventOwner *     m_from;
       EventTime         m_time;
       static int        m_unique_id;
-      int               m_atom;
+      int               id();
       
       
       Event(const Event& ) {} // copy constructor

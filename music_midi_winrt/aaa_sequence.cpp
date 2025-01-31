@@ -1239,7 +1239,7 @@ Seq_Open_File_Cleanup:
 
          void sequence::OnHappening(::music::midi::sequence::happening * pevent)
          {
-            switch(ptopic->m_atom)
+            switch(ptopic->id())
             {
             case EventSpecialModeV001End:
             {

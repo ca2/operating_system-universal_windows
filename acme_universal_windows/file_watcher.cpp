@@ -230,7 +230,7 @@ namespace acme_universal_windows
 
       //ptopic->m_ulOsAction = -1;
 
-      //m_pwatch->handle_action(m_pwatch->m_atom, m_pwatch->m_strFolder,
+      //m_pwatch->handle_action(m_pwatch->id(), m_pwatch->m_strFolder,
         //    "", (::file_watcher::e_action) -1);
 
       //}

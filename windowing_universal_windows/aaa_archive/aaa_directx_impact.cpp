@@ -414,7 +414,7 @@ namespace windowing_universal_windows
 //
 //            bool bSpecialKey = false;
 //
-//            pkey->m_atom = e_message_key_down;
+//            pkey->m_emessage = e_message_key_down;
 //            //pkey->m_playeredUserPrimitive = psession->get_user_interaction_host();
 //            pkey->m_nChar = 0;
 //            pkey->m_ekey = ::user::e_key_refer_to_text_member;
