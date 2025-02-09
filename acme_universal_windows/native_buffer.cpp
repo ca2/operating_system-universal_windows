@@ -613,7 +613,7 @@ namespace acme_universal_windows
    }
 
    //// native_buffer does not support direct buffering (CMemnative_buffer does)
-   //huge_natural native_buffer::GetBufferPtr(unsigned int nCommand,huge_natural /*nCount*/,
+   //unsigned long long native_buffer::GetBufferPtr(unsigned int nCommand,unsigned long long /*nCount*/,
    //                                     void ** /*ppBufStart*/,void ** /*ppBufMax*/)
    //{
    //   ASSERT(nCommand == bufferCheck);

@@ -2709,18 +2709,18 @@ namespace sockets_bsd
    }
 
 
-   huge_natural tcp_socket::GetBytesReceived(bool clear)
+   unsigned long long tcp_socket::GetBytesReceived(bool clear)
    {
-      huge_natural z = m_bytes_received;
+      unsigned long long z = m_bytes_received;
       if(clear)
          m_bytes_received = 0;
       return z;
    }
 
 
-   huge_natural tcp_socket::GetBytesSent(bool clear)
+   unsigned long long tcp_socket::GetBytesSent(bool clear)
    {
-      huge_natural z = m_bytes_sent;
+      unsigned long long z = m_bytes_sent;
       if(clear)
          m_bytes_sent = 0;
       return z;

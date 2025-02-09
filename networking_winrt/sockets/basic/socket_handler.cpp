@@ -70,7 +70,7 @@ namespace sockets_bsd
 
       //g_interlockedcountSocketHandler++;
 
-      //::information() << "socket_handler allocated count = " << (huge_integer) g_interlockedcountSocketHandler;
+      //::information() << "socket_handler allocated count = " << (long long) g_interlockedcountSocketHandler;
 
    }
 
@@ -86,7 +86,7 @@ namespace sockets_bsd
 
 
 
-   huge_integer socket_handler::increment_reference_count()
+   long long socket_handler::increment_reference_count()
    {
 
       return ::object::increment_reference_count();
@@ -94,7 +94,7 @@ namespace sockets_bsd
    }
 
 
-   huge_integer socket_handler::decrement_reference_count()
+   long long socket_handler::decrement_reference_count()
    {
 
       return ::object::decrement_reference_count();

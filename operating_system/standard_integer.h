@@ -217,7 +217,7 @@ typedef uint64_t  uintmax_t;
 #define INT8_C(val)  val##char
 #define INT16_C(val) val##short
 #define INT32_C(val) val##int
-#define INT64_C(val) val##huge_integer
+#define INT64_C(val) val##long long
 
 #define UINT8_C(val)  val##ui8
 #define UINT16_C(val) val##ui16

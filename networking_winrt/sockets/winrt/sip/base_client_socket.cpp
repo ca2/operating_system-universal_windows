@@ -163,8 +163,8 @@ namespace sockets
 
 #ifdef WINDOWS
 
-            huge_integer count;
-            huge_integer freq;
+            long long count;
+            long long freq;
             if(QueryPerformanceCounter((LARGE_INTEGER *) &count)
                   && QueryPerformanceFrequency((LARGE_INTEGER *) &freq))
             {

@@ -172,7 +172,7 @@ namespace windowing_win32
 
 
 
-   ::color::color get_default_sys_color(huge_natural u)
+   ::color::color get_default_sys_color(unsigned long long u)
    {
 
       switch (u)

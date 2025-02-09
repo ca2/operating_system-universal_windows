@@ -1085,15 +1085,15 @@ namespace acme_universal_windows
    }
 
 
-   huge_natural file::ReadHuge(void * lpBuffer, huge_natural dwCount)
+   unsigned long long file::ReadHuge(void * lpBuffer, unsigned long long dwCount)
    { 
       
-      return (huge_natural) read(lpBuffer, (unsigned int)dwCount);
+      return (unsigned long long) read(lpBuffer, (unsigned int)dwCount);
       
    }
 
 
-   void file::WriteHuge(const void * lpBuffer, huge_natural dwCount)
+   void file::WriteHuge(const void * lpBuffer, unsigned long long dwCount)
    {
       
       write(lpBuffer, (unsigned int)dwCount);

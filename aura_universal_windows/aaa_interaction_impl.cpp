@@ -806,7 +806,7 @@ namespace aura_universal_windows
                   return;
             }
          }
-         pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_emessage.as_huge_integer(), pmessage->m_wparam, pmessage->m_lparam));
+         pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_emessage.as_long_long(), pmessage->m_wparam, pmessage->m_lparam));
          return;
       }
       //if(pmessage->m_emessage == e_message_event)
@@ -840,7 +840,7 @@ namespace aura_universal_windows
       return;
       }
       */
-      pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_emessage.as_huge_integer(), pmessage->m_wparam, pmessage->m_lparam));
+      pmessage->set_lresult(DefWindowProc((unsigned int)pmessage->m_emessage.as_long_long(), pmessage->m_wparam, pmessage->m_lparam));
    }
 
    /*
@@ -2334,7 +2334,7 @@ return true;
    //   //ASSERT(::is_window(get_handle()));
    //   ///*   return ::set_window_position(get_handle(), pWndInsertAfter->get_handle(),
    //   //x, y, cx, cy, nFlags) != false; */
-   //   //huge_integer_rectangle rectangleWindowOld = m_rectangleParentClient;
+   //   //long_long_rectangle rectangleWindowOld = m_rectangleParentClient;
    //   if(nFlags & SWP_NOMOVE)
    //   {
    //      if(nFlags & SWP_NOSIZE)
@@ -2377,7 +2377,7 @@ return true;
    //bool interaction_impl::client_to_screen(::int_rectangle * lprect)
    //{
 
-   //   ::huge_integer_rectangle rectangleWindow;
+   //   ::long_long_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2399,7 +2399,7 @@ return true;
    //bool interaction_impl::client_to_screen(::int_point * lppoint)
    //{
 
-   //   ::huge_integer_rectangle rectangleWindow;
+   //   ::long_long_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2416,7 +2416,7 @@ return true;
    //}
 
 
-   //bool interaction_impl::client_to_screen(::huge_integer_rectangle * lprect)
+   //bool interaction_impl::client_to_screen(::long_long_rectangle * lprect)
    //{
 
    //   ::int_rectangle rectangleWindow;
@@ -2438,10 +2438,10 @@ return true;
    //}
 
 
-   //bool interaction_impl::client_to_screen(::huge_integer_point * lppoint)
+   //bool interaction_impl::client_to_screen(::long_long_point * lppoint)
    //{
 
-   //   ::huge_integer_rectangle rectangleWindow;
+   //   ::long_long_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2461,7 +2461,7 @@ return true;
    //bool interaction_impl::screen_to_client(::int_rectangle * lprect)
    //{
 
-   //   ::huge_integer_rectangle rectangleWindow;
+   //   ::long_long_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2483,7 +2483,7 @@ return true;
    //bool interaction_impl::screen_to_client(::int_point * lppoint)
    //{
 
-   //   ::huge_integer_rectangle rectangleWindow;
+   //   ::long_long_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2500,10 +2500,10 @@ return true;
    //}
 
 
-   //bool interaction_impl::screen_to_client(::huge_integer_rectangle * lprect)
+   //bool interaction_impl::screen_to_client(::long_long_rectangle * lprect)
    //{
 
-   //   ::huge_integer_rectangle rectangleWindow;
+   //   ::long_long_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2522,10 +2522,10 @@ return true;
    //}
 
 
-   //bool interaction_impl::screen_to_client(::huge_integer_point * lppoint)
+   //bool interaction_impl::screen_to_client(::long_long_point * lppoint)
    //{
 
-   //   ::huge_integer_rectangle rectangleWindow;
+   //   ::long_long_rectangle rectangleWindow;
 
    //   if(!m_puserinteraction->window_rectangle(rectangleWindow))
    //   {
@@ -2543,7 +2543,7 @@ return true;
 
 
 
-   //bool interaction_impl::window_rectangle(::huge_integer_rectangle * lprect)
+   //bool interaction_impl::window_rectangle(::long_long_rectangle * lprect)
    //{
 
    //   if(m_pwindow == nullptr)
@@ -2570,13 +2570,13 @@ return true;
    //   ::winrt::Windows::Foundation::Rect rectangle = m_pwindow->m_pwindow->window_rectangle();
 
 
-   //   lprect->left()   = (huge_integer)rectangle.X;
+   //   lprect->left()   = (long long)rectangle.X;
 
-   //   lprect->top()    = (huge_integer)rectangle.Y;
+   //   lprect->top()    = (long long)rectangle.Y;
 
-   //   lprect->right()  = (huge_integer)(lprect->left() + rectangle.Width);
+   //   lprect->right()  = (long long)(lprect->left() + rectangle.Width);
 
-   //   lprect->bottom() = (huge_integer)(lprect->top() + rectangle.Height);
+   //   lprect->bottom() = (long long)(lprect->top() + rectangle.Height);
 
    //   /*if(!::is_window(get_handle()))
    //      throw ::exception(::exception("no more a window"));
@@ -2600,7 +2600,7 @@ return true;
    //}
 
 
-   //bool interaction_impl::this->rectangle(::huge_integer_rectangle * lprect)
+   //bool interaction_impl::this->rectangle(::long_long_rectangle * lprect)
    //{
 
    //   if(!::is_window(get_handle()))

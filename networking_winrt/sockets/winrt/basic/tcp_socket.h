@@ -103,8 +103,8 @@ namespace sockets
       //::winrt::Windows::Networking::Sockets::StreamSocket ^ m_streamsocket;
       
       bool m_b_input_buffer_disabled;
-      huge_natural m_bytes_sent;
-      huge_natural m_bytes_received;
+      unsigned long long m_bytes_sent;
+      unsigned long long m_bytes_received;
 #ifdef SOCKETS_DYNAMIC_TEMP
       char *m_buf; ///< temporary read buffer
 #endif
@@ -213,9 +213,9 @@ namespace sockets
       \param line Line read */
       void OnLine(const string & line);
       /** get counter of number of bytes received. */
-      huge_natural GetBytesReceived(bool clear = false);
+      unsigned long long GetBytesReceived(bool clear = false);
       /** get counter of number of bytes sent. */
-      huge_natural GetBytesSent(bool clear = false);
+      unsigned long long GetBytesSent(bool clear = false);
 
 
 #ifdef HAVE_OPENSSL

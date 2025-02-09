@@ -561,7 +561,7 @@ namespace windowing_universal_windows
 
 #define ZONEING_COMPARE ::comparison
 
-   huge_integer g_i_get_best_zoneing = 0;
+   long long g_i_get_best_zoneing = 0;
 
 
    ::collection::index display::_get_best_zoneing(::e_display * pedisplay, ::int_rectangle * prectangle, const ::int_rectangle & rectangleRequest, bool bPreserveSize)
@@ -847,7 +847,7 @@ namespace windowing_universal_windows
 
       ::collection::index iMatchingMonitor = -1;
 
-      huge_integer iBestArea = -1;
+      long long iBestArea = -1;
 
       ::int_rectangle rectangleMatch;
 
@@ -934,7 +934,7 @@ namespace windowing_universal_windows
 
       ::collection::index iMatchingWkspace = -1;
 
-      huge_integer iBestArea = -1;
+      long long iBestArea = -1;
 
       ::int_rectangle rectangleMatch;
 

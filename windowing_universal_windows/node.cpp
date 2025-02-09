@@ -73,7 +73,7 @@
 //   }
 //
 //
-//   void node::call_member(huge_integer i)
+//   void node::call_member(long long i)
 //   {
 //
 //      //if (i == SOUL_ID)

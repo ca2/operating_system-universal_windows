@@ -143,7 +143,7 @@ namespace sockets
 
       }
 
-      m_response.m_propertysetHeader.set_at(__id(content-length), (huge_integer) m_response.file()->get_size());
+      m_response.m_propertysetHeader.set_at(__id(content-length), (long long) m_response.file()->get_size());
 
       for(int i = 0; i < m_response.cookies().get_size(); i++)
       {

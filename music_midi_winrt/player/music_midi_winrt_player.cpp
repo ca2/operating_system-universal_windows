@@ -247,7 +247,7 @@ namespace music
                //   }
                if(pusermessage->m_puserinteraction == NULL)
                {
-                  switch(pusermessage->id().huge_integer())
+                  switch(pusermessage->id().long_long())
                   {
                   case WM_USER + 100:
                   {

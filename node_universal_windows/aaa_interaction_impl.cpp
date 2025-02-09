@@ -4263,13 +4263,13 @@ namespace windows
 //      if (pfnWndProc == nullptr)
 //      {
 //
-//         lresult = ::DefWindowProcW(m_oswindow, (unsigned int) pmessage->m_emessage.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
+//         lresult = ::DefWindowProcW(m_oswindow, (unsigned int) pmessage->m_emessage.long_long(), pmessage->m_wparam, pmessage->m_lparam);
 //
 //      }
 //      else
 //      {
 //
-//         lresult = ::CallWindowProc(pfnWndProc, m_oswindow, (unsigned int) pmessage->m_emessage.huge_integer(), pmessage->m_wparam, pmessage->m_lparam);
+//         lresult = ::CallWindowProc(pfnWndProc, m_oswindow, (unsigned int) pmessage->m_emessage.long_long(), pmessage->m_wparam, pmessage->m_lparam);
 //
 //      }
 //

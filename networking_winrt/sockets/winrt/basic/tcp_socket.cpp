@@ -213,7 +213,7 @@ namespace sockets
 
       m_streamsocket = ref ___new ::winrt::Windows::Networking::Sockets::StreamSocket();
 
-      ::winrt::Windows::Networking::EndpointPair ^ pair = ref __allocate< ::winrt::Windows::Networking::EndpointPair(bind_ad.m_hostname,  ansi_string_from_huge_integer(bind_ad.get_service_number()), ad.m_hostname, ansi_string_from_huge_integer(ad.get_service_number >()));
+      ::winrt::Windows::Networking::EndpointPair ^ pair = ref __allocate< ::winrt::Windows::Networking::EndpointPair(bind_ad.m_hostname,  ansi_string_from_long_long(bind_ad.get_service_number()), ad.m_hostname, ansi_string_from_long_long(ad.get_service_number >()));
       //::sockets::socket::os_data data;
       //data.o = m_posdata->m_streamsocket;
       //attach(data);
@@ -1252,18 +1252,18 @@ namespace sockets
    }
 
 
-   huge_natural tcp_socket::GetBytesReceived(bool clear)
+   unsigned long long tcp_socket::GetBytesReceived(bool clear)
    {
-      huge_natural z = m_bytes_received;
+      unsigned long long z = m_bytes_received;
       if (clear)
          m_bytes_received = 0;
       return z;
    }
 
 
-   huge_natural tcp_socket::GetBytesSent(bool clear)
+   unsigned long long tcp_socket::GetBytesSent(bool clear)
    {
-      huge_natural z = m_bytes_sent;
+      unsigned long long z = m_bytes_sent;
       if (clear)
          m_bytes_sent = 0;
       return z;

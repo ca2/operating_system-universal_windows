@@ -243,7 +243,7 @@
 #ifdef Z_SOLO
    typedef unsigned long z_size_t;
 #else
-#  define z_longlong huge_integer
+#  define z_longlong long long
 #  if defined(NO_SIZE_T)
      typedef unsigned NO_SIZE_T z_size_t;
 #  elif defined(STDC)

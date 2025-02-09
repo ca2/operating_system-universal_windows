@@ -121,7 +121,7 @@ namespace sip
    // --------------------------------------------------------------------------------------
    void transaction::SetContentLength(long value)
    {
-      header("Content-Length") = (huge_integer) value;
+      header("Content-Length") = (long long) value;
    }
 
 
