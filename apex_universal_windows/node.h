@@ -38,7 +38,7 @@ namespace apex_universal_windows
       string system_options_main_body() override;
 
 
-      //void handle(::topic * ptopic, ::context * pcontext) override;
+      //void handle(::topic * ptopic, ::handler_context * phandlercontext) override;
 
       string get_command_line() override;
 

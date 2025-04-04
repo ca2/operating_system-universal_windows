@@ -516,7 +516,7 @@ namespace aura_universal_windows
    }
 
 
-   void interaction_impl::handle(::topic * ptopic, ::context * pcontext)
+   void interaction_impl::handle(::topic * ptopic, ::handler_context * phandlercontext)
    {
 
       __UNREFERENCED_PARAMETER(ptopic);

@@ -125,7 +125,7 @@ namespace apex_universal_windows
    }
 
 
-   //void node::handle(::topic * ptopic, ::context * pcontext)
+   //void node::handle(::topic * ptopic, ::handler_context * phandlercontext)
    //{
 
    //   if (ptopic->user_interaction_id() == "clear_application_data")

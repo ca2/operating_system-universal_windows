@@ -76,7 +76,7 @@ namespace aura_universal_windows
 
       void route_command(::message::command * pcommand, bool bRouteToKeyDescendant = false) override;
 
-      virtual void handle(::topic * ptopic, ::context * pcontext);
+      virtual void handle(::topic * ptopic, ::handler_context * phandlercontext);
 
       //virtual ::e_status main_async(const ::procedure & procedure, enum_priority epriority = e_priority_normal);
 

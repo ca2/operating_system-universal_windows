@@ -325,7 +325,7 @@ namespace windowing_win32
 
       }
 
-      m_puserinteractionNotify->handle(ptopic, pcontext);
+      m_puserinteractionNotify->handle(ptopic, phandlercontext);
 
    }
 
