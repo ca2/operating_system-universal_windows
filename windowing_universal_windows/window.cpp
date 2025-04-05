@@ -5170,7 +5170,7 @@ namespace windowing_universal_windows
 //      else
 //      {
 //
-//#ifdef __DEBUG
+//#ifdef _DEBUG
 //
 //         if (0)
 //         {

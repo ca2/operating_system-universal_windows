@@ -1296,7 +1296,7 @@ namespace windows
 //      }
 //
 //
-//#ifdef __DEBUG
+//#ifdef _DEBUG
 //
 //      else if (*plpfn != oldWndProc)
 //      {
@@ -4452,7 +4452,7 @@ namespace windows
 //      else
 //      {
 //
-//#ifdef __DEBUG
+//#ifdef _DEBUG
 //
 //         if (0)
 //         {
