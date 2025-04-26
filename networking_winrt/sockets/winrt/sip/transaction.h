@@ -11,8 +11,8 @@ namespace sip
    public:
 
 
-      property_set     m_propertysetHeader;
-      property_set     m_propertysetAttribute;
+      ::property_set     m_propertysetHeader;
+      ::property_set     m_propertysetAttribute;
       http::cookies           m_cookies;
       string m_null;
 
@@ -56,9 +56,9 @@ namespace sip
       void SetUserAgent(const string & value);
       string UserAgent();
 
-      property_set & headers();
+      ::property_set & headers();
 
-      property_set & attrs();
+      ::property_set & attrs();
 
       property & attr(const ::scoped_string & scopedstr);
       http::cookies & cookies();

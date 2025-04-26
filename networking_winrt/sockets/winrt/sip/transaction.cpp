@@ -188,7 +188,7 @@ namespace sip
 
 
    // --------------------------------------------------------------------------------------
-   property_set & transaction::headers()
+   ::property_set & transaction::headers()
    {
       return m_propertysetHeader;
    }
@@ -207,7 +207,7 @@ namespace sip
       return m_propertysetAttribute[psz];
    }
 
-   property_set & transaction::attrs()
+   ::property_set & transaction::attrs()
    {
       return m_propertysetAttribute;
    }

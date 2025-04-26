@@ -92,16 +92,16 @@ namespace sockets
       bool IsChunked() { return m_b_chunked; }
 
       property & inattr(const ::scoped_string & scopedstrName);
-      property_set & inattrs();
+      ::property_set & inattrs();
 
       property & inheader(const ::scoped_string & scopedstrName);
-      property_set & inheaders();
+      ::property_set & inheaders();
 
       property & outattr(const ::scoped_string & scopedstrName);
-      property_set & outattrs();
+      ::property_set & outattrs();
 
       property & outheader(const ::scoped_string & scopedstrName);
-      property_set & outheaders();
+      ::property_set & outheaders();
 
       sip::request & request();
       sip::response & response();

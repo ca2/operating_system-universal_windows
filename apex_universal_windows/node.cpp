@@ -3162,7 +3162,7 @@ namespace apex_universal_windows
    }
 
 
-   //void node::browse_file_open(property_set & set)
+   //void node::browse_file_open(::property_set & set)
    //{
 
    //   ////::user::interaction* pinteraction = nullptr;
@@ -3417,7 +3417,7 @@ namespace apex_universal_windows
    //}
 
 
-   //void node::browse_file_save(property_set & set)
+   //void node::browse_file_save(::property_set & set)
    //{
 
    //   ////::user::interaction* pinteraction = puiOwner->get_wnd();
@@ -3593,7 +3593,7 @@ namespace apex_universal_windows
    //}
 
 
-   //void node::browse_folder( property_set & set)
+   //void node::browse_folder( ::property_set & set)
    //{
 
    //   ////::user::interaction* pinteraction = puiOwner->get_wnd();
@@ -3715,7 +3715,7 @@ namespace apex_universal_windows
    //}
 
 
-   //void node::browse_file_or_folder(property_set & set)
+   //void node::browse_file_or_folder(::property_set & set)
    //{
 
    //   ////::user::interaction* pinteraction = puiOwner->get_wnd();
