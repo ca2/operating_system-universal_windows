@@ -10,7 +10,7 @@
 #include "acme/_operating_system.h"
 #include "_winrt_storage.h"
 #include "_winrt_stream.h"
-#include "acme_windows_common/hresult_exception.h"
+#include "acme/operating_system/windows_common/com/hresult_exception.h"
 
 
 namespace acme_universal_windows

@@ -13,7 +13,7 @@
 #include "aura/platform/session.h"
 #include "aura/platform/system.h"
 #include "aura/user/user/user.h"
-#include "acme_windows_common/hresult_exception.h"
+#include "acme/operating_system/windows_common/com/hresult_exception.h"
 #include "aura_universal_windows/node.h"
 
 
