@@ -1135,7 +1135,7 @@ namespace acme_universal_windows
 
 
 
-   ::file::path directory_context::trash_that_is_not_trash(const ::file::path & psz)
+   ::file::path directory_context::trash_that_is_not_trash(const ::file::path & path)
    {
       if (psz.is_empty())
          return "";
@@ -1206,7 +1206,7 @@ namespace acme_universal_windows
    }
 
 
-   bool directory_context::is_inside_time(const ::file::path & pszPath)
+   bool directory_context::is_inside_time(const ::file::path & path)
    {
 
       return is_inside(time(), pszPath);
@@ -1214,7 +1214,7 @@ namespace acme_universal_windows
    }
 
 
-   bool directory_context::is_inside(const ::file::path & pszDir, const ::file::path & pszPath)
+   bool directory_context::is_inside(const ::file::path & pathDir, const ::file::path & path)
    {
 
       return pszDir.case_insensitive_begins(pszPath);

@@ -130,7 +130,7 @@ namespace acme_universal_windows
             //virtual ::file::path _shell_get_special_folder_path(int csidl, bool fCreate = true, ::windowing::window* pwindow = nullptr);
             //virtual ::file::path _get_known_folder(REFKNOWNFOLDERID kfid);
 
-            //virtual ::file::path pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode) override;
+            //virtual ::file::path pathfind(const ::scoped_string & scopedstrEnv, const ::scoped_string & scopedstrTopic, const ::scoped_string & scopedstrMode) override;
 
             ::file::path user_appdata_local() override;
 

@@ -408,7 +408,7 @@ namespace networking_bsd
    } // rfc1738_decode
 
 
-   bool networking::is_ip4(const string& str)
+   bool networking::is_ip4(const ::scoped_string & scopedstr)
    {
       int dots = 0;
       // %! ignore :port?
@@ -425,7 +425,7 @@ namespace networking_bsd
    }
 
 
-   bool networking::is_ip6(const string& str)
+   bool networking::is_ip6(const ::scoped_string & scopedstr)
    {
       if (str.is_empty())
          return false;
@@ -482,7 +482,7 @@ namespace networking_bsd
    }
 
 
-   bool networking::convert(in_addr& l, const string& str, int ai_flags)
+   bool networking::convert(in_addr& l, const ::scoped_string & scopedstr, int ai_flags)
    {
 
       if (str.is_empty())
@@ -1368,7 +1368,7 @@ namespace networking_bsd
    }
 
 
-   int networking::service_port(const string& str, int flags)
+   int networking::service_port(const ::scoped_string & scopedstr, int flags)
    {
 
       if (::str::is_simple_natural(str))

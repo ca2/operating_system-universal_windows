@@ -50,11 +50,11 @@ namespace acme_universal_windows
       ::payload length(const ::file::path & path) override;
       ::payload length(const ::file::path & path, ::payload * pvarQuery) override;
 
-      void transfer(const ::file::path & pszNew, const ::file::path & psz) override;
+      void transfer(const ::file::path & pathNew, const ::file::path & path) override;
 
-      void erase(const ::file::path & psz) override;
+      void erase(const ::file::path & path) override;
 
-      virtual bool is_read_only(const ::file::path & psz) override;
+      virtual bool is_read_only(const ::file::path & path) override;
 
       ::file_pointer resource_get_file(const ::file::path & path) override;
 

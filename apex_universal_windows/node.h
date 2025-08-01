@@ -46,7 +46,7 @@ namespace apex_universal_windows
       void reboot() override;
       void shutdown(bool bPowerOff) override;
 
-      void terminate_processes_by_title(const ::string & lpszName) override;
+      void terminate_processes_by_title(const ::scoped_string & scopedstrName) override;
       ::process_identifier_array module_path_processes_identifiers(const ::scoped_string & scopedstrName) override;
       ::process_identifier_array title_processes_identifiers(const ::scoped_string & scopedstrName) override;
       ::process_identifier_array processes_identifiers() override;

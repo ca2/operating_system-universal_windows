@@ -275,7 +275,7 @@ namespace acme_universal_windows
    }
 
 
-   void file_context::transfer(const ::file::path & pszNew, const ::file::path & psz)
+   void file_context::transfer(const ::file::path & pathNew, const ::file::path & path)
    {
 
       ::pointer < ::acme_universal_windows::node > pnode = node();
@@ -342,7 +342,7 @@ namespace acme_universal_windows
    }
 
 
-   void file_context::erase(const ::file::path & psz)
+   void file_context::erase(const ::file::path & path)
    {
 
       file_system()->erase(psz);
@@ -357,7 +357,7 @@ namespace acme_universal_windows
    }
 
 
-   bool file_context::is_read_only(const ::file::path & psz)
+   bool file_context::is_read_only(const ::file::path & path)
    {
 
 #ifdef WINDOWS_DESKTOP

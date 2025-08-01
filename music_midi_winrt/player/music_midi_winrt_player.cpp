@@ -274,7 +274,7 @@ namespace music
             }
 
 
-            void player::SaveFile(const ::string & lpszPathName)
+            void player::SaveFile(const ::scoped_string & scopedstrPathName)
             {
 
                e_result            mmrc;

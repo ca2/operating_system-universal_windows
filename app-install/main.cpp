@@ -50,7 +50,7 @@ public:
 
    void call_self_privileged_sync(const ::string & param);
 
-   int installer_registry_register(const ::string & lpszFile);
+   int installer_registry_register(const ::scoped_string & scopedstrFile);
 
    void call_sync(const ::string & path, const ::string & param);
 

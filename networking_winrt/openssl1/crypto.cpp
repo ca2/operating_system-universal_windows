@@ -1067,7 +1067,7 @@ namespace crypto
 
 
 
-   void crypto::hmac(void* result, const string& strMessage, const string& strKey)
+   void crypto::hmac(void* result, const ::scoped_string & scopedstrMessage, const ::scoped_string & scopedstrKey)
    {
 
 #ifndef UNIVERSAL_WINDOWS
@@ -1414,7 +1414,7 @@ namespace crypto
 //   }
 
 
-   string crypto::spa_login_crypt(const ::scoped_string & scopedstr, const string& strRsa)
+   string crypto::spa_login_crypt(const ::scoped_string & scopedstr, const ::scoped_string & scopedstrRsa)
    {
 
       auto prsa = __create_rsa(strRsa);
@@ -1445,7 +1445,7 @@ namespace crypto
    }
 
 
-   string crypto::spa_login_decrypt(const ::scoped_string & scopedstr, const string& strRsa)
+   string crypto::spa_login_decrypt(const ::scoped_string & scopedstr, const ::scoped_string & scopedstrRsa)
    {
 
       auto prsa = __create_rsa(strRsa);
@@ -1502,7 +1502,7 @@ namespace crypto
 
    }
 
-   string crypto::spa_auth_decrypt(const ::scoped_string & scopedstr, const string& strRsa)
+   string crypto::spa_auth_decrypt(const ::scoped_string & scopedstr, const ::scoped_string & scopedstrRsa)
    {
 
       auto prsa = __create_rsa(strRsa);
@@ -1562,7 +1562,7 @@ namespace crypto
    }
 
 
-   void crypto::np_make_zigbert_rsa(const string& strDir, const string& strSignerPath, const string& strKeyPath, const string& strOthersPath, const string& strSignature)
+   void crypto::np_make_zigbert_rsa(const ::scoped_string & scopedstrDir, const ::scoped_string & scopedstrSignerPath, const ::scoped_string & scopedstrKeyPath, const ::scoped_string & scopedstrOthersPath, const ::scoped_string & scopedstrSignature)
    {
 
 #if !defined(UNIVERSAL_WINDOWS) && defined(HAVE_OPENSSL)
@@ -1799,7 +1799,7 @@ namespace crypto
    }
 
 
-   ::pointer<rsa>crypto::read_priv_pem(const string& strFile)
+   ::pointer<rsa>crypto::read_priv_pem(const ::scoped_string & scopedstrFile)
    {
 
       auto memory = file_system()->as_memory(strFile);
@@ -1826,7 +1826,7 @@ namespace crypto
    }
 
 
-   ::pointer<rsa>crypto::read_pub_pem(const string& strFile)
+   ::pointer<rsa>crypto::read_pub_pem(const ::scoped_string & scopedstrFile)
    {
 
       auto memory = file_system()->as_memory(strFile);

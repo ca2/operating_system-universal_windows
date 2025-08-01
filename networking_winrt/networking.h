@@ -153,12 +153,12 @@ namespace networking_bsd
       */
       string rfc1738_decode(const string& src) override;
 
-      bool is_ip4(const string& str) override;
+      bool is_ip4(const ::scoped_string & scopedstr) override;
 
-      bool is_ip6(const string& str) override;
+      bool is_ip6(const ::scoped_string & scopedstr) override;
 
-      virtual bool convert(struct ::in_addr& l, const string& str, int ai_flags = 0);
-      virtual bool convert(struct ::in6_addr& l, const string& str, int ai_flags = 0);
+      virtual bool convert(struct ::in_addr& l, const ::scoped_string & scopedstr, int ai_flags = 0);
+      virtual bool convert(struct ::in6_addr& l, const ::scoped_string & scopedstr, int ai_flags = 0);
       virtual bool convert(string& str, const struct ::in_addr& inaddr);
       virtual bool convert(string& str, const struct ::in6_addr& inaddr6);
 
@@ -189,7 +189,7 @@ namespace networking_bsd
 
       bool u2service(const string& name, int& service, int ai_flags) override;
 
-      int service_port(const string& str, int flags = 0) override;
+      int service_port(const ::scoped_string & scopedstr, int flags = 0) override;
 
       string  service_name(int iPort, int flags = 0) override;
 

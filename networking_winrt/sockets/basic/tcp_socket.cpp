@@ -1428,7 +1428,7 @@ namespace sockets_bsd
 
 
    /*
-      void tcp_socket::write(const string &str)
+      void tcp_socket::write(const ::scoped_string & scopedstr)
       {
          write(str,  (int) str.length());
       }

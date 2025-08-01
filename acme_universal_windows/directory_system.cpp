@@ -516,7 +516,7 @@ namespace acme_universal_windows
 
    //
 
-   //::file::path directory_system::pathfind(const string& pszEnv, const string& pszTopic, const string& pszMode)
+   //::file::path directory_system::pathfind(const ::scoped_string & scopedstrEnv, const ::scoped_string & scopedstrTopic, const ::scoped_string & scopedstrMode)
    //{
 
    //   ::file::path_array stra;

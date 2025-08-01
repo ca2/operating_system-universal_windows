@@ -251,7 +251,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::terminate_processes_by_title(const ::string & lpszName)
+   void node::terminate_processes_by_title(const ::scoped_string & scopedstrName)
    {
 
       //unsigned int uPid;
@@ -1692,7 +1692,7 @@ namespace apex_universal_windows
    }
 
 
-   //   void node::set_file_status(const ::file::path & pszFileName, const ::file::file_status& status)
+   //   void node::set_file_status(const ::file::path & pathFileName, const ::file::file_status& status)
    //   {
    //
    //      //unsigned int wAttr;
