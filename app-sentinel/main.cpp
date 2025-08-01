@@ -139,7 +139,7 @@ LRESULT CALLBACK sentinel_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 vsstring calc_id();
 
 
-int installer(const ::string & param);
+int installer(const ::scoped_string & scopedstraram);
 int APIENTRY ca2_cube_install(const ::scoped_string & scopedstrId);
 
 int installer_start()

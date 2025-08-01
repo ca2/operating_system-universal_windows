@@ -150,21 +150,21 @@ namespace sockets
 
 
    // ---------------------------------------------------------------------------
-   unsigned char AjpBaseSocket::get_byte(const char *buf, int& ptr)
+   unsigned char AjpBaseSocket::get_byte(const_char_pointer buf, int& ptr)
    {
       return (unsigned char)buf[ptr++];
    }
 
 
    // ---------------------------------------------------------------------------
-   bool AjpBaseSocket::get_boolean(const char *buf, int& ptr)
+   bool AjpBaseSocket::get_boolean(const_char_pointer buf, int& ptr)
    {
       return ( (unsigned char)buf[ptr++] & 1) == 1 ? true : false;
    }
 
 
    // ---------------------------------------------------------------------------
-   short AjpBaseSocket::get_integer(const char *buf, int& ptr)
+   short AjpBaseSocket::get_integer(const_char_pointer buf, int& ptr)
    {
       short n;
       ::memory_copy(&n, buf + ptr, 2);
@@ -174,7 +174,7 @@ namespace sockets
 
 
    // ---------------------------------------------------------------------------
-   string AjpBaseSocket::get_string(const char *buf, int& ptr)
+   string AjpBaseSocket::get_string(const_char_pointer buf, int& ptr)
    {
       short len = get_integer(buf, ptr);
       if (len != -1)
@@ -217,7 +217,7 @@ namespace sockets
    {
       string str(psz);
       put_integer(buf, ptr, (short)str.length() );
-      ::memory_copy(buf + ptr, (const char *) str);
+      ::memory_copy(buf + ptr, (const_char_pointer ) str);
       ptr += (int)str.length();
       put_byte(buf, ptr, 0);
    }

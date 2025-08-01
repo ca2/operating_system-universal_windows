@@ -48,13 +48,13 @@ public:
 
    int cube_run(const ::string & atom);
 
-   void call_self_privileged_sync(const ::string & param);
+   void call_self_privileged_sync(const ::scoped_string & scopedstraram);
 
    int installer_registry_register(const ::scoped_string & scopedstrFile);
 
-   void call_sync(const ::string & path, const ::string & param);
+   void call_sync(const ::scoped_string & scopedstrPath, const ::scoped_string & scopedstraram);
 
-   void installer_call_sync(const ::string & path, const ::string & param);
+   void installer_call_sync(const ::scoped_string & scopedstrPath, const ::scoped_string & scopedstraram);
 
    bool are_there_user_files_in_use();
 

@@ -119,7 +119,7 @@
 //   }
 //
 //
-//   bool delete_file(const ::string & pFileName)
+//   bool delete_file(const ::scoped_string & scopedstrFileName)
 //
 //   {
 //

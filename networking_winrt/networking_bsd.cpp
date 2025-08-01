@@ -15,7 +15,7 @@
 #include <netdb.h>
 #endif
 
-unsigned int c_inet_to_ui(const char * src)
+unsigned int c_inet_to_ui(const_char_pointer src)
 {
 
    if(ansi_begins_ci(src, "0x"))
@@ -90,7 +90,7 @@ static const uchar index_hex[256] =
 //*/
 //CLASS_DECL_NETWORKING_BSD void from_string(in6_addr & addr, const ::ansi_character * string)
 //{
-//   const uchar *s = (const uchar *)(const char *) string;
+//   const uchar *s = (const uchar *)(const_char_pointer ) string;
 //   int department = 0;        /* index of the current department (a 16-bit
 //                           * piece of the address */
 //   int double_colon = -1;  /* index of the department after the first
@@ -217,7 +217,7 @@ static const uchar index_hex[256] =
 //
 //#undef XX
 //
-//static const char *basis_hex = "0123456789abcdef";
+//static const_char_pointer basis_hex = "0123456789abcdef";
 
 
 
@@ -568,7 +568,7 @@ CLASS_DECL_NETWORKING_BSD ::string as_string(const sockaddr & addr)
 //} // namespace str
 
 
-CLASS_DECL_NETWORKING_BSD int c_inet_pton(int af, const char *src, void *dst)
+CLASS_DECL_NETWORKING_BSD int c_inet_pton(int af, const_char_pointer src, void *dst)
 {
 
    if(af == AF_INET)
@@ -628,7 +628,7 @@ CLASS_DECL_NETWORKING_BSD int c_inet_pton(int af, const char *src, void *dst)
 //}
 //
 
-CLASS_DECL_NETWORKING_BSD void from_string(in_addr & addr, const char * src)
+CLASS_DECL_NETWORKING_BSD void from_string(in_addr & addr, const_char_pointer src)
 {
 
    int iRet = inet_pton(AF_INET, src, &addr);
@@ -649,7 +649,7 @@ CLASS_DECL_NETWORKING_BSD void from_string(in_addr & addr, const char * src)
 }
 
 
-CLASS_DECL_NETWORKING_BSD void from_string(in6_addr & addr, const char * src)
+CLASS_DECL_NETWORKING_BSD void from_string(in6_addr & addr, const_char_pointer src)
 {
 
    int iRet = inet_pton(AF_INET6, src, &addr);
@@ -670,7 +670,7 @@ CLASS_DECL_NETWORKING_BSD void from_string(in6_addr & addr, const char * src)
 }
 
 
-CLASS_DECL_NETWORKING_BSD string c_gethostbyname(const char * hostname)
+CLASS_DECL_NETWORKING_BSD string c_gethostbyname(const_char_pointer hostname)
 {
 
 //#ifdef UNIVERSAL_WINDOWS

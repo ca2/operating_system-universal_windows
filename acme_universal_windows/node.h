@@ -49,7 +49,7 @@ namespace acme_universal_windows
       virtual ::winrt::Windows::Storage::StorageFolder windows_runtime_folder(::particle * pparticle, const ::file::path & path, bool bDeferCreateFolder);
 
 
-      virtual ::winrt::Windows::Storage::StorageFile windows_runtime_file(::particle * pparticle, const char * lpcszFileName, unsigned int dwDesiredAcces, unsigned int dwShareMode, unsigned int dwCreationDisposition, unsigned int dwFlagsAndAttributes);
+      virtual ::winrt::Windows::Storage::StorageFile windows_runtime_file(::particle * pparticle, const_char_pointer lpcszFileName, unsigned int dwDesiredAcces, unsigned int dwShareMode, unsigned int dwCreationDisposition, unsigned int dwFlagsAndAttributes);
 
 
       virtual bool windows_runtime_filetime(::particle * pparticle, ::winrt::Windows::Storage::StorageFile file, file_time * lpCreationTime, file_time * lpItemTime, file_time * lpLastWriteTime);

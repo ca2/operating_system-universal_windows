@@ -1,10 +1,10 @@
 #include "installer.h"
 
 
-const char * calc_id();
+const_char_pointer calc_id();
 
 
-int installer(const ::string & param);
+int installer(const ::scoped_string & scopedstraram);
 int APIENTRY ca2_cube_install(const ::scoped_string & scopedstrId);
 
 int installer_start()
@@ -67,7 +67,7 @@ int installer_start()
       return 1;
    }
 
-   const char * atom = calc_id();
+   const_char_pointer atom = calc_id();
    if(atom == NULL)
       atom = "installer_install";
 
@@ -116,7 +116,7 @@ int installer_start()
 
 
 
-const char * calc_id()
+const_char_pointer calc_id()
 {
 
    char szModulePath[MAX_PATH * 3];
@@ -128,7 +128,7 @@ const char * calc_id()
 
 
 
-int installer(const ::string & param)
+int installer(const ::scoped_string & scopedstraram)
 {
    char szModulePath[MAX_PATH * 3];
    ::GetModuleFileNameA((HINSTANCE) ::GetModuleHandleA("npca2.dll"), szModulePath, sizeof(szModulePath));

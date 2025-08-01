@@ -263,7 +263,7 @@ namespace sockets_bsd
 
 
    /** send to specified address */
-   void udp_socket::SendToBuf(const string & h, ::networking::port_t p, const char *data, int len, int flags)
+   void udp_socket::SendToBuf(const string & h, ::networking::port_t p, const_char_pointer data, int len, int flags)
    {
       
       auto paddress = system()->networking()->create_address(h, p);
@@ -277,7 +277,7 @@ namespace sockets_bsd
 
 
    /** send to specified address */
-   void udp_socket::SendToBuf(const in_addr & a, ::networking::port_t p, const char *data, int len, int flags)
+   void udp_socket::SendToBuf(const in_addr & a, ::networking::port_t p, const_char_pointer data, int len, int flags)
    {
 
       auto paddress2 = __allocate ::networking_bsd::address();
@@ -291,7 +291,7 @@ namespace sockets_bsd
    }
 
 
-   void udp_socket::SendToBuf(const in6_addr & a, ::networking::port_t p, const char *data, int len, int flags)
+   void udp_socket::SendToBuf(const in6_addr & a, ::networking::port_t p, const_char_pointer data, int len, int flags)
    {
 
       auto paddress2 = __allocate ::networking_bsd::address();
@@ -303,7 +303,7 @@ namespace sockets_bsd
    }
 
 
-   void udp_socket::SendToBuf(::networking::address * paddress, const char *data, int len, int flags)
+   void udp_socket::SendToBuf(::networking::address * paddress, const_char_pointer data, int len, int flags)
    {
 
       auto paddress2 = __Address(paddress);
@@ -381,7 +381,7 @@ namespace sockets_bsd
 
       }
 
-      if ((m_last_size_written = ::send(GetSocketId(), (const char *) data, (int)len, m_iWriteFlags)) == -1)
+      if ((m_last_size_written = ::send(GetSocketId(), (const_char_pointer ) data, (int)len, m_iWriteFlags)) == -1)
       {
 
 
