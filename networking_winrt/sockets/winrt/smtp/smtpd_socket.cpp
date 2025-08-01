@@ -25,7 +25,7 @@ namespace sockets
    }
 
 
-   void smtpd_socket::OnLine(const string & line)
+   void smtpd_socket::OnLine(const ::scoped_string & scopedstrLine)
    {
       if (m_data)
       {

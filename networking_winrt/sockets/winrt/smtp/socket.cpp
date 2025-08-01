@@ -19,7 +19,7 @@ namespace sockets
    }
 
 
-   void smtp_socket::OnLine(const string & line)
+   void smtp_socket::OnLine(const ::scoped_string & scopedstrLine)
    {
       SetNonblocking(false);
       ::parse pa(line);

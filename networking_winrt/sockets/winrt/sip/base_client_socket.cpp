@@ -154,7 +154,7 @@ namespace sockets
    }
 
 
-   void sip_base_client_socket::OnLine(const string & line)
+   void sip_base_client_socket::OnLine(const ::scoped_string & scopedstrLine)
    {
       if (m_bFirst)
       {

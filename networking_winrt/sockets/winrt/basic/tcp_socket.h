@@ -211,7 +211,7 @@ namespace sockets
 
       /** Callback fires when a socket in line protocol has read one full line.
       \param line Line read */
-      void OnLine(const string & line);
+      void OnLine(const ::scoped_string & scopedstrLine);
       /** get counter of number of bytes received. */
       unsigned long long GetBytesReceived(bool clear = false);
       /** get counter of number of bytes sent. */

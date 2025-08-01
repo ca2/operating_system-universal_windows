@@ -45,7 +45,7 @@ namespace sockets
       smtp_socket();
 
 
-      void OnLine(const string &);
+      void OnLine(const ::scoped_string & scopedstrLine);
 
       /** \return 'false' to abort */
       //virtual bool OnHello(const string & domain) = 0;
@@ -60,7 +60,7 @@ namespace sockets
 
       //virtual void OnHeaderComplete() = 0;
 
-      //virtual void OnData(const string & line) = 0;
+      //virtual void OnData(const ::scoped_string & scopedstrLine) = 0;
 
       /** \return 'false' if message write failed (message will probably be resent) */
       //virtual bool OnDataComplete() = 0;

@@ -67,7 +67,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          ~resolv_socket();
 
          void OnAccept() { m_bServer = true; }
-         void OnLine(const string & line);
+         void OnLine(const ::scoped_string & scopedstrLine);
          void OnDetached();
          void OnDelete();
 

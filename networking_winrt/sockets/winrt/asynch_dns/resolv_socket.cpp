@@ -118,7 +118,7 @@ namespace sockets
    }
 
 
-   void resolv_socket::OnLine(const string & line)
+   void resolv_socket::OnLine(const ::scoped_string & scopedstrLine)
    {
       
       ::parse pa(line, ":");

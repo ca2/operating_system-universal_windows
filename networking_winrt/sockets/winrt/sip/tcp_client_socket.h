@@ -16,7 +16,7 @@ namespace sockets
 
 
       void OnRawData(char *, memsize);
-      void OnLine(const string & line);
+      void OnLine(const ::scoped_string & scopedstrLine);
 
 
    };
