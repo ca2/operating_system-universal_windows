@@ -177,7 +177,7 @@ namespace sockets
 
       //::networking::address CreateAddress(sockaddr * psa, socklen_t sa_len);
 
-      bool reverse(string & number, const string & hostname, int flags = 0);
+      bool reverse(string & number, const ::scoped_string & scopedstrHostname, int flags = 0);
 
       bool reverse(string & hostname, ::networking::address * address, int flags = 0);
 

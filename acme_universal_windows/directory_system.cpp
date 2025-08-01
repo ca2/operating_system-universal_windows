@@ -191,7 +191,7 @@ namespace acme_universal_windows
    }
 
 
-   ::file::path directory_system::inplace_install(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path directory_system::inplace_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration)
    {
 
 #ifdef WINDOWS_DESKTOP
@@ -257,7 +257,7 @@ namespace acme_universal_windows
    }
 
 
-   ::file::path directory_system::inplace_matter_install(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path directory_system::inplace_matter_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration)
    {
 
 #ifdef WINDOWS_DESKTOP
@@ -422,7 +422,7 @@ namespace acme_universal_windows
 #endif
 
 
-   ::file::path directory_system::stage(string strAppId, string strPlatform, string strConfiguration)
+   ::file::path directory_system::stage(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration)
    {
 
       return inplace_install(strAppId, strPlatform, strConfiguration) / "time" / node()->time_binary_platform(strPlatform) / strConfiguration;
@@ -728,7 +728,7 @@ namespace acme_universal_windows
       //{
 
 
-         //string directory_system::name(const_char_pointer  path1)
+         //string directory_system::name(const_char_pointer path1)
          //{
          //   const scoped_string & str = path1 + strlen(path1) - 1;
          //   while (psz >= path1)
@@ -1085,7 +1085,7 @@ namespace acme_universal_windows
    //      }
 
 
-         // bool eat_end_level(string & str, int iLevelCount, const_char_pointer  pSeparator)
+         // bool eat_end_level(string & str, int iLevelCount, const_char_pointer pSeparator)
          // {
 
          //    character_count iLast = str.length() - 1;
@@ -1233,7 +1233,7 @@ namespace acme_universal_windows
 
 
 
-         //bool directory_system::create(const_char_pointer  path)
+         //bool directory_system::create(const_char_pointer path)
          //{
 
          //   //if (::file::system_dir::g_pthis == nullptr)
@@ -1251,7 +1251,7 @@ namespace acme_universal_windows
    //#ifndef WINDOWS_DESKTOP
    //
    //
-   //      bool directory_system::create_directory(const_char_pointer  path)
+   //      bool directory_system::create_directory(const_char_pointer path)
    //      {
    //
    //         if (is(path))
@@ -1406,7 +1406,7 @@ namespace acme_universal_windows
    //#endif
 
 
-   //      ::e_status directory_system::_create_directory(const_char_pointer  path)
+   //      ::e_status directory_system::_create_directory(const_char_pointer path)
    //      {
    //
    //         wstring wstr;
@@ -1831,7 +1831,7 @@ namespace acme_universal_windows
    //}
 
 
-//      bool directory_system::_create(const_char_pointer  pathParam)
+//      bool directory_system::_create(const_char_pointer pathParam)
 //      {
 //
 //         if (is(pathParam))

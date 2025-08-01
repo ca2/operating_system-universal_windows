@@ -386,7 +386,7 @@ namespace sockets
 #if defined(BSD_STYLE_SOCKETS)
 
 
-   bool net::convert(in_addr & addr, const string & host,int ai_flags)
+   bool net::convert(in_addr & addr, const ::scoped_string & scopedstrHost,int ai_flags)
    {
 
       ::winrt::Windows::Foundation::Collections::IVectorView < ::winrt::Windows::Networking::EndpointPair ^ > ^ data = ::wait(::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(ref ___new ::winrt::Windows::Networking::HostName(host), "0"));
@@ -414,7 +414,7 @@ namespace sockets
    }
 
 
-   bool net::convert(in6_addr & sa, const string & host, int ai_flags)
+   bool net::convert(in6_addr & sa, const ::scoped_string & scopedstrHost, int ai_flags)
    {
 
       ::winrt::Windows::Foundation::Collections::IVectorView < ::winrt::Windows::Networking::EndpointPair ^ > ^ data = ::wait(::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(ref ___new ::winrt::Windows::Networking::HostName(host), "0"));
@@ -467,7 +467,7 @@ namespace sockets
 #endif
 
 
-   bool net::reverse(string & number, const string & hostname, int flags)
+   bool net::reverse(string & number, const ::scoped_string & scopedstrHostname, int flags)
    {
 
       ::networking::address address(hostname);

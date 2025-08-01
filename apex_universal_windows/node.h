@@ -77,7 +77,7 @@ namespace apex_universal_windows
       bool open_in_ie(const ::scoped_string & scopedstr);
 
 
-      //void file_open(::file::path path, string strParams = "", string strFolder = "") override;
+      //void file_open(::file::path path, const ::scoped_string & scopedstrParams = "", const ::scoped_string & scopedstrFolder = "") override;
 
       void file_open(const ::file::path & path, const ::scoped_string & scopedstrParams = "", const ::file::path & pathFolder = "") override;
 
@@ -126,7 +126,7 @@ namespace apex_universal_windows
 
       void register_user_auto_start(const ::scoped_string & scopedstrId, const ::scoped_string & scopedstrCommand, const ::scoped_string & scopedstrArguments, bool bRegister);
 
-      bool is_user_auto_start(string strId);
+      bool is_user_auto_start(const ::scoped_string & scopedstrId);
 
       ::file::path get_app_path(const ::scoped_string & scopedstrApp) override;
 

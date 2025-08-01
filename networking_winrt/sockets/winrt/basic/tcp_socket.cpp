@@ -346,7 +346,7 @@ namespace sockets
    }
 
 
-   bool tcp_socket::open(const string &host,port_t port)
+   bool tcp_socket::open(const ::scoped_string & scopedstrHost,port_t port)
    {
 
       return open(::networking::address(host, port));
@@ -677,7 +677,7 @@ namespace sockets
    }
 
 
-   int tcp_socket::TryWrite(const_char_pointer  buf, memsize len)
+   int tcp_socket::TryWrite(const_char_pointer buf, memsize len)
    {
 
       m_memoryWrite.append(buf, len);
@@ -732,7 +732,7 @@ namespace sockets
    }
 
 
-   void tcp_socket::buffer(const_char_pointer  buf, memsize len)
+   void tcp_socket::buffer(const_char_pointer buf, memsize len)
    {
 
       memsize ptr = 0;
@@ -745,7 +745,7 @@ namespace sockets
          memsize space = 0;
          if (m_obuf_top && (space = m_obuf_top -> Space()) > 0)
          {
-            const_char_pointer  pbuf = buf + ptr;
+            const_char_pointer pbuf = buf + ptr;
             memsize sz = len - ptr;
             if (space >= sz)
             {
@@ -771,7 +771,7 @@ namespace sockets
    void tcp_socket::write(const void * pdata, memsize len)
    {
 
-      const_char_pointer  buf = (const_char_pointer  ) pdata;
+      const_char_pointer buf = (const_char_pointer )pdata;
 
       //if (!Ready() && !is_connecting())
       //{
@@ -822,7 +822,7 @@ namespace sockets
    }
 
 
-   void tcp_socket::OnLine(const string & )
+   void tcp_socket::OnLine(const ::scoped_string & scopedstrLine)
    {
    }
 
@@ -1446,7 +1446,7 @@ namespace sockets
       return m_strUrl;
    }
 
-   long tcp_socket::cert_common_name_check(const_char_pointer  common_name)
+   long tcp_socket::cert_common_name_check(const_char_pointer common_name)
    {
 
       if(!m_bCertCommonNameCheckEnabled)

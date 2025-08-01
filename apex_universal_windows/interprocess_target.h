@@ -80,7 +80,7 @@ namespace apex_universal_windows
    //   };
 
 
-   CLASS_DECL_APEX_UNIVERSAL_WINDOWS string app_install(string strPlatform = "");
+   CLASS_DECL_APEX_UNIVERSAL_WINDOWS string app_install(const ::scoped_string & scopedstrPlatform = "");
 
 
 } // namespace apex_universal_windows

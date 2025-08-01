@@ -37,7 +37,7 @@ namespace sockets
 
 
 
-   void httpd_socket::Send64(const ::scoped_string & scopedstr64, const string & type)
+   void httpd_socket::Send64(const ::scoped_string & scopedstr64, const ::scoped_string & scopedstrType)
    {
    //   Base64 bb;
 
@@ -68,8 +68,8 @@ namespace sockets
    {
       struct tm tp;
       posix_time t;
-      const_char_pointer  days[] = { "Sun","Mon","Tue","Wed","Thu","Fri","Sat" };
-      const_char_pointer  months[] = { "Jan","Feb","Mar","Apr","May","Jun",
+      const_char_pointer days[] = { "Sun","Mon","Tue","Wed","Thu","Fri","Sat" };
+      const_char_pointer months[] = { "Jan","Feb","Mar","Apr","May","Jun",
                          "Jul","Aug","Sep","Oct","Nov","Dec" };
       int i;
       char s[40];

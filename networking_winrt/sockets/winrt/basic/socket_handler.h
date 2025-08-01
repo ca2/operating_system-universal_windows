@@ -104,12 +104,12 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          /** Set socks4 server ip that all ___new tcp sockets should use. */
          void SetSocks4Host(in_addr);
          /** Set socks4 server hostname that all ___new tcp sockets should use. */
-         void SetSocks4Host(const string & );
+         void SetSocks4Host(const ::scoped_string & scopedstr);
 #endif
          /** Set socks4 server port number that all ___new tcp sockets should use. */
          void SetSocks4Port(port_t);
          /** Set optional socks4 userid. */
-         void SetSocks4Userid(const string & );
+         void SetSocks4Userid(const ::scoped_string & scopedstr);
          /** If connection to socks4 server fails, immediately try direct connection to final host. */
          void SetSocks4TryDirect(bool x = true);
          /** get socks4 server ip.
@@ -135,8 +135,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          /** Queue a dns request.
          \param host Hostname to be resolved
          \param port Port number will be echoed in socket::OnResolved callback */
-         int Resolve(base_socket *,const string & host,port_t port);
-         int Resolve6(base_socket *,const string & host,port_t port);
+         int Resolve(base_socket *,const ::scoped_string & scopedstrHost,port_t port);
+         int Resolve6(base_socket *,const ::scoped_string & scopedstrHost,port_t port);
          /** Do a reverse dns lookup. */
          int Resolve(base_socket *,in_addr a);
          int Resolve(base_socket *,in6_addr& a);

@@ -110,7 +110,7 @@ LRESULT CALLBACK sentinel_WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM
 
 
 
-const_char_pointer  calc_id();
+const_char_pointer calc_id();
 
 
 int installer(const ::scoped_string & scopedstraram);
@@ -119,7 +119,7 @@ int APIENTRY ca2_cube_install(const ::scoped_string & scopedstrId);
 int installer_start()
 {
 
-   const_char_pointer  atom = calc_id();
+   const_char_pointer atom = calc_id();
    if(atom == NULL)
       atom = "installer_install";
 
@@ -152,7 +152,7 @@ int installer_start()
 
 
 
-const_char_pointer  calc_id()
+const_char_pointer calc_id()
 {
 
    char szModulePath[MAX_PATH * 3];

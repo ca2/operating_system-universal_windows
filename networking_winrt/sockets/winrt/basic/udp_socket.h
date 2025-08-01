@@ -118,7 +118,7 @@ namespace sockets
       \param host Hostname
       \param port Port number
       \return true if successful */
-      bool open(const_char_pointer  host, port_t port);
+      bool open(const_char_pointer host, port_t port);
       /** Define remote host.
       \param a Address of remote host, ipv6
       \param port Port of remote host
@@ -130,25 +130,25 @@ namespace sockets
       bool open(::networking::address & ad);
 
       /** Send to specified host */
-      //void SendToBuf(const string & ,port_t,const_char_pointer  data,int len,int flags = 0);
+      //void SendToBuf(const string & ,port_t,const_char_pointer data,int len,int flags = 0);
       /** Send to specified ::networking::address */
-//      void SendToBuf(ipaddr_t,port_t,const_char_pointer  data,int len,int flags = 0);
+//      void SendToBuf(ipaddr_t,port_t,const_char_pointer data,int len,int flags = 0);
       /** Send to specified ipv6 ::networking::address */
-  //    void SendToBuf(in6_addr,port_t,const_char_pointer  data,int len,int flags = 0);
+  //    void SendToBuf(in6_addr,port_t,const_char_pointer data,int len,int flags = 0);
       /** Send to specified socket ::networking::address */
-      //void SendToBuf(::networking::address& ad,const_char_pointer  data,int len,int flags = 0);
+      //void SendToBuf(::networking::address& ad,const_char_pointer data,int len,int flags = 0);
 
       /** Send string to specified host */
-      //void SendTo(const string &,port_t,const string &,int flags = 0);
+      //void SendTo(const ::scoped_string & scopedstr,port_t,const ::scoped_string & scopedstr,int flags = 0);
       /** Send string to specified ::networking::address */
-//      void SendTo(ipaddr_t,port_t,const string &,int flags = 0);
+//      void SendTo(ipaddr_t,port_t,const ::scoped_string & scopedstr,int flags = 0);
       /** Send string to specified ipv6 ::networking::address */
-  //    void SendTo(in6_addr,port_t,const string &,int flags = 0);
+  //    void SendTo(in6_addr,port_t,const ::scoped_string & scopedstr,int flags = 0);
       /** Send string to specified socket ::networking::address */
-      //void SendTo(::networking::address& ad,const string &,int flags = 0);
+      //void SendTo(::networking::address& ad,const ::scoped_string & scopedstr,int flags = 0);
 
       /** Send to connected ::networking::address */
-      void SendBuf(const_char_pointer  data,memsize,int flags = 0);
+      void SendBuf(const_char_pointer data,memsize,int flags = 0);
       /** Send string to connected ::networking::address. */
       void Send(const string & ,int flags = 0);
 
@@ -163,8 +163,8 @@ namespace sockets
       int GetMulticastTTL();
       void SetMulticastLoop(bool = true);
       bool IsMulticastLoop();
-      void AddMulticastMembership(const string & group,const string & intf = "0.0.0.0",int if_index = 0);
-      void DropMulticastMembership(const string & group,const string & intf = "0.0.0.0",int if_index = 0);
+      void AddMulticastMembership(const ::scoped_string & scopedstrGroup,const ::scoped_string & scopedstrInterface = "0.0.0.0",int if_index = 0);
+      void DropMulticastMembership(const ::scoped_string & scopedstrGroup,const ::scoped_string & scopedstrInterface = "0.0.0.0",int if_index = 0);
       /** multicast, ipv6 only */
       void SetMulticastHops(int = -1);
       /** multicast, ipv6 only */

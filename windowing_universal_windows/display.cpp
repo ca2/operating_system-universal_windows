@@ -1201,7 +1201,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //bool user::impl_set_os_desktop_theme(string strTheme)
+   //bool user::impl_set_os_desktop_theme(const ::scoped_string & scopedstrTheme)
    //{
 
    //   __UNREFERENCED_PARAMETER(strTheme);

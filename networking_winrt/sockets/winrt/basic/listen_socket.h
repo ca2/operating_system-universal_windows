@@ -65,14 +65,14 @@ namespace sockets
       \lparam intf Interface hostname
       \lparam port Port (0 is random)
       \lparam depth Listen queue depth */
-      virtual int Bind(const string& intf, port_t port, int depth = 20);
+      virtual int Bind(const ::scoped_string & scopedstrInterface, port_t port, int depth = 20);
 
       /** Bind and listen to specific interface.
       \lparam intf Interface hostname
       \lparam port Port (0 is random)
       \lparam protocol Network protocol
       \lparam depth Listen queue depth */
-      virtual int Bind(const string& intf, port_t port, const string& protocol, int depth = 20);
+      virtual int Bind(const ::scoped_string & scopedstrInterface, port_t port, const string& protocol, int depth = 20);
 
 //#ifdef BSD_STYLE
 //      /** Bind and listen to ipv4 interface.

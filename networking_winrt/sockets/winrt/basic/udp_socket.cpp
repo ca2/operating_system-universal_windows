@@ -122,7 +122,7 @@ namespace sockets
    }
    */
 
-   bool udp_socket::open(const_char_pointer  host, port_t port)
+   bool udp_socket::open(const_char_pointer host, port_t port)
    {
 
       return open(::networking::address(host, port));
@@ -199,7 +199,7 @@ namespace sockets
    */
 
    /** send to specified address */
-   /*   void udp_socket::SendToBuf(const string & h, port_t p, const_char_pointer  data, int len, int flags)
+   /*   void udp_socket::SendToBuf(const ::scoped_string & scopedstrHost, port_t p, const_char_pointer data, int len, int flags)
    {
 
    ::networking::address ad(get_app(), h, p);
@@ -210,14 +210,14 @@ namespace sockets
    */
 
    /** send to specified address */
-   /*   void udp_socket::SendToBuf(ipaddr_t a, port_t p, const_char_pointer  data, int len, int flags)
+   /*   void udp_socket::SendToBuf(ipaddr_t a, port_t p, const_char_pointer data, int len, int flags)
    {
    ipv4_address ad(get_app(), a, p);
    SendToBuf(ad, data, len, flags);
    }
 
 
-   void udp_socket::SendToBuf(in6_addr a, port_t p, const_char_pointer  data, int len, int flags)
+   void udp_socket::SendToBuf(in6_addr a, port_t p, const_char_pointer data, int len, int flags)
    {
    ipv6_address ad(get_app(), a, p);
    SendToBuf(ad, data, len, flags);
@@ -225,7 +225,7 @@ namespace sockets
    */
 
    /*
-   void udp_socket::SendToBuf(::networking::address& ad, const_char_pointer  data, int len, int flags)
+   void udp_socket::SendToBuf(::networking::address& ad, const_char_pointer data, int len, int flags)
    {
    if (GetSocket() == INVALID_SOCKET)
    {
@@ -242,7 +242,7 @@ namespace sockets
    }
    */
 
-   /*   void udp_socket::SendTo(const string & a, port_t p, const ::scoped_string & scopedstr, int flags)
+   /*   void udp_socket::SendTo(const ::scoped_string & scopedstrAddress, port_t p, const ::scoped_string & scopedstr, int flags)
    {
    SendToBuf(a, p, str, (int)str.length(), flags);
    }
@@ -267,7 +267,7 @@ namespace sockets
    */
 
    /** send to connected address */
-   void udp_socket::SendBuf(const_char_pointer  data, memsize len, int flags)
+   void udp_socket::SendBuf(const_char_pointer data, memsize len, int flags)
    {
       
       if (!IsConnected())
@@ -623,7 +623,7 @@ namespace sockets
    }
 
 
-   void udp_socket::AddMulticastMembership(const string & group, const string & local_if, int if_index)
+   void udp_socket::AddMulticastMembership(const ::scoped_string & scopedstrGroup, const ::scoped_string & scopedstrLocalInterface, int if_index)
    {
       throw ::not_implemented();
       /*
@@ -662,7 +662,7 @@ namespace sockets
    }
 
 
-   void udp_socket::DropMulticastMembership(const string & group, const string & local_if, int if_index)
+   void udp_socket::DropMulticastMembership(const ::scoped_string & scopedstrGroup, const ::scoped_string & scopedstrLocalInterface, int if_index)
    {
       throw ::not_implemented();
       /*

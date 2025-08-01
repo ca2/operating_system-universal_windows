@@ -120,7 +120,7 @@ namespace sockets_bsd
    \lparam intf Interface hostname
    \lparam port Port (0 is random)
    \lparam depth Listen queue depth */
-   int listen_socket::Bind(const string & intf,::networking::port_t port,int depth)
+   int listen_socket::Bind(const ::scoped_string & scopedstrInterface,::networking::port_t port,int depth)
    {
       
       auto paddress = __SystemNetworking(system())->create_address(intf, port);
@@ -144,7 +144,7 @@ namespace sockets_bsd
    \lparam port Port (0 is random)
    \lparam protocol Network protocol
    \lparam depth Listen queue depth */
-   int listen_socket::Bind(const string & intf,::networking::port_t port,const string & protocol,int depth)
+   int listen_socket::Bind(const ::scoped_string & scopedstrInterface,::networking::port_t port,const string & protocol,int depth)
    {
 
       auto paddress = __SystemNetworking(system())->create_address(intf, port);

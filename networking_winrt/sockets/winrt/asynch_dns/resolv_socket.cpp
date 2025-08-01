@@ -55,7 +55,7 @@ namespace sockets
    }
 
 
-   resolv_socket::resolv_socket(base_socket *parent, const string & host, port_t port, bool ipv6) :
+   resolv_socket::resolv_socket(base_socket *parent, const ::scoped_string & scopedstrHost, port_t port, bool ipv6) :
       ::object(h.get_app()),
       base_socket(h),
       socket(h),

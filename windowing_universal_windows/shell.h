@@ -102,8 +102,8 @@ namespace windowing_universal_windows
 
 
 
-      virtual void set_image_ico(string strIconLocation, _get_file_image_ & getfileimage);
-      virtual void set_image_resource(string strIconLocation, _get_file_image_ & getfileimage);
+      virtual void set_image_ico(const ::scoped_string & scopedstrIconLocation, _get_file_image_ & getfileimage);
+      virtual void set_image_resource(const ::scoped_string & scopedstrIconLocation, _get_file_image_ & getfileimage);
 
       void destroy() override;
 

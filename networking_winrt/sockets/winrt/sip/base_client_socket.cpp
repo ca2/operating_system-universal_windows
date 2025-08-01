@@ -306,7 +306,7 @@ namespace sockets
 
    void sip_base_client_socket::SendResponseBody()
    {
-      //SendBuf((const_char_pointer  ) response().file()->get_data(), response().file()->get_size());
+      //SendBuf((const_char_pointer )response().file()->get_data(), response().file()->get_size());
    }
 
 
@@ -468,7 +468,7 @@ namespace sockets
    void sip_base_client_socket::OnHeader(const string & key,const string & value, const string & lowvalue)
    {
       //sip_base_client_socket::OnHeader(key, value);
-      informationf("  (request)OnHeader %s: %s\n", (const_char_pointer  ) key, (const_char_pointer  ) value);
+      informationf("  (request)OnHeader %s: %s\n", (const_char_pointer )key, (const_char_pointer )value);
       if(key == "cookie")
       {
          m_request.cookies().parse_header(value);
@@ -483,7 +483,7 @@ namespace sockets
 
    //}
    //
-   void sip_base_client_socket::OnData(const_char_pointer  ,memsize)
+   void sip_base_client_socket::OnData(const_char_pointer ,memsize)
    {
 
    }

@@ -326,7 +326,7 @@ namespace sockets_bsd
       //void OnAccept(::winrt::Windows::Foundation::IAsyncAction ^ action, ::winrt::Windows::Foundation::AsyncStatus status);
       /** Called when a complete line has been read and the base_socket is in
       * line protocol mode. */
-      void OnLine(const string & ) override;
+      void OnLine(const ::scoped_string & scopedstrLine) override;
 
 
       bool on_select_idle() override;
@@ -525,7 +525,7 @@ namespace sockets_bsd
       bool SetSoBsdcompat(bool x = true) override;
 #endif
 #ifdef SO_BINDTODEVICE
-      bool SetSoBindtodevice(const string & intf) override;
+      bool SetSoBindtodevice(const ::scoped_string & scopedstrInterface) override;
 #endif
 #ifdef SO_PASSCRED
       bool SetSoPasscred(bool x = true) override;
@@ -657,10 +657,10 @@ namespace sockets_bsd
       void SetSocks4(bool x = true) override;
 
       /** Set socks4 server host address/port to use */
-      void SetSocks4Host(const ::string & a) override;
+      void SetSocks4Host(const ::scoped_string & scopedstrAddress) override;
 //#if defined(BSD_STYLE_SOCKETS)
 //      /** Set socks4 server hostname to use. */
-//      void SetSocks4Host(const string & );
+//      void SetSocks4Host(const ::scoped_string & scopedstr);
 //#endif
       /** Socks4 server port to use. */
       void SetSocks4Port(::networking::port_t int_point) override;
@@ -683,8 +683,8 @@ namespace sockets_bsd
       \lparam host hostname to be resolved
       \lparam port port number passed along for the ride
       \return Resolve ID */
-      //int Resolve(const string & host,::networking::port_t port = 0);
-      //int Resolve6(const string & host, ::networking::port_t port = 0);
+      //int Resolve(const ::scoped_string & scopedstrHost,::networking::port_t port = 0);
+      //int Resolve6(const ::scoped_string & scopedstrHost, ::networking::port_t port = 0);
       /** Callback returning a resolved ::networking::address.
       \lparam atom Resolve ID from Resolve call
       \lparam a resolved ip address/port

@@ -56,7 +56,7 @@ namespace sockets_bsd
    }
 
 
-   int udp_socket::Bind(const string & intf, ::networking::port_t &port, int range)
+   int udp_socket::Bind(const ::scoped_string & scopedstrInterface, ::networking::port_t &port, int range)
    {
 
       auto paddress = system()->networking()->create_address(intf, port);
@@ -166,7 +166,7 @@ namespace sockets_bsd
    }
 
 
-   bool udp_socket::open(const string & host, ::networking::port_t port)
+   bool udp_socket::open(const ::scoped_string & scopedstrHost, ::networking::port_t port)
    {
       
       //::networking::address ad(host, port);
@@ -263,7 +263,7 @@ namespace sockets_bsd
 
 
    /** send to specified address */
-   void udp_socket::SendToBuf(const string & h, ::networking::port_t p, const_char_pointer  data, int len, int flags)
+   void udp_socket::SendToBuf(const ::scoped_string & scopedstrHost, ::networking::port_t p, const_char_pointer data, int len, int flags)
    {
       
       auto paddress = system()->networking()->create_address(h, p);
@@ -277,7 +277,7 @@ namespace sockets_bsd
 
 
    /** send to specified address */
-   void udp_socket::SendToBuf(const in_addr & a, ::networking::port_t p, const_char_pointer  data, int len, int flags)
+   void udp_socket::SendToBuf(const in_addr & a, ::networking::port_t p, const_char_pointer data, int len, int flags)
    {
 
       auto paddress2 = __allocate ::networking_bsd::address();
@@ -291,7 +291,7 @@ namespace sockets_bsd
    }
 
 
-   void udp_socket::SendToBuf(const in6_addr & a, ::networking::port_t p, const_char_pointer  data, int len, int flags)
+   void udp_socket::SendToBuf(const in6_addr & a, ::networking::port_t p, const_char_pointer data, int len, int flags)
    {
 
       auto paddress2 = __allocate ::networking_bsd::address();
@@ -303,7 +303,7 @@ namespace sockets_bsd
    }
 
 
-   void udp_socket::SendToBuf(::networking::address * paddress, const_char_pointer  data, int len, int flags)
+   void udp_socket::SendToBuf(::networking::address * paddress, const_char_pointer data, int len, int flags)
    {
 
       auto paddress2 = __Address(paddress);
@@ -332,7 +332,7 @@ namespace sockets_bsd
    }
 
 
-   void udp_socket::SendTo(const string & a, ::networking::port_t port, const ::scoped_string & scopedstr, int flags)
+   void udp_socket::SendTo(const ::scoped_string & scopedstrAddress, ::networking::port_t port, const ::scoped_string & scopedstr, int flags)
    {
       
       SendToBuf(a, port, str, (int)str.length(), flags);
@@ -381,7 +381,7 @@ namespace sockets_bsd
 
       }
 
-      if ((m_last_size_written = ::send(GetSocketId(), (const_char_pointer  ) data, (int)len, m_iWriteFlags)) == -1)
+      if ((m_last_size_written = ::send(GetSocketId(), (const_char_pointer )data, (int)len, m_iWriteFlags)) == -1)
       {
 
 
@@ -734,7 +734,7 @@ namespace sockets_bsd
    }
 
 
-   void udp_socket::AddMulticastMembership(const string & group, const string & local_if, int if_index)
+   void udp_socket::AddMulticastMembership(const ::scoped_string & scopedstrGroup, const ::scoped_string & scopedstrLocalInterface, int if_index)
    {
 
       throw ::exception(todo);
@@ -793,7 +793,7 @@ namespace sockets_bsd
    }
 
 
-   void udp_socket::DropMulticastMembership(const string & group, const string & local_if, int if_index)
+   void udp_socket::DropMulticastMembership(const ::scoped_string & scopedstrGroup, const ::scoped_string & scopedstrLocalInterface, int if_index)
    {
 
       throw ::exception(todo);

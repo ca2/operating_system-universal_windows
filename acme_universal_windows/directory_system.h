@@ -49,13 +49,13 @@ namespace acme_universal_windows
 
 //
 //
-//      //virtual ::file::path application_installer_folder(const ::file::path& pathExe, string strAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration, const ::scoped_string & scopedstrLocale, const ::scoped_string & scopedstrSchema) override;
+//      //virtual ::file::path application_installer_folder(const ::file::path& pathExe, const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration, const ::scoped_string & scopedstrLocale, const ::scoped_string & scopedstrSchema) override;
 //
-//      //   virtual ::file::path get_application_path(string strAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
+//      //   virtual ::file::path get_application_path(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
 //
-//         //virtual ::file::path get_last_run_application_path_file(string strAppId) override;
+//         //virtual ::file::path get_last_run_application_path_file(const ::scoped_string & scopedstrAppId) override;
 //
-//         //virtual ::file::path get_last_run_application_path(string strAppId) override;
+//         //virtual ::file::path get_last_run_application_path(const ::scoped_string & scopedstrAppId) override;
 //#pragma once
 //
 //
@@ -105,7 +105,7 @@ namespace acme_universal_windows
             ::file::path program_files_x86() override;
             ::file::path program_files() override;
             //virtual ::file::path program_data() override;
-            ::file::path stage(string strAppId, string strPlatform, string strConfiguration) override;
+            ::file::path stage(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
             ::file::path sys_temp() override;
             ::string dir_root() override;
             //virtual ::file::path home() override;
@@ -118,10 +118,10 @@ namespace acme_universal_windows
             string system_short_name() override;
 
             //::file::path default_install() override;
-            //::file::path inplace_install(string strAppId, string strPlatform, string strConfiguration) override;
-            //virtual ::file::path inplace_install(string strAppId, string strPlatform, string strConfiguration) override;
-            ::file::path inplace_install(string strAppId, string strPlatform, string strConfiguration) override;
-            ::file::path inplace_matter_install(string strAppId, string strPlatform, string strConfiguration) override;
+            //::file::path inplace_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
+            //virtual ::file::path inplace_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
+            ::file::path inplace_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
+            ::file::path inplace_matter_install(const ::scoped_string & scopedstrAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
 
 
             void set_path_install_folder(const ::scoped_string & scopedstrPath) override;
@@ -158,18 +158,18 @@ namespace acme_universal_windows
             // directory_system();
             // ~directory_system() override;
 
-                  //virtual string name(const_char_pointer  path1) override;
+                  //virtual string name(const_char_pointer path1) override;
 
 
                   //virtual ::file::path module_folder() override;
 
-                  //bool create(const_char_pointer  path) override;
+                  //bool create(const_char_pointer path) override;
 
-                  //bool _create(const_char_pointer  path) override;
+                  //bool _create(const_char_pointer path) override;
 
-                  //bool create_directory(const_char_pointer  path) override;
+                  //bool create_directory(const_char_pointer path) override;
 
-                  //::e_status _create_directory(const_char_pointer  path) override;
+                  //::e_status _create_directory(const_char_pointer path) override;
 
                   //void rls(::file::path_array & stra, const scoped_string & str) override;
 

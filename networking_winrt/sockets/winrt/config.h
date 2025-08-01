@@ -213,7 +213,7 @@ namespace sockets
 
 #if defined(UNIVERSAL_WINDOWS)
 
-CLASS_DECL_APEX const_char_pointer  bsd_socket_error(int x);
+CLASS_DECL_APEX const_char_pointer bsd_socket_error(int x);
 #define Errno get_last_error()
 
 #elif defined(WINDOWS_DESKTOP)
@@ -227,7 +227,7 @@ CLASS_DECL_APEX const_char_pointer  bsd_socket_error(int x);
 #define SHUT_WR 1
 
 #define Errno WSAGetLastError()
-CLASS_DECL_APEX const_char_pointer  bsd_socket_error(int x);
+CLASS_DECL_APEX const_char_pointer bsd_socket_error(int x);
 
 
 #endif

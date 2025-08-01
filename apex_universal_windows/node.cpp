@@ -2362,7 +2362,7 @@ namespace apex_universal_windows
    }
 
 
-   bool node::is_user_auto_start(string strId)
+   bool node::is_user_auto_start(const ::scoped_string & scopedstrId)
    {
 
       //registry::key keyKar;

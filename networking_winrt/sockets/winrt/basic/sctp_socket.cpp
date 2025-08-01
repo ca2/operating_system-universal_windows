@@ -44,7 +44,7 @@ namespace sockets
    }
 
 
-   int SctpSocket::Bind(const string & a,port_t p)
+   int SctpSocket::Bind(const ::scoped_string & scopedstrAddress,port_t p)
    {
 #ifdef ENABLE_IPV6
 #ifdef IPPROTO_IPV6
@@ -87,7 +87,7 @@ namespace sockets
    }
 
 
-   int SctpSocket::AddAddress(const string & a,port_t p)
+   int SctpSocket::AddAddress(const ::scoped_string & scopedstrAddress,port_t p)
    {
 #ifdef ENABLE_IPV6
 #ifdef IPPROTO_IPV6
@@ -124,7 +124,7 @@ namespace sockets
    }
 
 
-   int SctpSocket::RemoveAddress(const string & a,port_t p)
+   int SctpSocket::RemoveAddress(const ::scoped_string & scopedstrAddress,port_t p)
    {
 #ifdef ENABLE_IPV6
 #ifdef IPPROTO_IPV6
@@ -161,7 +161,7 @@ namespace sockets
    }
 
 
-   int SctpSocket::open(const string & a,port_t p)
+   int SctpSocket::open(const ::scoped_string & scopedstrAddress,port_t p)
    {
 #ifdef ENABLE_IPV6
 #ifdef IPPROTO_IPV6
@@ -219,7 +219,7 @@ namespace sockets
 
 
 #ifndef SOLARIS
-   int SctpSocket::AddConnection(const string & a,port_t p)
+   int SctpSocket::AddConnection(const ::scoped_string & scopedstrAddress,port_t p)
    {
 #ifdef ENABLE_IPV6
 #ifdef IPPROTO_IPV6
@@ -349,7 +349,7 @@ namespace sockets
    }
 
 
-   void SctpSocket::OnReceiveMessage(const_char_pointer  buf,memsize sz,struct sockaddr *sa,socklen_t sa_len,struct sctp_sndrcvinfo *sinfo,int msg_flags)
+   void SctpSocket::OnReceiveMessage(const_char_pointer buf,memsize sz,struct sockaddr *sa,socklen_t sa_len,struct sctp_sndrcvinfo *sinfo,int msg_flags)
    {
    }
 

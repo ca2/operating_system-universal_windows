@@ -69,7 +69,7 @@ namespace windowing_universal_windows
       bool targeted_keyboard_messages() override;
       //inline system_interaction * system_window() { return system()interaction; }
 
-      //virtual HICON _load_icon(string_array& straMatter, string strIcon, int cx, int cy);
+      //virtual HICON _load_icon(string_array& straMatter, const ::scoped_string & scopedstrIcon, int cx, int cy);
 
       //virtual hwnd_array _get_hwnda(const ::user::primitive_pointer_array& primitivepointera);
 
@@ -185,8 +185,8 @@ namespace windowing_universal_windows
 
 
       //virtual bool _visible_top_level_contains_all_names(string_array& stra);
-      //virtual bool _visible_top_level_contains_name(string str);
-      //virtual bool _top_level_contains_name(string str);
+      //virtual bool _visible_top_level_contains_name(const ::scoped_string & scopedstr);
+      //virtual bool _top_level_contains_name(const ::scoped_string & scopedstr);
       //virtual string _get_window_text_timeout(oswindow oswindow, const class time & time = 1_s);
 
 

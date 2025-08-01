@@ -416,7 +416,7 @@ namespace sockets
 
 //#if defined(BSD_STYLE_SOCKETS)
 
-   void socket_handler::SetSocks4Host(const string & host)
+   void socket_handler::SetSocks4Host(const ::scoped_string & scopedstrHost)
    {
 
       ::apexacmesystem()->sockets().net().convert(m_socks4_host, host);
@@ -434,7 +434,7 @@ namespace sockets
    }
 
 
-   void socket_handler::SetSocks4Userid(const string & atom)
+   void socket_handler::SetSocks4Userid(const ::scoped_string & scopedstr)
    {
 
       m_socks4_userid = atom;
@@ -442,7 +442,7 @@ namespace sockets
    }
 
 
-   int socket_handler::Resolve(base_socket * p,const string & host,port_t port)
+   int socket_handler::Resolve(base_socket * p,const ::scoped_string & scopedstrHost,port_t port)
    {
       // check cache
       resolv_socket *resolv = ___new resolv_socket(*this, p, host, port);
@@ -461,7 +461,7 @@ namespace sockets
    }
 
 
-   int socket_handler::Resolve6(base_socket * p,const string & host,port_t port)
+   int socket_handler::Resolve6(base_socket * p,const ::scoped_string & scopedstrHost,port_t port)
    {
       // check cache
       resolv_socket *resolv = ___new resolv_socket(*this, p, host, port, true);

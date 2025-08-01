@@ -25,8 +25,8 @@
 //#include "acme_universal_windows/_winrt_storage.h"
 //#include <winrt/Windows.Storage.Search.h>
 
-//::winrt::Windows::Storage::StorageFile windows_runtime_file(const_char_pointer  lpcszFileName, unsigned int dwDesiredAcces, unsigned int dwShareMode, LPSECURITY_ATTRIBUTES lpSA, unsigned int dwCreationDisposition, unsigned int dwFlagsAndAttributes, HANDLE hTemplateFile)
+//::winrt::Windows::Storage::StorageFile windows_runtime_file(const_char_pointer lpcszFileName, unsigned int dwDesiredAcces, unsigned int dwShareMode, LPSECURITY_ATTRIBUTES lpSA, unsigned int dwCreationDisposition, unsigned int dwFlagsAndAttributes, HANDLE hTemplateFile)
 
-//CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFile windows_runtime_file(::particle * pparticle, const_char_pointer  lpcszFileName, unsigned int dwDesiredAcces, unsigned int dwShareMode, unsigned int dwCreationDisposition, unsigned int dwFlagsAndAttributes);
+//CLASS_DECL_ACME_UNIVERSAL_WINDOWS ::winrt::Windows::Storage::StorageFile windows_runtime_file(::particle * pparticle, const_char_pointer lpcszFileName, unsigned int dwDesiredAcces, unsigned int dwShareMode, unsigned int dwCreationDisposition, unsigned int dwFlagsAndAttributes);
 //
 //CLASS_DECL_ACME_UNIVERSAL_WINDOWS bool windows_runtime_filetime(::winrt::Windows::Storage::StorageFile file, file_time * lpCreationTime, file_time * lpItemTime, file_time * lpLastWriteTime);
