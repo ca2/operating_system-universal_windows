@@ -32,7 +32,7 @@ namespace sockets
 
 
    // --------------------------------------------------------------------------------------
-   void Ajp13Socket::ReceiveBody(const_char_pointer buf, memsize sz)
+   void Ajp13Socket::ReceiveBody(const_char_pointer  buf, memsize sz)
    {
       if (sz - 2 > m_body_size_left)
       {
@@ -79,7 +79,7 @@ namespace sockets
 
 
    // --------------------------------------------------------------------------------------
-   void Ajp13Socket::ReceiveForwardRequest( const_char_pointer buf, memsize sz )
+   void Ajp13Socket::ReceiveForwardRequest( const_char_pointer  buf, memsize sz )
    {
       __UNREFERENCED_PARAMETER(sz);
       //
@@ -174,7 +174,7 @@ namespace sockets
 
 
    // --------------------------------------------------------------------------------------
-   void Ajp13Socket::ReceiveShutdown( const_char_pointer buf, memsize sz )
+   void Ajp13Socket::ReceiveShutdown( const_char_pointer  buf, memsize sz )
    {
       __UNREFERENCED_PARAMETER(buf);
       __UNREFERENCED_PARAMETER(sz);
@@ -182,7 +182,7 @@ namespace sockets
 
 
    // --------------------------------------------------------------------------------------
-   void Ajp13Socket::ReceivePing( const_char_pointer buf, memsize sz )
+   void Ajp13Socket::ReceivePing( const_char_pointer  buf, memsize sz )
    {
       __UNREFERENCED_PARAMETER(buf);
       __UNREFERENCED_PARAMETER(sz);
@@ -190,7 +190,7 @@ namespace sockets
 
 
    // --------------------------------------------------------------------------------------
-   void Ajp13Socket::ReceiveCPing( const_char_pointer buf, memsize sz )
+   void Ajp13Socket::ReceiveCPing( const_char_pointer  buf, memsize sz )
    {
       __UNREFERENCED_PARAMETER(buf);
       __UNREFERENCED_PARAMETER(sz);
@@ -343,7 +343,7 @@ namespace sockets
 
 
    // --------------------------------------------------------------------------------------
-   void Ajp13Socket::OnPacket( const_char_pointer buf, memsize sz )
+   void Ajp13Socket::OnPacket( const_char_pointer  buf, memsize sz )
    {
       informationf("OnPacket: %d bytes, code 0x%02x %02x %02x %02x\n", sz, *buf, buf[1], buf[2], buf[3]);
 

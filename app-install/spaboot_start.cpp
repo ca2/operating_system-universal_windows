@@ -1,7 +1,7 @@
 #include "installer.h"
 
 
-const_char_pointer calc_id();
+const_char_pointer  calc_id();
 
 
 int installer(const ::scoped_string & scopedstraram);
@@ -67,7 +67,7 @@ int installer_start()
       return 1;
    }
 
-   const_char_pointer atom = calc_id();
+   const_char_pointer  atom = calc_id();
    if(atom == NULL)
       atom = "installer_install";
 
@@ -116,7 +116,7 @@ int installer_start()
 
 
 
-const_char_pointer calc_id()
+const_char_pointer  calc_id()
 {
 
    char szModulePath[MAX_PATH * 3];

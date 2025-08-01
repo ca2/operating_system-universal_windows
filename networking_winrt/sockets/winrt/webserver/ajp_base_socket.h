@@ -27,13 +27,13 @@ namespace sockets
       void OnRawData(char *buf, memsize sz);
 
       virtual void OnHeader( short atom, short len ) = 0;
-      virtual void OnPacket( const_char_pointer buf, memsize sz ) = 0;
+      virtual void OnPacket( const_char_pointer  buf, memsize sz ) = 0;
 
    protected:
-      unsigned char get_byte(const_char_pointer buf, int& ptr);
-      bool get_boolean(const_char_pointer buf, int& ptr);
-      short get_integer(const_char_pointer buf, int& ptr);
-      string get_string(const_char_pointer buf, int& ptr);
+      unsigned char get_byte(const_char_pointer  buf, int& ptr);
+      bool get_boolean(const_char_pointer  buf, int& ptr);
+      short get_integer(const_char_pointer  buf, int& ptr);
+      string get_string(const_char_pointer  buf, int& ptr);
 
       void put_byte(char *buf, int& ptr, unsigned char zz);
       void put_boolean(char *buf, int& ptr, bool zz);

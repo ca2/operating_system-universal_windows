@@ -158,18 +158,18 @@ namespace acme_universal_windows
             // directory_system();
             // ~directory_system() override;
 
-                  //virtual string name(const_char_pointer path1) override;
+                  //virtual string name(const_char_pointer  path1) override;
 
 
                   //virtual ::file::path module_folder() override;
 
-                  //bool create(const_char_pointer path) override;
+                  //bool create(const_char_pointer  path) override;
 
-                  //bool _create(const_char_pointer path) override;
+                  //bool _create(const_char_pointer  path) override;
 
-                  //bool create_directory(const_char_pointer path) override;
+                  //bool create_directory(const_char_pointer  path) override;
 
-                  //::e_status _create_directory(const_char_pointer path) override;
+                  //::e_status _create_directory(const_char_pointer  path) override;
 
                   //void rls(::file::path_array & stra, const scoped_string & str) override;
 

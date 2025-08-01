@@ -69,13 +69,13 @@ namespace sockets
       \ingroup internal */
       struct OUTPUT {
          OUTPUT() : _b(0), _t(0), _q(0) {}
-         OUTPUT(const_char_pointer buf, memsize len) : _b(0), _t(len), _q(len) {
+         OUTPUT(const_char_pointer  buf, memsize len) : _b(0), _t(len), _q(len) {
             ::memory_copy(_buf, buf, len);
          }
          memsize Space() {
             return TCP_OUTPUT_CAPACITY - _t;
          }
-         void add(const_char_pointer buf, memsize len) {
+         void add(const_char_pointer  buf, memsize len) {
             ::memory_copy(_buf + _t, buf, len);
             _t += len;
             _q += len;
@@ -85,7 +85,7 @@ namespace sockets
             _q -= len;
             return _q;
          }
-         const_char_pointer Buf() {
+         const_char_pointer  Buf() {
             return _buf + _b;
          }
          memsize Len() {
@@ -187,7 +187,7 @@ namespace sockets
       \param f Dummy flags -- not used */
       //void Send(const string &s,int f = 0);
       /** Send string using printf formatting. */
-      //void Sendf(const_char_pointer format, ...);
+      //void Sendf(const_char_pointer  format, ...);
       /** Send buffer of bytes.
       \param buf buffer pointer
       \param len Length of data
@@ -278,7 +278,7 @@ namespace sockets
       void OnWrite();
 
 
-      virtual long cert_common_name_check(const_char_pointer common_name);
+      virtual long cert_common_name_check(const_char_pointer  common_name);
       virtual void enable_cert_common_name_check(bool bEnable = true);
 
       /** SSL; Initialize ssl action_context for a client socket.
@@ -321,9 +321,9 @@ namespace sockets
 
 
       /** the actual send() */
-      int TryWrite(const_char_pointer buf, memsize len);
+      int TryWrite(const_char_pointer  buf, memsize len);
       /** add data to output buffer top */
-      void buffer(const_char_pointer buf, memsize len);
+      void buffer(const_char_pointer  buf, memsize len);
 
    };
 
