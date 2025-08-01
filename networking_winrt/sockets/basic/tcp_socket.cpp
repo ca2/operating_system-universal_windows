@@ -1524,7 +1524,7 @@ namespace sockets_bsd
    }
 
 
-   void tcp_socket::OnLine(const string & str)
+   void tcp_socket::OnLine(const ::scoped_string & scopedstr)
    {
 
       m_ptcpsocketComposite->OnLine(str);

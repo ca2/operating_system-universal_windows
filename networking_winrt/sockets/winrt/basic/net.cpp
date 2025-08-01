@@ -740,7 +740,7 @@ namespace sockets
    */
 
 
-   int net::service_port(const string & psz, int flags)
+   int net::service_port(const ::scoped_string & scopedstr, int flags)
    {
 
       if(::str::is_simple_natural(psz))

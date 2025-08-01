@@ -93,7 +93,7 @@ namespace acme_universal_windows
    }
 
 
-   //bool file_context::FullPath(string & str, const ::string & pszFileIn)
+   //bool file_context::FullPath(string & str, const ::scoped_string & scopedstrFileIn)
 
    //{
 
@@ -155,7 +155,7 @@ namespace acme_universal_windows
    //}
 
 
-   //unsigned int file_context::GetFileName(const ::string & pszPathName, string & str)
+   //unsigned int file_context::GetFileName(const ::scoped_string & scopedstrPathName, string & str)
 
    //{
    //   int nMax = MAX_PATH * 8;
@@ -583,7 +583,7 @@ namespace acme_universal_windows
    //}
 
 
-   //void file::SetStatus(const ::string & pszFileName,const ::file::file_status& status)
+   //void file::SetStatus(const ::scoped_string & scopedstrFileName,const ::file::file_status& status)
 
    //{
    //   unsigned int wAttr;

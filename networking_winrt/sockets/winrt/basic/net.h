@@ -148,9 +148,9 @@ namespace sockets
 
 #ifdef BSD_STYLE_SOCKETS
 
-      static bool convert(in_addr & addr, const string & psz, int ai_flags = 0);
+      static bool convert(in_addr & addr, const ::scoped_string & scopedstr, int ai_flags = 0);
 
-      static bool convert(in6_addr & addr, const string & psz, int ai_flags = 0);
+      static bool convert(in6_addr & addr, const ::scoped_string & scopedstr, int ai_flags = 0);
 
       static bool convert(string & str, const in_addr & addr, int ai_flags = 0);
 

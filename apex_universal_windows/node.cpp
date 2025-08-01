@@ -426,7 +426,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::local_machine_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
+   void node::local_machine_set_run(const ::scoped_string & scopedstrKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
    {
 
       //try
@@ -465,7 +465,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::local_machine_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
+   void node::local_machine_set_run_once(const ::scoped_string & scopedstrKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
    {
 
       //try
@@ -502,7 +502,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::current_user_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
+   void node::current_user_set_run(const ::scoped_string & scopedstrKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
    {
 
       //try
@@ -541,7 +541,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::current_user_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
+   void node::current_user_set_run_once(const ::scoped_string & scopedstrKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
    {
 
       //try
@@ -616,7 +616,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::file_extension_get_open_with_list_keys(string_array & straKey, const ::string & pszExtension)
+   void node::file_extension_get_open_with_list_keys(string_array & straKey, const ::scoped_string & scopedstrExtension)
    {
 
       //try
@@ -650,7 +650,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::file_extension_get_open_with_list_commands(string_array & straCommand, const ::string & pszExtension)
+   void node::file_extension_get_open_with_list_commands(string_array & straCommand, const ::scoped_string & scopedstrExtension)
    {
 
       //string_array straKey;
@@ -671,7 +671,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::file_association_set_default_icon(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & pszIconPath)
+   void node::file_association_set_default_icon(const ::scoped_string & scopedstrExtension, const ::scoped_string & scopedstrExtensionNamingClass, const ::scoped_string & scopedstrIconPath)
    {
 
       //try
@@ -700,7 +700,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::file_association_set_shell_open_command(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & pszCommand, const ::string & pszParam)
+   void node::file_association_set_shell_open_command(const ::scoped_string & scopedstrExtension, const ::scoped_string & scopedstrExtensionNamingClass, const ::scoped_string & scopedstrCommand, const ::scoped_string & scopedstrParam)
    {
 
       //::e_status estatus = ::success;
@@ -790,7 +790,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::file_association_get_shell_open_command(const ::string & pszExtension, string & strExtensionNamingClass, string & strCommand, string & strParam)
+   void node::file_association_get_shell_open_command(const ::scoped_string & scopedstrExtension, string & strExtensionNamingClass, string & strCommand, string & strParam)
    {
 
       //try
@@ -2177,7 +2177,7 @@ namespace apex_universal_windows
    //#else
 
 
-   void node::file_open(const ::file::path & path, const string & strParams, const ::file::path & pathFolder)
+   void node::file_open(const ::file::path & path, const ::scoped_string & scopedstrParams, const ::file::path & pathFolder)
    {
 
       ::pointer < ::acme_universal_windows::file_context > pfilecontext = file();
@@ -2349,7 +2349,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::register_user_auto_start(const string & strId, const string & strCommand, const string & strArguments, bool bRegister)
+   void node::register_user_auto_start(const ::scoped_string & scopedstrId, const ::scoped_string & scopedstrCommand, const ::scoped_string & scopedstrArguments, bool bRegister)
    {
 
       //current_user_set_run(strId, strCommand, bRegister);
@@ -3858,7 +3858,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::open_url_link_at_system_browser(const string & strUrl, const string & strProfile)
+   void node::open_url_link_at_system_browser(const ::scoped_string & scopedstrUrl, const ::scoped_string & scopedstrProfile)
    {
 
       system()->acme_windowing()->user_post([strUrl]()

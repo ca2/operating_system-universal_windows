@@ -60,18 +60,18 @@ namespace apex_universal_windows
       ::payload connection_settings_get_auto_config_url() override;
 
 
-      void local_machine_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
-      void local_machine_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
-      void current_user_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
-      void current_user_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
+      void local_machine_set_run(const ::scoped_string & scopedstrKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
+      void local_machine_set_run_once(const ::scoped_string & scopedstrKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
+      void current_user_set_run(const ::scoped_string & scopedstrKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
+      void current_user_set_run_once(const ::scoped_string & scopedstrKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
       void defer_register_ca2_plugin_for_mozilla() override;
 
-      void file_extension_get_open_with_list_keys(string_array & straKey, const ::string & pszExtension) override;
-      void file_extension_get_open_with_list_commands(string_array & straCommand, const ::string & pszExtension) override;
+      void file_extension_get_open_with_list_keys(string_array & straKey, const ::scoped_string & scopedstrExtension) override;
+      void file_extension_get_open_with_list_commands(string_array & straCommand, const ::scoped_string & scopedstrExtension) override;
 
-      void file_association_set_default_icon(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & pszIconPath) override;
-      void file_association_set_shell_open_command(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::scoped_string & scopedstrCommand, const ::string & pszParam) override;
-      void file_association_get_shell_open_command(const ::string & pszExtension, string & strExtensionNamingClass, string & strCommand, string & strParam) override;
+      void file_association_set_default_icon(const ::scoped_string & scopedstrExtension, const ::scoped_string & scopedstrExtensionNamingClass, const ::scoped_string & scopedstrIconPath) override;
+      void file_association_set_shell_open_command(const ::scoped_string & scopedstrExtension, const ::scoped_string & scopedstrExtensionNamingClass, const ::scoped_string & scopedstrCommand, const ::scoped_string & scopedstrParam) override;
+      void file_association_get_shell_open_command(const ::scoped_string & scopedstrExtension, string & strExtensionNamingClass, string & strCommand, string & strParam) override;
 
 
       bool open_in_ie(const ::scoped_string & scopedstr);
@@ -93,7 +93,7 @@ namespace apex_universal_windows
       void start_service() override;
       void stop_service() override;
 
-      bool _getCredentialsForService(const string & strService, WCHAR * szUsername, WCHAR * szPassword);
+      bool _getCredentialsForService(const ::scoped_string & scopedstrService, WCHAR * szUsername, WCHAR * szPassword);
 
       void enable_service(const ::scoped_string & scopedstrServiceName, const ::scoped_string & scopedstrDisplayName, const ::scoped_string & scopedstrCommand, const ::scoped_string & scopedstrUser = "", const ::scoped_string & scopedstrPass = "") override;
       void disable_service(const ::scoped_string & scopedstrServiceName) override;
@@ -124,7 +124,7 @@ namespace apex_universal_windows
 
       void get_default_browser(string & strId, ::file::path & path, string & strParam) override;
 
-      void register_user_auto_start(const string & strId, const string & strCommand, const string & strArguments, bool bRegister);
+      void register_user_auto_start(const ::scoped_string & scopedstrId, const ::scoped_string & scopedstrCommand, const ::scoped_string & scopedstrArguments, bool bRegister);
 
       bool is_user_auto_start(string strId);
 
@@ -138,7 +138,7 @@ namespace apex_universal_windows
 
       //virtual icon_pointer load_icon(const ::payload & payloadFile) override;
 
-      void open_url_link_at_system_browser(const string & strUrl, const string & strProfile) override;
+      void open_url_link_at_system_browser(const ::scoped_string & scopedstrUrl, const ::scoped_string & scopedstrProfile) override;
 
       virtual void _has_ip_connectivity(bool & bIp4, bool & bIp6);
 

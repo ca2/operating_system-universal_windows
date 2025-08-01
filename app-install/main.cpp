@@ -42,7 +42,7 @@ public:
    
    void install_defer_file_transfer();
 
-   bool is_user_using(const ::string & pszDll);
+   bool is_user_using(const ::scoped_string & scopedstrDll);
 
    ATOM installer_message_register_class(HINSTANCE hInstance);
 
@@ -58,9 +58,9 @@ public:
 
    bool are_there_user_files_in_use();
 
-   bool is_user_using(DWORD processid, const ::string & pszDll);
+   bool is_user_using(DWORD processid, const ::scoped_string & scopedstrDll);
 
-   virtual void on_receive(small_ipc_rx_channel * prxchannel, const ::string & pszMessage);
+   virtual void on_receive(small_ipc_rx_channel * prxchannel, const ::scoped_string & scopedstrMessage);
 
    virtual bool initialize();
 
@@ -145,11 +145,11 @@ void installer::install_defer_file_transfer()
 }
 
 
-typedef int (__cdecl * PFN_SPAADMIN_MAIN)(const ::string & pszCommandLine);
+typedef int (__cdecl * PFN_SPAADMIN_MAIN)(const ::scoped_string & scopedstrCommandLine);
 
 
 // non-thread safe
-bool installer::is_user_using(DWORD processid, const ::string & pszDll)
+bool installer::is_user_using(DWORD processid, const ::scoped_string & scopedstrDll)
 {
 
    HANDLE hModuleSnap = INVALID_HANDLE_VALUE;
@@ -190,7 +190,7 @@ bool installer::is_user_using(DWORD processid, const ::string & pszDll)
 }
 
 // non-thread safe
-bool installer::is_user_using(const ::string & pszDll)
+bool installer::is_user_using(const ::scoped_string & scopedstrDll)
 {
    HANDLE hProcessSnap;
    PROCESSENTRY32 pe32;
@@ -226,7 +226,7 @@ bool installer::is_user_using(const ::string & pszDll)
 
 }
 
-void installer::on_receive(small_ipc_rx_channel * prxchannel, const ::string & pszMessage)
+void installer::on_receive(small_ipc_rx_channel * prxchannel, const ::scoped_string & scopedstrMessage)
 {
    vsstring strMessage(pszMessage);
    int iRet = 0;

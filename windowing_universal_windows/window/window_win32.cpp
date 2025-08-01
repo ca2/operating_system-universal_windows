@@ -467,7 +467,7 @@ namespace windowing_win32
 {
 
 
-wstring windowing::_windows_calc_icon_window_class(::user::interaction * puserinteraction, unsigned int dwDefaultStyle, const ::string & pszMatter)
+wstring windowing::_windows_calc_icon_window_class(::user::interaction * puserinteraction, unsigned int dwDefaultStyle, const ::scoped_string & scopedstrMatter)
 {
 
    auto pcontext = puserinteraction->get_context();

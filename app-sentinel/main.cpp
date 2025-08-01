@@ -140,7 +140,7 @@ vsstring calc_id();
 
 
 int installer(const ::string & param);
-int APIENTRY ca2_cube_install(const ::string & pszId);
+int APIENTRY ca2_cube_install(const ::scoped_string & scopedstrId);
 
 int installer_start()
 {

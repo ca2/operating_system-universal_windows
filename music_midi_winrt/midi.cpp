@@ -198,7 +198,7 @@ namespace music
          //}
 
 
-         ::pointer<::music::midi::message_out>midi::get_message_out(const string & strDeviceParam)
+         ::pointer<::music::midi::message_out>midi::get_message_out(const ::scoped_string & scopedstrDeviceParam)
          {
 
             string strDevice(strDeviceParam);

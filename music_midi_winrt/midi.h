@@ -59,11 +59,11 @@ namespace music
             //void CloseInPort(::winrt::hstring portId);
 
 
-            ::pointer<::music::midi::message_out>get_message_out(const string & strDevice) override;
+            ::pointer<::music::midi::message_out>get_message_out(const ::scoped_string & scopedstrDevice) override;
 
             void enumerate_midi_out_devices() override;
 
-            ::pointer<::music::midi::sequencer>create_midi_sequencer(sequence * psequence, const string & strDevice);
+            ::pointer<::music::midi::sequencer>create_midi_sequencer(sequence * psequence, const ::scoped_string & scopedstrDevice);
 
 
          };

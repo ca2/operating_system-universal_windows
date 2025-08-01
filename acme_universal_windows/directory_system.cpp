@@ -465,7 +465,7 @@ namespace acme_universal_windows
    }
 
 
-   void directory_system::set_path_install_folder(const ::string & pszPath)
+   void directory_system::set_path_install_folder(const ::scoped_string & scopedstrPath)
    {
 
       m_pathInstallFolder = pszPath;
@@ -1263,7 +1263,7 @@ namespace acme_universal_windows
    //
    //         string strName;
    //
-   //         ::file::path pathDir;
+   //         ::file::path pathFolder;
    //
    //         character_count iLastPos;
    //
@@ -1277,7 +1277,7 @@ namespace acme_universal_windows
    //
    //            windows_runtime_folder(strPath, strPrefix);
    //
-   //            pathDir = strPrefix;
+   //            pathFolder = strPrefix;
    //
    //            iLastPos = strPrefix.get_length();
    //
@@ -1767,7 +1767,7 @@ namespace acme_universal_windows
          //}
 
 
-   ::file::path directory_system::pathfind(const string & pszEnv, const string & pszTopic, const string & pszMode)
+   ::file::path directory_system::pathfind(const ::scoped_string & scopedstrEnv, const ::scoped_string & scopedstrTopic, const ::scoped_string & scopedstrMode)
    {
 
       string_array stra;
@@ -1845,7 +1845,7 @@ namespace acme_universal_windows
 //
 //         string strName;
 //
-//         ::file::path pathDir;
+//         ::file::path pathFolder;
 //
 //         character_count iLastPo = -1;
 //

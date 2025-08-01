@@ -25,7 +25,7 @@ namespace apex_universal_windows
       void destroy() override;
 
 
-      //void * on_interprocess_receive(const ::string & pszMessage) override;
+      //void * on_interprocess_receive(const ::scoped_string & scopedstrMessage) override;
       //void * on_interprocess_receive(int message, void * pdata, memsize len) override;
       //void * on_interprocess_post(long long a, long long b) override;
 
@@ -54,14 +54,14 @@ namespace apex_universal_windows
    //
    //
    //#if defined(UNIVERSAL_WINDOWS)
-   //      bool open_ab(const ::string & pszChannel, const ::string & pszModule);
-   //      bool open_ba(const ::string & pszChannel, const ::string & pszModule);
+   //      bool open_ab(const ::scoped_string & scopedstrChannel, const ::scoped_string & scopedstrModule);
+   //      bool open_ba(const ::scoped_string & scopedstrChannel, const ::scoped_string & scopedstrModule);
    //#elif defined(WINDOWS)
-   //      bool open_ab(const ::string & pszChannel, const ::string & pszModule, launcher * plauncher = nullptr);
-   //      bool open_ba(const ::string & pszChannel, const ::string & pszModule, launcher * plauncher = nullptr);
+   //      bool open_ab(const ::scoped_string & scopedstrChannel, const ::scoped_string & scopedstrModule, launcher * plauncher = nullptr);
+   //      bool open_ba(const ::scoped_string & scopedstrChannel, const ::scoped_string & scopedstrModule, launcher * plauncher = nullptr);
    //#else
-   //      bool open_ab(const ::string & pszChannel, launcher * plauncher = nullptr);
-   //      bool open_ba(const ::string & pszChannel, launcher * plauncher = nullptr);
+   //      bool open_ab(const ::scoped_string & scopedstrChannel, launcher * plauncher = nullptr);
+   //      bool open_ba(const ::scoped_string & scopedstrChannel, launcher * plauncher = nullptr);
    //#endif
    //
    //
@@ -70,7 +70,7 @@ namespace apex_universal_windows
    //
    //      virtual void restart_apex_ipc();
    //
-   //      //bool ensure_tx(const ::string & pszMessage, time timeTimeout = one_hour());
+   //      //bool ensure_tx(const ::scoped_string & scopedstrMessage, time timeTimeout = one_hour());
    //      //bool ensure_tx(int message, void * pdata, int len, time timeTimeout = one_hour());
    //
    //

@@ -38,7 +38,7 @@ extern "C" int WinMainCRTStartup()
 
 
 
-void installer_install_command(HWND hwnd, const ::string & psz)
+void installer_install_command(HWND hwnd, const ::scoped_string & scopedstr)
 {
    if(stricmp_dup(psz, "install_installer") == 0)
    {

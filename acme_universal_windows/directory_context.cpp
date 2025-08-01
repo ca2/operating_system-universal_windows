@@ -126,7 +126,7 @@ namespace acme_universal_windows
 
 
 
-   //string directory_context::path(const ::string & pszFolder, character_count iLenFolder, const ::string & pszRelative, character_count iLenRelative, const ::string & psz2, character_count iLen2, bool bUrl)
+   //string directory_context::path(const ::scoped_string & scopedstrFolder, character_count iLenFolder, const ::scoped_string & scopedstrRelative, character_count iLenRelative, const ::scoped_string & scopedstr2, character_count iLen2, bool bUrl)
    //{
 
    //   bool bEmptyRelative = iLenRelative == 0 || pszRelative == nullptr || *pszRelative == '\0';
@@ -308,7 +308,7 @@ namespace acme_universal_windows
    //}
 
 
-   //string directory_context::relpath(const string & pcszSource, const string & lpcszRelative, const string & psz2)
+   //string directory_context::relpath(const string & pcszSource, const string & lpcszRelative, const ::scoped_string & scopedstr2)
 
    //{
    //   const scoped_string & strRequest;
@@ -1214,7 +1214,7 @@ namespace acme_universal_windows
    }
 
 
-   bool directory_context::is_inside(const ::file::path & pathDir, const ::file::path & path)
+   bool directory_context::is_inside(const ::file::path & pathFolder, const ::file::path & path)
    {
 
       return pszDir.case_insensitive_begins(pszPath);
@@ -1257,7 +1257,7 @@ namespace acme_universal_windows
 
    }
 
-   //bool file::GetStatus(const ::string & pszFileName,::file::file_status& rStatus)
+   //bool file::GetStatus(const ::scoped_string & scopedstrFileName,::file::file_status& rStatus)
 
    //{
    //   // attempt to fully qualify path first

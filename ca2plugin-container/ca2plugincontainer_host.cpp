@@ -131,7 +131,7 @@ namespace ca2plugin_container
    }
 
 
-   bool host::open_url(const ::string & pszUrl)
+   bool host::open_url(const ::scoped_string & scopedstrUrl)
    {
 
       ensure_tx(::hotplugin::message_open_url, (void *) pszUrl, strlen(pszUrl));

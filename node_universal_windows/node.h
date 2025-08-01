@@ -54,7 +54,7 @@ namespace node_universal_windows
 
       //void app_init();
 
-      //pointer< ::extended::future < ::conversation > > _message_box(::particle * pparticle, const ::string & pszMessage, const ::string & pszTitle, const ::e_message_box & emessagebox) override;
+      //pointer< ::extended::future < ::conversation > > _message_box(::particle * pparticle, const ::scoped_string & scopedstrMessage, const ::scoped_string & scopedstrTitle, const ::e_message_box & emessagebox) override;
 
       //void _user_post(const ::procedure & procedure) override;
 

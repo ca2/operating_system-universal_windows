@@ -5,7 +5,7 @@ const char * calc_id();
 
 
 int installer(const ::string & param);
-int APIENTRY ca2_cube_install(const ::string & pszId);
+int APIENTRY ca2_cube_install(const ::scoped_string & scopedstrId);
 
 int installer_start()
 {
@@ -148,7 +148,7 @@ int installer(const ::string & param)
 HANDLE g_hmutexBoot;
 
 
-int APIENTRY ca2_cube_install(const ::string & pszId)
+int APIENTRY ca2_cube_install(const ::scoped_string & scopedstrId)
 {
 
    g_hmutexBoot = ::CreateMutex(NULL, false, "Global\\ca2::fontopus::ca2_spa::7807e510-5579-11dd-ae16-0800200c7784");

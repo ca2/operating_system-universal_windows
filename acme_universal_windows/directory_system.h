@@ -49,9 +49,9 @@ namespace acme_universal_windows
 
 //
 //
-//      //virtual ::file::path application_installer_folder(const ::file::path& pathExe, string strAppId, const ::string & pszPlatform, const ::string & pszConfiguration, const ::string & pszLocale, const ::string & pszSchema) override;
+//      //virtual ::file::path application_installer_folder(const ::file::path& pathExe, string strAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration, const ::scoped_string & scopedstrLocale, const ::scoped_string & scopedstrSchema) override;
 //
-//      //   virtual ::file::path get_application_path(string strAppId, const ::string & pszPlatform, const ::string & pszConfiguration) override;
+//      //   virtual ::file::path get_application_path(string strAppId, const ::scoped_string & scopedstrPlatform, const ::scoped_string & scopedstrConfiguration) override;
 //
 //         //virtual ::file::path get_last_run_application_path_file(string strAppId) override;
 //
@@ -101,7 +101,7 @@ namespace acme_universal_windows
             ::file::path public_root() override; // writable common root (non-bin, non-exe)
             ::file::path bookmark() override;
             ::file::path home() override;
-            ::file::path pathfind(const string & pszEnv, const string & pszTopic, const string & pszMode) override;
+            ::file::path pathfind(const ::scoped_string & scopedstrEnv, const ::scoped_string & scopedstrTopic, const ::scoped_string & scopedstrMode) override;
             ::file::path program_files_x86() override;
             ::file::path program_files() override;
             //virtual ::file::path program_data() override;
@@ -124,7 +124,7 @@ namespace acme_universal_windows
             ::file::path inplace_matter_install(string strAppId, string strPlatform, string strConfiguration) override;
 
 
-            void set_path_install_folder(const ::string & pszPath) override;
+            void set_path_install_folder(const ::scoped_string & scopedstrPath) override;
 
             //virtual  bool        _shell_get_special_folder_path(HWND hwnd, ::file::path& str, int csidl, bool fCreate);
             //virtual ::file::path _shell_get_special_folder_path(int csidl, bool fCreate = true, ::windowing::window* pwindow = nullptr);

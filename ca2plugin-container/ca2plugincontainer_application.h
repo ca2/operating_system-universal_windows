@@ -22,10 +22,10 @@ namespace ca2plugin_container
 
 
 
-      virtual void on_receive(small_ipc_rx_channel * prxchannel, const ::string & pszMessage);
+      virtual void on_receive(small_ipc_rx_channel * prxchannel, const ::scoped_string & scopedstrMessage);
       virtual void on_receive(small_ipc_rx_channel * prxchannel, int message, void * pdata, int len);
 
-      virtual bool initialize(const ::string & pszChannel);
+      virtual bool initialize(const ::scoped_string & scopedstrChannel);
 
       virtual bool destroy();
 
