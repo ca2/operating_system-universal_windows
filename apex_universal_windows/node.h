@@ -60,26 +60,26 @@ namespace apex_universal_windows
       ::payload connection_settings_get_auto_config_url() override;
 
 
-      void local_machine_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet) override;
-      void local_machine_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet) override;
-      void current_user_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet) override;
-      void current_user_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet) override;
+      void local_machine_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
+      void local_machine_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
+      void current_user_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
+      void current_user_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet) override;
       void defer_register_ca2_plugin_for_mozilla() override;
 
       void file_extension_get_open_with_list_keys(string_array & straKey, const ::string & pszExtension) override;
       void file_extension_get_open_with_list_commands(string_array & straCommand, const ::string & pszExtension) override;
 
       void file_association_set_default_icon(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & pszIconPath) override;
-      void file_association_set_shell_open_command(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::string & strCommand, const ::string & pszParam) override;
+      void file_association_set_shell_open_command(const ::string & pszExtension, const ::string & pszExtensionNamingClass, const ::scoped_string & scopedstrCommand, const ::string & pszParam) override;
       void file_association_get_shell_open_command(const ::string & pszExtension, string & strExtensionNamingClass, string & strCommand, string & strParam) override;
 
 
-      bool open_in_ie(const ::string & pcsz);
+      bool open_in_ie(const ::scoped_string & scopedstr);
 
 
       //void file_open(::file::path path, string strParams = "", string strFolder = "") override;
 
-      void file_open(const ::file::path & path, const ::string & strParams = "", const ::file::path & pathFolder = "") override;
+      void file_open(const ::file::path & path, const ::scoped_string & scopedstrParams = "", const ::file::path & pathFolder = "") override;
 
 
       //void browse_file_open(::property_set & set) override;
@@ -95,20 +95,20 @@ namespace apex_universal_windows
 
       bool _getCredentialsForService(const string & strService, WCHAR * szUsername, WCHAR * szPassword);
 
-      void enable_service(const ::string & strServiceName, const ::string & strDisplayName, const ::string & strCommand, const ::string & strUser = "", const ::string & strPass = "") override;
-      void disable_service(const ::string & strServiceName) override;
+      void enable_service(const ::scoped_string & scopedstrServiceName, const ::scoped_string & scopedstrDisplayName, const ::scoped_string & scopedstrCommand, const ::scoped_string & scopedstrUser = "", const ::scoped_string & scopedstrPass = "") override;
+      void disable_service(const ::scoped_string & scopedstrServiceName) override;
 
-      void start_service(const ::string & strServiceName) override;
-      void stop_service(const ::string & strServiceName) override;
+      void start_service(const ::scoped_string & scopedstrServiceName) override;
+      void stop_service(const ::scoped_string & scopedstrServiceName) override;
 
       string calc_service_name();
 
 
-      //::pointer < ::file::link > resolve_link(::file::path & path, const ::string & strSource, string * pstrDirectory = nullptr, string * pstrParams = nullptr, string * pstrIconLocation = nullptr, int * piIcon = nullptr) override;
+      //::pointer < ::file::link > resolve_link(::file::path & path, const ::scoped_string & scopedstrSource, string * pstrDirectory = nullptr, string * pstrParams = nullptr, string * pstrIconLocation = nullptr, int * piIcon = nullptr) override;
 
       //::pointer < ::file::link > resolve_link(const ::file::path & path, ::file::e_link elink = ::file::e_link_all) override;
 
-      //bool resolve_lnk_link(::file::path & path, const ::string & strSource, string * pstrDirectory = nullptr, string * pstrParams = nullptr);
+      //bool resolve_lnk_link(::file::path & path, const ::scoped_string & scopedstrSource, string * pstrDirectory = nullptr, string * pstrParams = nullptr);
 
       virtual ::pointer < ::file::link > resolve_lnk_link(const ::file::path & path, ::file::e_link elink = ::file::e_link_all);
 
@@ -128,7 +128,7 @@ namespace apex_universal_windows
 
       bool is_user_auto_start(string strId);
 
-      ::file::path get_app_path(const ::string & strApp) override;
+      ::file::path get_app_path(const ::scoped_string & scopedstrApp) override;
 
       void set_default_browser() override;
 

@@ -435,7 +435,7 @@ namespace acme_universal_windows
    }
 
 
-   bool file_context::get_last_write_time(FILETIME * pfiletime, const ::string & strFilename)
+   bool file_context::get_last_write_time(FILETIME * pfiletime, const ::scoped_string & scopedstrFilename)
    {
 
       WIN32_FILE_ATTRIBUTE_DATA data;

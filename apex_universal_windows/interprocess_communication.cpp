@@ -63,7 +63,7 @@ namespace apex_universal_windows
    //}
 
 
-   void interprocess_caller::open(const ::string & strChannel, ::launcher * plauncher)
+   void interprocess_caller::open(const ::scoped_string & scopedstrChannel, ::launcher * plauncher)
    {
 
       if (m_strBaseChannel.has_character())
@@ -103,7 +103,7 @@ namespace apex_universal_windows
    }
 
 
-   void interprocess_caller::send(const ::string & strMessage, const class time & timeTimeout)
+   void interprocess_caller::send(const ::scoped_string & scopedstrMessage, const class time & timeTimeout)
    {
 
       //if (!is_tx_ok())
@@ -215,7 +215,7 @@ namespace apex_universal_windows
    }
 
 
-   void interprocess_handler::create(const ::string & strChannel)
+   void interprocess_handler::create(const ::scoped_string & scopedstrChannel)
    {
 
       if (m_strBaseChannel.has_character())
@@ -405,7 +405,7 @@ namespace apex_universal_windows
    //}
 
 
-   //bool interprocess_handler::create(const ::string & strChannel, const scoped_string & strModule)
+   //bool interprocess_handler::create(const ::scoped_string & scopedstrChannel, const scoped_string & strModule)
    //{
 
    //   m_strChannel = pszChannel;

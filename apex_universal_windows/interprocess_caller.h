@@ -25,12 +25,12 @@ namespace apex_universal_windows
       //#if defined(UNIVERSAL_WINDOWS)
       //      bool open(const ::string & pszChannel) override;
       //#else
-      void open(const ::string & strChannel, ::launcher * plauncher = nullptr) override;
+      void open(const ::scoped_string & scopedstrChannel, ::launcher * plauncher = nullptr) override;
       //#endif
       void close() override;
 
 
-      void call(const ::string & strUri, const class time & timeTimeout) override;
+      void call(const ::scoped_string & scopedstrUri, const class time & timeTimeout) override;
       //void send(int message, void * pdata, int len, const class time & timeTimeout) override;
 
 

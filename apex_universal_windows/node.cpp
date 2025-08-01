@@ -426,7 +426,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::local_machine_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
+   void node::local_machine_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
    {
 
       //try
@@ -465,7 +465,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::local_machine_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
+   void node::local_machine_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
    {
 
       //try
@@ -502,7 +502,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::current_user_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
+   void node::current_user_set_run(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
    {
 
       //try
@@ -541,7 +541,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::current_user_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::string & strArguments, bool bSet)
+   void node::current_user_set_run_once(const ::string & pszKey, const ::file::path & pathExecutable, const ::scoped_string & scopedstrArguments, bool bSet)
    {
 
       //try
@@ -844,7 +844,7 @@ namespace apex_universal_windows
    }
 
 
-   bool node::open_in_ie(const ::string & pcsz)
+   bool node::open_in_ie(const ::scoped_string & scopedstr)
    {
 
       //try
@@ -1063,7 +1063,7 @@ namespace apex_universal_windows
    //}
 
 
-   bool node::_getCredentialsForService(const ::string & strService, WCHAR * szUsername, WCHAR * szPassword)
+   bool node::_getCredentialsForService(const ::scoped_string & scopedstrService, WCHAR * szUsername, WCHAR * szPassword)
    {
 
       //      HRESULT hr = S_OK;
@@ -1449,7 +1449,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::enable_service(const ::string & strServiceName, const ::string & strDisplayName, const ::string & strCommand, const ::string & strUser, const ::string & strPass)
+   void node::enable_service(const ::scoped_string & scopedstrServiceName, const ::scoped_string & scopedstrDisplayName, const ::scoped_string & scopedstrCommand, const ::scoped_string & scopedstrUser, const ::scoped_string & scopedstrPass)
    {
 
       //if (strServiceName.is_empty())
@@ -1518,7 +1518,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::disable_service(const ::string & strServiceName)
+   void node::disable_service(const ::scoped_string & scopedstrServiceName)
    {
 
       //if (strServiceName.is_empty())
@@ -1586,7 +1586,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::start_service(const ::string & strServiceName)
+   void node::start_service(const ::scoped_string & scopedstrServiceName)
    {
 
       //if(strServiceName.is_empty())
@@ -1626,7 +1626,7 @@ namespace apex_universal_windows
    }
 
 
-   void node::stop_service(const ::string & strServiceName)
+   void node::stop_service(const ::scoped_string & scopedstrServiceName)
    {
 
       //if(strServiceName.is_empty())
@@ -2393,7 +2393,7 @@ namespace apex_universal_windows
       return false;
    }
 
-   ::file::path node::get_app_path(const ::string & strApp)
+   ::file::path node::get_app_path(const ::scoped_string & scopedstrApp)
    {
 
       //      string str(strApp);

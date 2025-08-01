@@ -27,7 +27,7 @@ namespace windowing_universal_windows
       ~icon() override;
 
 
-      void load_file(const ::string & strPath) override;
+      void load_file(const ::scoped_string & scopedstrPath) override;
 
       void load_app_tray_icon(const ::scoped_string & scopedstrApp) override;
 

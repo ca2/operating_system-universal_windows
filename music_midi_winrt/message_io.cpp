@@ -330,7 +330,7 @@ namespace music
          //   }
          //}
 
-         //message_io::MidiDeviceWatcher::MidiDeviceWatcher(message_io * pio, const ::string & strMidiSelector)
+         //message_io::MidiDeviceWatcher::MidiDeviceWatcher(message_io * pio, const ::scoped_string & scopedstrMidiSelector)
          //   : m_pio(pio),m_strMidiSelector(strMidiSelector) // ,
          //   _deviceWatcher(nullptr),
          //   _devInfoCollection(nullptr),

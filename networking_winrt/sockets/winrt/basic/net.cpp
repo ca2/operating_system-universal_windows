@@ -141,7 +141,7 @@ namespace sockets
    } // rfc1738_decode
 
 
-   bool net::isipv4(const ::string & str)
+   bool net::isipv4(const ::scoped_string & scopedstr)
    {
       int dots = 0;
       // %! ignore :port?
@@ -159,7 +159,7 @@ namespace sockets
    }
 
 
-   bool net::isipv6(const ::string & str)
+   bool net::isipv6(const ::scoped_string & scopedstr)
    {
       ::collection::index qc = 0;
       ::collection::index qd = 0;

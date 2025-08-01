@@ -29,7 +29,7 @@ namespace apex_universal_windows
    }
 
 
-   void interprocess_target::create(const ::string & strChannel)
+   void interprocess_target::create(const ::scoped_string & scopedstrChannel)
    {
 
       if (m_strBaseChannel.has_character())

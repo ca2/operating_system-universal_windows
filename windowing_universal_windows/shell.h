@@ -86,7 +86,7 @@ namespace windowing_universal_windows
 
 
 
-      ///         virtual int get_extension_image(const ::string & strExtension, e_file_attribute eattribute, e_icon eicon, ::color::color crBk = 0) override;
+      ///         virtual int get_extension_image(const ::scoped_string & scopedstrExtension, e_file_attribute eattribute, e_icon eicon, ::color::color crBk = 0) override;
 
       void add_icon(int iSize, HICON hicon, _get_file_image_ & getfileimage);
 
@@ -98,7 +98,7 @@ namespace windowing_universal_windows
 
       ::user::shell::enum_folder get_folder_type(::particle * pparticle, const ::wstring & wstrPath) override;
 
-      ::user::shell::enum_folder get_folder_type(::particle * pparticle, const ::string & strPath) override;
+      ::user::shell::enum_folder get_folder_type(::particle * pparticle, const ::scoped_string & scopedstrPath) override;
 
 
 

@@ -54,17 +54,17 @@ namespace acme_universal_windows
       //virtual ::file::path module() override;
       //virtual ::file::path ca2module();
       ::file::path time_square() override;
-      ::file::path time_log(const ::string & strId) override;
+      ::file::path time_log(const ::scoped_string & scopedstrId) override;
 
 
       ::file::path trash_that_is_not_trash(const ::file::path & path) override;
 
 
 
-      ::file::path appdata(const ::string & strAppId = "") override;
+      ::file::path appdata(const ::scoped_string & scopedstrAppId = "") override;
       ::file::path commonappdata_root() override;
 
-      //virtual ::file::path usersystemappdata(const ::string & pcszPrefix);
+      //virtual ::file::path usersystemappdata(const ::scoped_string & scopedstrPrefix);
 
       //virtual ::file::path userappdata();
       //virtual ::file::path userdata();

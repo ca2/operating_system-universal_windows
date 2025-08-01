@@ -39,7 +39,7 @@ namespace music
             bool                          m_bEnumCompleted;
 
 
-            device_watcher(midi * pmidi, const ::string & strMidiSelector);
+            device_watcher(midi * pmidi, const ::scoped_string & scopedstrMidiSelector);
             ~device_watcher() override;
 
 

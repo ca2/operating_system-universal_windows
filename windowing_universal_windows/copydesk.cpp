@@ -253,7 +253,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //HGLOBAL copydesk::hglobal_get_wide_text(const ::string & str)
+   //HGLOBAL copydesk::hglobal_get_wide_text(const ::scoped_string & scopedstr)
    //{
 
    //   ::collection::count c = utf8_to_unicode_count(str) + 1;
@@ -269,7 +269,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //HGLOBAL copydesk::hglobal_get_utf8_text(const ::string & str)
+   //HGLOBAL copydesk::hglobal_get_utf8_text(const ::scoped_string & scopedstr)
    //{
 
    //   HGLOBAL hglb = ::GlobalAlloc(GMEM_MOVEABLE, (SIZE_T) (sizeof(char) * (str.length() + 1)));
@@ -541,7 +541,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool copydesk::_set_plain_text(const ::string & str)
+   bool copydesk::_set_plain_text(const ::scoped_string & scopedstr)
    {
 
       if (!m_pwindow)

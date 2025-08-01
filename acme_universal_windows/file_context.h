@@ -58,7 +58,7 @@ namespace acme_universal_windows
 
       ::file_pointer resource_get_file(const ::file::path & path) override;
 
-      virtual bool get_last_write_time(FILETIME * pfiletime, const ::string & strFilename);
+      virtual bool get_last_write_time(FILETIME * pfiletime, const ::scoped_string & scopedstrFilename);
 
       //::e_status update_module_path() override;
 

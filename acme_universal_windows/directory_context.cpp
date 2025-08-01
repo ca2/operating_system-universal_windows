@@ -901,7 +901,7 @@ namespace acme_universal_windows
    }
 
 
-   ::file::path directory_context::time_log(const ::string & strId)
+   ::file::path directory_context::time_log(const ::scoped_string & scopedstrId)
    {
 
       return appdata() / "log" / strId;
@@ -1166,7 +1166,7 @@ namespace acme_universal_windows
    }
 
    
-   ::file::path directory_context::appdata(const ::string & strAppId)
+   ::file::path directory_context::appdata(const ::scoped_string & scopedstrAppId)
    {
 
       return ::directory_context::appdata(strAppId);

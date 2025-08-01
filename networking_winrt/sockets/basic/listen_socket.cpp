@@ -39,14 +39,14 @@ namespace sockets_bsd
 
    }
 
-   void listen_socket::set_ssl_catalog(const ::string & strCat)
+   void listen_socket::set_ssl_catalog(const ::scoped_string & scopedstrCat)
    {
 
       m_strCat = strCat;
 
    }
 
-   void listen_socket::set_ssl_cipher_list(const ::string & strCipherList)
+   void listen_socket::set_ssl_cipher_list(const ::scoped_string & scopedstrCipherList)
    {
 
       m_strCipherList = strCipherList;

@@ -51,7 +51,7 @@ namespace apex_universal_windows
    //}
 
 
-   void interprocess_caller::open(const ::string & strChannel, ::launcher * plauncher)
+   void interprocess_caller::open(const ::scoped_string & scopedstrChannel, ::launcher * plauncher)
    {
 
       if (m_strBaseChannel.has_character())
@@ -89,7 +89,7 @@ namespace apex_universal_windows
    }
 
 
-   void interprocess_caller::call(const ::string & strUri, const class time & timeTimeout)
+   void interprocess_caller::call(const ::scoped_string & scopedstrUri, const class time & timeTimeout)
    {
 
       //if (!is_tx_ok())

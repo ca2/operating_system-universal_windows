@@ -28,7 +28,7 @@ namespace music
       {
 
 
-         device_watcher::device_watcher(midi * pmidi, const ::string & strMidiSelector) : 
+         device_watcher::device_watcher(midi * pmidi, const ::scoped_string & scopedstrMidiSelector) : 
             m_pmidi(pmidi),
             m_strMidiSelector(strMidiSelector), 
             m_devicewatcher(nullptr),

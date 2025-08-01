@@ -298,7 +298,7 @@ namespace sockets_bsd
 
    //void base_socket::create_sock
 
-   /*   SOCKET base_socket::CreateSocket(int af,int iType, const ::string & strProtocol)
+   /*   SOCKET base_socket::CreateSocket(int af,int iType, const ::scoped_string & scopedstrProtocol)
    {
    struct protoent *point = nullptr;
    SOCKET s;
@@ -918,7 +918,7 @@ namespace sockets_bsd
    }
 
 
-   void base_socket::SetSocketProtocol(const ::string & strProtocol)
+   void base_socket::SetSocketProtocol(const ::scoped_string & scopedstrProtocol)
    {
       m_strSocketProtocol = strProtocol;
    }

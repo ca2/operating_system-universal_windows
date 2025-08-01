@@ -142,9 +142,9 @@ namespace sockets
       */
       string rfc1738_decode(const string & src);
 
-      static bool isipv4(const ::string & str);
+      static bool isipv4(const ::scoped_string & scopedstr);
 
-      static bool isipv6(const ::string & str);
+      static bool isipv6(const ::scoped_string & scopedstr);
 
 #ifdef BSD_STYLE_SOCKETS
 
@@ -181,7 +181,7 @@ namespace sockets
 
       bool reverse(string & hostname, ::networking::address * address, int flags = 0);
 
-      static int service_port(const ::string & strName, int ai_flags = 0);
+      static int service_port(const ::scoped_string & scopedstrName, int ai_flags = 0);
 
       string service_name(int iPort, int ai_flags = 0);
 

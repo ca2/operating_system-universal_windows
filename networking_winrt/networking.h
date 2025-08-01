@@ -202,9 +202,9 @@ namespace networking_bsd
       
       //int _select(::sockets::socket_handler * psockethandler, const class time & timeWait) override;
 
-      ::pointer<::networking::address>create_ip4_address(const ::string & strIp4, ::networking::port_t port = 0) override;
+      ::pointer<::networking::address>create_ip4_address(const ::scoped_string & scopedstrIp4, ::networking::port_t port = 0) override;
 
-      ::pointer<::networking::address>create_ip6_address(const ::string & strIp6, ::networking::port_t port = 0) override;
+      ::pointer<::networking::address>create_ip6_address(const ::scoped_string & scopedstrIp6, ::networking::port_t port = 0) override;
 
       ::pointer<address>create_ip4_address(unsigned int u, ::networking::port_t port = 0);
 

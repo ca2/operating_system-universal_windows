@@ -6776,7 +6776,7 @@ namespace windowing_universal_windows
 
    // Helper function to put a zero-width non-breaking space at the end of a string.
    // This prevents TextBlock from trimming trailing spaces.
-   ::string  window::PreserveTrailingSpaces(const ::string & str)
+   ::string  window::PreserveTrailingSpaces(const ::scoped_string & scopedstr)
    {
 
       return str + L"\ufeff";
@@ -6865,7 +6865,7 @@ namespace windowing_universal_windows
       //}
 
 
-      //void window::initialize_application(::aura::system * psystem, const ::string & strId)
+      //void window::initialize_application(::aura::system * psystem, const ::scoped_string & scopedstrId)
       //{
 
 

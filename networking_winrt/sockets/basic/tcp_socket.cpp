@@ -689,7 +689,7 @@ namespace sockets_bsd
    }
 
 
-   void tcp_socket::set_host(const ::string & strHost)
+   void tcp_socket::set_host(const ::scoped_string & scopedstrHost)
    {
 
       m_strHost = strHost;
@@ -705,7 +705,7 @@ namespace sockets_bsd
    }
 
 
-   void tcp_socket::set_tls_hostname(const ::string & strTlsHostname)
+   void tcp_socket::set_tls_hostname(const ::scoped_string & scopedstrTlsHostname)
    {
 
       m_strTlsHostName = strTlsHostname;
@@ -713,7 +713,7 @@ namespace sockets_bsd
    }
 
 
-   void tcp_socket::set_connect_host(const ::string & strConnectHost)
+   void tcp_socket::set_connect_host(const ::scoped_string & scopedstrConnectHost)
    {
 
       m_strConnectHost = strConnectHost;
@@ -745,7 +745,7 @@ namespace sockets_bsd
    }
 
 
-   void tcp_socket::set_url(const ::string & strUrl)
+   void tcp_socket::set_url(const ::scoped_string & scopedstrUrl)
    {
 
       m_strUrl = strUrl;
@@ -2111,7 +2111,7 @@ namespace sockets_bsd
    }
 
 
-   void tcp_socket::set_init_ssl_client_context(const ::string & strInitSSLClientContext)
+   void tcp_socket::set_init_ssl_client_context(const ::scoped_string & scopedstrInitSSLClientContext)
    {
       
       m_strInitSSLClientContext = strInitSSLClientContext;

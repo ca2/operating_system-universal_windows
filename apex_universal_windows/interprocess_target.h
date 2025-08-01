@@ -21,7 +21,7 @@ namespace apex_universal_windows
       ~interprocess_target() override;
 
 
-      void create(const ::string & strChannel) override;
+      void create(const ::scoped_string & scopedstrChannel) override;
       void destroy() override;
 
 

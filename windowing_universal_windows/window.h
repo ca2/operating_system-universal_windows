@@ -215,7 +215,7 @@ namespace windowing_universal_windows
 
       // Helper function to put a zero-width non-breaking space at the end of a string.
       // This prevents TextBlock from trimming trailing spaces.
-      static string PreserveTrailingSpaces(const ::string & str);
+      static string PreserveTrailingSpaces(const ::scoped_string & scopedstr);
 
       void UpdateFocusUI();
 
@@ -236,7 +236,7 @@ namespace windowing_universal_windows
       //application();
 
 
-      //virtual ::e_status initialize_application(::aura::system * psystem, const ::string & strId);
+      //virtual ::e_status initialize_application(::aura::system * psystem, const ::scoped_string & scopedstrId);
 
 
       // void install_directx_application_message_routing();

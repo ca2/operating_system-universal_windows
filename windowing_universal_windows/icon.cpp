@@ -118,7 +118,7 @@ namespace windowing_universal_windows
    }
 
 
-   void icon::load_file(const ::string & strPath)
+   void icon::load_file(const ::scoped_string & scopedstrPath)
    {
 
       //m_ppathProcessed = m_papplication->defer_process_matter_path(strPath);
@@ -162,7 +162,7 @@ namespace windowing_universal_windows
    }
 
 
-   void icon::load_app_tray_icon(const ::string & strApp)
+   void icon::load_app_tray_icon(const ::scoped_string & scopedstrApp)
    {
 
       string strMatter = "main/icon.ico";
