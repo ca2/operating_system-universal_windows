@@ -3836,7 +3836,7 @@ namespace apex_universal_windows
    //}
 
 
-   void node::list_process(::file::path_array & patha, ::process_identifier_array & uaPid)
+   void node::list_process(::file::path_array_base & patha, ::process_identifier_array & uaPid)
    {
 
       //ASSERT(sizeof(unsigned int) == sizeof(unsigned int));

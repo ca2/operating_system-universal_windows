@@ -53,13 +53,13 @@ namespace windowing_universal_windows
       virtual ::collection::count _get_file_count();
       virtual int _get_priority_text_format();
 
-      //virtual HGLOBAL hglobal_get_filea(const ::file::path_array & stra);
+      //virtual HGLOBAL hglobal_get_filea(const ::file::path_array_base & stra);
       //virtual HGLOBAL hglobal_get_wide_text(const ::scoped_string & scopedstr);
       //virtual HGLOBAL hglobal_get_utf8_text(const ::scoped_string & scopedstr);
       //virtual HGLOBAL hglobal_get_image(const ::image::image * pimage);
 
-      bool _set_filea(const ::file::path_array & stra, enum_op eop) override;
-      bool _get_filea(::file::path_array & stra, enum_op & eop) override;
+      bool _set_filea(const ::file::path_array_base & stra, enum_op eop) override;
+      bool _get_filea(::file::path_array_base & stra, enum_op & eop) override;
       bool _has_filea() override;
 
       bool _set_plain_text(const ::scoped_string & scopedstr) override;

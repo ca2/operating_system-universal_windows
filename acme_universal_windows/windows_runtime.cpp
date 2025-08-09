@@ -534,7 +534,7 @@ namespace acme_universal_windows
    //   }
    //
    //
-   //   ::file::path_array patha;
+   //   ::file::path_array_base patha;
    //
    //   ::file::path path(strPath);
    //

@@ -349,7 +349,7 @@ namespace acme_universal_windows
    //   }
    //}
 
-   ::file::listing & directory_context::root_ones(::file::listing & listing)
+   ::file::listing_base & directory_context::root_ones(::file::listing_base & listing)
    {
       //unsigned int dwSize = ::GetLogicalDriveStringsW(0, nullptr);
       //::acme::malloc < LPWSTR > pszAlloc;
@@ -391,7 +391,7 @@ namespace acme_universal_windows
    }
 
 
-   bool directory_context::enumerate(::file::listing & listing)
+   bool directory_context::enumerate(::file::listing_base & listing)
    {
 
       //if (listing.m_bRecursive)
@@ -418,7 +418,7 @@ namespace acme_universal_windows
 
       //      listing.m_estatus = ::success;
 
-      //      ::file::listing dira;
+      //      ::file::listing_base dira;
 
       //      ls_dir(dira, listing.m_pathUser);
 
@@ -580,7 +580,7 @@ namespace acme_universal_windows
    }
 
 
-   //bool directory_context::ls_relative_name(::file::listing & listing)
+   //bool directory_context::ls_relative_name(::file::listing_base & listing)
    //{
 
 
@@ -610,7 +610,7 @@ namespace acme_universal_windows
 
    //         listing.m_estatus = ::success;
 
-   //         ::file::listing dira;
+   //         ::file::listing_base dira;
 
    //         ls_dir(dira, listing.m_pathUser);
 
@@ -919,7 +919,7 @@ namespace acme_universal_windows
 
    //   }
 
-   //   ::file::path_array stra;
+   //   ::file::path_array_base stra;
 
    //   path.ascendants_path(stra);
 
@@ -1039,7 +1039,7 @@ namespace acme_universal_windows
    //   if (bRecursive)
    //   {
    //      
-   //      ::file::listing patha;
+   //      ::file::listing_base patha;
 
    //      ls(patha, path);
 
@@ -1225,7 +1225,7 @@ namespace acme_universal_windows
    bool directory_context::has_subdir(const ::file::path & pathFolder)
    {
 
-      ::file::listing listing;
+      ::file::listing_base listing;
 
       listing.set_folder_listing(pathFolder);
 

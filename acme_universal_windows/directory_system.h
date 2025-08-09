@@ -171,17 +171,17 @@ namespace acme_universal_windows
 
                   //::e_status _create_directory(const_char_pointer path) override;
 
-                  //void rls(::file::path_array & stra, const scoped_string & str) override;
+                  //void rls(::file::path_array_base & stra, const scoped_string & str) override;
 
-                  //void rls_dir(::file::path_array & stra, const scoped_string & str) override;
+                  //void rls_dir(::file::path_array_base & stra, const scoped_string & str) override;
 
-                  //void ls(::file::path_array & stra, const scoped_string & str) override;
+                  //void ls(::file::path_array_base & stra, const scoped_string & str) override;
 
-                  //void ls_dir(::file::path_array & stra, const scoped_string & str) override;
+                  //void ls_dir(::file::path_array_base & stra, const scoped_string & str) override;
 
-                  //void ls_file(::file::path_array & stra, const scoped_string & str) override;
+                  //void ls_file(::file::path_array_base & stra, const scoped_string & str) override;
 
-            bool enumerate(::file::listing & listing) override;
+            bool enumerate(::file::listing_base & listing) override;
 
             //int make_path(const scoped_string & str) override;
 

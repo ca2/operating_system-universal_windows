@@ -519,7 +519,7 @@ namespace acme_universal_windows
    //::file::path directory_system::pathfind(const ::scoped_string & scopedstrEnv, const ::scoped_string & scopedstrTopic, const ::scoped_string & scopedstrMode)
    //{
 
-   //   ::file::path_array stra;
+   //   ::file::path_array_base stra;
 
    //   stra.add_tokens(pszEnv, ":", false);
 
@@ -1289,7 +1289,7 @@ namespace acme_universal_windows
    //
    //#endif
    //
-   //         ::file::path_array stra;
+   //         ::file::path_array_base stra;
    //
    //         path.ascendants_path(stra);
    //
@@ -1491,7 +1491,7 @@ namespace acme_universal_windows
    }
 
 
-   //void directory_system::rls(::file::path_array & stra, const scoped_string & str)
+   //void directory_system::rls(::file::path_array_base & stra, const scoped_string & str)
    //{
    //   ::collection::count start = stra.get_count();
    //   ls(stra, psz);
@@ -1507,7 +1507,7 @@ namespace acme_universal_windows
    //}
 
 
-   //void directory_system::rls_dir(::file::path_array & stra, const scoped_string & str)
+   //void directory_system::rls_dir(::file::path_array_base & stra, const scoped_string & str)
    //{
 
    //   ::collection::count start = stra.get_count();
@@ -1528,7 +1528,7 @@ namespace acme_universal_windows
    //}
 
 
-   bool directory_system::enumerate(::file::listing & listing)
+   bool directory_system::enumerate(::file::listing_base & listing)
    {
 
       if (listing.m_pathFinal.is_empty())
@@ -1591,7 +1591,7 @@ namespace acme_universal_windows
    }
 
 
-   //      void directory_system::ls_dir(::file::path_array & stra, const scoped_string & str)
+   //      void directory_system::ls_dir(::file::path_array_base & stra, const scoped_string & str)
    //      {
    //
    //#if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1678,7 +1678,7 @@ namespace acme_universal_windows
    //      }
    //
    //
-   //      void directory_system::ls_file(::file::path_array & stra, const scoped_string & str)
+   //      void directory_system::ls_file(::file::path_array_base & stra, const scoped_string & str)
    //      {
    //
    //#if defined(LINUX) || defined(__APPLE__) || defined(ANDROID)
@@ -1849,7 +1849,7 @@ namespace acme_universal_windows
 //
 //         character_count iLastPo = -1;
 //
-//         ::file::path_array stra;
+//         ::file::path_array_base stra;
 //
 //
 //         path.ascendants_path(stra);
