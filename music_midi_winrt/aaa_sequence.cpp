@@ -1423,7 +1423,7 @@ Seq_Open_File_Cleanup:
 
          }
          //void sequence::Prepare(
-         //   string_array_array & straa,
+         //   string_array_array_base & straa,
          //   imedia::position_2darray & tickaaTokensTicks,
          //   int32_t iMelodyTrack,
          //   int2a & ia2TokenLine,
@@ -1458,11 +1458,11 @@ Seq_Open_File_Cleanup:
          //   imedia::position_2darray tickaaNoteOffPositions(m_pobject);
          //   imedia::position_2darray tickaaBegPositions(m_pobject);
          //   imedia::position_2darray tickaaEndPositions(m_pobject);
-         //   imedia::time_array_array ms2DTokensMillis(m_pobject);
-         //   imedia::time_array_array ms2DNoteOnMillis(m_pobject);
-         //   imedia::time_array_array ms2DNoteOffMillis(m_pobject);
-         //   imedia::time_array_array ms2DBegMillis(m_pobject);
-         //   imedia::time_array_array ms2DEndMillis(m_pobject);
+         //   imedia::time_array_array_base ms2DTokensMillis(m_pobject);
+         //   imedia::time_array_array_base ms2DNoteOnMillis(m_pobject);
+         //   imedia::time_array_array_base ms2DNoteOffMillis(m_pobject);
+         //   imedia::time_array_array_base ms2DBegMillis(m_pobject);
+         //   imedia::time_array_array_base ms2DEndMillis(m_pobject);
          //   ::music::midi::happenings midiEvents;
 
 
@@ -1869,7 +1869,7 @@ Seq_Open_File_Cleanup:
 
          //   ::music::midi::tracks & tracks = file.GetTracks();
 
-         //   string_array_array & straa = data.GetStaticData().m_straaRawTokens;
+         //   string_array_array_base & straa = data.GetStaticData().m_straaRawTokens;
 
          //   imedia::position_2darray position2a;
 
@@ -1898,7 +1898,7 @@ Seq_Open_File_Cleanup:
          //{
          //   ::music::midi::winrt::buffer & file = *this->file();
          //   ::music::midi::tracks & tracks = file.GetTracks();
-         //   string_array_array & straa = data.GetStaticData().m_straaRawTokens;
+         //   string_array_array_base & straa = data.GetStaticData().m_straaRawTokens;
          //   imedia::position_2darray position2a;
          //   int2a iaaTokenLine;
 

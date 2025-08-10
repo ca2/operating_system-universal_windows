@@ -31,7 +31,7 @@ namespace music
             array < ::winrt::agile_ref < ::winrt::Windows::Devices::Midi::MidiInPort > >     m_midiInPortArray;
             array < ::winrt::agile_ref < ::winrt::Windows::Devices::Midi::IMidiOutPort > >   m_midiOutPortArray;
 
-            string_array                                    m_straOut;
+            string_array_base                                    m_straOut;
 
 
             ::pointer<device_watcher>                      m_pmidiInDeviceWatcher;

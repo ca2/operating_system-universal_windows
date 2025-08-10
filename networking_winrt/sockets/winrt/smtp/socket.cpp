@@ -41,7 +41,7 @@ namespace sockets
          {
             if(pa.getword().case_insensitive_order("auth") == 0)
             {
-               string_array stra;
+               string_array_base stra;
                stra.explode(" ", pa.getrest());
                stra.trim();
                if(stra.case_insensitive_contains("login"))
@@ -109,7 +109,7 @@ namespace sockets
             write("\r\n");
             string strBody = m_email.m_strBody;
             strBody.replace("\r\n", "\n");
-            string_array stra;
+            string_array_base stra;
             stra.add_tokens(strBody, "\n", true);
             for(int i = 0; i < stra.get_count(); i++)
             {

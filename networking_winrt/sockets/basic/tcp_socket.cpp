@@ -2163,7 +2163,7 @@ namespace sockets_bsd
       //if (strCipherList.find("DH") >= 0)
       //{
 
-      //   ::int_array ia;
+      //   ::int_array_base ia;
 
       //   ia.add(512);
       //   ia.add(1024);
@@ -2222,7 +2222,7 @@ namespace sockets_bsd
 
          //SSL_CTX_set_tmp_ecdh(m_psslcontext->m_pclientcontext->m_psslcontext, ecdh);
 
-         int_array iaCurves;
+         int_array_base iaCurves;
          //int* curves_new;
          //char* cs = NULL;
          //char* p, * q;

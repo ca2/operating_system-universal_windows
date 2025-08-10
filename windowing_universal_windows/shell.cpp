@@ -1216,7 +1216,7 @@ namespace windowing_universal_windows
 
       //               string strResource = definition.pszIcon;
 
-      //               string_array stra;
+      //               string_array_base stra;
 
       //               stra.explode(",", strResource);
 

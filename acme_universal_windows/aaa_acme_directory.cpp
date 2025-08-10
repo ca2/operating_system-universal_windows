@@ -1760,7 +1760,7 @@ bool windows_file_find_is_dots(WIN32_FIND_DATAW & data)
       ::file::path directory_system::pathfind(const string & pszEnv, const string & pszTopic, const string & pszMode)
       {
 
-         string_array stra;
+         string_array_base stra;
 
          stra.add_tokens(pszEnv, ":");
 

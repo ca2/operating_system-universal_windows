@@ -20,7 +20,7 @@
 #include <winrt/Windows.Storage.FileProperties.h>
 
 
-CLASS_DECL_ACME string consume_token(::string & str, const ::string_array & straSeparator);
+CLASS_DECL_ACME string consume_token(::string & str, const ::string_array_base & straSeparator);
 
 
 ::winrt::Windows::UI::Core::CoreDispatcherPriority windows_runtime_UICoreDispatcherPriority(enum_priority epriority)
@@ -465,9 +465,9 @@ namespace acme_universal_windows
 
          }
 
-         //string_array straItems;
+         //string_array_base straItems;
 
-         //string_array straSeparator;
+         //string_array_base straSeparator;
 
          //straSeparator.add("/");
 
@@ -867,7 +867,7 @@ namespace acme_universal_windows
    //         if (strPrefix.has_character())
    //         {
    //
-   //            string_array stra;
+   //            string_array_base stra;
    //
    //            stra.explode("/", str);
    //

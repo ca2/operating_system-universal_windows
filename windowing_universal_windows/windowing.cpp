@@ -1308,7 +1308,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //bool windowing::_visible_top_level_contains_all_names(string_array& stra)
+   //bool windowing::_visible_top_level_contains_all_names(string_array_base& stra)
    //{
 
    //   return _top_level_contains_predicate([this, &stra](oswindow oswindow)

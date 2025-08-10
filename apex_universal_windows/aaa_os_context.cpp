@@ -514,7 +514,7 @@ namespace apex_universal_windows
    }
 
 
-   void os_context::file_extension_get_open_with_list_keys(string_array & straKey, const ::string & pszExtension)
+   void os_context::file_extension_get_open_with_list_keys(string_array_base & straKey, const ::string & pszExtension)
    {
 
       //try
@@ -548,10 +548,10 @@ namespace apex_universal_windows
    }
 
 
-   void os_context::file_extension_get_open_with_list_commands(string_array & straCommand, const ::string & pszExtension)
+   void os_context::file_extension_get_open_with_list_commands(string_array_base & straCommand, const ::string & pszExtension)
    {
 
-      //string_array straKey;
+      //string_array_base straKey;
 
       //if (!file_extension_get_open_with_list_keys(straKey, pszExtension))
       //{
@@ -2604,7 +2604,7 @@ return false;
    }
 
 
-   void os_context::set_file_extension_mime_type(string_array & straExtension, string_array & straMimeType)
+   void os_context::set_file_extension_mime_type(string_array_base & straExtension, string_array_base & straMimeType)
    {
 
       //string strTargetProgId;

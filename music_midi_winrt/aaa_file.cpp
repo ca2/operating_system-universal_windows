@@ -538,7 +538,7 @@ namespace music
 //            return MillisecsToTicks(time);
 //         }
 //
-//         void  buffer::PositionToTime(imedia::time_array & timea, imedia::position_array  & positiona, int_ptr tickOffset)
+//         void  buffer::PositionToTime(imedia::time_array_base & timea, imedia::position_array  & positiona, int_ptr tickOffset)
 //         {
 //            if(tickOffset < 0)
 //            {
@@ -568,7 +568,7 @@ namespace music
 //            }
 //         }
 //
-//         void buffer::TicksToMillisecs(imedia::time_array_array * ptimeaa, imedia::position_2darray & tickaa, int_ptr tickOffset)
+//         void buffer::TicksToMillisecs(imedia::time_array_array_base * ptimeaa, imedia::position_2darray & tickaa, int_ptr tickOffset)
 //         {
 //            ASSERT(ptimeaa->get_size() == 0);
 //            ptimeaa->set_app(m_pobject);
@@ -584,7 +584,7 @@ namespace music
 //
 //         }
 //
-//         void buffer::PositionToTime(imedia::time_array_array  & timea, imedia::position_2darray  & positiona, int_ptr tickOffset)
+//         void buffer::PositionToTime(imedia::time_array_array_base  & timea, imedia::position_2darray  & positiona, int_ptr tickOffset)
 //         {
 //            ASSERT(timea.get_size() == 0);
 //            timea.set_app(m_pobject);
@@ -600,7 +600,7 @@ namespace music
 //
 //         }
 //
-//         void  buffer::TicksToMillisecs(imedia::time_array *pMillisArray, imedia::position_array *pTickArray, int_ptr tickOffset)
+//         void  buffer::TicksToMillisecs(imedia::time_array_base *pMillisArray, imedia::position_array *pTickArray, int_ptr tickOffset)
 //         {
 //            if(tickOffset < 0)
 //            {
@@ -636,7 +636,7 @@ namespace music
 //
 //         void  buffer::MillisecsToTicks(
 //            imedia::position_array *pTickArray,
-//            imedia::time_array *pMillisArray,
+//            imedia::time_array_base *pMillisArray,
 //            imedia_time msOffset)
 //         {
 //            if(msOffset < 0)
@@ -672,7 +672,7 @@ namespace music
 //
 //         void  buffer::TimeToPosition(
 //            imedia::position_array & positiona,
-//            imedia::time_array  & timea,
+//            imedia::time_array_base  & timea,
 //            imedia_time msOffset)
 //         {
 //            if(msOffset < 0)
@@ -2091,7 +2091,7 @@ namespace music
 //            return m_ptracks->IsTune1000File();
 //         }
 //
-//         bool buffer::IsSoftKaraokeFile(bool bWork, string_array * pstra)
+//         bool buffer::IsSoftKaraokeFile(bool bWork, string_array_base * pstra)
 //         {
 //            return m_ptracks->IsSoftKaraokeFile(bWork, pstra);
 //         }
@@ -3188,7 +3188,7 @@ namespace music
 //
 //
 //         e_result buffer::WorkWriteXFTracks(
-//            string_array &  tokena,
+//            string_array_base &  tokena,
 //            imedia::position_array & positiona,
 //            ::music::xf::info_header & xfinfoheader)
 //         {

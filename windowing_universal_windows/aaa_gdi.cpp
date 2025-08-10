@@ -198,7 +198,7 @@ namespace windowing_win32
    }
 
 
-   HICON windowing::_load_icon(string_array & straMatter, string strIcon, int cx, int cy)
+   HICON windowing::_load_icon(string_array_base & straMatter, string strIcon, int cx, int cy)
    {
 
       HICON hicon = nullptr;

@@ -150,9 +150,9 @@ namespace acme_universal_windows
 
          node()->defer_co_initialize_ex(true);
 
-         string_array straItems;
+         string_array_base straItems;
 
-         string_array straSeparator;
+         string_array_base straSeparator;
 
          straSeparator.add("/");
 

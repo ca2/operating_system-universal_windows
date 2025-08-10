@@ -1770,7 +1770,7 @@ namespace acme_universal_windows
    ::file::path directory_system::pathfind(const ::scoped_string & scopedstrEnv, const ::scoped_string & scopedstrTopic, const ::scoped_string & scopedstrMode)
    {
 
-      string_array stra;
+      string_array_base stra;
 
       stra.add_tokens(pszEnv, ":");
 
