@@ -139,7 +139,7 @@ namespace sockets
 
             string result;
 
-            if(::apexacmesystem()->sockets().m_resolvcache[m_query].lookup(m_data, result))
+            if(::apexacmesystem()->sockets().m_resolvcache[m_query].find(m_data, result))
             {
 
                if (time(nullptr) - ::apexacmesystem()->sockets().m_resolvtimeout[m_query][m_data] < 3600) // ttl

@@ -168,10 +168,10 @@ namespace acme_universal_windows
    watcher::~watcher()
    {
 
-      //watch_map::pair * ppair = m_watchmap.get_start();
-      //for(; ppair != nullptr; m_watchmap.get_next(ppair))
+      //watch_map::pair * iterator = m_watchmap.get_start();
+      //for(; iterator != nullptr; m_watchmap.get_next(iterator))
       //{
-      //   DestroyWatch(ppair->element2().w);
+      //   DestroyWatch(iterator->element2().w);
       //}
       //m_watchmap.erase_all();
 

@@ -490,7 +490,7 @@ namespace networking_bsd
 
       single_lock synchronouslock(m_pmutexCache, true);
       dns_cache_item item;
-      if (m_mapCache.lookup(str, item) && (item.m_bOk && (!item.m_bTimeout || ((item.m_timeLastChecked.elapsed()) < (5_minute)))))
+      if (m_mapCache.find(str, item) && (item.m_bOk && (!item.m_bTimeout || ((item.m_timeLastChecked.elapsed()) < (5_minute)))))
       {
          if (item.m_bOk)
          {
@@ -615,7 +615,7 @@ namespace networking_bsd
       }
 
       //      ::time tick2= ::time::now();
-      //      informationf("DNS lookup networking::u2ip " + str + " : %d.%d.%d.%d (%d ms)",
+      //      informationf("DNS find networking::u2ip " + str + " : %d.%d.%d.%d (%d ms)",
          //       (unsigned int)((unsigned char*)&pitem->m_ipaddr)[0],
          //     (unsigned int)((unsigned char*)&pitem->m_ipaddr)[1],
          //   (unsigned int)((unsigned char*)&pitem->m_ipaddr)[2],
@@ -1248,7 +1248,7 @@ namespace networking_bsd
          }
          else
          {
-            // %! TODO: ipv6 reverse lookup
+            // %! TODO: ipv6 reverse find
             struct sockaddr_in6* sa_in = (struct sockaddr_in6*)sa;
             struct hostent* h = gethostbyaddr((const_char_pointer )&sa_in->sin6_addr, sizeof(sa_in->sin6_addr), AF_INET6);
             if (h)
@@ -1867,7 +1867,7 @@ namespace networking_bsd
    //
    //      single_lock synchronouslock(m_pmutexCache, true);
    //      dns_cache_item item;
-   //      if(m_mapCache.lookup(str, item) && (item.m_bOk && (!item.m_bTimeout || ((item.m_timeLastChecked.elapsed()) < (5 * 60 * 1000)))))
+   //      if(m_mapCache.find(str, item) && (item.m_bOk && (!item.m_bTimeout || ((item.m_timeLastChecked.elapsed()) < (5 * 60 * 1000)))))
    //      {
    //         if (item.m_bOk)
    //         {
@@ -1992,7 +1992,7 @@ namespace networking_bsd
    //   }
    //
    ////      ::time tick2= ::time::now();
-   ////      informationf("DNS lookup networking::u2ip " + str + " : %d.%d.%d.%d (%d ms)",
+   ////      informationf("DNS find networking::u2ip " + str + " : %d.%d.%d.%d (%d ms)",
    //   //       (unsigned int)((unsigned char*)&pitem->m_ipaddr)[0],
    //   //     (unsigned int)((unsigned char*)&pitem->m_ipaddr)[1],
    //   //   (unsigned int)((unsigned char*)&pitem->m_ipaddr)[2],
@@ -2601,7 +2601,7 @@ namespace networking_bsd
       //      }
       //      else
       //      {
-      //         // %! TODO: ipv6 reverse lookup
+      //         // %! TODO: ipv6 reverse find
       //         struct sockaddr_in6* sa_in = (struct sockaddr_in6*)sa;
       //         struct hostent* h = gethostbyaddr((const_char_pointer )&sa_in->sin6_addr, sizeof(sa_in->sin6_addr), AF_INET6);
       //         if (h)

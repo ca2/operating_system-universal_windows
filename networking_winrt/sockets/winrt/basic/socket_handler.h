@@ -137,7 +137,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          \param port Port number will be echoed in socket::OnResolved callback */
          int Resolve(base_socket *,const ::scoped_string & scopedstrHost,port_t port);
          int Resolve6(base_socket *,const ::scoped_string & scopedstrHost,port_t port);
-         /** Do a reverse dns lookup. */
+         /** Do a reverse dns find. */
          int Resolve(base_socket *,in_addr a);
          int Resolve(base_socket *,in6_addr& a);
          /** get listen port of asynchronous dns server. */

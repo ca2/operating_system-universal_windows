@@ -94,13 +94,13 @@ namespace sockets
          m_resolver -> Quit();
       }
       {
-         auto ppair = m_sockets.get_start();
+         auto iterator = m_sockets.get_start();
          //SOCKET s;
-         while(ppair != nullptr)
+         while(iterator != nullptr)
          {
             //socket_pointer p;
             ///.get_next_assoc(pos, s, p);
-            auto p = ppair->element2();
+            auto p = iterator->element2();
             if(p)
             {
                try
@@ -121,7 +121,7 @@ namespace sockets
                   }
                }
             }
-            ppair = ppair->m_pnext;
+            iterator = iterator->m_pnext;
          }
       }
       m_sockets.erase_all();
@@ -168,9 +168,9 @@ namespace sockets
          return;
       }
       
-      socket_pointer plookup;
+      socket_pointer find;
 
-      if (m_add.lookup(p -> GetSocket(), plookup))
+      if (m_add.find(p -> GetSocket(), find))
       {
          
          //fatal() <<log_this, p, "add", (int)p -> GetSocket(), "Attempt to add socket already in add queue";
@@ -274,15 +274,15 @@ namespace sockets
    int socket_handler::select(struct timeval *tsel)
    {
 
-      auto ppair = m_add.get_start();
+      auto iterator = m_add.get_start();
       SOCKET s;
       socket_pointer psocket;
-      while(ppair != nullptr)
+      while(iterator != nullptr)
       {
 
          s = 0;
 
-         psocket = ppair->element2();
+         psocket = iterator->element2();
 
          //m_add.get_next_assoc(pos, s, psocket);
 
@@ -297,18 +297,18 @@ namespace sockets
 
          }
 
-         ppair = ppair->m_pnext;
+         iterator = iterator->m_pnext;
 
       }
 
-      ppair = m_sockets.get_start();
+      iterator = m_sockets.get_start();
 
 
 
-      while(ppair != nullptr)
+      while(iterator != nullptr)
       {
          s = 0;
-         psocket = ppair->element2();
+         psocket = iterator->element2();
          //m_sockets.get_next_assoc(pos, s, psocket);
          if(psocket != nullptr)
          {
@@ -368,19 +368,19 @@ namespace sockets
    bool socket_handler::Resolving(base_socket * p0)
    {
 
-      return m_resolve_q.plookup(p0) != nullptr;
+      return m_resolve_q.find(p0) != nullptr;
 
    }
 
 
    bool socket_handler::Valid(base_socket * p0)
    {
-      auto ppair = m_sockets.get_start();
-      while(ppair != nullptr)
+      auto iterator = m_sockets.get_start();
+      while(iterator != nullptr)
       {
-         if (p0 == ppair->element2())
+         if (p0 == iterator->element2())
             return true;
-         ppair = ppair->m_pnext;
+         iterator = iterator->m_pnext;
       }
       return false;
    }
@@ -571,10 +571,10 @@ namespace sockets
 
    ::pointer<base_socket_handler::pool_socket>socket_handler::FindConnection(int type,const string & protocol, ::networking::address * ad)
    {
-      auto ppair = m_sockets.get_start();
-      while(ppair != nullptr)
+      auto iterator = m_sockets.get_start();
+      while(iterator != nullptr)
       {
-         ::pointer<pool_socket>pools = ppair->element2();
+         ::pointer<pool_socket>pools = iterator->element2();
          if (pools)
          {
             if (pools -> GetSocketType() == type &&
@@ -582,13 +582,13 @@ namespace sockets
                   // %!             pools -> GetClientRemoteAddress() &&
                   pools -> GetClientRemoteAddress() == ad)
             {
-               m_sockets.erase_key(ppair->element1());
+               m_sockets.erase_key(iterator->element1());
                pools -> SetRetain(); // avoid close in socket destructor
                return pools; // Caller is responsible that this socket is deleted
             }
          }
-         //ppair = m_sockets.get_next(ppair);
-         ppair->m_pnext;
+         //iterator = m_sockets.get_next(iterator);
+         iterator->m_pnext;
       }
       return nullptr;
    }
@@ -609,33 +609,33 @@ namespace sockets
    void socket_handler::erase(base_socket * p)
    {
       bool b;
-      if(m_resolve_q.lookup(p, b))
+      if(m_resolve_q.find(p, b))
          m_resolve_q.erase_key(p);
       if(p -> ErasedByHandler())
       {
          return;
       }
-      auto ppair = m_sockets.get_start();
-      while(ppair != nullptr)
+      auto iterator = m_sockets.get_start();
+      while(iterator != nullptr)
       {
-         if(ppair->element2() == p)
+         if(iterator->element2() == p)
          {
             WARN(p, "erase", -1, "socket destructor called while still in use");
-            m_sockets.erase_key(ppair->element1());
+            m_sockets.erase_key(iterator->element1());
             return;
          }
-         ppair = ppair->m_pnext;
+         iterator = iterator->m_pnext;
       }
-      auto ppair2 = m_add.get_start();
-      while(ppair2 != nullptr)
+      auto iterator2 = m_add.get_start();
+      while(iterator2 != nullptr)
       {
-         if (ppair2->element2() == p)
+         if (iterator2->element2() == p)
          {
             WARN(p, "erase", -2, "socket destructor called while still in use");
-            m_add.erase_key(ppair2->element1());
+            m_add.erase_key(iterator2->element1());
             return;
          }
-         ppair2 = ppair2->m_pnext;
+         iterator2 = iterator2->m_pnext;
       }
       if(m_delete.erase(p->GetSocket()) > 0)
       {
@@ -662,9 +662,9 @@ namespace sockets
       auto pnode = ref.get_head();
       while(pnode != nullptr)
       {
-         if(m_sockets.plookup(pnode->m_value) != nullptr)
+         if(m_sockets.find(pnode->m_value) != nullptr)
             continue;
-         if(m_add.plookup(pnode->m_value) != nullptr)
+         if(m_add.find(pnode->m_value) != nullptr)
             continue;
          bool found = false;
          auto pos = m_delete.get_head();
@@ -759,9 +759,9 @@ namespace sockets
 
    bool socket_handler::Subscribe(int atom, base_socket *dst)
    {
-      if(m_trigger_src.plookup(atom) != nullptr)
+      if(m_trigger_src.find(atom) != nullptr)
       {
-         if(m_trigger_dst[atom].plookup(dst) != nullptr)
+         if(m_trigger_dst[atom].find(dst) != nullptr)
          {
             m_trigger_dst[atom][dst] = true;
             return true;
@@ -776,9 +776,9 @@ namespace sockets
 
    bool socket_handler::Unsubscribe(int atom, base_socket *dst)
    {
-      if (m_trigger_src.plookup(atom) != nullptr)
+      if (m_trigger_src.find(atom) != nullptr)
       {
-         if(m_trigger_dst[atom].plookup(dst) != nullptr)
+         if(m_trigger_dst[atom].find(dst) != nullptr)
          {
             m_trigger_dst[atom].erase_key(dst);
             return true;
@@ -794,17 +794,17 @@ namespace sockets
    void socket_handler::Trigger(int atom, socket::trigger_data& data, bool erase)
    {
       
-      if(m_trigger_src.plookup(atom) != nullptr)
+      if(m_trigger_src.find(atom) != nullptr)
       {
          
          data.SetSource( m_trigger_src[atom]);
 
-         auto ppair = m_trigger_dst[atom].get_start();
+         auto iterator = m_trigger_dst[atom].get_start();
 
-         while(ppair != nullptr)
+         while(iterator != nullptr)
          {
             
-            socket_pointer dst = ppair->element1();
+            socket_pointer dst = iterator->element1();
 
             if (Valid(dst))
             {
@@ -813,7 +813,7 @@ namespace sockets
 
             }
             
-            ppair = ppair->m_pnext;
+            iterator = iterator->m_pnext;
 
          }
 

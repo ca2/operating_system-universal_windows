@@ -562,7 +562,7 @@ namespace sockets
             {
                return true;
             }
-            // %! TODO: ipv6 reverse lookup
+            // %! TODO: ipv6 reverse find
 
             ::winrt::Windows::Networking::HostName ^ name = ref __allocate< ::winrt::Windows::Networking::HostName(rtstr >(hostname));
 
@@ -652,7 +652,7 @@ namespace sockets
          }
          else
          {
-            // %! TODO: ipv6 reverse lookup
+            // %! TODO: ipv6 reverse find
             struct sockaddr_in6 *sa_in = (struct sockaddr_in6 *)sa;
             struct hostent *h = gethostbyaddr( (const string &)&sa_in -> sin6_addr, sizeof(sa_in -> sin6_addr), AF_INET6);
             if (h)
