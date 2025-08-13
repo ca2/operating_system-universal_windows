@@ -264,9 +264,9 @@ namespace sockets
 
          }
          throw ::not_implemented();
-   /*      list<string> vec = m_response.CookieNames();
+   /*      list_base<string> vec = m_response.CookieNames();
          {
-            for (list<string>::iterator it = vec.begin(); it != vec.end(); it++)
+            for (list_base<string>::iterator it = vec.begin(); it != vec.end(); it++)
             {
                Utility::ncmap<int>::const_iterator it2 = dynamic_cast < application_interface * >(::get_app())->m_pajpbasesocketinit->ResponseHeader.find( "set-cookie" );
                if (it2 != dynamic_cast < application_interface * >(::get_app())->m_pajpbasesocketinit->ResponseHeader.end())

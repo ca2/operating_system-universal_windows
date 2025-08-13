@@ -280,7 +280,7 @@ namespace windowing_universal_windows
          ////bool bAllZeroAlpha = true;
          ////bool bTheresUint32 = false;
 
-         ////pixmap.map();
+         ////pixmap.map_base();
 
          ////int area = size.area();
 
@@ -322,7 +322,7 @@ namespace windowing_universal_windows
 
          //   pimage->create(size);
 
-         //   pimage->map();
+         //   pimage->map_base();
 
          //   ::copy_image32(pimage, pixmap);
 

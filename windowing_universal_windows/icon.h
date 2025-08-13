@@ -16,11 +16,11 @@ namespace windowing_universal_windows
    public:
 
 
-      //map < ::int_size, HICON >              m_iconmap;
+      //map_base < ::int_size, HICON >              m_iconmap;
 
       ::file::path                           m_path;
 
-      map < ::int_size, ::image::image_pointer >      m_imagemap;
+      map_base < ::int_size, ::image::image_pointer >      m_imagemap;
 
       
       icon();

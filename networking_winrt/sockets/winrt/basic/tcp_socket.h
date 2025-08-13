@@ -96,7 +96,7 @@ namespace sockets
          memsize _q;
          char _buf[TCP_OUTPUT_CAPACITY];
       };
-      typedef ::list < OUTPUT *> output_list;
+      typedef ::list_base < OUTPUT *> output_list;
 
    public:
 

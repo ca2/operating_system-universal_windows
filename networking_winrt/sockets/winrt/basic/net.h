@@ -115,7 +115,7 @@ namespace sockets
 
 
       ::pointer < ::mutex >                                            m_pmutexCache;
-      ::string_map < dns_cache_item >                    m_mapCache;
+      ::string_map_base < dns_cache_item >                    m_mapCache;
 
 
       net();

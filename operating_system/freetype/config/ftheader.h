@@ -148,7 +148,7 @@
    *
    * @description:
    *   A macro used in #include statements to name the file containing the
-   *   list of FreeType~2 modules that are statically linked to ___new library
+   *   list_base of FreeType~2 modules that are statically linked to ___new library
    *   instances in @FT_Init_FreeType.
    *
    */
@@ -180,7 +180,7 @@
    *
    * @description:
    *   A macro used in #include statements to name the file containing the
-   *   list of FreeType~2 error codes (and messages).
+   *   list_base of FreeType~2 error codes (and messages).
    *
    *   It is included by @FT_FREETYPE_H.
    *
@@ -195,7 +195,7 @@
    *
    * @description:
    *   A macro used in #include statements to name the file containing the
-   *   list of FreeType~2 module error offsets (and messages).
+   *   list_base of FreeType~2 module error offsets (and messages).
    *
    */
 #define FT_MODULE_ERRORS_H  <freetype/ftmoderr.h>
@@ -255,7 +255,7 @@
    *
    * @description:
    *   A macro used in #include statements to name the file containing the
-   *   list management API of FreeType~2.
+   *   list_base management API of FreeType~2.
    *
    *   (Most applications will never need to include this file.)
    *

@@ -26,7 +26,7 @@ namespace music
          public:
 
 
-            ::map < ::winrt::Windows::Devices::Midi::MidiMessageType, ::string >                 m_messageTypeMap;
+            ::map_base < ::winrt::Windows::Devices::Midi::MidiMessageType, ::string >                 m_messageTypeMap;
             ::winrt::Windows::Devices::Midi::MidiMessageType                                 m_messageType;
             array < ::winrt::agile_ref < ::winrt::Windows::Devices::Midi::MidiInPort > >     m_midiInPortArray;
             array < ::winrt::agile_ref < ::winrt::Windows::Devices::Midi::IMidiOutPort > >   m_midiOutPortArray;

@@ -52,7 +52,7 @@ namespace sockets_bsd
 
 
    using socket_flag_map = pair_map < base_socket_bool >;
-   using socket_socket_flag_map = map < SOCKET, socket_flag_map >;
+   using socket_socket_flag_map = map_base < SOCKET, socket_flag_map >;
    using socket_map = pair_map < SOCKET_socket_pointer >;
 
 

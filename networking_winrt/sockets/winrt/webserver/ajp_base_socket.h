@@ -18,7 +18,7 @@ namespace sockets
          ::int_to_string Method;
          ::int_to_string header;
          ::int_to_string Attribute;
-         ::string_map < int > ResponseHeader;
+         ::string_map_base < int > ResponseHeader;
 
       };
 

@@ -41,10 +41,10 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
 
          /* type, host, result */
-         typedef ::string_map < ::string_to_string > cache_t;
+         typedef ::string_map_base < ::string_to_string_base > cache_t;
 
          /* type, host, time */
-         typedef ::string_map < ::string_map < posix_time > > timeout_t; 
+         typedef ::string_map_base < ::string_map_base < posix_time > > timeout_t; 
 
 
          string m_query;

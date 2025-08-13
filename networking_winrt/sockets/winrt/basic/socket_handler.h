@@ -56,7 +56,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          /** get ::pointer < ::mutex > object for threadsafe operations. */
          ::synchronization & GetMutex() const;
 
-         /** add socket instance to socket ::map. Removal is always automatic. */
+         /** add socket instance to socket ::map_base. Removal is always automatic. */
          void add(base_socket *);
 
          /** get status of read/write/exception file descriptor set for a socket. */
@@ -169,8 +169,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          void CheckSanity();
 
       public:
-         socket_map     m_sockets; ///< Active sockets ::map
-         socket_map     m_add; ///< Sockets to be added to sockets ::map
+         socket_map     m_sockets; ///< Active sockets ::map_base
+         socket_map     m_add; ///< Sockets to be added to sockets ::map_base
          socket_id_list    m_delete; ///< Sockets to be deleted (failed when add)
       protected:
          //::pointer < ::mutex > & m_pmutex; ///< Thread safety ::pointer < ::mutex >
@@ -178,9 +178,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 
       private:
          void CheckList(socket_id_list&,const string &); ///< Used by CheckSanity
-         /** erase socket from socket ::map, used by socket class. */
+         /** erase socket from socket ::map_base, used by socket class. */
          void erase(base_socket *);
-         SOCKET m_maxsock; ///< Highest file descriptor + 1 in active sockets list
+         SOCKET m_maxsock; ///< Highest file descriptor + 1 in active sockets list_base
 //         fd_set m_rfds; ///< file descriptor set monitored for read happenings
   //       fd_set m_wfds; ///< file descriptor set monitored for write happenings
     //     fd_set m_efds; ///< file descriptor set monitored for exceptions
@@ -189,7 +189,7 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          posix_time m_tlast; ///< timeout control
 
          // state lists
-         socket_id_list m_fds; ///< Active file descriptor list
+         socket_id_list m_fds; ///< Active file descriptor list_base
          socket_id_list m_fds_erase; ///< File descriptors that are to be erased from m_sockets
          socket_id_list m_fds_callonconnect; ///< checklist CallOnConnect
          socket_id_list m_fds_detach; ///< checklist detach

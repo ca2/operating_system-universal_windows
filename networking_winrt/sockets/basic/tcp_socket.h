@@ -74,7 +74,7 @@ namespace sockets_bsd
    //};
 
 
-   //typedef ::list < OUTPUT *> output_list;
+   //typedef ::list_base < OUTPUT *> output_list;
 
 
    /** socket implementation for TCP.
@@ -95,7 +95,7 @@ namespace sockets_bsd
       \ingroup internal */
       string m_strTlsHostName;
       
-      typedef list<::pointer<output >> output_list;
+      typedef list_base<::pointer<output >> output_list;
 
       ::file::circular_file ibuf; ///< Circular input buffer
       string m_strUrl;

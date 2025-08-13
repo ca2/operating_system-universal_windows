@@ -208,15 +208,15 @@ extern "C" {
 #define LCMAP_SORTKEY             0x00000400  // WC sort key (normalize)
 #define LCMAP_BYTEREV             0x00000800  // unsigned char reversal
 
-#define LCMAP_HIRAGANA            0x00100000  // map katakana to hiragana
-#define LCMAP_KATAKANA            0x00200000  // map hiragana to katakana
-#define LCMAP_HALFWIDTH           0x00400000  // map double unsigned char to single unsigned char
-#define LCMAP_FULLWIDTH           0x00800000  // map single unsigned char to double unsigned char
+#define LCMAP_HIRAGANA            0x00100000  // map_base katakana to hiragana
+#define LCMAP_KATAKANA            0x00200000  // map_base hiragana to katakana
+#define LCMAP_HALFWIDTH           0x00400000  // map_base double unsigned char to single unsigned char
+#define LCMAP_FULLWIDTH           0x00800000  // map_base single unsigned char to double unsigned char
 
 #define LCMAP_LINGUISTIC_CASING   0x01000000  // use linguistic rules for casing
 
-#define LCMAP_SIMPLIFIED_CHINESE  0x02000000  // map traditional chinese to simplified chinese
-#define LCMAP_TRADITIONAL_CHINESE 0x04000000  // map simplified chinese to traditional chinese
+#define LCMAP_SIMPLIFIED_CHINESE  0x02000000  // map_base traditional chinese to simplified chinese
+#define LCMAP_TRADITIONAL_CHINESE 0x04000000  // map_base simplified chinese to traditional chinese
 
 
 //
@@ -270,7 +270,7 @@ extern "C" {
 //
 //    WORD Sort:    culturally correct sort
 //                  hyphen and apostrophe are special cased
-//                  example: "coop" and "co-op" will sort together in a list
+//                  example: "coop" and "co-op" will sort together in a list_base
 //
 //                        co_op     <-------  underscore (symbol)
 //                        coat
@@ -526,7 +526,7 @@ extern "C" {
 #define LOCALE_IDEFAULTANSICODEPAGE   0x00001004   // default ansi code page (use of Unicode is recommended instead)
 #define LOCALE_IDEFAULTMACCODEPAGE    0x00001011   // default mac code page (use of Unicode is recommended instead)
 
-#define LOCALE_SLIST                  0x0000000C   // list item separator, eg "," for "1,2,3,4"
+#define LOCALE_SLIST                  0x0000000C   // list_base item separator, eg "," for "1,2,3,4"
 #define LOCALE_IMEASURE               0x0000000D   // 0 = metric, 1 = US measurement system
 
 #define LOCALE_SDECIMAL               0x0000000E   // decimal separator, eg "." for 1,234.00
@@ -864,7 +864,7 @@ extern "C" {
 #define MUI_CONSOLE_FILTER                  0x100    // SetThreadPreferredUILanguages takes on console specific behavior
 #define MUI_COMPLEX_SCRIPT_FILTER           0x200    // SetThreadPreferredUILanguages takes on complex script specific behavior
 #define MUI_RESET_FILTERS                   0x001    // Reset MUI_CONSOLE_FILTER and MUI_COMPLEX_SCRIPT_FILTER
-#define MUI_USER_PREFERRED_UI_LANGUAGES     0x10     // GetFileMUIPath returns the MUI files for the languages in the fallback list
+#define MUI_USER_PREFERRED_UI_LANGUAGES     0x10     // GetFileMUIPath returns the MUI files for the languages in the fallback list_base
 #define MUI_USE_INSTALLED_LANGUAGES         0x20     // GetFileMUIPath returns all the MUI files installed in the machine
 #define MUI_USE_SEARCH_ALL_LANGUAGES        0x40     // GetFileMUIPath returns all the MUI files irrespective of whether language is installed
 #define MUI_LANG_NEUTRAL_PE_FILE            0x100    // GetFileMUIPath returns target file with .mui extension
@@ -2114,10 +2114,10 @@ WINBASEAPI
 int_bool
 WINAPI VerifyScripts(
        DWORD   dwFlags,            // optional behavior flags
-       LPCWSTR lpLocaleScripts,    // Locale list of scripts string
-       int32_t     cchLocaleScripts,   // int_size of locale script list string
+       LPCWSTR lpLocaleScripts,    // Locale list_base of scripts string
+       int32_t     cchLocaleScripts,   // int_size of locale script list_base string
        LPCWSTR lpTestScripts,      // test scripts string
-       int32_t     cchTestScripts);    // int_size of test list string
+       int32_t     cchTestScripts);    // int_size of test list_base string
 
 WINBASEAPI
 int32_t
@@ -2125,7 +2125,7 @@ WINAPI GetStringScripts(
                                 DWORD   dwFlags,        // optional behavior flags
                                 LPCWSTR lpString,       // Unicode character input string
                                 int32_t     cchString,      // int_size of input string
-        __out_ecount_opt(cchScripts) LPWSTR  lpScripts,      // Script list output string
+        __out_ecount_opt(cchScripts) LPWSTR  lpScripts,      // Script list_base output string
                                 int32_t     cchScripts);    // int_size of output string
 
 #endif //(WINVER >= 0x0600)

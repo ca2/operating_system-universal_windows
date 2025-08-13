@@ -315,7 +315,7 @@ namespace windowing_universal_windows
    //   unsigned char * p = (unsigned char *) ::GlobalLock(hglb);
 
 
-   //   pimage->map();
+   //   pimage->map_base();
 
    //   ::memory_copy(p, &bi, sizeof(bi));
 
@@ -709,7 +709,7 @@ namespace windowing_universal_windows
 
       pimage->create({ pbitmapinfo->bmiHeader.biWidth,  pbitmapinfo->bmiHeader.biHeight });
 
-      pimage->map();
+      pimage->map_base();
 
       pimage->image32()->vertical_swap_copy(
          pimage->width(),
@@ -763,7 +763,7 @@ namespace windowing_universal_windows
 
       //int iSourceStride = sizeSrc / cy;
 
-      //pimage->map();
+      //pimage->map_base();
 
       //::color::color colorFirstPixel(((::color32_t *)pdataSrc)[0]);
 

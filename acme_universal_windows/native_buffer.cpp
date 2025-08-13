@@ -42,7 +42,7 @@ namespace acme_universal_windows
       m_file = nullptr;
       m_folder = nullptr;
 
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
       ASSERT(is_string_ok(path));
       ASSERT(!(eopen & ::file::e_open_text));   // text mode not supported
 
@@ -239,7 +239,7 @@ namespace acme_universal_windows
       ASSERT(sizeof(HANDLE) == sizeof(uptr));
       ASSERT(::file::e_open_share_compat == 0);
 
-      // ::map read/write mode
+      // ::map_base read/write mode
       ASSERT((::file::e_open_read | ::file::e_open_write | ::file::e_open_read_write) == 3);
       unsigned int dwAccess = 0;
       switch (eopen & 3)
@@ -258,9 +258,9 @@ namespace acme_universal_windows
          break;
       }
 
-      // ::map share mode
+      // ::map_base share mode
       //unsigned int dwShareMode = 0;
-      //switch(nOpenFlags & 0x70)    // ::map compatibility mode to exclusive
+      //switch(nOpenFlags & 0x70)    // ::map_base compatibility mode to exclusive
       //{
       //default:
       //   ASSERT(false);  // invalid share mode?
@@ -281,7 +281,7 @@ namespace acme_universal_windows
 
       // Note: type_text and type_binary are used in derived classes only.
 
-      // ::map mode_no_inherit flag
+      // ::map_base mode_no_inherit flag
       SECURITY_ATTRIBUTES sa;
       sa.nLength = sizeof(sa);
       sa.lpSecurityDescriptor = nullptr;
@@ -539,7 +539,7 @@ namespace acme_universal_windows
 
    //void native_buffer::Abort()
    //{
-   //   //ASSERT_VALID(this);
+   //   //ASSERT_OK(this);
    //   //if(m_hnative_buffer != (unsigned int)hnative_bufferNull)
    //   //{
    //   //   // close but ignore errors
@@ -551,7 +551,7 @@ namespace acme_universal_windows
 
    void native_buffer::lock(filesize dwPos, filesize dwCount)
    {
-      //ASSERT_VALID(this);
+      //ASSERT_OK(this);
       //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
       ////      if (!::Locknative_buffer((HANDLE)m_hnative_buffer, lower_unsigned_int(dwPos), upper_unsigned_int(dwPos), lower_unsigned_int(dwCount), upper_unsigned_int(dwCount)))
@@ -560,7 +560,7 @@ namespace acme_universal_windows
 
    void native_buffer::unlock(filesize dwPos, filesize dwCount)
    {
-      //ASSERT_VALID(this);
+      //ASSERT_OK(this);
       //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
       ////  if (!::Unlocknative_buffer((HANDLE)m_hnative_buffer,  lower_unsigned_int(dwPos), upper_unsigned_int(dwPos), lower_unsigned_int(dwCount), upper_unsigned_int(dwCount)))
@@ -580,7 +580,7 @@ namespace acme_universal_windows
 
       }
 
-      //ASSERT_VALID(this);
+      //ASSERT_OK(this);
       //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
       //seek((int)dwNewLen,(::enum_seek)::e_seek_set);
@@ -593,7 +593,7 @@ namespace acme_universal_windows
    filesize native_buffer::size() const
    {
 
-      ASSERT_VALID(this);
+      ASSERT_OK(this);
 
       filesize dwLen, dwCur;
 
@@ -661,7 +661,7 @@ namespace acme_universal_windows
    //string native_buffer::GetFileName() const
    //{
 
-   //   ASSERT_VALID(this);
+   //   ASSERT_OK(this);
 
    //   ::file::file_status status;
 
@@ -679,7 +679,7 @@ namespace acme_universal_windows
    //string native_buffer::GetFileTitle() const
    //{
 
-   //   ASSERT_VALID(this);
+   //   ASSERT_OK(this);
 
    //   ::file::file_status status;
 
@@ -725,7 +725,7 @@ namespace acme_universal_windows
    //void native_buffer::set_file_path(const ::file::path & path)
    //{
 
-   //   ASSERT_VALID(this);
+   //   ASSERT_OK(this);
 
    //   ASSERT(is_string_ok(path));
 
