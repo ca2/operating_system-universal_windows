@@ -364,7 +364,7 @@ namespace sockets
          {
             struct sockaddr_in *p = (struct sockaddr_in *)sa;
             ::sockets::address_pointer addr;
-            addr(__allocate< ::sockets::ipv4_address(get_app >(), *p));
+            addr(øallocate< ::sockets::ipv4_address(get_app >(), *p));
             return addr;
          }
          break;
@@ -373,7 +373,7 @@ namespace sockets
          {
             struct sockaddr_in6 *p = (struct sockaddr_in6 *)sa;
             ::sockets::address_pointer addr;
-            addr(__allocate< ::sockets::ipv6_address(get_app >(), *p));
+            addr(øallocate< ::sockets::ipv6_address(get_app >(), *p));
             return addr;
          }
          break;
@@ -437,7 +437,7 @@ namespace sockets
    bool net::convert(string & str, const in_addr & addr, int ai_flags)
    {
 
-      ::winrt::Windows::Foundation::Collections::IVectorView < ::winrt::Windows::Networking::EndpointPair ^ > ^ data = ::wait(::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(ref __allocate< ::winrt::Windows::Networking::HostName(to_string( >(in_addr &)addr)),"0"));
+      ::winrt::Windows::Foundation::Collections::IVectorView < ::winrt::Windows::Networking::EndpointPair ^ > ^ data = ::wait(::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(ref øallocate< ::winrt::Windows::Networking::HostName(to_string( >(in_addr &)addr)),"0"));
 
       if(data->Size <= 0)
          return false;
@@ -452,7 +452,7 @@ namespace sockets
    bool net::convert(string & str, const in6_addr & addr, int ai_flags)
    {
 
-      ::winrt::Windows::Foundation::Collections::IVectorView < ::winrt::Windows::Networking::EndpointPair ^ > ^ data = ::wait(::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(ref __allocate< ::winrt::Windows::Networking::HostName(to_string( >(in6_addr &) addr) ),"0"));
+      ::winrt::Windows::Foundation::Collections::IVectorView < ::winrt::Windows::Networking::EndpointPair ^ > ^ data = ::wait(::winrt::Windows::Networking::Sockets::DatagramSocket::GetEndpointPairsAsync(ref øallocate< ::winrt::Windows::Networking::HostName(to_string( >(in6_addr &) addr) ),"0"));
 
       if(data->Size <= 0)
          return false;
@@ -512,7 +512,7 @@ namespace sockets
                return true;
             }
 
-            ::winrt::Windows::Networking::HostName ^ name = ref __allocate< ::winrt::Windows::Networking::HostName(rtstr >(hostname));
+            ::winrt::Windows::Networking::HostName ^ name = ref øallocate< ::winrt::Windows::Networking::HostName(rtstr >(hostname));
 
             if(name != nullptr)
             {
@@ -564,7 +564,7 @@ namespace sockets
             }
             // %! TODO: ipv6 reverse find
 
-            ::winrt::Windows::Networking::HostName ^ name = ref __allocate< ::winrt::Windows::Networking::HostName(rtstr >(hostname));
+            ::winrt::Windows::Networking::HostName ^ name = ref øallocate< ::winrt::Windows::Networking::HostName(rtstr >(hostname));
 
             if(name != nullptr)
             {

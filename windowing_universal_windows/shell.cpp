@@ -67,7 +67,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //estatus = __construct_new(m_pmessagequeue);
+      //estatus = øconstruct_new(m_pmessagequeue);
 
 
       //if (!estatus)
@@ -1462,7 +1462,7 @@ namespace windowing_universal_windows
 
    //   //}
 
-   //   //estatus = __construct_new(m_pmessagequeue);
+   //   //estatus = øconstruct_new(m_pmessagequeue);
 
 
    //   //if (!estatus)
@@ -1582,11 +1582,11 @@ namespace windowing_universal_windows
 
       synchronous_lock slHover(m_pimagelistHover[iSize]->synchronization());
 
-      auto pwindowingicon = __create_new < icon >();
+      auto pwindowingicon = øcreate_new < icon >();
 
       pwindowingicon->add_icon(hicon);
 
-      auto pdrawicon = __øcreate < ::image::icon >();
+      auto pdrawicon = øcreate < ::image::icon >();
      
       pdrawicon->initialize_with_windowing_icon(pwindowingicon);
 

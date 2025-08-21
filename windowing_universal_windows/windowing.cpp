@@ -60,7 +60,7 @@ namespace windowing_universal_windows
 
       //estatus = 
       
-      __øconstruct(m_pdisplay);
+      øconstruct(m_pdisplay);
 
       //if (!estatus)
       //{
@@ -142,7 +142,7 @@ namespace windowing_universal_windows
    //::extended::transport < system_interaction > windowing::create_system_window()
    //{
 
-   //   auto psysteminteraction = __create_new < system_interaction >();
+   //   auto psysteminteraction = øcreate_new < system_interaction >();
 
    //   psysteminteraction->display(e_display_none);
 
@@ -255,7 +255,7 @@ namespace windowing_universal_windows
    //   if (!pwindow)
    //   {
 
-   //      pwindow = __allocate ::windowing_universal_windows::window();
+   //      pwindow = øallocate ::windowing_universal_windows::window();
 
    //   }
 
@@ -560,7 +560,7 @@ namespace windowing_universal_windows
 
       //}
 
-      auto pusermessage = __allocate ::user::message();
+      auto pusermessage = øallocate ::user::message();
 
       if (!pusermessage)
       {
@@ -981,7 +981,7 @@ namespace windowing_universal_windows
    //::pointer<::user::interaction>windowing::create_system_window()
    //{
 
-   //   auto psysteminteraction = __create_new < system_interaction >();
+   //   auto psysteminteraction = øcreate_new < system_interaction >();
 
    //   psysteminteraction->display(e_display_none);
 
@@ -1346,7 +1346,7 @@ namespace windowing_universal_windows
    ::pointer<::windowing::icon>window::load_icon(const ::payload & payloadFile)
    {
 
-      auto picon = __create_new < icon >();
+      auto picon = øcreate_new < icon >();
 
       if (!picon)
       {

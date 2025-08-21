@@ -213,7 +213,7 @@ namespace sockets
 
       m_streamsocket = ref ___new ::winrt::Windows::Networking::Sockets::StreamSocket();
 
-      ::winrt::Windows::Networking::EndpointPair ^ pair = ref __allocate< ::winrt::Windows::Networking::EndpointPair(bind_ad.m_hostname,  ansi_string_from_long_long(bind_ad.get_service_number()), ad.m_hostname, ansi_string_from_long_long(ad.get_service_number >()));
+      ::winrt::Windows::Networking::EndpointPair ^ pair = ref øallocate< ::winrt::Windows::Networking::EndpointPair(bind_ad.m_hostname,  ansi_string_from_long_long(bind_ad.get_service_number()), ad.m_hostname, ansi_string_from_long_long(ad.get_service_number >()));
       //::sockets::socket::os_data data;
       //data.o = m_posdata->m_streamsocket;
       //attach(data);
@@ -506,7 +506,7 @@ namespace sockets
 
 
       //op->Completed =
-      //ref __allocate< ::winrt::Windows::Foundation::AsyncOperationCompletedHandler < unsigned int > >([=]
+      //ref øallocate< ::winrt::Windows::Foundation::AsyncOperationCompletedHandler < unsigned int > >([=]
       //      (::winrt::Windows::Foundation::IAsyncOperation<unsigned int> ^ asyncInfo, ::winrt::Windows::Foundation::AsyncStatus asyncStatus)
       //{
       //   if(IsCloseAndDelete())
@@ -687,7 +687,7 @@ namespace sockets
       m_bErrorWriting = false;
 
       m_streamsocket->OutputStream->WriteAsync(m_bufferWrite)
-         ->Completed = ref __allocate< ::winrt::Windows::Foundation::AsyncOperationWithProgressCompletedHandler <unsigned int, unsigned int >([this] >(::winrt::Windows::Foundation::IAsyncOperationWithProgress <unsigned int, unsigned int >^ operation, ::winrt::Windows::Foundation::AsyncStatus status)
+         ->Completed = ref øallocate< ::winrt::Windows::Foundation::AsyncOperationWithProgressCompletedHandler <unsigned int, unsigned int >([this] >(::winrt::Windows::Foundation::IAsyncOperationWithProgress <unsigned int, unsigned int >^ operation, ::winrt::Windows::Foundation::AsyncStatus status)
             {
 
                if (status == ::winrt::Windows::Foundation::AsyncStatus::Completed)

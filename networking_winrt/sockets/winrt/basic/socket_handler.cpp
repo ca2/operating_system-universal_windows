@@ -330,7 +330,7 @@ namespace sockets
 
                   psocket->m_happening.reset_happening();
 
-                  writer->StoreAsync()->Completed = ref __allocate< ::winrt::Windows::Foundation::AsyncOperationCompletedHandler < unsigned int >  >([=]
+                  writer->StoreAsync()->Completed = ref øallocate< ::winrt::Windows::Foundation::AsyncOperationCompletedHandler < unsigned int >  >([=]
                                                     (::winrt::Windows::Foundation::IAsyncOperation < unsigned int > ^ action, ::winrt::Windows::Foundation::AsyncStatus status)
                   {
                      writer->DetachStream();
@@ -519,7 +519,7 @@ namespace sockets
       if (!m_resolver)
       {
          m_resolver_port = port;
-         m_resolver = __allocate< resolv_server(get_app >(), port);
+         m_resolver = øallocate< resolv_server(get_app >(), port);
       }
    }
 

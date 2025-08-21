@@ -38,7 +38,7 @@ namespace sockets
 
       //m_psslinit = ___new ::sockets::SSLInitializer(this);
 
-      m_spnet = __create_new<::sockets::net>();
+      m_spnet = øcreate_new<::sockets::net>();
       //m_spnet.create(this);
 
       if (m_spnet.is_null())
@@ -80,7 +80,7 @@ namespace sockets
    //bool sockets::init1()
    //{
 
-   //   m_spnet = __allocate ::sockets::net(this);
+   //   m_spnet = øallocate ::sockets::net(this);
    //   //m_spnet.create(this);
 
    //   if(m_spnet.is_null())

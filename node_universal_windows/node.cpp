@@ -75,7 +75,7 @@ namespace node_universal_windows
 
    //   //}
 
-   //   auto pwindow = __allocate ::windowing_universal_windows::window;
+   //   auto pwindow = øallocate ::windowing_universal_windows::window;
 
    //   ::cast 
 

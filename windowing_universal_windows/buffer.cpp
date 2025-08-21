@@ -126,7 +126,7 @@ namespace windowing_universal_windows
    bool buffer::_on_begin_draw(::graphics::buffer_item * pbufferitem)
    {
 
-      //__defer_construct_new(m_pbufferitem);
+      //ødefer_construct_new(m_pbufferitem);
 
       //auto pframeworkview = m_pframeworkview;
 
@@ -157,7 +157,7 @@ namespace windowing_universal_windows
 
       //buffer_size_and_position(m_pbufferitem);
 
-      __defer_construct(m_pdraw2dgraphics);
+      ødefer_construct(m_pdraw2dgraphics);
 
       if (m_pdraw2dgraphics->get_os_data() != pdevicecontext)
       {
@@ -577,7 +577,7 @@ namespace windowing_universal_windows
 
       //::draw2d::lock draw2dlock;
 
-      //direct2d::direct2d() = __allocate ::draw2d_direct2d::plugin();
+      //direct2d::direct2d() = øallocate ::draw2d_direct2d::plugin();
 
       //direct2d::direct2d()->initialize();
 
@@ -1502,7 +1502,7 @@ namespace windowing_universal_windows
 ::graphics::buffer_item * buffer::get_buffer_item()
 {
 
-   __defer_construct_new(m_pbufferitem);
+   ødefer_construct_new(m_pbufferitem);
 
    return m_pbufferitem;
 
@@ -1511,7 +1511,7 @@ namespace windowing_universal_windows
 ::graphics::buffer_item * buffer::get_screen_item()
 {
 
-   __defer_construct_new(m_pbufferitem);
+   ødefer_construct_new(m_pbufferitem);
 
    return m_pbufferitem;
 

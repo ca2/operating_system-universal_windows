@@ -229,7 +229,7 @@ namespace windowing_universal_windows
 
       ::pointer<::image::image>pimage;
 
-      __øconstruct(pimage);
+      øconstruct(pimage);
 
       bool bOk = false;
 
