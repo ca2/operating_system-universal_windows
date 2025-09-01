@@ -576,7 +576,7 @@ namespace windowing_universal_windows
    }
 
 
-   //void windowing::set(message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, ::enum_message emessage, ::wparam wparam, ::lparam lparam)
+   //void windowing::set(message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
    //{
 
    //   pkey->m_nChar = static_cast<unsigned int>(wparam);
@@ -596,7 +596,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, ::enum_message emessage, ::wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
    //{
 
    //   pmouse->m_nFlags = wparam;
@@ -1009,14 +1009,14 @@ namespace windowing_universal_windows
    //}
 
 
-   //void windowing::set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, ::enum_message emessage, ::wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
    //{
 
 
    //}
 
 
-   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, ::enum_message emessage, ::wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
    //{
 
 

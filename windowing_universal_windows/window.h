@@ -531,9 +531,9 @@ namespace windowing_universal_windows
       //
       //#endif   // WINVER >= 0x0500
 
-      virtual lresult send_message(::enum_message emessage, ::wparam wparam = {}, ::lparam lparam = {}) override;
+      virtual lresult send_message(::user::enum_message eusermessage, ::wparam wparam = {}, ::lparam lparam = {}) override;
 
-      virtual void post_message(::enum_message emessage, ::wparam wparam = {}, ::lparam lparam = {}) override;
+      virtual void post_message(::user::enum_message eusermessage, ::wparam wparam = {}, ::lparam lparam = {}) override;
 
 
       //bool SendNotifyMessage(unsigned int message, wparam wParam, lparam lParam);
@@ -1026,7 +1026,7 @@ namespace windowing_universal_windows
       //virtual void message_handler(::message::message * pusermessage);
 
 
-      //virtual bool OnWndMsg(::enum_message emessage, ::wparam wparam, ::lparam lparam, lresult* pResult);
+      //virtual bool OnWndMsg(::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam, lresult* pResult);
 
       // for handling default processing
       //lresult Default();

@@ -645,7 +645,7 @@ wstring windowing::_windows_register_window_class(unsigned int nClassStyle, hcur
 }//namespace windowing_win32
 
 
-lresult CALLBACK WndProc(HWND hWnd, ::enum_message emessage, ::wparam wparam, ::lparam lparam);
+lresult CALLBACK WndProc(HWND hWnd, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam);
 
 //bool windows_register_class(HINSTANCE hinstance)
 //{
