@@ -1791,7 +1791,7 @@ namespace universal_windows
 
             //         //::lparam lparam(size);
             ////
-            //         //puserinteraction->send_message(e_message_size, 0, lparam);
+            //         //puserinteraction->send_message(::user::e_message_size, 0, lparam);
 
             //         puserinteraction->place({ int_point(), size });
 
@@ -2116,7 +2116,7 @@ namespace universal_windows
 
                   //}
 
-                  //system()->post_object(e_message_system, e_system_message_create, pcreate);
+                  //system()->post_object(::user::e_message_system, e_system_message_create, pcreate);
 
                }
 
@@ -2202,7 +2202,7 @@ namespace universal_windows
 
             pmouse->m_pointAbsolute.y() = (int)pointerPoint.RawPosition().Y;
 
-            pmouse->m_emessage = e_message_mouse_move;
+            pmouse->m_emessage = ::user::e_message_mouse_move;
             //pmouse->m_playeredUserPrimitive  = session()->m_puserinteractionHost;
 
             m_pointLastCursor = pointerPoint.RawPosition();
@@ -2297,7 +2297,7 @@ namespace universal_windows
 
                button = 1;
 
-               pmouse->m_emessage = e_message_left_button_down;
+               pmouse->m_emessage = ::user::e_message_left_button_down;
 
                m_bLeftButton = true;
                m_bMiddleButton = false;
@@ -2308,7 +2308,7 @@ namespace universal_windows
             {
 
                button = 3;
-               pmouse->m_emessage = e_message_right_button_down;
+               pmouse->m_emessage = ::user::e_message_right_button_down;
 
                m_bLeftButton = false;
                m_bMiddleButton = false;
@@ -2319,7 +2319,7 @@ namespace universal_windows
             {
 
                button = 2;
-               pmouse->m_emessage = e_message_middle_button_down;
+               pmouse->m_emessage = ::user::e_message_middle_button_down;
 
                m_bLeftButton = false;
                m_bMiddleButton = true;
@@ -2438,7 +2438,7 @@ namespace universal_windows
 
                button = 1;
 
-               pmouse->m_emessage = e_message_left_button_up;
+               pmouse->m_emessage = ::user::e_message_left_button_up;
 
                m_bLeftButton = false;
 
@@ -2448,7 +2448,7 @@ namespace universal_windows
 
                button = 3;
 
-               pmouse->m_emessage = e_message_right_button_up;
+               pmouse->m_emessage = ::user::e_message_right_button_up;
 
                m_bRightButton = false;
 
@@ -2458,7 +2458,7 @@ namespace universal_windows
 
                button = 2;
 
-               pmouse->m_emessage = e_message_middle_button_up;
+               pmouse->m_emessage = ::user::e_message_middle_button_up;
 
                m_bMiddleButton = false;
 
@@ -2564,7 +2564,7 @@ namespace universal_windows
 
             //pkey->m_oswindow = this;
 
-            pkey->m_emessage = e_message_char;
+            pkey->m_emessage = ::user::e_message_char;
 
             pkey->m_ekey = ::user::e_key_refer_to_text_member;
 
@@ -2634,7 +2634,7 @@ namespace universal_windows
 
             //pkey->m_oswindow = this;
 
-            pkey->m_emessage = e_message_key_down;
+            pkey->m_emessage = ::user::e_message_key_down;
             //pkey->m_playeredUserPrimitive       = session()->m_puserinteractionHost;
             pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
             pkey->m_ekey = ekey;
@@ -2705,7 +2705,7 @@ namespace universal_windows
 
             //pkey->m_oswindow = this;
 
-            pkey->m_emessage = e_message_key_up;
+            pkey->m_emessage = ::user::e_message_key_up;
             //pkey->m_playeredUserPrimitive = session()->m_puserinteractionHost;
             pkey->m_nChar = ::universal_windows::virtualkey_to_char(args.VirtualKey());
             pkey->m_ekey = ekey;

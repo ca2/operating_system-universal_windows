@@ -49,7 +49,7 @@
 //
 //      void app_init();
 //
-//      //pointer< ::extended::future < ::conversation > > _message_box(::particle * pparticle, const ::scoped_string & scopedstrMessage, const ::scoped_string & scopedstrTitle, const ::e_message_box & emessagebox) override;
+//      //pointer< ::extended::future < ::conversation > > _message_box(::particle * pparticle, const ::scoped_string & scopedstrMessage, const ::scoped_string & scopedstrTitle, const ::user::e_message_box & emessagebox) override;
 //
 //      void node_post(const ::procedure & procedure) override;
 //

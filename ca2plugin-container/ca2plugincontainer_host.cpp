@@ -197,7 +197,7 @@ namespace ca2plugin_container
          m_bOnPaint = false;
 
          return 0;
-         // case e_message_key_down:
+         // case ::user::e_message_key_down:
          // today
          // MessageBox(NULL, "key_down", "key_down", NULL);
          // TerminateProcess(::GetCurrentProcess(), 0);

@@ -36,10 +36,10 @@ namespace windowing_win32
 
       ::user::interaction::install_message_routing(pchannel);
 
-      MESSAGE_LINK(e_message_destroy, pchannel, this, &system_interaction::on_message_destroy);
-      MESSAGE_LINK(e_message_display_change, pchannel, this, &system_interaction::_001OnMessage);
-      MESSAGE_LINK(e_message_setting_change, pchannel, this, &system_interaction::_001OnMessage);
-      MESSAGE_LINK(e_message_font_change, pchannel, this, &system_interaction::_001OnMessage);
+      USER_MESSAGE_LINK(::user::e_message_destroy, pchannel, this, &system_interaction::on_message_destroy);
+      USER_MESSAGE_LINK(::user::e_message_display_change, pchannel, this, &system_interaction::_001OnMessage);
+      USER_MESSAGE_LINK(::user::e_message_setting_change, pchannel, this, &system_interaction::_001OnMessage);
+      USER_MESSAGE_LINK(::user::e_message_font_change, pchannel, this, &system_interaction::_001OnMessage);
 
    }
 
@@ -82,14 +82,14 @@ namespace windowing_win32
 
          string strLparamString;
 
-         if (pmessage->m_emessage == WM_SETTINGCHANGE && wparam == 0)
+         if (pmessage->m_eusermessage == WM_SETTINGCHANGE && wparam == 0)
          {
 
             strLparamString = (const WCHAR *)(LPARAM(lparam));
 
          }
 
-         if (pmessage->m_emessage == WM_FONTCHANGE)
+         if (pmessage->m_eusermessage == WM_FONTCHANGE)
          {
 
             auto psystem = system();
@@ -113,7 +113,7 @@ namespace windowing_win32
          //}
          }
          else if (
-            pmessage->m_emessage == WM_SETTINGCHANGE &&
+            pmessage->m_eusermessage == WM_SETTINGCHANGE &&
             strLparamString == "ImmersiveColorSet")
          {
 
@@ -123,8 +123,8 @@ namespace windowing_win32
             pwindowing->fetch_dark_mode();
 
          }
-         else if (pmessage->m_emessage == e_message_display_change ||
-            (pmessage->m_emessage == WM_SETTINGCHANGE &&
+         else if (pmessage->m_eusermessage == ::user::e_message_display_change ||
+            (pmessage->m_eusermessage == WM_SETTINGCHANGE &&
                (pmessage->m_wparam == SPI_SETWORKAREA)))
          {
 
@@ -142,7 +142,7 @@ namespace windowing_win32
             //   try
             //   {
 
-            //      puserinteraction->post_message(e_message_display_change);
+            //      puserinteraction->post_message(::user::e_message_display_change);
 
             //   }
             //   catch(...)

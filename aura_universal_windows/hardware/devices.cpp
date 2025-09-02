@@ -159,7 +159,7 @@ namespace aura_universal_windows
 
       //   auto psysteminteraction = pwindowing->system_interaction();
 
-      //   psysteminteraction->add_message_handler(e_message_device_change, { plistener, &master_device_listener::on_message_device_change }, false);
+      //   psysteminteraction->add_message_handler(::user::e_message_device_change, { plistener, &master_device_listener::on_message_device_change }, false);
 
 
       //}
@@ -170,7 +170,7 @@ namespace aura_universal_windows
       //void devices::on_message_device_change(::message::message * pmessage)
       //{
 
-      //   ASSERT(pmessage->m_emessage == e_message_device_change);
+      //   ASSERT(pmessage->m_eusermessage == ::user::e_message_device_change);
 
       //   wparam wparam = pmessage->m_wparam;
 
@@ -219,7 +219,7 @@ namespace aura_universal_windows
 //
 //   ::windows::g_pdevices->initialize(psysteminteraction);
 //
-//   psysteminteraction->add_message_handler(e_message_device_change, { ::windows::g_pdevices, &::windows::devices::on_message_device_change } );
+//   psysteminteraction->add_message_handler(::user::e_message_device_change, { ::windows::g_pdevices, &::windows::devices::on_message_device_change } );
 //   
 //}
 

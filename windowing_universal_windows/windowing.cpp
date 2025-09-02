@@ -520,7 +520,7 @@ namespace windowing_universal_windows
       //   if (pmsg->message == 126)
       //   {
 
-      //      informationf("e_message_display_change");
+      //      informationf("::user::e_message_display_change");
 
       //   }
 
@@ -591,7 +591,7 @@ namespace windowing_universal_windows
 
    //   //pkey->m_iVirtualKey = (int)MapLeftRightKeys(wparam, lparam);
 
-   //   ::windowing::windowing::set(pkey, oswindow, pwindow, emessage, wparam, lparam);
+   //   ::windowing::windowing::set(pkey, oswindow, pwindow, eusermessage, wparam, lparam);
 
    //}
 
@@ -795,7 +795,7 @@ namespace windowing_universal_windows
    }
 
 
-//   enum_dialog_result windowing::message_box(const ::scoped_string & scopedstrMessage, const ::scoped_string & scopedstrTitle, const ::e_message_box & emessagebox)
+//   enum_dialog_result windowing::message_box(const ::scoped_string & scopedstrMessage, const ::scoped_string & scopedstrTitle, const ::user::e_message_box & emessagebox)
 //   {
 //
 //      wstring wstrMessage(pszMessage);

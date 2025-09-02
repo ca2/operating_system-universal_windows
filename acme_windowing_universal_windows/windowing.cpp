@@ -474,7 +474,7 @@ namespace universal_windows
             //if (m_itask)
             //{
 
-            //   ::PostThreadMessage((DWORD)m_itask, e_message_quit, 0, 0);
+            //   ::PostThreadMessage((DWORD)m_itask, ::user::e_message_quit, 0, 0);
 
             //}
 
@@ -486,7 +486,7 @@ namespace universal_windows
          void windowing::kick_idle()
          {
 
-            //::PostThreadMessage((DWORD)m_itask, e_message_kick_idle, 0, 0);
+            //::PostThreadMessage((DWORD)m_itask, ::user::e_message_kick_idle, 0, 0);
 
          }
 
@@ -526,7 +526,7 @@ namespace universal_windows
             //      return false;
 
             //   }
-            //   else if (msg.message == e_message_kick_idle)
+            //   else if (msg.message == ::user::e_message_kick_idle)
             //   {
 
             //      return true;

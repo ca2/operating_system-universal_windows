@@ -106,10 +106,10 @@ LRESULT CALLBACK __window_procedure(HWND hwnd, UINT message, WPARAM wparam, LPAR
       output_debug_string("WM_KEYDOWN");
 
    }
-   else if (message == e_message_show_window)
+   else if (message == ::user::e_message_show_window)
    {
 
-      output_debug_string("e_message_show_window");
+      output_debug_string("::user::e_message_show_window");
 
    }
 
@@ -148,17 +148,17 @@ LRESULT CALLBACK __window_procedure(HWND hwnd, UINT message, WPARAM wparam, LPAR
 
    auto puserinteraction = pimpl->m_puserinteraction;
 
-   if (message == e_message_activate)
+   if (message == ::user::e_message_activate)
    {
 
       output_debug_string("test");
 
    }
 
-   if (message == e_message_left_button_up)
+   if (message == ::user::e_message_left_button_up)
    {
 
-      ::output_debug_string("e_message_left_button_up");
+      ::output_debug_string("::user::e_message_left_button_up");
 
    }
    else if (message == 33815)
@@ -175,7 +175,7 @@ LRESULT CALLBACK __window_procedure(HWND hwnd, UINT message, WPARAM wparam, LPAR
 
    }
 
-   if (message == e_message_mouse_move)
+   if (message == ::user::e_message_mouse_move)
    {
 
       if (lparam == pimpl->m_lparamLastMouseMove)
@@ -210,7 +210,7 @@ LRESULT CALLBACK __window_procedure(HWND hwnd, UINT message, WPARAM wparam, LPAR
       pwindow->m_timeLastMouseMove.Now();
 
    }
-   else if (message == e_message_timer)
+   else if (message == ::user::e_message_timer)
    {
 
       //if (wparam == e_timer_transparent_mouse_event)
@@ -227,7 +227,7 @@ LRESULT CALLBACK __window_procedure(HWND hwnd, UINT message, WPARAM wparam, LPAR
 
       //   lparam = MAKELPARAM(pointCursor.x, pointCursor.y);
 
-      //   pimpl->call_message_handler(e_message_mouse_move, 0, lparam);
+      //   pimpl->call_message_handler(::user::e_message_mouse_move, 0, lparam);
 
       //}
       //else
@@ -420,8 +420,8 @@ LRESULT CALLBACK __window_procedure(HWND hwnd, UINT message, WPARAM wparam, LPAR
 //
 //      if (pTopLevel && (!pWndOther || !::IsWindow((pWndOther)->get_hwnd()) || pTopLevel != (pWndOther)->get_top_level()))
 //      {
-//         // lParam points to window getting the e_message_activate message and
-//         //  oswindow_Other from the e_message_activate.
+//         // lParam points to window getting the ::user::e_message_activate message and
+//         //  oswindow_Other from the ::user::e_message_activate.
 //         hwnd oswindow_2[2];
 //         oswindow_2[0] = (pwindow)->get_hwnd();
 //         if (!pWndOther)
