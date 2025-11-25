@@ -513,10 +513,10 @@ namespace windowing_win32
       //
       //#ifdef WINDOWS_DESKTOP
       //
-      //         rectangleMajor.left() = 0;
-      //         rectangleMajor.top() = 0;
-      //         rectangleMajor.right() = GetSystemMetrics(SM_CXSCREEN);
-      //         rectangleMajor.bottom() = GetSystemMetrics(SM_CYSCREEN);
+      //         rectangleMajor.left = 0;
+      //         rectangleMajor.top = 0;
+      //         rectangleMajor.right = GetSystemMetrics(SM_CXSCREEN);
+      //         rectangleMajor.bottom = GetSystemMetrics(SM_CYSCREEN);
       //
       //#else
       //
@@ -556,26 +556,26 @@ namespace windowing_win32
       //
       //      bool bModified = false;
       //
-      //      if(rectangle.left() > rectangleMajor.right())
+      //      if(rectangle.left > rectangleMajor.right)
       //      {
-      //         rectangle.offset(- rectangle.width() - (rectangle.left() - rectangleMajor.right()), 0);
+      //         rectangle.offset(- rectangle.width() - (rectangle.left - rectangleMajor.right), 0);
       //         bModified = true;
       //      }
-      //      if(rectangle.right() < rectangleMajor.left())
+      //      if(rectangle.right < rectangleMajor.left)
       //      {
-      //         rectangle.offset(rectangle.width() + (rectangleMajor.left() - rectangle.right()), 0);
+      //         rectangle.offset(rectangle.width() + (rectangleMajor.left - rectangle.right), 0);
       //         bModified = true;
       //      }
-      //      if(rectangle.top() > rectangleMajor.bottom())
+      //      if(rectangle.top > rectangleMajor.bottom)
       //      {
-      //         rectangle.offset(0, - rectangle.height() - (rectangle.top() - rectangleMajor.bottom()));
+      //         rectangle.offset(0, - rectangle.height() - (rectangle.top - rectangleMajor.bottom));
       //         bModified = true;
       //      }
       //
-      //      if(rectangle.bottom() < rectangleMajor.top())
+      //      if(rectangle.bottom < rectangleMajor.top)
       //      {
       //
-      //         rectangle.offset(0, rectangle.height() + (rectangleMajor.top() - rectangle.bottom()));
+      //         rectangle.offset(0, rectangle.height() + (rectangleMajor.top - rectangle.bottom));
       //
       //         bModified = true;
       //
@@ -587,7 +587,7 @@ namespace windowing_win32
       //      if(bModified)
       //      {
       //
-      //         ::set_window_position(hwnd, HWND_TOP, rectangle.left(), rectangle.top(), rectangle.width(), rectangle.height(), 0);
+      //         ::set_window_position(hwnd, HWND_TOP, rectangle.left, rectangle.top, rectangle.width(), rectangle.height(), 0);
       //
       //      }
       //

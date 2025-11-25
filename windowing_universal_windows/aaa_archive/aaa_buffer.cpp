@@ -451,10 +451,10 @@ namespace windowing_universal_windows
 //
 //               //rectangle r;
 //
-//               //rectangle.left() = 10;
-//               //rectangle.right() = 20;
-//               //rectangle.top() = 0;
-//               //rectangle.bottom() = sz.cy;
+//               //rectangle.left = 10;
+//               //rectangle.right = 20;
+//               //rectangle.top = 0;
+//               //rectangle.bottom = sz.cy;
 //
 //               //::FillRect(m_hdc, rectangle, h);
 //
@@ -493,10 +493,10 @@ namespace windowing_universal_windows
 ////
 ////               //rectangle r;
 ////
-////               //rectangle.left() = 20;
-////               //rectangle.right() = 30;
-////               //rectangle.top() = 0;
-////               //rectangle.bottom() = sz.cy;
+////               //rectangle.left = 20;
+////               //rectangle.right = 30;
+////               //rectangle.top = 0;
+////               //rectangle.bottom = sz.cy;
 ////
 ////               //::FillRect(m_hdc, rectangle, h);
 ////
@@ -525,10 +525,10 @@ namespace windowing_universal_windows
 ////
 ////                              //rectangle r;
 ////
-////                              //rectangle.left() = 20;
-////                              //rectangle.right() = 30;
-////                              //rectangle.top() = 0;
-////                              //rectangle.bottom() = sz.cy;
+////                              //rectangle.left = 20;
+////                              //rectangle.right = 30;
+////                              //rectangle.top = 0;
+////                              //rectangle.bottom = sz.cy;
 ////
 ////                              //::FillRect(m_hdc, rectangle, h);
 ////
@@ -618,7 +618,7 @@ namespace windowing_universal_windows
 //               if (::GetWindowRect(get_hwnd(), &rectangleProbe))
 //               {
 //
-//                  information() << "GetWindowRect (%d, %d) - (%d, %d)", rectangleProbe.left(), rectangleProbe.top(), rectangleProbe.right(), rectangleProbe.bottom();
+//                  information() << "GetWindowRect (%d, %d) - (%d, %d)", rectangleProbe.left, rectangleProbe.top, rectangleProbe.right, rectangleProbe.bottom;
 //
 //               }
 //
@@ -658,8 +658,8 @@ namespace windowing_universal_windows
 //
 //                  ::UpdateLayeredWindow(hwnd, m_hdcScreen, (POINT*)&point, (SIZE*)&size, buffer.m_hdc, (POINT*)&pointSrc, rgb(0, 0, 0), &blendPixelFunction, ULW_ALPHA);
 //                  //::SetWindowPos(hwnd, nullptr,
-//                  //   rectangleDrawing.left(),
-//                  //   rectangleDrawing.top(),
+//                  //   rectangleDrawing.left,
+//                  //   rectangleDrawing.top,
 //                  //   rectangleDrawing.width(),
 //                  //   rectangleDrawing.height(),
 //                  //   SWP_NOZORDER

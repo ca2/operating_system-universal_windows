@@ -739,17 +739,17 @@ namespace aura_universal_windows
          //   //   ::int_rectangle rcMonitor;
 
          //   //   get_session()->get_monitor_rectangle(0,&rcMonitor);
-         //   //   if(rectangleWindow.left() >= rcMonitor.left())
-         //   //      pmouse->m_point.x += (int)rectangleWindow.left();
-         //   //   if(rectangleWindow.top() >= rcMonitor.top())
-         //   //      pmouse->m_point.y += (int)rectangleWindow.top();
+         //   //   if(rectangleWindow.left >= rcMonitor.left)
+         //   //      pmouse->m_point.x += (int)rectangleWindow.left;
+         //   //   if(rectangleWindow.top >= rcMonitor.top)
+         //   //      pmouse->m_point.y += (int)rectangleWindow.top;
          //   //}
          //   //else
          //   {
-         //      if(rectangleWindow.left() >= 0)
-         //         pmouse->m_point.x += (int)rectangleWindow.left();
-         //      if(rectangleWindow.top() >= 0)
-         //         pmouse->m_point.y += (int)rectangleWindow.top();
+         //      if(rectangleWindow.left >= 0)
+         //         pmouse->m_point.x += (int)rectangleWindow.left;
+         //      if(rectangleWindow.top >= 0)
+         //         pmouse->m_point.y += (int)rectangleWindow.top;
          //   }
          //}
 
@@ -1589,7 +1589,7 @@ return true;
    //   //         ::window_rectangle(hWndChild, &rectangle);
    //   //         screen_to_client(&rectangle);
    //   //         ::set_window_position(hWndChild, nullptr,
-   //   //            rectangle.left()+xAmount, rectangle.top()+yAmount, 0, 0,
+   //   //            rectangle.left+xAmount, rectangle.top+yAmount, 0, 0,
    //   //            SWP_NOSIZE|SWP_NOACTIVATE|SWP_NOZORDER);
    //   //      }
    //   //   }
@@ -1819,10 +1819,10 @@ return true;
       //m_pframeworkview.get().m_puserinteraction = m_puserinteraction;
 
 
-      //m_rectangleWindowScreen.left() = 0;
-      //m_rectangleWindowScreen.top() = 0;
-      //m_rectangleWindowScreen.right() = (int)m_window->Bounds.Width;
-      //m_rectangleWindowScreen.bottom() = (int)m_window->Bounds.Height;
+      //m_rectangleWindowScreen.left = 0;
+      //m_rectangleWindowScreen.top = 0;
+      //m_rectangleWindowScreen.right = (int)m_window->Bounds.Width;
+      //m_rectangleWindowScreen.bottom = (int)m_window->Bounds.Height;
 
       //m_pframeworkview.get().m_directx->m_bCreated = true;
 
@@ -1962,10 +1962,10 @@ return true;
       //::GetCurrentObject((HDC) pusermessage->m_wparam, OBJ_BITMAP);
       ////      unsigned int dw = ::get_last_error();
       //::int_size size = pbitmap->get_size();
-      //rectx.left() = 0;
-      //rectx.top() = 0;
-      //rectx.right() = size.cx;
-      //rectx.bottom() = size.cy;
+      //rectx.left = 0;
+      //rectx.top = 0;
+      //rectx.right = size.cx;
+      //rectx.bottom = size.cy;
       //try
       //{
       //   ::int_rectangle rectangleWindow;
@@ -1998,14 +1998,14 @@ return true;
       //   (dynamic_cast<::universal_windows::graphics * >(pgraphics))->SetViewportOrg(::int_point());
       //   _000OnDraw(pgraphics);
       //   (dynamic_cast<::universal_windows::graphics * >(pgraphics))->SetViewportOrg(::int_point());
-      //   //(dynamic_cast<::universal_windows::graphics * >(pgraphics))->FillSolidRect(rectangleUpdate.left(), rectangleUpdate.top(), 100, 100, 255);
+      //   //(dynamic_cast<::universal_windows::graphics * >(pgraphics))->FillSolidRect(rectangleUpdate.left, rectangleUpdate.top, 100, 100, 255);
       //   (dynamic_cast<::universal_windows::graphics * >(pgraphics))->SelectClipRgn(nullptr);
       //   (dynamic_cast<::universal_windows::graphics * >(pgraphics))->SetViewportOrg(::int_point());
 
       //   pgraphics->SelectClipRgn( nullptr);
-      //   pgraphics->BitBlt(rectanglePaint.left(), rectanglePaint.top(),
+      //   pgraphics->BitBlt(rectanglePaint.left, rectanglePaint.top,
       //      rectanglePaint.width(), rectanglePaint.height(),
-      //      pgraphics, rectangleUpdate.left(), rectangleUpdate.top(),
+      //      pgraphics, rectangleUpdate.left, rectangleUpdate.top,
       //      SRCCOPY);
 
       //   pgraphics->text_out(0, 0, "Te Amo Carlinhos!!", 11);
@@ -2177,19 +2177,19 @@ return true;
    //   ////}
 
    //   ////// find dialog's upper left based on rcCenter
-   //   ////int xLeft = (rcCenter.left() + rcCenter.right()) / 2 - rcDlg.width() / 2;
-   //   ////int yTop = (rcCenter.top() + rcCenter.bottom()) / 2 - rcDlg.height() / 2;
+   //   ////int xLeft = (rcCenter.left + rcCenter.right) / 2 - rcDlg.width() / 2;
+   //   ////int yTop = (rcCenter.top + rcCenter.bottom) / 2 - rcDlg.height() / 2;
 
    //   ////// if the dialog is outside the screen, move it inside
-   //   ////if (xLeft < rcArea.left())
-   //   ////   xLeft = rcArea.left();
-   //   ////else if (xLeft + rcDlg.width() > rcArea.right())
-   //   ////   xLeft = rcArea.right() - rcDlg.width();
+   //   ////if (xLeft < rcArea.left)
+   //   ////   xLeft = rcArea.left;
+   //   ////else if (xLeft + rcDlg.width() > rcArea.right)
+   //   ////   xLeft = rcArea.right - rcDlg.width();
 
-   //   ////if (yTop < rcArea.top())
-   //   ////   yTop = rcArea.top();
-   //   ////else if (yTop + rcDlg.height() > rcArea.bottom())
-   //   ////   yTop = rcArea.bottom() - rcDlg.height();
+   //   ////if (yTop < rcArea.top)
+   //   ////   yTop = rcArea.top;
+   //   ////else if (yTop + rcDlg.height() > rcArea.bottom)
+   //   ////   yTop = rcArea.bottom - rcDlg.height();
 
    //   ////// ::map screen coordinates to child coordinates
    //   ////set_window_position(nullptr, xLeft, yTop, -1, -1,
@@ -2342,22 +2342,22 @@ return true;
    //      }
    //      else
    //      {
-   //         m_rectangleParentClient.right()   = m_rectangleParentClient.left() + cx;
-   //         m_rectangleParentClient.bottom()  = m_rectangleParentClient.top() + cy;
+   //         m_rectangleParentClient.right   = m_rectangleParentClient.left + cx;
+   //         m_rectangleParentClient.bottom  = m_rectangleParentClient.top + cy;
    //      }
    //   }
    //   else
    //   {
    //      if(nFlags & SWP_NOSIZE)
    //      {
-   //         m_rectangleParentClient.offset(x - m_rectangleParentClient.left(),y - m_rectangleParentClient.top());
+   //         m_rectangleParentClient.offset(x - m_rectangleParentClient.left,y - m_rectangleParentClient.top);
    //      }
    //      else
    //      {
-   //         m_rectangleParentClient.left()    = x;
-   //         m_rectangleParentClient.top()     = y;
-   //         m_rectangleParentClient.right()   = m_rectangleParentClient.left() + cx;
-   //         m_rectangleParentClient.bottom()  = m_rectangleParentClient.top() + cy;
+   //         m_rectangleParentClient.left    = x;
+   //         m_rectangleParentClient.top     = y;
+   //         m_rectangleParentClient.right   = m_rectangleParentClient.left + cx;
+   //         m_rectangleParentClient.bottom  = m_rectangleParentClient.top + cy;
    //      }
    //   }
    //   return true;
@@ -2386,10 +2386,10 @@ return true;
 
    //   }
 
-   //   lprect->left()   += (int)rectangleWindow.left();
-   //   lprect->right()  += (int)rectangleWindow.left();
-   //   lprect->top()    += (int)rectangleWindow.top();
-   //   lprect->bottom() += (int)rectangleWindow.top();
+   //   lprect->left   += (int)rectangleWindow.left;
+   //   lprect->right  += (int)rectangleWindow.left;
+   //   lprect->top    += (int)rectangleWindow.top;
+   //   lprect->bottom += (int)rectangleWindow.top;
 
    //   return true;
 
@@ -2408,8 +2408,8 @@ return true;
 
    //   }
 
-   //   lppoint->x     += (int)rectangleWindow.left();
-   //   lppoint->y     += (int)rectangleWindow.top();
+   //   lppoint->x     += (int)rectangleWindow.left;
+   //   lppoint->y     += (int)rectangleWindow.top;
 
    //   return true;
 
@@ -2428,10 +2428,10 @@ return true;
 
    //   }
 
-   //   lprect->left()   += rectangleWindow.left();
-   //   lprect->right()  += rectangleWindow.left();
-   //   lprect->top()    += rectangleWindow.top();
-   //   lprect->bottom() += rectangleWindow.top();
+   //   lprect->left   += rectangleWindow.left;
+   //   lprect->right  += rectangleWindow.left;
+   //   lprect->top    += rectangleWindow.top;
+   //   lprect->bottom += rectangleWindow.top;
 
    //   return true;
 
@@ -2450,8 +2450,8 @@ return true;
 
    //   }
 
-   //   lppoint->x     += rectangleWindow.left();
-   //   lppoint->y     += rectangleWindow.top();
+   //   lppoint->x     += rectangleWindow.left;
+   //   lppoint->y     += rectangleWindow.top;
 
    //   return true;
 
@@ -2470,10 +2470,10 @@ return true;
 
    //   }
 
-   //   lprect->left()   -= (int)rectangleWindow.left();
-   //   lprect->right()  -= (int)rectangleWindow.left();
-   //   lprect->top()    -= (int)rectangleWindow.top();
-   //   lprect->bottom() -= (int)rectangleWindow.top();
+   //   lprect->left   -= (int)rectangleWindow.left;
+   //   lprect->right  -= (int)rectangleWindow.left;
+   //   lprect->top    -= (int)rectangleWindow.top;
+   //   lprect->bottom -= (int)rectangleWindow.top;
 
    //   return true;
 
@@ -2492,8 +2492,8 @@ return true;
 
    //   }
 
-   //   lppoint->x     -= (int)rectangleWindow.left();
-   //   lppoint->y     -= (int)rectangleWindow.top();
+   //   lppoint->x     -= (int)rectangleWindow.left;
+   //   lppoint->y     -= (int)rectangleWindow.top;
 
    //   return true;
 
@@ -2512,10 +2512,10 @@ return true;
 
    //   }
 
-   //   lprect->left()   -= rectangleWindow.left();
-   //   lprect->right()  -= rectangleWindow.left();
-   //   lprect->top()    -= rectangleWindow.top();
-   //   lprect->bottom() -= rectangleWindow.top();
+   //   lprect->left   -= rectangleWindow.left;
+   //   lprect->right  -= rectangleWindow.left;
+   //   lprect->top    -= rectangleWindow.top;
+   //   lprect->bottom -= rectangleWindow.top;
 
    //   return true;
 
@@ -2534,8 +2534,8 @@ return true;
 
    //   }
 
-   //   lppoint->x     -= rectangleWindow.left();
-   //   lppoint->y     -= rectangleWindow.top();
+   //   lppoint->x     -= rectangleWindow.left;
+   //   lppoint->y     -= rectangleWindow.top;
 
    //   return true;
 
@@ -2570,13 +2570,13 @@ return true;
    //   ::winrt::Windows::Foundation::Rect rectangle = m_pwindow->m_pwindow->window_rectangle();
 
 
-   //   lprect->left()   = (long long)rectangle.X;
+   //   lprect->left   = (long long)rectangle.X;
 
-   //   lprect->top()    = (long long)rectangle.Y;
+   //   lprect->top    = (long long)rectangle.Y;
 
-   //   lprect->right()  = (long long)(lprect->left() + rectangle.Width);
+   //   lprect->right  = (long long)(lprect->left + rectangle.Width);
 
-   //   lprect->bottom() = (long long)(lprect->top() + rectangle.Height);
+   //   lprect->bottom = (long long)(lprect->top + rectangle.Height);
 
    //   /*if(!::is_window(get_handle()))
    //      throw ::exception(::exception("no more a window"));
@@ -2612,10 +2612,10 @@ return true;
 
    //   window_rectangle(lprect);
 
-   //   lprect->right() -= lprect->left();
-   //   lprect->left() = 0;
-   //   lprect->bottom() -= lprect->top();
-   //   lprect->top() = 0;
+   //   lprect->right -= lprect->left;
+   //   lprect->left = 0;
+   //   lprect->bottom -= lprect->top;
+   //   lprect->top = 0;
    //   // if it is temporary interaction_impl - probably not ca2 wrapped interaction_impl
    //   //if(m_puserinteraction == nullptr || m_puserinteraction == this)
    //   {
@@ -2959,7 +2959,7 @@ return true;
 
    //void interaction_impl::MoveWindow(const ::int_rectangle & rectangle,bool bRepaint)
    //{
-   //   MoveWindow(lpRect->left(),lpRect->top(),lpRect->right() - lpRect->left(),lpRect->bottom() - lpRect->top(),bRepaint);
+   //   MoveWindow(lpRect->left,lpRect->top,lpRect->right - lpRect->left,lpRect->bottom - lpRect->top,bRepaint);
    //}
 
    unsigned int interaction_impl::ArrangeIconicWindows()

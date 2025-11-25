@@ -2101,7 +2101,7 @@ namespace apex_universal_windows
 
       //   }
 
-      //   path = strDefault.left()(iFind);
+      //   path = strDefault.left(iFind);
 
       //   path += ".exe";
 

@@ -272,10 +272,10 @@ namespace windowing_universal_windows
 
       auto bounds = m_windowscorewindow.Bounds();
 
-      prectangle->left() = (int) bounds.X;
-      prectangle->top() = (int)bounds.Y;
-      prectangle->right() = (int)(prectangle->left()+ bounds.Width);
-      prectangle->bottom() = (int) (prectangle->top() + bounds.Height);
+      prectangle->left = (int) bounds.X;
+      prectangle->top = (int)bounds.Y;
+      prectangle->right = (int)(prectangle->left+ bounds.Width);
+      prectangle->bottom = (int) (prectangle->top + bounds.Height);
 
       return true;
 
@@ -1127,17 +1127,17 @@ namespace windowing_universal_windows
 
       //::int_rectangle rWindow;
 
-      //rWindow.left() = attr.x;
-      //rWindow.top() = attr.y;
-      //rWindow.right() = attr.x + attr.width;
-      //rWindow.bottom() = attr.y + attr.height;
+      //rWindow.left = attr.x;
+      //rWindow.top = attr.y;
+      //rWindow.right = attr.x + attr.width;
+      //rWindow.bottom = attr.y + attr.height;
 
       //if (rBest != rWindow)
       //{
 
       //   puserinteraction->place(rBest);
 
-      //   XMoveResizeWindow(d, m_windowscorewindow, rBest.left(), rBest.top(), rBest.width(), rBest.height());
+      //   XMoveResizeWindow(d, m_windowscorewindow, rBest.left, rBest.top, rBest.width(), rBest.height());
 
       //}
 
@@ -2201,7 +2201,7 @@ namespace windowing_universal_windows
 
       //auto & buffer = pbuffer->m_osbuffera[!pbuffer->m_iCurrentBuffer];
 
-      //::BitBlt(hdc, rectangleUpdate.left(), rectangleUpdate.top(), rectangleUpdate.width(), rectangleUpdate.height(), buffer.m_hdc, 0, 0, SRCCOPY);
+      //::BitBlt(hdc, rectangleUpdate.left, rectangleUpdate.top, rectangleUpdate.width(), rectangleUpdate.height(), buffer.m_hdc, 0, 0, SRCCOPY);
 
 
 
@@ -2240,7 +2240,7 @@ namespace windowing_universal_windows
 
       //            pgraphics->SetViewportOrg(0, 0);
 
-      //            g->BitBlt(rectanglePaint.left(), rectanglePaint.top(), rectanglePaint.width(), rectanglePaint.height(), pgraphics, rectangleUpdate.left(), rectangleUpdate.top());
+      //            g->BitBlt(rectanglePaint.left, rectanglePaint.top, rectanglePaint.width(), rectanglePaint.height(), pgraphics, rectangleUpdate.left, rectangleUpdate.top);
 
       //         }
 
@@ -4837,23 +4837,23 @@ namespace windowing_universal_windows
       //if(bCalcValidRects)
       //{
       //   informationf("1");
-      //   pncsp->rgrc[0].left() = lpncsp->lppos->x + 1;
+      //   pncsp->rgrc[0].left = lpncsp->lppos->x + 1;
 
-      //   pncsp->rgrc[0].right() = lpncsp->lppos->x + lpncsp->lppos->cx - 1;
+      //   pncsp->rgrc[0].right = lpncsp->lppos->x + lpncsp->lppos->cx - 1;
 
-      //   pncsp->rgrc[0].top() = lpncsp->lppos->y + 32;
+      //   pncsp->rgrc[0].top = lpncsp->lppos->y + 32;
 
-      //   pncsp->rgrc[0].bottom() = lpncsp->lppos->y + lpncsp->lppos->cy - 1;
+      //   pncsp->rgrc[0].bottom = lpncsp->lppos->y + lpncsp->lppos->cy - 1;
 
       //}
       //else
       //{
       //   CRect * prectangle = (CRect *) pncsp;
 
-      //   prectangle->top() += 32;
-      //   prectangle->left()++;
-      //   prectangle->bottom()--;
-      //   prectangle->right()--;
+      //   prectangle->top += 32;
+      //   prectangle->left++;
+      //   prectangle->bottom--;
+      //   prectangle->right--;
 
       //   informationf("2");
       //}
@@ -4876,13 +4876,13 @@ namespace windowing_universal_windows
       //   /* Maximized windows always have a non-client border that hangs over
       //   the edge of the screen, so the int_size proposed by ::user::e_message_non_client_calc_size is
       //   fine. Just adjust the top border to erase the u title. */
-      //   pncsp->rgrc[0].left() = client.left();
+      //   pncsp->rgrc[0].left = client.left;
 
-      //   pncsp->rgrc[0].top() = nonclient.top() + wi.cyWindowBorders;
+      //   pncsp->rgrc[0].top = nonclient.top + wi.cyWindowBorders;
 
-      //   pncsp->rgrc[0].right() = client.right();
+      //   pncsp->rgrc[0].right = client.right;
 
-      //   pncsp->rgrc[0].bottom() = client.bottom();
+      //   pncsp->rgrc[0].bottom = client.bottom;
 
 
       //   HMONITOR mon = MonitorFromWindow(hwnd, MONITOR_DEFAULTTOPRIMARY);
@@ -4901,16 +4901,16 @@ namespace windowing_universal_windows
 
       //   {
       //      if (has_autohide_appbar(ABE_BOTTOM, mi.rcMonitor))
-      //         pncsp->rgrc[0].bottom()--;
+      //         pncsp->rgrc[0].bottom--;
 
       //      else if (has_autohide_appbar(ABE_LEFT, mi.rcMonitor))
-      //         pncsp->rgrc[0].left()++;
+      //         pncsp->rgrc[0].left++;
 
       //      else if (has_autohide_appbar(ABE_TOP, mi.rcMonitor))
-      //         pncsp->rgrc[0].top()++;
+      //         pncsp->rgrc[0].top++;
 
       //      else if (has_autohide_appbar(ABE_RIGHT, mi.rcMonitor))
-      //         pncsp->rgrc[0].right()--;
+      //         pncsp->rgrc[0].right--;
 
       //   }
       //}
@@ -5965,10 +5965,10 @@ namespace windowing_universal_windows
 
             ::double_rectangle rectangle;
 
-            rectangle.left() = (LONG)m_windowscorewindow.Bounds().X;
-            rectangle.top() = (LONG)m_windowscorewindow.Bounds().Y;
-            rectangle.right() = (LONG)(m_windowscorewindow.Bounds().X + m_windowscorewindow.Bounds().Width);
-            rectangle.top() = (LONG)(m_windowscorewindow.Bounds().Y + m_windowscorewindow.Bounds().Height);
+            rectangle.left = (LONG)m_windowscorewindow.Bounds().X;
+            rectangle.top = (LONG)m_windowscorewindow.Bounds().Y;
+            rectangle.right = (LONG)(m_windowscorewindow.Bounds().X + m_windowscorewindow.Bounds().Width);
+            rectangle.top = (LONG)(m_windowscorewindow.Bounds().Y + m_windowscorewindow.Bounds().Height);
 
             //puserinteraction->m_puiThis->place(rectangle);
 
@@ -6957,10 +6957,10 @@ namespace windowing_universal_windows
 
       //   ::double_rectangle rectangle;
 
-      //   rectangle.left() = (LONG)m_windowscorewindow.Bounds().X;
-      //   rectangle.top() = (LONG)m_windowscorewindow.Bounds().Y;
-      //   rectangle.right() = (LONG)(m_windowscorewindow.Bounds().X + m_windowscorewindow.Bounds().Width);
-      //   rectangle.top() = (LONG)(m_windowscorewindow.Bounds().Y + m_windowscorewindow.Bounds().Height);
+      //   rectangle.left = (LONG)m_windowscorewindow.Bounds().X;
+      //   rectangle.top = (LONG)m_windowscorewindow.Bounds().Y;
+      //   rectangle.right = (LONG)(m_windowscorewindow.Bounds().X + m_windowscorewindow.Bounds().Width);
+      //   rectangle.top = (LONG)(m_windowscorewindow.Bounds().Y + m_windowscorewindow.Bounds().Height);
 
       //   //puserinteraction->m_puiThis->place(rectangle);
 
@@ -8528,8 +8528,8 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
                ::int_rectangle r = puserinteractionFocus->window_rectangle();
 
-               m_rectangleInputContentRect.X = (float)r.left();
-               m_rectangleInputContentRect.Y = (float)r.top();
+               m_rectangleInputContentRect.X = (float)r.left;
+               m_rectangleInputContentRect.Y = (float)r.top;
                m_rectangleInputContentRect.Width = (float)r.width();
                m_rectangleInputContentRect.Height = (float)r.height();
 
