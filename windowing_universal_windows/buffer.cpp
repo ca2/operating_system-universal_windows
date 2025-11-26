@@ -681,7 +681,7 @@ namespace windowing_universal_windows
    void buffer::OnWindowSizeChange()
    {
 
-      if (m_size.cx() != m_windowBounds.Width || m_size.cy() != m_windowBounds.Height)
+      if (m_size.cx != m_windowBounds.Width || m_size.cy != m_windowBounds.Height)
       {
 
          ::draw2d::lock lock(this);
@@ -709,7 +709,7 @@ namespace windowing_universal_windows
 
          //m_pwindow->m_puserinteraction->start_layout();
 
-         puserinteraction->place(0, 0, m_size.cx(), m_size.cy());
+         puserinteraction->place(0, 0, m_size.cx, m_size.cy);
 
          puserinteraction->order_top();
 
@@ -818,8 +818,8 @@ namespace windowing_universal_windows
 
       // Store the window bounds so the next time we get a SizeChanged happening we can
       // avoid rebuilding everything if the int_size is identical.
-      m_windowBounds.Width = (float)m_size.cx();
-      m_windowBounds.Height = (float)m_size.cy();
+      m_windowBounds.Width = (float)m_size.cx;
+      m_windowBounds.Height = (float)m_size.cy;
 
       //if (m_pswapchain != nullptr)
       //{
@@ -892,9 +892,9 @@ namespace windowing_universal_windows
 
       int cyScreen = displayInformation.ScreenHeightInRawPixels();
 
-      m_sizeBuffer.cx() = maximum(cxScreen, m_size.cx());
+      m_sizeBuffer.cx = maximum(cxScreen, m_size.cx);
 
-      m_sizeBuffer.cy() = maximum(cyScreen, m_size.cy());
+      m_sizeBuffer.cy = maximum(cyScreen, m_size.cy);
 
       bool bBufferUpdated = false;
 
@@ -904,8 +904,8 @@ namespace windowing_universal_windows
 
          // Otherwise, create a ___new one using the same adapter as the existing Direct3D device.
          DXGI_SWAP_CHAIN_DESC1 swapChainDesc = { 0 };
-         swapChainDesc.Width = m_sizeBuffer.cx();                                     // Use automatic sizing.
-         swapChainDesc.Height = m_sizeBuffer.cy();
+         swapChainDesc.Width = m_sizeBuffer.cx;                                     // Use automatic sizing.
+         swapChainDesc.Height = m_sizeBuffer.cy;
          swapChainDesc.Format = DXGI_FORMAT_B8G8R8A8_UNORM;           // This is the most common __swap chain format.
          swapChainDesc.Stereo = false;
          swapChainDesc.SampleDesc.Count = 1;                          // Don't use multi-sampling.
@@ -958,7 +958,7 @@ namespace windowing_universal_windows
          bBufferUpdated = true;
 
       }
-      else if(m_size.cx() > m_sizeBuffer.cx() || m_size.cy() > m_sizeBuffer.cy())
+      else if(m_size.cx > m_sizeBuffer.cx || m_size.cy > m_sizeBuffer.cy)
       {
 
          //synchronous_lock synchronouslockObjects(system()->draw2d()->get_object_list_mutex());
@@ -1010,8 +1010,8 @@ namespace windowing_universal_windows
          //       If the __swap chain already exists, resize it.
          hr = m_pswapchain->ResizeBuffers(
             0,
-            m_size.cx(), // If you specify zero, DXGI will use the width of the client area of the target window.
-            m_size.cy(), // If you specify zero, DXGI will use the height of the client area of the target window.
+            m_size.cx, // If you specify zero, DXGI will use the width of the client area of the target window.
+            m_size.cy, // If you specify zero, DXGI will use the height of the client area of the target window.
             DXGI_FORMAT_UNKNOWN, // Set this value to DXGI_FORMAT_UNKNOWN to preserve the existing format of the back buffer.
             DXGI_SWAP_CHAIN_FLAG_FOREGROUND_LAYER);
 
@@ -1052,9 +1052,9 @@ namespace windowing_universal_windows
 
          m_pswapchain->GetDesc1(&desc1);
 
-         m_sizeBuffer.cx() = desc1.Width;
+         m_sizeBuffer.cx = desc1.Width;
 
-         m_sizeBuffer.cy() = desc1.Height;
+         m_sizeBuffer.cy = desc1.Height;
 
          if (m_b3D)
          {
@@ -1192,9 +1192,9 @@ namespace windowing_universal_windows
 
       // Store the window bounds so the next time we get a SizeChanged happening we can
       // avoid rebuilding everything if the int_size is identical.
-      m_windowBounds.Width = (float)m_size.cx();
+      m_windowBounds.Width = (float)m_size.cx;
 
-      m_windowBounds.Height = (float)m_size.cy();
+      m_windowBounds.Height = (float)m_size.cy;
 
       m_sizeBuffer = { 0,0 };
 

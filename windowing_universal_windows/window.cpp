@@ -7621,9 +7621,9 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          rectangleWindow.Y = (float)puserinteraction->const_layout().design().origin().y();
 
-         rectangleWindow.Width = (float)puserinteraction->const_layout().design().size().cx();
+         rectangleWindow.Width = (float)puserinteraction->const_layout().design().size().cx;
 
-         rectangleWindow.Height = (float)puserinteraction->const_layout().design().size().cy();
+         rectangleWindow.Height = (float)puserinteraction->const_layout().design().size().cy;
 
          auto pwindowing = windowing();
 
@@ -7805,8 +7805,8 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          int x = puserinteraction->const_layout().sketch().origin().x();
          int y = puserinteraction->const_layout().sketch().origin().y();
-         int cx = puserinteraction->const_layout().sketch().size().cx();
-         int cy = puserinteraction->const_layout().sketch().size().cy();
+         int cx = puserinteraction->const_layout().sketch().size().cx;
+         int cy = puserinteraction->const_layout().sketch().size().cy;
 
          HWND hwndParent = nullptr;
 
