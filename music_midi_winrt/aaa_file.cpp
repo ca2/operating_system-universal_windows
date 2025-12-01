@@ -15,7 +15,7 @@ namespace music
 
          buffer::buffer(::particle * pparticle) :
             ::object(pobject),
-            primitive::memory_container (pobject),
+            prototype::memory_container (pobject),
             ::music::midi::file::buffer(pobject)
          {
 

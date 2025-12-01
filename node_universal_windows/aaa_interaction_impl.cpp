@@ -1370,7 +1370,7 @@ namespace windows
 
    if(pwindow->get_handle() == nullptr)
    {
-   return ::user::primitive::IsChild(pwindow);
+   return ::user::prototype::IsChild(pwindow);
    }
    else
    {
@@ -1606,7 +1606,7 @@ namespace windows
    void interaction_impl::sketch_prepare_window_minimize(const ::user::activation & useractivation)
    {
 
-      primitive_impl::sketch_prepare_window_minimize(useractivation);
+      prototype_impl::sketch_prepare_window_minimize(useractivation);
 
    }
 
@@ -1614,7 +1614,7 @@ namespace windows
    void interaction_impl::sketch_prepare_window_maximize()
    {
 
-      primitive_impl::sketch_prepare_window_maximize();
+      prototype_impl::sketch_prepare_window_maximize();
 
    }
 
@@ -1622,7 +1622,7 @@ namespace windows
    void interaction_impl::sketch_prepare_window_full_screen(const ::int_rectangle & rectangleHint)
    {
 
-      primitive_impl::sketch_prepare_window_full_screen(rectangleHint);
+      prototype_impl::sketch_prepare_window_full_screen(rectangleHint);
 
    }
 
@@ -1630,7 +1630,7 @@ namespace windows
    void interaction_impl::sketch_prepare_window_restore(edisplay edisplay)
    {
 
-      primitive_impl::sketch_prepare_window_restore(edisplay);
+      prototype_impl::sketch_prepare_window_restore(edisplay);
 
    }
 

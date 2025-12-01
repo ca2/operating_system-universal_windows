@@ -191,7 +191,7 @@ namespace universal_windows
             void defer_show_system_menu(::user::mouse * pmouse) override;
 
 
-            /// ::user::primitive_impl
+            /// ::user::prototype_impl
 
 
             using ::acme::windowing::window::set_mouse_capture;

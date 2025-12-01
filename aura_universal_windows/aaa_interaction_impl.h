@@ -674,9 +674,9 @@ namespace aura_universal_windows
 
       virtual bool _is_window() const ;
 
-      //void show_software_keyboard(::user::primitive * pprimitive, string str, character_count iBeg, character_count iEnd) override;
+      //void show_software_keyboard(::user::prototype * pprimitive, string str, character_count iBeg, character_count iEnd) override;
 
-      //void hide_software_keyboard(::user::primitive * pprimitive) override;
+      //void hide_software_keyboard(::user::prototype * pprimitive) override;
 
       virtual void edit_on_set_focus(::user::interaction* pinteraction) ;
 

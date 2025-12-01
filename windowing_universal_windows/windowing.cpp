@@ -888,15 +888,15 @@ namespace windowing_universal_windows
    //}
 
 
-   //hwnd_array windowing::_get_hwnda(const ::user::primitive_pointer_array & primitivepointera)
+   //hwnd_array windowing::_get_hwnda(const ::user::prototype_pointer_array & prototypepointera)
    //{
 
    //   hwnd_array hwnda;
 
-   //   for (int i = 0; i < primitivepointera.primitive_count(); i++)
+   //   for (int i = 0; i < prototypepointera.prototype_count(); i++)
    //   {
 
-   //      ::pointer<::user::interaction>puserinteraction = primitivepointera.primitive_at(i);
+   //      ::pointer<::user::interaction>puserinteraction = prototypepointera.prototype_at(i);
 
    //      hwnda.add((HWND) puserinteraction->get_oswindow());
 

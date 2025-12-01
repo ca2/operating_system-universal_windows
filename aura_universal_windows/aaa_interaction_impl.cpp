@@ -5099,7 +5099,7 @@ namespace aura_universal_windows
 
          //m_happeningQueue.set_happening();
       
-         //void primitive_impl::queue_message_handler(::user::message * pbaseParam)
+         //void prototype_impl::queue_message_handler(::user::message * pbaseParam)
          //{
 
          //::pointer<::user::message>pusermessage = pbaseParam;
@@ -5151,13 +5151,13 @@ namespace aura_universal_windows
    }
 
 
-   //void interaction_impl::show_software_keyboard(::user::primitive * pprimitive, string str, character_count iBeg, character_count iEnd)
+   //void interaction_impl::show_software_keyboard(::user::prototype * pprimitive, string str, character_count iBeg, character_count iEnd)
    //{
 
    //}
 
 
-   //void interaction_impl::hide_software_keyboard(::user::primitive * pprimitive)
+   //void interaction_impl::hide_software_keyboard(::user::prototype * pprimitive)
    //{
 
    //}
