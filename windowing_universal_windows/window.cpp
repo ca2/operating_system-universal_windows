@@ -2132,9 +2132,9 @@ namespace windowing_universal_windows
       //HideCaret();
 
       //PAINTSTRUCT ps;
-      //HDC hdc1 = BeginPaint(m_oswindow, &ps);
+      //HDC hdc1 = BeginPaint(m_pacmewindowingwindow, &ps);
       //// TODO: Add any drawing code that uses hdc here...
-      //EndPaint(m_oswindow, &ps);
+      //EndPaint(m_pacmewindowingwindow, &ps);
 
       //return
       //   ;
@@ -2345,7 +2345,7 @@ namespace windowing_universal_windows
    ::user::interaction * window::get_owner()
    {
 
-      ::oswindow oswindow = get_owner_oswindow();
+      ::::acme::windowing::window * pacmewindowingwindow = get_owner_oswindow();
 
       auto pwindowing = system()->windowing();
 
@@ -2478,7 +2478,7 @@ namespace windowing_universal_windows
    void window::default_message_handler(::message::message * pmessage)
    {
 
-      //HWND hwnd = as_hwnd(pmessage->m_oswindow);
+      //HWND hwnd = as_hwnd(pmessage->m_pacmewindowingwindow);
 
       //UINT message = pmessage->m_eusermessage.unsigned int();
 
@@ -4954,13 +4954,13 @@ namespace windowing_universal_windows
    //   if (pfnWndProc == nullptr)
    //   {
 
-   //      lresult = ::DefWindowProcW(m_oswindow, (unsigned int)pmessage->m_eusermessage.long_long(), pmessage->m_wparam, pmessage->m_lparam);
+   //      lresult = ::DefWindowProcW(m_pacmewindowingwindow, (unsigned int)pmessage->m_eusermessage.long_long(), pmessage->m_wparam, pmessage->m_lparam);
 
    //   }
    //   else
    //   {
 
-   //      lresult = ::CallWindowProc(pfnWndProc, m_oswindow, (unsigned int)pmessage->m_eusermessage.long_long(), pmessage->m_wparam, pmessage->m_lparam);
+   //      lresult = ::CallWindowProc(pfnWndProc, m_pacmewindowingwindow, (unsigned int)pmessage->m_eusermessage.long_long(), pmessage->m_wparam, pmessage->m_lparam);
 
    //   }
 
@@ -5070,7 +5070,7 @@ namespace windowing_universal_windows
 //
 //         }
 //
-//         pmessage->m_lresult = ::DefWindowProcW(m_oswindow, m_uiMessage, m_wparam, m_lparam);
+//         pmessage->m_lresult = ::DefWindowProcW(m_pacmewindowingwindow, m_uiMessage, m_wparam, m_lparam);
 //
 //         pmessage->m_bRet = true;
 //
@@ -5587,7 +5587,7 @@ namespace windowing_universal_windows
 //      //   else
 //      //   {
 //      //      
-//      //      pmessage->set_lresult(::DefWindowProcW(m_oswindow, pmessage->m_eusermessage, pmessage->m_wparam, pmessage->m_lparam));
+//      //      pmessage->set_lresult(::DefWindowProcW(m_pacmewindowingwindow, pmessage->m_eusermessage, pmessage->m_wparam, pmessage->m_lparam));
 //
 //      //   }
 //
@@ -6077,7 +6077,7 @@ namespace windowing_universal_windows
    float window::get_dpi_for_window()
    {
 
-      //::oswindow oswindow = this;
+      //::::acme::windowing::window * pacmewindowingwindow = this;
 
       //return (float) ::get_dpi_for_window(oswindow);
 
@@ -6580,7 +6580,7 @@ namespace windowing_universal_windows
             bool bSpecialKey = false;
             pkey->m_pwindow = this;
 
-            pkey->m_oswindow = this;
+            pkey->m_pacmewindowingwindow = this;
 
             pkey->m_emessage = ::user::e_message_key_down;
             //pkey->m_playeredUserPrimitive = psession->get_user_interaction_host();
@@ -7238,7 +7238,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          auto pkey = øcreate_new< ::message::key >();
          pkey->m_pwindow = this;
 
-         pkey->m_oswindow = this;
+         pkey->m_pacmewindowingwindow = this;
 
          pkey->m_emessage = ::user::e_message_char;
 
@@ -7297,7 +7297,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          //{
          pkey->m_pwindow = this;
 
-         pkey->m_oswindow = this;
+         pkey->m_pacmewindowingwindow = this;
 
          pkey->m_emessage = ::user::e_message_key_down;
          //pkey->m_playeredUserPrimitive       = session()->m_puserinteractionHost;
@@ -7359,7 +7359,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          //{
          pkey->m_pwindow = this;
 
-         pkey->m_oswindow = this;
+         pkey->m_pacmewindowingwindow = this;
 
             pkey->m_emessage = ::user::e_message_key_up;
             //pkey->m_playeredUserPrimitive = session()->m_puserinteractionHost;
@@ -8073,7 +8073,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          pmouse->m_pwindow = this;
 
-         pmouse->m_oswindow = this;
+         pmouse->m_pacmewindowingwindow = this;
 
          pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 
@@ -8135,7 +8135,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          pmouse->m_pwindow = this;
 
-         pmouse->m_oswindow = this;
+         pmouse->m_pacmewindowingwindow = this;
 
          pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 
@@ -8221,7 +8221,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          pmouse->m_pwindow = this;
 
-         pmouse->m_oswindow = this;
+         pmouse->m_pacmewindowingwindow = this;
 
          pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 
@@ -8298,7 +8298,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //
 //   pmouse->m_pwindow = this;
 //
-//   pmouse->m_oswindow = this;
+//   pmouse->m_pacmewindowingwindow = this;
 //
 //   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 //
@@ -8360,7 +8360,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //
 //   pmouse->m_pwindow = this;
 //
-//   pmouse->m_oswindow = this;
+//   pmouse->m_pacmewindowingwindow = this;
 //
 //   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 //
@@ -8447,7 +8447,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //
 //   pmouse->m_pwindow = this;
 //
-//   pmouse->m_oswindow = this;
+//   pmouse->m_pacmewindowingwindow = this;
 //
 //   pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 //
@@ -8905,7 +8905,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
       //}
 
-      void window::_set_oswindow(::oswindow oswindow)
+      void window::_set_oswindow(::::acme::windowing::window * pacmewindowingwindow)
       {
 
          

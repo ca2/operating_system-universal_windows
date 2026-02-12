@@ -2250,7 +2250,7 @@ return true;
    // Extra interaction_impl support for dynamic subclassing of controls
 
 
-   //bool interaction_impl::SubclassWindow(::oswindow oswindow)
+   //bool interaction_impl::SubclassWindow(::::acme::windowing::window * pacmewindowingwindow)
    //{
 
    //   throw ::exception(todo);
@@ -2805,7 +2805,7 @@ return true;
 
    //   ::pointer<::user::message>spbase;
 
-   //   spbase = m_puserinteraction->get_message_base(m_oswindow, atom,wparam,lparam);
+   //   spbase = m_puserinteraction->get_message_base(m_pacmewindowingwindow, atom,wparam,lparam);
 
    //   /*      try
    //         {

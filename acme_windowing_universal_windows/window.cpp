@@ -2192,7 +2192,7 @@ namespace universal_windows
 
             //pmouse->m_pwindow = this;
 
-            //pmouse->m_oswindow = this;
+            //pmouse->m_pacmewindowingwindow = this;
 
             pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 
@@ -2280,7 +2280,7 @@ namespace universal_windows
 
             //pmouse->m_pwindow = this;
 
-            //pmouse->m_oswindow = this;
+            //pmouse->m_pacmewindowingwindow = this;
 
             pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 
@@ -2422,7 +2422,7 @@ namespace universal_windows
 
             //pmouse->m_pwindow = this;
 
-            //pmouse->m_oswindow = this;
+            //pmouse->m_pacmewindowingwindow = this;
 
             pmouse->m_pointHost.x() = (int)pointerPoint.Position().X;
 
@@ -2562,7 +2562,7 @@ namespace universal_windows
             auto pkey = øcreate_new< ::user::key >();
             //pkey->m_pwindow = this;
 
-            //pkey->m_oswindow = this;
+            //pkey->m_pacmewindowingwindow = this;
 
             pkey->m_emessage = ::user::e_message_char;
 
@@ -2632,7 +2632,7 @@ namespace universal_windows
             //{
             //pkey->m_pwindow = this;
 
-            //pkey->m_oswindow = this;
+            //pkey->m_pacmewindowingwindow = this;
 
             pkey->m_emessage = ::user::e_message_key_down;
             //pkey->m_playeredUserPrimitive       = session()->m_puserinteractionHost;
@@ -2703,7 +2703,7 @@ namespace universal_windows
             //{
             //pkey->m_pwindow = this;
 
-            //pkey->m_oswindow = this;
+            //pkey->m_pacmewindowingwindow = this;
 
             pkey->m_emessage = ::user::e_message_key_up;
             //pkey->m_playeredUserPrimitive = session()->m_puserinteractionHost;

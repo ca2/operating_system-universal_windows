@@ -272,7 +272,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::acme::windowing::window * windowing::window(oswindow oswindow)
+   ::acme::windowing::window * windowing::window(::acme::windowing::window * pacmewindowingwindow)
    {
 
       ///HWND hwnd = as_hwnd(oswindow);
@@ -576,7 +576,7 @@ namespace windowing_universal_windows
    }
 
 
-   //void windowing::set(message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
+   //void windowing::set(message::key * pkey, ::acme::windowing::window * pacmewindowingwindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
    //{
 
    //   pkey->m_nChar = static_cast<unsigned int>(wparam);
@@ -596,7 +596,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::mouse * pmouse, ::acme::windowing::window * pacmewindowingwindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
    //{
 
    //   pmouse->m_nFlags = wparam;
@@ -605,7 +605,7 @@ namespace windowing_universal_windows
 
    //   pmouse->m_bTranslated = true; // not in root coordinates
 
-   //   //::ClientToScreen((HWND) pmouse->m_oswindow, (POINT *) &pmouse->m_point);
+   //   //::ClientToScreen((HWND) pmouse->m_pacmewindowingwindow, (POINT *) &pmouse->m_point);
 
    //}
 
@@ -1009,14 +1009,14 @@ namespace windowing_universal_windows
    //}
 
 
-   //void windowing::set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::key * pkey, ::acme::windowing::window * pacmewindowingwindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
    //{
 
 
    //}
 
 
-   //void windowing::set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
+   //void windowing::set(::message::mouse * pmouse, ::acme::windowing::window * pacmewindowingwindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam)
    //{
 
 
@@ -1078,7 +1078,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool windowing::is_window(oswindow oswindow)
+   bool windowing::is_window(::acme::windowing::window * pacmewindowingwindow)
    {
 
       HWND hwnd = (HWND)oswindow;
@@ -1229,7 +1229,7 @@ namespace windowing_universal_windows
 //
 //   }
 
-   //string windowing::_get_window_text_timeout(oswindow oswindow, const class time & timeSendMessageMax)
+   //string windowing::_get_window_text_timeout(::acme::windowing::window * pacmewindowingwindow, const class time & timeSendMessageMax)
    //{
 
    //   DWORD_PTR dw = 0;
@@ -1270,7 +1270,7 @@ namespace windowing_universal_windows
    //bool windowing::_top_level_contains_name(const ::scoped_string & scopedstr)
    //{
 
-   //   return _top_level_contains_predicate([this, str](oswindow oswindow)
+   //   return _top_level_contains_predicate([this, str](::acme::windowing::window * pacmewindowingwindow)
    //      {
 
    //         //PSEUDO-Code char sz[1024]; GetWindowTextA(sz,1024, oswindow); return !strcmp(sz, str.c_str());
@@ -1287,7 +1287,7 @@ namespace windowing_universal_windows
    //bool windowing::_visible_top_level_contains_name(const ::scoped_string & scopedstr)
    //{
 
-   //   return _top_level_contains_predicate([this, str](oswindow oswindow)
+   //   return _top_level_contains_predicate([this, str](::acme::windowing::window * pacmewindowingwindow)
    //      {
 
    //         //PSEUDO-Code char sz[1024]; GetWindowTextA(sz,1024, oswindow); return !strcmp(sz, str.c_str());
@@ -1311,7 +1311,7 @@ namespace windowing_universal_windows
    //bool windowing::_visible_top_level_contains_all_names(string_array_base& stra)
    //{
 
-   //   return _top_level_contains_predicate([this, &stra](oswindow oswindow)
+   //   return _top_level_contains_predicate([this, &stra](::acme::windowing::window * pacmewindowingwindow)
    //      {
 
    //         //PSEUDO-Code char sz[1024]; GetWindowTextA(sz,1024, oswindow); return !strcmp(sz, str.c_str());

@@ -73,7 +73,7 @@ namespace windowing_universal_windows
 
       //virtual hwnd_array _get_hwnda(const ::user::prototype_pointer_array& prototypepointera);
 
-      ::acme::windowing::window * window(oswindow oswindow) override;
+      ::acme::windowing::window * window(::acme::windowing::window * pacmewindowingwindow) override;
 
       //virtual ::windowing_universal_windows::window * _window(HWND hwnd);
 
@@ -139,7 +139,7 @@ namespace windowing_universal_windows
       //virtual void top_windows_by_z_order(hwnd_array & a);
 
 
-      bool is_window(oswindow oswindow) override;
+      bool is_window(::acme::windowing::window * pacmewindowingwindow) override;
 
       bool _is_window(HWND hwnd);
 
@@ -155,8 +155,8 @@ namespace windowing_universal_windows
       //static BOOL CALLBACK GetAppsEnumWindowsProc(HWND hwnd, LPARAM lParam);
 
 
-      //void set(::message::key * pkey, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam) override;
-      //void set(::message::mouse * pmouse, oswindow oswindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam) override;
+      //void set(::message::key * pkey, ::acme::windowing::window * pacmewindowingwindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam) override;
+      //void set(::message::mouse * pmouse, ::acme::windowing::window * pacmewindowingwindow, ::windowing::window * pwindow, ::user::enum_message eusermessage, ::wparam wparam, ::lparam lparam) override;
 
 
       void initialize_keyboard(::windowing::keyboard * pkeyboard) override;
@@ -187,7 +187,7 @@ namespace windowing_universal_windows
       //virtual bool _visible_top_level_contains_all_names(string_array_base& stra);
       //virtual bool _visible_top_level_contains_name(const ::scoped_string & scopedstr);
       //virtual bool _top_level_contains_name(const ::scoped_string & scopedstr);
-      //virtual string _get_window_text_timeout(oswindow oswindow, const class time & time = 1_s);
+      //virtual string _get_window_text_timeout(::acme::windowing::window * pacmewindowingwindow, const class time & time = 1_s);
 
 
       void windowing_application_main_loop() override;

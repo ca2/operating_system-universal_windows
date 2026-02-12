@@ -100,7 +100,7 @@ namespace universal_windows
 
             virtual void _draw(HDC hdc);
 
-            ::oswindow oswindow() override;
+            ::::acme::windowing::window * pacmewindowingwindow() override;
 
             void Initialize(::winrt::Windows::ApplicationModel::Core::CoreApplicationView const & coreapplicationview);
             void SetWindow(::winrt::Windows::UI::Core::CoreWindow const & window);

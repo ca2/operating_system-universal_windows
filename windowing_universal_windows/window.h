@@ -306,12 +306,12 @@ namespace windowing_universal_windows
       //   return !operator==(window);
 
       //}
-      ::oswindow oswindow() override;
-      ::oswindow oswindow() const override;
+      ::::acme::windowing::window * pacmewindowingwindow() override;
+      ::::acme::windowing::window * pacmewindowingwindow() const override;
 
       class windowing * windowing() const;
 
-      //virtual void set_oswindow(oswindow oswindow) override;
+      //virtual void set_oswindow(::acme::windowing::window * pacmewindowingwindow) override;
 
       DECLARE_MESSAGE_HANDLER(_001OnMessage);
 
@@ -1182,7 +1182,7 @@ namespace windowing_universal_windows
       //void user_post(const ::procedure & procedure) override;
 
 
-      void _set_oswindow(::oswindow oswindow) override;
+      void _set_oswindow(::::acme::windowing::window * pacmewindowingwindow) override;
 
       void _main_send(const ::procedure & procedure) override;
       void _main_post(const ::procedure & procedure) override;
