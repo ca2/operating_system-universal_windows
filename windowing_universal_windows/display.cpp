@@ -51,7 +51,7 @@ namespace windowing_universal_windows
       //      for (::collection::index iMonitor = 0; iMonitor < m_monitorinfoa.get_count(); iMonitor++)
       //      {
       //
-      //         auto pmonitor = øallocate< monitor >(m_hmonitora[iMonitor]);
+      //         auto pmonitor = allocateø< monitor >(m_hmonitora[iMonitor]);
       //
       //         pmonitor->m_iIndex = iMonitor;
       //

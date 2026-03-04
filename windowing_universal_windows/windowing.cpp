@@ -60,7 +60,7 @@ namespace windowing_universal_windows
 
       //estatus = 
       
-      øconstruct(m_pdisplay);
+      constructø(m_pdisplay);
 
       //if (!estatus)
       //{
@@ -255,7 +255,7 @@ namespace windowing_universal_windows
    //   if (!pwindow)
    //   {
 
-   //      pwindow = øallocate ::windowing_universal_windows::window();
+   //      pwindow = allocateø ::windowing_universal_windows::window();
 
    //   }
 
@@ -560,7 +560,7 @@ namespace windowing_universal_windows
 
       //}
 
-      auto pusermessage = øallocate ::user::message();
+      auto pusermessage = allocateø ::user::message();
 
       if (!pusermessage)
       {

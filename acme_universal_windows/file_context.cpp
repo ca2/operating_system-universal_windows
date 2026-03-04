@@ -903,7 +903,7 @@ namespace acme_universal_windows
                m_papplication->synchronous_procedure(::winrt::impl::is_sta_thread(), [this, &pfile, &file, &eopen]()
                {
 
-                  pfile = øallocate ::acme_universal_windows::native_buffer(file, eopen);
+                  pfile = allocateø ::acme_universal_windows::native_buffer(file, eopen);
 
                   pfile->initialize(this);
 
@@ -919,7 +919,7 @@ namespace acme_universal_windows
 
 //      ::file_pointer pfile;
 
-      m_papplication->øconstruct(pfile);
+      m_papplication->constructø(pfile);
 
       pfile->open(path, eopen);
 

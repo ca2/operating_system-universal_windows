@@ -8949,7 +8949,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
    //      CLASS_DECL_ACME bool main_synchronous(const class time & time, const ::procedure & function)
    //      {
 
-         auto phappening = øallocate manual_reset_happening();
+         auto phappening = allocateø manual_reset_happening();
 
          _user_post([procedure, phappening]
                    {

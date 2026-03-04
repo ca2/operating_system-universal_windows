@@ -80,7 +80,7 @@ namespace sockets
    //bool sockets::init1()
    //{
 
-   //   m_spnet = øallocate ::sockets::net(this);
+   //   m_spnet = allocateø ::sockets::net(this);
    //   //m_spnet.create(this);
 
    //   if(m_spnet.is_null())

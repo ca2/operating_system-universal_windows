@@ -330,7 +330,7 @@ namespace sockets
 
          m_listener = ref ___new ::winrt::Windows::Networking::Sockets::StreamSocketListener();
 
-         m_tokenConnectionReceived = m_listener->ConnectionReceived += ref øallocate< ::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Networking::Sockets::StreamSocketListener^, ::winrt::Windows::Networking::Sockets::StreamSocketListenerConnectionReceivedEventArgs^> >(m_bridge, &bridge::StreamSocketListener_ConnectionReceived);
+         m_tokenConnectionReceived = m_listener->ConnectionReceived += ref allocateø< ::winrt::Windows::Foundation::TypedEventHandler < ::winrt::Windows::Networking::Sockets::StreamSocketListener^, ::winrt::Windows::Networking::Sockets::StreamSocketListenerConnectionReceivedEventArgs^> >(m_bridge, &bridge::StreamSocketListener_ConnectionReceived);
 
          //SOCKET s;
          //m_iBindPort = ad.GetPort();
@@ -424,7 +424,7 @@ namespace sockets
          else
          {
 
-            pstreamsocket = øallocate< SOCKET_IMPL(socket_handler >());
+            pstreamsocket = allocateø< SOCKET_IMPL(socket_handler >());
 
          }
 

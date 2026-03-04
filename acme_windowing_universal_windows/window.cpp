@@ -258,7 +258,7 @@ namespace universal_windows
 
             //   //nano()->graphics();
 
-            //   øconstruct(m_pnanodevice);
+            //   constructø(m_pnanodevice);
 
             //   m_pnanodevice->attach(hdc, { ::width(r), ::height(r) });
 

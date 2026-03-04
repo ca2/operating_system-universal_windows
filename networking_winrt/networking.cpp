@@ -159,9 +159,9 @@ namespace networking_bsd
 
       m_psslinit = øcreate_new<::sockets_bsd::SSLInitializer>();
 
-      //estatus = øconstruct_new(m_pnet);
+      //estatus = construct_newø(m_pnet);
 
-      //øconstruct_new(m_pnet);
+      //construct_newø(m_pnet);
 
       //if (!m_pnet)
       //{
@@ -803,7 +803,7 @@ namespace networking_bsd
          {
             struct sockaddr_in *point = (struct sockaddr_in *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(øallocate< ::networking_bsd::ipv4_address(get_app >(), *int_point));
+            addr(allocateø< ::networking_bsd::ipv4_address(get_app >(), *int_point));
             return addr;
          }
          break;
@@ -812,7 +812,7 @@ namespace networking_bsd
          {
             struct sockaddr_in6 *point = (struct sockaddr_in6 *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(øallocate< ::networking_bsd::ipv6_address(get_app >(), *int_point));
+            addr(allocateø< ::networking_bsd::ipv6_address(get_app >(), *int_point));
             return addr;
          }
          break;
@@ -1153,7 +1153,7 @@ namespace networking_bsd
 
       }
 
-      pitem = øallocate reverse_cache_item();
+      pitem = allocateø reverse_cache_item();
 
       pitem->m_paddress = paddress;
 
@@ -1506,7 +1506,7 @@ namespace networking_bsd
       if (this != &item)
       {
 
-         auto paddress = øallocate address();
+         auto paddress = allocateø address();
 
          *paddress = *item.m_paddress;
 
@@ -2155,7 +2155,7 @@ namespace networking_bsd
          {
             struct sockaddr_in *point = (struct sockaddr_in *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(øallocate< ::networking_bsd::ipv4_address(get_app >(), *int_point));
+            addr(allocateø< ::networking_bsd::ipv4_address(get_app >(), *int_point));
             return addr;
          }
          break;
@@ -2164,7 +2164,7 @@ namespace networking_bsd
          {
             struct sockaddr_in6 *point = (struct sockaddr_in6 *)sa;
             ::networking_bsd::address_pointer addr;
-            addr(øallocate< ::networking_bsd::ipv6_address(get_app >(), *int_point));
+            addr(allocateø< ::networking_bsd::ipv6_address(get_app >(), *int_point));
             return addr;
          }
          break;
@@ -2506,7 +2506,7 @@ namespace networking_bsd
       //
       //   }
       //
-      //   pitem = øallocate reverse_cache_item();
+      //   pitem = allocateø reverse_cache_item();
       //
       //   pitem->m_address = address;
       //
@@ -3161,9 +3161,9 @@ namespace networking_bsd
 //
 //   m_psslinit = øcreate_new<::networking_bsd::SSLInitializer>();
 //
-//   //estatus = øconstruct_new(m_pnet);
+//   //estatus = construct_newø(m_pnet);
 //
-//   øconstruct_new(m_pnet);
+//   construct_newø(m_pnet);
 //
 //   if (!m_pnet)
 //   {
@@ -3259,7 +3259,7 @@ namespace networking_bsd
    ::pointer<address>networking::create_ip4_address(unsigned int u, ::networking::port_t port)
    {
 
-      auto paddress2 = øallocate address();
+      auto paddress2 = allocateø address();
 
    #if defined(BSD_STYLE_SOCKETS)
 
@@ -3292,7 +3292,7 @@ namespace networking_bsd
    ::pointer<address>networking::create_ip6_address(void * p128bits, ::networking::port_t port)
    {
 
-      auto paddress2 = øallocate address();
+      auto paddress2 = allocateø address();
    #if defined(BSD_STYLE_SOCKETS)
 
       auto a = *paddress2;
@@ -3316,7 +3316,7 @@ namespace networking_bsd
    ::pointer<::networking::address>networking::create_ip4_address(const ::scoped_string & scopedstrAddress, ::networking::port_t port)
    {
 
-      auto paddress = øallocate address();
+      auto paddress = allocateø address();
 
       if(convert(paddress->u.m_addr.sin_addr, strAddress))
       {
@@ -3335,7 +3335,7 @@ namespace networking_bsd
    ::pointer<::networking::address>networking::create_ip6_address(const ::scoped_string & scopedstrAddress, ::networking::port_t port)
    {
 
-      auto paddress2 = øallocate address();
+      auto paddress2 = allocateø address();
 
       if (convert(paddress2->u.m_addr6.sin6_addr, strAddress))
       {

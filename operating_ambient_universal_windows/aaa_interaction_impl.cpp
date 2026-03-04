@@ -167,7 +167,7 @@ namespace windows
    void interaction_impl::native_create_host()
    {
 
-      auto estatus = __øconstruct(m_pwindow);
+      auto estatus = __constructø(m_pwindow);
 
       if (!estatus)
       {

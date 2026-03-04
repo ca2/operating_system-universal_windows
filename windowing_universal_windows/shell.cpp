@@ -67,7 +67,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //estatus = øconstruct_new(m_pmessagequeue);
+      //estatus = construct_newø(m_pmessagequeue);
 
 
       //if (!estatus)
@@ -1462,7 +1462,7 @@ namespace windowing_universal_windows
 
    //   //}
 
-   //   //estatus = øconstruct_new(m_pmessagequeue);
+   //   //estatus = construct_newø(m_pmessagequeue);
 
 
    //   //if (!estatus)

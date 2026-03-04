@@ -283,7 +283,7 @@ namespace sockets
 
       writer->WriteBytes(ref ___new Array < unsigned char, 1U( >(unsigned char *) data, len));
 
-      /*writer->FlushAsync()->Completed = ref øallocate< ::winrt::Windows::Foundation::AsyncOperationCompletedHandler < bool >([this] >(::winrt::Windows::Foundation::IAsyncOperation<bool> asyncInfo, ::winrt::Windows::Foundation::AsyncStatus asyncStatus)
+      /*writer->FlushAsync()->Completed = ref allocateø< ::winrt::Windows::Foundation::AsyncOperationCompletedHandler < bool >([this] >(::winrt::Windows::Foundation::IAsyncOperation<bool> asyncInfo, ::winrt::Windows::Foundation::AsyncStatus asyncStatus)
       {
 
 

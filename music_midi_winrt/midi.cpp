@@ -31,7 +31,7 @@ namespace music
          midi::midi()
          {
 
-            m_pmidiOutDeviceWatcher = øallocate device_watcher(this, ::winrt::Windows::Devices::Midi::MidiOutPort::GetDeviceSelector().begin());
+            m_pmidiOutDeviceWatcher = allocateø device_watcher(this, ::winrt::Windows::Devices::Midi::MidiOutPort::GetDeviceSelector().begin());
 
             m_pmidiOutDeviceWatcher->start_device_watcher();
 
@@ -211,7 +211,7 @@ namespace music
                if (!pmessageout)
                {
 
-                  auto pout = øallocate out();
+                  auto pout = allocateø out();
 
                   ::winrt::Windows::Devices::Enumeration::DeviceInformation deviceinformation = GetDeviceInformationForOutPort(as_hstring(strDevice));
 
