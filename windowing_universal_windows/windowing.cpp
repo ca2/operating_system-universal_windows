@@ -142,7 +142,7 @@ namespace windowing_universal_windows
    //::extended::transport < system_interaction > windowing::create_system_window()
    //{
 
-   //   auto psysteminteraction = øcreate_new < system_interaction >();
+   //   auto psysteminteraction = create_newø < system_interaction >();
 
    //   psysteminteraction->display(e_display_none);
 
@@ -981,7 +981,7 @@ namespace windowing_universal_windows
    //::pointer<::user::interaction>windowing::create_system_window()
    //{
 
-   //   auto psysteminteraction = øcreate_new < system_interaction >();
+   //   auto psysteminteraction = create_newø < system_interaction >();
 
    //   psysteminteraction->display(e_display_none);
 
@@ -1346,7 +1346,7 @@ namespace windowing_universal_windows
    ::pointer<::windowing::icon>window::load_icon(const ::payload & payloadFile)
    {
 
-      auto picon = øcreate_new < icon >();
+      auto picon = create_newø < icon >();
 
       if (!picon)
       {

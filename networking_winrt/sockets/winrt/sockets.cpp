@@ -38,7 +38,7 @@ namespace sockets
 
       //m_psslinit = ___new ::sockets::SSLInitializer(this);
 
-      m_spnet = øcreate_new<::sockets::net>();
+      m_spnet = create_newø<::sockets::net>();
       //m_spnet.create(this);
 
       if (m_spnet.is_null())

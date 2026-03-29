@@ -149,7 +149,7 @@ namespace networking_bsd
 
       //return estatus;
 
-      //auto paddressdepartment = pparticle->øcreate_new<class ::networking::address_department>();
+      //auto paddressdepartment = pparticle->create_newø<class ::networking::address_department>();
 
       //paddressdepartment->increment_reference_count();
 
@@ -157,7 +157,7 @@ namespace networking_bsd
 
       mathematics()->random(m_baTicketKey);
 
-      m_psslinit = øcreate_new<::sockets_bsd::SSLInitializer>();
+      m_psslinit = create_newø<::sockets_bsd::SSLInitializer>();
 
       //estatus = construct_newø(m_pnet);
 
@@ -3151,7 +3151,7 @@ namespace networking_bsd
 //
 //   //}
 //
-//   auto paddressdepartment = pparticle->øcreate_new<class ::networking::address_department>();
+//   auto paddressdepartment = pparticle->create_newø<class ::networking::address_department>();
 //
 //   paddressdepartment->increment_reference_count();
 //
@@ -3159,7 +3159,7 @@ namespace networking_bsd
 //
 //   generate_random_bytes(m_baTicketKey, sizeof(m_baTicketKey));
 //
-//   m_psslinit = øcreate_new<::networking_bsd::SSLInitializer>();
+//   m_psslinit = create_newø<::networking_bsd::SSLInitializer>();
 //
 //   //estatus = construct_newø(m_pnet);
 //

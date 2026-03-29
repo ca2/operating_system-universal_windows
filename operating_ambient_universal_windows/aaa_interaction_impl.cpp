@@ -2003,7 +2003,7 @@ namespace windows
 
    //   ASSERT(_is_window());
 
-   //   auto pgraphics = __øcreate < ::draw2d::graphics > ();
+   //   auto pgraphics = __createø < ::draw2d::graphics > ();
 
    //   throw ::exception(todo);
 

@@ -1582,11 +1582,11 @@ namespace windowing_universal_windows
 
       synchronous_lock slHover(m_pimagelistHover[iSize]->synchronization());
 
-      auto pwindowingicon = øcreate_new < icon >();
+      auto pwindowingicon = create_newø < icon >();
 
       pwindowingicon->add_icon(hicon);
 
-      auto pdrawicon = øcreate < ::image::icon >();
+      auto pdrawicon = createø < ::image::icon >();
      
       pdrawicon->initialize_with_windowing_icon(pwindowingicon);
 

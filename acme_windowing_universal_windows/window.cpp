@@ -776,7 +776,7 @@ namespace universal_windows
          //   case WM_LBUTTONDOWN:
          //   {
 
-         //      auto pmouse = øcreate_new < ::user::mouse >();
+         //      auto pmouse = create_newø < ::user::mouse >();
 
          //      pmouse->m_pointHost = lparam;
 
@@ -809,7 +809,7 @@ namespace universal_windows
          //   case WM_MOUSEMOVE:
          //   {
 
-         //      auto pmouse = øcreate_new < ::user::mouse >();
+         //      auto pmouse = create_newø < ::user::mouse >();
 
          //      pmouse->m_pointHost = lparam;
 
@@ -843,7 +843,7 @@ namespace universal_windows
          //   case WM_LBUTTONUP:
          //   {
 
-         //      auto pmouse = øcreate_new < ::user::mouse >();
+         //      auto pmouse = create_newø < ::user::mouse >();
 
          //      pmouse->m_pointHost = lparam;
 
@@ -877,7 +877,7 @@ namespace universal_windows
          //   case WM_RBUTTONDOWN:
          //   {
 
-         //      auto pmouse = øcreate_new < ::user::mouse >();
+         //      auto pmouse = create_newø < ::user::mouse >();
 
          //      pmouse->m_pointHost = lparam;
 
@@ -911,7 +911,7 @@ namespace universal_windows
          //   case WM_RBUTTONUP:
          //   {
 
-         //      auto pmouse = øcreate_new < ::user::mouse >();
+         //      auto pmouse = create_newø < ::user::mouse >();
 
          //      pmouse->m_pointHost = lparam;
 
@@ -1563,7 +1563,7 @@ namespace universal_windows
 
             //window::SetWindow(window);
 
-            //pbuffer = øcreate_new< directx_base >();
+            //pbuffer = create_newø< directx_base >();
 
             //pbuffer->system() = system();
 
@@ -1723,7 +1723,7 @@ namespace universal_windows
 
             //window::SetWindow(window);
 
-            //pbuffer = øcreate_new< directx_base >();
+            //pbuffer = create_newø< directx_base >();
 
             //pbuffer->system() = system();
 
@@ -2186,7 +2186,7 @@ namespace universal_windows
 
             m_iMouse = pointerPoint.PointerId();
 
-            auto pmouse = øcreate_new< ::user::mouse >();
+            auto pmouse = create_newø< ::user::mouse >();
 
             //pusermessage = pmouse;
 
@@ -2276,7 +2276,7 @@ namespace universal_windows
 
             m_iMouse = pointerPoint.PointerId();
 
-            auto pmouse = øcreate_new< ::user::mouse >();
+            auto pmouse = create_newø< ::user::mouse >();
 
             //pmouse->m_pwindow = this;
 
@@ -2418,7 +2418,7 @@ namespace universal_windows
 
             int button = -1;
 
-            auto pmouse = øcreate_new< ::user::mouse >();
+            auto pmouse = create_newø< ::user::mouse >();
 
             //pmouse->m_pwindow = this;
 
@@ -2559,7 +2559,7 @@ namespace universal_windows
 
             }
 
-            auto pkey = øcreate_new< ::user::key >();
+            auto pkey = create_newø< ::user::key >();
             //pkey->m_pwindow = this;
 
             //pkey->m_pacmewindowingwindow = this;
@@ -2619,7 +2619,7 @@ namespace universal_windows
             //if (puserinteraction->m_pinteractionimpl == nullptr)
               // return;
 
-            auto pkey = øcreate_new< ::user::key >();
+            auto pkey = create_newø< ::user::key >();
 
             //bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
 
@@ -2681,7 +2681,7 @@ namespace universal_windows
 
             //::pointer<::message::message>pusermessage;
 
-            auto pkey = øcreate_new< ::user::key >();
+            auto pkey = create_newø< ::user::key >();
 
             // pusermessage = pkey;
 

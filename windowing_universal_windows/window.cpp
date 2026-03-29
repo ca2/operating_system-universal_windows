@@ -2918,7 +2918,7 @@ namespace windowing_universal_windows
 
       //ASSERT(::IsWindow(get_hwnd()));
 
-      auto pgraphics = øcreate < ::draw2d::graphics >();
+      auto pgraphics = createø < ::draw2d::graphics >();
 
       throw ::exception(todo);
 
@@ -5885,7 +5885,7 @@ namespace windowing_universal_windows
 
       //::user::os_calc_dark_mode();
 
-      //auto pcs = øcreate_new< ::user::system >();
+      //auto pcs = create_newø< ::user::system >();
 
       auto puserinteractionUserSystem = user_interaction();
 
@@ -5972,7 +5972,7 @@ namespace windowing_universal_windows
 
             //puserinteraction->m_puiThis->place(rectangle);
 
-            //m_pwindow = system()->m_papplicationStartup->øcreate_new < ::windowing_universal_windows::window >();
+            //m_pwindow = system()->m_papplicationStartup->create_newø < ::windowing_universal_windows::window >();
 
             //if (window.Visible())
             //{
@@ -6030,7 +6030,7 @@ namespace windowing_universal_windows
 
       //      psystem->get_session()->m_frameworkview = this;
 
-      //m_pdxi = psystem->m_papplicationStartup->øcreate_new < directx_interaction>();
+      //m_pdxi = psystem->m_papplicationStartup->create_newø < directx_interaction>();
 
       //return ::success;
 
@@ -6569,7 +6569,7 @@ namespace windowing_universal_windows
 
             ::pointer<::user::message>spbase;
 
-            auto pkey = øcreate_new< ::message::key >();
+            auto pkey = create_newø< ::message::key >();
 
             spbase = pkey;
 
@@ -6914,7 +6914,7 @@ namespace windowing_universal_windows
 
       //   //::user::os_calc_dark_mode();
 
-      //   auto pcs = øcreate_new< ::user::system >();
+      //   auto pcs = create_newø< ::user::system >();
 
       //   auto puserinteraction = session()->m_puserprimitiveHost;
 
@@ -6964,7 +6964,7 @@ namespace windowing_universal_windows
 
       //   //puserinteraction->m_puiThis->place(rectangle);
 
-      //   m_pwindow = system()->m_papplicationStartup->øcreate_new < ::windowing_universal_windows::window >();
+      //   m_pwindow = system()->m_papplicationStartup->create_newø < ::windowing_universal_windows::window >();
 
       //   system()->get_session()->system()->windowing()->m_pwindowFirst = m_pwindow;
 
@@ -7235,7 +7235,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          }
 
-         auto pkey = øcreate_new< ::message::key >();
+         auto pkey = create_newø< ::message::key >();
          pkey->m_pwindow = this;
 
          pkey->m_pacmewindowingwindow = this;
@@ -7284,7 +7284,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          //if (puserinteraction->m_pinteractionimpl == nullptr)
            // return;
 
-         auto pkey = øcreate_new< ::message::key >();
+         auto pkey = create_newø< ::message::key >();
 
          bool bTextFocus = puserinteraction->get_keyboard_focus() != nullptr;
 
@@ -7337,7 +7337,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          ::pointer<::user::message>pusermessage;
 
-         auto pkey = øcreate_new< ::message::key >();
+         auto pkey = create_newø< ::message::key >();
 
          pusermessage = pkey;
 
@@ -7500,7 +7500,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          if (!puserinteraction->m_pusersystem)
          {
 
-            puserinteraction->m_pusersystem = øcreate_new< ::user::system >();
+            puserinteraction->m_pusersystem = create_newø< ::user::system >();
 
          }
 
@@ -7959,9 +7959,9 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          ////if (wstrClassName.get_length() > 0 && GetClassInfoExW(psystem->m_hinstance, wstrClassName, &wndcls) && wndcls.hIcon != nullptr)
          //{
 
-         //   //papplication->set_icon(puserinteraction, øcreate_new< ::image::icon >(get_application(), wndcls.hIcon), false);
+         //   //papplication->set_icon(puserinteraction, create_newø< ::image::icon >(get_application(), wndcls.hIcon), false);
 
-         //   //papplication->set_icon(puserinteraction, øcreate_new< ::image::icon >(get_application(), wndcls.hIcon), true);
+         //   //papplication->set_icon(puserinteraction, create_newø< ::image::icon >(get_application(), wndcls.hIcon), true);
 
          //}
 
@@ -8067,7 +8067,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          m_iMouse = pointerPoint.PointerId();
 
-         auto pmouse = øcreate_new< ::message::mouse >();
+         auto pmouse = create_newø< ::message::mouse >();
 
          pusermessage = pmouse;
 
@@ -8131,7 +8131,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          m_iMouse = pointerPoint.PointerId();
 
-         auto pmouse = øcreate_new< ::message::mouse >();
+         auto pmouse = create_newø< ::message::mouse >();
 
          pmouse->m_pwindow = this;
 
@@ -8217,7 +8217,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          //}
 
-         auto pmouse = øcreate_new< ::message::mouse >();
+         auto pmouse = create_newø< ::message::mouse >();
 
          pmouse->m_pwindow = this;
 
@@ -8292,7 +8292,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //
 //   m_iMouse = pointerPoint.PointerId();
 //
-//   auto pmouse = øcreate_new< ::message::mouse >();
+//   auto pmouse = create_newø< ::message::mouse >();
 //
 //   pusermessage = pmouse;
 //
@@ -8356,7 +8356,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //
 //   m_iMouse = pointerPoint.PointerId();
 //
-//   auto pmouse = øcreate_new< ::message::mouse >();
+//   auto pmouse = create_newø< ::message::mouse >();
 //
 //   pmouse->m_pwindow = this;
 //
@@ -8443,7 +8443,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //
 //   //}
 //
-//   auto pmouse = øcreate_new< ::message::mouse >();
+//   auto pmouse = create_newø< ::message::mouse >();
 //
 //   pmouse->m_pwindow = this;
 //
@@ -8864,7 +8864,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
       //   //window::SetWindow(window);
 
-      //   //pbuffer = øcreate_new< directx_base >();
+      //   //pbuffer = create_newø< directx_base >();
 
       //   //pbuffer->system() = system();
 
