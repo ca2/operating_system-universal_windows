@@ -32,7 +32,7 @@ namespace sockets
          {
             m_estate = state_hello;
             //write("HELO localhost\r\n");
-            write("EHLO account.ca2.network\r\n");
+            write("EHLO account.ca2.site\r\n");
          }
       }
       else if(m_estate == state_hello)
