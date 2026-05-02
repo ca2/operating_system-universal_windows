@@ -640,7 +640,7 @@ namespace acme_universal_windows
    //bool windows_runtime_is_folder(const wchar_t * pwszPath)
    //{
    //
-   //   unsigned int dwLastError = ::GetLastError();
+   //   auto lasterror = ::windows::get_last_error();
    //
    //   string strPrefix;
    //

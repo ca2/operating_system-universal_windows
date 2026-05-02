@@ -1247,7 +1247,7 @@ return false;
       //if(hdlSCM == 0)
       //{
 
-      //   unsigned int dwLastError = ::GetLastError();
+      //   auto lasterror = ::windows::get_last_error();
 
       //   return false;
 
@@ -2183,7 +2183,7 @@ return false;
 
       //   ShellExecuteExW(&si);
 
-      //   //unsigned int dwLastError = ::GetLastError();
+      //   //auto lasterror = ::windows::get_last_error();
 
       //   //int iResult = (int) si.hInstApp;
 

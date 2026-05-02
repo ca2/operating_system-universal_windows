@@ -1550,7 +1550,7 @@ namespace windowing_universal_windows
       //      if (hicon == nullptr)
       //      {
 
-      //         unsigned int dwLastError = ::GetLastError();
+      //         auto lasterror = ::windows::get_last_error();
 
       //         output_debug_string("LastError = " + __string(dwLastError));
 

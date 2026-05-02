@@ -7857,7 +7857,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //
 //      //bool bUnicode = IsWindowUnicode(hwnd);
 //
-//      unsigned int dwLastError = ::GetLastError();
+//      auto lasterror = ::windows::get_last_error();
 //
 //      //if (!unhook_window_create())
 //      //{

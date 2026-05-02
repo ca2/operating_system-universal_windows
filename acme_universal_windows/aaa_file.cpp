@@ -198,7 +198,7 @@ namespace acme_universal_windows
       HANDLE hfile = ::hfile_create(m_path, dwAccess, dwShareMode, &sa, dwCreateFlag, FILE_ATTRIBUTE_NORMAL, nullptr);
       if (hfile_is_nok(hfile))
       {
-         unsigned int dwLastError = ::GetLastError();
+         auto lasterror = ::windows::get_last_error();
 
          m_estatus = ::windows::last_error_status(dwLastError);
 
@@ -268,7 +268,7 @@ namespace acme_universal_windows
             {*/
 
 
-            unsigned int dwLastError = ::GetLastError();
+            auto lasterror = ::windows::get_last_error();
             m_estatus = ::windows::last_error_status(dwLastError);
 
             if (eopen & ::file::e_open_no_exception_on_open)
