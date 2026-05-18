@@ -5755,7 +5755,7 @@ namespace windowing_universal_windows
 
       //::int_rectangle rectangleX;
 
-      //while (ptask->task_get_run())
+      //while (ptask->should_run())
       //{
 
       //   if (m_timeLastMouseMove.elapsed() < 20_ms)

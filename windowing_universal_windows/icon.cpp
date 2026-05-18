@@ -125,7 +125,7 @@ namespace windowing_universal_windows
 
       m_path = strPath;
 
-      //::int_array_base ia;
+      //::i32_array_base ia;
 
       //ia.add(16);
       //ia.add(24);
