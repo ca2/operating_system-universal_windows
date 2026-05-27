@@ -201,7 +201,7 @@ namespace draw2d_gdiplus
 
       virtual ::e_status add_shapes(const shape_array& shapea);
       virtual ::e_status reset_clip();
-      virtual ::e_status intersect_clip(const ::int_rectangle& rectangle);
+      virtual ::e_status intersect_clip(const ::i32_rectangle& rectangle);
       virtual ::e_status intersect_clip(const ::double_rectangle& rectangle);
       virtual ::e_status intersect_clip(const ::oval& oval);
       virtual ::e_status intersect_clip(const ::ovald& oval);
@@ -210,17 +210,17 @@ namespace draw2d_gdiplus
 
       //virtual bool PtVisible(double x, double y) override;
       //bool PtVisible(const ::int_point & point) override;
-      //virtual bool RectVisible(const int_rectangle & prectangle) override;
+      //virtual bool RectVisible(const i32_rectangle & prectangle) override;
 
       //int SelectClipRgn(::draw2d::region* pRgn) override;
       //int ExcludeClipRect(int x1, int y1, int x2, int y2) override;
-      //int ExcludeClipRect(const int_rectangle &  prectangle) override;
+      //int ExcludeClipRect(const i32_rectangle &  prectangle) override;
 
 
 
 //      int ExcludeUpdateRgn(::user::prototype * pwindow) override;
       //int IntersectClipRect(int x1, int y1, int x2, int y2) override;
-      //int IntersectClipRect(const int_rectangle &  prectangle) override;
+      //int IntersectClipRect(const i32_rectangle &  prectangle) override;
 
       //int OffsetClipRgn(double x, double y) override;
       //int OffsetClipRgn(const ::int_size & size) override;
@@ -298,10 +298,10 @@ namespace draw2d_gdiplus
 
 
       //bool draw_ellipse(int x1, int y1, int x2, int y2) override;
-      //bool draw_ellipse(const int_rectangle &  prectangle) override;
+      //bool draw_ellipse(const i32_rectangle &  prectangle) override;
 
       //bool fill_ellipse(int x1, int y1, int x2, int y2) override;
-      //bool fill_ellipse(const int_rectangle &  prectangle) override;
+      //bool fill_ellipse(const i32_rectangle &  prectangle) override;
 
       virtual ::e_status clear_current_point() override;
 
@@ -320,11 +320,11 @@ namespace draw2d_gdiplus
       bool draw_polygon(const ::double_point * ppoints, ::collection::count nCount) override;
       //bool fill_polygon(const POINT * ppoints, ::collection::count nCount) override;
       bool fill_polygon(const ::double_point * ppoints, ::collection::count nCount) override;
-      using ::draw2d::graphics::int_rectangle;
+      using ::draw2d::graphics::i32_rectangle;
       using ::draw2d::graphics::draw_rectangle;
       using ::draw2d::graphics::fill_rectangle;
 
-      virtual bool int_rectangle(const ::double_rectangle & rectangle) override;
+      virtual bool i32_rectangle(const ::double_rectangle & rectangle) override;
       virtual bool draw_rectangle(const ::double_rectangle & rectangle, ::draw2d::pen * ppen) override;
       virtual bool fill_rectangle(const ::double_rectangle & rectangle, ::draw2d::brush * pbrush) override;
 
@@ -388,13 +388,13 @@ namespace draw2d_gdiplus
 
 
       //using ::draw2d::graphics::draw;
-      //virtual bool draw(const ::int_point & point, ::draw2d::graphics * pgraphicsSrc, const ::int_rectangle & rectangleSource) override;
+      //virtual bool draw(const ::int_point & point, ::draw2d::graphics * pgraphicsSrc, const ::i32_rectangle & rectangleSource) override;
 
       virtual bool _001DrawText(const ::string & str, double_rectangle & rectangleParam, const ::e_align & ealign = e_align_top_left, const ::e_draw_text & edrawtext = e_draw_text_none, bool bMeasure = false) override;
 
-      //virtual bool draw_text_ex(const ::string & pszString,character_count nCount,const ::int_rectangle & rectangle, const ::e_align & ealign = e_align_top_left, const ::e_draw_text & edrawtext = e_draw_text_none,LPDRAWTEXTPARAMS lpDTParams) override;
+      //virtual bool draw_text_ex(const ::string & pszString,character_count nCount,const ::i32_rectangle & rectangle, const ::e_align & ealign = e_align_top_left, const ::e_draw_text & edrawtext = e_draw_text_none,LPDRAWTEXTPARAMS lpDTParams) override;
 
-      //virtual bool draw_text_ex(const ::string & str,const ::int_rectangle & rectangle, const ::e_align & ealign = e_align_top_left, const ::e_draw_text & edrawtext = e_draw_text_none) override;
+      //virtual bool draw_text_ex(const ::string & str,const ::i32_rectangle & rectangle, const ::e_align & ealign = e_align_top_left, const ::e_draw_text & edrawtext = e_draw_text_none) override;
 
 
       //virtual bool draw_text_ex(const ::string & pszString,character_count nCount,const ::double_rectangle & rectangle, const ::e_align & ealign = e_align_top_left, const ::e_draw_text & edrawtext = e_draw_text_none,LPDRAWTEXTPARAMS lpDTParams) override;
@@ -458,13 +458,13 @@ namespace draw2d_gdiplus
 
 
       // Advanced Drawing
-      //bool DrawEdge(const ::int_rectangle & rectangle,UINT nEdge,UINT nFlags) override;
+      //bool DrawEdge(const ::i32_rectangle & rectangle,UINT nEdge,UINT nFlags) override;
 
-      //bool DrawFrameControl(const ::int_rectangle & rectangle,UINT nType,UINT nState) override;
+      //bool DrawFrameControl(const ::i32_rectangle & rectangle,UINT nType,UINT nState) override;
 
 
 //      // Scrolling Functions
-//      bool ScrollDC(int dx, int dy, const int_rectangle &  pRectScroll, const int_rectangle &  lpRectClip,
+//      bool ScrollDC(int dx, int dy, const i32_rectangle &  pRectScroll, const i32_rectangle &  lpRectClip,
 //
 //                    ::draw2d::region* pRgnUpdate, RECT * pRectUpdate) override;
 //
@@ -558,20 +558,20 @@ namespace draw2d_gdiplus
 
       // Misc helper Functions
       static ::draw2d::brush* GetHalftoneBrush(::particle * pparticle);
-      //void DrawDragRect(const int_rectangle &  prectangle, const ::int_size & size,
+      //void DrawDragRect(const i32_rectangle &  prectangle, const ::int_size & size,
 
-      //                  const int_rectangle &  pRectLast, const ::int_size & sizeLast,
+      //                  const i32_rectangle &  pRectLast, const ::int_size & sizeLast,
 
       //                  ::draw2d::brush* pBrush = nullptr, ::draw2d::brush* pBrushLast = nullptr) override;
 
-      //void fill_rectangle(const ::int_rectangle & rectangle, const ::color::color & color) override;
+      //void fill_rectangle(const ::i32_rectangle & rectangle, const ::color::color & color) override;
 
       virtual bool fill_rectangle(const ::double_rectangle & rectangle, const ::color::color & color) override;
 
-      //virtual void draw_inset_3d_rectangle(const ::int_rectangle & rectangle, const ::color::color & colorTopLeft, const ::color::color& colorBottomRight, const ::e_border & eborder = e_border_all) override;
+      //virtual void draw_inset_3d_rectangle(const ::i32_rectangle & rectangle, const ::color::color & colorTopLeft, const ::color::color& colorBottomRight, const ::e_border & eborder = e_border_all) override;
       virtual bool draw_inset_3d_rectangle(const ::double_rectangle & rectangle, const ::color::color & colorTopLeft, const ::color::color& colorBottomRight, const ::e_border & eborder = e_border_all) override;
 
-      //virtual bool draw_rectangle(const ::int_rectangle& rectangle, const ::color::color& color, const ::e_border & eborder = e_border_all);
+      //virtual bool draw_rectangle(const ::i32_rectangle& rectangle, const ::color::color& color, const ::e_border & eborder = e_border_all);
       virtual bool draw_rectangle(const double_rectangle& double_rectangle, const ::color::color& color, const ::e_border & eborder = e_border_all);
 
 #ifdef DEBUG

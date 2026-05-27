@@ -246,7 +246,7 @@ namespace universal_windows
          void window::_draw(HDC hdc)
          {
 
-            ::int_rectangle r;
+            ::i32_rectangle r;
 
             //GetWindowRect(m_hwnd, (LPRECT)&r);
 
@@ -955,7 +955,7 @@ namespace universal_windows
 
          //      HDC hdc = ::CreateCompatibleDC(hdcWindow);
 
-         //      ::int_rectangle rectangleX;
+         //      ::i32_rectangle rectangleX;
 
          //      ::GetClientRect(m_hwnd, (LPRECT)&rectangleX);
 
@@ -1329,10 +1329,10 @@ namespace universal_windows
          //}
 
 
-         //::int_rectangle window::get_client_rectangle()
+         //::i32_rectangle window::get_client_rectangle()
          //{
 
-         //   ::int_rectangle rectangle;
+         //   ::i32_rectangle rectangle;
 
          //   ::GetClientRect(m_hwnd, (LPRECT)&rectangle);
 
@@ -1341,10 +1341,10 @@ namespace universal_windows
          //}
 
 
-         int_rectangle window::get_window_rectangle()
+         i32_rectangle window::get_window_rectangle()
          {
 
-            ::int_rectangle rectangle;
+            ::i32_rectangle rectangle;
 
             //::GetWindowRect(m_hwnd, (LPRECT)&rectangle);
 

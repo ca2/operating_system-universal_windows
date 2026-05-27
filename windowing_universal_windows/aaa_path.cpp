@@ -211,7 +211,7 @@ namespace draw2d_gdiplus
       if (almost_integer(x) && almost_integer(cx) && almost_integer(y) && almost_integer(cy))
       {
 
-         Gdiplus::Rect int_rectangle(
+         Gdiplus::Rect i32_rectangle(
          (INT) (x),
          (INT)(y),
          (INT)(cx),
@@ -234,7 +234,7 @@ namespace draw2d_gdiplus
       else
       {
 
-         Gdiplus::RectF int_rectangle(
+         Gdiplus::RectF i32_rectangle(
          (float)(x),
          (float)(y),
          (float)(cx),
@@ -507,7 +507,7 @@ namespace draw2d_gdiplus
    }
 
 
-   bool path::internal_add_draw_text(::draw2d::graphics * pgraphics, const ::int_rectangle & rectangleParam, const ::string & strText, ::write_text::font * pfont, const ::e_align & ealign, const ::e_draw_text & edrawtext)
+   bool path::internal_add_draw_text(::draw2d::graphics * pgraphics, const ::i32_rectangle & rectangleParam, const ::string & strText, ::write_text::font * pfont, const ::e_align & ealign, const ::e_draw_text & edrawtext)
    {
 
       ::double_rectangle rectangle(rectangleParam);
@@ -571,7 +571,7 @@ namespace draw2d_gdiplus
    }
 
 
-   bool path::_set(::draw2d::graphics * pgraphics, const ::int_rectangle & rectangle)
+   bool path::_set(::draw2d::graphics * pgraphics, const ::i32_rectangle & rectangle)
    {
 
       return internal_add_rect(rectangle.left, rectangle.top,  rectangle.width(), rectangle.height());

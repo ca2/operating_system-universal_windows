@@ -46,7 +46,7 @@
 //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS WNDPROC windows_user_interaction_impl_get_window_procedure();
 
 
-//bool has_autohide_appbar(unsigned int edge, const int_rectangle & mon);
+//bool has_autohide_appbar(unsigned int edge, const i32_rectangle & mon);
 
 
 //CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS bool __is_combo_box_control(HWND hwnd, unsigned int nStyle);
@@ -188,9 +188,9 @@ namespace windowing_universal_windows
    //   ////::GetClassNameW(((::windowing_universal_windows::window *)this)->get_hwnd(), szBuf, _countof(szBuf));
    //   ////dumpcontext << "\nclass name = \"" << szBuf << "\"";
 
-   //   ////::int_rectangle rectangle;
+   //   ////::i32_rectangle rectangle;
    //   ////((::windowing_universal_windows::window *)this)->puserinteraction->layout().window().screen_rect(&rectangle);
-   //   ////dumpcontext << "\nrect = " << int_rectangle;
+   //   ////dumpcontext << "\nrect = " << i32_rectangle;
    //   ////dumpcontext << "\nparent ::user::window * = " << ::hex::lower_from((::iptr)((::windowing_universal_windows::window *)this)->get_parent());
 
    //   ////dumpcontext << "\nstyle = " << (uptr)::GetWindowLong(((::windowing_universal_windows::window *)this)->get_hwnd(), GWL_STYLE);
@@ -267,7 +267,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool window::get_rect_normal(::int_rectangle * prectangle)
+   bool window::get_rect_normal(::i32_rectangle * prectangle)
    {
 
       auto bounds = m_windowscorewindow.Bounds();
@@ -1092,10 +1092,10 @@ namespace windowing_universal_windows
    }
 
 
-   void window::full_screen(const ::int_rectangle & rectangle)
+   void window::full_screen(const ::i32_rectangle & rectangle)
    {
 
-      //::int_rectangle rBest;
+      //::i32_rectangle rBest;
 
       //int iMonitor = best_xinerama_monitor(puserinteraction, rectangle, rBest);
 
@@ -1125,7 +1125,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //::int_rectangle rWindow;
+      //::i32_rectangle rWindow;
 
       //rWindow.left = attr.x;
       //rWindow.top = attr.y;
@@ -2146,7 +2146,7 @@ namespace windowing_universal_windows
 
       //}
 
-      ::int_rectangle rectangleWindow;
+      ::i32_rectangle rectangleWindow;
 
       auto puserinteraction = user_interaction();
 
@@ -2160,9 +2160,9 @@ namespace windowing_universal_windows
 
       //::SelectClipRgn(hdc, nullptr);
 
-      //::int_rectangle rectanglePaint;
+      //::i32_rectangle rectanglePaint;
 
-      //::int_rectangle rectangleUpdate;
+      //::i32_rectangle rectangleUpdate;
 
       //rectanglePaint = paint.rcPaint;
 
@@ -2812,7 +2812,7 @@ namespace windowing_universal_windows
    //}
 
 
-   //void window::MapWindowPoints(::user::window * puserinteractionTo, ::int_rectangle * prectangle)
+   //void window::MapWindowPoints(::user::window * puserinteractionTo, ::i32_rectangle * prectangle)
 
    //{
    //   ASSERT(::IsWindow(get_hwnd()));
@@ -2833,7 +2833,7 @@ namespace windowing_universal_windows
       //::SendMessage(get_hwnd(), WM_SETREDRAW, bRedraw, 0);
    }
 
-   bool window::GetUpdateRect(::int_rectangle * prectangle, bool bErase)
+   bool window::GetUpdateRect(::i32_rectangle * prectangle, bool bErase)
    {
 
       //ASSERT(::IsWindow(get_hwnd()));
@@ -2860,7 +2860,7 @@ namespace windowing_universal_windows
       //::InvalidateRect(get_hwnd(), nullptr, bErase);
    }
 
-   void window::InvalidateRect(const ::int_rectangle * rectangle, bool bErase)
+   void window::InvalidateRect(const ::i32_rectangle * rectangle, bool bErase)
 
    {
       //ASSERT(::IsWindow(get_hwnd()));
@@ -2878,7 +2878,7 @@ namespace windowing_universal_windows
    }
 
 
-   void window::ValidateRect(const ::int_rectangle * rectangle)
+   void window::ValidateRect(const ::i32_rectangle * rectangle)
 
    {
 
@@ -2900,7 +2900,7 @@ namespace windowing_universal_windows
    }
 
 
-   void window::_on_configure_notify_unlocked(const ::int_rectangle & rectangle)
+   void window::_on_configure_notify_unlocked(const ::i32_rectangle & rectangle)
    {
 
    }
@@ -2950,7 +2950,7 @@ namespace windowing_universal_windows
    }
 
 
-   bool window::RedrawWindow(const ::int_rectangle & rectangleUpdate, ::draw2d::region * prgnUpdate, unsigned int flags)
+   bool window::RedrawWindow(const ::i32_rectangle & rectangleUpdate, ::draw2d::region * prgnUpdate, unsigned int flags)
    {
 
       //if (m_bDestroyImplOnly)
@@ -3053,7 +3053,7 @@ namespace windowing_universal_windows
 
    //}
 
-   bool window::DrawCaption(::draw2d::graphics_pointer & pgraphics, const int_rectangle & prc, unsigned int uFlags)
+   bool window::DrawCaption(::draw2d::graphics_pointer & pgraphics, const i32_rectangle & prc, unsigned int uFlags)
 
    {
 
@@ -3313,9 +3313,9 @@ namespace windowing_universal_windows
 
    //}
    //int window::ScrollWindowEx(int dx, int dy,
-   //   const ::int_rectangle * pRectScroll, const ::int_rectangle * lpRectClip,
+   //   const ::i32_rectangle * pRectScroll, const ::i32_rectangle * lpRectClip,
 
-   //   ::draw2d::region * prgnUpdate, ::int_rectangle * pRectUpdate, unsigned int flags)
+   //   ::draw2d::region * prgnUpdate, ::i32_rectangle * pRectUpdate, unsigned int flags)
 
    //{
 
@@ -4205,11 +4205,11 @@ namespace windowing_universal_windows
    //   {
    //      Default();
    //   }
-   //   void window::OnSizing(unsigned int, ::int_rectangle *)
+   //   void window::OnSizing(unsigned int, ::i32_rectangle *)
    //   {
    //      Default();
    //   }
-   //   void window::OnMoving(unsigned int, ::int_rectangle *)
+   //   void window::OnMoving(unsigned int, ::i32_rectangle *)
    //   {
    //      Default();
    //   }
@@ -4585,7 +4585,7 @@ namespace windowing_universal_windows
 
 
 
-   //bool window::get_rect_normal(::int_rectangle * prectangle)
+   //bool window::get_rect_normal(::i32_rectangle * prectangle)
 
    //{
 
@@ -4857,11 +4857,11 @@ namespace windowing_universal_windows
 
       //   informationf("2");
       //}
-      //const int_rectangle & nonclient = pncsp->rgrc[0];
+      //const i32_rectangle & nonclient = pncsp->rgrc[0];
 
       ////CMiniFrameWnd::OnNcCalcSize(bCalcValidRects, pncsp);
 
-      //const int_rectangle & client = pncsp->rgrc[0];
+      //const i32_rectangle & client = pncsp->rgrc[0];
 
       //if (is_zoomed())
       //{
@@ -4890,7 +4890,7 @@ namespace windowing_universal_windows
       //   mi.cbSize = sizeof(mi);
       //   GetMonitorInfoW(mon, &mi);
 
-      //   /* If the client int_rectangle is the same as the monitor's rectangle,
+      //   /* If the client i32_rectangle is the same as the monitor's rectangle,
       //   the shell assumes that the u has gone fullscreen, so it erases
       //   the topmost attribute from any auto-hide appbars, making them
       //   inaccessible. To avoid this, reduce the int_size of the client area by
@@ -4916,7 +4916,7 @@ namespace windowing_universal_windows
       //}
       //else
       //{
-      //   /* For the non-maximized case, set the output const int_rectangle & to what it was
+      //   /* For the non-maximized case, set the output const i32_rectangle & to what it was
       //   before ::user::e_message_non_client_calc_size modified it. This will make the client int_size the
       //   same as the non-client size. */
       //   __copy(pncsp->rgrc[0],nonclient);
@@ -5143,11 +5143,11 @@ namespace windowing_universal_windows
 //      }
 //      else if (message == ::user::e_message_left_button_down)
 //      {
-//         ::int_rectangle rectangleX;
+//         ::i32_rectangle rectangleX;
 //         ::GetClientRect(get_hwnd(), rectangleX);
-//         ::int_rectangle rectangleWindow;
+//         ::i32_rectangle rectangleWindow;
 //         ::GetWindowRect(get_hwnd(), rectangleWindow);
-//         ::int_rectangle rectangleRegion;
+//         ::i32_rectangle rectangleRegion;
 //         HRGN hrgn = CreateRectRgn(0, 0, 0, 0);
 //         int regionType = ::GetWindowRgn(get_hwnd(), hrgn);
 //         if (regionType != ERROR)
@@ -5596,7 +5596,7 @@ namespace windowing_universal_windows
 //   }
 
 
-   //bool window::window_rectangle(::int_rectangle * prectangle)
+   //bool window::window_rectangle(::i32_rectangle * prectangle)
    //{
 
    //   //RECT rectangle;
@@ -5630,7 +5630,7 @@ namespace windowing_universal_windows
    ////}
 
 
-   //bool window::client_rectangle(::int_rectangle * prectangle)
+   //bool window::client_rectangle(::i32_rectangle * prectangle)
    //{
 
    //   //RECT rectangle;
@@ -5650,7 +5650,7 @@ namespace windowing_universal_windows
 
 
 
-   void window::non_top_most_upper_window_rects(::int_rectangle_array & recta)
+   void window::non_top_most_upper_window_rects(::i32_rectangle_array & recta)
    {
 
       ///// from top to bottom
@@ -5669,7 +5669,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //::int_rectangle rHigher;
+      //::i32_rectangle rHigher;
 
       //for (iFind--; iFind >= 0; iFind--)
       //{
@@ -5753,7 +5753,7 @@ namespace windowing_universal_windows
 
       //lparam lparam;
 
-      //::int_rectangle rectangleX;
+      //::i32_rectangle rectangleX;
 
       //while (ptask->should_run())
       //{
@@ -7699,7 +7699,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
          {
 
 
-               ::int_rectangle rectangle;
+               ::i32_rectangle rectangle;
 
                get_rect_normal(&rectangle);
 
@@ -8493,7 +8493,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 //}
 
 
-      ::int_rectangle window::get_input_content_rect()
+      ::i32_rectangle window::get_input_content_rect()
       {
 
          return as_int_rectangle(_get_input_content_rect());
@@ -8501,7 +8501,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
       }
 
 
-      ::int_rectangle window::get_input_selection_rect()
+      ::i32_rectangle window::get_input_selection_rect()
       {
 
          return as_int_rectangle(_get_input_content_rect());
@@ -8526,7 +8526,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
             if (puserinteractionFocus)
             {
 
-               ::int_rectangle r = puserinteractionFocus->window_rectangle();
+               ::i32_rectangle r = puserinteractionFocus->window_rectangle();
 
                m_rectangleInputContentRect.X = (float)r.left;
                m_rectangleInputContentRect.Y = (float)r.top;

@@ -633,9 +633,9 @@ namespace windowing_universal_windows
 //
 //               string str;
 //
-//               int_rectangle rectangleDrawing(point, size);
+//               i32_rectangle rectangleDrawing(point, size);
 //
-//               int_rectangle rectangleWindowCurrent;
+//               i32_rectangle rectangleWindowCurrent;
 //
 //               GetWindowRect(hwnd, (RECT *) &rectangleWindowCurrent);
 //
@@ -714,11 +714,11 @@ namespace windowing_universal_windows
 //            //
 //            //               }
 //
-//                           //::int_rectangle r3;
+//                           //::i32_rectangle r3;
 //
 //                           //GetWindowRect(m_pacmewindowingwindow, &r3);
 //
-//                           //::int_rectangle r4;
+//                           //::i32_rectangle r4;
 //
 //                           //GetClientRect(m_pacmewindowingwindow, &r4);
 //

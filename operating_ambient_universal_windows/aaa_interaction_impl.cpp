@@ -1428,11 +1428,11 @@ namespace windows
    void interaction_impl::rects_from_os()
    {
 
-      //::int_rectangle rectangleX;
+      //::i32_rectangle rectangleX;
 
       //::GetClientRect(m_pacmewindowingwindow, rectangleX);
 
-      //::int_rectangle rectangleScreen;
+      //::i32_rectangle rectangleScreen;
 
       //::GetWindowRect(m_pacmewindowingwindow, rectangleScreen);
 
@@ -1507,7 +1507,7 @@ namespace windows
    //}
 
 
-   bool interaction_impl::window_rect_from_os(::int_rectangle * prectangle)
+   bool interaction_impl::window_rect_from_os(::i32_rectangle * prectangle)
    {
 
       if (!_is_window())
@@ -1517,7 +1517,7 @@ namespace windows
 
       }
 
-      ::int_rectangle rectangleWindow;
+      ::i32_rectangle rectangleWindow;
 
       //if (!(GetExStyle() & WS_EX_LAYERED))
       //{
@@ -1550,7 +1550,7 @@ namespace windows
    }
 
 
-   bool interaction_impl::client_rect_from_os(::int_rectangle * prectangle)
+   bool interaction_impl::client_rect_from_os(::i32_rectangle * prectangle)
    {
 
       //oswindow handle = get_handle();
@@ -1562,7 +1562,7 @@ namespace windows
 
       //}
 
-      //::int_rectangle rect32;
+      //::i32_rectangle rect32;
 
       //if (!(GetExStyle() & WS_EX_LAYERED))
       //{
@@ -1612,7 +1612,7 @@ namespace windows
    }
 
 
-   void interaction_impl::sketch_prepare_window_full_screen(const ::int_rectangle & rectangleHint)
+   void interaction_impl::sketch_prepare_window_full_screen(const ::i32_rectangle & rectangleHint)
    {
 
       prototype_impl::sketch_prepare_window_full_screen(rectangleHint);
@@ -1918,7 +1918,7 @@ namespace windows
 
    //}
 
-   //void interaction_impl::MapWindowPoints(::windowing::window * puserinteractionTo, ::int_rectangle * prectangle)
+   //void interaction_impl::MapWindowPoints(::windowing::window * puserinteractionTo, ::i32_rectangle * prectangle)
 
    //{
    //   ASSERT(_is_window());
@@ -2031,7 +2031,7 @@ namespace windows
    }
 
 
-   bool interaction_impl::RedrawWindow(const ::int_rectangle& rectangleUpdate, ::draw2d::region* prgnUpdate, unsigned int flags)
+   bool interaction_impl::RedrawWindow(const ::i32_rectangle& rectangleUpdate, ::draw2d::region* prgnUpdate, unsigned int flags)
    {
 
       if (m_bDestroyImplOnly)
@@ -2125,7 +2125,7 @@ namespace windows
 
    //}
 
-   //bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics, const int_rectangle & prc, unsigned int uFlags)
+   //bool interaction_impl::DrawCaption(::draw2d::graphics_pointer & pgraphics, const i32_rectangle & prc, unsigned int uFlags)
 
    //{
 
@@ -2370,9 +2370,9 @@ namespace windows
 
    //}
    //int interaction_impl::ScrollWindowEx(int dx, int dy,
-   //   const ::int_rectangle * pRectScroll, const ::int_rectangle * lpRectClip,
+   //   const ::i32_rectangle * pRectScroll, const ::i32_rectangle * lpRectClip,
 
-   //                                     ::draw2d::region* prgnUpdate, ::int_rectangle * pRectUpdate, unsigned int flags)
+   //                                     ::draw2d::region* prgnUpdate, ::i32_rectangle * pRectUpdate, unsigned int flags)
 
    //{
 
@@ -3273,11 +3273,11 @@ namespace windows
 //   {
 //      Default();
 //   }
-//   void interaction_impl::OnSizing(unsigned int, ::int_rectangle *)
+//   void interaction_impl::OnSizing(unsigned int, ::i32_rectangle *)
 //   {
 //      Default();
 //   }
-//   void interaction_impl::OnMoving(unsigned int, ::int_rectangle *)
+//   void interaction_impl::OnMoving(unsigned int, ::i32_rectangle *)
 //   {
 //      Default();
 //   }
@@ -3569,7 +3569,7 @@ namespace windows
 
 
 
-   bool interaction_impl::get_rect_normal(::int_rectangle * prectangle)
+   bool interaction_impl::get_rect_normal(::i32_rectangle * prectangle)
 
    {
 
@@ -3778,11 +3778,11 @@ namespace windows
 //
 //      //   informationf("2");
 //      //}
-//      const int_rectangle& nonclient = pncsp->rgrc[0];
+//      const i32_rectangle& nonclient = pncsp->rgrc[0];
 //
 //      //CMiniFrameWnd::OnNcCalcSize(bCalcValidRects, pncsp);
 //
-//      const int_rectangle& client = pncsp->rgrc[0];
+//      const i32_rectangle& client = pncsp->rgrc[0];
 //
 //      if (node_is_zoomed())
 //      {
@@ -3807,7 +3807,7 @@ namespace windows
 //         mi.cbSize = sizeof(mi);
 //         GetMonitorInfoW(mon, &mi);
 //
-//         /* If the client int_rectangle is the same as the monitor's rectangle,
+//         /* If the client i32_rectangle is the same as the monitor's rectangle,
 //         the shell assumes that the u has gone fullscreen, so it erases
 //         the topmost attribute from any auto-hide appbars, making them
 //         inaccessible. To avoid this, reduce the int_size of the client area by
@@ -3833,7 +3833,7 @@ namespace windows
 //      }
 //      else
 //      {
-//         /* For the non-maximized case, set the output const int_rectangle & to what it was
+//         /* For the non-maximized case, set the output const i32_rectangle & to what it was
 //         before e_message_non_client_calcsize modified it. This will make the client int_size the
 //         same as the non-client size. */
 //         pncsp->rgrc[0] = nonclient;
@@ -4415,11 +4415,11 @@ void interaction_impl::set_tool_window(bool bSet)
 //      }
 //      else if (message == e_message_left_button_down)
 //      {
-//         ::int_rectangle rectangleX;
+//         ::i32_rectangle rectangleX;
 //         ::GetClientRect(get_handle(), rectangleX);
-//         ::int_rectangle rectangleWindow;
+//         ::i32_rectangle rectangleWindow;
 //         ::GetWindowRect(get_handle(), rectangleWindow);
-//         ::int_rectangle rectangleRegion;
+//         ::i32_rectangle rectangleRegion;
 //         HRGN hrgn = CreateRectRgn(0, 0, 0, 0);
 //         int regionType = ::GetWindowRgn(get_handle(), hrgn);
 //         if (regionType != ERROR)
@@ -4868,7 +4868,7 @@ void interaction_impl::set_tool_window(bool bSet)
 //   }
 //
 //
-//   void interaction_impl::non_top_most_upper_window_rects(::int_rectangle_array& recta)
+//   void interaction_impl::non_top_most_upper_window_rects(::i32_rectangle_array& recta)
 //   {
 //
 //      /// from top to bottom
@@ -4887,7 +4887,7 @@ void interaction_impl::set_tool_window(bool bSet)
 //
 //      }
 //
-//      ::int_rectangle rHigher;
+//      ::i32_rectangle rHigher;
 //
 //      for (iFind--; iFind >= 0; iFind--)
 //      {

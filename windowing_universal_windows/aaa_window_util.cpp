@@ -174,7 +174,7 @@ namespace windowing_win32
    for(int i = 0; i < hwnda.get_size(); i++)
    {
    HWND hwndChild = hwnda[i];
-   ::int_rectangle rectangleChild;
+   ::i32_rectangle rectangleChild;
    ::this->rectangle(hwndChild, rectangleChild);
    ::_001ClientToScreen(hwndChild, &rectangleChild.top_left());
    ::_001ClientToScreen(hwndChild, &rectangleChild.bottom_right());
@@ -193,7 +193,7 @@ namespace windowing_win32
 
    /*HRGN window_util::GetAClipRgn(HWND hwnd, const int_point & pointOffset, bool bExludeChildren)
    {
-   ::int_rectangle rectangleWnd;
+   ::i32_rectangle rectangleWnd;
    ::this->rectangle(hwnd, rectangleWnd);
    rectangleWnd.offset(pointOffset);
    HRGN hrgn = ::create_rect(rectangleWnd);
@@ -506,7 +506,7 @@ namespace windowing_win32
    void window_util::ContraintPosToParent(HWND hwnd)
    {
       //#if !defined(UNIVERSAL_WINDOWS) && !defined(APPLE_IOS)
-      //      ::int_rectangle rectangleMajor;
+      //      ::i32_rectangle rectangleMajor;
       //      HWND hwndParent = ::get_parent(hwnd);
       //      if(hwndParent == nullptr)
       //      {
@@ -530,7 +530,7 @@ namespace windowing_win32
       //         ::this->rectangle(hwndParent, rectangleMajor);
       //      }
       //
-      //      ::int_rectangle rectangle;
+      //      ::i32_rectangle rectangle;
       //      ::this->rectangle(hwnd, rectangle);
       //
       //#ifdef WINDOWS_DESKTOP
@@ -847,7 +847,7 @@ namespace windowing_win32
    //
    //         HWND hwndChild = hwnda[i];
    //
-   //         ::int_rectangle rectangleChild;
+   //         ::i32_rectangle rectangleChild;
    //
    //         ::GetClientRect(hwndChild, rectangleChild);
    //
@@ -883,7 +883,7 @@ namespace windowing_win32
    //
    //#ifdef WINDOWS_DESKTOP
    //
-   //      ::int_rectangle rectangleWnd;
+   //      ::i32_rectangle rectangleWnd;
    //
    //      ::GetClientRect(hwnd, rectangleWnd);
    //

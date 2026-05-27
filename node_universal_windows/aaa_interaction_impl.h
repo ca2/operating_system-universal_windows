@@ -27,7 +27,7 @@ namespace windows
       bool                                      m_bFocusImpl : 1;
       bool                                      m_bSystemCaret : 1;
 
-      ::int_rectangle                           m_rectangleLast;
+      ::i32_rectangle                           m_rectangleLast;
 
       bool                                      m_bUpdateGraphics;
 
@@ -156,7 +156,7 @@ namespace windows
 
 
       // for child windows, views, panes etc
-      //virtual bool create_interaction(::user::interaction * pinteraction, const ::string & pszClassName, const ::string & pszWindowName,unsigned int dwStyle,const ::int_rectangle & rectangle,::user::interaction * pParentWnd,atom atom, ::request * prequest = nullptr) override;
+      //virtual bool create_interaction(::user::interaction * pinteraction, const ::string & pszClassName, const ::string & pszWindowName,unsigned int dwStyle,const ::i32_rectangle & rectangle,::user::interaction * pParentWnd,atom atom, ::request * prequest = nullptr) override;
 
 
       // advanced creation (allows access to extended styles)
@@ -169,12 +169,12 @@ namespace windows
 
       virtual void destroy_window() override;
 
-      // special pre-creation and interaction_impl int_rectangle adjustment hooks
+      // special pre-creation and interaction_impl i32_rectangle adjustment hooks
       virtual bool pre_create_window(::user::system * pusersystem);
 
       // Advanced: virtual AdjustWindowRect
       //enum AdjustType { adjustBorder = 0, adjustOutside = 1 };
-      //virtual void CalcWindowRect(::int_rectangle * pClientRect, unsigned int nAdjustType = adjustBorder);
+      //virtual void CalcWindowRect(::i32_rectangle * pClientRect, unsigned int nAdjustType = adjustBorder);
 
 
 
@@ -242,8 +242,8 @@ namespace windows
 
 
       virtual void rects_from_os();
-      virtual bool window_rect_from_os(::int_rectangle * prectangle);
-      virtual bool client_rect_from_os(::int_rectangle * prectangle);
+      virtual bool window_rect_from_os(::i32_rectangle * prectangle);
+      virtual bool client_rect_from_os(::i32_rectangle * prectangle);
 
 
 
@@ -257,7 +257,7 @@ namespace windows
 
       //virtual void MapWindowPoints(::windowing::window * puserinteractionTo, ::int_point * pPoint, unsigned int nCount);
 
-      //virtual void MapWindowPoints(::windowing::window * puserinteractionTo, ::int_rectangle * prectangle);
+      //virtual void MapWindowPoints(::windowing::window * puserinteractionTo, ::i32_rectangle * prectangle);
 
 
       virtual void Print(::draw2d::graphics_pointer & pgraphics, unsigned int dwFlags) const;
@@ -265,14 +265,14 @@ namespace windows
 
       virtual void UpdateWindow();
       virtual void SetRedraw(bool bRedraw = true);
-      //virtual bool GetUpdateRect(::int_rectangle * prectangle, bool bErase = false);
+      //virtual bool GetUpdateRect(::i32_rectangle * prectangle, bool bErase = false);
 
       //virtual int GetUpdateRgn(::draw2d::region* pRgn, bool bErase = false);
       //virtual void Invalidate(bool bErase = true);
-      //virtual void InvalidateRect(const ::int_rectangle * rectangle, bool bErase = true);
+      //virtual void InvalidateRect(const ::i32_rectangle * rectangle, bool bErase = true);
 
       //virtual void InvalidateRgn(::draw2d::region* pRgn, bool bErase = true);
-      //virtual void ValidateRect(const ::int_rectangle * int_rectangle);
+      //virtual void ValidateRect(const ::i32_rectangle * i32_rectangle);
 
       //virtual void ValidateRgn(::draw2d::region* pRgn);
       virtual bool display(::e_display edisplay);
@@ -280,7 +280,7 @@ namespace windows
 
       virtual void sketch_prepare_window_minimize(const ::user::activation & useractivation) override;
       virtual void sketch_prepare_window_maximize() override;
-      virtual void sketch_prepare_window_full_screen(const ::int_rectangle & rectangleHint = nullptr) override;
+      virtual void sketch_prepare_window_full_screen(const ::i32_rectangle & rectangleHint = nullptr) override;
       virtual void sketch_prepare_window_restore(edisplay edisplay) override;
 
 
@@ -291,7 +291,7 @@ namespace windows
       virtual bool LockWindowUpdate();
       virtual void UnlockWindowUpdate();
 
-      virtual bool RedrawWindow(const ::int_rectangle & rectangleUpdate = nullptr, 
+      virtual bool RedrawWindow(const ::i32_rectangle & rectangleUpdate = nullptr, 
          ::draw2d::region* prgnUpdate = nullptr,
          unsigned int flags = RDW_INVALIDATE | RDW_ERASE);
 
@@ -299,7 +299,7 @@ namespace windows
 
       //virtual bool DrawAnimatedRects(int idAni, const LPRECTprcFrom, const LPRECTlprcTo);
 
-      //virtual bool DrawCaption(::draw2d::graphics_pointer & pgraphics, const int_rectangle & prc, unsigned int uFlags);
+      //virtual bool DrawCaption(::draw2d::graphics_pointer & pgraphics, const i32_rectangle & prc, unsigned int uFlags);
 
 
 //#if(WINVER >= 0x0500)
@@ -384,9 +384,9 @@ namespace windows
       //virtual void GetScrollRange(int nBar, LPINT pMinPos, LPINT lpMaxPos) const;
 
       //virtual void ScrollWindow(int xAmount, int yAmount,
-      //   const ::int_rectangle * rectangle = nullptr,
+      //   const ::i32_rectangle * rectangle = nullptr,
 
-      //   const ::int_rectangle * pClipRect = nullptr);
+      //   const ::i32_rectangle * pClipRect = nullptr);
 
       //virtual int SetScrollPos(int nBar, int nPos, bool bRedraw = true);
       //virtual void SetScrollRange(int nBar, int nMinPos, int nMaxPos,
@@ -395,9 +395,9 @@ namespace windows
       //virtual void EnableScrollBarCtrl(int nBar, bool bEnable = true);
 
       //virtual int ScrollWindowEx(int dx, int dy,
-      //   const ::int_rectangle * pRectScroll, const ::int_rectangle * lpRectClip,
+      //   const ::i32_rectangle * pRectScroll, const ::i32_rectangle * lpRectClip,
 
-      //                           ::draw2d::region* prgnUpdate, ::int_rectangle * pRectUpdate, unsigned int flags);
+      //                           ::draw2d::region* prgnUpdate, ::i32_rectangle * pRectUpdate, unsigned int flags);
 
       //virtual bool SetScrollInfo(int nBar, LPSCROLLINFO pScrollInfo,
 
@@ -636,9 +636,9 @@ namespace windows
 
       //void OnStyleChanging(int nStyleType, LPSTYLESTRUCT pStyleStruct);
 
-      //void OnSizing(unsigned int nSide, ::int_rectangle * prectangle);
+      //void OnSizing(unsigned int nSide, ::i32_rectangle * prectangle);
 
-      //void OnMoving(unsigned int nSide, ::int_rectangle * prectangle);
+      //void OnMoving(unsigned int nSide, ::i32_rectangle * prectangle);
 
       //void OnCaptureChanged(::windowing::window * pwindow);
       //bool OnDeviceChange(unsigned int nEventType, uptr dwData);
@@ -729,13 +729,13 @@ namespace windows
       void on_set_parent(::user::interaction * pinteraction);
 
 
-      virtual bool get_rect_normal(::int_rectangle * prectangle);
+      virtual bool get_rect_normal(::i32_rectangle * prectangle);
       virtual void register_drop_target();
       virtual void show_task(bool bShow);
       virtual void window_show_change_visibility(::e_display edisplay, const ::user::activation & useractivation) override;
 
 
-      //virtual void non_top_most_upper_window_rects(::int_rectangle_array& recta) override;
+      //virtual void non_top_most_upper_window_rects(::i32_rectangle_array& recta) override;
 
 
       virtual void activate_top_parent();

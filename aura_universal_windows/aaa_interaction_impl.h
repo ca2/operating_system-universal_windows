@@ -127,7 +127,7 @@ namespace aura_universal_windows
       void update_graphics_resources() override;
 
       // for child windows, views, panes etc
-      //virtual bool create_window(::user::interaction * pinteraction, const ::string & lpszClassName, const ::string & lpszWindowName,unsigned int dwStyle,const ::int_rectangle &rectangle,::user::interaction * pParentWnd,atom atom, ::request * prequest = nullptr) ;
+      //virtual bool create_window(::user::interaction * pinteraction, const ::string & lpszClassName, const ::string & lpszWindowName,unsigned int dwStyle,const ::i32_rectangle &rectangle,::user::interaction * pParentWnd,atom atom, ::request * prequest = nullptr) ;
 
       virtual bool _native_create_window_ex(::pointer<::user::system>pcs);
 
@@ -142,18 +142,18 @@ namespace aura_universal_windows
 
       //virtual bool CreateEx(unsigned int dwExStyle, const ::string & lpszClassName,
       //                      const char * lpszWindowName, unsigned int dwStyle,
-      //                      const ::int_rectangle &rectangle,
+      //                      const ::i32_rectangle &rectangle,
       //                      ::user::interaction* pParentWnd, atom atom,
       //                      LPVOID lpParam = nullptr);
 
       virtual bool DestroyWindow();
 
-      // special pre-creation and ::windowing::window int_rectangle adjustment hooks
+      // special pre-creation and ::windowing::window i32_rectangle adjustment hooks
       virtual bool pre_create_window(::user::system * pusersystem);
 
       // Advanced: virtual AdjustWindowRect
       enum AdjustType { adjustBorder = 0, adjustOutside = 1 };
-      virtual void CalcWindowRect(::int_rectangle * lpClientRect, unsigned int nAdjustType = adjustBorder);
+      virtual void CalcWindowRect(::i32_rectangle * lpClientRect, unsigned int nAdjustType = adjustBorder);
 
 
       // get immediate child with given ID
@@ -191,7 +191,7 @@ namespace aura_universal_windows
       //virtual bool layout().is_iconic();
       //virtual bool layout().is_zoomed();
       //void MoveWindow(int x, int y, int nWidth, int nHeight, bool bRepaint = true);
-      //void MoveWindow(const ::int_rectangle * lpRect, bool bRepaint = true);
+      //void MoveWindow(const ::i32_rectangle * lpRect, bool bRepaint = true);
       //int SetWindowRgn(HRGN hRgn, bool bRedraw);
       //int GetWindowRgn(HRGN hRgn);
 
@@ -204,11 +204,11 @@ namespace aura_universal_windows
       //using ::windowing::window::this->rectangle;
       //virtual bool this->rectangle(::i64_rectangle * lpRect);
 
-      //virtual bool client_to_screen(::int_rectangle * lprect);
+      //virtual bool client_to_screen(::i32_rectangle * lprect);
       //virtual bool client_to_screen(::int_point * lppoint);
       //virtual bool client_to_screen(::i64_rectangle * lprect);
       //virtual bool client_to_screen(::long_long_point * lppoint);
-      //virtual bool screen_to_client(::int_rectangle * lprect);
+      //virtual bool screen_to_client(::i32_rectangle * lprect);
       //virtual bool screen_to_client(::int_point * lppoint);
       //virtual bool screen_to_client(::i64_rectangle * lprect);
       //virtual bool screen_to_client(::long_long_point * lppoint);
@@ -218,7 +218,7 @@ namespace aura_universal_windows
 
       // Coordinate Mapping Functions
       virtual void MapWindowPoints(::windowing::window * puserinteractionTo, ::int_point * lpPoint, unsigned int nCount);
-      virtual void MapWindowPoints(::windowing::window * puserinteractionTo, ::int_rectangle * lpRect);
+      virtual void MapWindowPoints(::windowing::window * puserinteractionTo, ::i32_rectangle * lpRect);
 
       // Update/Painting Functions
       virtual ::draw2d::graphics * GetDC();
@@ -229,12 +229,12 @@ namespace aura_universal_windows
 
       virtual void UpdateWindow();
       virtual void SetRedraw(bool bRedraw = true);
-      //virtual bool GetUpdateRect(::int_rectangle * lpRect, bool bErase = false);
+      //virtual bool GetUpdateRect(::i32_rectangle * lpRect, bool bErase = false);
       //virtual int GetUpdateRgn(::draw2d::region* pRgn, bool bErase = false);
       //virtual void Invalidate(bool bErase = true);
-      //virtual void InvalidateRect(const ::int_rectangle * lpRect, bool bErase = true);
+      //virtual void InvalidateRect(const ::i32_rectangle * lpRect, bool bErase = true);
       //virtual void InvalidateRgn(::draw2d::region* pRgn, bool bErase = true);
-      //virtual void ValidateRect(const ::int_rectangle * lpRect);
+      //virtual void ValidateRect(const ::i32_rectangle * lpRect);
       //virtual void ValidateRgn(::draw2d::region* pRgn);
       virtual bool show_window(int nCmdShow);
       virtual void _001WindowMaximize();
@@ -245,13 +245,13 @@ namespace aura_universal_windows
       virtual ::draw2d::graphics * GetDCEx(::draw2d::region* prgnClip, unsigned int flags);
       //virtual bool LockWindowUpdate();
       //virtual void UnlockWindowUpdate();
-      //virtual bool RedrawWindow(const ::int_rectangle& rectangleUpdate = nullptr,
+      //virtual bool RedrawWindow(const ::i32_rectangle& rectangleUpdate = nullptr,
                                 //::draw2d::region* prgnUpdate = nullptr,
                                 //unsigned int flags = RDW_INVALIDATE | RDW_ERASE);
       //      virtual bool EnableScrollBar(int nSBFlags, unsigned int nArrowFlags = ESB_ENABLE_BOTH);
 
-      virtual bool DrawAnimatedRects(int idAni, const ::int_rectangle *lprcFrom, const ::int_rectangle *lprcTo);
-      virtual bool DrawCaption(::draw2d::graphics_pointer & pgraphics, const ::int_rectangle * lprc, unsigned int uFlags);
+      virtual bool DrawAnimatedRects(int idAni, const ::i32_rectangle *lprcFrom, const ::i32_rectangle *lprcTo);
+      virtual bool DrawCaption(::draw2d::graphics_pointer & pgraphics, const ::i32_rectangle * lprc, unsigned int uFlags);
 
 //#if(WINVER >= 0x0500)
 //
@@ -326,8 +326,8 @@ namespace aura_universal_windows
       virtual int GetScrollPos(int nBar) const;
       virtual void GetScrollRange(int nBar, LPINT lpMinPos, LPINT lpMaxPos) const;
       //virtual void ScrollWindow(int xAmount, int yAmount,
-      //                          const ::int_rectangle * lpRect = nullptr,
-      //                          const ::int_rectangle * lpClipRect = nullptr);
+      //                          const ::i32_rectangle * lpRect = nullptr,
+      //                          const ::i32_rectangle * lpClipRect = nullptr);
       virtual int SetScrollPos(int nBar, int nPos, bool bRedraw = true);
       virtual void SetScrollRange(int nBar, int nMinPos, int nMaxPos,
                                   bool bRedraw = true);
@@ -337,8 +337,8 @@ namespace aura_universal_windows
       // return sibling scrollbar control (or nullptr if none)
 
       //virtual int ScrollWindowEx(int dx, int dy,
-      //                           const ::int_rectangle * lpRectScroll, const ::int_rectangle * lpRectClip,
-      //                           ::draw2d::region* prgnUpdate, ::int_rectangle * lpRectUpdate, unsigned int flags);
+      //                           const ::i32_rectangle * lpRectScroll, const ::i32_rectangle * lpRectClip,
+      //                           ::draw2d::region* prgnUpdate, ::i32_rectangle * lpRectUpdate, unsigned int flags);
       //      virtual bool SetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo,
       //       bool bRedraw = true);
       //      virtual bool GetScrollInfo(int nBar, LPSCROLLINFO lpScrollInfo, unsigned int nMask = SIF_ALL);
@@ -561,8 +561,8 @@ namespace aura_universal_windows
       // Win4 messages
       //      void OnStyleChanged(int nStyleType, LPSTYLESTRUCT lpStyleStruct);
       //    void OnStyleChanging(int nStyleType, LPSTYLESTRUCT lpStyleStruct);
-      void OnSizing(unsigned int nSide, ::int_rectangle * lpRect);
-      void OnMoving(unsigned int nSide, ::int_rectangle * lpRect);
+      void OnSizing(unsigned int nSide, ::i32_rectangle * lpRect);
+      void OnMoving(unsigned int nSide, ::i32_rectangle * lpRect);
       void OnCaptureChanged(::windowing::window * pWnd);
       bool OnDeviceChange(unsigned int nEventType, ::uptr dwData);
 
@@ -668,7 +668,7 @@ namespace aura_universal_windows
 
       void set_impact_port_org(::image::image * pimage);
 
-      void offset_impact_port_org(::int_rectangle * lprectScreen);
+      void offset_impact_port_org(::i32_rectangle * lprectScreen);
 
       void queue_message_handler(::message::message * pusermessage) override;
 
@@ -682,11 +682,11 @@ namespace aura_universal_windows
 
       virtual bool is_text_composition_active() ;
 
-      virtual void set_input_content_rect(const int_rectangle& rectangle);
-      virtual void set_input_selection_rect(const int_rectangle& rectangle);
+      virtual void set_input_content_rect(const i32_rectangle& rectangle);
+      virtual void set_input_selection_rect(const i32_rectangle& rectangle);
 
-      virtual int_rectangle get_input_content_rect();
-      virtual int_rectangle get_input_selection_rect();
+      virtual i32_rectangle get_input_content_rect();
+      virtual i32_rectangle get_input_selection_rect();
 
 
       //void _create_window(::enum_parallelization eparrallelization) override;

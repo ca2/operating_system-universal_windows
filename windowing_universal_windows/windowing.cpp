@@ -827,7 +827,7 @@ namespace windowing_universal_windows
 
       //}
 
-      //::int_rectangle rectangleWindow;
+      //::i32_rectangle rectangleWindow;
 
       //for (auto & hwnd : *phwnda)
       //{
@@ -845,7 +845,7 @@ namespace windowing_universal_windows
       //      if (::GetWindowRect(hwnd, &rectangleWindow))
       //      {
 
-      //         ::int_rectangle rectangleHitTest;
+      //         ::i32_rectangle rectangleHitTest;
 
       //         __copy(rectangleHitTest, rectangleWindow);
 

@@ -37,7 +37,7 @@
 //      HDC                           m_hdcScreen;
 //      bool                          m_bWindowDC;
 //      oswindow                      m_hwndIpc;
-//      ::int_rectangle               m_rectangleLast;
+//      ::i32_rectangle               m_rectangleLast;
 //
 //
 //      buffer();

@@ -871,7 +871,7 @@
 //      if (puserinteraction)
 //      {
 //
-//         ::int_rectangle r = puserinteraction->window_rectangle();
+//         ::i32_rectangle r = puserinteraction->window_rectangle();
 //
 //         m_rectangleInputContentRect.X = (float) r.left;
 //         m_rectangleInputContentRect.Y = (float)r.top;
