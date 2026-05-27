@@ -554,7 +554,7 @@ namespace acme_universal_windows
       //ASSERT_OK(this);
       //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
-      ////      if (!::Locknative_buffer((HANDLE)m_hnative_buffer, lower_unsigned_int(dwPos), upper_unsigned_int(dwPos), lower_unsigned_int(dwCount), upper_unsigned_int(dwCount)))
+      ////      if (!::Locknative_buffer((HANDLE)m_hnative_buffer, lower_u32(dwPos), upper_u32(dwPos), lower_u32(dwCount), upper_u32(dwCount)))
       ////       WinFileException::ThrowOsError(get_application(), (int)::get_last_error());
    }
 
@@ -563,7 +563,7 @@ namespace acme_universal_windows
       //ASSERT_OK(this);
       //ASSERT(m_hnative_buffer != (unsigned int)hnative_bufferNull);
 
-      ////  if (!::Unlocknative_buffer((HANDLE)m_hnative_buffer,  lower_unsigned_int(dwPos), upper_unsigned_int(dwPos), lower_unsigned_int(dwCount), upper_unsigned_int(dwCount)))
+      ////  if (!::Unlocknative_buffer((HANDLE)m_hnative_buffer,  lower_u32(dwPos), upper_u32(dwPos), lower_u32(dwCount), upper_u32(dwCount)))
       ////   WinFileException::ThrowOsError(get_application(), (int)::get_last_error());
    }
 
