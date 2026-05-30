@@ -7290,7 +7290,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          bool bSpecialKey = false;
 
-         ::user::enum_key ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
+         const ::user::e_key & ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 
          //if (bSpecialKey s || session()->is_key_pressed(::user::e_key_control)
          //   || session()->is_key_pressed(::user::e_key_alt))
@@ -7353,7 +7353,7 @@ void window::defer_show_system_menu(::user::mouse * pmouse)
 
          bool bSpecialKey = false;
 
-         ::user::enum_key ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
+         const ::user::e_key & ekey = ::universal_windows::virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 
          //if (bSpecialKey || !bTextFocus)
          //{

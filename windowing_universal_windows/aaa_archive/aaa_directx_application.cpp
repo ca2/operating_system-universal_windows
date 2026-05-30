@@ -467,7 +467,7 @@
 //
 //      bool bSpecialKey = false;
 //
-//      ::user::enum_key ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
+//      const ::user::e_key & ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 //
 //      if(bSpecialKey || !bTextFocus || session()->is_key_pressed(::user::e_key_control)
 //         || session()->is_key_pressed(::user::e_key_alt))
@@ -528,7 +528,7 @@
 //
 //      bool bSpecialKey = false;
 //
-//      ::user::enum_key ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
+//      const ::user::e_key & ekey = virtualkey_to_userkey(args.VirtualKey(), bSpecialKey);
 //
 //      if (bSpecialKey || !bTextFocus)
 //      {

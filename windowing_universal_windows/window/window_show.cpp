@@ -2,7 +2,7 @@
 #include "framework.h"
 
 
-CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS int windows_show_window(enum_display edisplay, enum_activation useractivation)
+CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS int windows_show_window(const  ::e_display & edisplay, enum_activation useractivation)
 {
 
    auto bNoActivate = useractivation & ::user::e_activation_no_activate;
