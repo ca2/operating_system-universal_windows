@@ -57,7 +57,7 @@ namespace universal_windows
 
                   auto iRet = ::MessageBoxW(nullptr, wstrMessage, wstrTitle, iType);
 
-                  pmessagebox->m_payloadResult = windows_message_box_result_to_dialog_result(iRet);
+                  pmessagebox->get_dialog_response() = windows_message_box_result_to_dialog_result(iRet);
 
 
                }
