@@ -3,6 +3,7 @@
 #include "framework.h"
 #include "display.h"
 #include "aura/graphics/draw2d/graphics.h"
+#include "aura/graphics/draw2d/graphics_pointer.h"
 #include "aura/platform/system.h"
 //#include "aura/user/user/interaction_impl.h"
 #include "aura/windowing/monitor.h"

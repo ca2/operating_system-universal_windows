@@ -16,6 +16,7 @@
 #include "aura/user/user/system.h"
 #include "aura/message/user.h"
 #include "aura/graphics/draw2d/graphics.h"
+#include "aura/graphics/draw2d/graphics_pointer.h"
 //#include "universal_windows/framework_impact_source.h"
 //#include "universal_windows/framework_impact.h"
 #include "direct2d/direct2d.h"
@@ -799,7 +800,7 @@ namespace windowing_universal_windows
 //
 //      d1->g()->set_interpolation_mode(::draw2d::e_interpolation_mode_high_quality_bicubic);
 //
-//      d1->g()->stretch(d1->rectangle(), pimage->g(), pimage->rectangle());
+//      d1->g()->stretch(d1->rectangle(), pgraphicsImage, pimage->rectangle());
 //
 //      memory m(puserinteraction->get_application());
 //
@@ -2913,7 +2914,7 @@ namespace windowing_universal_windows
    }
 
 
-   ::pointer<::draw2d::graphics>window::GetDCEx(::draw2d::region * prgnClip, unsigned int flags)
+   ::draw2d::graphics_pointer window::GetDCEx(::draw2d::region * prgnClip, unsigned int flags)
    {
 
       //ASSERT(::IsWindow(get_hwnd()));

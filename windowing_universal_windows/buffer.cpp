@@ -6,6 +6,7 @@
 #include <stdio.h>
 #include "directx/directx.h"
 #include "aura/graphics/draw2d/graphics.h"
+#include "aura/graphics/draw2d/graphics_pointer.h"
 #include "aura/graphics/draw2d/lock.h"
 //#include "aura/graphics/image/_image.h"
 #include "aura/windowing/window.h"
