@@ -1,4 +1,4 @@
-#include "framework.h"
+#include "platform.h"
 #include "directory_system.h"
 #include "acme/filesystem/filesystem/directory_system.h"
 #include "acme_universal_windows/directory_system.h"
@@ -10,7 +10,7 @@
 #include <Shlobj.h>
 // Create on 2021-03-21 20:00 <3ThomasBS_
 // Copied by camilo from operating_system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
-#include "framework.h"
+#include "platform.h"
 #include "directory_system.h"
 #include "file_system.h"
 #include "node.h"

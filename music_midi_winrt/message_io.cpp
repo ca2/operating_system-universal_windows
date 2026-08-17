@@ -11,7 +11,7 @@
 //
 // message_io.xaml.cpp of the message_io class
 //
-#include "framework.h"
+#include "platform.h"
 #include "message_io.h"
 
 

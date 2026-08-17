@@ -1,4 +1,4 @@
-#include "framework.h"
+#include "platform.h"
 #include "interprocess_handler.h"
 #include "acme/prototype/string/base64.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"

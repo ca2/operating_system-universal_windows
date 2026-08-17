@@ -1,4 +1,4 @@
-#include "framework.h"
+#include "platform.h"
 #include "copydesk.h"
 #include "window.h"
 #include "windowing.h"
@@ -707,7 +707,7 @@ namespace windowing_universal_windows
 
       BITMAPINFO * pbitmapinfo = (BITMAPINFO *)m.data();
 
-      pimage->create({ pbitmapinfo->bmiHeader.biWidth,  pbitmapinfo->bmiHeader.biHeight });
+      pimage->create_as_descriptor({ pbitmapinfo->bmiHeader.biWidth,  pbitmapinfo->bmiHeader.biHeight });
 
       pimage->map_base();
 
@@ -747,7 +747,7 @@ namespace windowing_universal_windows
 
       ////auto cy = bitmap.PixelHeight();
 
-      ////pimage->create({ cx, cy });
+      ////pimage->create_as_descriptor({ cx, cy });
 
       ////auto bitmapbuffer = bitmap.LockBuffer(::winrt::Windows::Graphics::Imaging::BitmapBufferAccessMode::Read);
 

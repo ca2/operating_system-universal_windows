@@ -6,13 +6,13 @@ list(APPEND library_source
    _.cpp
    _.h
    _factory.cpp
-   framework.cpp
-   framework.h)
+   platform.cpp
+   platform.h)
 
 
 add_library(node_windows SHARED ${library_source})
 
-target_precompile_headers(node_windows PRIVATE framework.h)
+target_precompile_headers(node_windows PRIVATE platform.h)
 
 set_target_properties(node_windows PROPERTIES LINKER_LANGUAGE CXX)
 

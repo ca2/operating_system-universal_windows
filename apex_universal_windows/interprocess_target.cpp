@@ -1,5 +1,5 @@
 // From interprocess_communication.cpp by Camilo 2022-10-11 09:27 BRT <3ThomasBorregaardSoerensen
-#include "framework.h"
+#include "platform.h"
 #include "interprocess_target.h"
 #include "acme/prototype/string/base64.h"
 #include "acme/operating_system/universal_windows/_winrt_foundation.h"

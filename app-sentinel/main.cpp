@@ -1,4 +1,4 @@
-#include "framework.h"
+#include "platform.h"
 
 
 int installer_start();

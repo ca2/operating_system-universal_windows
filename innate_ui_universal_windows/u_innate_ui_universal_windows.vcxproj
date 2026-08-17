@@ -462,7 +462,7 @@
     <ClCompile Include="still.cpp" />
     <ClCompile Include="window.cpp" />
     <ClCompile Include="_factory.cpp" />
-    <ClCompile Include="framework.cpp">
+    <ClCompile Include="platform.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='StaticDebug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -485,7 +485,7 @@
   <ItemGroup>
     <ClInclude Include="button.h" />
     <ClInclude Include="dialog.h" />
-    <ClInclude Include="framework.h" />
+    <ClInclude Include="platform.h" />
     <ClInclude Include="icon.h" />
     <ClInclude Include="innate_ui.h" />
     <ClInclude Include="still.h" />

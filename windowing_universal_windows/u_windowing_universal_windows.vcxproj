@@ -72,7 +72,7 @@
     <ClCompile Include="cursor.cpp" />
     <ClCompile Include="display.cpp" />
     <ClCompile Include="_factory.cpp" />
-    <ClCompile Include="framework.cpp">
+    <ClCompile Include="platform.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='StaticDebug|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
@@ -104,7 +104,7 @@
     <ClInclude Include="copydesk.h" />
     <ClInclude Include="cursor.h" />
     <ClInclude Include="display.h" />
-    <ClInclude Include="framework.h" />
+    <ClInclude Include="platform.h" />
     <ClInclude Include="icon.h" />
     <ClInclude Include="keyboard.h" />
     <ClInclude Include="node.h" />

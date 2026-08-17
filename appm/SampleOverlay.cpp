@@ -5,7 +5,7 @@
 ////
 //// Copyright (c) Microsoft Corporation. All rights reserved
 
-#include "framework.h"
+#include "platform.h"
 
 
 using namespace ::winrt::Windows::UI::Core;

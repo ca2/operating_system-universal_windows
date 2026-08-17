@@ -1,5 +1,5 @@
 // From application by camilo on 2024-12-31 <3ThomasBS_!!
-#include "framework.h"
+#include "platform.h"
 #include "acme/platform/system.h"
 //#include "aura/windowing/sandbox/windowing.h"
 #include "application.h"

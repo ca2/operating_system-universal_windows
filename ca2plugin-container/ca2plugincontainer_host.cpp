@@ -1,4 +1,4 @@
-#include "framework.h"
+#include "platform.h"
 #include <eh.h>
 
 UINT g_nRedrawThreadID;

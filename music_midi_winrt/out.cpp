@@ -1,4 +1,4 @@
-#include "framework.h"
+#include "platform.h"
 #include "out.h"
 #include "midi.h"
 #include "acme_universal_windows/_winrt_stream.h"

@@ -386,7 +386,7 @@
 		9AA5E63E16F7C61B005C45CE /* tcd.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A86C1DA16E7F5FF008420D3 /* tcd.h */; };
 		9AA5E63F16F7C61B005C45CE /* tgt.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A86C1DC16E7F5FF008420D3 /* tgt.h */; };
 		9AA5E64016F7C61B005C45CE /* png.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A86C1EB16E7F5FF008420D3 /* png.h */; };
-		9AA5E64116F7C61B005C45CE /* png_framework.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A86C1ED16E7F5FF008420D3 /* png_framework.h */; };
+		9AA5E64116F7C61B005C45CE /* png_platform.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A86C1ED16E7F5FF008420D3 /* png_platform.h */; };
 		9AA5E64216F7C61B005C45CE /* pngconf.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A86C1EE16E7F5FF008420D3 /* pngconf.h */; };
 		9AA5E64316F7C61B005C45CE /* pngpriv.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A86C1F316E7F5FF008420D3 /* pngpriv.h */; };
 		9AA5E64416F7C61B005C45CE /* defines.h in Headers */ = {isa = PBXBuildFile; fileRef = 9A86C20B16E7F5FF008420D3 /* defines.h */; };
@@ -822,7 +822,7 @@
 		9A86C1EA16E7F5FF008420D3 /* png.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = png.c; sourceTree = "<group>"; };
 		9A86C1EB16E7F5FF008420D3 /* png.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = png.h; sourceTree = "<group>"; };
 		9A86C1EC16E7F5FF008420D3 /* png_framework.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = png_framework.c; sourceTree = "<group>"; };
-		9A86C1ED16E7F5FF008420D3 /* png_framework.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = png_framework.h; sourceTree = "<group>"; };
+		9A86C1ED16E7F5FF008420D3 /* png_platform.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = png_platform.h; sourceTree = "<group>"; };
 		9A86C1EE16E7F5FF008420D3 /* pngconf.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pngconf.h; sourceTree = "<group>"; };
 		9A86C1EF16E7F5FF008420D3 /* pngerror.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngerror.c; sourceTree = "<group>"; };
 		9A86C1F016E7F5FF008420D3 /* pngget.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = pngget.c; sourceTree = "<group>"; };
@@ -1462,7 +1462,7 @@
 				9A86C1EA16E7F5FF008420D3 /* png.c */,
 				9A86C1EB16E7F5FF008420D3 /* png.h */,
 				9A86C1EC16E7F5FF008420D3 /* png_framework.c */,
-				9A86C1ED16E7F5FF008420D3 /* png_framework.h */,
+				9A86C1ED16E7F5FF008420D3 /* png_platform.h */,
 				9A86C1EE16E7F5FF008420D3 /* pngconf.h */,
 				9A86C1EF16E7F5FF008420D3 /* pngerror.c */,
 				9A86C1F016E7F5FF008420D3 /* pngget.c */,
@@ -1905,7 +1905,7 @@
 				9AA5E63E16F7C61B005C45CE /* tcd.h in Headers */,
 				9AA5E63F16F7C61B005C45CE /* tgt.h in Headers */,
 				9AA5E64016F7C61B005C45CE /* png.h in Headers */,
-				9AA5E64116F7C61B005C45CE /* png_framework.h in Headers */,
+				9AA5E64116F7C61B005C45CE /* png_platform.h in Headers */,
 				9AA5E64216F7C61B005C45CE /* pngconf.h in Headers */,
 				9AA5E64316F7C61B005C45CE /* pngpriv.h in Headers */,
 				9AA5E64416F7C61B005C45CE /* defines.h in Headers */,

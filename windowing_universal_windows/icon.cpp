@@ -1,6 +1,6 @@
 // created by Camilo <3CamiloSasukeThomasBorregaardSoerensen  - Honoring Thomas Borregaard Soerensen MY ONLY LORD
 // recreated by Camilo 2021-01-28 16:44
-#include "framework.h"
+#include "platform.h"
 #include "icon.h"
 #include "aura/graphics/image/image.h"
 
@@ -320,7 +320,7 @@ namespace windowing_universal_windows
 
          ////   ::SelectObject(hdc, hbitmapOld);
 
-         //   pimage->create(size);
+         //   pimage->create_as_descriptor(size);
 
          //   pimage->map_base();
 

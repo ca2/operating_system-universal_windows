@@ -1,5 +1,5 @@
 // Created by camilo on 2024-09-12 22:45 <3ThomasBorregaardSorensen!!
-#include "framework.h"
+#include "platform.h"
 #include "innate_ui.h"
 #include "window.h"
 #include "acme/nano/nano.h"
@@ -574,7 +574,7 @@ namespace innate_ui_universal_windows
 // WindowsProject1.cpp : Defines the entry point for the application.
 //
 
-//#include "framework.h"
+//#include "platform.h"
 //#include "WindowsProject1.h"
 //
 //#define MAX_LOADSTRING 100

@@ -9,7 +9,7 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="framework.cpp">
+    <ClCompile Include="platform.cpp">
       <Filter>Source</Filter>
     </ClCompile>
     <ClCompile Include=".\ca2plugincontainer.cpp">
@@ -23,7 +23,7 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
+    <ClInclude Include="platform.h">
       <Filter>Header</Filter>
     </ClInclude>
     <ClInclude Include="resource.h">

@@ -1,6 +1,6 @@
 // Create on 2021-03-22 09:12 <3ThomasBS_
 // Copied by camilo from operating_system-windows on 2021-09-01 22:01 ThomasMonth!! <3ThomasBS_
-#include "framework.h"
+#include "platform.h"
 #include "path_system.h"
 #include "node.h"
 #include "acme/filesystem/filesystem/directory_system.h"

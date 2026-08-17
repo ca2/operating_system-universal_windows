@@ -31,8 +31,8 @@ list(APPEND draw2d_gdiplus_source
         _factory.cpp
         font.cpp
         font.h
-        framework.cpp
-        framework.h
+        platform.cpp
+        platform.h
         graphics.cpp
         graphics.h
         image.cpp
@@ -59,7 +59,7 @@ endif()
 
 add_library(draw2d_gdiplus SHARED ${draw2d_gdiplus_source})
 
-target_precompile_headers(draw2d_gdiplus PRIVATE framework.h)
+target_precompile_headers(draw2d_gdiplus PRIVATE platform.h)
 
 set_target_properties(draw2d_gdiplus PROPERTIES LINKER_LANGUAGE CXX)
 

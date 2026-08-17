@@ -1,4 +1,4 @@
-#include "framework.h"
+#include "platform.h"
 ////#include "aura/message.h"
 #include "buffer.h"
 #include "window.h"
@@ -1453,10 +1453,10 @@ namespace windowing_universal_windows
 
    //   ////_001UpdateBuffer();
 
-   //   ////Sys(::get_context_system()).m_possystemwindow->m_puserinteraction->_000OnDraw(m_pimage->g());
+   //   ////Sys(::get_context_system()).m_possystemwindow->m_puserinteraction->_000OnDraw(m_pgraphicsImage->);
 
-   //   ////dc->from(m_pimage->get_size(), m_pimage->g());
-   //   ////dc->from(m_pimage->get_size(), m_pimage->g());
+   //   ////dc->from(m_pimage->get_size(), m_pgraphicsImage->);
+   //   ////dc->from(m_pimage->get_size(), m_pgraphicsImage->);
 
    //   ////synchronouslock.lock();
 

@@ -463,7 +463,7 @@
     <ClCompile Include="file_system.cpp" />
     <ClCompile Include="virtualkey.cpp" />
     <ClCompile Include="_factory.cpp" />
-    <ClCompile Include="framework.cpp">
+    <ClCompile Include="platform.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='StaticDebug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -493,7 +493,7 @@
     <ClInclude Include="file_context.h" />
     <ClInclude Include="file_watcher.h" />
     <ClInclude Include="file_system.h" />
-    <ClInclude Include="framework.h" />
+    <ClInclude Include="platform.h" />
     <ClInclude Include="native_buffer.h" />
     <ClInclude Include="node.h" />
     <ClInclude Include="windows_runtime.h" />
