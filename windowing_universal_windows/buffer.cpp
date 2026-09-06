@@ -1441,11 +1441,11 @@ namespace windowing_universal_windows
 
    //   //      int_size sz = pbuffer->get_buffer().get_size();
 
-   //   //      ::draw2d::graphics_pointer & pgraphics = pbuffer->get_buffer().get_graphics();
+   //   //      ::draw2d::graphics_pointer & pdraw2dgraphics = pbuffer->get_buffer().get_graphics();
 
-   //   //      //pgraphics->fill_solid_rect_dim(300, 300, 100, 100, argb(255, 200, 60, 80));
+   //   //      //pdraw2dgraphics->fill_solid_rect_dim(300, 300, 100, 100, argb(255, 200, 60, 80));
 
-   //   //      dc->from(sz, pgraphics);
+   //   //      dc->from(sz, pdraw2dgraphics);
 
    //   //   }
 
@@ -1521,10 +1521,10 @@ namespace windowing_universal_windows
 
 
 
-   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS buffer * __buffer(::graphics::graphics * pgraphics)
+   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS buffer * __buffer(::graphics::graphics * pdraw2dgraphics)
    {
 
-      return ::is_null(pgraphics) ? nullptr : pgraphics->m_pWindowingUniversalWindowsBuffer;
+      return ::is_null(pdraw2dgraphics) ? nullptr : pdraw2dgraphics->m_pWindowingUniversalWindowsBuffer;
 
    }
 

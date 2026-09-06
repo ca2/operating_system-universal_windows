@@ -22,7 +22,7 @@ namespace windowing_universal_windows
    class hwnd_array;
    class window;
 
-   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS buffer * __buffer(::graphics::graphics * pgraphics);
+   CLASS_DECL_WINDOWING_UNIVERSAL_WINDOWS buffer * __buffer(::graphics::graphics * pdraw2dgraphics);
 
 
 } // namespace windowing_universal_windows
