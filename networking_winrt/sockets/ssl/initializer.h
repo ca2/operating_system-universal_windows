@@ -68,7 +68,7 @@ namespace sockets_bsd
 
       void DeleteRandFile();
 
-      /** SSL; ::pointer < ::mutex > locking function callback. */
+      /** SSL; ::pointer < ::parallelization::mutex > locking function callback. */
       //static void SSL_locking_function(int mode, int n, const_char_pointer file, int line);
 
       /** Return thread atom. */

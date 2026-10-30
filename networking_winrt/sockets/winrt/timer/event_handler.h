@@ -61,7 +61,7 @@ namespace sockets
 
 
       EventHandler(::axis::application * papp, ::apex::log * p = nullptr);
-      //EventHandler(::axis::application * papp, ::pointer < ::mutex > &,logger * = nullptr);
+      //EventHandler(::axis::application * papp, ::pointer < ::parallelization::mutex > &,logger * = nullptr);
       ~EventHandler();
 
       bool GetTimeUntilNextEvent(struct timeval *tv);

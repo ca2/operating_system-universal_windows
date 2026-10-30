@@ -24,11 +24,11 @@ namespace sockets
 #endif
 
       count                                     m_countHttpPostBoundary;
-      ::pointer < ::mutex >                                   m_pmutexHttpPostBoundary;
+      ::pointer < ::parallelization::mutex >                                   m_pmutexHttpPostBoundary;
 
       resolv_socket::cache_t                    m_resolvcache;
       resolv_socket::timeout_t                  m_resolvtimeout;
-      ::pointer < ::mutex >                                   m_pmutexResolvCache;
+      ::pointer < ::parallelization::mutex >                                   m_pmutexResolvCache;
 
       ::pointer<::sockets::net>                m_spnet;
 

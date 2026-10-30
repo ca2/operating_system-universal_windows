@@ -67,7 +67,7 @@
 //
 //      bool                                                  m_b3D;
 //      ::aura::system *                                      system();
-//      ::mutex                                               m_mutexDc;
+//      ::parallelization::mutex                                               m_mutexDc;
 //      int_size                                              m_size;
 //      ::int_size                                            m_sizeBuffer;
 //      ::pointer<::windowing_universal_windows::window>     m_pwindow;
@@ -156,4 +156,4 @@
 //
 //
 //
-////CLASS_DECL_AURA ::mutex & draw2d_mutex();
+////CLASS_DECL_AURA ::parallelization::mutex & draw2d_mutex();

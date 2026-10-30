@@ -520,7 +520,7 @@ namespace windowing_universal_windows
    //oswindow_dataptra * window::s_pdataptra = nullptr;
 
 
-   //::mutex * window::s_pmutex = nullptr;
+   //::parallelization::mutex * window::s_pmutex = nullptr;
 
 
    //int oswindow_find_message_only_window(::user::window * pimpl)

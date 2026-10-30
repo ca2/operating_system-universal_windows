@@ -30,7 +30,7 @@ namespace windowing_universal_windows
 
    //   bool                                                     m_bFontopusShift;
 
-   //   ::mutex                                                  m_mutex;
+   //   ::parallelization::mutex                                                  m_mutex;
 
    //   //::pointer<directx_interaction>                          m_pdxi;
 

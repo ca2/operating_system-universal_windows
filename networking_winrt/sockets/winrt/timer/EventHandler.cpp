@@ -12,7 +12,7 @@ namespace sockets
    }
 
 
-   EventHandler::EventHandler(::axis::application * papp, ::pointer < ::mutex > & m,logger *p) :
+   EventHandler::EventHandler(::axis::application * papp, ::pointer < ::parallelization::mutex > & m,logger *p) :
       ::object(pparticle),
       socket_handler(papp, m, p),
       m_quit(false), m_socket(nullptr)

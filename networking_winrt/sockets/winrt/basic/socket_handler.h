@@ -47,13 +47,13 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          socket_handler(::particle * pparticle, ::apex::log* plogger = nullptr);
 
          /** socket_handler threadsafe constructor.
-         \param ::pointer < ::mutex > Externally declared ::pointer < ::mutex > ::payload
+         \param ::pointer < ::parallelization::mutex > Externally declared ::pointer < ::parallelization::mutex > ::payload
          \param log Optional log class pointer */
-         //socket_handler(::particle * pparticle,::pointer < ::mutex > & ::pointer < ::mutex >,logger *log = nullptr);
+         //socket_handler(::particle * pparticle,::pointer < ::parallelization::mutex > & ::pointer < ::parallelization::mutex >,logger *log = nullptr);
 
          ~socket_handler();
 
-         /** get ::pointer < ::mutex > object for threadsafe operations. */
+         /** get ::pointer < ::parallelization::mutex > object for threadsafe operations. */
          ::synchronization & GetMutex() const;
 
          /** add socket instance to socket ::map_base. Removal is always automatic. */
@@ -173,8 +173,8 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
          socket_map     m_add; ///< Sockets to be added to sockets ::map_base
          socket_id_list    m_delete; ///< Sockets to be deleted (failed when add)
       protected:
-         //::pointer < ::mutex > & m_pmutex; ///< Thread safety ::pointer < ::mutex >
-         bool m_b_use_mutex; ///< ::pointer < ::mutex > correctly initialized
+         //::pointer < ::parallelization::mutex > & m_pmutex; ///< Thread safety ::pointer < ::parallelization::mutex >
+         bool m_b_use_mutex; ///< ::pointer < ::parallelization::mutex > correctly initialized
 
       private:
          void CheckList(socket_id_list&,const string &); ///< Used by CheckSanity

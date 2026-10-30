@@ -84,7 +84,7 @@ static int current_session_key(::sockets_bsd::tcp_socket * c, ssl_ticket_key *ke
       *key = c->m_ticketkeya.first();
       result = true;
    }
-   //apr_thread_rwlock_unlock(c->::pointer < ::mutex >);
+   //apr_thread_rwlock_unlock(c->::pointer < ::parallelization::mutex >);
    return result;
 }
 
